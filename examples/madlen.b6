@@ -1,0 +1,18 @@
+шифр 419999 зсх^
+лен 41(2048)^
+eeв1а3
+*name Madlen
+*       no list
+*       madlen
+*assembler
+ test:    ,name,
+ program: ,entry,
+          ,xta,
+          ,*63,   1
+          ,call,  stop*
+          ,end,
+*no li
+*execute
+*end file
+``````
+еконец

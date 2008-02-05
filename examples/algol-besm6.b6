@@ -1,0 +1,44 @@
+ûיזע 419999^
+זיתן םג21^
+פעבכ 32^
+ליףפ 0-27^
+קטןה 36^
+קעום 240^
+בדנץ 3^
+לומפ 57(2048)^
+לומפ 30(1ף)^
+עןףנ 0^
+בקןף^
+ףנוד^
+ו
+ק 36
+כ 00 010 0043 00 050 0112
+כ 00 010 0042
+כ 15 24 00100
+כ 00 066 0011 00 000 0100
+ף 0000 0000 0057 0002
+C 0000 0000 0057 0006
+Eק1A3
+$בלחן
+_begin
+    _comment דֵּÙֵ Þֹ׃ֱּ ֿװ 2 ִֿ 100: ֵׂÛֵװֿ üֱׂװֿ׃ֵֶ־ֱ;
+    _integer _array prime [2:100];
+    _integer n, k;
+
+    _comment ןֲ־ױֹּֽ prime;
+    _for n:=2 _step 1 _until 100 _do
+        prime [n] := 1;
+
+    _comment קÙÞֹ׃ֹּֽ prime;
+    _for n:=2 _step 1 _until 100 _do
+        _if prime[n] = 1 _then
+            _for k:=n+n _step n _until 100 _do
+                prime [k] := 0;
+
+    _comment נֵÞֱװ״ prime;
+    _for n:=2 _step 1 _until 100 _do
+        _if prime[n] = 1 _then
+            output (`z', n);
+_end
+``````
+וכןמוד
