@@ -3,15 +3,16 @@
 ee󪷷
 *name Madlen
 *       no list
-*       madlen
 *assembler
- test:    ,name,
- program: ,entry,
-          ,xta,
-          ,*63,   1
-          ,call,  stop*
-          ,end,
-*no li
+ program: ,name,
+	  ,*64 , inf64
+	  ,call, stop*
+ inf64:   ,    , text
+	  ,    , text
+	  ,001 ,
+	 8,    ,
+ text:	  ,gost, 30h鹨勺旁伤! � 磷韵讼� 砹奶盼.'231'
+	  ,end ,
 *execute
 *end file
 ``````
