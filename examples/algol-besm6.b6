@@ -36,7 +36,7 @@ _begin
     _comment ğÅŞÁÔØ prime;
     _for n:=2 _step 1 _until 100 _do
         _if prime[n] = 1 _then
-            output (`z', n);
+            output (`z4d', n);
 _end
 ``````
 åëïîåã
