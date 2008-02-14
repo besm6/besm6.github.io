@@ -1,5 +1,7 @@
 all:
 
+install:
+
 run:	../besm6
 	(cd ..; ./besm6 examples/algol-besm6.b6)   > algol-besm6.txt
 	(cd ..; ./besm6 examples/algol-gdr.b6)     > algol-gdr.txt
