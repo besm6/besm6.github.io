@@ -1,6 +1,6 @@
-шифр 419999 зсх^
-лен 67(2048)^
-eeв1а3
+я┬п╦я└я─ 419999 п╥я│я┘^
+п╩п╣п╫ 67(2048)^
+eeп╡1п╟3
 *name Pascal
 *call yesmemory
 *     no list
@@ -8,23 +8,23 @@ eeв1а3
 *system
 *personal library:670440
 *pascal
-(* Целые числа от 2 до 100: решето Эратосфена *)
+(* п╕п╣п╩я▀п╣ я┤п╦я│п╩п╟ п╬я┌ 2 п╢п╬ 100: я─п╣я┬п╣я┌п╬ п╜я─п╟я┌п╬я│я└п╣п╫п╟ *)
 program main (output);
 var
     prime: array [2..100] of boolean;
     n, k: integer;
 _(
-    (* Обнулим prime *)
+    (* п·п╠п╫я┐п╩п╦п╪ prime *)
     for n:=2 to 100 do
         prime [n] := true;
 
-    (* Вычислим prime *)
+    (* п▓я▀я┤п╦я│п╩п╦п╪ prime *)
     for n:=2 to 100 do
         if prime[n] then
             for k:=2 to trunc (100/n) do
                 prime [n*k] := false;
 
-    (* Печать prime *)
+    (* п÷п╣я┤п╟я┌я▄ prime *)
     for n:=2 to 100 do
         if prime[n] then
             write (n);
@@ -32,4 +32,4 @@ _).
 *execute
 *end file
 ``````
-еконец
+п╣п╨п╬п╫п╣я├

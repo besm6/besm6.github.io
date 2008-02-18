@@ -1,20 +1,20 @@
-шифр 419999 зсх^
-лен 41(2048)^
-eeв1а3
+я┬п╦я└я─ 419999 п╥я│я┘^
+п╩п╣п╫ 41(2048)^
+eeп╡1п╟3
 *name Fortran
 *call yesmemory
 *no list
 *full list
 *system
-c---- Целые числа от 2 до 100: решето Эратосфена
+c---- п╕п╣п╩я▀п╣ я┤п╦я│п╩п╟ п╬я┌ 2 п╢п╬ 100: я─п╣я┬п╣я┌п╬ п╜я─п╟я┌п╬я│я└п╣п╫п╟
       program main
       integer prime (100)
 
-c---- Обнулим prime
+c---- п·п╠п╫я┐п╩п╦п╪ prime
       do 10 n=2, 100
  10       prime (n) = 1
 
-c---- Вычислим prime
+c---- п▓я▀я┤п╦я│п╩п╦п╪ prime
       do 20 n=2, 100
           if (prime(n) .eq. 0) goto 20
               maxk = 100 / n
@@ -23,7 +23,7 @@ c---- Вычислим prime
  30               prime (n*k) = 0
  20       continue
 
-c---- Печать prime
+c---- п÷п╣я┤п╟я┌я▄ prime
       do 40 n=2, 100
  40       if (prime(n) .ne. 0) print 1000, n
       stop
@@ -33,4 +33,4 @@ c---- Печать prime
 *execute
 *end file
 ``````
-еконец
+п╣п╨п╬п╫п╣я├
