@@ -2,14 +2,6 @@
 лен 41(2048)^
 eeв1а3
 *name Whetstone
-*     $Id: whet,v 1.2 2001/02/06 07:32:31 dvv Exp $
-*     $Log: whet,v $
-*     Revision 1.2  2001/02/06 07:32:31  dvv
-*     *** empty log message ***
-*
-*     Revision 1.1  2001/02/05 04:04:40  dvv
-*     Initial revision
-*
 *full opt
 *optim
 *no li
@@ -27,7 +19,7 @@ C
 C     o Final measurements are to be made with all
 C       WRITE statements and FORMAT sttements removed.
 C
-C**********************************************************************   
+C**********************************************************************
 C
       COMMON T,T1,T2,E1(4),J,K,L
       common/ptime/ptime,time0
@@ -140,7 +132,7 @@ C
 C
 C       Module 5: Omitted
 C       Module 6: Integer arithmetic
-C       
+C
       J = 1
       K = 2
       L = 3
@@ -254,7 +246,7 @@ C
       COMMON T,T1,T2,E1(4),J,K,L
       J1 = 0
    10   E(1) = (E(1) + E(2) + E(3) - E(4)) * T
-      E(2) = (E(1) + E(2) - E(3) + E(4)) * T  
+      E(2) = (E(1) + E(2) - E(3) + E(4)) * T
       E(3) = (E(1) - E(2) + E(3) + E(4)) * T
       E(4) = (-E(1) + E(2) + E(3) + E(4)) / T2
       J1 = J1 + 1
