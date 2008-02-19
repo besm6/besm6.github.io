@@ -52,4 +52,6 @@ diff:
 
 
 clean:
-		rm -f *~
+	rm -f *~
+
+distclean: clean
