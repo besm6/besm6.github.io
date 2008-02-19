@@ -15,6 +15,7 @@ run:	../besm6
 	../besm6 --input-encoding=utf8 madlen.b6        > madlen.txt
 	../besm6 --input-encoding=utf8 monitor80.b6     > monitor80.txt
 	../besm6 --input-encoding=utf8 pascal.b6        > pascal.txt
+	../besm6 --input-encoding=utf8 pascal-pretty.b6 > pascal-pretty.txt
 	../besm6 --input-encoding=utf8 punchtest.b6     > punchtest.txt
 	../besm6 --input-encoding=utf8 whetstone.b6     > whetstone.txt
 
@@ -31,6 +32,7 @@ native: ../besm6
 	../besm6 -x --input-encoding=utf8 madlen.b6        > madlen-native.txt
 	../besm6 -x --input-encoding=utf8 monitor80.b6     > monitor80-native.txt
 	../besm6 -x --input-encoding=utf8 pascal.b6        > pascal-native.txt
+	../besm6 -x --input-encoding=utf8 pascal-pretty.b6 > pascal-pretty-native.txt
 	../besm6 -x --input-encoding=utf8 punchtest.b6     > punchtest-native.txt
 	../besm6 -x --input-encoding=utf8 whetstone.b6     > whetstone-native.txt
 
@@ -47,6 +49,7 @@ diff:
 	-diff -u madlen.txt        madlen-native.txt
 	-diff -u monitor80.txt     monitor80-native.txt
 	-diff -u pascal.txt        pascal-native.txt
+	-diff -u pascal-pretty.txt pascal-pretty-native.txt
 	-diff -u punchtest.txt     punchtest-native.txt
 	-diff -u whetstone.txt     whetstone-native.txt
 
