@@ -2,39 +2,39 @@ all:
 
 install:
 
-run:	../besm6
-	../besm6 --input-encoding=utf8 algol-besm6.b6   > algol-besm6.txt
-	../besm6 --input-encoding=utf8 algol-gdr.b6     > algol-gdr.txt
-	../besm6 --input-encoding=utf8 autocode-itm.b6  > autocode-itm.txt
-	../besm6 --input-encoding=utf8 bemsh-auto.b6    > bemsh-auto.txt
-	../besm6 --input-encoding=utf8 bemsh.b6         > bemsh.txt
-	../besm6 --input-encoding=utf8 dtran.b6         > dtran.txt
-	../besm6 --input-encoding=utf8 forex.b6         > forex.txt
-	../besm6 --input-encoding=utf8 fortran-dubna.b6 > fortran-dubna.txt
-	../besm6 --input-encoding=utf8 fortran-gdr.b6   > fortran-gdr.txt
-	../besm6 --input-encoding=utf8 madlen.b6        > madlen.txt
-	../besm6 --input-encoding=utf8 monitor80.b6     > monitor80.txt
-	../besm6 --input-encoding=utf8 pascal.b6        > pascal.txt
-	../besm6 --input-encoding=utf8 pascal-pretty.b6 > pascal-pretty.txt
-	../besm6 --input-encoding=utf8 punchtest.b6     > punchtest.txt
-	../besm6 --input-encoding=utf8 whetstone.b6     > whetstone.txt
+run:	../emulator/besm6
+	../emulator/besm6 --input-encoding=utf8 algol-besm6.b6   > algol-besm6.txt
+	../emulator/besm6 --input-encoding=utf8 algol-gdr.b6     > algol-gdr.txt
+	../emulator/besm6 --input-encoding=utf8 autocode-itm.b6  > autocode-itm.txt
+	../emulator/besm6 --input-encoding=utf8 bemsh-auto.b6    > bemsh-auto.txt
+	../emulator/besm6 --input-encoding=utf8 bemsh.b6         > bemsh.txt
+	../emulator/besm6 --input-encoding=utf8 dtran.b6         > dtran.txt
+	../emulator/besm6 --input-encoding=utf8 forex.b6         > forex.txt
+	../emulator/besm6 --input-encoding=utf8 fortran-dubna.b6 > fortran-dubna.txt
+	../emulator/besm6 --input-encoding=utf8 fortran-gdr.b6   > fortran-gdr.txt
+	../emulator/besm6 --input-encoding=utf8 madlen.b6        > madlen.txt
+	../emulator/besm6 --input-encoding=utf8 monitor80.b6     > monitor80.txt
+	../emulator/besm6 --input-encoding=utf8 pascal.b6        > pascal.txt
+	../emulator/besm6 --input-encoding=utf8 pascal-pretty.b6 > pascal-pretty.txt
+	../emulator/besm6 --input-encoding=utf8 punchtest.b6     > punchtest.txt
+	../emulator/besm6 --input-encoding=utf8 whetstone.b6     > whetstone.txt
 
-native: ../besm6
-	../besm6 -x --input-encoding=utf8 algol-besm6.b6   > algol-besm6-native.txt
-	../besm6 -x --input-encoding=utf8 algol-gdr.b6     > algol-gdr-native.txt
-	../besm6 -x --input-encoding=utf8 autocode-itm.b6  > autocode-itm-native.txt
-	../besm6 -x --input-encoding=utf8 bemsh-auto.b6    > bemsh-auto-native.txt
-	../besm6 -x --input-encoding=utf8 bemsh.b6         > bemsh-native.txt
-	../besm6 -x --input-encoding=utf8 dtran.b6         > dtran-native.txt
-	../besm6 -x --input-encoding=utf8 forex.b6         > forex-native.txt
-	../besm6 -x --input-encoding=utf8 fortran-dubna.b6 > fortran-dubna-native.txt
-	../besm6 -x --input-encoding=utf8 fortran-gdr.b6   > fortran-gdr-native.txt
-	../besm6 -x --input-encoding=utf8 madlen.b6        > madlen-native.txt
-	../besm6 -x --input-encoding=utf8 monitor80.b6     > monitor80-native.txt
-	../besm6 -x --input-encoding=utf8 pascal.b6        > pascal-native.txt
-	../besm6 -x --input-encoding=utf8 pascal-pretty.b6 > pascal-pretty-native.txt
-	../besm6 -x --input-encoding=utf8 punchtest.b6     > punchtest-native.txt
-	../besm6 -x --input-encoding=utf8 whetstone.b6     > whetstone-native.txt
+native: ../emulator/besm6
+	../emulator/besm6 -x --input-encoding=utf8 algol-besm6.b6   > algol-besm6-native.txt
+	../emulator/besm6 -x --input-encoding=utf8 algol-gdr.b6     > algol-gdr-native.txt
+	../emulator/besm6 -x --input-encoding=utf8 autocode-itm.b6  > autocode-itm-native.txt
+	../emulator/besm6 -x --input-encoding=utf8 bemsh-auto.b6    > bemsh-auto-native.txt
+	../emulator/besm6 -x --input-encoding=utf8 bemsh.b6         > bemsh-native.txt
+	../emulator/besm6 -x --input-encoding=utf8 dtran.b6         > dtran-native.txt
+	../emulator/besm6 -x --input-encoding=utf8 forex.b6         > forex-native.txt
+	../emulator/besm6 -x --input-encoding=utf8 fortran-dubna.b6 > fortran-dubna-native.txt
+	../emulator/besm6 -x --input-encoding=utf8 fortran-gdr.b6   > fortran-gdr-native.txt
+	../emulator/besm6 -x --input-encoding=utf8 madlen.b6        > madlen-native.txt
+	../emulator/besm6 -x --input-encoding=utf8 monitor80.b6     > monitor80-native.txt
+	../emulator/besm6 -x --input-encoding=utf8 pascal.b6        > pascal-native.txt
+	../emulator/besm6 -x --input-encoding=utf8 pascal-pretty.b6 > pascal-pretty-native.txt
+	../emulator/besm6 -x --input-encoding=utf8 punchtest.b6     > punchtest-native.txt
+	../emulator/besm6 -x --input-encoding=utf8 whetstone.b6     > whetstone-native.txt
 
 diff:
 	-diff -u algol-besm6.txt   algol-besm6-native.txt
