@@ -7,6 +7,7 @@
 #define _BESM6_DEFS_H_    0
 
 #include "sim_defs.h"				/* simulator defns */
+#include <setjmp.h>
 
 /*
  * Memory
@@ -84,6 +85,7 @@ extern UNIT cpu_unit;
 extern t_value memory [MEMSIZE];
 extern uint32 PC, PPK;
 extern DEVICE drum_dev;
+extern jmp_buf cpu_halt;
 
 /* Параметры обмена с внешним устройством. */
 extern int ext_op;		/* УЧ - условное число */
@@ -95,7 +97,7 @@ extern int ext_ram_finish;	/* ω_МОЗУ - конечный адрес памя
  * Выполнение обращения к барабану.
  * Все параметры находятся в регистрах УЧ, А_МЗУ, α_МОЗУ, ω_МОЗУ.
  */
-t_stat drum (t_value *sum);
+void drum (t_value *sum);
 
 t_stat fprint_sym (FILE *of, t_addr addr, t_value *val,
 	UNIT *uptr, int32 sw);
