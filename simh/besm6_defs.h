@@ -9,6 +9,8 @@
 #include "sim_defs.h"				/* simulator defns */
 #include <setjmp.h>
 
+#define MAX(x,y)	((x) > (y) ? (x) : (y))
+
 /*
  * Memory
  */
@@ -54,6 +56,9 @@ enum {
 /*
  * Разряды машинного слова.
  */
+#define BITS15		077777			/* биты 15..1 */
+#define BITS24		077777777		/* биты 24..1 */
+#if 0
 #define BIT46		01000000000000000LL	/* 46-й бит */
 #define TAG		00400000000000000LL	/* 45-й бит-признак */
 #define SIGN		00200000000000000LL	/* 44-й бит-знак */
@@ -61,21 +66,25 @@ enum {
 #define BIT19		00000000001000000LL	/* 19-й бит */
 #define WORD		00777777777777777LL	/* биты 45..1 */
 #define MANTISSA	00000777777777777LL	/* биты 36..1 */
+#endif
 
 /*
- * Разряды условного числа для обращения к внешнему устройству.
+ * Разряды режима АУ.
  */
-#define EXT_DIS_RAM	04000	/* 36 - БМ - блокировка памяти */
-#define EXT_DIS_CHECK	02000   /* 35 - БК - блокировка контроля */
-#define EXT_TAPE_REV	01000   /* 34 - ОН - обратное движение ленты */
-#define EXT_DIS_STOP	00400   /* 33 - БО - блокировка останова */
-#define EXT_PUNCH	00200   /* 32 - Пф - перфорация */
-#define EXT_PRINT	00100   /* 31 - Пч - печать */
-#define EXT_TAPE_FORMAT	00040   /* 30 - РЛ - разметка ленты */
-#define EXT_TAPE	00020   /* 29 - Л - лента */
-#define EXT_DRUM	00010   /* 28 - Б - барабан */
-#define EXT_WRITE	00004   /* 27 - Зп - запись */
-#define EXT_UNIT	00003   /* 26,25 - номер барабана или ленты */
+#define RAU_NORM_DISABLE	001	/* блокировка нормализации */
+#define RAU_ROUND_DISABLE	002	/* блокировка округления */
+#define RAU_LOG			004	/* признак логической группы */
+#define RAU_MULT		010	/* признак группы умножения */
+#define RAU_ADD			020	/* признак группы слодения */
+#define RAU_OVF_DISABLE		040	/* блокировка переполнения */
+
+#define RAU_MODE		(RAU_LOG | RAU_MULT | RAU_ADD)
+#define SET_LOGICAL(x)		(((x) & ~RAU_MODE) | RAU_LOG)
+#define SET_MULTIPLICATIVE(x)	(((x) & ~RAU_MODE) | RAU_MULT)
+#define SET_ADDITIVE(x)		(((x) & ~RAU_MODE) | RAU_ADD)
+#define IS_LOGICAL(x)		(((x) & RAU_MODE) == RAU_LOG)
+#define IS_MULTIPLICATIVE(x)	(((x) & (RAU_ADD | RAU_MULT) == RAU_MULT)
+#define IS_ADDITIVE(x)		((x) & RAU_ADD)
 
 extern uint32 sim_brk_types, sim_brk_dflt, sim_brk_summ; /* breakpoint info */
 extern int32 sim_interval, sim_step;
@@ -87,15 +96,9 @@ extern uint32 PC, PPK;
 extern DEVICE drum_dev;
 extern jmp_buf cpu_halt;
 
-/* Параметры обмена с внешним устройством. */
-extern int ext_op;		/* УЧ - условное число */
-extern int ext_disk_addr;	/* А_МЗУ - начальный адрес на барабане/ленте */
-extern int ext_ram_start;	/* α_МОЗУ - начальный адрес памяти */
-extern int ext_ram_finish;	/* ω_МОЗУ - конечный адрес памяти */
-
 /*
  * Выполнение обращения к барабану.
- * Все параметры находятся в регистрах УЧ, А_МЗУ, α_МОЗУ, ω_МОЗУ.
+ * Все параметры находятся в регистрах.
  */
 void drum (t_value *sum);
 
