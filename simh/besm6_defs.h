@@ -9,8 +9,6 @@
 #include "sim_defs.h"				/* simulator defns */
 #include <setjmp.h>
 
-#define MAX(x,y)	((x) > (y) ? (x) : (y))
-
 /*
  * Memory
  */
@@ -61,6 +59,15 @@ enum {
 #define GET_CONVOL(x)		((x) >> 48)
 #define IS_INSN(x)		(GET_CONVOL(x) == 0)
 #define	IS_NUMBER(x)		(GET_CONVOL(x) == 0 || GET_CONVOL(x) == 3)
+
+/*
+ * Вычисление правдоподобного времени выполнения команды,
+ * зная количество тактов в УУ и среднее в АУ.
+ * Предполагаем, что в 50% случаев происходит совмещение
+ * выполнения, поэтому суммируем большее и половину
+ * от меньшего значения.
+ */
+#define MEAN_TIME(x,y)	(x>y ? x+y/2 : x/2+y)
 
 extern uint32 sim_brk_types, sim_brk_dflt, sim_brk_summ; /* breakpoint info */
 extern int32 sim_interval, sim_step;
