@@ -93,6 +93,10 @@ extern jmp_buf cpu_halt;
  */
 extern void mmu_store(int addr, t_value word);
 extern t_value mmu_load(int addr), mmu_fetch(int addr);
+extern void mmu_setcache(int idx, t_value word);
+extern t_value mmu_getcache(int idx);
+extern void mmu_settlb(int idx, t_value word);
+extern void mmu_setprotection(int idx, t_value word);
 
 /*
  * Выполнение обращения к барабану.
