@@ -14,7 +14,7 @@
 /*
  * Memory
  */
-#define NREGS		17			/* number of registers-modifiers */
+#define NREGS		30			/* number of registers-modifiers */
 #define MEMSIZE		(128*1024)		/* memory size, words */
 #define DRUM_SIZE	(256*(1024+8))		/* drum size, words */
 #define DISK_SIZE	(1024*(1024+8))		/* disk size, words */
@@ -58,6 +58,7 @@ enum {
  */
 #define BITS15		077777			/* биты 15..1 */
 #define BITS24		077777777		/* биты 24..1 */
+#define BITS48		07777777777777777LL	/* биты 48..1 */
 #if 0
 #define BIT46		01000000000000000LL	/* 46-й бит */
 #define TAG		00400000000000000LL	/* 45-й бит-признак */
@@ -85,6 +86,18 @@ enum {
 #define IS_LOGICAL(x)		(((x) & RAU_MODE) == RAU_LOG)
 #define IS_MULTIPLICATIVE(x)	(((x) & (RAU_ADD | RAU_MULT) == RAU_MULT)
 #define IS_ADDITIVE(x)		((x) & RAU_ADD)
+
+/*
+ * Работа со сверткой. Значение разрядов свертки слова равно значению
+ * регистров ПКЛ и ПКП при записи слова.
+ * 00 - командная свертка
+ * 01 или 10 - контроль числа
+ * 11 - числовая свертка
+ */
+#define SET_CONVOL(x, c)	(((x) & BITS48) | (((c) & 3LL) << 48))
+#define GET_CONVOL(x)		((x) >> 48)
+#define IS_INSN(x)		(GET_CONVOL(x) == 0)
+#define	IS_NUMBER(x)		(GET_CONVOL(x) == 0 || GET_CONVOL(x) == 3)
 
 extern uint32 sim_brk_types, sim_brk_dflt, sim_brk_summ; /* breakpoint info */
 extern int32 sim_interval, sim_step;
