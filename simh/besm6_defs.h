@@ -27,30 +27,12 @@ enum {
 	STOP_IBKPT,				/* breakpoint */
 	STOP_RUNOUT,				/* run out end of memory limits */
 	STOP_BADCMD,				/* invalid instruction */
-/*TODO*/
-	STOP_ADDOVF,				/* addition overflow */
-	STOP_EXPOVF,				/* exponent overflow */
-	STOP_MULOVF,				/* multiplication overflow */
-	STOP_DIVOVF,				/* division overflow */
-	STOP_DIVMOVF,				/* division mantissa overflow */
-	STOP_NEGSQRT,				/* division mantissa overflow */
-	STOP_SQRTERR,				/* sqrt error */
-	STOP_READERR,				/* drum read error */
-	STOP_BADRLEN,				/* invalid drum read length */
-	STOP_BADWLEN,				/* invalid drum write length */
-	STOP_WRERR,				/* drum write error error */
-	STOP_DRUMINVAL,				/* invalid drum control word */
-	STOP_DRUMINVDATA,			/* reading uninialized drum data */
-	STOP_TAPEINVAL,				/* invalid tape control word */
-	STOP_TAPEFMTINVAL,			/* invalid tape format word */
-	STOP_TAPEUNSUPP,			/* tape not implemented */
-	STOP_TAPEFMTUNSUPP,			/* tape formatting not implemented */
-	STOP_PUNCHUNSUPP,			/* punch not implemented */
-	STOP_RPUNCHUNSUPP,			/* punch reader not implemented */
-	STOP_EXTINVAL,				/* invalid control word */
-	STOP_INVARG,				/* invalid argument of instruction */
-	STOP_ASSERT,				/* assertion failed */
-	STOP_MBINVAL,				/* MB command without MA */
+	STOP_INSN_CHECK,			/* not an instruction */
+	STOP_INSN_PROT,				/* fetch from blocked page */
+	STOP_OPERAND_PROT,			/* load from blocked page */
+	STOP_RAM_CHECK,				/* RAM parity error */
+	STOP_CACHE_CHECK,			/* data cache parity error */
+
 };
 
 /*
@@ -58,14 +40,13 @@ enum {
  */
 #define BITS15		077777			/* биты 15..1 */
 #define BITS24		077777777		/* биты 24..1 */
-#define BITS48		07777777777777777LL	/* биты 48..1 */
+#define WORD		07777777777777777LL	/* биты 48..1 */
 #if 0
 #define BIT46		01000000000000000LL	/* 46-й бит */
 #define TAG		00400000000000000LL	/* 45-й бит-признак */
 #define SIGN		00200000000000000LL	/* 44-й бит-знак */
 #define BIT37		00001000000000000LL	/* 37-й бит */
 #define BIT19		00000000001000000LL	/* 19-й бит */
-#define WORD		00777777777777777LL	/* биты 45..1 */
 #define MANTISSA	00000777777777777LL	/* биты 36..1 */
 #endif
 
@@ -94,7 +75,7 @@ enum {
  * 01 или 10 - контроль числа
  * 11 - числовая свертка
  */
-#define SET_CONVOL(x, c)	(((x) & BITS48) | (((c) & 3LL) << 48))
+#define SET_CONVOL(x, c)	(((x) & WORD) | (((c) & 3LL) << 48))
 #define GET_CONVOL(x)		((x) >> 48)
 #define IS_INSN(x)		(GET_CONVOL(x) == 0)
 #define	IS_NUMBER(x)		(GET_CONVOL(x) == 0 || GET_CONVOL(x) == 3)
@@ -105,9 +86,24 @@ extern FILE *sim_deb;
 
 extern UNIT cpu_unit;
 extern t_value memory [MEMSIZE];
+extern t_value pult [8];
 extern uint32 PC, PPK;
-extern DEVICE drum_dev;
+extern uint32 M[NREGS];
+extern uint32 supmode, convol_mode;
+extern DEVICE drum_dev, mmu_dev;
 extern jmp_buf cpu_halt;
+
+/*
+ * Режимы УУ
+ */
+#define sup_mmap (M[17] & 1)
+#define prot_disabled ((M[17] & 2) == 2)
+
+/*
+ * Процедуры работы с памятью
+ */
+extern void mmu_store(int addr, t_value word);
+extern t_value mmu_load(int addr), mmu_fetch(int addr);
 
 /*
  * Выполнение обращения к барабану.
