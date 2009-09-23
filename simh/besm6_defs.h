@@ -51,24 +51,6 @@ enum {
 #endif
 
 /*
- * Разряды режима АУ.
- */
-#define RAU_NORM_DISABLE	001	/* блокировка нормализации */
-#define RAU_ROUND_DISABLE	002	/* блокировка округления */
-#define RAU_LOG			004	/* признак логической группы */
-#define RAU_MULT		010	/* признак группы умножения */
-#define RAU_ADD			020	/* признак группы слодения */
-#define RAU_OVF_DISABLE		040	/* блокировка переполнения */
-
-#define RAU_MODE		(RAU_LOG | RAU_MULT | RAU_ADD)
-#define SET_LOGICAL(x)		(((x) & ~RAU_MODE) | RAU_LOG)
-#define SET_MULTIPLICATIVE(x)	(((x) & ~RAU_MODE) | RAU_MULT)
-#define SET_ADDITIVE(x)		(((x) & ~RAU_MODE) | RAU_ADD)
-#define IS_LOGICAL(x)		(((x) & RAU_MODE) == RAU_LOG)
-#define IS_MULTIPLICATIVE(x)	(((x) & (RAU_ADD | RAU_MULT) == RAU_MULT)
-#define IS_ADDITIVE(x)		((x) & RAU_ADD)
-
-/*
  * Работа со сверткой. Значение разрядов свертки слова равно значению
  * регистров ПКЛ и ПКП при записи слова.
  * 00 - командная свертка
