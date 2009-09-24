@@ -30,7 +30,8 @@ enum {
 	STOP_OPERAND_PROT,			/* load from blocked page */
 	STOP_RAM_CHECK,				/* RAM parity error */
 	STOP_CACHE_CHECK,			/* data cache parity error */
-
+	STOP_OVFL,				/* arith. overflow */
+	STOP_DIVZERO,				/* division by 0 or denorm */
 };
 
 /*
@@ -39,14 +40,8 @@ enum {
 #define BITS15		077777			/* биты 15..1 */
 #define BITS24		077777777		/* биты 24..1 */
 #define WORD		07777777777777777LL	/* биты 48..1 */
-#if 0
-#define BIT46		01000000000000000LL	/* 46-й бит */
-#define TAG		00400000000000000LL	/* 45-й бит-признак */
-#define SIGN		00200000000000000LL	/* 44-й бит-знак */
-#define BIT37		00001000000000000LL	/* 37-й бит */
-#define BIT19		00000000001000000LL	/* 19-й бит */
-#define MANTISSA	00000777777777777LL	/* биты 36..1 */
-#endif
+#define MANTISSA	00037777777777777LL	/* биты 41..1 */
+#define SIGN		00020000000000000LL	/* 41-й бит-знак */
 
 /*
  * Работа со сверткой. Значение разрядов свертки слова равно значению
@@ -76,11 +71,34 @@ extern FILE *sim_deb;
 extern UNIT cpu_unit;
 extern t_value memory [MEMSIZE];
 extern t_value pult [8];
-extern uint32 PC, PPK;
+extern uint32 PC, PPK, RAU;
 extern uint32 M[NREGS];
 extern uint32 supmode, convol_mode;
 extern DEVICE drum_dev, mmu_dev;
 extern jmp_buf cpu_halt;
+
+/*
+ * Разряды режима АУ.
+ */
+#define RAU_NORM_DISABLE        001     /* блокировка нормализации */
+#define RAU_ROUND_DISABLE       002     /* блокировка округления */
+#define RAU_LOG                 004     /* признак логической группы */
+#define RAU_MULT                010     /* признак группы умножения */
+#define RAU_ADD                 020     /* признак группы слодения */
+#define RAU_OVF_DISABLE         040     /* блокировка переполнения */
+
+#define RAU_MODE                (RAU_LOG | RAU_MULT | RAU_ADD)
+#define SET_MODE(x,m)           (((x) & ~RAU_MODE) | (m))
+#define SET_LOGICAL(x)          (((x) & ~RAU_MODE) | RAU_LOG)
+#define SET_MULTIPLICATIVE(x)   (((x) & ~RAU_MODE) | RAU_MULT)
+#define SET_ADDITIVE(x)         (((x) & ~RAU_MODE) | RAU_ADD)
+#define IS_LOGICAL(x)           (((x) & RAU_MODE) == RAU_LOG)
+#define IS_MULTIPLICATIVE(x)    (((x) & (RAU_ADD | RAU_MULT)) == RAU_MULT)
+#define IS_ADDITIVE(x)          ((x) & RAU_ADD)
+#define dis_norm                (RAU & RAU_NORM_DISABLE)
+#define dis_round               (RAU & RAU_ROUND_DISABLE)
+#define dis_exc                 (RAU & RAU_OVF_DISABLE)
+
 
 /*
  * Режимы УУ
@@ -106,5 +124,12 @@ void drum (t_value *sum);
 
 t_stat fprint_sym (FILE *of, t_addr addr, t_value *val,
 	UNIT *uptr, int32 sw);
+
+// Unpacked instruction
+typedef struct  {
+        uint8   i_reg;                  /* register #                   */
+        uint8   i_opcode;               /* opcode                       */
+        uint16  i_addr;                 /* address field                */
+}       uinstr_t;
 
 #endif
