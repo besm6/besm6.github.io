@@ -132,4 +132,6 @@ typedef struct  {
         uint16  i_addr;                 /* address field                */
 }       uinstr_t;
 
+uinstr_t unpack(t_value rk);
+
 #endif
