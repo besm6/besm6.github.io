@@ -76,6 +76,8 @@ extern t_value memory [MEMSIZE];
 extern t_value pult [8];
 extern uint32 PC, PPK, RAU;
 extern uint32 M[NREGS];
+extern t_value BRZ[8], RP[8];
+extern uint32 BAZ[8], tourn, protection;
 extern uint32 supmode, convol_mode;
 extern DEVICE drum_dev, mmu_dev;
 extern jmp_buf cpu_halt;
@@ -98,9 +100,6 @@ extern jmp_buf cpu_halt;
 #define IS_LOGICAL(x)           (((x) & RAU_MODE) == RAU_LOG)
 #define IS_MULTIPLICATIVE(x)    (((x) & (RAU_ADD | RAU_MULT)) == RAU_MULT)
 #define IS_ADDITIVE(x)          ((x) & RAU_ADD)
-#define dis_norm                (RAU & RAU_NORM_DISABLE)
-#define dis_round               (RAU & RAU_ROUND_DISABLE)
-#define dis_exc                 (RAU & RAU_OVF_DISABLE)
 
 /*
  * Кириллица Unicode.
@@ -179,12 +178,15 @@ extern jmp_buf cpu_halt;
 /*
  * Процедуры работы с памятью
  */
-extern void mmu_store(int addr, t_value word);
-extern t_value mmu_load(int addr), mmu_fetch(int addr);
-extern void mmu_setcache(int idx, t_value word);
-extern t_value mmu_getcache(int idx);
-extern void mmu_settlb(int idx, t_value word);
-extern void mmu_setprotection(int idx, t_value word);
+extern void mmu_store (int addr, t_value word);
+extern t_value mmu_load (int addr);
+extern t_value mmu_fetch (int addr);
+extern void mmu_setcache (int idx, t_value word);
+extern t_value mmu_getcache (int idx);
+extern void mmu_setrp (int idx, t_value word);
+extern void mmu_settlb (void);
+extern void mmu_setprotection (int idx, t_value word);
+extern void mmu_print_brz (void);
 
 /*
  * Выполнение обращения к барабану.
