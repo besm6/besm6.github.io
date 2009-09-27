@@ -5,10 +5,10 @@ typedef struct  {
 	char    *o_name;
 	int     (*o_impl)();
 	char    o_inline;
-	ushort  o_flags;
-	uint    o_count;
-	uint    o_ticks;
-}       optab_t;
+	unsigned o_flags;
+	unsigned o_count;
+	unsigned o_ticks;
+} optab_t;
 
 extern optab_t  optab[];
 

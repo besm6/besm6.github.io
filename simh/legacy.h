@@ -2,12 +2,12 @@
 #define legacy_h                          /* to avoid multiple inclusions */
 
 typedef struct  {
-	uint    l;			/* left 24 bits */
-	uint    r;			/* right 24 bits */
-	ushort  o;			/* exponent (temp storage) */
-	uint    ml;			/* left part of mantissa */
+	unsigned	l;		/* left 24 bits */
+	unsigned	r;		/* right 24 bits */
+	unsigned short	o;		/* exponent (temp storage) */
+	unsigned	ml;		/* left part of mantissa */
 #define mr      r
-}       alureg_t;                       /* ALU register type            */
+} alureg_t;				/* ALU register type */
 
 #define NEGATIVE(R)     (((R).ml & 0x10000) != 0)
 
@@ -15,7 +15,7 @@ extern alureg_t acc, accex, enreg, zeroword;
 
 extern alureg_t toalu(t_value val);
 extern t_value fromalu(alureg_t reg);
- 
+
 #define LOAD(reg,addr) reg = toalu(mmu_load(addr))
 
 #define STORE(reg,addr) mmu_store(addr, fromalu(reg))
