@@ -275,7 +275,7 @@ all : ${ALL}
 
 clean :
 ifeq ($(WIN32),)
-	cd ${BIN} && ${RM} ${ALL} *.dSYM
+	cd ${BIN} && ${RM} -r ${ALL} *.dSYM
 	${RM} *~
 else
 	if exist BIN\*.exe del /q BIN\*.exe
