@@ -47,13 +47,13 @@ extern t_value fromalu(alureg_t reg);
 }
 
 #define CHK_STACK       \
-        if (!addr && (reg == STACKREG)) {   \
-                M[STACKREG] = ADDR(M[STACKREG] - 1);        \
+        if (!addr && (reg == 15)) {   \
+                M[15] = ADDR(M[15] - 1);        \
                 corr_stack = 1; \
         } else
 
 #define GET_OP  {\
-                LOAD(enreg, effaddr);\
+                LOAD(enreg, Aex);\
                 if (op.o_flags & F_AR) {\
                         accex = zeroword;\
                         UNPCK(enreg);\
@@ -64,7 +64,7 @@ extern t_value fromalu(alureg_t reg);
 }
 
 #define GET_NAI_OP      {\
-        enreg.o = effaddr & 0x7f;\
+        enreg.o = Aex & 0x7f;\
         enreg.ml = enreg.mr = 0;\
         if (op.o_flags & F_AR) {\
                 accex = zeroword;\
@@ -72,14 +72,14 @@ extern t_value fromalu(alureg_t reg);
         };\
 }
 #define STK_PUSH        {\
-        STORE(acc, M[STACKREG]);\
-        M[STACKREG] = ADDR(M[STACKREG] + 1);\
+        STORE(acc, M[15]);\
+        M[15] = ADDR(M[15] + 1);\
 }
 
 #define STK_POP         {\
-        M[STACKREG] = ADDR(M[STACKREG] - 1);\
+        M[15] = ADDR(M[15] - 1);\
         corr_stack = 1;\
-        LOAD(acc, M[STACKREG]);\
+        LOAD(acc, M[15]);\
 }
 
 #define ADDR(x) ((x) & BITS15)
