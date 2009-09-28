@@ -53,7 +53,7 @@ enum {
  * 01 или 10 - контроль числа
  * 11 - числовая свертка
  */
-#define SET_CONVOL(x, c)	(((x) & WORD) | (((c) & 3LL) << 48))
+#define SET_CONVOL(x, ruu)	(((x) & WORD) | (((ruu) & 3LL) << 48))
 #define GET_CONVOL(x)		((x) >> 48)
 #define IS_INSN(x)		(GET_CONVOL(x) == 0)
 #define	IS_NUMBER(x)		(GET_CONVOL(x) == 0 || GET_CONVOL(x) == 3)
@@ -74,11 +74,10 @@ extern FILE *sim_deb, *sim_log;
 extern UNIT cpu_unit;
 extern t_value memory [MEMSIZE];
 extern t_value pult [8];
-extern uint32 PC, PPK, RAU;
+extern uint32 PC, RAU, RUU;
 extern uint32 M[NREGS];
 extern t_value BRZ[8], RP[8];
-extern uint32 BAZ[8], tourn, protection;
-extern uint32 supmode, convol_mode;
+extern uint32 BAZ[8], TABST, RZ;
 extern DEVICE drum_dev, mmu_dev;
 extern DEVICE clock_dev;
 extern jmp_buf cpu_halt;
@@ -101,6 +100,35 @@ extern jmp_buf cpu_halt;
 #define IS_LOGICAL(x)           (((x) & RAU_MODE) == RAU_LOG)
 #define IS_MULTIPLICATIVE(x)    (((x) & (RAU_ADD | RAU_MULT)) == RAU_MULT)
 #define IS_ADDITIVE(x)          ((x) & RAU_ADD)
+
+/*
+ * Регистр 17: режимы УУ.
+ */
+#define M17_MMAP_DISABLE	000001	/* БлП - блокировка приписки */
+#define M17_PROT_DISABLE	000002	/* БлЗ - блокировка защиты */
+#define M17_INTR_HALT		000004	/* ПоП - признак останова при
+					   любом внутреннем прерывании */
+#define M17_CHECK_HALT		000010	/* ПоК - признак останова при
+					   прерывании по контролю */
+#define M17_WRITE_WATCH		000020	/* Зп(М29) - признак совпадения адреса
+					   операнда прии записи в память
+					   с содержанием регистра М29 */
+#define M17_INTR_DISABLE	002000	/* БлПр - блокировка внешнего прерывания */
+#define M17_AUT_B		004000	/* АвтБ - признак режима Автомат Б */
+
+/*
+ * Искусственный регистр режимов УУ, в реальной машине отсутствует.
+ */
+#define RUU_CONVOL_RIGHT	000001	/* ПКП - признак контроля правой половины */
+#define RUU_CONVOL_LEFT		000002	/* ПКЛ - признак контроля левой половины */
+#define RUU_EXTRACODE		000004	/* РежЭ - режим экстракода */
+#define RUU_INTERRUPT		000010	/* РежПр - режим прерывания */
+#define RUU_MOD_RK		000020	/* ПрИК - модификация регистром М[16] */
+#define RUU_AVOST_DISABLE	000040	/* БРО - блокировка режима останова */
+#define RUU_RIGHT_INSTR		000400	/* ПрК - признак правой команды */
+
+#define IS_SUPERVISOR(x)	((x) & (RUU_EXTRACODE | RUU_INTERRUPT))
+#define SET_SUPERVISOR(x,m)	(((x) & ~(RUU_EXTRACODE | RUU_INTERRUPT)) | (m))
 
 /*
  * Кириллица Unicode.
@@ -171,12 +199,6 @@ extern jmp_buf cpu_halt;
 #define CYRILLIC_SMALL_LETTER_YA		0x044f
 
 /*
- * Режимы УУ
- */
-#define sup_mmap (M[17] & 1)
-#define prot_disabled ((M[17] & 2) == 2)
-
-/*
  * Процедуры работы с памятью
  */
 extern void mmu_store (int addr, t_value word);
@@ -185,7 +207,7 @@ extern t_value mmu_fetch (int addr);
 extern void mmu_setcache (int idx, t_value word);
 extern t_value mmu_getcache (int idx);
 extern void mmu_setrp (int idx, t_value word);
-extern void mmu_settlb (void);
+extern void mmu_setup (void);
 extern void mmu_setprotection (int idx, t_value word);
 extern void mmu_print_brz (void);
 
