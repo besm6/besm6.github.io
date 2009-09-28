@@ -80,6 +80,7 @@ extern t_value BRZ[8], RP[8];
 extern uint32 BAZ[8], tourn, protection;
 extern uint32 supmode, convol_mode;
 extern DEVICE drum_dev, mmu_dev;
+extern DEVICE clock_dev;
 extern jmp_buf cpu_halt;
 
 /*
@@ -195,6 +196,7 @@ extern void mmu_print_brz (void);
 void drum (t_value *sum);
 
 void besm6_fprint_cmd (FILE *of, uint32 cmd);
+double besm6_to_ieee (t_value word);
 
 // Unpacked instruction
 typedef struct  {
@@ -205,4 +207,42 @@ typedef struct  {
 
 uinstr_t unpack(t_value rk);
 
+/*
+ * Разряды главного регистра прерываний (ГРП)
+ * Внешние:
+ */
+#define GRP_PRN1_SYNC	04000000000000000LL	/* 48 */
+#define GRP_PRN2_SYNC	02000000000000000LL	/* 47 */
+#define GRP_DRUM1_FREE	01000000000000000LL	/* 46 */
+#define GRP_DRUM2_FREE	00400000000000000LL	/* 45 */
+#define GRP_VNIIEM	00360000000000000LL	/* 44-41, placeholder */
+#define	GRP_TIMER	00010000000000000LL	/* 40 */
+#define GRP_PRN1_ZERO	00004000000000000LL	/* 39 */
+#define GRP_PRN2_ZERO	00002000000000000LL	/* 38 */
+#define GRP_SLAVE	00001000000000000LL	/* 37 */
+#define GRP_CHAN3_DONE	00000400000000000LL	/* 36 */
+#define GRP_CHAN4_DONE	00000200000000000LL	/* 35 */
+#define GRP_CHAN5_DONE	00000100000000000LL	/* 34 */
+#define GRP_CHAN6_DONE	00000040000000000LL	/* 33 */
+#define GRP_PANEL_REQ	00000020000000000LL	/* 32 */
+#define GRP_TTY_START	00000010000000000LL	/* 31 */
+#define GRP_IMITATION	00000004000000000LL	/* 30 */
+#define GRP_CHAN3_FREE	00000002000000000LL	/* 29 */
+#define GRP_CHAN4_FREE	00000001000000000LL	/* 28 */
+#define GRP_CHAN5_FREE	00000000400000000LL	/* 27 */
+#define GRP_CHAN6_FREE	00000000200000000LL	/* 26 */
+#define GRP_CHAN7_FREE	00000000100000000LL	/* 25 */
+#define GRP_WATCHDOG	00000000000002000LL	/* 11 */
+/* Внутренние: */
+#define GRP_DIVZERO	00000000034000000LL	/* 23-21 */
+#define GRP_OVERFLOW	00000000014000000LL	/* 22-21 */
+#define GRP_CHECK 	00000000004000000LL	/* 21 */
+#define GRP_OPRND_PROT	00000000002000000LL	/* 20 */
+#define GRP_WATCHPT_W	00000000000200000LL	/* 17 */
+#define GRP_WATCHPT_R	00000000000100000LL	/* 16 */
+#define GRP_INSN_CHECK	00000000000040000LL	/* 15 */
+#define GRP_INSN_PROT	00000000000020000LL	/* 14 */
+#define GRP_ILL_INSN	00000000000010000LL	/* 13 */
+#define GRP_BREAKPOINT	00000000000004000LL	/* 12 */
+#define GRP_RAM_CHECK	00000000000000010LL	/* 4 */
 #endif
