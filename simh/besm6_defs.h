@@ -53,10 +53,10 @@ enum {
  * 01 или 10 - контроль числа
  * 11 - числовая свертка
  */
-#define SET_CONVOL(x, ruu)	(((x) & WORD) | (((ruu) & 3LL) << 48))
-#define GET_CONVOL(x)		((x) >> 48)
-#define IS_INSN(x)		(GET_CONVOL(x) == 0)
-#define	IS_NUMBER(x)		(GET_CONVOL(x) == 0 || GET_CONVOL(x) == 3)
+#define CONVOL_INSN(x, ruu)	(((x) & WORD) | (((ruu ^ 1) & 3LL) << 48))
+#define CONVOL_NUMBER(x, ruu)	(((x) & WORD) | (((ruu ^ 2) & 3LL) << 48))
+#define IS_INSN(x)		(((x) >> 48) == 1)
+#define IS_NUMBER(x)		(((x) >> 48) == 1 || ((x) >> 48) == 2)
 
 /*
  * Вычисление правдоподобного времени выполнения команды,
@@ -78,7 +78,7 @@ extern uint32 PC, RAU, RUU;
 extern uint32 M[NREGS];
 extern t_value BRZ[8], RP[8];
 extern uint32 BAZ[8], TABST, RZ;
-extern DEVICE drum_dev, mmu_dev;
+extern DEVICE cpu_dev, drum_dev, mmu_dev;
 extern DEVICE clock_dev;
 extern jmp_buf cpu_halt;
 
