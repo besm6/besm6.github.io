@@ -47,8 +47,8 @@ extern t_value fromalu(alureg_t reg);
 }
 
 #define CHK_STACK       \
-        if (!addr && (reg == 15)) {   \
-                M[15] = ADDR(M[15] - 1);        \
+        if (!addr && (reg == 017)) {   \
+                M[017] = ADDR(M[017] - 1);        \
                 corr_stack = 1; \
         } else
 
@@ -72,14 +72,14 @@ extern t_value fromalu(alureg_t reg);
         };\
 }
 #define STK_PUSH        {\
-        STORE(acc, M[15]);\
-        M[15] = ADDR(M[15] + 1);\
+        STORE(acc, M[017]);\
+        M[017] = ADDR(M[017] + 1);\
 }
 
 #define STK_POP         {\
-        M[15] = ADDR(M[15] - 1);\
+        M[017] = ADDR(M[017] - 1);\
         corr_stack = 1;\
-        LOAD(acc, M[15]);\
+        LOAD(acc, M[017]);\
 }
 
 #define ADDR(x) ((x) & BITS15)
