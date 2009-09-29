@@ -251,6 +251,9 @@ void drum (t_value *sum);
 
 void besm6_fprint_cmd (FILE *of, uint32 cmd);
 double besm6_to_ieee (t_value word);
+void besm6_log (const char *fmt, ...);
+void besm6_log_cont (const char *fmt, ...);
+void besm6_debug (const char *fmt, ...);
 
 // Unpacked instruction
 typedef struct  {
