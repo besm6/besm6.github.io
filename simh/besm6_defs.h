@@ -310,7 +310,6 @@ uinstr_t unpack(t_value rk);
 #define GRP_SET_PAGE(x,m)	(((x) & ~GRP_PAGE_MASK) | ((m)<<4) & GRP_PAGE_MASK)
 
 /* Номер блока ОЗУ или номер страницы, вызвавших прерывание */
-extern uint iintr_data;
+extern uint32 iintr_data;
 
 #endif
-
