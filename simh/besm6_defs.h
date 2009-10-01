@@ -32,6 +32,7 @@ enum {
 	STOP_CACHE_CHECK,			/* data cache parity error */
 	STOP_OVFL,				/* arith. overflow */
 	STOP_DIVZERO,				/* division by 0 or denorm */
+	STOP_DOUBLE_INTR,			/* double internal interrupt */
 };
 
 /*
