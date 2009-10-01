@@ -301,5 +301,15 @@ uinstr_t unpack(t_value rk);
 #define GRP_INSN_PROT	00000000000020000LL	/* 14 */
 #define GRP_ILL_INSN	00000000000010000LL	/* 13 */
 #define GRP_BREAKPOINT	00000000000004000LL	/* 12 */
+#define GRP_PAGE_MASK	00000000000000760LL	/* 9-5 */
 #define GRP_RAM_CHECK	00000000000000010LL	/* 4 */
+#define GRP_BLOCK_MASK	00000000000000007LL	/* 3-1 */
+
+#define GRP_SET_BLOCK(x,m)	(((x) & ~GRP_BLOCK_MASK) | (m) & GRP_BLOCK_MASK)
+#define GRP_SET_PAGE(x,m)	(((x) & ~GRP_PAGE_MASK) | ((m)<<4) & GRP_PAGE_MASK)
+
+/* Номер блока ОЗУ или номер страницы, вызвавших прерывание */
+extern uint iintr_data;
+
 #endif
+
