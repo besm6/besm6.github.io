@@ -33,6 +33,7 @@ enum {
 	STOP_OVFL,				/* arith. overflow */
 	STOP_DIVZERO,				/* division by 0 or denorm */
 	STOP_DOUBLE_INTR,			/* double internal interrupt */
+	STOP_DRUMINVDATA,			/* reading unformatted drum */
 };
 
 /*
@@ -246,9 +247,8 @@ extern void mmu_print_brz (void);
 
 /*
  * Выполнение обращения к барабану.
- * Все параметры находятся в регистрах.
  */
-void drum (t_value *sum);
+void drum (int ctlr, uint32 cmd);
 
 void besm6_fprint_cmd (FILE *of, uint32 cmd);
 double besm6_to_ieee (t_value word);
