@@ -1,5 +1,6 @@
 /*
- *      instructions table entry
+ * Instructions table entry.
+ * To be deleted after code refactoring.
  */
 typedef struct  {
 	char    *o_name;

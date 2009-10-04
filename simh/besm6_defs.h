@@ -2,6 +2,16 @@
  * besm6_defs.h: BESM-6 simulator definitions
  *
  * Copyright (c) 2009, Serge Vakulenko
+ * Copyright (c) 2009, Leonid Broukhis
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.
+ *
+ * You can redistribute this program and/or modify it under the terms of
+ * the GNU General Public License as published by the Free Software Foundation;
+ * either version 2 of the License, or (at your discretion) any later version.
+ * See the accompanying file "COPYING" for more details.
  */
 #ifndef _BESM6_DEFS_H_
 #define _BESM6_DEFS_H_    0

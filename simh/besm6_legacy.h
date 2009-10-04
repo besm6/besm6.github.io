@@ -1,3 +1,6 @@
+/*
+ * To be deleted after code refactoring.
+ */
 #ifndef legacy_h
 #define legacy_h                          /* to avoid multiple inclusions */
 
