@@ -20,12 +20,21 @@
 #include <setjmp.h>
 
 /*
- * Memory
+ * Memory.
  */
 #define NREGS		30			/* number of registers-modifiers */
-#define MEMSIZE		(128*1024)		/* memory size, words */
-#define DRUM_SIZE	(256*(1024+8))		/* drum size, words */
-#define DISK_SIZE	(1024*(1024+8))		/* disk size, words */
+#define MEMSIZE		(128 * 1024)		/* memory size, words */
+
+/*
+ * Drums and disks.
+ *
+ * One zone contains 1024 words of user memory and 8 system data words.
+ * Every word (t_value) is stored as 8-byte record, low byte first.
+ * System data is stored first, then user data.
+ */
+#define ZONE_SIZE	(8 + 1024)		/* 1kword zone size, words */
+#define DRUM_SIZE	(256 * ZONE_SIZE)	/* drum size per controller, words */
+#define DISK_SIZE	(1024 * ZONE_SIZE)	/* disk size, words */
 
 /*
  * Simulator stop codes
@@ -88,7 +97,7 @@ extern t_value memory [MEMSIZE];
 extern t_value pult [8];
 extern uint32 PC, RAU, RUU;
 extern uint32 M[NREGS];
-extern t_value BRZ[8], RP[8];
+extern t_value BRZ[8], RP[8], GRP;
 extern uint32 BAZ[8], TABST, RZ;
 extern DEVICE cpu_dev, drum_dev, mmu_dev;
 extern DEVICE clock_dev;
