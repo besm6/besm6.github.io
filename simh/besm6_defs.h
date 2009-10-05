@@ -53,6 +53,9 @@ enum {
 	STOP_DIVZERO,				/* division by 0 or denorm */
 	STOP_DOUBLE_INTR,			/* double internal interrupt */
 	STOP_DRUMINVDATA,			/* reading unformatted drum */
+	STOP_INSN_ADDR_MATCH,			/* fetch address matched breakpt reg */
+	STOP_LOAD_ADDR_MATCH,			/* load address matched watchpt reg */
+	STOP_STORE_ADDR_MATCH,			/* store address matched watchpt reg */
 };
 
 /*
