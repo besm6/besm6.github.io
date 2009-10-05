@@ -73,9 +73,11 @@ enum {
  * 00 - командная свертка
  * 01 или 10 - контроль числа
  * 11 - числовая свертка
+ * В памяти биты свертки имитируют четность полуслов.
  */
-#define CONVOL_INSN(x, ruu)	(((x) & WORD) | (((ruu ^ 1) & 3LL) << 48))
-#define CONVOL_NUMBER(x, ruu)	(((x) & WORD) | (((ruu ^ 2) & 3LL) << 48))
+#define CONVOL_INSN		0LL
+#define CONVOL_NUMBER		3LL
+#define SET_CONVOL(x, ruu)	(((x) & WORD) | (((ruu ^ 1) & 3LL) << 48))
 #define IS_INSN(x)		(((x) >> 48) == 1)
 #define IS_NUMBER(x)		(((x) >> 48) == 1 || ((x) >> 48) == 2)
 
