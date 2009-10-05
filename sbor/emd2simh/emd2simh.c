@@ -16,19 +16,30 @@
 #include <getopt.h>
 #include <sys/param.h>
 #include <fcntl.h>
+#include <unistd.h>
 #include "config.h"
 
-#define ZBYTES	(6*1024)
+#ifndef uint64_t
+#  if SIZEOF_LONG == 8
+#    define uint64_t unsigned long
+#  elif SIZEOF_LONG_LONG == 8
+#    define uint64_t unsigned long long
+#  endif
+#endif
+
+int verbose = 0;
+
 enum {
 	OPT_START,
 	OPT_LENGTH,
 };
 
 /* Table of options. */
-static struct option longopts[] = {
+struct option longopts[] = {
 	/* option	     has arg		integer code */
 	{ "help",		0,	0,	'h'		},
 	{ "version",		0,	0,	'V'		},
+	{ "verbose",		0,	0,	'v'		},
 	{ "start",		1,	0,	OPT_START	},
 	{ "length",		1,	0,	OPT_LENGTH	},
 	{ 0,			0,	0,	0		},
@@ -37,25 +48,62 @@ static struct option longopts[] = {
 /*
  * Отладочная печать зоны.
  */
-#if 0
 void
-dump_zone (int z, unsigned char *buf1, unsigned char *buf2)
+dump_zone (int z, uint64_t *buf1, uint64_t *buf2)
 {
 	int i;
-	void dump_word (unsigned char *data) {
-		printf (" %02x-%02x-%02x-%02x-%02x-%02x", data[0], data[1],
-			data[2], data[3], data[4], data[5]);
-	}
 
 	printf ("%4d:", z);
-	for (i=0; i<516*6; i+=6)
-		dump_word (buf1+i);
+	for (i=0; i<516; ++i)
+		printf (" %013llx", (long long) buf1 [i]);
 	printf ("\n     ");
-	for (i=0; i<516*6; i+=6)
-		dump_word (buf2+i);
+	for (i=0; i<516; ++i)
+		printf (" %013llx", (long long) buf2 [i]);
 	printf ("\n");
 }
-#endif
+
+/*
+ * Вычисление чётности для 24-битных чисел.
+ * Если входное число имеет четное число единиц в 24 младших битах,
+ * то возвращается 0, если нечётное - то 1.
+ */
+int
+odd_parity24 (int val)
+{
+	/* Таблица чётности для 6-битных чисел. */
+	static const int parity6 [64] = {
+		0,1,1,0,1,0,0,1,1,0,0,1,0,1,1,0,
+		1,0,0,1,0,1,1,0,0,1,1,0,1,0,0,1,
+		1,0,0,1,0,1,1,0,0,1,1,0,1,0,0,1,
+		0,1,1,0,1,0,0,1,1,0,0,1,0,1,1,0,
+	};
+
+	return parity6 [val & 077] ^ parity6 [val >> 6 & 077] ^
+		parity6 [val >> 12 & 077] ^ parity6 [val >> 18 & 077];
+}
+
+
+/*
+ * Коррекция битов свёртки.
+ * Для команд: 50-й бит дополняет левую половину слова (биты 25-48) до четного,
+ * 49-й бит дополняет правую половину слова (биты 1-24) до нечетного.
+ * Для чисел: 50-й бит дополняет левую половину слова (биты 25-48) до нечетного,
+ * 49-й бит дополняет правую половину слова (биты 1-24) до четного.
+ * В эмуляторе SIMH биты 50-49 должны быть установлены в '01' для команд
+ * и в '10' для чисел.
+ */
+uint64_t
+fix_parity (uint64_t word)
+{
+	/* Левая половина, бит 50. */
+	if (odd_parity24 ((int) (word >> 24)))
+		word ^= (uint64_t) 1 << 49;
+
+	/* Правая половина, бит 49. */
+	if (odd_parity24 ((int) word))
+		word ^= (uint64_t) 1 << 48;
+	return word;
+}
 
 /*
  * Эмулятор Морозова хранит каждую зону как две половины по 516 слов.
@@ -69,97 +117,51 @@ dump_zone (int z, unsigned char *buf1, unsigned char *buf2)
  * Свертка у слова числовая, если в 50-м разряде и левой половине слова
  * суммарное число единиц нечетное.
  */
-static int
-popcnt (unsigned char c)
+void
+repack (unsigned char *from, uint64_t *to)
 {
-	c = (c & 0x55) + ((c & 0xAA) >> 1);
-	c = (c & 0x33) + ((c & 0xCC) >> 2);
-	return (c & 0xF) + (c >> 4);
-}
+	/* Таблица положения выходных битов во входном потоке. */
+	static const struct {
+		int byte, mask;
+	} bit [50] = {
+/* биты 1-5 */	{8, 0x01}, {6, 0x01}, {4, 0x01}, {2, 0x01}, {0, 0x01},
+/* биты 6-10 */	{8, 0x02}, {6, 0x02}, {4, 0x02}, {2, 0x02}, {0, 0x02},
+/* биты 11-15 */{8, 0x04}, {6, 0x04}, {4, 0x04}, {2, 0x04}, {0, 0x04},
+/* биты 16-20 */{8, 0x08}, {6, 0x08}, {4, 0x08}, {2, 0x08}, {0, 0x08},
+/* биты 21-25 */{8, 0x10}, {6, 0x10}, {4, 0x10}, {2, 0x10}, {0, 0x10},
+/* биты 26-30 */{8, 0x20}, {6, 0x20}, {4, 0x20}, {2, 0x20}, {0, 0x20},
+/* биты 31-35 */{8, 0x40}, {6, 0x40}, {4, 0x40}, {2, 0x40}, {0, 0x40},
+/* биты 36-40 */{8, 0x80}, {6, 0x80}, {4, 0x80}, {2, 0x80}, {0, 0x80},
+/* биты 41-45 */{9, 0x01}, {7, 0x01}, {5, 0x01}, {3, 0x01}, {1, 0x01},
+/* биты 46-50 */{9, 0x02}, {7, 0x02}, {5, 0x02}, {3, 0x02}, {1, 0x02},
+	};
+	int n, k;
 
-static void
-repack (unsigned char *from, unsigned char *to, unsigned char *convol)
-{
-	int n;
-
-	for (n=0; n<516; ++n, from+=10) {
-		*convol = (from[1] >> 1) & 1;
-		*to++ = (((from[5] >> 1) & 1) << 7) |	/* бит 48 */
-			(((from[7] >> 1) & 1) << 6) |	/* бит 47 */
-			(((from[9] >> 1) & 1) << 5) |	/* бит 46 */
-			(((from[1] >> 0) & 1) << 4) |	/* бит 45 */
-			(((from[3] >> 0) & 1) << 3) |	/* бит 44 */
-			(((from[5] >> 0) & 1) << 2) |	/* бит 43 */
-			(((from[7] >> 0) & 1) << 1) |	/* бит 42 */
-			(((from[9] >> 0) & 1) << 0);	/* бит 41 */
-		*convol ^= popcnt (to[-1]) & 1;
-		*to++ = (((from[0] >> 7) & 1) << 7) |	/* бит 40 */
-			(((from[2] >> 7) & 1) << 6) |	/* бит 39 */
-			(((from[4] >> 7) & 1) << 5) |	/* бит 38 */
-			(((from[6] >> 7) & 1) << 4) |	/* бит 37 */
-			(((from[8] >> 7) & 1) << 3) |	/* бит 36 */
-			(((from[0] >> 6) & 1) << 2) |	/* бит 35 */
-			(((from[2] >> 6) & 1) << 1) |	/* бит 34 */
-			(((from[4] >> 6) & 1) << 0);	/* бит 33 */
-		*convol ^= popcnt (to[-1]) & 1;
-		*to++ = (((from[6] >> 6) & 1) << 7) |	/* бит 32 */
-			(((from[8] >> 6) & 1) << 6) |	/* бит 31 */
-			(((from[0] >> 5) & 1) << 5) |	/* бит 30 */
-			(((from[2] >> 5) & 1) << 4) |	/* бит 29 */
-			(((from[4] >> 5) & 1) << 3) |	/* бит 28 */
-			(((from[6] >> 5) & 1) << 2) |	/* бит 27 */
-			(((from[8] >> 5) & 1) << 1) |	/* бит 26 */
-			(((from[0] >> 4) & 1) << 0);	/* бит 25 */
-		*convol++ ^= popcnt (to[-1]) & 1;
-		*to++ = (((from[2] >> 4) & 1) << 7) |	/* бит 24 */
-			(((from[4] >> 4) & 1) << 6) |	/* бит 23 */
-			(((from[6] >> 4) & 1) << 5) |	/* бит 22 */
-			(((from[8] >> 4) & 1) << 4) |	/* бит 21 */
-			(((from[0] >> 3) & 1) << 3) |	/* бит 20 */
-			(((from[2] >> 3) & 1) << 2) |	/* бит 19 */
-			(((from[4] >> 3) & 1) << 1) |	/* бит 18 */
-			(((from[6] >> 3) & 1) << 0);	/* бит 17 */
-		*to++ = (((from[8] >> 3) & 1) << 7) |	/* бит 16 */
-			(((from[0] >> 2) & 1) << 6) |	/* бит 15 */
-			(((from[2] >> 2) & 1) << 5) |	/* бит 14 */
-			(((from[4] >> 2) & 1) << 4) |	/* бит 13 */
-			(((from[6] >> 2) & 1) << 3) |	/* бит 12 */
-			(((from[8] >> 2) & 1) << 2) |	/* бит 11 */
-			(((from[0] >> 1) & 1) << 1) |	/* бит 10 */
-			(((from[2] >> 1) & 1) << 0);	/* бит 9 */
-		*to++ = (((from[4] >> 1) & 1) << 7) |	/* бит 8 */
-			(((from[6] >> 1) & 1) << 6) |	/* бит 7 */
-			(((from[8] >> 1) & 1) << 5) |	/* бит 6 */
-			(((from[0] >> 0) & 1) << 4) |	/* бит 5 */
-			(((from[2] >> 0) & 1) << 3) |	/* бит 4 */
-			(((from[4] >> 0) & 1) << 2) |	/* бит 3 */
-			(((from[6] >> 0) & 1) << 1) |	/* бит 2 */
-			(((from[8] >> 0) & 1) << 0);	/* бит 1 */
+	for (n=0; n<516; ++n, ++to, from+=10) {
+		/* Собираем слово из слогов входного файла. */
+		*to = 0;
+		for (k=0; k<50; ++k) {
+			if (from [bit[k].byte] & bit[k].mask)
+				*to |= (uint64_t) 1 << k;
+		}
+		/* Корректируем биты чётности. */
+		*to = fix_parity (*to);
 	}
 }
 
 /*
- * Создание образа диска из позонного каталога
+ * Создание образа диска SIMH из позонного каталога
  * от эмулятора магнитных дисков Морозова.
  */
 void
-dir_to_disk (char *from_dir, char *to_file, int start, int length)
+dir_to_disk (char *from_dir, FILE *to_file, int start, int length)
 {
-	FILE *fd;
-	int zd, z;
-	unsigned char raw [5160], buf1 [516*6], buf2 [516*6];
-	unsigned char cvbuf1[516], cvbuf2[516];
-	char buf [ZBYTES];
-	char cvbuf[1024];
-	char check[48];
 	char filename [MAXPATHLEN];
+	unsigned char raw [5160];
+	uint64_t buf1 [516], buf2 [516];
+	int zd, z;
 
-	fd = fopen (to_file, "wb");
-	if (! fd) {
-		perror (to_file);
-		exit (-1);
-	}
-	for (z=0; z<01000; ++z) {
+	for (z=0; z<02000; ++z) {
 		strcpy (filename, from_dir);
 		sprintf (filename + strlen (filename), "/%04d", z);
 		zd = open (filename, O_RDONLY);
@@ -168,33 +170,35 @@ dir_to_disk (char *from_dir, char *to_file, int start, int length)
 				perror (filename);
 			break;
 		}
-		if (read (zd, raw, sizeof (raw)) != sizeof (raw)) {
-			fprintf (stderr, "%s: read failed\n", filename);
-			break;
-		}
-		repack (raw, buf1, cvbuf1);
 
+		/* Читаем первую половину зоны. */
 		if (read (zd, raw, sizeof (raw)) != sizeof (raw)) {
 			fprintf (stderr, "%s: read failed\n", filename);
 			break;
 		}
-		repack (raw, buf2, cvbuf2);
+		repack (raw, buf1);
+
+		/* Вторая половина зоны. */
+		if (read (zd, raw, sizeof (raw)) != sizeof (raw)) {
+			fprintf (stderr, "%s: read failed\n", filename);
+			break;
+		}
+		repack (raw, buf2);
 		close (zd);
+		if (verbose)
+			dump_zone (z, buf1, buf2);
 
-		memcpy (buf,            buf1 + 4*6, ZBYTES/2);
-		memcpy (buf + ZBYTES/2, buf2 + 4*6, ZBYTES/2);
-		memcpy (cvbuf,		cvbuf1 + 4, 512);
-		memcpy (cvbuf + 512,	cvbuf2 + 4, 512);
-		memcpy (check,		buf1, 4*6);
-		memcpy (check + 4*6,	buf2, 4*6);
-		if (fwrite (buf, 8, 1024, fd) != 1024) {
-			fprintf (stderr, "Write to %s zone %04o failed\n", to_file, z);
+		/* Сначала записываем 8 служебных слов,
+		 * затем 1024 слова данных. */
+		if (fwrite (buf1, 8, 4, to_file) != 4 ||
+		    fwrite (buf2, 8, 4, to_file) != 4 ||
+		    fwrite (buf1+4, 8, 512, to_file) != 512 ||
+		    fwrite (buf2+4, 8, 512, to_file) != 512) {
+			fprintf (stderr, "Write to zone %04o failed\n", z);
 			break;
 		}
 	}
-	fclose (fd);
-	printf ("Written %d zones from directory %s to disk %s\n",
-		z, from_dir, to_file);
+	printf ("Written %d zones.\n", z);
 }
 
 void
@@ -205,7 +209,7 @@ usage ()
 	fprintf (stderr, "\n");
 
 	fprintf (stderr, "Usage:\n");
-	fprintf (stderr, "\temd2simh <emd-dir-name> <simh-file>\n");
+	fprintf (stderr, "\temd2simh [-v] <emd-dir-name> <simh-file>\n");
 	exit (-1);
 }
 
@@ -213,11 +217,11 @@ int
 main (int argc, char **argv)
 {
 	unsigned start = 0, length = 0;
-	char *to_file = 0, *from_dir = 0;
+	FILE *to_file;
 	int c;
 
 	for (;;) {
-		c = getopt_long (argc, argv, "hV", longopts, 0);
+		c = getopt_long (argc, argv, "hVv", longopts, 0);
 		if (c < 0)
 			break;
 		switch (c) {
@@ -227,6 +231,9 @@ main (int argc, char **argv)
 		case 'V':
 			printf ("Version: %s\n", PACKAGE_VERSION);
 			return 0;
+		case 'v':
+			++verbose;
+			break;
 		case OPT_START:
 			start = strtol (optarg, 0, 0);
 			break;
@@ -239,8 +246,13 @@ main (int argc, char **argv)
 	argv += optind;
 	if (argc != 2)
 		usage ();
-	from_dir = argv[0];
-	to_file = argv[1];
-	dir_to_disk (from_dir, to_file, start, length);
+
+	to_file = fopen (argv[1], "wb");
+	if (! to_file) {
+		perror (argv[1]);
+		exit (-1);
+	}
+	dir_to_disk (argv[0], to_file, start, length);
+	fclose (to_file);
 	return 0;
 }
