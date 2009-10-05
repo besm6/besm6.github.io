@@ -275,6 +275,8 @@ void besm6_log (const char *fmt, ...);
 void besm6_log_cont (const char *fmt, ...);
 void besm6_debug (const char *fmt, ...);
 
+void normalize_and_round (void);
+
 // Unpacked instruction
 typedef struct  {
         uint8   i_reg;                  /* register #                   */
@@ -282,7 +284,7 @@ typedef struct  {
         uint16  i_addr;                 /* address field                */
 }       uinstr_t;
 
-uinstr_t unpack(t_value rk);
+uinstr_t unpack (t_value rk);
 
 /*
  * Разряды главного регистра прерываний (ГРП)
