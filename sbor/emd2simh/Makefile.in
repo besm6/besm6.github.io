@@ -34,9 +34,9 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-bin_PROGRAMS = dispak6$(EXEEXT) besm6$(EXEEXT)
-subdir = emulator
-DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in debug.c
+bin_PROGRAMS = emd2simh$(EXEEXT)
+subdir = sbor/emd2simh
+DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
@@ -47,22 +47,9 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_besm6_OBJECTS = besm6.$(OBJEXT) cu.$(OBJEXT) optab.$(OBJEXT) \
-	arith.$(OBJEXT) debug.$(OBJEXT) input.$(OBJEXT) \
-	extra.$(OBJEXT) disk.$(OBJEXT) errtxt.$(OBJEXT) \
-	vsinput.$(OBJEXT) dpout.$(OBJEXT) encoding.$(OBJEXT) \
-	getopt.$(OBJEXT)
-besm6_OBJECTS = $(am_besm6_OBJECTS)
-besm6_LDADD = $(LDADD)
-besm6_DEPENDENCIES =
-am_dispak6_OBJECTS = dispak.$(OBJEXT) cu.$(OBJEXT) optab.$(OBJEXT) \
-	arith.$(OBJEXT) debug.$(OBJEXT) input.$(OBJEXT) \
-	extra.$(OBJEXT) disk.$(OBJEXT) errtxt.$(OBJEXT) \
-	vsinput.$(OBJEXT) dpout.$(OBJEXT) encoding.$(OBJEXT) \
-	getopt.$(OBJEXT)
-dispak6_OBJECTS = $(am_dispak6_OBJECTS)
-dispak6_LDADD = $(LDADD)
-dispak6_DEPENDENCIES =
+am_emd2simh_OBJECTS = emd2simh.$(OBJEXT)
+emd2simh_OBJECTS = $(am_emd2simh_OBJECTS)
+emd2simh_LDADD = $(LDADD)
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
@@ -71,10 +58,8 @@ COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
 LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-YACCCOMPILE = $(YACC) $(YFLAGS) $(AM_YFLAGS)
-YLWRAP = $(top_srcdir)/ylwrap
-SOURCES = $(besm6_SOURCES) $(dispak6_SOURCES)
-DIST_SOURCES = $(besm6_SOURCES) $(dispak6_SOURCES)
+SOURCES = $(emd2simh_SOURCES)
+DIST_SOURCES = $(emd2simh_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -190,18 +175,13 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-dispak6_SOURCES = dispak.c cu.c optab.c arith.c debug.y input.c extra.c \
-	disk.c errtxt.c vsinput.c dpout.c encoding.c getopt.c
-
-besm6_SOURCES = besm6.c cu.c optab.c arith.c debug.y input.c extra.c \
-	disk.c errtxt.c vsinput.c dpout.c encoding.c getopt.c
-
-AM_CFLAGS = -Wall -g -O3 -ffast-math -fomit-frame-pointer
-LDADD = @LIBINTL@
+emd2simh_SOURCES = emd2simh.c
+AM_CFLAGS = -Wall -g -O2
+AM_CPPFLAGS = 
 all: all-am
 
 .SUFFIXES:
-.SUFFIXES: .c .o .obj .y
+.SUFFIXES: .c .o .obj
 $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
@@ -211,9 +191,9 @@ $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --gnu emulator/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --gnu sbor/emd2simh/Makefile'; \
 	$(am__cd) $(top_srcdir) && \
-	  $(AUTOMAKE) --gnu emulator/Makefile
+	  $(AUTOMAKE) --gnu sbor/emd2simh/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
@@ -269,12 +249,9 @@ uninstall-binPROGRAMS:
 
 clean-binPROGRAMS:
 	-test -z "$(bin_PROGRAMS)" || rm -f $(bin_PROGRAMS)
-besm6$(EXEEXT): $(besm6_OBJECTS) $(besm6_DEPENDENCIES) 
-	@rm -f besm6$(EXEEXT)
-	$(LINK) $(besm6_OBJECTS) $(besm6_LDADD) $(LIBS)
-dispak6$(EXEEXT): $(dispak6_OBJECTS) $(dispak6_DEPENDENCIES) 
-	@rm -f dispak6$(EXEEXT)
-	$(LINK) $(dispak6_OBJECTS) $(dispak6_LDADD) $(LIBS)
+emd2simh$(EXEEXT): $(emd2simh_OBJECTS) $(emd2simh_DEPENDENCIES) 
+	@rm -f emd2simh$(EXEEXT)
+	$(LINK) $(emd2simh_OBJECTS) $(emd2simh_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -282,20 +259,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/arith.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/besm6.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cu.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/debug.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/disk.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dispak.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dpout.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/encoding.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/errtxt.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/extra.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/getopt.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/input.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/optab.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/vsinput.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/emd2simh.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -310,9 +274,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(COMPILE) -c `$(CYGPATH_W) '$<'`
-
-.y.c:
-	$(am__skipyacc) $(SHELL) $(YLWRAP) $< y.tab.c $@ y.tab.h $*.h y.output $*.output -- $(YACCCOMPILE)
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \
@@ -398,7 +359,7 @@ distdir: $(DISTFILES)
 	done
 check-am: all-am
 check: check-am
-all-am: Makefile $(PROGRAMS) all-local
+all-am: Makefile $(PROGRAMS)
 installdirs:
 	for dir in "$(DESTDIR)$(bindir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
@@ -428,7 +389,6 @@ distclean-generic:
 maintainer-clean-generic:
 	@echo "This command is intended for maintainers to use"
 	@echo "it deletes files that may require special tools to rebuild."
-	-rm -f debug.c
 clean: clean-am
 
 clean-am: clean-binPROGRAMS clean-generic clean-local mostlyclean-am
@@ -437,7 +397,7 @@ distclean: distclean-am
 	-rm -rf ./$(DEPDIR)
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
-	distclean-local distclean-tags
+	distclean-tags
 
 dvi: dvi-am
 
@@ -451,7 +411,7 @@ info: info-am
 
 info-am:
 
-install-data-am: install-data-local
+install-data-am:
 
 install-dvi: install-dvi-am
 
@@ -500,12 +460,11 @@ uninstall-am: uninstall-binPROGRAMS
 
 .MAKE: install-am install-strip
 
-.PHONY: CTAGS GTAGS all all-am all-local check check-am clean \
-	clean-binPROGRAMS clean-generic clean-local ctags distclean \
-	distclean-compile distclean-generic distclean-local \
-	distclean-tags distdir dvi dvi-am html html-am info info-am \
-	install install-am install-binPROGRAMS install-data \
-	install-data-am install-data-local install-dvi install-dvi-am \
+.PHONY: CTAGS GTAGS all all-am check check-am clean clean-binPROGRAMS \
+	clean-generic clean-local ctags distclean distclean-compile \
+	distclean-generic distclean-tags distdir dvi dvi-am html \
+	html-am info info-am install install-am install-binPROGRAMS \
+	install-data install-data-am install-dvi install-dvi-am \
 	install-exec install-exec-am install-html install-html-am \
 	install-info install-info-am install-man install-pdf \
 	install-pdf-am install-ps install-ps-am install-strip \
@@ -515,39 +474,8 @@ uninstall-am: uninstall-binPROGRAMS
 	uninstall-am uninstall-binPROGRAMS
 
 
-all-local: ../disks/2099
-
-install-data-local: ${datadir}/besm6/2048 ${datadir}/besm6/2049 \
-	${datadir}/besm6/2053 ${datadir}/besm6/2099
-
-${datadir}/besm6/2048: ../disks/2048
-	${install_sh_DATA} $< $@
-
-${datadir}/besm6/2049: ../disks/2049
-	${install_sh_DATA} $< $@
-
-${datadir}/besm6/2053: ../disks/2053
-	${install_sh_DATA} $< $@
-
-${datadir}/besm6/2099: ../disks/2099
-	${install_sh_DATA} $< $@
-
 clean-local:
-	-rm -rf *~ debug.c ../disks/ibuf/[0-9][0-9][0-9]
-
-distclean-local:
-	-rm -rf ../disks/2099 autom4te.cache
-
-../disks/2099: make2099.b6 disp99.b6 e64.b6 ekdisp.b6 sostav.b6 spe66.b6 macros.b6
-	${MAKE} besm6
-	echo -n DISK > ../disks/2099
-	./besm6 -q --bootstrap --path=../disks --input-encoding=utf8 macros.b6
-	./besm6 -q --bootstrap --path=../disks --input-encoding=utf8 disp99.b6
-	./besm6 -q --bootstrap --path=../disks --input-encoding=utf8 e64.b6
-	./besm6 -q --bootstrap --path=../disks --input-encoding=utf8 ekdisp.b6
-	./besm6 -q --bootstrap --path=../disks --input-encoding=utf8 sostav.b6
-	./besm6 -q --bootstrap --path=../disks --input-encoding=utf8 spe66.b6
-	./besm6 -q --bootstrap --path=../disks --input-encoding=utf8 make2099.b6
+	-rm -rf *~
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
