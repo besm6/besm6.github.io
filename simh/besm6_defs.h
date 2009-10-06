@@ -78,11 +78,12 @@ enum {
  * 11 - числовая свертка
  * В памяти биты свертки имитируют четность полуслов.
  */
-#define CONVOL_INSN		0LL
-#define CONVOL_NUMBER		3LL
-#define SET_CONVOL(x, ruu)	(((x) & WORD) | (((ruu ^ 1) & 3LL) << 48))
-#define IS_INSN(x)		(((x) >> 48) == 1)
-#define IS_NUMBER(x)		(((x) >> 48) == 1 || ((x) >> 48) == 2)
+#define CONVOL_INSN		1
+#define CONVOL_NUMBER		2
+#define SET_CONVOL(x, c)	(((x) & WORD) | (((c) & 3LL) << 48))
+#define IS_INSN(x)		(((x) >> 48) == CONVOL_INSN)
+#define IS_NUMBER(x)		(((x) >> 48) == CONVOL_INSN || \
+				 ((x) >> 48) == CONVOL_NUMBER)
 
 /*
  * Вычисление правдоподобного времени выполнения команды,
