@@ -289,15 +289,6 @@ void besm6_debug (const char *fmt, ...);
 
 void normalize_and_round (void);
 
-// Unpacked instruction
-typedef struct  {
-        uint8   i_reg;                  /* register #                   */
-        uint8   i_opcode;               /* opcode                       */
-        uint16  i_addr;                 /* address field                */
-}       uinstr_t;
-
-uinstr_t unpack (t_value rk);
-
 /*
  * Разряды главного регистра прерываний (ГРП)
  * Внешние:
@@ -344,8 +335,5 @@ uinstr_t unpack (t_value rk);
 
 /* Номер блока ОЗУ или номер страницы, вызвавших прерывание */
 extern uint32 iintr_data;
-
-/* Требуется округление. */
-extern int rnd_rq;
 
 #endif
