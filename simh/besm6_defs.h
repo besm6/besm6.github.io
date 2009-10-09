@@ -111,8 +111,10 @@ extern uint32 PC, RAU, RUU;
 extern uint32 M[NREGS];
 extern t_value BRZ[8], RP[8], GRP;
 extern uint32 BAZ[8], TABST, RZ;
+extern uint32 READY; /* read by ext 4031 */
 extern DEVICE cpu_dev, drum_dev, mmu_dev;
 extern DEVICE clock_dev;
+extern DEVICE printer_dev;
 extern jmp_buf cpu_halt;
 
 /*
@@ -281,6 +283,12 @@ extern void mmu_print_brz (void);
  * Выполнение обращения к барабану.
  */
 void drum (int ctlr, uint32 cmd);
+
+/*
+ * Печать на АЦПУ.
+ */
+void printer_control (int num, uint32 cmd);
+void printer_hammer (int num, int pos, uint32 mask);
 
 void besm6_fprint_cmd (FILE *of, uint32 cmd);
 double besm6_to_ieee (t_value word);
