@@ -269,6 +269,7 @@ extern jmp_buf cpu_halt;
 extern void mmu_store (int addr, t_value word);
 extern t_value mmu_load (int addr);
 extern t_value mmu_fetch (int addr);
+extern t_value mmu_prefetch (int addr, int actual);
 extern void mmu_setcache (int idx, t_value word);
 extern t_value mmu_getcache (int idx);
 extern void mmu_setrp (int idx, t_value word);
