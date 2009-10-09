@@ -257,7 +257,7 @@ SDS_OPT = -I ${SDSD}
 BESM6D = .
 BESM6 = ${BESM6D}/besm6_cpu.c ${BESM6D}/besm6_drum.c ${BESM6D}/besm6_sys.c \
 	${BESM6D}/besm6_mmu.c ${BESM6D}/besm6_arith.c sim_readline.c
-BESM6_OPT = -I ${BESM6D} -DUSE_INT64 -DHAVE_READLINE -ldl
+BESM6_OPT = -I ${BESM6D} -DUSE_INT64 -DHAVE_READLINE -ldl #-Wall
 
 #
 # Build everything

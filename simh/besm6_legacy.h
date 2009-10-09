@@ -22,28 +22,6 @@ extern alureg_t negate (alureg_t word);
 	(R).ml |= ((R).ml & 0x10000) << 1; \
 }
 
-/*
- * Instructions table entry.
- */
-typedef struct  {
-	int     (*o_impl)();
-	unsigned o_flags;
-} optab_t;
-
-extern optab_t  optab[];
-
-extern int      add(), aax(), aex(), arx(),
-	        avx(), aox(), b6div(),  mul(),  apx(), aux(), acx(),
-	        anx(), epx(), emx(),  asx(), yta(),
-	        b6mod(), ext(),
-	        priv();
-
-/*
- * Instruction flags
- */
-#define F_LG		1
-#define F_MG		2
-#define F_AG		3
-#define F_GRP		3
-#define F_AR		0x40
-#define F_AROP		0x800
+extern void add(), aax(), aex(), arx(), avx(), aox(), b6div(),
+	mul(), apx(), aux(), acx(), anx(), epx(), emx(), asx(),
+	yta(), b6mod(), ext(), priv();

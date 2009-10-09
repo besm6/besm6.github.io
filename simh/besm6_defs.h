@@ -331,8 +331,8 @@ void normalize_and_round (void);
 #define GRP_RAM_CHECK	00000000000000010LL	/* 4 */
 #define GRP_BLOCK_MASK	00000000000000007LL	/* 3-1 */
 
-#define GRP_SET_BLOCK(x,m)	(((x) & ~GRP_BLOCK_MASK) | (m) & GRP_BLOCK_MASK)
-#define GRP_SET_PAGE(x,m)	(((x) & ~GRP_PAGE_MASK) | ((m)<<4) & GRP_PAGE_MASK)
+#define GRP_SET_BLOCK(x,m)	(((x) & ~GRP_BLOCK_MASK) | ((m) & GRP_BLOCK_MASK))
+#define GRP_SET_PAGE(x,m)	(((x) & ~GRP_PAGE_MASK) | (((m)<<4) & GRP_PAGE_MASK))
 
 /* Номер блока ОЗУ или номер страницы, вызвавших прерывание */
 extern uint32 iintr_data;
