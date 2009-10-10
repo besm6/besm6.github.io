@@ -13,7 +13,7 @@ ifeq ($(WIN32),)
       OS_CCDEFS = -lrt -lm -D_GNU_SOURCE
     endif
   endif
-  CC = gcc -std=c99 -U__STRICT_ANSI__ -g $(OS_CCDEFS) -I .
+  CC = gcc -std=c99 -U__STRICT_ANSI__ -Wall -g $(OS_CCDEFS) -I .
   ifeq ($(USE_NETWORK),)
   else
     NETWORK_OPT = -DUSE_NETWORK -isystem /usr/local/include /usr/local/lib/libpcap.a
@@ -257,6 +257,7 @@ SDS_OPT = -I ${SDSD}
 BESM6D = .
 BESM6 = ${BESM6D}/besm6_cpu.c ${BESM6D}/besm6_drum.c ${BESM6D}/besm6_sys.c \
 	${BESM6D}/besm6_printer.c \
+	${BESM6D}/besm6_tty.c \
 	${BESM6D}/besm6_mmu.c ${BESM6D}/besm6_arith.c sim_readline.c
 BESM6_OPT = -I ${BESM6D} -DUSE_INT64 -DHAVE_READLINE -ldl #-Wall
 
