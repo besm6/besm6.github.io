@@ -63,16 +63,21 @@ enum {
  */
 #define BITS12		            07777	/* биты 12..1 */
 #define BITS15		           077777	/* биты 15..1 */
-#define BITS16		          0177777	/* биты 16..1 */
-#define BITS24		        077777777	/* биты 24..1 */
 #define BIT16		          0100000	/* бит 16 */
+#define BITS16		          0177777	/* биты 16..1 */
 #define BIT17		          0200000	/* бит 17 */
+#define BITS17		          0377777	/* биты 17..1 */
 #define BIT19		         01000000	/* бит 19 - расширение адреса короткой команды */
 #define BIT20		         02000000	/* бит 20 - признак длинной команды */
 #define BIT24		        040000000	/* бит 24 */
-#define WORD		07777777777777777LL	/* биты 48..1 */
-#define MANTISSA	00037777777777777LL	/* биты 41..1 */
-#define SIGN		00020000000000000LL	/* 41-й бит-знак */
+#define BITS24		        077777777	/* биты 24..1 */
+#define BITS40		  017777777777777LL	/* биты 41..1 - мантисса */
+#define BIT41		  020000000000000LL	/* 41-й бит - знак */
+#define BITS41		  037777777777777LL	/* биты 41..1 - мантисса и знак */
+#define BIT48		04000000000000000LL	/* 48-й бит - знак порядка */
+#define BITS48		07777777777777777LL	/* биты 48..1 */
+#define BITS48_42	07740000000000000LL	/* биты 48..42 - порядок */
+#define BIT49	       010000000000000000LL	/* бит 49 */
 #define ADDR(x)		((x) & BITS15)		/* адрес слова */
 
 /*
@@ -85,7 +90,7 @@ enum {
  */
 #define CONVOL_INSN		1
 #define CONVOL_NUMBER		2
-#define SET_CONVOL(x, c)	(((x) & WORD) | (((c) & 3LL) << 48))
+#define SET_CONVOL(x, c)	(((x) & BITS48) | (((c) & 3LL) << 48))
 #define IS_INSN(x)		(((x) >> 48) == CONVOL_INSN)
 #define IS_NUMBER(x)		(((x) >> 48) == CONVOL_INSN || \
 				 ((x) >> 48) == CONVOL_NUMBER)
@@ -110,6 +115,7 @@ extern t_value pult [8];
 extern uint32 PC, RAU, RUU;
 extern uint32 M[NREGS];
 extern t_value BRZ[8], RP[8], GRP;
+extern t_value ACC, RMR;
 extern uint32 BAZ[8], TABST, RZ;
 extern uint32 READY; /* read by ext 4031 */
 extern DEVICE cpu_dev, drum_dev, mmu_dev;
@@ -284,6 +290,9 @@ extern void mmu_print_brz (void);
  */
 void drum (int ctlr, uint32 cmd);
 
+t_stat fprint_sym (FILE *of, t_addr addr, t_value *val,
+	UNIT *uptr, int32 sw);
+
 /*
  * Печать на АЦПУ.
  */
@@ -300,8 +309,6 @@ double besm6_to_ieee (t_value word);
 void besm6_log (const char *fmt, ...);
 void besm6_log_cont (const char *fmt, ...);
 void besm6_debug (const char *fmt, ...);
-
-void normalize_and_round (void);
 
 /*
  * Разряды главного регистра прерываний (ГРП)

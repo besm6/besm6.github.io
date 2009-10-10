@@ -13,7 +13,7 @@ ifeq ($(WIN32),)
       OS_CCDEFS = -lrt -lm -D_GNU_SOURCE
     endif
   endif
-  CC = gcc -std=c99 -U__STRICT_ANSI__ -Wall -g $(OS_CCDEFS) -I .
+  CC = gcc -std=c99 -U__STRICT_ANSI__ -g $(OS_CCDEFS) -I .
   ifeq ($(USE_NETWORK),)
   else
     NETWORK_OPT = -DUSE_NETWORK -isystem /usr/local/include /usr/local/lib/libpcap.a
