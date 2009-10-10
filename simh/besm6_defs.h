@@ -61,16 +61,20 @@ enum {
 /*
  * Разряды машинного слова.
  */
+#define BITS6		              077	/* биты 6..1 */
+#define BITS7		             0177	/* биты 7..1 */
 #define BITS12		            07777	/* биты 12..1 */
 #define BITS15		           077777	/* биты 15..1 */
 #define BIT16		          0100000	/* бит 16 */
 #define BITS16		          0177777	/* биты 16..1 */
 #define BIT17		          0200000	/* бит 17 */
 #define BITS17		          0377777	/* биты 17..1 */
+#define BIT18		          0400000	/* бит 18 */
 #define BIT19		         01000000	/* бит 19 - расширение адреса короткой команды */
 #define BIT20		         02000000	/* бит 20 - признак длинной команды */
 #define BIT24		        040000000	/* бит 24 */
 #define BITS24		        077777777	/* биты 24..1 */
+#define BIT40		  010000000000000LL	/* 40-й бит - старший разряд мантиссы */
 #define BITS40		  017777777777777LL	/* биты 41..1 - мантисса */
 #define BIT41		  020000000000000LL	/* 41-й бит - знак */
 #define BITS41		  037777777777777LL	/* биты 41..1 - мантисса и знак */
@@ -319,12 +323,12 @@ void besm6_add (t_value val, int negate_acc, int negate_val);
 void besm6_divide (t_value val);
 void besm6_multiply (t_value val);
 void besm6_change_sign (int sign);
-void besm6_pack (t_value val);
-void besm6_unpack (t_value val);
+void besm6_add_exponent (int val);
 void besm6_highest_bit (t_value val);
 void besm6_shift (int toright);
 int besm6_count_ones (t_value word);
-void besm6_add_exponent (int val);
+t_value besm6_pack (t_value val, t_value mask);
+t_value besm6_unpack (t_value val, t_value mask);
 
 /*
  * Разряды главного регистра прерываний (ГРП)
