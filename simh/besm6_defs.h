@@ -290,9 +290,6 @@ extern void mmu_print_brz (void);
  */
 void drum (int ctlr, uint32 cmd);
 
-t_stat fprint_sym (FILE *of, t_addr addr, t_value *val,
-	UNIT *uptr, int32 sw);
-
 /*
  * Печать на АЦПУ.
  */
@@ -300,15 +297,34 @@ void printer_control (int num, uint32 cmd);
 void printer_hammer (int num, int pos, uint32 mask);
 
 /*
- * Телетайпы
+ * Телетайпы.
  */
 void tty_send (uint32 mask);
 
+/*
+ * Отладочная выдача.
+ */
 void besm6_fprint_cmd (FILE *of, uint32 cmd);
-double besm6_to_ieee (t_value word);
 void besm6_log (const char *fmt, ...);
 void besm6_log_cont (const char *fmt, ...);
 void besm6_debug (const char *fmt, ...);
+t_stat fprint_sym (FILE *of, t_addr addr, t_value *val,
+	UNIT *uptr, int32 sw);
+
+/*
+ * Арифметика.
+ */
+double besm6_to_ieee (t_value word);
+void besm6_add (t_value val, int negate_acc, int negate_val);
+void besm6_divide (t_value val);
+void besm6_multiply (t_value val);
+void besm6_change_sign (int sign);
+void besm6_pack (t_value val);
+void besm6_unpack (t_value val);
+void besm6_highest_bit (t_value val);
+void besm6_shift (int toright);
+int besm6_count_ones (t_value word);
+void besm6_add_exponent (int val);
 
 /*
  * Разряды главного регистра прерываний (ГРП)
