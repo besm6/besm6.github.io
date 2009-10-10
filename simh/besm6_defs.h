@@ -290,6 +290,11 @@ void drum (int ctlr, uint32 cmd);
 void printer_control (int num, uint32 cmd);
 void printer_hammer (int num, int pos, uint32 mask);
 
+/*
+ * Телетайпы
+ */
+void tty_send (uint32 mask);
+
 void besm6_fprint_cmd (FILE *of, uint32 cmd);
 double besm6_to_ieee (t_value word);
 void besm6_log (const char *fmt, ...);
