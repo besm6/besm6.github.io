@@ -314,6 +314,7 @@ void besm6_log_cont (const char *fmt, ...);
 void besm6_debug (const char *fmt, ...);
 t_stat fprint_sym (FILE *of, t_addr addr, t_value *val,
 	UNIT *uptr, int32 sw);
+void besm6_draw_panel (void);
 
 /*
  * Арифметика.
