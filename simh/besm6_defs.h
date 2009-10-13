@@ -34,7 +34,7 @@
  */
 #define ZONE_SIZE	(8 + 1024)		/* 1kword zone size, words */
 #define DRUM_SIZE	(256 * ZONE_SIZE)	/* drum size per controller, words */
-#define DISK_SIZE	(1024 * ZONE_SIZE)	/* disk size, words */
+#define DISK_SIZE	(1024 * ZONE_SIZE)	/* disk size per unit, words */
 
 /*
  * Simulator stop codes
@@ -53,39 +53,28 @@ enum {
 	STOP_DIVZERO,				/* division by 0 or denorm */
 	STOP_DOUBLE_INTR,			/* double internal interrupt */
 	STOP_DRUMINVDATA,			/* reading unformatted drum */
+	STOP_DISKINVDATA,			/* reading unformatted disk */
 	STOP_INSN_ADDR_MATCH,			/* fetch address matched breakpt reg */
 	STOP_LOAD_ADDR_MATCH,			/* load address matched watchpt reg */
 	STOP_STORE_ADDR_MATCH,			/* store address matched watchpt reg */
 };
 
 /*
- * Разряды машинного слова.
+ * Разряды машинного слова, справа налево, начиная с 1.
  */
-#define BITS6		              077	/* биты 6..1 */
-#define BITS7		             0177	/* биты 7..1 */
-#define BITS12		            07777	/* биты 12..1 */
-#define BITS15		           077777	/* биты 15..1 */
-#define BIT16		          0100000	/* бит 16 */
-#define BITS16		          0177777	/* биты 16..1 */
-#define BIT17		          0200000	/* бит 17 */
-#define BITS17		          0377777	/* биты 17..1 */
-#define BIT18		          0400000	/* бит 18 */
-#define BIT19		         01000000	/* бит 19 - расширение адреса короткой команды */
-#define BIT20		         02000000	/* бит 20 - признак длинной команды */
-#define BITS20			 03777777	/* биты 20..1 - половина мантиссы */
-#define BIT24		        040000000	/* бит 24 */
-#define BITS24		        077777777	/* биты 24..1 */
-#define BIT40		  010000000000000LL	/* 40-й бит - старший разряд мантиссы */
-#define BITS40		  017777777777777LL	/* биты 41..1 - мантисса */
-#define BIT41		  020000000000000LL	/* 41-й бит - знак */
-#define BITS41		  037777777777777LL	/* биты 41..1 - мантисса и знак */
-#define BIT42		  040000000000000LL	/* 42-й бит - дубль-знак в мантиссе */
-#define BITS42		  077777777777777LL	/* биты 42..1 - мантисса и оба знака */
-#define BIT48		04000000000000000LL	/* 48-й бит - знак порядка */
+#define BIT(n)		(1 << (n-1))		/* один бит, от 1 до 32 */
+#define BIT40		000010000000000000LL	/* 40-й бит - старший разряд мантиссы */
+#define BIT41		000020000000000000LL	/* 41-й бит - знак */
+#define BIT42		000040000000000000LL	/* 42-й бит - дубль-знак в мантиссе */
+#define BIT48		004000000000000000LL	/* 48-й бит - знак порядка */
+#define BIT49	        010000000000000000LL	/* бит 49 */
+#define BITS(n)		(~0U >> (32-n))		/* маска битов n..1 */
+#define BITS40		00017777777777777LL	/* биты 41..1 - мантисса */
+#define BITS41		00037777777777777LL	/* биты 41..1 - мантисса и знак */
+#define BITS42		00077777777777777LL	/* биты 42..1 - мантисса и оба знака */
 #define BITS48		07777777777777777LL	/* биты 48..1 */
 #define BITS48_42	07740000000000000LL	/* биты 48..42 - порядок */
-#define BIT49	       010000000000000000LL	/* бит 49 */
-#define ADDR(x)		((x) & BITS15)		/* адрес слова */
+#define ADDR(x)		((x) & BITS(15))	/* адрес слова */
 
 /*
  * Работа со сверткой. Значение разрядов свертки слова равно значению
@@ -125,7 +114,7 @@ extern t_value BRZ[8], RP[8], GRP;
 extern t_value ACC, RMR;
 extern uint32 BAZ[8], TABST, RZ;
 extern uint32 READY; /* read by ext 4031 */
-extern DEVICE cpu_dev, drum_dev, mmu_dev;
+extern DEVICE cpu_dev, drum_dev, mmu_dev, disk_dev;
 extern DEVICE clock_dev;
 extern DEVICE printer_dev;
 extern jmp_buf cpu_halt;
@@ -296,6 +285,13 @@ extern void mmu_print_brz (void);
  * Выполнение обращения к барабану.
  */
 void drum (int ctlr, uint32 cmd);
+
+/*
+ * Обращение к дискам.
+ */
+void disk_io (int ctlr, uint32 cmd);
+void disk_ctl (int ctlr, uint32 cmd);
+int disk_state (int ctlr);
 
 /*
  * Печать на АЦПУ.
