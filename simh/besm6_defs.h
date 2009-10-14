@@ -324,7 +324,7 @@ void besm6_divide (t_value val);
 void besm6_multiply (t_value val);
 void besm6_change_sign (int sign);
 void besm6_add_exponent (int val);
-void besm6_highest_bit (t_value val);
+int besm6_highest_bit (t_value val);
 void besm6_shift (int toright);
 int besm6_count_ones (t_value word);
 t_value besm6_pack (t_value val, t_value mask);
