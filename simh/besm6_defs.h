@@ -23,7 +23,7 @@
  * Memory.
  */
 #define NREGS		30			/* number of registers-modifiers */
-#define MEMSIZE		(128 * 1024)		/* memory size, words */
+#define MEMSIZE		(512 * 1024)		/* memory size, words */
 
 /*
  * Drums and disks.
@@ -57,6 +57,7 @@ enum {
 	STOP_INSN_ADDR_MATCH,			/* fetch address matched breakpt reg */
 	STOP_LOAD_ADDR_MATCH,			/* load address matched watchpt reg */
 	STOP_STORE_ADDR_MATCH,			/* store address matched watchpt reg */
+	STOP_UNIMPLEMENTED,			/* unimplemented 033 or 002 insn feature */
 };
 
 /*
