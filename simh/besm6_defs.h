@@ -41,7 +41,9 @@
  */
 enum {
 	STOP_STOP = 1,				/* STOP */
-	STOP_IBKPT,				/* breakpoint */
+	STOP_IBKPT,				/* SIMH breakpoint */
+	STOP_RWATCH,				/* SIMH read watchpoint */
+	STOP_WWATCH,				/* SIMH write watchpoint */
 	STOP_RUNOUT,				/* run out end of memory limits */
 	STOP_BADCMD,				/* invalid instruction */
 	STOP_INSN_CHECK,			/* not an instruction */
