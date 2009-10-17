@@ -103,6 +103,12 @@ enum {
  */
 #define MEAN_TIME(x,y)	(x>y ? x+y/2 : x/2+y)
 
+/*
+ * Считаем, что моделируеммая машина имеет опорную частоту 10 МГц.
+ */
+#define USEC	10		/* одна микросекунда - десять тактов */
+#define MSEC	(1000*USEC)	/* одна миллисекунда */
+
 extern uint32 sim_brk_types, sim_brk_dflt, sim_brk_summ; /* breakpoint info */
 extern int32 sim_interval, sim_step;
 extern FILE *sim_deb, *sim_log;
@@ -113,7 +119,7 @@ extern t_value memory [MEMSIZE];
 extern t_value pult [8];
 extern uint32 PC, RAU, RUU;
 extern uint32 M[NREGS];
-extern t_value BRZ[8], RP[8], GRP;
+extern t_value BRZ[8], RP[8], GRP, MGRP;
 extern uint32 PRP, MPRP;
 extern t_value ACC, RMR;
 extern uint32 BAZ[8], TABST, RZ;
