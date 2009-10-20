@@ -317,6 +317,7 @@ void printer_hammer (int num, int pos, uint32 mask);
 void tty_send (uint32 mask);
 int tty_query (void);
 void vt_print();
+void vt_receive();
 
 /*
  * Отладочная выдача.
@@ -370,6 +371,7 @@ t_value besm6_unpack (t_value val, t_value mask);
 #define GRP_CHAN6_FREE	00000000200000000LL	/* 26 */
 #define GRP_CHAN7_FREE	00000000100000000LL	/* 25 */
 #define GRP_WATCHDOG	00000000000002000LL	/* 11 */
+#define GRP_SLOW_CLK	00000000000001000LL	/* 10 */
 /* Внутренние: */
 #define GRP_DIVZERO	00000000034000000LL	/* 23-21 */
 #define GRP_OVERFLOW	00000000014000000LL	/* 22-21 */
