@@ -263,8 +263,8 @@ BESM6_OPT = -I ${BESM6D} -DUSE_INT64 -DHAVE_READLINE -ldl #-Wall
 
 # Using libSDL and libSDL_ttf for drawing CPU panel
 # Comment out these lines if you have no libSDL installed.
-BESM6_OPT += -DHAVE_LIBSDL -Dmain=SDL_main $(shell sdl-config --cflags --libs)
-BESM6_OPT += -I/opt/local/include -L/opt/local/lib -lSDL_ttf
+#BESM6_OPT += -DHAVE_LIBSDL -Dmain=SDL_main $(shell sdl-config --cflags --libs)
+#BESM6_OPT += -I/opt/local/include -L/opt/local/lib -lSDL_ttf
 
 #
 # Build everything
