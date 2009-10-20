@@ -312,10 +312,11 @@ void printer_control (int num, uint32 cmd);
 void printer_hammer (int num, int pos, uint32 mask);
 
 /*
- * Телетайпы.
+ * Телетайпы и видеотоны через КВУ.
  */
 void tty_send (uint32 mask);
 int tty_query (void);
+void vt_print();
 
 /*
  * Отладочная выдача.
