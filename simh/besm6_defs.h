@@ -298,6 +298,7 @@ extern void mmu_print_brz (void);
  * Выполнение обращения к барабану.
  */
 void drum (int ctlr, uint32 cmd);
+int drum_errors (void);
 
 /*
  * Обращение к дискам.
@@ -305,6 +306,7 @@ void drum (int ctlr, uint32 cmd);
 void disk_io (int ctlr, uint32 cmd);
 void disk_ctl (int ctlr, uint32 cmd);
 int disk_state (int ctlr);
+int disk_errors (void);
 
 /*
  * Печать на АЦПУ.
