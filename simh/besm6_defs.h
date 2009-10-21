@@ -129,6 +129,7 @@ extern DEVICE cpu_dev, drum_dev, mmu_dev, disk_dev;
 extern DEVICE clock_dev;
 extern DEVICE printer_dev;
 extern DEVICE console_dev;
+extern DEVICE fs_dev;
 extern jmp_buf cpu_halt;
 
 /*
@@ -320,6 +321,12 @@ void vt_print();
 void vt_receive();
 
 /*
+ * Ввод с перфоленты.
+ */
+void fs_control (int num, uint32 cmd);
+int fs_read (int num);
+
+/*
  * Отладочная выдача.
  */
 void besm6_fprint_cmd (FILE *of, uint32 cmd);
@@ -353,7 +360,9 @@ t_value besm6_unpack (t_value val, t_value mask);
 #define GRP_PRN2_SYNC	02000000000000000LL	/* 47 */
 #define GRP_DRUM1_FREE	01000000000000000LL	/* 46 */
 #define GRP_DRUM2_FREE	00400000000000000LL	/* 45 */
-#define GRP_VNIIEM	00360000000000000LL	/* 44-41, placeholder */
+#define GRP_VNIIEM	00300000000000000LL	/* 44-43, placeholder */
+#define GRP_FS1_SYNC	00040000000000000LL	/* 42 */
+#define GRP_FS2_SYNC	00020000000000000LL	/* 41 */
 #define	GRP_TIMER	00010000000000000LL	/* 40 */
 #define GRP_PRN1_ZERO	00004000000000000LL	/* 39 */
 #define GRP_PRN2_ZERO	00002000000000000LL	/* 38 */
