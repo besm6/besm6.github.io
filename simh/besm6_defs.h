@@ -315,6 +315,7 @@ void printer_hammer (int num, int pos, uint32 mask);
 /*
  * Телетайпы и видеотоны через КВУ.
  */
+extern uint32 vt_idle;
 void tty_send (uint32 mask);
 int tty_query (void);
 void vt_print();
