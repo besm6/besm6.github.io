@@ -91,7 +91,7 @@ patch   date            module(s) and fix(es)
                         - Updated mp_dms_jmp calling sequence
                         - Fixed DJP, SJP, and UJP jump target validation
                         - RVA/B conditionally updates dms_vr before returning value
-                        
+
                         hp2100_cpu3.c (from Dave Bryan):
                         - Moved microcode function prototypes to hp2100_cpu1.h
                         - Removed option-present tests (now in UIG dispatchers)
@@ -148,7 +148,7 @@ patch   date            module(s) and fix(es)
                         hp2100_mt.c (from Dave Bryan):
                         - Fixed missing flag after CLR command
                         - Moved write enable and format commands from MTD to MTC
-                        
+
                         hp2100_mux.c (from Dave Bryan):
                         - SHOW MUX CONN/STAT with SET MUX DIAG is no longer disallowed
                         - Changed Telnet poll to connect immediately after reset or attach
@@ -386,7 +386,7 @@ patch   date            module(s) and fix(es)
                         - fixed declarations (from Mark Pizzolato)
 
 
-/* V3.7 revision history 
+// V3.7 revision history
 
   3     02-Sep-07       scp.c:
                         - fixed bug in SET THROTTLE command
@@ -413,7 +413,7 @@ patch   date            module(s) and fix(es)
 
                         sim_timer.c:
                         - fixed idle timer event selection algorithm
-  
+
                         h316_lp.c:
                         - fixed loss of last print line (from Theo Engel)
 
@@ -658,7 +658,7 @@ patch   date            module(s) and fix(es)
                         - fixed operand order in EIS instructions (found by W.F.J. Mueller)
 
 
-/* V3.6 revision history 
+// V3.6 revision history
 
   1     25-Jul-06       sim_console.c:
                         - implemented SET/SHOW PCHAR
@@ -832,7 +832,7 @@ patch   date            module(s) and fix(es)
                         - fixed bug in reported VA on faulting cross-page write
 
 
-/* V3.5 revision history 
+// V3.5 revision history
 
 patch   date            module(s) and fix(es)
 
@@ -968,7 +968,7 @@ patch   date            module(s) and fix(es)
 
                         vax_io.c: revised autoconfiguration algorithm and interface
 
-/* V3.4 revision history 
+// V3.4 revision history
 
   0     01-May-04       scp.c:
                         - fixed ASSERT code
@@ -1006,7 +1006,7 @@ patch   date            module(s) and fix(es)
 
                         pdp11_tu.c: fixed error reporting
 
-/* V3.3 revision history 
+// V3.3 revision history
 
   2     08-Mar-05       scp.c: added ASSERT command (from Dave Bryan)
 
@@ -1188,7 +1188,7 @@ patch   date            module(s) and fix(es)
                         - TMK is cleared by new motion command, not DCLR
                         - DONE is set on data transfers, ATA on non data transfers
 
-                        pdp11_defs.h: 
+                        pdp11_defs.h:
                         - revised Unibus/Qbus DMA API's
                         - added CPU type and options flags
 
@@ -1224,7 +1224,7 @@ patch   date            module(s) and fix(es)
                         vax_defs.h:
                         - added octaword, compatibility mode support
 
-                        vax_moddefs.h: 
+                        vax_moddefs.h:
                         - revised Unibus/Qbus DMA API's
 
                         vax_cpu.c:
@@ -1258,7 +1258,7 @@ patch   date            module(s) and fix(es)
                         - split from vax_sys.c
                         - removed PTR, PTP
 
-/* V3.2 revision history 
+// V3.2 revision history
 
   3     03-Sep-04       scp.c:
                         - added ECHO command (from Dave Bryan)
@@ -1343,7 +1343,7 @@ patch   date            module(s) and fix(es)
                         - revised SR values to preserve SR<5:3>
 
                         hp2100_lps.c, hp2100_lpt.c: fixed timing
-                        
+
                         hp2100_dp.c: fixed interpretation of SR<0>
 
                         hp2100_dr.c: revised boot code to use IBL algorithm
@@ -1457,7 +1457,7 @@ patch   date            module(s) and fix(es)
                         - added PC read fault in EXTxV
                         - fixed PC write fault in INSV
 
-/* V3.1 revision history
+// V3.1 revision history
 
   0     29-Dec-03       sim_defs.h, scp.c: added output stall status
 
@@ -1535,7 +1535,7 @@ patch   date            module(s) and fix(es)
                         pdp11_xq.c (Dave Hittner, Mark Pizzolato):
                         - fixed second controller interrupts
                         - fixed bugs in multicast and promiscuous setup
-  
+
                         pdp18b_cpu.c:
                         - added instruction history
                         - fixed PDP-4,-7,-9 autoincrement bug
@@ -1570,7 +1570,7 @@ patch   date            module(s) and fix(es)
                         - revised instruction decoding
                         - added instruction history
 
-/* V3.0 revision history 
+// V3.0 revision history
 
   2     15-Sep-03       scp.c:
                         - fixed end-of-file problem in dep, idep
@@ -1582,7 +1582,7 @@ patch   date            module(s) and fix(es)
                         - added address switch functionality to PTR BOOT
 
                         pdp1_sys.c: added multibank capability to LOAD
-  
+
                         pdp18b_cpu.c:
                         - fixed priorities in PDP-15 API (PI between 3 and 4)
                         - fixed sign handling in PDP-15 unsigned mul/div
@@ -1736,7 +1736,7 @@ patch   date            module(s) and fix(es)
 
                         gri_cpu.c: fixed bug in SC queue pointer management
 
-/* V2.10 revision history
+// V2.10 revision history
 
   4     03-Mar-03       scp.c
                         - added .ini startup file capability
@@ -2034,7 +2034,7 @@ patch   date            module(s) and fix(es)
 
                         IBM 1620: first release
 
-/* V2.9 revision history
+// V2.9 revision history
 
   11    20-Jul-02       i1401_mt.c: on read, end of record stores group mark
                            without word mark (found by Van Snyder)
@@ -2071,7 +2071,7 @@ patch   date            module(s) and fix(es)
                         pdp11_cpu.c: fixed bugs (from John Dundas)
                         - added special case for PS<15:12> = 1111 to MFPI
                         - removed special case from MTPI
-                        - added masking of relocation adds 
+                        - added masking of relocation adds
 
                         i1401_cpu.c:
                         - added multiply/divide
@@ -2088,7 +2088,7 @@ patch   date            module(s) and fix(es)
                         - changed LOG/NOLOG to SET LOG/NOLOG
                         - added SHOW LOG
                         - added SET VT/NOVT and SHOW VT for VT emulation
-  
+
                         sim_sock.h: changed VMS stropt.h include to ioctl.h
 
                         vax_cpu.c
@@ -2097,12 +2097,12 @@ patch   date            module(s) and fix(es)
                         - fixed register logging in autoincrement indexed
 
                         vax_stddev.c: added TODR powerup routine
-                        
+
                         vax_cpu1.c: fixed exception flows to clear trap request
 
   7     30-Apr-02       scp.c: fixed bug in clock calibration when (real) clock
                            jumps forward due too far (found by Jonathan Engdahl)
-  
+
                         pdp11_cpu.c: fixed bugs, added features (from John Dundas
                            and Wolfgang Helbig)
                         - added HTRAP and BPOK to maintenance register
@@ -2242,7 +2242,7 @@ patch   date            module(s) and fix(es)
                         - cleaned up volatile state for GNU C longjmp
 
                         pdp11_cpu.c: cleaned up declarations
-  
+
                         pdp11_rq.c: added RA-class disks
 
 4       17-Dec-01       pdp11_rq.c: added delayed processing of packets
