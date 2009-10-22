@@ -313,15 +313,16 @@ int disk_errors (void);
  */
 void printer_control (int num, uint32 cmd);
 void printer_hammer (int num, int pos, uint32 mask);
+int printer_is_idle (void);
 
 /*
  * Телетайпы и видеотоны через КВУ.
  */
-extern uint32 vt_idle;
 void tty_send (uint32 mask);
 int tty_query (void);
-void vt_print();
-void vt_receive();
+void vt_print (void);
+void vt_receive (void);
+int vt_is_idle (void);
 
 /*
  * Ввод с перфоленты.
