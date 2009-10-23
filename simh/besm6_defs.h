@@ -329,6 +329,7 @@ int vt_is_idle (void);
  */
 void fs_control (int num, uint32 cmd);
 int fs_read (int num);
+int fs_is_idle (void);
 
 /*
  * Отладочная выдача.
