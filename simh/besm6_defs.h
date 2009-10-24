@@ -129,6 +129,7 @@ extern DEVICE cpu_dev, drum_dev, mmu_dev, disk_dev;
 extern DEVICE clock_dev;
 extern DEVICE printer_dev;
 extern DEVICE console_dev;
+extern DEVICE tty_dev;
 extern DEVICE fs_dev;
 extern jmp_buf cpu_halt;
 
