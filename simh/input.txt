@@ -1,0 +1,46 @@
+шифр 419999 зс5^
+лен 41(2048)^
+eeв1а3
+*name Простые числа
+*no list
+*no load list
+*assem
+ etime: ,name,
+	,*53 , 010b
+	,aox , =6400000000000000
+	,a/x , =R50.0
+     13 ,uj  ,
+	,end ,
+*ftn
+        program main
+        print 1000
+1000    format(' Вычисление простых чисел тупым делением')
+        time0 = etime(0)
+        call primes
+        time1 = etime(0)
+        ntime = time1 - time0
+        print 2000, ntime
+        stop
+2000    format (' Время, секунды =', i6)
+        end
+
+        subroutine primes
+        maxk=1000
+        t=0
+        do 10 n=1001, 100000, 2
+                do 20 k=3, maxk, 2
+                m = (n / k) * k
+                if (n .eq. m) goto 10
+20              continue
+c------ Печать каждого десятитысячного числа
+                t=t+1
+                if (t .lt. 1000) goto 10
+                print 1000, n
+                t=0
+10      continue
+        return
+1000    format (1x, i9)
+        end
+*execute
+*end file
+еконец
