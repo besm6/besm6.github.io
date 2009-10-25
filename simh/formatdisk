@@ -1,0 +1,34 @@
+#!/usr/bin/perl
+
+($diskno = $ARGV[0]) >= 2048 && $diskno <= 4095 ||
+	die "Usage: formatdisk NNNN > diskNNNN.bin, where 2048 <= NNNN <= 2095\n";
+
+$zone = "\0\0\0\0\0\0\2\0";
+$key = "\0\0\0\0\0\0\2\0";
+$userid = "\0\0\0\0\0\0\2\0";
+$checksum = "\0\0\0\0\0\0\2\0";
+
+# 01370707 << 24
+vec($key, 3, 8) = 0xc7;	
+vec($key, 4, 8) = 0xf1;  
+vec($key, 5, 8) = 0x05;
+
+# NNNN << 12
+vec($key, 2, 8) = $diskno >> 4;
+vec($key, 1, 8) = ($diskno & 0xF) << 4;
+
+foreach $i (0 .. 01747) {
+
+	vec($zone, 4, 8) = (2*$i) << 4;
+	vec($zone, 5, 8) = (2*$i) >> 4;
+
+	print $zone, $key, $userid, $checksum;
+
+	vec($zone, 36, 1) = 1;
+
+	print $zone, $key, $userid, $checksum;
+
+	print "\0\0\0\0\0\0\2\0" x 1024;
+}
+
+exit 0
