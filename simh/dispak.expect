@@ -1,45 +1,87 @@
 #!/usr/bin/expect -f
 #
-# Автоматизированный прогон задачи под ДИСПАКом, с вводом через перфоленту..
+# Автоматизированный прогон задачи под ДИСПАКом, с вводом через перфоленту.
 # Входной пакет задачи должен быть записан в файл "input.txt".
 # Распечатка окажется в файле "output.txt".
 # Настройки эмулятора можно изменить в файле "dispak.ini".
 #
 # Copyright (c) 2009, Serge Vakulenko
-#
 
+#
 # Запускаем эмулятор.
+#
 spawn ./besm6 dispak.ini
 
+#
 # Устанавливаем номер смены и текущее время.
 # Уже не требуется: эмулятор ставит их автоматически.
+#
 #expect	"PEC:  1710\n\r"
 #send	"СМЕ 1\3"
-#expect 	"ECTЬ\n\r"
+#expect "ECTЬ\n\r"
 #send	[timestamp -format "ВРЕ %H%M\3"]
 expect 	"ЭBM*\n\r"
 
+#
 # Разрешаем вывод на АЦПУ.
-send	"ДАЙ А0\3"
+#
+send	"ДАЙ А0\r"
 expect 	"ECTЬ\n\r"
 
+#
+# Запрашиваем модельное время.
+#
+send	"\5"
+expect 	"stopped"
+send	"show time\n"
+expect 	"Time:"
+
+#
+# Подключаем АЦПУ.
+#
+system	rm -f output.txt
+send	"attach prn0 output.txt\n"
+expect 	"sim>"
+
+#
+# Подключаем ввод с перфоленты.
+#
+send	"attach fs0 input.txt\n"
+expect 	"sim>"
+send	"cont\n"
+expect 	-timeout 1 timeout
+
+#
 # Вводим задачу с перфоленты.
-send	"FS8\3"
+#
+send	"FS8\r"
 expect 	"Л0*\n\r"
 
+#
 # Ждём окончания задачи.
-send	"ВЦПП\3"
+#
+send	"ВЦПП\r"
 expect 	{
 	"KЗ*\n\r"	{}
 	"OЗ*\n\r"	{}
 	"HET\n\r"	{}
-	"\[0-9]*\n\r"	{ sleep 3; send "ВЦПП\3"; exp_continue }
+	"\[0-9]*\n\r"	{ sleep 3; send "ВЦПП\r"; exp_continue }
 }
 
+#
 # Переключаемся в режим управления эмулятором.
+#
 send	"\5"
 expect 	"stopped"
 
+#
+# Запрашиваем модельное время.
+#
+send	"show time\n"
+expect 	"Time:"
+
+#
 # Завершаем работу.
+#
 send	"quit\n"
 expect 	"Goodbye"
