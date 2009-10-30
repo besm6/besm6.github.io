@@ -128,7 +128,6 @@ extern uint32 READY2; /* read by ext 4102 */
 extern DEVICE cpu_dev, drum_dev, mmu_dev, disk_dev;
 extern DEVICE clock_dev;
 extern DEVICE printer_dev;
-extern DEVICE console_dev;
 extern DEVICE tty_dev;
 extern DEVICE fs_dev;
 extern jmp_buf cpu_halt;
@@ -317,12 +316,14 @@ void printer_hammer (int num, int pos, uint32 mask);
 int printer_is_idle (void);
 
 /*
- * Телетайпы и видеотоны через КВУ.
+ * Терминалы (телетайпы, видеотоны, "Консулы").
  */
 void tty_send (uint32 mask);
 int tty_query (void);
 void vt_print (void);
 void vt_receive (void);
+void consul_print (int num, uint32 cmd);
+uint32 consul_read (int num);
 int vt_is_idle (void);
 
 /*
