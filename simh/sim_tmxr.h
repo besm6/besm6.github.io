@@ -45,7 +45,9 @@
 
 #define TMXR_V_VALID    15
 #define TMXR_VALID      (1 << TMXR_V_VALID)
+#ifndef TMXR_MAXBUF
 #define TMXR_MAXBUF     256                             /* buffer size */
+#endif
 #define TMXR_GUARD      12                              /* buffer guard */
 
 struct tmln {
@@ -111,4 +113,3 @@ t_stat tmxr_show_cstat (FILE *st, UNIT *uptr, int32 val, void *desc);
 t_stat tmxr_show_lines (FILE *st, UNIT *uptr, int32 val, void *desc);
 
 #endif
-
