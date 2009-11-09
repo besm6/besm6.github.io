@@ -10,7 +10,7 @@
 #
 # Запускаем эмулятор.
 #
-spawn ./besm6 dispak.ini
+spawn ./besm6 -q dispak.ini
 
 #
 # Устанавливаем номер смены и текущее время.
