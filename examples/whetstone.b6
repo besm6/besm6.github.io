@@ -1,12 +1,36 @@
 шифр 419999 зс5^
-лен 41(2048)^
+DIS 41(2148)^
 eeв1а3
 *name Whetstone
-*full opt
-*optim
-*no li
-*ftn
-*     trans:forex3*,,411550
+*     Experiment with the three (or four) FORTRAN compilers
+*     by uncommenting (removing the spaces after the asterisk)
+*     one of them
+*     FORTRAN
+*     FOREX
+*TRANS:FOREX3*,,411550
+*     FTN
+*     Printing modes:
+*     by default the source code and the symbol table for the
+*     user program are printed.
+*     NO LIST disables source listing
+*     NO LOAD LIST disables symtab listing
+*     FULL LIST enables intermediate representation listing
+*     (assembler for FORTRAN, assembler-like pseudocode for FTN,
+*     a pseudocode with Russian mnemonics for FOREX)
+*     SYSTEM LOAD LIST enables printing symbol tables for all
+*     subprocesses, including compilers and control directives
+*
+*PUNCH will enable punching of object modules in a non-text format
+*     (command line option --punch=file is needed). The contents of the 
+*     punch file can be included in the input batch literally if punched
+*     as dots and holes, or by an "include" line, if punched in binary:
+*     `N
+*     where N = 0..9 will take data from file punch.inN in the current
+*     directory
+*
+*     OPTIM - sets a flag requesting optimization; not all compilers will
+*     honor it
+*
       program whtstn
 C**********************************************************************
 C     Benchmark #2 -- Single Precision Whetstone (A001)
@@ -290,20 +314,13 @@ C
         walltm = etime(it)
         return
         end
-*bemsh
-ввд$$$
-etime  ноп
-       входн  etime
-       э53    '010'
-       или    =В'6400000000000000'
-       дел    =Е'50'
-       пб     ('015')
-       финиш
-квч$$$
-трн$$$
-блмак
-бтмалф
-кнц$$$
+*assem
+ etime:	,name,
+	,*53,	10B	.ACC = time of day in jiffies
+	,aox,	=I0	.ACC |= zero with a proper exponent
+	,a/x,	=R50.0	.ACC /= 50.0
+   13	,uj,		.return
+	,end,
 *execute
 *end file
 ``````
