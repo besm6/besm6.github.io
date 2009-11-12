@@ -20,5 +20,5 @@ for f in doc/*; do
 	qq
 	cat scripts/krab_end >> $tf1
 	cat $tf1|$conv>$tf2
-	$b6 $* $tf2 > /dev/null 2>&1
+	dispak $* $tf2 > /dev/null 2>&1
 done

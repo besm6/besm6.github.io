@@ -54,4 +54,4 @@ cat <<qq >$tf1
 ЕКОНЕЦ
 qq
 cat $tf1|$conv>$tf2
-$b6 $tf2
+dispak $tf2

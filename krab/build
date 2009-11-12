@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 . options
 
 mdls="\
@@ -60,9 +60,8 @@ fi
 rm -rf $extra_disks $logfile work
 mkdir -p $extra_disks work
 touch $logfile
-echo DISK|dd bs=4 count=1 > $disk_src 2> /dev/null
-echo DISK|dd bs=4 count=1 > $disk_mdl 2> /dev/null
-echo DISK|dd bs=4 count=1 > $disk_krab 2> /dev/null
+rm -f $disk_src $disk_mdl $disk_krab
+touch $disk_src $disk_mdl $disk_krab
 
 cat <<qq >$bpass
 шифр 419999^
@@ -110,7 +109,7 @@ _$
 qq
 
 (cat $bpass; echo "новмл^";cat $bend) | $conv > $tf1
-$b6 $tf1 >$logfile
+dispak $tf1 >$logfile
 
 for src in $srcs; do
 	echo Storing $src|$conv|tee -a $logfile
@@ -118,11 +117,11 @@ for src in $srcs; do
 	echo "ВВД\$\$\$^" >> $tf1
 	sed -e '/^$/ d' -e '/\^$/ ! s/$/^/' bemshsrc/$src >> $tf1
 	echo "КВЧ\$\$\$^" >> $tf1
-	printf "%-6.6s\$\$\$\$\$\$^\\n" $src >> $tf1
+	echo "$src     " | sed 's/\(......\).*/\1$$$$$$^/' >> $tf1
 	echo "ЗПБ\$\$\$^" >> $tf1
 	cat $bend >> $tf1
 	cat $tf1|$conv>$tf2
-	$b6 $tf2 >>$logfile || exit 1
+	dispak $tf2 >>$logfile || exit 1
 done
 
 for mdl in $mdls;do
@@ -132,12 +131,12 @@ for mdl in $mdls;do
 	echo Assemblying `./scripts/objattr -m $mdl`|$conv|tee -a $logfile
 	cp $bpass $tf1
 	for src in $srcs;do
-		printf "%-6.6s\$\$\$\$\$\$^\\n" $src >> $tf1
+		echo "$src     " | sed 's/\(......\).*/\1$$$$$$^/' >> $tf1
 	done
 	echo "трн\$\$\$^блмак^бтмалф^зонмод43$dst    $sz^" >> $tf1
 	cat $bend >> $tf1
 	cat $tf1|$conv>$tf2
-	$b6 $tf2 >>$logfile || exit 1
+	dispak $tf2 >>$logfile || exit 1
 done
 lkedz=`expr $diskoff_src + 3`
 lkedz=`printf "%04d" $lkedz`
@@ -244,11 +243,11 @@ cat <<qq > $tf1
 КОНЕЦ^
 _$
 В12000
-БКОНЕЦ 
+БКОНЕЦ
 ЕКОНЕЦ
 qq
 cat $tf1|$conv>$tf2
-$b6 $tf2 >>$logfile
+dispak $tf2 >>$logfile
 
 ./scripts/gen -bv
 
