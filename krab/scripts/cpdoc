@@ -1,0 +1,10 @@
+#!/bin/sh
+. options
+
+for f in srcdoc/*;do
+	less $f
+	read -p "Name: " nm
+	if [ -n $nm ]; then
+		cp $f doc/$nm
+	fi
+done

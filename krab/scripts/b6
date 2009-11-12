@@ -1,0 +1,4 @@
+#!/bin/sh
+. options
+
+exec $b6cmd $*

@@ -1,0 +1,256 @@
+#!/bin/sh
+. options
+
+mdls="\
+ f1 \
+ f2 \
+ fpz \
+ komp \
+ fnere \
+ fdpz \
+ fstart \
+ fnred \
+ fpech \
+ ffor \
+ forpz \
+ forps \
+ fpocht \
+ fbuh \
+ list \
+ fadm \
+ fns2 \
+ fotl \
+ shkola \
+ shkola2 \
+ fnarh \
+ fawpz \
+ fns1 \
+ fs \
+ slzad \
+ byust \
+ sbor \
+ pk \
+ bufer \
+ serwis \
+ komarh \
+ arhiv \
+ arhiv1 \
+"
+bpass=work/bemshpass
+bend=work/bemshend
+
+if [ $# -ne 0 -a $# -ne 2 ]; then
+	echo Arg count.
+	exit 1
+fi
+
+if [ $# -eq 0 ]; then
+	srcs=""
+	for mdl in $mdls;do
+		srcs="$srcs `./scripts/objattr -n $mdl`"
+	done
+elif [ $1 = -m ]; then
+	mdls=$2
+	srcs=`./scripts/objattr -n $mdls`
+elif [ $1 = -s ]; then
+	mdl=""
+	srcs=$2
+fi
+
+rm -rf $extra_disks $logfile work
+mkdir -p $extra_disks work
+touch $logfile
+echo DISK|dd bs=4 count=1 > $disk_src 2> /dev/null
+echo DISK|dd bs=4 count=1 > $disk_mdl 2> /dev/null
+echo DISK|dd bs=4 count=1 > $disk_krab 2> /dev/null
+
+cat <<qq >$bpass
+шифр 419999^
+трак 64^
+лент 30(2048-6200)^
+лент 42($diskid_src-ЗП)^
+лент 43($diskid_mdl-ЗП)^
+ацп 40^
+росп 0^
+врем 240^
+лист 0-37^
+вход 4100^
+е
+в 4000
+к 00 010 4003
+к 15 24 04000
+к 00 066 0001 00 000 0100
+с 3000 67
+в 4100
+к 00 010 4103 15 31 04105
+к 00 010 4104 15 31 04105
+к 00 30 04000
+с 42 $diskoff_src
+с 43 $diskoff_mdl
+К 00 012 0000 00 050 7702
+К 16 044 0014 00 031 0100
+К 14 000 0007 00 050 0156
+К 14 012 0010 14 27 00005
+К 14 010 0007 14 020 0011
+К 14 021 0012 14 000 0007
+К 14 010 0007 00 050 0112
+К 15 30 00000 00 22 00000
+С 0
+С 1
+С 77 7740
+С 77 0177
+в 14000
+а1
+qq
+
+cat <<"qq" >$bend
+кнц$$$^
+_$
+еконец
+qq
+
+(cat $bpass; echo "новмл^";cat $bend) | $conv > $tf1
+$b6 $tf1 >$logfile
+
+for src in $srcs; do
+	echo Storing $src|$conv|tee -a $logfile
+	cp $bpass $tf1
+	echo "ВВД\$\$\$^" >> $tf1
+	sed -e '/^$/ d' -e '/\^$/ ! s/$/^/' bemshsrc/$src >> $tf1
+	echo "КВЧ\$\$\$^" >> $tf1
+	printf "%-6.6s\$\$\$\$\$\$^\\n" $src >> $tf1
+	echo "ЗПБ\$\$\$^" >> $tf1
+	cat $bend >> $tf1
+	cat $tf1|$conv>$tf2
+	$b6 $tf2 >>$logfile || exit 1
+done
+
+for mdl in $mdls;do
+	srcs=`./scripts/objattr -n $mdl`
+	dst=`./scripts/objattr -d $mdl`
+	sz=`./scripts/objattr -s $mdl`
+	echo Assemblying `./scripts/objattr -m $mdl`|$conv|tee -a $logfile
+	cp $bpass $tf1
+	for src in $srcs;do
+		printf "%-6.6s\$\$\$\$\$\$^\\n" $src >> $tf1
+	done
+	echo "трн\$\$\$^блмак^бтмалф^зонмод43$dst    $sz^" >> $tf1
+	cat $bend >> $tf1
+	cat $tf1|$conv>$tf2
+	$b6 $tf2 >>$logfile || exit 1
+done
+lkedz=`expr $diskoff_src + 3`
+lkedz=`printf "%04d" $lkedz`
+./scripts/bt write $diskid_src --from-file=binary/lked --start=$lkedz --length=2
+
+cat <<qq > $tf1
+ШИФР 419999^
+ВХОД 1^
+ОЗУ 32^
+ВРЕМ 200^
+ТРАК 50^
+ЛЕН 41($diskid_src)42($diskid_mdl)44($diskid_krab-ЗП)^
+ЕВ1
+К 00 010 0013 15 31 00020
+К 00 010 0016 15 31 00020
+К 00 010 0017 15 31 00020
+К 00 070 0015
+К 00 070 0014
+К 00 30 70000
+В13
+С 0000 0000 0042 $diskoff_mdl
+С 0010 3400 0041 0003
+С 0010 3500 0041 0004
+С 0000 0000 0044 $diskoff_krab
+С 0000 0000 0041 $diskoff_src
+К 00 012 0000 00 050 7702
+К 16 044 0014 00 031 0100
+К 14 000 0007 00 050 0156
+К 14 012 0010 14 27 00005
+К 14 010 0007 14 020 0011
+К 14 021 0012 14 000 0007
+К 14 010 0007 00 050 0112
+К 15 30 00000 00 22 00000
+С 0
+С 1
+С 77 7740
+С 77 0177
+В2000
+А1
+МДЛ   Ф1    420000^
+НАЗ   А02000^
+ЗОНГП 440013     6^
+МДЛ   Ф2    420006^
+МДЛ   ФПЗ   420057^
+МДЛ   КОМП  420072^
+МДЛ   ФНЕРЕ 420030^
+НАЗ   076000^
+ЗОНГП 440033     1^
+МДЛ   ФДПЗ  420053^
+МДЛ   ФСТАРТ420016^
+НАЗ   А76000^
+ЗОНГП 440034     1^
+МДЛ   ФНРЕД 420106^
+МДЛ   ФПЕЧ  420071^
+НАЗ   А76000^
+ЗОНГП 440022     1^
+МДЛ   ФФОР  420063^
+МДЛ   ФОРПЗ 420020^
+НАЗ   А76000^
+ЗОНГП 440023     1^
+МДЛ   ФОРПС 420120^
+МДЛ   ФПОЧТ 420124^
+НАЗ   А76000^
+ЗОНГП 440024     1^
+МДЛ   ФБУХ  420022^
+МДЛ   ЛИСТ  420024^
+НАЗ   А00001^
+ЗОНГП 440025     1^
+МДЛ   ФАДМ  420065^
+НАЗ   А76000^
+ЗОНГП 440026     1^
+МДЛ   ФНС2  420116^
+МДЛ   ФОТЛ  420026^
+НАЗ   А00001^
+ЗОНГП 440027     1^
+МДЛ   ШКОЛА 420073^
+НАЗ   А76000^
+ЗОНГП 440030^
+МДЛ   ШКОЛА2420032^
+МДЛ   ФНАРХ 420067^
+НАЗ   А76000^
+ЗОНГП 440031^
+МДЛ   ФАВПЗ 420015^
+МДЛ   ФНС1  420111^
+НАЗ   А76000^
+ЗОНГП 440032^
+МДЛ   ФС    420117^
+МДЛ   СЛЗАД 420041^
+НАЗ   А02000^
+ЗОНГП 440035^
+МДЛ   БЮСТ  420046^
+НАЗ   А00010^
+ЗОНГП 440041^
+МДЛ   СБОРЩ 420054^
+НАЗ   А00010^
+ЗОНГП 440065     3^
+МДЛ   ПК    420115^
+НАЗ   А00001^
+ЗОНГП 440057     1^
+МДЛ   БУФЕР 420062^
+НАЗ   А00030^
+ЗОНГП 440047     1^
+ПЕЧМДЛ^
+КОНЕЦ^
+_$
+В12000
+БКОНЕЦ 
+ЕКОНЕЦ
+qq
+cat $tf1|$conv>$tf2
+$b6 $tf2 >>$logfile
+
+./scripts/gen -bv
+
+uz=`echo "obase=8;ibase=8;$diskoff_krab+5"|bc -l`
+./scripts/bt write $diskid_krab --from-file=binary/vseed --start=$uz --length=1

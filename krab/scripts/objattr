@@ -1,0 +1,233 @@
+#!/bin/sh
+
+if [ $# -ne 2 ]; then
+	echo Arg count
+	exit 1
+fi
+
+obj=$2
+attr=$1
+
+case $obj in
+	f1)
+		module=Ф1
+		srcs="Ф1.0 Ф1.1 Ф1.2 Ф1.3 Ф1.4 Ф1.5"
+		dst=0000
+		sz=14
+		;;
+	f2)
+		module=Ф2
+		srcs="Ф2.1 Ф2.2 Ф2.3 Ф2.4 Ф2.5 Ф2.6"
+		dst=0006
+		sz=14
+		;;
+	fpz)
+		module=ФПЗ
+		srcs="ФПЗ"
+		dst=0057
+		sz=01
+		;;
+	komp)
+		module=КОМП
+		srcs="КОМП"
+		dst=0072
+		sz=01
+		;;
+	fnere)
+		module=ФНЕРЕ
+		srcs="ФНЕРЕ"
+		dst=0030
+		sz=01
+		;;
+	fdpz)
+		module=ФДПЗ
+		srcs="ФДПЗ"
+		dst=0053
+		sz=01
+		;;
+	fstart)
+		module=ФСТАРТ
+		srcs="СТАРТ"
+		dst=0016
+		sz=01
+		;;
+	fnred)
+		module=ФНРЕД
+		srcs="ФНРЕД"
+		dst=0106
+		sz=01
+		;;
+	fpech)
+		module=ФПЕЧ
+		srcs="ФПЕЧ"
+		dst=0071
+		sz=01
+		;;
+	ffor)
+		module=ФФОР
+		srcs="ФФОРМ"
+		dst=0063
+		sz=01
+		;;
+	forpz)
+		module=ФОРПЗ
+		srcs="ФОРПЗ"
+		dst=0020
+		sz=01
+		;;
+	forps)
+		module=ФОРПС
+		srcs="ФОРПС"
+		dst=0120
+		sz=01
+		;;
+	fpocht)
+		module=ФПОЧТ
+		srcs="ФПОЧТ"
+		dst=0124
+		sz=02
+		;;
+	fbuh)
+		module=ФБУХ
+		srcs="ФБУХ"
+		dst=0022
+		sz=01
+		;;
+	list)
+		module=ЛИСТ
+		srcs="Л1 Л2"
+		dst=0024
+		sz=02
+		;;
+	fadm)
+		module=ФАДМ
+		srcs="ФАДМ"
+		dst=0065
+		sz=01
+		;;
+	fns2)
+		module=ФНС2
+		srcs="ФНС2"
+		dst=0116
+		sz=01
+		;;
+	fotl)
+		module=ФОТЛ
+		srcs="ФОТЛ"
+		dst=0026
+		sz=02
+		;;
+	shkola)
+		module=ШКОЛА
+		srcs="ШКОЛА"
+		dst=0073
+		sz=01
+		;;
+	shkola2)
+		module=ШКОЛА2
+		srcs="ШКОЛА2"
+		dst=0032
+		sz=01
+		;;
+	fnarh)
+		module=ФНАРХ
+		srcs="ФНАРХ"
+		dst=0067
+		sz=01
+		;;
+	fawpz)
+		module=ФАВПЗ
+		srcs="ФАВПЗ"
+		dst=0015
+		sz=01
+		;;
+	fns1)
+		module=ФНС1
+		srcs="ФНС1"
+		dst=0111
+		sz=01
+		;;
+	fs)
+		module=ФС
+		srcs="ФС"
+		dst=0117
+		sz=01
+		;;
+	slzad)
+		module=СЛЗАД
+		srcs="СЛЗ0 СЛЗ1 СЛЗ2 СЛЗ3 СЛЗ4 СЛЗ5 СЛЗ6 СЛЗ7"
+		dst=0041
+		sz=04
+		;;
+	byust)
+		module=БЮСТ
+		srcs="БЮСТ0 БЮСТ1 БЮСТ2 БЮСТ3 БЮСТ4 БЮСТ5 БЮСТ6"
+		dst=0046
+		sz=05
+		;;
+	sbor)
+		module=СБОРЩ
+		srcs="СБОР1 СБОР2 СБОР3 СБОР4 СБОР5"
+		dst=0054
+		sz=03
+		;;
+	pk)
+		module=ПК
+		srcs="ПК1 ПК2"
+		dst=0115
+		sz=01
+		;;
+	bufer)
+		module=БУФЕР
+		srcs="БУФЕР1"
+		dst=0062
+		sz=01
+		;;
+	serwis)
+		module=СЕРВИС
+		srcs="СЕР1 СЕР2 СЕР3 СЕР4"
+		dst=0035
+		sz=02
+		;;
+	komarh)
+		module=КОМАРХ
+		srcs="КОМАРХ"
+		dst=0123
+		sz=01
+		;;
+	arhiv)
+		module=АРХИВ
+		srcs="ЗМГУ0 ЗМГУ1 ЗМГУ2 ЗМГУ3 ЗМГУ4"
+		dst=0074
+		sz=03
+		;;
+	arhiv1)
+		module=АРХИВ1
+		srcs="ЗМГУ5 ЗМГУ6"
+		dst=0077
+		sz=01
+		;;
+	*)
+		echo Unknown module $obj
+		exit 1
+		;;
+esac
+
+case $attr in
+	-n)
+		echo $srcs
+		;;
+	-d)
+		echo $dst
+		;;
+	-s)
+		echo $sz
+		;;
+	-m)
+		echo $module
+		;;
+	*)
+		echo Unknown attribute $attr;
+		exit 1
+		;;
+esac

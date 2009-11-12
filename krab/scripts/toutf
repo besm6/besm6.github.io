@@ -1,0 +1,39 @@
+#!/bin/sh
+. options
+
+if [ $# != 1 ]; then
+    echo "Usage: $0 <target-dir>"
+    exit 1
+fi
+
+tgt=$1
+
+if [ -e $tgt ]; then
+    echo "$tgt already exists."
+    exit 1
+fi
+
+if [ $enc = UTF-8 ]; then
+    echo "The source tree is already in $enc."
+fi
+
+dirs=`find -type d`
+files=`find -type f -not -path './binary/*' -not -path ./options`
+
+mkdir -p $tgt || exit 1
+
+for d in $dirs; do
+	if [ $d = . ]; then
+	    continue
+	fi
+	mkdir -p $tgt/$d || exit
+done
+
+for f in $files ; do
+    name=`echo $f|$conv`
+    $conv < $f > $tgt/$name || exit 1
+    chmod --reference $f $tgt/$name
+done
+
+cp binary/* $tgt/binary || exit 1
+cp options $tgt
