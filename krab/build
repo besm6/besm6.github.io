@@ -60,8 +60,11 @@ fi
 rm -rf $extra_disks $logfile work
 mkdir -p $extra_disks work
 touch $logfile
+
 rm -f $disk_src $disk_mdl $disk_krab
-touch $disk_src $disk_mdl $disk_krab
+../simh/formatdisk $diskid_src > $disk_src
+[ -f $disk_mdl ] || ../simh/formatdisk $diskid_mdl > $disk_mdl
+[ -f $disk_krab ] || ../simh/formatdisk $diskid_krab > $disk_krab
 
 cat <<qq >$bpass
 шифр 419999^
