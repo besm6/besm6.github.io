@@ -111,7 +111,7 @@ _$
 еконец
 qq
 
-(cat $bpass; echo "новмл^";cat $bend) > $tf1
+(cat $bpass; echo "новмл^"; cat $bend) > $tf1
 dispak $tf1 >$logfile
 
 for src in $srcs; do
@@ -123,8 +123,7 @@ for src in $srcs; do
 	echo "$src     " | sed 's/\(......\).*/\1$$$$$$^/' >> $tf1
 	echo "ЗПБ\$\$\$^" >> $tf1
 	cat $bend >> $tf1
-	cat $tf1 > $tf2
-	dispak $tf2 >>$logfile || exit 1
+	dispak $tf1 >>$logfile || exit 1
 done
 
 for mdl in $mdls;do
@@ -138,8 +137,7 @@ for mdl in $mdls;do
 	done
 	echo "трн\$\$\$^блмак^бтмалф^зонмод43$dst    $sz^" >> $tf1
 	cat $bend >> $tf1
-	cat $tf1 > $tf2
-	dispak $tf2 >>$logfile || exit 1
+	dispak $tf1 >>$logfile || exit 1
 done
 lkedz=`expr $diskoff_src + 3`
 lkedz=`printf "%04d" $lkedz`
@@ -249,5 +247,4 @@ _$
 БКОНЕЦ
 ЕКОНЕЦ
 qq
-cat $tf1 > $tf2
-dispak $tf2 >>$logfile
+dispak $tf1 >>$logfile

@@ -53,5 +53,5 @@ cat <<qq >$tf1
 С 7777 7777 7777 7777
 ЕКОНЕЦ
 qq
-cat $tf1 > $tf2
-dispak $tf2
+
+dispak $tf1

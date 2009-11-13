@@ -45,10 +45,9 @@ cat <<qq >$tf1
 БСЕРЕЖА
 ЕКОНЕЦ
 qq
-cat $tf1 > $tf2
 
 expect -f - <<EOF
-spawn dispak -bv $tf2
+spawn dispak -bv $tf1
 		expect "S00010*\n"
 send "100004=12\n"
 		expect "^- "
