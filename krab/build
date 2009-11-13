@@ -108,11 +108,11 @@ _$
 еконец
 qq
 
-(cat $bpass; echo "новмл^";cat $bend) | $conv > $tf1
+(cat $bpass; echo "новмл^";cat $bend) > $tf1
 dispak $tf1 >$logfile
 
 for src in $srcs; do
-	echo Storing $src|$conv|tee -a $logfile
+	echo Storing $src | tee -a $logfile
 	cp $bpass $tf1
 	echo "ВВД\$\$\$^" >> $tf1
 	sed -e '/^$/ d' -e '/\^$/ ! s/$/^/' bemshsrc/$src >> $tf1
@@ -120,7 +120,7 @@ for src in $srcs; do
 	echo "$src     " | sed 's/\(......\).*/\1$$$$$$^/' >> $tf1
 	echo "ЗПБ\$\$\$^" >> $tf1
 	cat $bend >> $tf1
-	cat $tf1|$conv>$tf2
+	cat $tf1 > $tf2
 	dispak $tf2 >>$logfile || exit 1
 done
 
@@ -128,19 +128,19 @@ for mdl in $mdls;do
 	srcs=`./scripts/objattr -n $mdl`
 	dst=`./scripts/objattr -d $mdl`
 	sz=`./scripts/objattr -s $mdl`
-	echo Assemblying `./scripts/objattr -m $mdl`|$conv|tee -a $logfile
+	echo Assemblying `./scripts/objattr -m $mdl` | tee -a $logfile
 	cp $bpass $tf1
 	for src in $srcs;do
 		echo "$src     " | sed 's/\(......\).*/\1$$$$$$^/' >> $tf1
 	done
 	echo "трн\$\$\$^блмак^бтмалф^зонмод43$dst    $sz^" >> $tf1
 	cat $bend >> $tf1
-	cat $tf1|$conv>$tf2
+	cat $tf1 > $tf2
 	dispak $tf2 >>$logfile || exit 1
 done
 lkedz=`expr $diskoff_src + 3`
 lkedz=`printf "%04d" $lkedz`
-./scripts/bt write $diskid_src --from-file=binary/lked --start=$lkedz --length=2
+besmtool write $diskid_src --from-file=binary/lked --start=$lkedz --length=2
 
 cat <<qq > $tf1
 ШИФР 419999^
@@ -246,10 +246,5 @@ _$
 БКОНЕЦ
 ЕКОНЕЦ
 qq
-cat $tf1|$conv>$tf2
+cat $tf1 > $tf2
 dispak $tf2 >>$logfile
-
-./scripts/gen -bv
-
-uz=`echo "obase=8;ibase=8;$diskoff_krab+5"|bc -l`
-./scripts/bt write $diskid_krab --from-file=binary/vseed --start=$uz --length=1

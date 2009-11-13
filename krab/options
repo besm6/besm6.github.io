@@ -12,24 +12,10 @@ disk_mdl=$extra_disks/$diskid_mdl
 disk_krab=$extra_disks/$diskid_krab
 src=$krab_dir/src
 logfile=work/$0.log
-if [ -e "bemshsrc/æ1.0" ]; then
-	enc=KOI8-R
-elif [ -e "bemshsrc/Ñ„1.0" ]; then
-	enc=UTF-8
-else
-	echo "BEMSH source (bemshsrc/ directory) encoding unrecognized)"
-	exit 1
-fi
 
 BESM6_PATH=$extra_disks:$std_disks
 export BESM6_PATH
 tf1=work/$$.1
 tf2=work/$$.2
-
-if [ $enc != UTF-8 ]; then
-	conv="iconv -f=$enc -t=UTF-8"
-else
-	conv=cat
-fi
 
 #set -v

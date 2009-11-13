@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ $# -ne 2 ]; then
 	echo Arg count
@@ -11,199 +11,199 @@ attr=$1
 case $obj in
 	f1)
 		module=Ф1
-		srcs="Ф1.0 Ф1.1 Ф1.2 Ф1.3 Ф1.4 Ф1.5"
+		srcs="ф1.0 ф1.1 ф1.2 ф1.3 ф1.4 ф1.5"
 		dst=0000
 		sz=14
 		;;
 	f2)
 		module=Ф2
-		srcs="Ф2.1 Ф2.2 Ф2.3 Ф2.4 Ф2.5 Ф2.6"
+		srcs="ф2.1 ф2.2 ф2.3 ф2.4 ф2.5 ф2.6"
 		dst=0006
 		sz=14
 		;;
 	fpz)
 		module=ФПЗ
-		srcs="ФПЗ"
+		srcs="фпз"
 		dst=0057
 		sz=01
 		;;
 	komp)
 		module=КОМП
-		srcs="КОМП"
+		srcs="комп"
 		dst=0072
 		sz=01
 		;;
 	fnere)
 		module=ФНЕРЕ
-		srcs="ФНЕРЕ"
+		srcs="фнере"
 		dst=0030
 		sz=01
 		;;
 	fdpz)
 		module=ФДПЗ
-		srcs="ФДПЗ"
+		srcs="фдпз"
 		dst=0053
 		sz=01
 		;;
 	fstart)
 		module=ФСТАРТ
-		srcs="СТАРТ"
+		srcs="старт"
 		dst=0016
 		sz=01
 		;;
 	fnred)
 		module=ФНРЕД
-		srcs="ФНРЕД"
+		srcs="фнред"
 		dst=0106
 		sz=01
 		;;
 	fpech)
 		module=ФПЕЧ
-		srcs="ФПЕЧ"
+		srcs="фпеч"
 		dst=0071
 		sz=01
 		;;
 	ffor)
 		module=ФФОР
-		srcs="ФФОРМ"
+		srcs="фформ"
 		dst=0063
 		sz=01
 		;;
 	forpz)
 		module=ФОРПЗ
-		srcs="ФОРПЗ"
+		srcs="форпз"
 		dst=0020
 		sz=01
 		;;
 	forps)
 		module=ФОРПС
-		srcs="ФОРПС"
+		srcs="форпс"
 		dst=0120
 		sz=01
 		;;
 	fpocht)
 		module=ФПОЧТ
-		srcs="ФПОЧТ"
+		srcs="фпочт"
 		dst=0124
 		sz=02
 		;;
 	fbuh)
 		module=ФБУХ
-		srcs="ФБУХ"
+		srcs="фбух"
 		dst=0022
 		sz=01
 		;;
 	list)
 		module=ЛИСТ
-		srcs="Л1 Л2"
+		srcs="л1 л2"
 		dst=0024
 		sz=02
 		;;
 	fadm)
 		module=ФАДМ
-		srcs="ФАДМ"
+		srcs="фадм"
 		dst=0065
 		sz=01
 		;;
 	fns2)
 		module=ФНС2
-		srcs="ФНС2"
+		srcs="фнс2"
 		dst=0116
 		sz=01
 		;;
 	fotl)
 		module=ФОТЛ
-		srcs="ФОТЛ"
+		srcs="фотл"
 		dst=0026
 		sz=02
 		;;
 	shkola)
 		module=ШКОЛА
-		srcs="ШКОЛА"
+		srcs="школа"
 		dst=0073
 		sz=01
 		;;
 	shkola2)
 		module=ШКОЛА2
-		srcs="ШКОЛА2"
+		srcs="школа2"
 		dst=0032
 		sz=01
 		;;
 	fnarh)
 		module=ФНАРХ
-		srcs="ФНАРХ"
+		srcs="фнарх"
 		dst=0067
 		sz=01
 		;;
 	fawpz)
 		module=ФАВПЗ
-		srcs="ФАВПЗ"
+		srcs="фавпз"
 		dst=0015
 		sz=01
 		;;
 	fns1)
 		module=ФНС1
-		srcs="ФНС1"
+		srcs="фнс1"
 		dst=0111
 		sz=01
 		;;
 	fs)
 		module=ФС
-		srcs="ФС"
+		srcs="фс"
 		dst=0117
 		sz=01
 		;;
 	slzad)
 		module=СЛЗАД
-		srcs="СЛЗ0 СЛЗ1 СЛЗ2 СЛЗ3 СЛЗ4 СЛЗ5 СЛЗ6 СЛЗ7"
+		srcs="слз0 слз1 слз2 слз3 слз4 слз5 слз6 слз7"
 		dst=0041
 		sz=04
 		;;
 	byust)
 		module=БЮСТ
-		srcs="БЮСТ0 БЮСТ1 БЮСТ2 БЮСТ3 БЮСТ4 БЮСТ5 БЮСТ6"
+		srcs="бюст0 бюст1 бюст2 бюст3 бюст4 бюст5 бюст6"
 		dst=0046
 		sz=05
 		;;
 	sbor)
 		module=СБОРЩ
-		srcs="СБОР1 СБОР2 СБОР3 СБОР4 СБОР5"
+		srcs="сбор1 сбор2 сбор3 сбор4 сбор5"
 		dst=0054
 		sz=03
 		;;
 	pk)
 		module=ПК
-		srcs="ПК1 ПК2"
+		srcs="пк1 пк2"
 		dst=0115
 		sz=01
 		;;
 	bufer)
 		module=БУФЕР
-		srcs="БУФЕР1"
+		srcs="буфер1"
 		dst=0062
 		sz=01
 		;;
 	serwis)
 		module=СЕРВИС
-		srcs="СЕР1 СЕР2 СЕР3 СЕР4"
+		srcs="сер1 сер2 сер3 сер4"
 		dst=0035
 		sz=02
 		;;
 	komarh)
 		module=КОМАРХ
-		srcs="КОМАРХ"
+		srcs="комарх"
 		dst=0123
 		sz=01
 		;;
 	arhiv)
 		module=АРХИВ
-		srcs="ЗМГУ0 ЗМГУ1 ЗМГУ2 ЗМГУ3 ЗМГУ4"
+		srcs="змгу0 змгу1 змгу2 змгу3 змгу4"
 		dst=0074
 		sz=03
 		;;
 	arhiv1)
 		module=АРХИВ1
-		srcs="ЗМГУ5 ЗМГУ6"
+		srcs="змгу5 змгу6"
 		dst=0077
 		sz=01
 		;;

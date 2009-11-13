@@ -1,9 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 . options
 
 for f in doc/*; do
 	bn=`basename $f`
-	echo Transferring $bn|$conv
+	echo Transferring $bn
 	. scripts/krab_start
 	cat <<-qq >>$tf1
 	у $bn
@@ -19,6 +19,6 @@ for f in doc/*; do
 	к
 	qq
 	cat scripts/krab_end >> $tf1
-	cat $tf1|$conv>$tf2
+	cat $tf1 > $tf2
 	dispak $* $tf2 > /dev/null 2>&1
 done

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 . options
 
 cat <<qq >$tf1
@@ -45,5 +45,5 @@ cat <<qq >$tf1
 БСЕРЕЖА
 ЕКОНЕЦ
 qq
-cat $tf1|$conv>$tf2
+cat $tf1 > $tf2
 dispak $* $tf2
