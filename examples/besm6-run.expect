@@ -1,0 +1,158 @@
+#!/usr/bin/expect -f
+#
+# Автоматизированный прогон задачи на удалённой БЭСМ-6.
+# Файл загружается в архив КРАБа, задача выполняется
+# как подчинённая, распечатка АЦПУ извлекается через КРАБ.
+# Вызов:
+#	besm6-run.expect хост порт кто ключ filename.local
+# Параметры:
+#	хост    - имя хоста, например besm6.vak.ru
+#	порт	- номер порта TCP, на котором работает эмулятор БЭСМ-6
+#	кто     - шифр пользователя системы КРАБ
+#	ключ    - ключ пользователя системы КРАБ
+#       filename.local - имя текстового файла для выполнения
+#
+# Copyright (C) 2009 Serge Vakulenko <serge@vak.ru>
+#
+if { $::argc != 5 } {
+	puts "Usage:\n\t$::argv0 хост порт кто ключ filename.local"
+	exit 0
+}
+set host [lindex $::argv 0]
+set port [lindex $::argv 1]
+set who [lindex $::argv 2]
+set key [lindex $::argv 3]
+set namfil "ьььььь"
+set pass "1234"
+set filename [lindex $::argv 4]
+
+#
+# Соединяемся с терминалом БЭСМ-6.
+#
+spawn telnet $host $port
+expect 	{
+	"ЭBM*\n"		{}
+	"*\r\n-"		{ send "кон\r"; exp_continue }
+	"KОHEЦ CEAHCA*\n"	{ sleep 1; send "\r"; exp_continue }
+}
+
+#
+# Вызываем КРАБ.
+#
+send	"краб\r"
+expect 	"*\r\n-"
+send	"нач\r"
+expect 	"KTО?"
+send	"$who\r"
+expect 	{
+	"*\r\n-"		{}
+	"KЛЮЧ"			{ send "$key\r"; exp_continue }
+}
+
+#
+# Стираем старую версию файла.
+#
+send	"унч $namfil\r"
+expect 	{
+	"HET B KATAЛОГE*\n-"	{}
+	"ECTЬ*\n-"		{}
+	"ПAPОЛЬ"		{ send "$pass\r"; exp_continue }
+}
+
+#
+# Вводим текст.
+#
+send	"имя $namfil\r"
+expect 	{
+	"HET B KATAЛОГE*\n-"	{}
+	"CО CБОЙHЫX ЗОH*\n-"	{ send "отм 1-9999\r"; expect "*\r\n-" }
+}
+send	"доп\r"
+expect 	"*\r\n+"
+
+#
+# Вводим содержимое заданного файла.
+#
+set fp [open $filename]
+fconfigure $fp -buffering line
+while 1 {
+	gets $fp line
+	if [eof $fp] break
+	if { $line == "" } {
+		set line " "
+	}
+	send	"$line\r"
+	expect 	"*\r\n+"
+}
+close $fp
+send	"\r"
+expect 	"*\r\n-"
+
+send	"зап\r"
+expect 	{
+	"*\r\n-"	{}
+	"ПAPОЛЬ"	{ send "$pass\r"; exp_continue }
+}
+
+#
+# Формируем подчинённую задачу.
+#
+if { [string length $who] == 4 } {
+	set code ${who}00123456
+} else {
+	set code ${who}123456
+}
+send	"фор пз шиф $code\r"
+expect	"*\nШИФP *\r\n-"
+
+#
+# Ждём окончания задачи.
+#
+send	"где\r"
+expect 	{
+	"ОKОHЧИЛACЬ ЗAДAЧA*\n-"	{}
+	"*\n-"			{ sleep 3; send "где\r"; exp_continue }
+}
+
+#
+# Запрашиваем листинг.
+#
+#exp_internal 1
+send	"лис\r"
+expect	"ЛИC*\033?D"
+send	"шаг 9999\r"
+expect	"\033?D"
+send	"нов 1-128\r"
+expect	"\033?D"
+send	"выд\r"
+set fp [open "output.txt" w]
+expect 	{
+	"\033?D"	{}
+	"*\n"		{
+		set line $expect_out(buffer)
+		puts $fp [string trimright $line]
+		exp_continue
+	}
+}
+close $fp
+send	"кон\r"
+expect	"*\n-"
+
+#
+# Стираем файл.
+#
+send	"унч $namfil\r"
+expect 	{
+	"HET B KATAЛОГE*\n-"	{}
+	"ECTЬ*\n-"		{}
+	"ПAPОЛЬ"		{ send "$pass\r"; exp_continue }
+}
+
+#
+# Завершаем работу.
+#
+send	"кон\r"
+expect 	{
+	"KОHEЦ CEAHCA"		{}
+	"*\r\n-"		{ send "кон\r"; exp_continue }
+}
