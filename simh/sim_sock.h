@@ -23,6 +23,9 @@
    used in advertising or otherwise to promote the sale, use or other dealings
    in this Software without prior written authorization from Robert M Supnik.
 
+   15-Oct-12    MP      Added definitions needed to detect possible tcp 
+                        connect failures
+   25-Sep-12    MP      Reworked for RFC3493 interfaces supporting IPv6 and IPv4
    04-Jun-08    RMS     Addes sim_create_sock, for IBM 1130
    14-Apr-05    RMS     Added WSAEINPROGRESS (from Tim Riker)
    20-Aug-04    HV      Added missing definition for OS/2 (from Holger Veit)
@@ -40,25 +43,43 @@
    16-Sep-01    RMS     Added Macintosh support from Peter Schorn
 */
 
-#ifndef _SIM_SOCK_H_
-#define _SIM_SOCK_H_    0
+#ifndef SIM_SOCK_H_
+#define SIM_SOCK_H_    0
 
 #if defined (_WIN32)                                    /* Windows */
-#undef INT_PTR                                          /* hack, hack */
 #include <winsock2.h>
 
 #elif !defined (__OS2__) || defined (__EMX__)           /* VMS, Mac, Unix, OS/2 EMX */
 #define WSAGetLastError()       errno                   /* Windows macros */
+#define closesocket     close 
 #define SOCKET          int32
+#if defined(__hpux)
+#define WSAEWOULDBLOCK  EAGAIN
+#else
 #define WSAEWOULDBLOCK  EWOULDBLOCK
+#endif
+#define WSAENAMETOOLONG ENAMETOOLONG
 #define WSAEINPROGRESS  EINPROGRESS
-#define INVALID_SOCKET  -1 
+#define WSAETIMEDOUT    ETIMEDOUT
+#define WSAEISCONN      EISCONN
+#define WSAECONNRESET   ECONNRESET
+#define WSAECONNREFUSED ECONNREFUSED
+#define WSAECONNABORTED ECONNABORTED
+#define WSAEHOSTUNREACH EHOSTUNREACH
+#define WSAEADDRINUSE   EADDRINUSE
+#if defined(EAFNOSUPPORT)
+#define WSAEAFNOSUPPORT EAFNOSUPPORT
+#endif
+#define WSAEACCES       EACCES
+#define INVALID_SOCKET  ((SOCKET)-1) 
 #define SOCKET_ERROR    -1
 #include <sys/types.h>                                  /* for fcntl, getpid */
 #include <sys/socket.h>                                 /* for sockets */
 #include <fcntl.h>
 #include <unistd.h>
 #include <netinet/in.h>                                 /* for sockaddr_in */
+#include <netinet/tcp.h>                                /* for TCP_NODELAY */
+#include <arpa/inet.h>                                  /* for inet_addr and inet_ntoa */
 #include <netdb.h>
 #include <sys/time.h>                                   /* for EMX */
 #endif
@@ -68,6 +89,12 @@
 #if !defined (timerclear)
 #define timerclear(tvp)         (tvp)->tv_sec = (tvp)->tv_usec = 0
 #endif
+#if !defined (AI_NUMERICHOST)
+#define AI_NUMERICHOST 0
+#endif
+#if defined (__VAX)
+#define sockaddr_storage sockaddr
+#endif
 #endif
 #if defined(__EMX__)                                    /* OS/2 unique */
 #if !defined (timerclear)
@@ -75,14 +102,20 @@
 #endif
 #endif
 
-SOCKET sim_master_sock (int32 port);
-SOCKET sim_connect_sock (int32 ip, int32 port);
-SOCKET sim_create_sock (void);
-SOCKET sim_accept_conn (SOCKET master, uint32 *ipaddr);
+t_stat sim_parse_addr (const char *cptr, char *host, size_t hostlen, const char *default_host, char *port, size_t port_len, const char *default_port, const char *validate_addr);
+t_stat sim_parse_addr_ex (const char *cptr, char *host, size_t hostlen, const char *default_host, char *port, size_t port_len, char *localport, size_t local_port_len, const char *default_port);
+SOCKET sim_master_sock (const char *hostport, t_stat *parse_status);
+SOCKET sim_connect_sock (const char *hostport, const char *default_host, const char *default_port);
+SOCKET sim_connect_sock_ex (const char *sourcehostport, const char *hostport, const char *default_host, const char *default_port, t_bool datagram, t_bool nodelay);
+SOCKET sim_accept_conn (SOCKET master, char **connectaddr);
+SOCKET sim_accept_conn_ex (SOCKET master, char **connectaddr, t_bool nodelay);
 int32 sim_check_conn (SOCKET sock, t_bool rd);
 int32 sim_read_sock (SOCKET sock, char *buf, int32 nbytes);
-int32 sim_write_sock (SOCKET sock, char *msg, int32 nbytes);
+int32 sim_write_sock (SOCKET sock, const char *msg, int32 nbytes);
 void sim_close_sock (SOCKET sock, t_bool master);
-SOCKET sim_setnonblock (SOCKET sock);
+SOCKET sim_err_sock (SOCKET sock, const char *emsg, int32 flg);
+int32 sim_getnames_sock (SOCKET sock, char **socknamebuf, char **peernamebuf);
+void sim_init_sock (void);
+void sim_cleanup_sock (void);
 
 #endif
