@@ -1,0 +1,582 @@
+ШAПKA : ДИCП   ПPOЦ   ЭKДBC  ЭKCMOC ЭKУCTP
+        ЖДУЩИЙ ДPAKAH ДPMД   OПPOC  ИHИЦ   TEPMИH BЫЗOB
+-------------------------------------------------------------
+ФИЗOП : ДИCП   ПPOЦ   ЭKДBC  ЭKCMOC ЭKУCTP
+               ДPAKAH ДPMД   OПPOC  ИHИЦ   TEPMИH BЫЗOB
+-------------------------------------------------------------
+УCTP  : ДИCП   ПPOЦ                 ЭKУCTP
+               ДPAKAH ДPMД   OПPOC  ИHИЦ   TEPMИH BЫЗOB
+-------------------------------------------------------------
+METKA :                                      
+                             OПPOC 
+-------------------------------------------------------------
+ИПЗИO : ДИCП   ПPOЦ   ЭKДBC  ЭKCMOC ЭKУCTP
+        ЖДУЩИЙ ДPAKAH ДPMД   OПPOC  ИHИЦ   TEPMИH BЫЗOB
+-------------------------------------------------------------
+.ДИCП
+ШИФP 521352000001^OЗУ 32^TPA 10^BPE 700^AЦП 0^BXO 6^
+ДИC 30(2222)42(2222)43(2222-ЗП)^
+EB6 K 00 010 0011  00 050 0112 K 00 070 0010 C 0010 0000 0030 0001
+C 30 0120
+EB1A5
+$БИБ MOДУЛИ 436000
+$БИБ TEKCTЫ 425400
+$ACC3
+MOД      ДИCП
+ИCX      ДИCП
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTA
+ЛИCT     -1
+KOHEЦ
+$KHЦ
+.ПPOЦ
+ШИФP 521352000002^OЗУ 32^TPA 10^BPE 700^AЦП 0^BXO 6^
+ДИC 30(2222)42(2222)43(2222-ЗП)^
+EB6 K 00 010 0011  00 050 0112 K 00 070 0010 C 0010 0000 0030 0001
+C 30 0120
+EB1A5
+$БИБ MOДУЛИ 436000
+$БИБ TEKCTЫ 425400
+$ACC3
+MOД      ПPOЦ
+ИCX      ПPOЦ
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTA
+ЛИCT     -1
+KOHEЦ
+$KHЦ
+.ЭKДBC
+ШИФP 521352000003^OЗУ 32^TPA 10^BPE 700^AЦП 6^BXO 6^
+ДИC 30(2222)42(2222)43(2222-ЗП)^
+EB6 K 00 010 0011  00 050 0112 K 00 070 0010 C 0010 0000 0030 0001
+C 30 0120
+EB1A5
+$БИБ MOДУЛИ 436000
+$БИБ TEKCTЫ 425400
+$ACC3
+MOД      ЭKДBC
+ИCX      ЭKДBC
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTAT
+ЛИCT     -1
+KOHEЦ
+$KHЦ
+.ЭKCMOC
+ШИФP 521352000004^OЗУ 32^TPA 10^BPE 700^AЦП 0^BXO 6^
+ДИC 30(2222)42(2222)43(2222-ЗП)^
+EB6 K 00 010 0011  00 050 0112 K 00 070 0010 C 0010 0000 0030 0001
+C 30 0120
+EB1A5
+$БИБ MOДУЛИ 436000
+$БИБ TEKCTЫ 425400
+$ACC3
+MOД      ЭKCMOC
+ИCX      ЭKCMOC
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTA
+ЛИCT     -1
+KOHEЦ
+$KHЦ
+.ЭKУCTP
+ШИФP 521352000005^OЗУ 32^TPA 10^BPE 700^AЦП 0^BXO 6^
+ДИC 30(2222)42(2222)43(2222-ЗП)^
+AЦП 40^
+EB6 K 00 010 0011 00 050 0112 K 00 070 0010 C 0010 0000 0030 0001
+C 30 0120
+EB1A5
+$БИБ MOДУЛИ 436000
+$БИБ TEKCTЫ 425400
+$ACC3
+MOД      ЭKУCTP
+ИCX      ЭKУCTP
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTA
+ЛИCT     -1
+KOHEЦ
+$KHЦ
+.ECKAH
+ШИФP 521352000006^OЗУ 32^TPA 10^BPE 700^AЦП 0^BXO 6^
+ЛEH 30(2222)42(2222)43(2222-ЗП)^
+EB6 K 00 010 0011  00 050 0112 K 00 070 0010 C 0010 0000 0030 0001
+C 30 0120
+EB1A5
+$БИБ MOДУЛИ 436000
+$БИБ TEKCTЫ 425400
+$ACC3
+MOД      ECKAH
+ИCX      ECKAH
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTA
+ЛИCT     -1
+KOHEЦ
+$KHЦ
+.ЖДУЩИЙ
+ШИФP 521352000007^OЗУ 32^TPA 10^BPE 700^AЦП 0^BXO 6^
+ДИC 30(2222)42(2222)43(2222-ЗП)^
+EB6 K 00 010 0011  00 050 0112 K 00 070 0010 C 0010 0000 0030 0001
+C 30 0120
+EB1A5
+$БИБ MOДУЛИ 436000
+$БИБ TEKCTЫ 425400
+$ACC3
+MOД      ЖДУЩИЙ
+ИCX      ЖДУЩИЙ
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTAT
+ЛИCT     -1
+KOHEЦ
+$KHЦ
+.ДPAKAH
+ШИФP 521352000008^OЗУ 32^TPA 10^BPE 700^AЦП 0^BXO 6^
+ЛEH 30(2222)42(2222)43(2222-ЗП)^
+EB6 K 00 010 0011  00 050 0112 K 00 070 0010 C 0010 0000 0030 0001
+C 30 0120
+EB1A5
+$БИБ MOДУЛИ 436000
+$БИБ TEKCTЫ 425400
+$ACC3
+MOД      ДPAKAH
+ИCX      ДPAKAH
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTA
+ЛИCT     -1
+KOHEЦ
+$KHЦ
+.ДPMД
+ШИФP 521352000009^OЗУ 32^TPA 10^BPE 700^AЦП 0^BXO 6^
+ЛEH 30(2222)42(2222)43(2222-ЗП)^
+EB6 K 00 010 0011 00 050 0112 K 00 070 0010 C 00 10 0000 00 30 0001
+C 30 0120
+EB1A5
+$БИБ MOДУЛИ 436000
+$БИБ TEKCTЫ 425400
+$ACC3
+MOД      ДPMД
+ИCX      ДPMД
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTA
+ЛИCT     -1
+KOHEЦ
+$KHЦ
+.OПPOC 
+ШИФP 521352000010^OЗУ 32^TPA 10^BPE 700^AЦП 0^BXO 6^
+ДИC 30(2222)42(2222)43(2222-ЗП)^
+EB6 K 00 010 0011  00 050 0112 K 00 070 0010 C 0010 0000 0030 0001
+C 30 0120
+EB1A5
+$БИБ MOДУЛИ 436000
+$БИБ TEKCTЫ 425400
+$ACC3
+MOД      OПPOC
+ИCX      OПPOC
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTA
+ЛИCT     -1
+KOHEЦ
+$KHЦ
+.ПPOTOK
+ШИФP 521352000011^OЗУ 32^TPA 10^BPE 700^AЦП 0^BXO 6^
+ДИC 30(2222)42(2222)43(2222-ЗП)^
+EB6 K 00 010 0011  00 050 0112 K 00 070 0010 C 0010 0000 0030 0001
+C 30 0120
+EB1A5
+$БИБ MOДУЛИ 436000
+$БИБ TEKCTЫ 425400
+$ACC3
+MOД      ПPOTOK
+ИCX      ПPOTOK
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTA
+ЛИCT     -1
+KOHEЦ
+$KHЦ
+.ИHИЦ
+ШИФP 521352000012^OЗУ 32^TPA 10^BPE 700^AЦП 0^BXO 6^
+ЛEH 30(2222)42(2222)43(2222-ЗП)^
+EB6 K 00 010 0011  00 050 0112 K 00 070 0010 C 0010 0000 0030 0001
+C 30 0120
+EB1A5
+$БИБ MOДУЛИ 436000
+$БИБ TEKCTЫ 425400
+$ACC3
+MOД      ИHИЦ
+ИCX      ИHИЦ
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTAT
+ЛИCT     -1
+KOHEЦ
+$KHЦ
+.TEPMИH
+ШИФP 521352000013^OЗУ 32^TPA 10^BPE 700^AЦП 0^BXO 6^
+ДИC 30(2222)42(2222)43(2222-ЗП)^
+EB6 K 00 010 0011  00 050 0112 K 00 070 0010 C 0010 0000 0030 0001
+C 30 0120
+EB1A5
+$БИБ MOДУЛИ 436000
+$БИБ TEKCTЫ 425400
+$ACC3
+MOД      TEPMИH
+ИCX      TEPMИH
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTA
+ЛИCT     -1
+KOHEЦ
+$KHЦ
+.BЫЗOB
+ШИФP 521352000014^OЗУ 32^TPA 10^BPE 700^AЦП 0^BXO 6^
+ДИC 30(2222)42(2222)43(2222-ЗП)^
+EB6 K 00 010 0011  00 050 0112 K 00 070 0010 C 0010 0000 0030 0001
+C 30 0120
+EB1A5
+$БИБ MOДУЛИ 436000
+$БИБ TEKCTЫ 425400
+$ACC3
+MOД      BЫЗOB
+ИCX      BЫЗOB
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTA
+ЛИCT     -1
+KOHEЦ
+$KHЦ
+.RUNLIB
+ШИФP 521352000015^OЗУ 32^TPA 10^BPE 700^AЦП 0^BXO 6^
+ДИC 30(2222)42(2222)43(2222-ЗП)^
+EB6 K 00 010 0011  00 050 0112 K 00 070 0010 C 0010 0000 0030 0001
+C 30 0120
+EB1A5
+$БИБ MOДУЛИ 436000
+$БИБ TEKCTЫ 425400
+$ACC3
+MOД      RUNLIB
+ИCX      RUNLIB
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTA
+ЛИCT     -1
+KOHEЦ
+$KHЦ
+.PRINTF
+ШИФP 521352000016^OЗУ 32^TPA 10^BPE 700^AЦП 0^BXO 6^
+ДИC 30(2222)42(2222)43(2222-ЗП)^
+EB6 K 00 010 0011  00 050 0112 K 00 070 0010 C 0010 0000 0030 0001
+C 30 0120
+EB1A5
+$БИБ MOДУЛИ 436000
+$БИБ TEKCTЫ 425400
+$ACC3
+MOД      PRINTF
+ИCX      PRINTF
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTA
+MET
+ЛИCT     -1
+KOHEЦ
+$KHЦ
+.MПД
+ШИФP 521352000017^OЗУ 32^TPA 10^BPE 700^AЦП 0^BXO 6^
+ДИC 30(2222)42(2222)43(2222-ЗП)^
+EB6 K 00 010 0011  00 050 0112 K 00 070 0010 C 0010 0000 0030 0001
+C 30 0120
+EB1A5
+$БИБ MOДУЛИ 436000
+$БИБ TEKCTЫ 425400
+$ACC3
+MOД      MПД
+ИCX      MПД
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTA
+ЛИCT     -1
+KOHEЦ
+$KHЦ
+.ЭЛФ
+ШИФP 521352000017^OЗУ 32^TPA 10^BPE 700^AЦП 0^BXO 1^
+ДИC 30(2222)42(2222)43(2222-ЗП)65(2222-ЗП)66(2222)67(2222-ЗП)^
+E B1 K 00 010 0011 00 050 0112    K 00 010 0012 00 050 0112
+     K 00 010 0013 00 050 0112    K 00 010 0014 00 050 0112
+     K 00 010 0015 00 050 0112    K 00 010 0016 00 050 0112
+     K 00 070 0010                C 00 10 0000 00 30 0001
+     C 30 0120                    C 42 0130
+     C 43 0140                    C 65 0140
+     C 66 0140                    C 67 0150
+EB1A5
+$БИБ TEKCTЫ 420000
+$БИБ MOДУЛИ 430000
+$ACC2
+MOД      ЭЛФ
+ИCX      ЭЛФ
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTA
+ЛИCT     -1
+KOHEЦ
+$LINK1
+ФAЙЛЫ
+  ЭЛФ   = 660070,  METДBC= 660073,
+  ГП1.EXE = 670207:002,             METЭЛФ = 650072:001;
+ЗAГP CИCBBOД/CXEMA, ГП1/CИC, CИCBЫB/ЛИCT, METЭЛФ/METKИ=ЭЛФ;
+  ЭЛФ    + METДBC                   :4100H,HAД=0.;
+.KEШA
+ШИФP 521313000018^OЗУ 32^TPA 10^BPE 700^AЦП 0^BXO 7^
+ДИC 30(MOHAPX)42(ДBC.TEKCTЫ)43(ДBC.HOBЫЙ-ЗП)^
+ШИФP 521313000019^OЗУ 32^TPA 10^BPE 700^AЦП 0^BXO 7^
+EB1A5
+$БИБ MOДУЛИ 430000
+$БИБ TEKCTЫ 420000
+$ACC3
+MOД      KEШA
+ИCX      KEШA
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTA
+ЛИCT     -1
+KOHEЦ
+$KHЦ
+.ЗAГP
+ШИФP 521352000099^
+ЛEH 30(2222)65(2222-ЗП)66(2222)67(2222-ЗП)^
+AЦП 3^BXO 2^BPE 200^TPA 32^OЗУ 32^
+EB 2 K 00 010 0011 00 050 0112
+     K 00 010 0012 00 050 0112
+     K 00 010 0013 00 050 0112
+     K 00 010 0014 00 050 0112
+     K 00 064 0001 K 00 070 0010 C 00 10 0000 00 30 0001
+C 30 0120
+C 65 0140
+C 66 0140
+C 67 0150
+EB1A5
+$BLINK
+ФAЙЛЫ
+  ДИCП  = 660001,  ПPOЦ  = 660005,  ЭKДBC = 660011,  ЭKCMOC= 660015,
+  ЭKУCTP= 660021,  ECKAH = 660027,  ЖДУЩИЙ= 660031,  ДPAKAH= 660032,
+  ДPMД  = 660036,  OПPOC = 660044,  ИHИЦ  = 660050,  ПPOTOK= 660066,
+  TEPMИH= 660054,  BЫЗOB = 660060,  RUNLIB= 660101,  PRINTF= 660103,
+  MПД   = 660110,  CXEMOC= 660065,  KEШA  = 660064,  METЭЛФ= 660072,
+  ГП1.EXE = 670001:177,             METДBC = 650073:006;
+ЗAГP CИCBBOД/CXEMA, ГП1/CИC, CИCBЫB/ЛИCT, METДBC/METKИ=ДИCП,ЭKДBC;
+ KEШA   +
+ ДИCП   + ПPOЦ   + ЭKДBC  + ЭKCMOC +
+ ЭKУCTP + ECKAH  + ЖДУЩИЙ + ДPAKAH +
+ ДPMД   + OПPOC  + ИHИЦ   + ПPOTOK +
+ TEPMИH + BЫЗOB  + RUNLIB + PRINTF +
+ MПД    + CXEMOC + METЭЛФ                   :0,HAД=0
+*/
+$KHЦ
+.ПУCKЛ
+ШИФP 521309021952^OЗУ 32^TPA 10^BPE 700^AЦП 125^BXO 7^
+ДИC 30(MOHAPX)42(ДBC.TEKCTЫ)43(ДBC.HOBЫЙ-ЗП)^
+ШИФP 521309021952^OЗУ 32^TPA 10^BPE 700^AЦП 125^BXO 7^
+EB1A5
+$БИБ MOДУЛИ 430000
+$БИБ TEKCTЫ 420000
+$ACC3
+ИCX      **
+MOД      **
+ПOЛЯ     AДP,KOM,ИMЯ,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+ФOPMAT   128
+OГЛABЛ
+CEKЦИИ
+TПC      ATPИБУTЫ,CCЫЛKИ,OCHOBHOГOTEKCTA,ИCП,HEИCП
+УПЛ
+ЛИCT     0
+ЛCT
+БЛCTPУK
+KOHEЦ
+$KHЦ
+.ПУCK
+ШИФP 521313000077^OЗУ 32^TPA 10^BPE 700^AЦП 0^BXO 7^
+ДИC 30(MOHAPX)42(ДBC.TEKCTЫ)43(ДBC.HOBЫЙ-ЗП)^
+ШИФP 521313000077^OЗУ 32^TPA 10^BPE 700^AЦП 0^BXO 7^
+EB1A5
+$БИБ MOДУЛИ 430000
+$БИБ TEKCTЫ 420000
+$ACC3
+MOД      **
+ИCX      **
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTA
+ЛИCT     -1
+KOHEЦ
+$KHЦ
+.ПEPE
+ШИФP 521313009999^OЗУ 10^BPE 217^BXO 70000^AЦП 0^
+E
+ШИФP 521313009999^OЗУ 10^BPE 217^BXO 70000^AЦП 0^
+K 00 110 0011 00 050 0131
+K 00 26 70002 00 074 0000
+K 00 110 0011 15 24 40000
+K 00 050 0121
+K 00 170 0012
+K 00 170 0013
+K 00 170 0014
+K 00 170 0015
+K 00 30 00001
+C 55 77 0000 00 22 0123
+C 00 10 0000 00 55 0731
+C 00 10 0100 00 55 0732
+C 00 10 0200 00 55 0733
+C 00 10 0300 00 55 0734
+Б00000*
+B 64000
+A1
+ПEPT ДBC.TEKCTЫ ДBC2.TEKCTЫ 0 0 160**
+KOH*
+ПEPT ДBC.CEPBИC ДBC2.CEPBИC 0 0  60**
+ПEPT ДBC.MOHOCT ДBC2.MOHOCT 0 0  60**
+ПEPT ДBC.ИHCTP  ДBC2.ИHCTP  0 0  60**
+_$
+EKOHEЦ
+.BCE
+ШИФP 521313000199^OЗУ 32^TPA 10^BPE 2000^AЦП 0^BXO 7^
+ДИC 30(MOHAPX)42(ДBC.TEKCTЫ)43(ДBC.HOBЫЙ-ЗП)^
+EB 7 K 00 070 0010 C 00 10 0000 00 30 0001
+EB1A5
+$БИБ MOДУЛИ 430000
+$БИБ TEKCTЫ 420000
+$ACC3
+MOД      ДИCП
+ИCX      ДИCП
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTA
+ЛИCT     -1
+KOHEЦ
+$ACC3
+MOД      ПPOЦ
+ИCX      ПPOЦ
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTA
+ЛИCT     -1
+KOHEЦ
+$ACC3
+MOД      ЭKДBC
+ИCX      ЭKДBC
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTAT
+ЛИCT     -1
+KOHEЦ
+$ACC3
+MOД      ЭKCMOC
+ИCX      ЭKCMOC
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTA
+ЛИCT     -1
+KOHEЦ
+$ACC3
+MOД      ЭKУCTP
+ИCX      ЭKУCTP
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTA
+ЛИCT     -1
+KOHEЦ
+$ACC3
+MOД      ECKAH
+ИCX      ECKAH
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTA
+ЛИCT     -1
+KOHEЦ
+$ACC3
+MOД      ЖДУЩИЙ
+ИCX      ЖДУЩИЙ
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTAT
+ЛИCT     -1
+KOHEЦ
+$ACC3
+MOД      ДPAKAH
+ИCX      ДPAKAH
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTA
+ЛИCT     -1
+KOHEЦ
+$ACC3
+MOД      ДPMД
+ИCX      ДPMД
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTA
+ЛИCT     -1
+KOHEЦ
+$ACC3
+MOД      OПPOC
+ИCX      OПPOC
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTA
+ЛИCT     -1
+KOHEЦ
+$ACC3
+MOД      ПPOTOK
+ИCX      ПPOTOK
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTA
+ЛИCT     -1
+KOHEЦ
+$ACC3
+MOД      ИHИЦ
+ИCX      ИHИЦ
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTAT
+ЛИCT     -1
+KOHEЦ
+$ACC3
+MOД      TEPMИH
+ИCX      TEPMИH
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTA
+ЛИCT     -1
+KOHEЦ
+$ACC3
+MOД      BЫЗOB
+ИCX      BЫЗOB
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTA
+ЛИCT     -1
+KOHEЦ
+$ACC3
+MOД      RUNLIB
+ИCX      RUNLIB
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTA
+ЛИCT     -1
+KOHEЦ
+$ACC3
+MOД      PRINTF
+ИCX      PRINTF
+ПOЛЯ     AДP,HOM,TEKCT,ПP
+ПOЗ      14,7,20
+HCTA
+ЛИCT     -1
+KOHEЦ
+$KHЦ

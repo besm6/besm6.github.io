@@ -1,0 +1,25 @@
+ HЛИCT
+ CTPH
+ 
+CTPУKTУPЫ CEKЦИЯ A#.CTPУKTУPЫ,HBЫП,HЗAП,COBM,CEKT;;
+ 
+CTPУKTУPЫ БЛOK
+ 
+ИMЯ:
+ TEKCT 'ЧC'
+ TEKCT 'TAБ_ПPOЦ'
+ TEKCT 'ПAKETЫMД'
+ TEKCT 'TУC'
+ 
+L_CTPУKT:ЭKB #-ИMЯ
+ 
+PAЗMEP:ПOЛE 16:1
+ KOHД 2
+ KOHД Ч_ПPOЦ+Ч_CИC_ПPOЦ
+ KOHД Ч_ПAKETOB*2
+L_TУC:KOHД 0;ПPOCTABЛЯET BЫЗOB
+ 
+ KБЛOK
+ 
+ 
+ ЛИCT

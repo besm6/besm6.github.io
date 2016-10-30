@@ -1,0 +1,221 @@
+ HЛИCT
+ CTPH 'ИHФOPMAЦИOHHOE ПOЛE ПPOЦECCA (ИПЗ)'
+ИПЗ CEKЦИЯ 0,ФИKT,CBOБ,П20
+ИПЗ    БЛOK
+ 
+BПEPEД:ПAM        ;AДPEC ИПЗ CЛEДУЮЩEГO ПPOЦECCA B OЧEPEДИ
+HAЗAД:ПAM         ;AДPEC ИПЗ ПPEДЫДУЩEГO ПPOЦECCA B OЧEPEДИ
+HOMEP_ПPOЦ:ПAM   ;HOMEP ПPOЦECCA
+ИMЯ_ПPOЦ:ПAM ;ИMЯ ПPOЦECCA
+COCT_ПPOЦ:ПAM ;COCTOЯHИE ПPOЦECCA
+KЛACC_ПPOЦ:ПAM       ;KЛACC ПPOЦECCA
+KBAHT_ПPOЦ:ПAM       ;CTATИЧECKИЙ  ПPИOPИTET ПPOЦECCA
+ПPT_ПPOЦ:ПAM         ;ПPИOPИTET ПPOЦECCA
+ 
+* ПOЛE УПPЯTЫBAHИЯ
+ 
+$CM:ПAM   ;CУMMATOP
+$PK:ПAM   ;PEГИCTP ПPИЗHAKOB И PEЖИMOB AУ
+$ИC2:ПAM  ;ИCПOЛHИTEЛЬHЫЙ AДPEC KOMAHДЫ
+$PMP:ПAM  ;PEГИCTP MЛAДШИX PAЗPЯДOB
+$ИC0:ПAM  ;ПPEФИKCAЦИЯ
+$ИC3:ПAM  ;PEЖИMЫ УУ
+$ИC6:ПAM  ;AДPEC KOMAHДЫ ПEPEXOДA
+$ИC7:ПAM  ;AДPEC ПPEPЫBAHИЯ
+$ИC8:ПAM  ;ГPУППOBOЙ PEЖИM
+$RF:ПAM   ;ИHДEKCHЫE PEГИCTPЫ
+$RE:ПAM
+ 
+* ПPOЧИE ПPOГPAMMHЫE PEГИCTPЫ
+ 
+$RD:ПAM
+$RC:ПAM
+$RB:ПAM
+$RA:ПAM
+$R9:ПAM
+$R8:ПAM
+$R7:ПAM
+$R6:ПAM
+$R5:ПAM
+$R4:ПAM
+$R3:ПAM
+$R2:ПAM
+$R1:ПAM
+$PT   : ПAM   ;PEГИCTP TEГA
+$ИC45 : ПAM    ;54-28P - OCTAHOB ПO AДPECУ KOMAHДЫ
+               ;27- 1P - OCTAHOB ПO AДPECУ OПEPAHДA (ИC5)
+$ИC3B : ПAM    ;BИPT.ЧACTЬ ИC3
+ 
+* ПPOГPAMMHЫE PEГИCTPЫ ДЛЯ PEЖИMA ЯДPA
+ 
+$ИC3_Я     : ПAM ;-- ДЛЯ BXOДA B PEЖИM
+$RF_Я      : ПAM ; --
+$ИC45_Я    : ПAM ; --
+$ИC3B_Я    : ПAM ;-- ЯДPA
+ 
+* УПPABЛEHИE ПAMЯTЬЮ
+ 
+OП       :ПAM Ч_KУC_OП ;BЫДEЛEHHAЯ ФИЗИЧECKAЯ ПAMЯTЬ:
+                       ; 34-18P - HAЧAЛЬHЫЙ ЛИCT УЧACTKA
+                       ; 17- 1P - ДЛИHA УЧACTKA
+Ч_KУC_OП:ЭKB 5
+$PП            : ПAM 64 ;PEГИCTPЫ ПPИПИCKИ
+PAЗM_ПPИП       : ПAM  ;(- <ЧИCЛO PEГИCTPOB ПPИПИCKИ> + 1)  ИЛИ  1
+$PCПO          : ПAM      ;PEГИCTP PAЗPEШEHИЯ COBП.ПO OБPAЩEHИЮ
+$PЗЗ           : ПAM      ;PEГИCTP ЗAЩИTЫ ЗAПИCИ
+$PMC           : ПAM      ;PEГИCTP MACKИ CTPAHИЦЫ
+ШK_PП:                 ;MACCИB ШKAЛ ЛИCTOB
+ШKAЛA_PMC:ПAM 9        ;- PCПO ,ДOПУCTИMЫE ПPИ PMC=07B..17B
+$PФO  :ПAM 1 ;- XPAHИMAЯ ЧACTЬ PФO
+$PCПO_И :ПAM 1         ;- ЗHAЧEHИE PCПO ДЛЯ PEЖИMA ИCПOЛHИTEЛЯ
+$PCПO_Я :ПAM 1         ;- ЗHAЧEHИE PCПO ДЛЯ PEЖИMA ЯДPA
+$PCПO_C :ПAM 1         ;- ЗHAЧEHИE PCПO ДЛЯ PEЖИMA CПEЦПPEPЫBAHИЯ
+$PЗЗ_И :ПAM 1         ;- ЗHAЧEHИE PЗЗ ДЛЯ PEЖИMA ИCПOЛHИTEЛЯ
+$PЗЗ_Я :ПAM 1         ;- ЗHAЧEHИE PЗЗ ДЛЯ PEЖИMA ЯДPA
+$PЗЗ_C :ПAM 1         ;- ЗHAЧEHИE PЗЗ ДЛЯ PEЖИMA CПEЦПPEPЫBAHИЯ
+Ч_ШK_PП:ЭKB #-ШK_PП
+$PMC_И :ПAM 1         ;- ЗHAЧEHИE PMC ДЛЯ PEЖИMA ИCПOЛHИTEЛЯ
+$PMC_Я :ПAM 1         ;- ЗHAЧEHИE PMC ДЛЯ PEЖИMA ЯДPA
+$PMC_C :ПAM 1         ;- ЗHAЧEHИE PMC ДЛЯ PEЖИMA CПEЦПPEPЫBAHИЯ
+Ч_PEГ_OП:ЭKB #-OП-1   ;OБЩИЙ PAЗMEP ПOЛEЙ УПPABЛEHИЯ ПAMЯTЬЮ(БEЗ OП-0)
+ 
+* ИHTEPФEЙCHAЯ OБЛACTЬ
+ 
+AДPEC_ИO :ПAM       ;AДPEC ИO ПPИ ПPИПИCKE $PП_ИO
+$PП_ИO    :ПAM          ;PEГИCTP ПPИПИCKИ ДЛЯ ИO
+ 
+* ПPИEM ИЗ MПД
+$PП_MПД : ПAM ;
+$PMC_MПД : ПAM ;
+AДPEC_MПД : ПAM ;AДPEC BXOДA B BИPT.OC ПPИ ПPИEME CИMBOЛA
+ 
+* ЧACЫ И TAЙMEPЫ
+ 
+BPEMЯ_ЦП :ПAM     ;ИCПOЛЬЗOBAHHOE BPEMЯ ЦП
+HAЧ_KBAHTA:ПAM    ;ACTPOHOMИЧECKOE BPEMЯ, COOTBETCTBУЮЩEE 'BPEMЯ_ЦП'
+OTH_TAЙMEP:ПAM        ;ГOЛOBA ЦEПOЧKИ OTH.TAЙMEPOB
+KOЛ_TAЙM:ПAM ;ЧИCЛO CBOБ.TAЙMEPOB
+ 
+* БЛOKИ
+ 
+ЗAH_БЛOK:ПAM ;ГOЛOBA ЦEПOЧKИ ЗAHЯTЫX ПPOЦECCOM БЛOKOB
+ 
+KOЛ_ЗAK : ПAM ;ЧИCЛO HE OKOHЧEHHЫX ЗAKAЗOB
+ 
+* OПEPATOPCKИЙ ПPOTOKOЛ
+ 
+CBЯЗЬ_OПT:ПAM ;ЦEПOЧKA OПT-ПPOЦECCOB: 54-28 - ПPEДЫД., 27-1 - CЛEД.
+ШKAЛA_OПT:ПAM ;ШKAЛA MAPШPУTOB
+ 
+ KБЛOK ИПЗ
+ CTPH 'ПЛAHИPOBAHИE ПPOЦECCOB'
+ 
+ПEPEM_ИПЗ CEKЦИЯ A#.ПEPEM_ИПЗ,П20,ЧИT,ЗAП,HBЫП,COBM,CEKT;;
+ 
+$X$ БЛOK
+ПPOTOKOЛ  BHEШH ИПЗ_ПPOT
+ИHИЦИATOP BHEШH ИПЗ_ИHИЦ
+OПPOC     BHEШH ИПЗ_OПPOC
+ЖДУЩИЙ    BHEШH ИПЗ_ЖДУ
+          BHEШH ИПЗ_ДPMД
+          BHEШH ИПЗ_ДPAKAH
+ KБЛOK $X$
+ 
+ 
+TAБ_ПPOЦ
+ KOHД 0 ;HУЛEBOЙ ПPOЦECC HE CУЩECTBУET
+ KOHД $X$.ИПЗ_ЖДУ ;ЖДУЩИЙ TECT
+ KOHД (8)0     ;ДPAЙBEPЫ CTAHДAPTHЫX C- И У-KAHAЛOB
+ KOHД $X$.ИПЗ_ДPMД ;ДPAЙBEP MД
+ KOHД $X$.ИПЗ_OПPOC ;PAЗДEЛ
+ KOHД $X$.ИПЗ_ИHИЦ ;ИHИЦИATOP
+ KOHД $X$.ИПЗ_ПPOT ;ПPOTOKOЛ
+Ч_CИC_ПPOЦ ЭKB #-TAБ_ПPOЦ
+TAБ_П_ПPOЦ ПAM Ч_ПPOЦ
+ 
+ 
+ПPИO БЛOK
+OПPOC ЭKB 50
+ДPMД  ЭKB 40
+ДPAKAH ЭKB 30
+ИHИЦ ЭKB 10
+ПPOT ЭKB 60
+ KБЛOK ПPИO
+ 
+$ПEPBЫЙ# ЭKB $X$.ИПЗ_ПPOT
+ 
+ПEPEД БЛOK
+ПPOT ЭKB 0
+OПPOC ЭKB $X$.ИПЗ_ПPOT
+ДPMД  ЭKB $X$.ИПЗ_OПPOC
+ДPAKAH ЭKB $X$.ИПЗ_ДPMД
+ИHИЦ ЭKB $X$.ИПЗ_ДPAKAH
+ KБЛOK ПEPEД
+ 
+ПOCЛE БЛOK
+ПPOT  ЭKB $X$.ИПЗ_OПPOC
+OПPOC ЭKB $X$.ИПЗ_ДPMД
+ДPMД  ЭKB $X$.ИПЗ_ДPAKAH
+ДPAKAH ЭKB $X$.ИПЗ_ИHИЦ
+ИHИЦ ЭKB 0
+ KБЛOK ПOCЛE
+ 
+ 
+N_ПPOЦ_ЖДУ  ЭKB    1
+N_ПPOЦ_C0   ЭKB    2  
+N_ПPOЦ_C1   ЭKB    3  
+N_ПPOЦ_C2   ЭKB    4  
+N_ПPOЦ_C3   ЭKB    5  
+N_ПPOЦ_У0   ЭKB    6  
+N_ПPOЦ_У1   ЭKB    7
+N_ПPOЦ_У2   ЭKB    8
+N_ПPOЦ_У3   ЭKB    9
+N_ПPOЦ_MД   ЭKB   0A H
+N_ПPOЦ_OПPOC ЭKB  0B H
+N_ПPOЦ_ИHИЦ ЭKB   0C H
+N_ПPOЦ_ПPOT ЭKB   0D H
+ 
+ 
+OЧ_ГOT KOHД .(0,4)    ;ECTЬ ПPOЦECCЫ 1 И 5 KЛACCOB
+ KOHД $ПEPBЫЙ#       ;ГOЛOBA ЦEПOЧKИ ПPOЦECCOB 1 KЛACCA
+ KOHД 0             ;ГOЛOBA ЦEПOЧKИ ПPOЦECCOB 2 KЛACCA
+ KOHД 0             ;ГOЛOBA ЦEПOЧKИ ПPOЦECCOB 3 KЛACCA
+ KOHД 0             ;ГOЛOBA ЦEПOЧKИ ПPOЦECCOB 4 KЛACCA
+ KOHД $X$.ИПЗ_ЖДУ   ;ГOЛOBA ЦEПOЧKИ ПPOЦECCOB 5 KЛACCA
+ 
+TEK_ИПЗ ПAM ;AДPEC ИПЗ TEKУЩEГO ПPOЦECCA
+CBOБ_ИПЗ ПAM ;ГOЛOBA ЦEПOЧKИ CBOБOДHЫX ИПЗ
+ЖДУ_KЗ ПAM ;ГOЛOBA ЦEПOЧKИ ПPOЦECCOB,OЖИДAЮЩИX OKOHЧAHИЯ
+OПT_ПPOЦ ПAM ;ГOЛOBA ЦEПOЧKИ OПT-ПPOЦECCOB
+ФЛAГ_BЫЗ_OC ПAM ;CEMAФOP: ИДET BЫЗOB BИPTУAЛЬHOЙ OC
+ CTPOK 0 ; .ИO
+ CTPH 'ИHTEPФEЙCHAЯ OБЛACTЬ'
+ИO CEKЦИЯ 0,ФИKT,П20,CBOБ
+ИO БЛOK
+ ПAM 2
+BXOД_BHУTP:ПAM 1
+BXOД_BHEШ :ПAM 1
+BXOД_CПEЦ :ПAM 1
+KЛЮЧ:ПAM
+PПP:ПAM
+ГPBП:ПAM
+ШK_Л_H_ЗAK:ПAM 8  ;HE PAЗДEЛЯTЬ C ШK_ЛH_ИAБ
+ШK_Л_H_ИAБ:ПAM 8  ;   (ПPEP_ПPOЦ)
+MГPBП:ПAM 
+KOПИЯ_ИC4:ПAM
+KOПИЯ_ИC5:ПAM 
+CДB_MПД:ПAM 1
+CДB_AЦД:ПAM 1
+CДB_MЛ:ПAM 1
+CДB_AЦПУ:ПAM 1
+CДB_MД:ПAM 1
+CДB_TAЙMEP:ПAM 1
+CДB_AKK:ПAM 1 ; 22.05.90 AP
+CДB_CПД:ПAM 1 ; -- "" --
+ ПAM ИO+40H-#-2
+УKAЗЧT:ПAM 1
+УKAЗЗП:ПAM 1
+БУФEP_MПД:ПAM 256
+PУ:ПAM 512
+ KБЛOK ИO
+ ЛИCT

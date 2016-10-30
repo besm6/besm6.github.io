@@ -1,0 +1,299 @@
+         ЗAГЛ 'RUN TIME LIBRARУ FOR SVS-B C COMPILER',
+         MOДУЛЬ 'RUN_TIME_LIB'
+ BKЛ ШAПKA
+                 
+! CBC-Б RUN TIME LIBRARУ FOR C (C) 1988 C. KAPTAШEB ИTM И BT AH CCCP.
+! MOДИФИЦИPOBAHO ДЛЯ ИCПOЛЬЗOBAHИЯ B  Д B C  (C) 1989 M.ЯPOCЛABЦEB 5-1=4
+                 
+* OПPEДEЛEHИЯ CTAHДAPTHЫX CEKЦИЙ
+KOHCT    CEKЦИЯ  A#KOHCT.RUNLIB,П20,HЗAП,HBЫП,ЧИT,ГPA=5
+ПEPEM    CEKЦИЯ  A#ПEPEM.RUNLIB,П20,HBЫП,CEKT
+KOД      CEKЦИЯ  A#KOД.RUNLIB,П20,HЗAП,ПPEФ,ЛKOM,HЧИT,CEKT
+                 
+* OПPEДEЛEHИЯ ИMEH PEГИCTPOB
+R1#      ЭKB     01H
+R2#      ЭKB     02H
+R3#      ЭKB     03H
+R4#      ЭKB     04H
+R5#      ЭKB     05H
+R6#      ЭKB     06H
+R7#      ЭKB     07H
+R8#      ЭKB     08H
+R9#      ЭKB     09H
+RA#      ЭKB     0AH
+FP#      ЭKB     0BH
+AP#      ЭKB     0CH
+LR#      ЭKB     0DH
+WR#      ЭKB     0EH
+SP#      ЭKB     0FH
+                 
+!
+! ПPEOБPAЗOBAHИE UNSIGNED --> FLOAT
+!
+Ц64_BEЩ#: БЛOK
+        ПPB     (LR#) ;0 HE HУЖДAETCЯ B ПPEOБPAЗOBAHИИ
+        ЗП      (SP#) ;COXPAHИЛИ ЧИCЛO B CTEKE
+        HEД     ;BЫЧИCЛИЛИ HOMEP CTAPШEЙ EДИHИЦЫ 1=>64
+        BЧOБ    =13 ;ПPEOБP. B KOHCTAHTУ ДЛЯ CДBИГA ЧИCЛA
+*        BПPABO ДO ПOЛУЧEHИЯ ФOPMATA ЦEЛOГO
+        ПБЛ     U_LONG ;B ЧИCЛE > 52 PAЗPЯДOB
+* ПPEOБPAЗУEM, KAK INT
+        CЧ      (SP#) ;BЗЯЛИ ЧИCЛO ИЗ CTEKA
+        KOP     434H ;УCTAHOBKA ПOPЯДKA ЦEЛOГO ЧИCЛA И HOPMAЛИЦAЦИЯ
+        ПБ      (LR#) ;BOЗBPAT
+U_LONG  ;TPEБУETCЯ CДBИГ BПPABO
+        УИM     WR# ;BEЛИЧИHУ CДBИГA HA ИP, ЧИCЛO ИЗ CTEKA HA CM
+        CДП     (WR#) ;CДBИГ BПPABO ДO ПOЛУЧEHИЯ ФOPMATA ЦEЛOГO
+        KOP     434H ;УCTAHOBKA ПOPЯДKA ЦEЛOГO ЧИCЛA И HOPMAЛИЦAЦИЯ
+        CЛП     (WR#) ;KOPPEKЦИЯ ПOPЯДKA HA BEЛИЧИHУ CДBИГA
+        ПБ      (LR#) ;BOЗBPAT
+        KБЛOK   Ц64_BEЩ#
+!
+! ПPEOБPAЗOBAHИE FLOAT --> UNSIGNED
+!
+BEЩ_Ц64#: БЛOK
+        CДПM    53 ;CДBИHУЛИ ПOPЯДOK B MЛAДШИE PAЗPЯДЫ CM
+        BЧ      =434H ;CPABHИЛИ C ПOPЯДKOM ЦEЛOГO ЧИCЛA
+        CЧH     (SP#) ;CЧИTAЛИ ЧИCЛO ИЗ CTEKA, БEЗ ИЗMEHEHИЯ PП AУ
+        ПБЛ     U_LONG ;MAHTИCCУ HAДO CДBИHУTЬ BЛEBO
+* ПPEOБPAЗУEM B ЦEЛOE C PACШИPEHИEM ЗHAKA
+        ЦEЛФ    52 ;ПEPEBOД FLOAT B INT, 52 - ДЛИHA MAHTИCCЫ
+* TEПEPЬ HAДO PACШИPИTЬ ЗHAKOBЫЙ (53) БИT ДO 64 PAЗPЯДA
+        УИИ     WR#(LR#) ;УCTAHOBИЛИ MECTO BOЗBPATA ДЛЯ PACШ_ЗHAK
+        ПБ      PACШ_ЗHAK ;PACШИPEHИE 53 БИTA BЛEBO
+U_LONG ;TPEБУETCЯ CДBИГ MAHTИCCЫ BЛEBO
+        BЧП     52 ;ПOЛУЧИЛИ B PAЗP. ПOPЯДKA CM BEЛИЧИHУ CДBИГA BЛEBO
+        CЧM     =001FFFFFFFFFFFFFH ;CЧИTAЛИ MACKУ И ЗAПИCAЛИ CM B CTEK
+        И       -1(SP#) ;BЫДEЛИЛИ MAHTИCCУ
+        ПB      PACШ_ЗHAK(WR#) ;PACШИPEHИE 53 БИTA BЛEBO
+        CДЛП    (SP#) ;CДBИHУЛИ MAHTИCCУ BЛEBO
+        ПБ      (LR#) ;BOЗBPAT
+!
+! PACШИPEHИE ЗHAKOBOГO (53) БИTA ЧИCЛA BЛEBO ДO 64 PAЗPЯДA
+!
+PACШ_ЗHAK  БЛOK ;BHУTPEHHИЙ
+        ПБP     (WR#) ;У HEOTPИЦATEЛЬHOГO ЧИCЛA ЗHAKA HET
+        ЦEЛAM   64-53-1024 ;PACШИPИЛИ ЗHAK
+        CДЛ     64-53 ;ПOMECTИЛИ ЧИCЛO B TPEБУEMЫE PAЗPЯДЫ
+        ИЛИ     (SP#) ;ДOБABИЛИ ПPOПABШИE MЛAДШИE PAЗPЯДЫ
+        ПБ      (WR#) ;BOЗBPAT
+        KБЛOK   PACШ_ЗHAK
+!
+        KБЛOK   BEЩ_Ц64#
+!
+! УMHOЖEHИE 64 PAЗPЯДHЫX ЦEЛЫX БEЗЗHAKOBЫX ЧИCEЛ (UNSIGNED LONG):
+! 1 COMHOЖИTEЛЬ HA CУMMATOPE, 2 B CTEKE
+!
+Ц64_УMH#: БЛOK
+        ЗП      (SP#) ;COXPAHEHИЛИ ПEPBЫЙ COMHOЖИTEЛЬ B CTEKE
+        ПPB     NULL ;HУЛИ HE УMHOЖAЮTCЯ
+        HEД     ;BЫЧИCЛEHИЛИ HOMEP CTAPШEЙ EДИHИЦЫ 1=>64
+        BЧOБ    =13 ;OПPEДEЛEHИE ПOMECTИTCЯ ЛИ B 52 PAЗPЯДA
+        ПБЛ     U_LONG ;B ЧИCЛE > 52 PAЗPЯДOB => HE ПOMECTИTCЯ
+        CЧ      -2(SP#) ;ПPOBEPЯEM BTOPOE ЧИCЛO
+        ПPB     NULL ;HУЛИ HE УMHOЖAЮTCЯ
+        HEД     ;BЫЧИCЛEHИЛИ HOMEP CTAPШEЙ EДИHИЦЫ 1=>64
+        BЧOБ    =13 ;OПPEДEЛEHИE ПOMECTИTCЯ ЛИ B 52 PAЗPЯДA
+        CЧH     (SP#) ;CЧИTAЛИ ПEPBЫЙ COMHOЖИTEЛЬ БEЗ ИЗMEH. ПPИЗH. AУ
+        ПБЛ     U_LONG ;B ЧИCЛE > 52 PAЗPЯДOB => HE ПOMECTИTCЯ
+        УMH     (SP#) ;УMHOЖAEM, KAK SIGNED INT
+        ПБ      (LR#) ;BOЗBPAT (RETURN X * У)
+*
+* УMHOЖEHИE ПPOИЗBOДИTCЯ ПO ФOPMУЛE:
+* Z = X0 * У0 + (X0 * У1) << 32 + (X1 * У0) << 32;
+* ГДE: X0 = X & 0XFFFFFFFF; X1 = (X >> 32);
+*      У0 = У & 0XFFFFFFFF; У1 = (У >> 32);
+*
+U_LONG
+        CДП     32 ;BЫДEЛИЛИ X1
+        HTЖП    400H ;УCTAHOBKA ПOPЯДKA 400H ДЛЯ УMHOЖEHИЯ
+        BДM     ;ЗAПИCЬ X1 B CTEK И ЧTEHИE HA CM X0
+        CДП     32 ;ПEPEHOC X0 B MЛAДШИE PAЗPЯДЫ
+        HTЖП    400H ;УCTAHOBKA ПOPЯДKA 400H ДЛЯ УMHOЖEHИЯ
+        CЧM     -3(SP#) ;ЗAПИCЬ X0 B CTEK И ЧTEHИE HA CM У
+        CДП     32 ;BЫДEЛИЛИ У1
+        BДM     ;ЗAПИCЬ У1 B CTEK И ЧTEHИE HA CM У0
+        CДП     32 ;ПEPEHOC У0 B MЛAДШИE PAЗPЯДЫ
+        BPЖM    ;ЗAПИCЬ У0 B CTEK И ЧTEHИE HA CM PEЖИMOB ЦП
+        УPЖ     30H ;БЛOKИPOBKA HOPMAЛИЗAЦИИ И OKPУГЛEHИЯ
+        ЗП      -5(SP#) ;ЗAПИCЬ PEЖИMOB ЦП HA MECTO У (У УЖE HE HУЖEH)
+* 
+* B ИTOГE ПOЛУЧИЛИ B CTEKE:
+* -1(SP#) => У0
+* -2(SP#) => У1
+* -3(SP#) => X0
+* -4(SP#) => X1
+* -5(SP#) => COXPAHEHHЫE PEЖИMЫ ЦП
+*
+        CЧ      -1(SP#) ;У0
+        УMH     -3(SP#) ;* X0
+* ПOCЛE УMHOЖEHИЯ HA CM И PMP 104 PAЗPЯДHA MAHTИCCA И ПOPЯДOK = 0
+        BДПM ;ЗAПИCЬ CM B CTEK И ЧTEHИE PMP C OБHУЛEHИEM ПOPЯДKA
+        CЧM     -2(SP#) ;ЧTEHИE ЗHAЧ CM ИЗ CTEKA И ЗAПИCЬ TУДA ЗHAЧ PMP
+        CДЛ     52    ;KOHCTPУИPOBAHИE 64 PAЗPЯДHOГO ЧИCЛA
+        ИЛИ     (SP#) ;-------------- // -----------------
+        ЗП      -1(SP#) ;Z = X0 * У0
+*
+* ПOCЛE ЭTOГO CTEK CMECTИЛCЯ HA OДHУ ЯЧEЙKУ
+* B ИTOГE ПOЛУЧИЛИ B CTEKE:
+* -1(SP#) => Z
+* -2(SP#) => У0
+* -3(SP#) => У1
+* -4(SP#) => X0
+* -5(SP#) => X1
+* -6(SP#) => COXPAHEHHЫE PEЖИMЫ ЦП
+*
+        CЧ      -3(SP#) ;У1
+        УMH     -4(SP#) ;* X0
+        BД      ;CM := MЛAДШИE PAЗPЯДЫ У1 * X0
+        CДЛ     32 ; (У1 * X0) << 32
+        CЛK     -1(SP#) ;Z = X0 * У0 + (X0 * У1) << 32
+        ЗП      -1(SP#) ;------------ // -------------
+        CЧ      -5(SP#) ;X1
+        УMH     -2(SP#) ;* У0
+        BД      ;CM := MЛAДШИE PAЗPЯДЫ X1 * У0
+        CДЛ     32 ;(X1 * У0) << 32
+        УPЖП    -6(SP#) ;BOCCTAHOBЛEHИE PEЖИMOB ЦП
+        CЛK     -1(SP#) ;Z = X0 * У0 + (X0 * У1) << 32 + (X1 * У0) << 32
+        CЛИA    -6(SP#) ;KOPPEKЦИЯ CTEKA
+        ПБ      (LR#) ;BOЗBPAT (RETURN Z)
+*
+NULL ;ECЛИ OДИH ИЗ COMHOЖИTEЛEЙ PABEH 0
+        CЛИA    -2(SP#) ;KOPPEKЦИЯ CTEKA
+        ПБ      (LR#) ;BOЗBPAT (RETURN 0)
+        KБЛOK Ц64_УMH#
+!
+! ДEЛEHИE ЦEЛЫX ЧИCEЛ: ДEЛИMOE HA CM, ДEЛИTEЛЬ B CTEKE
+!
+Ц_ДEЛ# : БЛOK
+        CЧM     -2(SP#) ;COXPAHИЛИ ДEЛИMOE B CTEKE И CЧИTAЛИ ДEЛИTEЛЬ
+        KOP     434H ;УCTAHOBKA ПOPЯДKA ЦEЛOГO ЧИCЛA И HOPMAЛИЦAЦИЯ
+        ЗПM     -2(SP#) ;ЗAПИCAЛИ ДEЛИTEЛЬ HA MECTO И CЧИTAЛИ ДEЛИMOE
+        KOP     434H ;УCTAHOBKA ПOPЯДKA ЦEЛOГO ЧИCЛA И HOPMAЛИЦAЦИЯ
+        ДEЛ     (SP#) ;ПOДEЛИЛИ
+        ЦEЛФ    52 ;ПEPEBOД FLOAT B INT, 52 - ДЛИHA MAHTИCCЫ
+        ПБ      (LR#) ;BOЗBPAT
+        KБЛOK   Ц_ДEЛ#
+!
+! ЗAПИCЬ БAЙTA: HA CM 30 PAЗP. AДPEC, БAЙT B CTEKE
+!
+ЗП_Б#  : БЛOK
+        CДП     3 ;HA CM AДPEC CЛOBA, B PMP HOMEP БAЙTA
+        УИ      WR# ;AДPEC CЛOBA
+        CЧ      =0FFH ;8 PAЗPЯДHAЯ MACKA
+        CДПД    -56 ;CДBИГ B PAЗPЯДЫ COOTB. БAЙTУ B CЛOBE
+        CЧM     -2(SP#) ;CЧИTAЛИ БAЙT, MACKA B CTEKE
+        PЗБ     -1(SP#) ;CДBИHУЛИ БAЙT B HУЖHЫE PAЗPЯДЫ 
+        HTЖ     (WR#)
+        И       (SP#)
+        HTЖ     (WR#)
+        ЗПM     (WR#) ;ЗAПИCЬ CЛOBA И CЧИTBAHИE БAЙT HA CM
+        ПБ      (LR#) ;BOЗBPAT
+        KБЛOK   ЗП_Б#
+!
+! BЫЧИCЛEHИE MOДУЛЯ ЦEЛЫX ЧИCEЛ: ДEЛИMOE HA CM, ДEЛИTEЛЬ B CTEKE
+!
+Ц_MOД# : БЛOK
+        CЧM     -2(SP#) ;COXPAHИЛИ ДEЛИMOE B CTEKE И CЧИTAЛИ ДEЛИTEЛЬ
+        KOP     434H ;УCTAHOBKA ПOPЯДKA ЦEЛOГO ЧИCЛA И HOPMAЛИЦAЦИЯ
+        CЧM     -2(SP#) ;ЗAПИCAЛИ ДEЛИTEЛЬ B CTEK И CЧИTAЛИ ДEЛИMOE
+        KOP     434H ;УCTAHOBKA ПOPЯДKA ЦEЛOГO ЧИCЛA И HOPMAЛИЦAЦИЯ
+        ДEЛ     (SP#) ;ПOДEЛИЛИ
+        ЦEЛФ    52 ;ПEPEBOД FLOAT B INT, 52 - ДЛИHA MAHTИCCЫ
+        УMH     -2(SP#)
+        BЧOБ    (SP#) ;BЫЧИCЛИЛИ MOДУЛЬ
+        CЛИA    -1(SP#) ;CKOPPEKTИPOBAЛИ CTEK
+        ПБ      (LR#) ;BOЗBPAT
+        KБЛOK   Ц_MOД#
+*
+**********************************************************
+*                                                        *
+*---------  C O Г Л A Ш E H И Я  O  C B Я З Я X  --------*
+*                                                        *
+*  BЫЗOB:                                                *
+*      CЧ ПAP1                                           *
+*      . . . .       ПAPAMETPЫ B CTEKE...                *
+*      CЧM ПAPN                                          *
+*      CЧM =N_ПAP    ЧИCЛO ПAPAMETPOB HA CM              *
+*      ПB ПPOЦ(LR#)  ПEPEXOД C BOЗBPATOM HA ПPOЦ         *
+*                                                        *
+*  BЫЗЫBAEMAЯ ПOДПPOГPAMMA:                              *
+*      ЗП (SP#)      ЧИCЛO ПAPAMETPOB - B CTEK           *
+*      ПB $CEN@@(LR#) ПPOЦEДУPA УПPЯTЫBAHИЯ И УCTAHOBKИ  *
+*                    PEГИCTPOB, @@ - ДИAПAЗOH УПPЯTЫBA-  *
+*                    EMЫX PAБOЧИX PEГИCTPOB. HA CM BOЗ-  *
+*                    BPAЩAET ЧИCЛO ПEPEДAHHЫX ПAPAMETPOB *
+*      . . . . . . .                                     *
+*      ПБ $CEX@@     BOCCTAHOBЛEHИE PEГИCTPOB И BOЗBPAT  *
+*                    @@ TO ЖE, ЧTO И B $PEN@@            *
+*                                                        *
+*  CTPУKTУPA KAДPA BЫЗOBA:                               *
+*                                                        *
+*  *======================================*              *
+*  I  ЧИCЛO ПAPAMETPOB                    I  -6          *
+*  I--------------------------------------I              *
+*  I  AДPEC HAЧAЛA ПAPAMETPOB             I  -5          *
+*  I--------------------------------------I              *
+*  I  LR# - AДPEC BOЗBPATA                I  -4          *
+*  I--------------------------------------I              *
+*  I  FP# - AДPEC KOHЦA ПPEДШECTBУЮЩEГO   I  -3          *
+*  I        KAДPA (+1), HAЧAЛO ЛOK. ПEPEM I              *
+*  I--------------------------------------I              *
+*  I . . .  PAБOЧИE PEГИCTPЫ (R1#-RA#) . .I              *
+*  I--------------------------------------I              *
+*  I  AP# - HAЧAЛO ПAPAMETPOB ФУHKЦИИ     I  -2          *
+*  I--------------------------------------I              *
+*  I  MACKA УПPЯTAHHЫX PEГИCTPOB          I  -1          *
+*  I  (E1 - R1#, E13 - RD#)               I              *
+*  *======================================*              *
+*                                                        *
+**********************************************************
+!
+*==  BXOД B ФУHKЦИЮ БEЗ PAБOЧИX PEГИCTPOB  ==*
+*==  УПPЯTЫBAЮTCЯ: AP#, FP#, LR#   ==*
+!
+$CEN00 :   БЛOK
+!
+A_ПAP    ЭKB 7FFFFFBH(SP#)  ; -5
+N_ПAP    ЭKB 7FFFFFAH(SP#)  ; -6
+MACKA    ЭKB .[LR#,FP#,AP#] ;ШKAЛA УПPЯTAHHЫX PEГИCTPOB
+!
+         BЧOБЦ -1(SP#) ;AДPEC HAЧAЛA ПAPAMETPOB/****
+         BИM   LR#   ;AДPEC BOЗBPATA
+         BИM   FP#   ;AДPEC KOHЦA ПPEДШECTBУЮЩEГO KAДPA
+         BИM   AP#   ;БAЗA ПAPAMETPOB
+         CЧM  =MACKA
+         CЧM   A_ПAP
+         УИ    AP#   ;HAЧAЛO ПAPAMETPOB ФУHKЦИИ
+         УИИ   FP#(SP#)
+         CЧ    N_ПAP
+         ПБ    (WR#)  ;BOЗBPAT B HAЧAЛO ФУHKЦИИ
+         KБЛOK $CEN00
+!
+*==  BЫXOД ИЗ ФУHKЦИИ БEЗ PAБOЧИX PEГИCTPOB  ==*
+*==  BOCCTAHABЛИBAЮTCЯ: AP#, FP#, LR#  ==*
+!
+$CEX00 :   БЛOK
+!
+S_AP#    ЭKB 7FFFFFEH(FP#) ; -2
+S_FP#    ЭKB 7FFFFFDH(FP#) ; -3
+S_LR#    ЭKB 7FFFFFCH(FP#) ; -4
+!
+         УИИ   SP#(AP#) ;BCE BЫЧEPKHУTЬ ИЗ CTEKA
+         ПФ    S_AP#    ;BCE BOCCTAHABЛИBAETCЯ ПO FP#
+         УИA   (AP#)    ;БAЗA ПAPMETPOB
+         ПФ    S_LR#
+         УИA   (LR#)    ;AДPEC BOЗBPATA
+         ПФ    S_FP#
+         УИA   (FP#)    ;FP - ПOCЛEДHИM
+         ПБ    (LR#)    ;CM И ПPИЗHAKИ ПEPEXOДOB COXPAHEHЫ
+         KБЛOK $CEX00
+!
+ BKЛ CRENEX
+!
+Ц64_ДEЛ#: ЭKB Ц_ДEЛ#
+Ц64_MOД#: ЭKB Ц_MOД#
+!
+        CEKЦИЯ KOHCT 
+        ЛИTEP
+        ФИHИШ

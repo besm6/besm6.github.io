@@ -1,0 +1,371 @@
+ ЗAГЛ 'ЭЛEMEHTAPHЫE ФУHKЦИИ PEЖИMA COBMECTИMOCTИ',
+ MOДУЛЬ 'ФУHKЦИИ'
+!     OPДEHA ПOЧETHOГO ЛEГИOHA ИHCTИTУT TOЧHOЙ MEXAHИKИ
+!    И BЫЧИCЛИTEЛЬHOЙ TEXHИKИ ИMEHИ C.A.ЛEБEДEBA AH CCCP              
+!                                                                    
+!                                                                    
+!                                                                    
+!                                                                    
+!                                                                    
+!                                                                    
+!                                                                    
+!                 ДДДДД     BBBBBB      CCCCC             
+!                Д   ДД     BB   BB    CC    C
+!               ДД   ДД     BBBBBB     CC     
+!               ДД   ДД     BB   BB    CC     
+!               ДД   ДД     BB   BB    CC    C
+!              ДДДДДДДДД    BBBBBB      CCCCC 
+!                                                                    
+!                                                                    
+!                                                                    
+!  Д И C П E T Ч E P    B И P T У A Л Ь H Ы X   C И C T E M            
+!                                                                    
+!             B K    " Э Л Ь Б P У C   1 - K Б "            
+!                                                                    
+!                                                                    
+!                         BEPCИЯ  1.1                                 
+ CTPH
+KOД CEKЦИЯ 4100H,П15,HЧИT,HЗAП,BЫП,ПPEФ
+ЭЛФ:БЛOK 
+ ЗП X
+ ПБ ДЭ(M16)
+ДЭ
+:ПБ ЭЛФ0
+:ПБ ЭЛФ1
+:ПБ ЭЛФ2
+:ПБ ЭЛФ3
+:ПБ ЭЛФ4
+:ПБ ЭЛФ5
+:ПБ ЭЛФ6
+:ПБ ЭЛФ7
+ 
+ 
+ 
+ 
+ 
+KЭФ
+ PПБ ЭKBЫX_CM
+ 
+ 
+ 
+OШ_ЭФ PПБ ПЛOX_ЭФ
+ CTPH 'Э50 - KBAДPATHЫЙ KOPEHЬ'
+*BЫЧИCЛEHИE SQRT(X)
+*CPEДHEE BPEMЯ CЧETA=70MKCEK.
+*MAKC.OTH.ПOГP.=1.5E-12
+*KOPEHЬ ИЗBЛEKAETCЯ TOЧHO ИЗ BCEX
+*X=N**2,ГДE 1 { N { 2**20
+ЭЛФ0
+ УИA KЭФ(M16)
+ CЛП 0
+ЗSQR ЗП X
+ УPЖ 4
+ ПO (M16)
+ УPЖ 20B
+ ПE OШ_ЭФ
+ CДП 1
+ ЗП Z
+ CЧ X
+ BЧПП X
+ ЗП У
+ УMH SQ2
+ CЛ SQ1
+ УMH У
+ CЛ SQ0
+ CЛП 32
+ CЛПП Z
+ ЗП У
+ CЧ Z
+ УPЖ 22B
+ ПO ЗSQ1
+ CЧ У
+ УMH ЭK6
+ ЗП У
+ЗSQ1 CЧ X
+ ДEЛ У
+ CЛ У
+ CЛП -1
+ ЗП У
+ CЧ X
+ ДEЛ У
+ CЛ У
+ CЛП -1
+ ПБ (M16)
+ CTPH 'Э51 - CИHУC'
+*BЫЧИCЛEHИE SIN(X)
+*CPEДHEE BPEMЯ CЧETA = 55MKCEK.
+*MAKC. OTH. ПOГP.=4.E-12
+*BCEГДA ABS(SIN(X)) { 1
+*BCEГДA SIN(X)**2+COS(X)**2{1.
+ЭЛФ1
+ ИЗ X
+ УMH З1ЧPI
+ УPЖ 12B
+ ПE ЗS3
+ЗS1 УPЖ 3
+ CЛ ЦEЛЫЙ_ПOP
+ УPЖ 22B
+ ЗП У
+ BД -40
+ ЗП Z
+ CЧ У
+ CДП 8
+ BД -64
+ ЗП У
+ CЧ Z
+ УPЖ 12B
+ ПИHO ЗS4(M16)
+ BЧOБ R05
+ ПБ ЗS2
+ЗS4 ПE ЗS2
+ BЧOБ EXP0
+ЗS2 ИЗ У
+ЗS3 CЛП +1
+ ЗП Z
+ УMH Z
+ ЗП V
+ УИA -5(M16)
+ CЧ SIN6
+LI УMH V
+ CЛ SIN5+5(M16)
+ ЦИKЛ LI(M16)
+ УMH Z
+HAKЭФ
+ ИЗ X
+ ПБ KЭФ
+ CTPH 'Э52 - KOCИHУC'
+*BЫЧИCЛEHИE COS(X)
+*CPEДHEE BPEMЯ CЧETA=55 MKCEK.
+*MAKC. OTH. ПOГP. = 4.E-12
+*BCEГДA ABS(COS(X)) { 1
+ЭЛФ2
+ ИЗ X
+ ЗП X
+ УMH З1ЧPI
+ УИA 0(M16)
+ ПБ ЗS1
+ CTPH 'Э53 - APKTAHГEHC'
+*BЫЧИCЛEHИE ATAN(X)
+*CPEДHEE BPEMЯ CЧETA = 90MKCEK.
+*MAKC. OTH. ПOГP. = 7.E-12
+ЭЛФ3
+ ИЗ X
+ ЗП Z
+ УИA E48(M16)
+ CЛП -1
+ ПE ЗAT1
+ CЧ EXP0
+ ДEЛ Z
+ ЗП Z
+ УИA ЭK38(M16)
+ЗAT1 CЧ (M16)
+ ЗП У
+ CЧ Z
+ УMH Z
+ ЗП V
+ УИA -2(M16)
+ЗQAT CЛ QATAN1(M16)
+ УMH V
+ ЦИKЛ ЗQAT(M16)
+ CЛ QATAN0
+ ЗП W
+ УИA -3(M16)
+ CЧ PATAN4
+TA УMH V
+ CЛ PATAN3+3(M16)
+ ЦИKЛ TA(M16)
+ ДEЛ W
+ УMH Z
+ BЧ У
+ BЧAБ
+ ПБ HAKЭФ
+ CTPH 'Э54 - APKCИHУC'
+*BЫЧИCЛEHИE ASIN(X)
+*CPEДHEE BPEMЯ CЧETA = 80 MKCEK.
+*MAKC. OTH. ПOГP. 7.E-12
+ЭЛФ4 ЗП W
+ ИЗ X
+ ЗП Z
+ УИA E48(M16)
+ УPЖ 10B
+ ПE ЗAS1
+ BЧOБ EXP0
+ ПE OШ_ЭФ
+ CЛП -1
+ ПB ЗSQR(M16)
+ ЗП Z
+ УИA ЭK38(M16)
+ЗAS1 CЧ (M16)
+ ЗП U
+ CЧ Z
+ УMH Z
+ ЗП V
+ УИA -2(M16)
+ЗQAS CЛ QASIN1(M16)
+ УMH V
+ ЦИKЛ ЗQAS(M16)
+ CЛ QASIN0
+ ЗП У
+ УИA -2(M16)
+ CЧ PASIN3
+SA УMH V
+ CЛ PASIN0(M16)
+ ЦИKЛ SA(M16)
+ ДEЛ У
+ УMH Z
+ CЛПП U
+ BЧ U
+ BЧAБ
+ ИЗ W
+ ПБ KЭФ
+ CTPH 'Э55 - ЛOГAPИФM'
+*BЫЧИCЛEHИE ALOG(X)
+*CPEДHEE BPEMЯ CЧETA =60 MKCEK.
+*MAKC. OTH. ПOГP.=3.E-12
+*ALOG(1.) B TOЧHOCTИ PABEH 0
+ЭЛФ5 ИЗ SIN1
+ ПO OШ_ЭФ
+ ЗП X
+ BЧПП X
+ BЧ ЭK39
+ ЗП Z
+ CЛ ЭK6
+ ДEЛ Z
+ ЗП Z
+ УMH Z
+ ЗП V
+ УИA -4(M16)
+ CЧ ALOG5
+ УPЖ 2
+L УMH V
+ CЛ ALOG0(M16)
+ ЦИKЛ L(M16)
+ УMH Z
+ BЧ LN2Ч2
+ ЗП W
+ CЧ X
+ И MACKA_ПOP
+ CДП 7
+ HTЖ ЭK29
+ УMH ЭK7
+ CЛ W
+ ПБ KЭФ
+ CTPH 'Э56 - ЭKCПOHEHTA'
+*BЫЧИCЛEHИE EXP(X)
+*CPEДHEE BPEMЯ CЧETA = 65 MKCEK.
+*MAKC. OTH. ПOГP. =5.E-12
+ЭЛФ6 УMH З1ЧLN2
+ ЗП X
+ BЧ Ч63
+ ПO OШ_ЭФ
+ CЛ Ч127
+ ПE ЗCZER0
+ CЧ X
+ УPЖ 3
+ CЛ ЦEЛЫЙ_ПOP
+ ЗП Z
+ УPЖ 0
+ BД -41
+ ЗП У
+ CЧ Z
+ CДП 7
+ BД -64
+ HTЖ E48
+ ЗП Z
+ УИA -6(M16)
+ CЧ EXP7
+ЗEXPL УMH У
+ CЛ EXP0(M16)
+ ЦИKЛ ЗEXPL(M16)
+ ЗП W
+ УMH W
+ CЛПП Z
+ ПБ KЭФ
+ЗCZER0 CЧ 0
+ ПБ KЭФ
+ CTPH 'Э57 - ЦEЛAЯ ЧACTЬ'
+* BЫЧИCЛEHИE ЦEЛOЙ ЧACTИ
+ЭЛФ7
+ УPЖ 3
+ CЛ ЦEЛЫЙ_ПOP
+ УPЖ 0
+ CЛП 0
+ ПБ KЭФ
+ CTPH 'ПEPEMEHHЫE И KOHCTAHTЫ'
+ 
+ПEPEM CEKЦИЯ 40 664 B,П15,HBЫП
+X ПAM
+U ПAM
+У ПAM
+Z ПAM
+V ПAM
+W ПAM
+ 
+M16 ЭKB 16B
+ 
+ 
+ 
+ 
+KOHCT CEKЦИЯ 40 672 B,П15,HЗAП,HBЫП
+ЭK6 KOHД 4053240474631772B
+ЭK7 KOHД 4013056205773722B
+ЦEЛЫЙ_ПOP KOHД 6400000000000000B
+ЭK38 KOHД 4054441766521041B
+ЭK39 KOHД 4013240474631772B
+MACKA_ПOP KOHД 7740000000000000B
+ЭK29 KOHД 4320000000000000B
+E48 KOHД .48
+Ч63 KOHД 4317600000000000B
+Ч127 KOHД 4357700000000000B
+SQ2 KOHД 3722726016750030B
+SQ1 KOHД 4016174360527114B
+SQ0 KOHД 3752021367076726B
+З1ЧPI KOHД 3752137140667117B
+R05 KOHД [40]401B
+SIN6 KOHД 2416516615135220B
+SIN5 KOHД 2720726406013034B
+     KOHД 3212407337647661B
+     KOHД 3466322646644717B
+     KOHД 3652146570633344B
+SIN1 KOHД 4025524206147334B
+     KOHД 4054441766521041B
+PATAN4 KOHД 3710712237733234B
+PATAN3 KOHД 4157070620065256B
+PATAN2 KOHД 4315676761443655B
+PATAN1 KOHД 4356666234335452B
+PATAN0 KOHД 4351263371314703B
+QATAN3 KOHД 4251370534014651B
+QATAN2 KOHД 4353035273613334B
+QATAN1 KOHД 4410771042346022B
+QATAN0 KOHД 4351263371314705B
+PASIN3 KOHД 4262067767311156B
+PASIN2 KOHД 4417116703564207B
+PASIN1 KOHД 4527510513075667B
+PASIN0 KOHД 4452405406731770B
+QASIN3 KOHД 4323163553476645B
+QASIN2 KOHД 4451673607622544B
+QASIN1 KOHД 4526610137701013B
+QASIN0 KOHД 4452405406731770B
+LN2Ч2 KOHД 3753056205773721B
+ALOG5 KOHД 3714502240420440B
+ KOHД 3716136565743216B ;ALOG4
+ KOHД 3751111240046421B ;ALOG3
+ KOHД 3754631462345725B ;ALOG2
+ KOHД 4012525252526026B ;ALOG1
+ALOG0 KOHД 4110000000000000B
+З1ЧLN2 KOHД 4053425216624534B
+EXP7 KOHД 3051400777605675B
+ KOHД 3211740671257531B
+ KOHД 3352734560343024B
+ KOHД 3511662430023033B
+ KOHД 3616153023515710B
+ KOHД 3717277573756445B
+ KOHД 4013056205774000B
+EXP0 KOHД 4050000000000000B
+ 
+ 
+ BHEШH ПЛOX_ЭФ,ЭKBЫX_CM
+ KБЛOK ЭЛФ
+ CEKЦИЯ KOHCT
+ ЛИTEP
+ ФИHИШ

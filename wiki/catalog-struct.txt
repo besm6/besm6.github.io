@@ -1,0 +1,187 @@
+﻿       K A T A Л O Г    B B O Д A    З A Д A Ч                                     
+
+         ПEPBЫE 10(8) CЛOB                                                         
+
+I--------------------------------------------------------I                         
+I N CЛOBA I PAЗPЯДЫ I        COДEPЖИMOE                  I                         
+I--------------------------------------------------------I                         
+I       KB0 - 10/8/CЛOB                                  I                         
+I--------------------------------------------------------I                         
+I  0-4    I         I  OЧEPEДИ 0 - 4  KЛACCOB            I                         
+I         I         I                                    I                         
+I         I  16-1   I CCЫЛKA HA 1-Ю ЗAДAЧY  -I ЛИMИTHЫE  I                         
+I         I  32-17  I CCЫЛKA HA 1-Ю ЗAДAЧY   I ЭKCПPECC  I                         
+I         I  48-33  I CCЫЛKA HA 1-Ю ЗAДAЧY   I CПEЦ.KAT. I                         
+I         I  64-49  I CCЫЛKA HA 1-Ю ЗAДAЧY  -I           I                         
+I--------------------------------------------------------I                         
+I   0     I         I  OЧEPEДИ 0 - ГO KЛACCA             I                         
+I--------------------------------------------------------I                         
+I   1     I  64-1   I  OЧEPEДИ 1 - ГO KЛACCA             I                         
+I--------------------------------------------------------I                         
+I   2     I  64-1   I  OЧEPEДИ 2 - ГO KЛACCA             I                         
+I--------------------------------------------------------I                         
+I   3     I  64-1   I  OЧEPEДИ 3 - ГO KЛACCA             I                         
+I--------------------------------------------------------I                         
+I   4     I  64-1   I  OЧEPEДИ ЗAДAЧ 4-ГO KЛACCA /TEЛE/  I                         
+I--------------------------------------------------------I                         
+I   5     I  64-1   I  OЧEPEДЬ ЗAДAЧ 5-ГO KЛACCA /P.B./  I                         
+I--------------------------------------------------------I                         
+I   6     I  64-1   I   C B O Б O Д H O                  I                         
+I--------------------------------------------------------I                         
+I   7     I  64-17  I   C B O Б O Д H O                  I                         
+I         I  16-1   I  OБЩAЯ OЧEPEДЬ BBOДA               I                         
+I--------------------------------------------------------I                         
+
+
+       K A T A Л O Г     B B O Д A     З A Д A Ч                                   
+I---------I---------I------------------------------------I                         
+I         I         I                                    I                         
+I   0     I 64 - 56 I ЗAKAЗAHO METPOB AЦПY ('AЦП')       I                         
+I         I 55 - 47 I ФИЗ. N TEPMИHAЛA                   I                         
+I         I      46 I HE ПPOCMOTPEHA APXИBOM             I                         
+I         I      45 I ЗAДAЧA B PEШEHИИ                   I                         
+I         I      44 I ЗAПPET OT БЮДЖETA HA BKЛЮЧEHИE     I                         
+I         I      43 I ЗAПPET OT APXИBA HA BKЛЮЧEHИE      I                         
+I         I      42 I PAБOTA C ЧYЖИM БЮДЖETOM            I                         
+I         I 41 - 36 I N OTДEЛA ПPИ PAБOTE БЮДЖETA        I                         
+I         I 35 - 1  I C B O Б O Д H O                    I                         
+I         I         I                                    I                         
+I--------------------------------------------------------I                         
+I                                                        I                         
+I  П E P E H O C И T C Я  B  И П З                       I                         
+I                                                        I                         
+I   1     I 64 - 59 I HOMEP ГЛABHOЙ ЗAДAЧИ               I                         
+I         I 58 - 51 I N KAHAЛA ЗAДAЧИ B PEШEHИИ          I                         
+I         I 50 - 46 I KЛACC                              I                         
+I         I   45    I ЗAДAЧA YПPЯTAHA                    I                         
+I         I   44    I ПPИЗHAK 'CПE'                      I                         
+I         I 43 - 18 I C B O Б O Д H O                    I                         
+I         I 17 - 1  I ЗAKAЗAHHOE ЧИCЛO ЛИCTOB  ('ЛИC')   I                         
+I         I         I                                    I                         
+I--------------------------------------------------------I                         
+I                                                        I                         
+I   П E P E H O C И T C Я  B  И П З                      I                         
+I                                                        I                         
+I   2     I 64 - 43 I N ЗOHЫ HAЧAЛA БYФ. BBOДA           I                         
+I         I 42 - 33 I N B KATAЛOГE BBOДA                 I                         
+I         I 32 - 1  I ЗAKAЗAHHOE BPEMЯ(MKCEK)  ('BPE')   I                         
+I         I         I                                    I                         
+I--------------------------------------------------------I                         
+I         I         I                                    I                         
+I  3 - 6  I  64 - 1 I CBEДEHИЯ O 16 TOMAX (ПO 16P HA TOM)I                         
+I         I         I 16P - ЗAKAЗAHA ЗAПИCЬ HA TOM       I                         
+I         I         I 14P -                              I                         
+I         I         I 13P - HE KYCOK                     I                         
+I         I         I 12 - 1 P. - N TOMA (ЧИCЛO KYCKOB)  I                         
+I         I         I                                    I                         
+I--------------------------------------------------------I                         
+I         I         I                                    I                         
+I    7    I 64 - 41 I BPEMЯ BBOДA (2/10)                 I                         
+I         I 40 - 38 I N ЭBM ДЛЯ BKЛЮЧEHИЯ ('MAШ')        I                         
+I         I 37 - 35 I N ЭBM BBOДA                        I                         
+I         I 34 - 32 I N YCTP-BA BBOДA                    I                         
+I         I    31   I COXPAHИTЬ HA БYФEPE BBOДA          I                         
+I         I    30   I CФOPMИPOBAHA C TEPMИHAЛA           I                         
+I         I    29   I ЛИMИTHAЯ                           I                         
+I         I    28   I ЭKCПPECCHAЯ                        I                         
+I         I    27   I PAЗДEЛ 'ПOB' B ПACПOPTE            I                         
+I         I    26   I ПPИЗHAK 'ЖДE'                      I                         
+I         I    25   I ЗAДAЧA YПPЯTAHA                    I                         
+I         I 24 - 16 I CBOБ.                              I                         
+I         I 15 - 1  I CCЫЛKA HA CЛEДYЮЩYЮ ЗAДAЧY         I                         
+I         I         I                                    I                         
+I---------I---------I------------------------------------I                         
+
+
+                H Y Л E B O Й   M A C C И B                                        
+
+                    ( ПACПOPT ЗAДAЧИ )                                             
+
+I--------------------------------------------------------I                         
+I N CЛOBA I PAЗPЯДЫ I        COДEPЖИMOE                  I                         
+I--------------------------------------------------------I                         
+I--------------------------------------------------------I                         
+I         I         I                                    I                         
+I   0     I 64 - 63 I  =11                               I                         
+I         I 62 - 55 I  CBOБ.                             I                         
+I         I 54 - 40 I L MACCИBA                          I                         
+I         I 53 - 1  I CBOБ.                              I                         
+I         I         I                                    I                         
+I--------------------------------------------------------I                         
+I         I         I                                    I                         
+I   1     I 64 - 1  I ШИФP ЗAДAЧИ  (ШИФPП)               I                         
+I         I         I                                    I                         
+I--------------------------------------------------------I                         
+I         I         I                                    I                         
+I  2 - 9  I         I KAK B 'ЯKBЗ'                       I                         
+I         I         I                                    I                         
+I--------------------------------------------------------I                         
+I         I         I                                    I                         
+I 10 - 74 I  8 - 1  I ИHФ-ИЯ O ЗAKAЗAHHЫX TOMAX (TAБBИP) I                         
+I         I         I 8 P.- ПPИЗHAK KYCKA                I                         
+I         I         I 7 P.- ЗAKAЗAHA ЗAПИCЬ              I                         
+I         I         I 6-1 PP.- BИPT.N                    I                         
+I         I         I                                    I                         
+I--------------------------------------------------------I                         
+I         I         I                                    I                         
+I   75    I 30 - 1  I AДPEC BXOДA B ПPOГPAMMY 'ABOCT'    I                         
+I         I         I                ('ЯABOCT')          I                         
+I         I         I                                    I                         
+I--------------------------------------------------------I                         
+I         I         I                                    I                         
+I   76    I 3 - 1   I N ЭBM BBOДA   ('ЭBMBBД')           I                         
+I         I         I                                    I                         
+I--------------------------------------------------------I                         
+I         I         I                                    I                         
+I   77    I 30 - 1  I AДPEC BXOДA B ПPOГPAMMY ('ABXOДA') I                         
+I         I         I                                    I                         
+I--------------------------------------------------------I                         
+I         I         I                                    I                         
+I   78    I 64 - 1  I ШИФP ГЛABHOЙ ЗAДAЧИ  ('ШИФPГЗ')    I                         
+I         I         I                                    I                         
+I--------------------------------------------------------I                         
+I         I         I                                    I                         
+I 79 - 80 I         I  Ф И O  ПOЛЬЗOBATEЛЯ  ('ЯФИO')     I                         
+I         I         I                                    I                         
+I--------------------------------------------------------I                         
+I         I         I                                    I                         
+I   81    I  3 - 1  I ЧИCЛO ПEЧATAEMЫX KOПИЙ  ('ЧKOП')   I                         
+I         I         I                                    I                         
+I--------------------------------------------------------I                         
+I         I         I                                    I                         
+I   82    I  16 - 1 I ИMЯ CTAHДAPTHOГO ПACПOPTA (CTПACП) I                         
+I         I         I                                    I                         
+I--------------------------------------------------------I                         
+
+
+
+I--------------------------------------------------------I                         
+I         I         I                                    I                         
+I   83    I 64 - 1  I KЛЮЧ ДИAЛOГOBOЙ ЗAДAЧИ  ('KЛДИA')  I                         
+I         I         I                                    I                         
+I--------------------------------------------------------I                         
+I         I         I                                    I                         
+I   84    I         I   ЯЧEЙKA ПPИЗHAKOB ('ЯПPИЗH') :    I                         
+I         I   64    I ИHKOГHИTO (PAЗД.ПACП.'ИHK')        I                         
+I         I   63    I HEYЧИTЫBAEMЫE BЫДAЧИ               I                         
+I         I   62    I KOHTP.KOM.PAЗPEШEH(PAЗД.ПACП.'CПE')I                         
+I         I   61    I POCПИCЬ '0'                        I                         
+I         I   60    I POCПИCЬ '1'                        I                         
+I         I   59    I POCПИCЬ '2'                        I                         
+I         I   58    I PAЗД.ПACП.'AЦП 0'                  I                         
+I         I   57    I ЖДET ШИФP (PAЗД.ПACП.'ЖДE')        I                         
+I         I   56    I PAЗД.ПACП.'OДИ'                    I                         
+I         I         I                                    I                         
+I--------------------------------------------------------I                         
+I         I         I                                    I                         
+I   85    I         I    ('ЯГPИФ')                       I                         
+I         I         I                                    I                         
+I--------------------------------------------------------I                         
+I         I         I                                    I                         
+I   86    I  64 - 1 I ЯЧEЙKA 'ГOД' ЭBM BBOДA ('ЯГOД')    I                         
+I         I         I                                    I                         
+I--------------------------------------------------------I                         
+I         I         I                                    I                         
+I   87    I 32 - 1  I BPEMЯ BBOДA  ('BPEBBД')            I                         
+I         I         I                                    I                         
+I--------------------------------------------------------I                         

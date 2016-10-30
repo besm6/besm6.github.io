@@ -1,0 +1,134 @@
+ CTPH 'ЖДУЩИЙ TECT',
+ MOДУЛЬ 'ЖДУЩИЙ TECT'
+ BKЛ ШAПKA
+ BKЛ ИПЗИO
+ CTPH 'ИПЗ ЖДУЩEГO TECTA'
+ 
+ 
+ 
+!************************************************************!
+!************************************************************!
+!*                                                          *!
+!*                                                          *!
+!*                                                          *!
+!*                                                          *!
+!*         Ж   Д   У   Щ   И   Й       T   E   C   T        *!
+!*                                                          *!
+!*                                                          *!
+!*                                                          *!
+!************************************************************!
+!************************************************************!
+ 
+ 
+ 
+ПEPEM CEKЦИЯ A#ПEPEM.ЖДУЩИЙ,П20,ЧИT,ЗAП,HBЫП,CEKT;;
+ЖДУЩИЙ:БЛOK
+CБPOC_ГУУ KOHД 0
+COЗДATЬ ПAM 1
+УБPATЬ ПAM 1
+ДAЙ_MПД KOHД 0
+ИMЯ1 KOHД [33] T''61''62''00''00'';AБ  
+ИMЯ2 KOHД [25] 6 ;BAPИHT =6
+PAЗMEP KOHД 1300 H;БЛOKOB ПO 128 CЛOB
+ИПЗ_ЖДУ:
+ ПAM ;BПEPEД
+ ПAM ;HAЗAД
+ KOHД N_ПPOЦ_ЖДУ  ;HOMEP_ПPOЦ
+ KOHД T'ЖДУЩИЙ  '  ;ИMЯ_ПPOЦ
+ KOHД 0            ;COCT_ПPOЦ
+ KOHД 5            ;KЛACC ЖДУЩEГO = 5
+ KOHД 100          ;KBAHT
+ KOHД 000          ;ПPT
+ ПAM 5             ;CM,PK,ИC2,PMP,ИC0
+ KOHД ИC13.TT#! ИC13.PBП#!ИC13.БOП#  ;ИC3
+ ПAM               ;ИC6
+ KOHД HAЧAЛO     ;ИC7
+ ПAM               ;ИC8
+ KOHД CTEK_ЖДУ     ;RF
+ ПAM 14+2          ;RE-R1,PT,ИC45
+ KOHД 0            ;ИC3B
+ ПAM 4     ;ИC3_Я,RF_Я,ИC45_Я,ИC3B_Я
+ KOHД 2000H       ;OП 0
+ KOHД (ИПЗ.Ч_KУC_OП-1) 0  ;OП 1-4
+ ПAM 64 ;PП
+ KOHД 1 ;PAЗM_ПPИП
+ KOHД (3) 0 ;PCПO,PЗЗ,PMC
+ ПAM 9 ;ШKAЛA_PMC
+ ПAM ;PФO
+  ПAM 9 ;PCПO_И,Я,C, PЗЗ_И,Я,C, PMC_И,Я,C
+ ПAM 2                ;AДPEC_ИO,PП_ИO
+ ПAM 3 ;$PП_MПД,$PMC_MПД,AДPEC_MПД
+  KOHД (5) 0  ;BPEMЯ_ЦП,HAЧ_KBAHTA,OTH_TAЙMEP,KOЛ_TAЙMEP,ЗAH_БЛOK
+ ПAM 3 ;KOЛ_ЗAK,CBЯЗЬ_OПT,ШKAЛA_OПT
+ 
+ 
+ 
+CTEK_ЖДУ ПAM 10
+ CTPH 'ИCПOЛHЯEMЫЙ KOД'
+KOД   CEKЦИЯ A#KOД.ЖДУЩИЙ,П20,HЧИT,HЗAП,BЫП,ПPEФ,ЛKOM,CEKT;;
+HAЧAЛO
+ CЧ CБPOC_ГУУ
+ ПPB HET_CБPOCA
+ УПP УПP_C_З
+ CЧ 0
+ УPГ 38H ;УБPAЛИ PAБ_K ДЛЯ 0-OГO УHTBEP.KAHAЛA
+ CЧ =40000 H
+ЖДУ_PAЗ
+ BЧ =1
+ ПБP ЖДУ_PAЗ
+ CЧ =2000 H;PAБ_K
+ УPГ 38 H;УCTAHOBИЛИ PA_K
+ CЧ =40000 H
+ЖДУ_ДBA
+ BЧ =1
+ ПБP ЖДУ_ДBA
+ ЗПH CБPOC_ГУУ
+ 
+HET_CБPOCA
+ УПP УПP_C_O
+ УИ
+*
+ 
+ CЧ  COЗДATЬ
+ ПPB HE_COЗДOBATЬ_BИPTУAЛЬHЫЙ_PAЗДEЛ
+ ЗПH COЗДATЬ
+ CЧ ИMЯ1
+ CЧM ИMЯ2
+ CЧM PAЗMEP
+ CЧM =3
+ ЭK 811 H;COЗДAHИE BИPTУAЛЬHOГO PAЗДEЛA
+:
+ 
+HE_COЗДOBATЬ_BИPTУAЛЬHЫЙ_PAЗДEЛ
+ 
+ CЧ  УБPATЬ
+ ПPB HAЧAЛO
+ ЗПH УБPATЬ
+ CЧ  ИMЯ1
+ CЧM ИMЯ2
+ CЧM =2
+ ЭK 812 H;УHИЧTOЖEHИE BИPTУAЛЬHOГO PAЗДEЛA
+:
+ CЧ ДAЙ_MПД
+ ПPB HAЧAЛO
+ ЗПH ДAЙ_MПД
+ CЧ =4
+ ЗП ЭBM_MПД
+ CЧ MГ_ЭBM
+ ИЛИ MACKA_ПPИEMA
+ ЗП $PПOM
+ УPГ PПOM
+*CБPOC MПД
+ CЧ У0_AДAПTEPA
+ ИЛИ $PПOM
+ УPГ PПOM
+ HTЖ У0_AДAПTEPA
+ УPГ PПOM
+ ПБ HAЧAЛO
+ 
+ 
+ KБЛOK ЖДУЩИЙ
+ BHEШH $PПOM
+MПД BHEШH MГ_ЭBM,MACKA_ПPИEMA,У0_AДAПTEPA
+ ЛИTEP
+ ФИHИШ

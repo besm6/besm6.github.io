@@ -1,0 +1,2321 @@
+ загл 'Форматный вывод - printf',
+ модуль 'dvsprintf.c'
+ вкл шапка
+
+ загл 'СВС-Б Си-компилятор. (C) 1988,1989 Д. Володин.'
+
+* Определения стандартных секций
+код секция а#код.printf,п20,преф,лком,нчит,нзап,сект
+перем секция а#перем.printf,п20,нвып,сект
+конст секция а#конст.printf,п20,чит,нзап,нвып,гра=5
+* Определения имен регистров
+r1# экв 01h
+r2# экв 02h
+r3# экв 03h
+r4# экв 04h
+r5# экв 05h
+r6# экв 06h
+r7# экв 07h
+r8# экв 08h
+r9# экв 09h
+ra# экв 0Ah
+fp# экв 0Bh
+ap# экв 0Ch
+lr# экв 0Dh
+wr# экв 0Eh
+sp# экв 0Fh
+
+ секция перем
+ секция код
+putc: блок
+ зп (sp#)
+ пв entry#(wr#)
+ слиа autos#(sp#)
+ сч 1(ap#)
+ уи ra#
+c экв 0(ap#)
+s экв ra#
+:; /*
+:;  *
+:;  *         Reduced implementation of sprintf for DVS
+:;  *
+:;  */
+:; 
+:; #define DVS
+:; #define MAX_MSG 96
+:; #include <stdio.h>
+:; 
+:; void putc(c, s)
+:; 	register        FILE    *s;
+:; {
+:; 	*(*s)++ = c;
+ сч c
+ сдл 56
+ счм 0h(s)
+ зп (sp#)
+ сл =01h
+ зпм 0h(s)
+ пв зпб#(lr#)
+ пб exit#
+autos# экв 2
+entry# внеш '$CENAA'
+exit# внеш '$CEXAA'
+ кблок putc
+
+ секция перем
+ секция код
+printf: блок
+ зп (sp#)
+ пв entry#(wr#)
+ слиа autos#(sp#)
+ сч 1(ap#)
+ сдл 3
+ нтжд
+ зп 1(ap#)
+msg$code экв 0(ap#)
+fmt экв 1(ap#)
+args экв 2(ap#)
+result экв 0(fp#)
+msg$size экв 1(fp#)
+string экв 2(fp#)
+:; }
+:; 
+:; void printf(msg_code, fmt, args)
+:; 	char *fmt;
+:; {
+:; 	int     result, msg_size;
+:; 	char    string[MAX_MSG];
+:; 
+:; 	msg_size = sprintf(string, fmt, &args);
+ сч =string
+ счм fmt
+ сдп 3
+ нтжд
+ счм =args
+ счм =3
+ пв sprintf(lr#)
+ зп msg$size
+:; 	if (msg_size > MAX_MSG)
+ сч msg$size
+ вч =060h
+ пмр L1011#
+ стоп 08ffh
+все#.printf.L1011#
+:; 		asm(" стоп 08ffh");
+:; 	выдопт(msg_code, msg_size, string);
+ сч msg$code
+ счм msg$size
+ счм =string
+ счм =3
+ пв выдопт(lr#)
+ пб exit#
+autos# экв 14
+entry# внеш '$CEN00'
+exit# внеш '$CEX00'
+ кблок printf
+
+ секция перем
+ секция код
+sprintf: блок
+ зп (sp#)
+ пв entry#(wr#)
+ слиа autos#(sp#)
+ сч 0(ap#)
+ сдл 3
+ нтжд
+ зп 0(ap#)
+ сч 1(ap#)
+ сдл 3
+ нтжд
+ зп 1(ap#)
+str экв 0(ap#)
+fmt экв 1(ap#)
+args экв 2(ap#)
+string экв 0(fp#)
+:; #include        <stdio.h>
+:; #ifndef DVS
+:; char *sprintf(str, fmt, args)
+:; #else
+:; int sprintf(str, fmt, args)
+:; #endif
+:; 
+:; char *str, *fmt;
+:; {
+:; #ifndef DVS
+:; 
+:; 	struct _iobuf _strbuf;
+:; 
+:; 	_strbuf._flag = _IOWRT+_IOSTRG;
+:; 	_strbuf._ptr = str;
+:; 	_strbuf._cnt = 32767;
+:; 	_doprnt(fmt, &args, &_strbuf);
+:; 	putc('\0', &_strbuf);
+:; 	return(str);
+:; #else
+:; 	FILE    string;
+:; 	string = str;
+ сч str
+ зп string
+:; 	_doprnt(fmt, args, &string);
+ сч fmt
+ сдп 3
+ нтжд
+ счм args
+ счм =string
+ счм =3
+ пв $doprnt(lr#)
+:; 	putc('\0', &string);
+ сч =0h
+ счм =string
+ счм =2
+ пв putc(lr#)
+:; 	return string - str;
+ сч string
+ вч str
+ пб exit#
+autos# экв 1
+entry# внеш '$CEN00'
+exit# внеш '$CEX00'
+ кблок sprintf
+
+ секция перем
+ секция код
+gcvt: блок
+ зп (sp#)
+ пв entry#(wr#)
+ слиа autos#(sp#)
+ сч 2(ap#)
+ сдл 3
+ нтжд
+ зп 2(ap#)
+number экв 0(ap#)
+ndigit экв 1(ap#)
+buf экв 2(ap#)
+sign экв 0(fp#)
+decpt экв 1(fp#)
+p1 экв 2(fp#)
+p2 экв 3(fp#)
+i экв 4(fp#)
+:; /*
+:;  * gcvt  - Floating output conversion to
+:;  * minimal length string
+:;  */
+:; 
+:; char	*ecvt();
+:; 
+:; char *
+:; gcvt(number, ndigit, buf)
+:; double number;
+:; char *buf;
+:; {
+:; 	int sign, decpt;
+:; 	register char *p1, *p2;
+ сч number
+ счм ndigit
+ счм =decpt
+ счм =sign
+ счм =4
+ пв ecvt(lr#)
+ зп p1
+:; 	register i;
+ сч buf
+ зп p2
+:; 
+ сч sign
+ прв L1018#
+:; 	p1 = ecvt(number, ndigit, &decpt, &sign);
+ сч =02D00000000000000h
+ счм p2
+ зп (sp#)
+ сл =01h
+ зпм p2
+ пв зпб#(lr#)
+все#.gcvt.L1018#
+:; 	p2 = buf;
+ сч ndigit
+ вч =01h
+ зп i
+все#.gcvt.L1021#
+ сч i
+ пмр L1020#
+ сч p1
+ сл i
+ сдп 3
+ уисч 0
+ сдлд -56
+ сдл 56
+ сдп 64-53
+ цела 53-8-1024
+ нтж =030h
+ пнр L1020#
+:; 	if (sign)
+ сч ndigit
+ сл =01FFFFFFFFFFFFFh
+ зп ndigit
+ сч i
+ сл =01FFFFFFFFFFFFFh
+ зп i
+ пб L1021#
+все#.gcvt.L1020#
+:; 		*p2++ = '-';
+:; 	for (i=ndigit-1; i>0 && p1[i]=='0'; i--)
+ сч decpt
+ пмн L10001#
+ сч decpt
+ вч ndigit
+ вч =04h
+ пбл L10000#
+L10001#
+ сч decpt
+ пбр L1022#
+ сч decpt
+ вч =01FFFFFFFFFFFFDh
+ пбр L1022#
+L10000#
+:; 		ndigit--;
+ сч decpt
+ сл =01FFFFFFFFFFFFFh
+ зп decpt
+:; 	if (decpt >= 0 && decpt-ndigit > 4
+ сч p1
+ зп (sp#)
+ сл =01h
+ зпм p1
+ сдп 3
+ уисч 0
+ сдлд -56
+ сдл 56
+ счм p2
+ зп (sp#)
+ сл =01h
+ зпм p2
+ пв зпб#(lr#)
+:; 	 || decpt < 0 && decpt < -3) { /* use E-style */
+ сч =02E00000000000000h
+ счм p2
+ зп (sp#)
+ сл =01h
+ зпм p2
+ пв зпб#(lr#)
+:; 		decpt--;
+ сч =01h
+ зп i
+все#.gcvt.L1025#
+ сч i
+ вч ndigit
+ пбр L1024#
+:; 		*p2++ = *p1++;
+ сч p1
+ зп (sp#)
+ сл =01h
+ зпм p1
+ сдп 3
+ уисч 0
+ сдлд -56
+ сдл 56
+ счм p2
+ зп (sp#)
+ сл =01h
+ зпм p2
+ пв зпб#(lr#)
+ сч i
+ сл =01h
+ зп i
+ пб L1025#
+все#.gcvt.L1024#
+:; 		*p2++ = '.';
+ сч =06500000000000000h
+ счм p2
+ зп (sp#)
+ сл =01h
+ зпм p2
+ пв зпб#(lr#)
+:; 		for (i=1; i<ndigit; i++)
+ сч decpt
+ пбр L1026#
+:; 			*p2++ = *p1++;
+ сч decpt
+ из =-1
+ зп decpt
+:; 		*p2++ = 'e';
+ сч =02D00000000000000h
+ счм p2
+ зп (sp#)
+ сл =01h
+ зпм p2
+ пв зпб#(lr#)
+ пб L1027#
+все#.gcvt.L1026#
+:; 		if (decpt<0) {
+:; 			decpt = -decpt;
+ сч =02B00000000000000h
+ счм p2
+ зп (sp#)
+ сл =01h
+ зпм p2
+ пв зпб#(lr#)
+все#.gcvt.L1027#
+:; 			*p2++ = '-';
+ сч =0Ah
+ счм decpt
+ пв цдел#(lr#)
+ сл =030h
+ сдл 56
+ счм p2
+ зп (sp#)
+ сл =01h
+ зпм p2
+ пв зпб#(lr#)
+:; 		} else
+ сч =0Ah
+ счм decpt
+ пв цмод#(lr#)
+ сл =030h
+ сдл 56
+ счм p2
+ зп (sp#)
+ сл =01h
+ зпм p2
+ пв зпб#(lr#)
+ пб L1028#
+все#.gcvt.L1022#
+:; 			*p2++ = '+';
+:; 		*p2++ = decpt/10 + '0';
+ сч decpt
+ пбл L1029#
+:; 		*p2++ = decpt%10 + '0';
+ сч p1
+ сдп 3
+ уисч 0
+ сдлд -56
+ сдл 56
+ сдп 64-53
+ цела 53-8-1024
+ нтж =030h
+ прв L1030#
+:; 	} else {
+ сч =02E00000000000000h
+ счм p2
+ зп (sp#)
+ сл =01h
+ зпм p2
+ пв зпб#(lr#)
+все#.gcvt.L1030#
+все#.gcvt.L1032#
+:; 		if (decpt<=0) {
+ сч decpt
+ пбр L1031#
+:; 			if (*p1!='0')
+ сч decpt
+ сл =01h
+ зп decpt
+:; 				*p2++ = '.';
+ сч =03000000000000000h
+ счм p2
+ зп (sp#)
+ сл =01h
+ зпм p2
+ пв зпб#(lr#)
+ пб L1032#
+все#.gcvt.L1031#
+все#.gcvt.L1029#
+:; 			while (decpt<0) {
+:; 				decpt++;
+:; 				*p2++ = '0';
+ сч =01h
+ зп i
+все#.gcvt.L1035#
+ сч i
+ вч ndigit
+ пбл L1034#
+:; 			}
+ сч p1
+ зп (sp#)
+ сл =01h
+ зпм p1
+ сдп 3
+ уисч 0
+ сдлд -56
+ сдл 56
+ счм p2
+ зп (sp#)
+ сл =01h
+ зпм p2
+ пв зпб#(lr#)
+:; 		}
+ сч i
+ нтж decpt
+ пнр L1036#
+:; 		for (i=1; i<=ndigit; i++) {
+ сч =02E00000000000000h
+ счм p2
+ зп (sp#)
+ сл =01h
+ зпм p2
+ пв зпб#(lr#)
+все#.gcvt.L1036#
+:; 			*p2++ = *p1++;
+ сч i
+ сл =01h
+ зп i
+ пб L1035#
+все#.gcvt.L1034#
+:; 			if (i==decpt)
+ сч ndigit
+ вч decpt
+ пбр L1037#
+все#.gcvt.L1039#
+:; 				*p2++ = '.';
+ сч ndigit
+ зп (sp#)
+ сл =01h
+ зпм ndigit
+ вч decpt
+ пбр L1038#
+:; 		}
+ сч =03000000000000000h
+ счм p2
+ зп (sp#)
+ сл =01h
+ зпм p2
+ пв зпб#(lr#)
+ пб L1039#
+все#.gcvt.L1038#
+:; 		if (ndigit<decpt) {
+ сч =02E00000000000000h
+ счм p2
+ зп (sp#)
+ сл =01h
+ зпм p2
+ пв зпб#(lr#)
+все#.gcvt.L1037#
+все#.gcvt.L1028#
+:; 			while (ndigit++<decpt)
+:; 				*p2++ = '0';
+:; 			*p2++ = '.';
+ сч p2
+ вч =01h
+ сдп 3
+ уисч 0
+ сдлд -56
+ сдл 56
+ сдп 64-53
+ цела 53-8-1024
+ нтж =02Eh
+ пнр L1040#
+:; 		}
+ сч p2
+ сл =01FFFFFFFFFFFFFh
+ зп p2
+все#.gcvt.L1040#
+:; 	}
+ сч =0h
+ счм p2
+ пв зпб#(lr#)
+:; 	if (p2[-1]=='.')
+ сч buf
+ пб exit#
+autos# экв 7
+entry# внеш '$CEN00'
+exit# внеш '$CEX00'
+ кблок gcvt
+
+ секция перем
+ секция код
+ecvt: блок
+ зп (sp#)
+ пв entry#(wr#)
+ слиа autos#(sp#)
+value экв 0(ap#)
+ndigit экв 1(ap#)
+decpt экв 2(ap#)
+sign экв 3(ap#)
+:; /*	@(#)ecvt.c	2.7	*/
+:; /*	3.0 SID #	1.2	*/
+:; 
+:; /*
+:;  *	ecvt converts to decimal
+:;  *	the number of digits is specified by ndigit
+:;  *	decpt is set to the position of the decimal point
+:;  *	sign is set to 0 for positive, 1 for negative
+:;  *
+:;  */
+:; 
+:; #include <values.h>
+:; #include "nan.h"
+:; 
+:; #define	NMAX	((DSIGNIF * 3 + 19)/10) /* restrict max precision */
+:; #define	NDIG	80
+:; 
+:; extern char *cvt();
+:; 
+:; char *
+:; ecvt(value, ndigit, decpt, sign)  float value;  int ndigit, *decpt, *sign;
+:; {
+:; 	return (cvt(value, ndigit, decpt, sign, 0));
+ сч value
+ счм ndigit
+ счм decpt
+ счм sign
+ счм =0h
+ счм =5
+ пв cvt(lr#)
+ пб exit#
+autos# экв 0
+entry# внеш '$CEN00'
+exit# внеш '$CEX00'
+ кблок ecvt
+
+ секция перем
+ секция код
+fcvt: блок
+ зп (sp#)
+ пв entry#(wr#)
+ слиа autos#(sp#)
+value экв 0(ap#)
+ndigit экв 1(ap#)
+decpt экв 2(ap#)
+sign экв 3(ap#)
+:; }
+:; 
+:; char *
+:; fcvt(value, ndigit, decpt, sign)  float value;  int ndigit, *decpt, *sign;
+:; {
+:; 	return (cvt(value, ndigit, decpt, sign, 1));
+ сч value
+ счм ndigit
+ счм decpt
+ счм sign
+ счм =01h
+ счм =5
+ пв cvt(lr#)
+ пб exit#
+autos# экв 0
+entry# внеш '$CEN00'
+exit# внеш '$CEX00'
+ кблок fcvt
+
+ секция перем
+ секция перем
+
+buf
+ конд (10)0
+ секция код
+cvt блок
+ зп (sp#)
+ пв entry#(wr#)
+ слиа autos#(sp#)
+ сч 2(ap#)
+ уи ra#
+value экв 0(ap#)
+ndigit экв 1(ap#)
+decpt экв ra#
+sign экв 3(ap#)
+f$flag экв 4(ap#)
+p экв 0(fp#)
+:; }
+:; 
+:; static char buf[NDIG];
+:; 
+:; static char *
+:; cvt(value,ndigit,decpt,sign,f_flag) double value; int ndigit, *sign, f_flag;
+:; register int *decpt;
+:; {
+:; 	register char *p = &buf[0], *p_last = &buf[ndigit];
+ сч =buf+0h
+ сдл 3
+ зп p
+p$last экв 1(fp#)
+ сч ndigit
+ счм =buf+0h
+ сдл 3
+ сл (sp#)
+ зп p$last
+:; 
+:; 	KILLNaN(value); /* raise exception on Not-a-Number (3b only) */
+:; 	if (*sign = (value < 0.0))
+ сч value
+ вч =ч'0.00000000000000000e+00'
+ мн
+ пф sign
+ зп
+ прв L1047#
+:; 		value = -value;
+ сч value
+ из =ч'-1'
+ зп value
+все#.cvt.L1047#
+:; 	buf[0] = '\0';
+ сч =0h
+ счм =0ffh
+ сдп 8*0h-56
+ и buf+0h
+ нтж buf+0h
+ или (sp#)
+ зп buf+0h
+:; 	*decpt = 0;
+ зпн 0h(decpt)
+:; 	if (value != 0.0) { /* rescale to range [1.0, 10.0) */
+ сч value
+ нтж =ч'0.00000000000000000e+00'
+ прв L1048#
+L1050# блок
+ секция перем
+s
+ конд ч'1.00000000000000040e+32'
+:; 		/* in binary for speed and to minimize error build-up */
+:; 		/* even for the IEEE standard with its high exponents,
+:; 		   it's probably better for speed to just loop on them */
+:; 		static struct s { double p10; int n; } s[] = {
+ конд 020h
+ конд ч'1.00000000000000000e+16'
+:; 			1e32,	32,
+ конд 010h
+ конд ч'1.00000000000000000e+08'
+:; 			1e16,	16,
+ конд 08h
+ конд ч'1.00000000000000000e+04'
+:; 			1e8,	8,
+ конд 04h
+ конд ч'1.00000000000000000e+02'
+:; 			1e4,	4,
+ конд 02h
+ конд ч'1.00000000000000000e+01'
+:; 			1e2,	2,
+ конд 01h
+sp экв 2(fp#)
+ секция код
+:; 			1e1,	1,
+:; 		};
+ сч =s
+ зп sp
+:; /*              register*/ struct s *sp = s;
+:; 
+ сч 0h(decpt)
+ сл =01h
+ зп 0h(decpt)
+:; 		++*decpt;
+ сч value
+ вч =ч'0.00000000000000000e+00'
+ пмн L1051#
+все#.cvt.L1054#
+все#.cvt.L1057#
+:; 		if (value >= 2.0 * MAXPOWTWO) /* can't be precisely integral */
+:; 			do {
+ сч value
+ пф sp
+ вч
+ пмн L1056#
+:; 				for ( ; value >= sp->p10; *decpt += sp->n)
+ сч value
+ пф sp
+ дел
+ зп value
+ сч sp
+ сл =01h
+ уисч
+ сл 0h(decpt)
+ зп 0h(decpt)
+ пб L1057#
+все#.cvt.L1056#
+все#.cvt.L1053#
+:; 					value = value / sp->p10;
+ сч sp
+ зп (sp#)
+ сл =02h
+ зпм sp
+ сл =01h
+ уисч
+ вч =01h
+ пбл L1054#
+все#.cvt.L1052#
+ пб L1058#
+все#.cvt.L1051#
+:; 			} while (sp++->n > 1);
+ сч value
+ вч =ч'1.00000000000000000e+01'
+ пмн L1059#
+L1060# блок
+pow10 экв 3(fp#)
+:; 		else if (value >= 10.0) { /* convert integer part separately */
+ сч =ч'1.00000000000000000e+01'
+ зп pow10
+powtemp экв 4(fp#)
+все#.cvt.L1062#
+:; 			register double pow10 = 10.0, powtemp;
+:; 
+ сч pow10
+ умн =ч'1.00000000000000000e+01'
+ зп powtemp
+ вч value
+ пбл L1061#
+:; 			while ((powtemp = 10.0 * pow10) <= value)
+ сч powtemp
+ зп pow10
+ пб L1062#
+все#.cvt.L1061#
+все#.cvt.L1065#
+L1066# блок
+digit экв 5(fp#)
+:; 				pow10 = powtemp;
+:; 			for ( ; ; pow10 /= 10.0) {
+ сч value
+ дел pow10
+ целф 52
+ зп digit
+:; 				register /*short*/ digit = value/pow10;
+ сч digit
+ сл =030h
+ сдл 56
+ счм p
+ зп (sp#)
+ сл =01h
+ зпм p
+ пв зпб#(lr#)
+:; 				*p++ = digit + '0';
+ сч digit
+ кор 434h
+ умн pow10
+ вчоб value
+ зп value
+:; 				value -= digit * pow10;
+ сч 0h(decpt)
+ сл =01h
+ зп 0h(decpt)
+:; 				++*decpt;
+ сч pow10
+ вч =ч'1.00000000000000000e+01'
+ пбл L1067#
+ пб L1064#
+все#.cvt.L1067#
+ кблок
+:; 				if (pow10 <= 10.0)
+:; 					break;
+ сч pow10
+ дел =ч'1.00000000000000000e+01'
+ зп pow10
+ пб L1065#
+все#.cvt.L1064#
+ кблок
+ пб L1068#
+все#.cvt.L1059#
+:; 			}
+ сч value
+ вч =ч'1.00000000000000000e+00'
+ пбр L1069#
+все#.cvt.L1072#
+все#.cvt.L1075#
+:; 		} else if (value < 1.0)
+:; 			do {
+ сч value
+ пф sp
+ умн
+ вч =ч'1.00000000000000000e+01'
+ пбр L1074#
+:; 				for ( ; value * sp->p10 < 10.0; *decpt -= sp->n)
+ сч value
+ пф sp
+ умн
+ зп value
+ сч sp
+ сл =01h
+ уисч
+ вчоб 0h(decpt)
+ зп 0h(decpt)
+ пб L1075#
+все#.cvt.L1074#
+все#.cvt.L1071#
+:; 					value *= sp->p10;
+ сч sp
+ зп (sp#)
+ сл =02h
+ зпм sp
+ сл =01h
+ уисч
+ вч =01h
+ пбл L1072#
+все#.cvt.L1070#
+все#.cvt.L1069#
+все#.cvt.L1068#
+все#.cvt.L1058#
+ кблок
+все#.cvt.L1048#
+:; 			} while (sp++->n > 1);
+:; 	}
+ сч f$flag
+ прв L1076#
+:; 	if (f_flag)
+ сч p$last
+ сл 0h(decpt)
+ зп p$last
+все#.cvt.L1076#
+:; 		p_last += *decpt;
+ сч p$last
+ счм =buf+0h
+ сдл 3
+ вч (sp#)
+ пбл L1077#
+:; 	if (p_last >= buf) {
+ сч p$last
+ счм =buf+09h
+ сдл 3
+ сл =06h
+ вч (sp#)
+ пбр L1078#
+:; 		if (p_last > &buf[NDIG - 2])
+ сч =buf+09h
+ сдл 3
+ сл =06h
+ зп p$last
+все#.cvt.L1078#
+все#.cvt.L1081#
+:; 			p_last = &buf[NDIG - 2];
+:; 		for ( ; ; ++p) {
+ сч value
+ нтж =ч'0.00000000000000000e+00'
+ прв L10002#
+ сч p
+ счм =buf+02h
+ сдл 3
+ сл =01h
+ вч (sp#)
+ пбл L1082#
+L10002#
+:; 			if (value == 0 || p >= &buf[NMAX])
+ сч =03000000000000000h
+ счм p
+ пв зпб#(lr#)
+ пб L1083#
+все#.cvt.L1082#
+L1084# блок
+intx экв r9#
+:; 				*p = '0';
+:; 			else {
+:; 				register short intx; /* intx in [0, 9] */
+:; 
+ сч value
+ целф 52
+ уи intx
+ сл =030h
+ сдл 56
+ счм p
+ пв зпб#(lr#)
+:; 				*p = (intx = (int)value) + '0';
+ виц intx
+ кор 434h
+ вчоб value
+ умн =ч'1.00000000000000000e+01'
+ зп value
+ кблок
+все#.cvt.L1083#
+:; 				value = 10.0 * (value - (double)intx);
+:; 			}
+ сч p
+ вч p$last
+ пмн L1085#
+:; 			if (p >= p_last) {
+ сч p$last
+ зп p
+ пб L1080#
+все#.cvt.L1085#
+:; 				p = p_last;
+:; 				break;
+:; 			}
+ сч p
+ сл =01h
+ зп p
+ пб L1081#
+все#.cvt.L1080#
+:; 		}
+ сч p
+ сдп 3
+ уисч 0
+ сдлд -56
+ сдл 56
+ сдп 64-53
+ цела 53-8-1024
+ вч =035h
+ пмн L1086#
+все#.cvt.L1089#
+:; 		if (*p >= '5') /* check rounding in last place + 1 */
+:; 			do {
+ сч p
+ счм =buf+0h
+ сдл 3
+ нтж (sp#)
+ пнр L1090#
+:; 				if (p == buf) { /* rollover from 99999... */
+ сч =03100000000000000h
+ счм =0ffh
+ сдп 8*0h-56
+ и buf+0h
+ нтж buf+0h
+ или (sp#)
+ зп buf+0h
+:; 					buf[0] = '1'; /* later digits are 0 */
+ сч 0h(decpt)
+ сл =01h
+ зп 0h(decpt)
+:; 					++*decpt;
+ сч f$flag
+ прв L1091#
+:; 					if (f_flag)
+ сч p$last
+ сл =01h
+ зп p$last
+все#.cvt.L1091#
+ пб L1087#
+все#.cvt.L1090#
+:; 						++p_last;
+:; 					break;
+:; 				}
+ сч =03000000000000000h
+ счм p
+ пв зпб#(lr#)
+все#.cvt.L1088#
+:; 				*p = '0';
+ сч p
+ вч =01h
+ зп p
+ счм =0100000000000000h
+ сдп 64-53
+ цела 53-8-1024
+ счм -2(sp#)
+ сдп 3
+ уисч 0
+ сдлд -56
+ сдл 56
+ сдп 64-53
+ цела 53-8-1024
+ сл (sp#)
+ сдл 56
+ счм -2(sp#)
+ пв зпб#(lr#)
+ слиа -1(sp#)
+ сдп 64-53
+ цела 53-8-1024
+ вч =039h
+ пбл L1089#
+все#.cvt.L1087#
+все#.cvt.L1086#
+:; 			} while (++*--p > '9'); /* propagate carries left */
+ сч =0h
+ счм p$last
+ пв зпб#(lr#)
+все#.cvt.L1077#
+:; 		*p_last = '\0';
+:; 	}
+ сч =buf+0h
+ сдл 3
+ пб exit#
+autos# экв 8
+entry# внеш '$CENAA'
+exit# внеш '$CEXAA'
+ кблок cvt
+
+ секция перем
+ секция код
+$doprnt: блок
+ зп (sp#)
+ пв entry#(wr#)
+ слиа autos#(sp#)
+ сч 0(ap#)
+ сдл 3
+ нтжд
+ зп 0(ap#)
+ сч 1(ap#)
+ сдл 3
+ нтжд
+ зп 1(ap#)
+fmt экв 0(ap#)
+arg1 экв 1(ap#)
+file экв 2(ap#)
+arg экв 0(fp#)
+d экв 1(fp#)
+c экв 2(fp#)
+p экв 3(fp#)
+q экв 4(fp#)
+width экв ra#
+ndigit экв r9#
+radix экв r8#
+n экв 5(fp#)
+mask экв 6(fp#)
+shift экв 7(fp#)
+sign экв 8(fp#)
+decpt экв 9(fp#)
+t экв 10(fp#)
+digits экв 26(fp#)
+zfill экв 28(fp#)
+rjust экв 29(fp#)
+ndfnd экв 30(fp#)
+desc экв 31(fp#)
+:; #include        <stdio.h>
+:; #include        <varargs.h>
+:; 
+:; _doprnt (fmt, arg1, file)
+:; char  *fmt;
+:; char  *arg1;
+:; FILE  *file;
+:; {
+:; 	union {
+:; 		int    *intp;
+:; 		char  **chpp;
+:; 		int   **argr;
+:; 	} arg;
+:; #define argp    arg.intp
+:; /*      register short c;       */
+:; 	int     d,
+:; 		c;
+:; 	register char  /* c,    */
+:; 	               *p,
+:; 	               *q;
+:; 	register short/*d,      */
+:; 	                width,
+:; 	                ndigit,
+:; 	                radix;
+:; 	register unsigned       n;
+:; 	int     mask;
+:; 	int     shift;
+:; 	int     sign,
+:; 	        decpt;
+:; 	char    t[128],
+:; 		digits[10];
+:; 	int     zfill,
+:; 	        rjust,
+:; 	        ndfnd;
+:; 	char   *ecvt (), *fcvt ();
+:; 	struct {
+:; 		short unsigned  length;
+:; 		char    dtype;
+:; 		char    class;
+:; 		char   *ptr;
+:; 	}       desc;
+:; 
+:; 	argp = (int *)arg1;
+ сч arg1
+ сдп 3
+ зп arg
+:; 	p = &t[0];
+ сч =t+0h
+ сдл 3
+ зп p
+все#.$doprnt.L1094#
+:; 	while (c = *fmt++)
+ сч fmt
+ зп (sp#)
+ сл =01h
+ зпм fmt
+ сдп 3
+ уисч 0
+ сдлд -56
+ сдл 56
+ сдп 64-53
+ цела 53-8-1024
+ зп c
+ прв L1093#
+:; 		if (c != '%')
+ сч c
+ нтж =025h
+ прв L1095#
+:; 			*p++ = c;
+ сч c
+ сдл 56
+ счм p
+ зп (sp#)
+ сл =01h
+ зпм p
+ пв зпб#(lr#)
+ пб L1096#
+все#.$doprnt.L1095#
+:; 		else {
+:; 			if (p != &t[0]) {
+ сч p
+ счм =t+0h
+ сдл 3
+ нтж (sp#)
+ прв L1097#
+:; 				_strout (p - t, t, 0, file);
+ сч p
+ счм =t+0h
+ сдл 3
+ вчоб (sp#)
+ счм =t
+ счм =0h
+ счм file
+ счм =4
+ пв $strout(lr#)
+:; 				p = &t[0];
+ сч =t+0h
+ сдл 3
+ зп p
+все#.$doprnt.L1097#
+:; 			}
+:; 			rjust = 0;
+ зпн rjust
+:; 			ndigit = 0;
+ уиа 0h(ndigit)
+:; 			zfill = ' ';
+ сч =020h
+ зп zfill
+:; 			if (*fmt == '-') {
+ сч fmt
+ сдп 3
+ уисч 0
+ сдлд -56
+ сдл 56
+ сдп 64-53
+ цела 53-8-1024
+ нтж =02Dh
+ пнр L1099#
+:; 				rjust++;
+ сч rjust
+ сл =01h
+ зп rjust
+:; 				fmt++;
+ сч fmt
+ сл =01h
+ зп fmt
+все#.$doprnt.L1099#
+:; 			}
+:; 			if (*fmt == '0') {
+ сч fmt
+ сдп 3
+ уисч 0
+ сдлд -56
+ сдл 56
+ сдп 64-53
+ цела 53-8-1024
+ нтж =030h
+ пнр L1100#
+:; 				zfill = '0';
+ сч =030h
+ зп zfill
+:; 				fmt++;
+ сч fmt
+ сл =01h
+ зп fmt
+все#.$doprnt.L1100#
+:; 			}
+:; 			if (*fmt != '*') {
+ сч fmt
+ сдп 3
+ уисч 0
+ сдлд -56
+ сдл 56
+ сдп 64-53
+ цела 53-8-1024
+ нтж =02Ah
+ прв L1101#
+:; 				width = 0;
+ уиа 0h(width)
+все#.$doprnt.L1103#
+:; 				while ((d = *fmt++ - '0') >= 0 && d <= 9)
+ сч fmt
+ зп (sp#)
+ сл =01h
+ зпм fmt
+ сдп 3
+ уисч 0
+ сдлд -56
+ сдл 56
+ сдп 64-53
+ цела 53-8-1024
+ вч =030h
+ зп d
+ пмн L1102#
+ сч d
+ вч =09h
+ пбл L1102#
+:; 					width = width * 10 + d;
+ виц width
+ умн =0Ah
+ сл d
+ уи width
+ пб L1103#
+все#.$doprnt.L1102#
+ пб L1104#
+все#.$doprnt.L1101#
+:; 			}
+:; 			else {
+:; 				fmt++;
+ сч fmt
+ сл =01h
+ зп fmt
+:; 				d = *fmt++ - '0';
+ сч fmt
+ зп (sp#)
+ сл =01h
+ зпм fmt
+ сдп 3
+ уисч 0
+ сдлд -56
+ сдл 56
+ сдп 64-53
+ цела 53-8-1024
+ вч =030h
+ зп d
+:; 				width = *argp++;
+ сч arg
+ зп (sp#)
+ сл =01h
+ зпм arg
+ уисч
+ уи width
+все#.$doprnt.L1104#
+:; 			}
+:; 			ndfnd = 0;
+ зпн ndfnd
+:; 			if ((d += '0') == '.') {
+ сч d
+ сл =030h
+ зп d
+ нтж =02Eh
+ пнр L1105#
+:; 				if (*fmt != '*') {
+ сч fmt
+ сдп 3
+ уисч 0
+ сдлд -56
+ сдл 56
+ сдп 64-53
+ цела 53-8-1024
+ нтж =02Ah
+ прв L1106#
+:; 					ndigit = 0;
+ уиа 0h(ndigit)
+все#.$doprnt.L1108#
+:; 					while ((d = *fmt++ - '0') >= 0 && d <= 9) {
+ сч fmt
+ зп (sp#)
+ сл =01h
+ зпм fmt
+ сдп 3
+ уисч 0
+ сдлд -56
+ сдл 56
+ сдп 64-53
+ цела 53-8-1024
+ вч =030h
+ зп d
+ пмн L1107#
+ сч d
+ вч =09h
+ пбл L1107#
+:; 						ndfnd++;
+ сч ndfnd
+ сл =01h
+ зп ndfnd
+:; 						ndigit = ndigit * 10 + d;
+ виц ndigit
+ умн =0Ah
+ сл d
+ уи ndigit
+ пб L1108#
+все#.$doprnt.L1107#
+:; 					}
+:; 					d += '0';
+ сч d
+ сл =030h
+ зп d
+ пб L1109#
+все#.$doprnt.L1106#
+:; 				}
+:; 				else {
+:; 					fmt++;
+ сч fmt
+ сл =01h
+ зп fmt
+:; 					d = *fmt++;
+ сч fmt
+ зп (sp#)
+ сл =01h
+ зпм fmt
+ сдп 3
+ уисч 0
+ сдлд -56
+ сдл 56
+ сдп 64-53
+ цела 53-8-1024
+ зп d
+:; 					ndfnd++;
+ сч ndfnd
+ сл =01h
+ зп ndfnd
+:; 					ndigit = *argp++;
+ сч arg
+ зп (sp#)
+ сл =01h
+ зпм arg
+ уисч
+ уи ndigit
+все#.$doprnt.L1109#
+все#.$doprnt.L1105#
+:; 				}
+:; 			}
+:; 			switch (d) {
+ сч d
+ пб L1111#
+все#.$doprnt.L1112#
+все#.$doprnt.L1113#
+:; 				case 'l': 
+:; 				case 'L': 
+:; 					switch (*fmt++) {
+ сч fmt
+ зп (sp#)
+ сл =01h
+ зпм fmt
+ сдп 3
+ уисч 0
+ сдлд -56
+ сдл 56
+ сдп 64-53
+ цела 53-8-1024
+ пб L1115#
+все#.$doprnt.L1116#
+:; 						case 'o': 
+:; 							goto loct;
+ пб loct
+все#.$doprnt.L1118#
+:; 						case 'x': 
+:; 							goto lhex;
+ пб lhex
+все#.$doprnt.L1120#
+:; 						case 'd': 
+:; 							goto ldec;
+ пб ldec
+все#.$doprnt.L1122#
+:; 						case 'u': 
+:; 							goto luns;
+ пб luns
+все#.$doprnt.L1124#
+:; 						default: 
+:; 							fmt--;
+ сч fmt
+ сл =01FFFFFFFFFFFFFh
+ зп fmt
+:; 							goto uns;
+ пб uns
+все#.$doprnt.L1115#
+ вч =064h
+ пмн L1124#
+ уи wr#
+ пирв L1120#(wr#)
+ слиа 01FFFFFFFFFFFF5h(wr#)
+ пирв L1116#(wr#)
+ слиа 01FFFFFFFFFFFFAh(wr#)
+ пирв L1122#(wr#)
+ слиа 01FFFFFFFFFFFFDh(wr#)
+ пирв L1118#(wr#)
+ пб L1124#
+все#.$doprnt.L1114#
+все#.$doprnt.L1126#
+все#.$doprnt.L1127#
+все#.$doprnt.loct
+:; 					}
+:; 				case 'o': 
+:; 				case 'O': 
+:; 			loct: 		radix = 8;
+ уиа 08h(radix)
+:; 					n = *argp++;
+ сч arg
+ зп (sp#)
+ сл =01h
+ зпм arg
+ уисч
+ зп n
+:; 					mask = 07;
+ сч =07h
+ зп mask
+:; 					shift = 3;
+ сч =03h
+ зп shift
+:; 					goto compute;
+ пб compute
+все#.$doprnt.L1129#
+все#.$doprnt.L1130#
+все#.$doprnt.lhex
+:; 				case 'x': 
+:; 				case 'X': 
+:; 			lhex: 		radix = 16;
+ уиа 010h(radix)
+:; 					n = *argp++;
+ сч arg
+ зп (sp#)
+ сл =01h
+ зпм arg
+ уисч
+ зп n
+:; 					mask = 0xf;
+ сч =0Fh
+ зп mask
+:; 					shift = 4;
+ сч =04h
+ зп shift
+:; 					goto compute;
+ пб compute
+все#.$doprnt.L1131#
+все#.$doprnt.L1132#
+все#.$doprnt.ldec
+:; 				case 'd': 
+:; 				case 'D': 
+:; 			ldec: 		radix = 10;
+ уиа 0Ah(radix)
+все#.$doprnt.signed
+:; 			signed: 	if (*argp < 0) {
+ пф arg
+ сч
+ пбр L1134#
+:; 						*p++ = '-';
+ сч =02D00000000000000h
+ счм p
+ зп (sp#)
+ сл =01h
+ зпм p
+ пв зпб#(lr#)
+:; 						n = -*argp++;
+ сч arg
+ зп (sp#)
+ сл =01h
+ зпм arg
+ уисч
+ из =-1
+ зп n
+ пб L1135#
+все#.$doprnt.L1134#
+:; 					}
+:; 					else
+:; 						n = *argp++;
+ сч arg
+ зп (sp#)
+ сл =01h
+ зпм arg
+ уисч
+ зп n
+все#.$doprnt.L1135#
+:; 					goto compute;
+ пб compute
+все#.$doprnt.L1136#
+все#.$doprnt.L1137#
+все#.$doprnt.luns
+все#.$doprnt.uns
+:; 
+:; 				case 'u': 
+:; 				case 'U': 
+:; 			luns: 
+:; 			uns: 		n = *argp++;
+ сч arg
+ зп (sp#)
+ сл =01h
+ зпм arg
+ уисч
+ зп n
+:; 					radix = 10;
+ уиа 0Ah(radix)
+все#.$doprnt.compute
+:; 			compute: 
+:; 					if (n == 0 && ndigit == 0)
+ сч n
+ пнр L1138#
+ виц ndigit
+ пнр L1138#
+:; 						*p++ = '0';
+ сч =03000000000000000h
+ счм p
+ зп (sp#)
+ сл =01h
+ зпм p
+ пв зпб#(lr#)
+все#.$doprnt.L1138#
+:; 					if (radix == 8 || radix == 16){
+ виц radix
+ нтж =08h
+ прв L10003#
+ виц radix
+ нтж =010h
+ пнр L1139#
+L10003#
+:; 						for (q = &digits[0]; n != 0; n = n >> shift) {
+ сч =digits+0h
+ сдл 3
+ зп q
+все#.$doprnt.L1142#
+ сч n
+ прв L1141#
+:; 							d = n & mask;
+ сч n
+ и mask
+ и =-1
+ зп d
+:; 							*q++ = d + (d < 10 ? '0' : 'a' - 10);
+ сч d
+ вч =0Ah
+ пбр L10004#
+ сч =030h
+ пб L10005#
+L10004#
+ сч =057h
+L10005#
+ сл d
+ сдл 56
+ счм q
+ зп (sp#)
+ сл =01h
+ зпм q
+ пв зпб#(lr#)
+:; 						}
+ сч n
+ пф shift
+ сдп
+ зп n
+ пб L1142#
+все#.$doprnt.L1141#
+ пб L1143#
+все#.$doprnt.L1139#
+:; 					}
+:; 					else {
+:; 						for (q = &digits[0]; n != 0; n = n / radix) {
+ сч =digits+0h
+ сдл 3
+ зп q
+все#.$doprnt.L1146#
+ сч n
+ прв L1145#
+:; 							d = n % radix;
+ виц radix
+ счм n
+ пв ц64мод#(lr#)
+ и =-1
+ зп d
+:; 							*q++ = d + (d < 10 ? '0' : 'a' - 10);
+ сч d
+ вч =0Ah
+ пбр L10006#
+ сч =030h
+ пб L10007#
+L10006#
+ сч =057h
+L10007#
+ сл d
+ сдл 56
+ счм q
+ зп (sp#)
+ сл =01h
+ зпм q
+ пв зпб#(lr#)
+:; 						}
+ виц radix
+ счм n
+ пв ц64дел#(lr#)
+ зп n
+ пб L1146#
+все#.$doprnt.L1145#
+все#.$doprnt.L1143#
+все#.$doprnt.L1148#
+:; 					}
+:; 					while (q > &digits[0])
+ сч q
+ счм =digits+0h
+ сдл 3
+ вч (sp#)
+ пбр L1147#
+:; 						*p++ = *--q;
+ сч q
+ вч =01h
+ зп q
+ сдп 3
+ уисч 0
+ сдлд -56
+ сдл 56
+ счм p
+ зп (sp#)
+ сл =01h
+ зпм p
+ пв зпб#(lr#)
+ пб L1148#
+все#.$doprnt.L1147#
+:; 					goto prbuf;
+ пб prbuf
+все#.$doprnt.L1150#
+все#.$doprnt.L1151#
+:; 
+:; 				case 'C':
+:; 				case 'c': 
+:; 					*p++ = va_arg(argp, int);
+ сч arg
+ зп (sp#)
+ сл =01h
+ зпм arg
+ уисч
+ сдл 56
+ счм p
+ зп (sp#)
+ сл =01h
+ зпм p
+ пв зпб#(lr#)
+все#.$doprnt.prbuf
+:; 
+:; 			prbuf: 		q = &t[0];
+ сч =t+0h
+ сдл 3
+ зп q
+все#.$doprnt.prstr
+:; 			prstr: 		if ((d = width - (p - q)) < 0)
+ сч p
+ вч q
+ вицм width
+ вч (sp#)
+ зп d
+ пбр L1153#
+:; 						d = 0;
+ зпн d
+все#.$doprnt.L1153#
+:; 					if (rjust == 0)
+ сч rjust
+ пнр L1154#
+:; 						d = -d;
+ сч d
+ из =-1
+ зп d
+все#.$doprnt.L1154#
+:; 					_strout (p - q, q, d, file, zfill);
+ сч p
+ вч q
+ счм q
+ сдп 3
+ нтжд
+ счм d
+ счм file
+ счм zfill
+ счм =5
+ пв $strout(lr#)
+:; 					p = &t[0];
+ сч =t+0h
+ сдл 3
+ зп p
+ пб L1110#
+все#.$doprnt.L1155#
+все#.$doprnt.L1156#
+:; 					break;
+:; 
+:; 				case 'S':
+:; 				case 's': 
+:; 				/*      if ((q = *arg.chpp++) == 0)     */
+:; 					if ((q = va_arg(argp, char *)) == 0)
+ сч arg
+ зп (sp#)
+ сл =01h
+ зпм arg
+ уисч
+ сдл 3
+ нтжд
+ зп q
+ пнр L1157#
+ секция конст
+все#.$doprnt.L1158#
+ текст т'(null)'0''
+ секция код
+:; 						q = "(null)";
+ сч =L1158#+0h
+ сдл 3
+ зп q
+все#.$doprnt.L1157#
+:; 					if ((d = ndigit) == 0)
+ виц ndigit
+ зп d
+ пнр L1159#
+:; 						d = 32767;
+ сч =07FFFh
+ зп d
+все#.$doprnt.L1159#
+:; 					for (p = q; *p != 0 && --d >= 0; p++);
+ сч q
+ зп p
+все#.$doprnt.L1162#
+ сч p
+ сдп 3
+ уисч 0
+ сдлд -56
+ сдл 56
+ сдп 64-53
+ цела 53-8-1024
+ прв L1161#
+ сч d
+ вч =01h
+ зп d
+ пмн L1161#
+ сч p
+ сл =01h
+ зп p
+ пб L1162#
+все#.$doprnt.L1161#
+:; 					goto prstr;
+ пб prstr
+все#.$doprnt.L1163#
+:; 
+:; 				case 'r': 
+:; 					argp = *arg.argr;
+ пф arg
+ сч
+ зп arg
+:; 					fmt = *arg.chpp;
+ пф arg
+ сч
+ зп fmt
+:; 					argp++;
+ сч arg
+ сл =01h
+ зп arg
+ пб L1110#
+все#.$doprnt.L1164#
+:; 					break;
+:; 				case 'f': 
+:; 					if (ndfnd == 0)
+ сч ndfnd
+ пнр L1165#
+:; 						ndigit = 6;
+ уиа 06h(ndigit)
+все#.$doprnt.L1165#
+:; 					q = fcvt (*((double *) argp), ndigit,
+:; 							&decpt, &sign);
+ пф arg
+ сч
+ вицм ndigit
+ счм =decpt
+ счм =sign
+ счм =4
+ пв fcvt(lr#)
+ зп q
+:; 					argp += sizeof(double)/sizeof(int);
+ сч arg
+ сл =01h
+ зп arg
+:; 					if (sign)
+ сч sign
+ прв L1166#
+:; 						*p++ = '-';
+ сч =02D00000000000000h
+ счм p
+ зп (sp#)
+ сл =01h
+ зпм p
+ пв зпб#(lr#)
+все#.$doprnt.L1166#
+:; 					if ((d = decpt) <= 0)
+ сч decpt
+ зп d
+ пбл L1167#
+:; 						*p++ = '0';
+ сч =03000000000000000h
+ счм p
+ зп (sp#)
+ сл =01h
+ зпм p
+ пв зпб#(lr#)
+ пб L1168#
+все#.$doprnt.L1167#
+все#.$doprnt.L1171#
+:; 					else
+:; 						do {
+:; 							*p++ = *q++;
+ сч q
+ зп (sp#)
+ сл =01h
+ зпм q
+ сдп 3
+ уисч 0
+ сдлд -56
+ сдл 56
+ счм p
+ зп (sp#)
+ сл =01h
+ зпм p
+ пв зпб#(lr#)
+все#.$doprnt.L1170#
+:; 						} while (--d > 0);
+ сч d
+ вч =01h
+ зп d
+ пбл L1171#
+все#.$doprnt.L1169#
+все#.$doprnt.L1168#
+:; 					if (d = ndigit)
+ виц ndigit
+ зп d
+ прв L1172#
+:; 						*p++ = '.';
+ сч =02E00000000000000h
+ счм p
+ зп (sp#)
+ сл =01h
+ зпм p
+ пв зпб#(lr#)
+все#.$doprnt.L1172#
+:; 					if ((decpt = -decpt) > 0)
+ сч decpt
+ из =-1
+ зп decpt
+ пмр L1173#
+все#.$doprnt.L1175#
+:; 						while (--d >= 0) {
+ сч d
+ вч =01h
+ зп d
+ пмн L1174#
+:; 							*p++ = '0';
+ сч =03000000000000000h
+ счм p
+ зп (sp#)
+ сл =01h
+ зпм p
+ пв зпб#(lr#)
+:; 							if (--decpt <= 0)
+ сч decpt
+ вч =01h
+ зп decpt
+ пбл L1176#
+ пб L1174#
+все#.$doprnt.L1176#
+ пб L1175#
+все#.$doprnt.L1174#
+все#.$doprnt.L1173#
+:; 								break;
+:; 						}
+:; 					if (d > 0)
+ сч d
+ пмр L1177#
+все#.$doprnt.L1179#
+:; 						while (--d >= 0)
+ сч d
+ вч =01h
+ зп d
+ пмн L1178#
+:; 							*p++ = *q++;
+ сч q
+ зп (sp#)
+ сл =01h
+ зпм q
+ сдп 3
+ уисч 0
+ сдлд -56
+ сдл 56
+ счм p
+ зп (sp#)
+ сл =01h
+ зпм p
+ пв зпб#(lr#)
+ пб L1179#
+все#.$doprnt.L1178#
+все#.$doprnt.L1177#
+:; 					goto prbuf;
+ пб prbuf
+все#.$doprnt.L1180#
+:; 
+:; 				case 'e': 
+:; 					if (ndfnd == 0)
+ сч ndfnd
+ пнр L1181#
+:; 						ndigit = 6;
+ уиа 06h(ndigit)
+ пб L1182#
+все#.$doprnt.L1181#
+:; 					else
+:; 						ndigit += 1;
+ слиа 01h(ndigit)
+все#.$doprnt.L1182#
+:; 					q = ecvt (*((double *) argp), ndigit,
+:; 							&decpt, &sign);
+ пф arg
+ сч
+ вицм ndigit
+ счм =decpt
+ счм =sign
+ счм =4
+ пв ecvt(lr#)
+ зп q
+:; 					argp += sizeof(double)/sizeof(int);
+ сч arg
+ сл =01h
+ зп arg
+:; 					if (sign)
+ сч sign
+ прв L1183#
+:; 						*p++ = '-';
+ сч =02D00000000000000h
+ счм p
+ зп (sp#)
+ сл =01h
+ зпм p
+ пв зпб#(lr#)
+все#.$doprnt.L1183#
+:; 					if (*q == '0')
+ сч q
+ сдп 3
+ уисч 0
+ сдлд -56
+ сдл 56
+ сдп 64-53
+ цела 53-8-1024
+ нтж =030h
+ пнр L1184#
+:; 						decpt += 1;
+ сч decpt
+ сл =01h
+ зп decpt
+все#.$doprnt.L1184#
+:; 					*p++ = *q++;
+ сч q
+ зп (sp#)
+ сл =01h
+ зпм q
+ сдп 3
+ уисч 0
+ сдлд -56
+ сдл 56
+ счм p
+ зп (sp#)
+ сл =01h
+ зпм p
+ пв зпб#(lr#)
+:; 					*p++ = '.';
+ сч =02E00000000000000h
+ счм p
+ зп (sp#)
+ сл =01h
+ зпм p
+ пв зпб#(lr#)
+:; 					for (d = ndigit; --d > 0; *p++ = *q++);
+ виц ndigit
+ зп d
+все#.$doprnt.L1187#
+ сч d
+ вч =01h
+ зп d
+ пмр L1186#
+ сч q
+ зп (sp#)
+ сл =01h
+ зпм q
+ сдп 3
+ уисч 0
+ сдлд -56
+ сдл 56
+ счм p
+ зп (sp#)
+ сл =01h
+ зпм p
+ пв зпб#(lr#)
+ пб L1187#
+все#.$doprnt.L1186#
+:; 					*p++ = 'e';
+ сч =06500000000000000h
+ счм p
+ зп (sp#)
+ сл =01h
+ зпм p
+ пв зпб#(lr#)
+:; 					decpt -= 1;
+ сч decpt
+ вч =01h
+ зп decpt
+:; 					if (decpt >= 0)
+ сч decpt
+ пмн L1188#
+:; 						*p++ = '+';
+ сч =02B00000000000000h
+ счм p
+ зп (sp#)
+ сл =01h
+ зпм p
+ пв зпб#(lr#)
+ пб L1189#
+все#.$doprnt.L1188#
+:; 					else {
+:; 						*p++ = '-';
+ сч =02D00000000000000h
+ счм p
+ зп (sp#)
+ сл =01h
+ зпм p
+ пв зпб#(lr#)
+:; 						decpt = -decpt;
+ сч decpt
+ из =-1
+ зп decpt
+все#.$doprnt.L1189#
+:; 					}
+:; 					*p++ = (unsigned) decpt / 10 + '0';
+ сч =0Ah
+ счм decpt
+ пв цдел#(lr#)
+ сл =030h
+ сдл 56
+ счм p
+ зп (sp#)
+ сл =01h
+ зпм p
+ пв зпб#(lr#)
+:; 					*p++ = (unsigned) decpt % 10 + '0';
+ сч =0Ah
+ счм decpt
+ пв цмод#(lr#)
+ сл =030h
+ сдл 56
+ счм p
+ зп (sp#)
+ сл =01h
+ зпм p
+ пв зпб#(lr#)
+:; 					goto prbuf;
+ пб prbuf
+все#.$doprnt.L1190#
+:; 
+:; 				case 'g': 
+:; 					if (ndfnd == 0)
+ сч ndfnd
+ пнр L1191#
+:; 						ndigit = 6;
+ уиа 06h(ndigit)
+все#.$doprnt.L1191#
+:; 					gcvt (*((double *) argp), ndigit, p);
+ пф arg
+ сч
+ вицм ndigit
+ счм p
+ сдп 3
+ нтжд
+ счм =3
+ пв gcvt(lr#)
+:; 					argp += sizeof(double)/sizeof(int);
+ сч arg
+ сл =01h
+ зп arg
+все#.$doprnt.L1193#
+:; 					while (*p++ != 0);
+ сч p
+ зп (sp#)
+ сл =01h
+ зпм p
+ сдп 3
+ уисч 0
+ сдлд -56
+ сдл 56
+ сдп 64-53
+ цела 53-8-1024
+ прв L1192#
+ пб L1193#
+все#.$doprnt.L1192#
+:; 					p -= 1;
+ сч p
+ вч =01h
+ зп p
+:; 					goto prbuf;
+ пб prbuf
+все#.$doprnt.L1194#
+:; 				case '%': 
+:; 					*p++ = '%';
+ сч =02500000000000000h
+ счм p
+ зп (sp#)
+ сл =01h
+ зпм p
+ пв зпб#(lr#)
+ пб L1110#
+все#.$doprnt.L1111#
+ вч =025h
+ пмн L1195#
+ уи wr#
+ пирв L1194#(wr#)
+ слиа 01FFFFFFFFFFFE2h(wr#)
+ пирв L1150#(wr#)
+ слиа 01FFFFFFFFFFFFFh(wr#)
+ пирв L1132#(wr#)
+ слиа 01FFFFFFFFFFFF8h(wr#)
+ пирв L1113#(wr#)
+ слиа 01FFFFFFFFFFFFDh(wr#)
+ пирв L1127#(wr#)
+ слиа 01FFFFFFFFFFFFCh(wr#)
+ пирв L1155#(wr#)
+ слиа 01FFFFFFFFFFFFEh(wr#)
+ пирв L1137#(wr#)
+ слиа 01FFFFFFFFFFFFDh(wr#)
+ пирв L1130#(wr#)
+ слиа 01FFFFFFFFFFFF5h(wr#)
+ пирв L1151#(wr#)
+ слиа 01FFFFFFFFFFFFFh(wr#)
+ пирв L1131#(wr#)
+ слиа 01FFFFFFFFFFFFFh(wr#)
+ пирв L1180#(wr#)
+ слиа 01FFFFFFFFFFFFFh(wr#)
+ пирв L1164#(wr#)
+ слиа 01FFFFFFFFFFFFFh(wr#)
+ пирв L1190#(wr#)
+ слиа 01FFFFFFFFFFFFBh(wr#)
+ пирв L1112#(wr#)
+ слиа 01FFFFFFFFFFFFDh(wr#)
+ пирв L1126#(wr#)
+ слиа 01FFFFFFFFFFFFDh(wr#)
+ пирв L1163#(wr#)
+ слиа 01FFFFFFFFFFFFFh(wr#)
+ пирв L1156#(wr#)
+ слиа 01FFFFFFFFFFFFEh(wr#)
+ пирв L1136#(wr#)
+ слиа 01FFFFFFFFFFFFDh(wr#)
+ пирв L1129#(wr#)
+все#.$doprnt.L1195#
+все#.$doprnt.L1110#
+все#.$doprnt.L1096#
+ пб L1094#
+все#.$doprnt.L1093#
+:; 					break;
+:; 			}
+:; 		}
+:; 	if (p != &t[0])
+ сч p
+ счм =t+0h
+ сдл 3
+ нтж (sp#)
+ прв L1196#
+:; 		_strout (p - t, t, 0, file);
+ сч p
+ счм =t+0h
+ сдл 3
+ вчоб (sp#)
+ счм =t
+ счм =0h
+ счм file
+ счм =4
+ пв $strout(lr#)
+все#.$doprnt.L1196#
+ пб exit#
+autos# экв 36
+entry# внеш '$CEN8A'
+exit# внеш '$CEX8A'
+ кблок $doprnt
+
+ секция перем
+ секция код
+$strout: блок
+ зп (sp#)
+ пв entry#(wr#)
+ слиа autos#(sp#)
+ сч 1(ap#)
+ сдл 3
+ нтжд
+ зп 1(ap#)
+ сч 3(ap#)
+ уи ra#
+count экв 0(ap#)
+string экв 1(ap#)
+adjust экв 2(ap#)
+file экв ra#
+fillch экв 4(ap#)
+все#.$strout.L1199#
+:; #include        <stdio.h>
+:; 
+:; _strout(count, string, adjust, file, fillch)
+:; register char *string;
+:; register count;
+:; int adjust;
+:; register struct _iobuf *file;
+:; {
+:; 	while (adjust < 0) {
+ сч adjust
+ пбр L1198#
+:; 		if (*string=='-' && fillch=='0') {
+ сч string
+ сдп 3
+ уисч 0
+ сдлд -56
+ сдл 56
+ сдп 64-53
+ цела 53-8-1024
+ нтж =02Dh
+ пнр L1200#
+ сч fillch
+ нтж =030h
+ пнр L1200#
+:; 			putc(*string++, file);
+ сч string
+ зп (sp#)
+ сл =01h
+ зпм string
+ сдп 3
+ уисч 0
+ сдлд -56
+ сдл 56
+ сдп 64-53
+ цела 53-8-1024
+ вицм file
+ счм =2
+ пв putc(lr#)
+:; 			count--;
+ сч count
+ сл =01FFFFFFFFFFFFFh
+ зп count
+все#.$strout.L1200#
+:; 		}
+:; 		putc(fillch, file);
+ сч fillch
+ вицм file
+ счм =2
+ пв putc(lr#)
+:; 		adjust = adjust + 1;
+ сч adjust
+ сл =01h
+ зп adjust
+ пб L1199#
+все#.$strout.L1198#
+все#.$strout.L1202#
+:; 	}
+:; 	while (--count>=0)
+ сч count
+ вч =01h
+ зп count
+ пмн L1201#
+:; 		putc(*string++, file);
+ сч string
+ зп (sp#)
+ сл =01h
+ зпм string
+ сдп 3
+ уисч 0
+ сдлд -56
+ сдл 56
+ сдп 64-53
+ цела 53-8-1024
+ вицм file
+ счм =2
+ пв putc(lr#)
+ пб L1202#
+все#.$strout.L1201#
+все#.$strout.L1204#
+:; 	while (adjust) {
+ сч adjust
+ прв L1203#
+:; 		putc(fillch, file);
+ сч fillch
+ вицм file
+ счм =2
+ пв putc(lr#)
+:; 		adjust--;
+ сч adjust
+ сл =01FFFFFFFFFFFFFh
+ зп adjust
+ пб L1204#
+все#.$strout.L1203#
+ пб exit#
+autos# экв 1
+entry# внеш '$CENAA'
+exit# внеш '$CEXAA'
+ кблок $strout
+
+ секция перем
+ внешн выдопт
+ внешн зпб#, цдел#, ц64дел#, цмод#, ц64мод#, ц64умн#
+ внешн ц64вещ#, вещц64#
+ секция конст
+ литер
+
+ финиш
+:; 	}
+:; }

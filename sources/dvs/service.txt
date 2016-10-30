@@ -1,0 +1,214 @@
+ MOДУЛЬ 'CEPBИC_ДBC'
+***************************************************
+*                                                 *
+*     CEPBИCHЫЙ ПAKET ПPOЦEДУP ДИCПETЧEPA         *
+*           BИPTУAЛЬHЫX CИCTEM(ДBC)               *
+*               ИTM И BT AH CCCP                  *
+*                    1989 Г.                      *
+*                                                 *
+*                                                 *
+*BЫБOP ПPOЦEДУPЫ OПPEДEЛEH COДEPЖИMЫM ЯЧ 'BИД_PAБ'*
+*                                                 *
+*ДЛЯ ЛЮБOЙ ПPOЦEДУPЫ HEOБXOДИMO ЗAДAHИE OБ'ЯЗA -  *
+*TEЛЬHЫX ПAPAMETPOB: 'HOM_KAH','HOM_УCT','ИMЯ_PЗ' *
+*                                                 *
+*BИД_PAБ=0 - PAЗMETKA ДИCKA И COЗДAHИE HA HEM MET-*
+*            KИ TOMA.                             *
+*  'ЦЦГГNDД' TEKУЩИE KOOPДИHATЫ PAЗMETKИ          *
+*ПAPAMETPЫ : 'PAЗMEP_PЗ','ЧИCЛO_PЗ','ИMЯ_PЗ'.     *
+*                                                 *
+*BИД_PAБ=1 - CTAPT ДИCПEЧEPA BИPTУAЛЬHЫX CИCTEM   *
+*ПAPAMETPЫ : 'ДЛИ_ЗAП','HOM_БЛO','AДP_OЗУ', 'KOЛ_ *
+*             ЗAП'                                *
+*                                                 *
+*BИД_PAБ=2 - ПEPEПИCЬ C OПEPATИBHOЙ ПAMЯTИ HA ДИCK*
+*ПAPAMETPЫ : 'ДЛИ_ЗAП','HOM_БЛO','AДP_OЗУ', 'ФЛA_ *
+*            ЧTE','KOЛ_ЗAП'.                      *
+*                                                 *
+*BИД_PAБ=3 - ДИCKOBЫЙ TECT                        *
+*ПAPAMETPЫ : ЗAПOЛHИTЬ MACCИB 'OЧEPEДЬ',CM.TAБЛ.  *
+*                                                 *
+*BИД_PAБ=4 - ПEPEPAЗMETKA ДOPOЖKИ,ПPИ ЭTOM ДEЛAET-*
+*            CЯ ПOПЫTKA COXPAHEHИЯ ЗAПИCEЙ HA ЭTOЙ*
+*            ДOPOЖKE.                             *
+*ПAPAMETPЫ : 'HOM_БЛO','ФЛA_ЧTE'                  *
+*                                                 *
+*BИД_PAБ=5 - COЗДAHИE PAЗДEЛA(PЗ) TOMA            *
+*ПAPAMETPЫ : 'PAЗMEP_PЗ','ИMЯ_PЗ'.                *
+*                                                 *
+*      KOT : 1 HET MECTA ДЛЯ OПИCATEЛЯ PЗ         *
+*            2 HET ПPOCTPAHCTBA ДЛЯ  PЗ           *
+*            3 TAKOE ИMЯ PЗ УЖE ECTЬ              *
+*                                                 *
+*BИД_PAБ=6 - ИCKЛЮЧEHИE ИЗ ДИPEKTOPИЯ PЗ          *
+*ПAPAMETPЫ : 'ИMЯ_PЗ'.                            *
+*                                                 *
+*      KOT : 1 HET TAKOГO PЗ                      *
+*                                                 *
+*BИД_PAБ=7 - ПEPEПИCЬ C MAГHИTHOЙ ЛEHTЫ HA ДИCK.  *
+*ПAPAMETPЫ : 'HOM_ФAЙ_MЛ','HOM_KAH_MЛ','HOM_УCT_MЛ*
+*            'HOM_БЛO','ФЛA_ЧTE'.                 *
+*                                                 *
+*BИД_PAБ=8 - ЗAГPУЗKA ПPOГPAMMЫ ИЗ MД ДИCПAKA     *
+*ПAPAMETPЫ : 'HOM_БЛO' HOMEP ЗOHЫ ДИCПAKA         *
+*                                                 *
+*                                                 *
+***************************************************
+ 
+ 
+KH CEKЦИЯ 0,П20,ФИKT,CBOБ
+KH БЛOK;ЛOKAЛЬHЫE ЯЧEЙKИ KAHAЛA
+!ПAPAMETPЫ ДPAЙBEPA
+L_CЛ:ЭKB 3;KOЛ CЛУЖ CЛOB
+L_БЛO:ЭKB 128+L_CЛ;ДЛИHA БЛOKA
+L_ББT:ЭKB /(9*L_БЛO+8+7)//8;ДЛИHA БЛOKA БEЗ TEГA
+L_KЛA:ЭKB 32;KЛACTEP OБMEHA
+L_KПP:ЭKB L_KЛA*3+L_KЛA/L_ЗAПMIN+2;MAX ДЛИHA KAH ПPO
+L_ЗAПMIN:ЭKB 10;MИHИMAЛЬHOE ЧИCЛO ЗAП HA ДOPOЖKE
+L_ЗAПMAX:ЭKB 20;MAKCИMAЛЬHOE ЧИCЛO ЗAП HA ДOPOЖKE
+!
+УCTP:ПAM
+KKOM:ПAM
+NЗAП:ПAM
+KЗAП:ПAM
+БУФK:ПAM L_БЛO*L_KЛA+L_БЛO/8+1
+ЦЦГГN:ПAM L_KЛA+L_KЛA/L_ЗAПMIN+2
+KAH_ПPO:ПAM L_KПP*2
+L_KH:ЭKB #-УCTP
+ KБЛOK KH
+ 
+ 
+CEPBИC CEKЦИЯ 0,П20,ЛKOM
+ДИCKИ БЛOK BKЛ=KH
+ ПAM
+BXOД УИA CTEK(S)
+  ПБ HAЧ
+: ПБ ;BHE_ПPE
+: CTOП 3;PЖ=3 ЭKCTPAKOД
+: CTOП 4;PЖ=1
+: CTOП 5;PЖ=1
+: CTOП 6;PЖ=3 BHУ_ПPE
+ BPГ 1FH;PПP
+: CTOП 7;PЖ=3 ЗAПP_KOM
+ ПБ BXOД
+BИД_PAБ KOHД 0
+PAЗMEP_PЗ KOHД 808*19*10;153 520 /200/
+ЧИCЛO_PЗ KOHД 256
+ИMЯ_PЗ TEKCT T''0'CИC_ПAK_ДУБ'
+ ПAM 8
+HOM_ФAЙ_MЛ KOHД 3;ИCПOЛЬЗУTCЯ ПPИ ЧTEHИИ C MЛ
+HOM_KAH_MЛ KOHД 3
+HOM_УCT_MЛ KOHД 2
+ 
+KOЛ_ЗAП KOHД 100H
+AДP_OЗУ KOHД 8000H
+HOM_БЛO KOHД 100H
+ФЛA_ЧTE KOHД 1
+ДЛИ_ЗAП ПAM;KOЛ ЗAП CЧ/ЗП ЗA OДИH OБMEH <32
+HOM_УCT KOHД 1
+HOM_KAH KOHД 0
+CET_HOM KOHД 038000000 00000000H;AДPECA AБOHEHTOB
+ KOHД 058000000 00000008H
+ KOHД 0D8000000 00000010H
+ KOHД 080000000 00000018H
+OЧEPEДЬ KOHД 0 2 3 07 0 1 0 100 01 E00H
+ KOHД 0 2 3 0F 0 1 0 2BA 0C E00H
+ KOHД 0 0 0 04 0 1 1 100 01 000H
+ KOHД 0 1 0 0F 1 1 1 100 01 000H
+***************************************************
+*     [64:61] -- HOM_KAH
+*     [60:57] -- HOM_УCT
+*     [56:53] -- HOM_ПAK
+*     [51:45] -- ДЛИ_ЗAП
+*     [44:41] -- 0-ЧT,1-ЗП
+*     [40:37] -- ФЛA_ЧTE
+*     [36:33] -- 1-RANDOM
+*     [32:21] -- ЦЦЦЦ
+*     [20:13] -- ГГ
+*     [12:01] -- ДЛИHA
+***************************************************
+ИC1 ЭKB 9
+ИC2 ЭKB 10
+ИC3 ЭKB 11
+ИC7 ЭKB 15
+R1 ЭKB 1
+R2 ЭKB 2
+R3 ЭKB 3
+R4 ЭKB 4
+R5 ЭKB 5
+R6 ЭKB 6
+R7 ЭKB 7
+R8 ЭKB 8
+R9 ЭKB 9
+RA ЭKB 10
+RB ЭKB 11
+RC ЭKB 12
+R ЭKB 13
+W ЭKB 14
+S ЭKB 15
+БУФ_CTA ЭKB 3000H
+БУФEP ЭKB 4000H
+TAБ_ДEФ ЭKB METKA_TOMA+6
+MAC_ЧTE ЭKB TAБ_ДEФ+256;
+MAC_TEC ЭKB MAC_ЧTE+L_БЛO*L_KЛA
+CTEK ЭKB MAC_TEC+2*L_ББT*L_ЗAПMAX
+CЛCЛ ЭKB CTEK+100
+KПOB ЭKB CЛCЛ+4
+ПOЛ_УПP ЭKB KПOB+4;ИC3,ИC7,ИP1-ИP13,ИP14,ИP15
+ЦГN ЭKB ПOЛ_УПP
+УCK ПAM
+ЦЦГГNDД ПAM 1; TEKУЩИЙ ЦЦГГ ПPИ PAЗMETKE
+CCK ПAM
+БУC ПAM 3
+ACK ПAM
+AББУC ПAM
+PAБ ПAM
+MACKA KOHД [64:61]0CH
+MAC_KAH KOHД [64:61]9H
+HAЧ_БЛOK ПAM
+KOH_БЛOK ПAM
+HOM_ГOЛ ПAM
+HOM_ЗAП ПAM
+KOЛ_ДOP ПAM
+ЧИC_ДOP_ЗAM ПAM
+X ПAM
+ФЦЦГГ ПAM
+ KOHД [49]00 80H;HET ДEФEKTOB HA ДOPOЖKE
+УЦЦГГ ПAM
+  
+! ПAPAMETPЫ УCTPOЙCTBA
+   
+Ч_ГOЛ KOHД 19;ЧИCЛO ГOЛOBOK
+Ч_ЦИЛ KOHД 808;ЧИCЛO ИHФOPM ЦИЛИHДPOB
+Ч_ЦИЛП KOHД 814;ПOЛHOE ЧИCЛO ЦИЛ HA ПAKETE
+O_ДOP KOHД 13440;OБ'EM ДOPOЖKИ B БAЙTAX
+!   
+Ч_ЗAП ПAM
+Ч_ЗAПO ПAM;OБPATHЫE BEЛИЧИHЫ
+Ч_ГOЛO ПAM
+Ч_ЦИЛO ПAM
+Ч_ГOЛЦ ПAM
+Ч_ЗAПЦ ПAM
+   
+PAЗM_KOД
+ KOHД 05555 5555 5555 5555H
+ KOHД 0D8AA AAAA AAAA AAAAH
+ KOHД 0AAD8 5555 5555 5555H
+ KOHД 05555 D8AA AAAA AAAAH
+ KOHД 0AAAA AAD8 5555 5555H
+ KOHД 05555 5555 D8AA AAAAH
+ KOHД 0AAAA AAAA AAD8 5555H
+ KOHД 05555 5555 5555 D8AAH
+ KOHД 0AAAA AAAA AAAA AAD8H
+X0 KOHД 8300 0000 0FFF FFFEH;ДЛЯ XAP=0
+ KOHД [25]00 08 04 0000H!HET_OШБ
+ KOHД [25]00 FF FF 1F90H
+ KOHД [25]00 4A 04 0010H!HAДO_ПOB
+ KOHД [25]00 FF FF 1F90H
+ KOHД [25]00 4A 04 0050H!KOPT
+ KOHД [25]00 FF FF 13F0H
+X1 KOHД 8400 0000 0FFF FFFEH;ДЛЯ XAP=1
+ KOHД [33]000C 0000H!HET_OШБ;KB
+ KOHД [33]00FF 1F90H
+ KOHД [33]004E 0010H!HAДO_ПOB;MKC
+ KOHД 

@@ -1,0 +1,743 @@
+ MOДУЛЬ 'IO'
+H CEKЦИЯ 1000H,П20,ЛKOM
+R1 ЭKB 1;УKAЗATEЛЬ ФOPMATA
+R2 ЭKB 2;УKAЗATEЛЬ ЧTEHИЯ
+R3 ЭKB 3;УKAЗATEЛЬ ЗAПИCИ
+R4 ЭKB 4;ШИPИHA ПOЛЯ
+R5 ЭKB 5;БAЗA ПAPAMETPOB
+R6 ЭKB 6;ЧИCЛO ПAPAMETPOB
+R7 ЭKB 7
+R8 ЭKB 8;ФЛAГ БЛOKИPOBKИ ЗAПИCИ
+R9 ЭKB 9
+RA ЭKB 10
+FR ЭKB RA;AДPEC ПOCЛEДHEГO PEГИCTPA
+RD ЭKB 13
+RE ЭKB 14
+RF ЭKB 15
+ 
+ 
+GETCC CЛИA -1(R4);LEN
+GETC BИ R2
+ CЛИA 1(R2)
+ CДП 3
+ УИCЧ
+ CДЛД -56
+ И =0FFH
+ УИ RE
+ ПБ (RA)
+ 
+ 
+GETF BИ R1;ЧTEHИE ИЗ BBOДHOГO БУФEPA
+ CЛИA 1(R1)
+ CДП 3
+ УИCЧ
+ CДЛД -56
+ И =0FFH
+ УИ RE
+ ПБ (RA)
+ 
+ 
+SCANF:БЛOK
+ 
+***************************************************
+*                                                 *
+*                    SSCANF                       *
+*                                                 *
+***************************************************
+ 
+ BЧOБЦ (RF)
+ ЗП VAL
+ УИA -FR+1(RE)
+: BИM FR(RE)
+ ЦИKЛ #(RE)
+ CЧM VAL
+ УИ R5;БAЗA ПAPAMETPOB B R5
+ CЧ+ 1(R5)
+ УИ R2;УKAЗATEЛЬ CTPOKИ
+ CЧ+ 1(R5)
+ УИ R1;УKAЗATEЛЬ ФOPMATA
+ УИA -1(R6);N ПAPAMETPA
+ УPЖ 20H
+BEG CЧ+ 1(R5)
+ УИ R3;УKAЗATEЛЬ TEKУЩEЙ ЗAПИCИ
+ CЛИA 1(R6);N ПAPAMETPA
+ УИA VAL(RE);POCПИCЬ
+ ГPУЛ 4
+ ЗПH+ 1(RE)
+BG0 УИA (R4);ШИPИHA ПOЛЯ
+ ПB GETF(RA)
+ ПИPB RETP(RE)
+ CЛИA -T'%'(RE)
+ ПИPB BG2(RE);ПPOПУCK ПPOБEЛA B ФOPMATE
+ CЧM =.(9,10,32);T,N,SP
+ CДЛ (RE)
+ CЧH (RF)
+ ПHO CMP;HE ПPOБEЛ
+BG1 ПB GETC(RA);ПPOПУCK ПPOБEЛOB B CTPOKE
+ CЧ =.(9,10,32);T,N,SP
+ CДЛ (RE)
+ ПOC BG1
+ CЛИA -1(R2);UNGETC
+ ПБ BG0
+BG2 УИA -L_ПKЛ(R7)
+ ПB GETF(RA)
+ ПФA (RE)
+ УИA -T'%'(R8)
+ ПИPB CMP(R8)
+ CЛИA T'%'-T'*'(R8)
+ ПИHP BG3+1(R8)
+BG3 ПB GETF(RA)
+ CЛИA -T'9'(RE)
+ ПИБЛ BG4(RE)
+ CЛИA T'9'-T'0'(RE)
+ ПИMH BG4(RE)
+ BИ R4
+ УMH =10
+ CЛKЛ (RE)
+ УИ R4
+ ПБ BG3
+BG4 УИ RE
+ ПФA (RE)
+ УИA -T'L'(RA)
+ ПИPB BG5(RA)
+ CЛИA T'L'-T'H'(RA)
+ ПИHP BG6(RA)
+BG5 ПB GETF(RA)
+BG6 CЧ ПKЛ+L_ПKЛ(R7)
+ HTЖЛ (RE)
+ И =0FFH
+ ПPB BG7
+ ЦИKЛ BG6(R7)
+ ПБ RETP
+CMP ЗП (RF);CM=БAЙTУ
+ ПB GETC(RA)
+ HTЖ (RF)
+ ПИPB RETN(RE)
+ ПPB BG0
+ CЛИA -1(R2);UNGETC
+RETP BИ R6;K ПAPAMETPOB
+ ПБ RET
+RETN CЧ =-1
+RET УИA FR(RE)
+ ЗПM VAL
+: УИM (RE)
+ CЛИA -1(RE)
+ ПИHP #-1(RE)
+ УИ RF
+ УPЖ
+ CЧ VAL
+ ПБ (RD)
+BG7 BД
+ ПИHP BG8(R4);ФOPMИPУEM ДЛИHУ ПO УMOЛЧAHИЮ
+ CДПM 16
+ И =.[16:1]
+ УИM R4
+BG8 CДП 32
+ УИ R9;AДPEC ПPOЦEДУPЫ
+ CЧ  ПKЛ+L_ПKЛ(R7)
+ ПOC (R9);ЭTO 'C','S','['
+ CЧ =Ч'1.0'
+ ЗП POWER
+BG9 ПB GETC(RA);ПPOГOH ПPOБEЛOB
+ CЧ =.(9,10,32);T,N,SP
+ CДЛ (RE)
+ ПOC BG9
+ BИ RE
+ CЛИA -1(R4);LEN
+ ПФA (RE);ПPOBEPKA HA ЗHAK
+ УИA -T'+'(RA)
+ ПФA (R9)
+ ПИPB (RA)
+ CЛИA T'+'-T'-'(RA)
+ CЛИA 1(R4)
+ ПФA (R9)
+ ПИHP 1(RA)
+ CЧM =Ч'-1.0'
+ ЗПM POWER
+ CЛИA -1(R4)
+ ПБ (R9)
+ПKЛ KOHД [33]LD! T'D'! [17] 16
+ KOHД [33]LD! T'U'! [17] 16
+ KOHД [33]LX! T'X'! [17] 16
+ KOHД [33]LO! T'O'! [17] 22
+ KOHД [33]LE! T'F'! [17] 22
+ KOHД [33]LE! T'E'! [17] 22
+ KOHД [33]LK! T'['! [17] 256!.64
+ KOHД [33]LC! T'C'! [17] 1  !.64
+ KOHД [33]LS! T'S'! [17] 256!.64
+L_ПKЛ ЭKB #-ПKЛ-1
+ 
+ 
+LK УИA TAB(R7)
+ ПB GETF(RA)
+ CЛИA -T'^'(RE)
+ ПИPB LK1(RE)
+ CЧЛ -1
+ CЛИA -1(R1);UNGETF
+ ГPУЛ 3
+ ЗП+ 1(R7)
+LK1 ПB GETF(RA);ФOPMИPOBAHИE ШKAЛЫ
+ ПИPB RETP(RE)
+ CЛИA -T']'(RE)
+ ПИPB LC(RE)
+ CДП 6
+ УИ RE
+ CЧ =1
+ CДПД -63
+ HTЖ TAB(RE)
+ ЗП TAB(RE)
+ ПБ LK1
+ 
+ 
+LS CЧ =.(9,10,32);T,N,SP
+ ЗП TAB
+LC ПB GETCC(RA)
+ ПИPB RETP(RE)
+ CДП 6
+ ПФC
+ CЧ TAB
+ CДЛД
+ ПOC LK3;IF(CH==1)PAЗДEЛИTEЛЬ;
+ ПИPB LK2(R8);'*'
+ BИ RE
+ ПB PUTC(RA)
+LK2 ПИБЛ LC(R4);LEN
+ CЛИA 1(R2)
+LK3 CЛИA -1(R2);UNGETC
+ ПИPB BEG(R8);'*'
+ УИA BEG(RA)
+ CЧ 0;
+PUTC CДЛ 56;ПOCЛEДOBATEЛЬHAЯ ЗAПИCЬ
+ ИЛИ =.[56:1]
+ BИM R3
+ CЛИA 1(R3)
+ CДП 3
+ УИM RE
+ CДПД -64
+ И (RE)
+ HTЖД
+ ЗП (RE)
+ ПБ (RA)
+ 
+ 
+LX1 CЛИA T'9'-T'0'(RE)
+ ПИMH CONT#(RE)
+LX2 CЧ VAL
+ CДЛ 4
+ ИЛИЛ (RE)
+ ЗП VAL
+LX ПИMH CONT#(R4);LEN
+ ПB GETCC(RA)
+ CЛИA -T'9'(RE)
+ ПИMP LX1(RE)
+ CЛИA T'9'-T'F'(RE)
+ ПИБЛ CONT#(RE)
+ CЛИA T'F'-T'A'(RE)
+ ПИMH CONT#(RE)
+ CЛИA 10(RE)
+ ПБ LX2
+ 
+ 
+LO ПB GETCC(RA)
+ CЛИA -T'7'(RE)
+ ПИБЛ CONT#(RE)
+ CЛИA T'7'-T'0'(RE)
+ ПИMH CONT#(RE)
+ CЧ VAL
+ CДЛ 3
+ ИЛИЛ (RE)
+ ЗП VAL
+ ПИБЛ LO(R4);LEN
+CONT# CЧ POWER;ИHBEPTИPOBAHИE ЗHAЧEHИЯ
+ ПБЛ CONT
+ CЧ VAL
+ HTЖЛ -1
+ CЛK =1
+ ЗП VAL
+ ПБ CONT
+ 
+ 
+LD ПB GETCC(RA)
+ CЛИA -T'9'(RE)
+ ПИБЛ LD1(RE)
+ CЛИA T'9'-T'0'(RE)
+ ПИMH LD1(RE)
+ CЧ VAL
+ УMH =10
+ CЛKЛ (RE)
+ ЗП VAL
+ ПИБЛ LD(R4);LEN
+LD1 CЧ VAL
+ ИЗ POWER;SIGN
+ ЗП VAL
+ ПБ CONT
+ 
+ 
+LE ПB GETCC(RA)
+ CЛИA -T'9'(RE)
+ ПИБЛ LE1(RE)
+ CЛИA T'9'-T'0'(RE)
+ ПИMH LE1(RE)
+ CЧ VAL
+ УMH =10
+ CЛKЛ (RE)
+ ЗП VAL
+ ПИБЛ LE(R4);LEN
+ ПБ LE6
+LE1 ЗП (RF)
+ HTЖ =T'.'
+ CЧH (RF)
+ ПHP LE3
+LE2 ПB GETCC(RA)
+ CЛИA -T'9'(RE)
+ ПИБЛ LE3(RE)
+ CЛИA T'9'-T'0'(RE)
+ ПИMH LE3(RE)
+ CЧ VAL
+ УMH =10
+ CЛKЛ (RE)
+ ЗП VAL
+ CЧ POWER
+ УMH =Ч'0.1'
+ ЗП POWER
+ ПИБЛ LE2(R4);LEN
+ ПБ LE6
+LE3 HTЖ =T'E'
+ ПHP LE6
+ УИA (R9)
+ ПB GETCC(RA)
+ УИA =Ч'10'(R7)
+ CЛИA -T'+'(RE)
+ ПИPB LE4(RE)
+ CЛИA T'+'-T'-'(RE)
+ ПИHP LE4+1(RE)
+ УИA =Ч'0.1'(R7)
+LE4 ПB GETCC(RA)
+ УИ RE
+ CЛИA -T'9'(RE)
+ ПИБЛ LE5(RE)
+ CЛИA T'9'-T'0'(RE)
+ ПИMH LE5(RE)
+ BИ R9
+ УMH =10
+ CЛKЛ (RE)
+ УИ R9
+ ПИБЛ LE4(R4);LEN
+LE5 CЧ POWER
+ ПИPB LE6(R9);E+00
+: УMH (R7)
+ CЛИA -1(R9)
+ ПИHP #-1(R9)
+ ЗП POWER
+LE6 CЧ VAL
+ KOP 434H;HOPMAЛИЗAЦИЯ
+ УMH POWER
+ ЗП VAL
+CONT ПИPB #+1(R4);LEN
+ CЛИA -1(R2);UNGETC
+: ПИPB BEG(R8);*
+ CЧ VAL
+ ЗП (R3)
+ ПБ BEG
+ 
+ 
+POWER ПAM
+VAL ПAM
+TAB ПAM 4
+ KБЛOK SCANF
+ 
+  
+PRINT:БЛOK
+ 
+***************************************************
+*                                                 *
+*                    SPRINTF                      *
+*                                                 *
+***************************************************
+ 
+ BЧOБЦ (RF)
+ ЗП INT
+ УИA -FR+1(RE)
+: BИM FR(RE);УПPЯTЫBAHИE PEГИCTPOB
+ ЦИKЛ #(RE)
+ CЧM INT
+ УИ R5
+ CЧ+ 1(R5)
+ УИ R3;УKAЗATEЛЬ ЗAПИCИ
+ CЧ+ 1(R5)
+ УИ R1;УKAЗATEЛЬ ФOPMATA
+ УИA (R7)
+BEG УИИ RE(R7)
+ BЧИ RE(R3)
+ ПИMH BG0(RE);IF(RE=R7-R3)<0 THEN GOTO BG0
+ УИИ R3(R7)
+BG0 ПB GETF(RA)
+ ПИPB RET(RE);KOHEЦ ФOPMATA
+ CЛИA -5CH(RE)
+ ПИPB БC(RE)
+ CЛИA 5CH-T'%'(RE)
+BG00 УИA BG0(RA)
+ ПИHP PUTC(RE)
+ ЗПH ДPOБЬ
+ ПB GETF(RA)
+ ПФA (RE)
+ УИA -T'%'(R8)
+ УИA BG0(RA)
+ ПИPB PUTC(R8)
+ CЛИA T'%'-T'+'(R8)
+ ПИPB BGG(R8);HAДO ЗAПOMHИTЬ
+ CЛИA T'+'-T' '(R8)
+ ПИPB BGG(R8)
+ CЛИA T' '-T'-'(R8)
+ ПИHP BGG+1(R8);ФЛAГ BЫPABHИBAHИЯ
+BGG ПB GETF(RA)
+ УИA T' '(R6);KOД ЗAПOЛHTEЛЯ
+ HTЖ =T'*'
+ ПPB BG2
+ BД
+ УИA (R4);LEN
+ ЗП (RF)
+ HTЖ =T'0'
+ CЧH (RF)
+ ПHP BG1+1
+ УИA T'0'(R6);KOД ЗAПOЛHTEЛЯ
+BG1 ПB GETF(RA)
+ CЛИA -T'9'(RE)
+ ПИБЛ BG3(RE)
+ CЛИA T'9'-T'0'(RE)
+ ПИMH BG3(RE)
+ BИ R4
+ УMH =10
+ CЛKЛ (RE)
+ УИ R4
+ ПБ BG1
+BG2 CЧ+ 1(R5)
+ ПБЛ #+2
+ УИA (R8);BЫPABHИBAHИE BЛEBO
+ ИHB ;ИЗMEHEHИE ЗHAKA
+: УИ R4;LEN
+ ПB GETF(RA)
+BG3 УИ RE
+ HTЖ =T'.'
+ ПHP BG5
+ ПB GETF(RA)
+ ПФA (RE)
+ УИA -T'*'(RA)
+ ПИHP BG4(RA)
+ CЧ+ 1(R5)
+ ПMH BG5
+ ЗП ДPOБЬ
+ ПБ BG5
+BG4 BЧ =T'9'
+ ПБЛ BG5
+ CЛ =/(T'9'-T'0')/
+ ПMH BG5
+ CЧM ДPOБЬ
+ УMH =10
+ CЛK (RF)
+ ЗП ДPOБЬ
+ УИA BG4(RA)
+ ПБ GETF
+BG5 УИA -L_ПKЛ(R7);KOЛИЧ.CПEЦИФИKAЦИЙ
+: CЧ ПKЛ+L_ПKЛ(R7)
+ HTЖЛ (RE)
+ И =.[16:1]
+ ПPB BG6
+ ЦИKЛ BG5+1(R7)
+ BИ RE
+ УИA BG0(RA)
+ ПБ PUTC;HEOПOЗHAHЫЙ CИMBOЛ
+RET CЧ -FR-1(RF);БAЗA CTEKA
+ BЧOБЦ -2(R5);CM=KOЛИЧ.ПAPAM
+ ЗП INT
+ BИ R3
+ ЗП ДPOБЬ
+ CЧ 0;
+ ПB PUTC(RA)
+ УИA FR(RE)
+ CЧ (RF)
+: УИM (RE)
+ CЛИA -1(RE)
+ ПИHP #-1(RE)
+ УИCЧ RF;БAЗA CTPOKИ
+ BЧOБ ДPOБЬ
+ HTЖ ;B PMP ДЛИHA ЗAПИCИ
+ CЧ INT;CM=KOT - ЧИCЛO ПAPAMETPOB
+ ПБ (RD)
+BG6 BД
+ CДП 32
+ BИM R4
+ ЗП LEN
+ BИ R6;KOД ЗAПOЛHИTEЛЯ
+ УИИ R6(R3);R6 УKAЗATEЛЬ HA HAЧAЛO ПOЛЯ
+ CЛИA 1(R4)
+ УИA #+1(RA);POCПИCЬ ПOЛЯ ЗAПOЛHИTEЛEM
+: CЛИA -1(R4)
+ ПИHP PUTC(R4)
+ CЧ+ 1(R5);CM=TEKУЩEMУ ПAPAMETPУ
+ УИИ R7(R3);R7 УKAЗATEЛЬ HA KOHEЦ ПOЛЯ
+ УИИ R3(R6);BOCCTAHOBЛEHИE
+ ПФ (RF)
+ ПБ
+ПKЛ KOHД [33]LD! T'D'
+ KOHД [33]LF! T'F'
+ KOHД [33]LF! T'E'
+ KOHД [33]LF! T'G'
+ KOHД [33]LX! T'X'
+ KOHД [33]LO! T'O'
+ KOHД [33]LU! T'U'
+ KOHД [33]LC! T'C'
+ KOHД [33]LS! T'S'
+L_ПKЛ ЭKB #-ПKЛ-1
+ 
+CПKЛ KOHД [9]0AH!T'N'
+ KOHД [9]09H!T'T';TAБУЛЯЦИЯ
+ KOHД [9]5CH!5CH
+L_CПKЛ ЭKB #-CПKЛ-1
+ 
+БC УИA -2(R7)
+ УИA -L_CПKЛ(R4)
+ ЗПH ДPOБЬ
+БC0 ПB GETF(RA)
+ ПИPB RET(RE)
+ CЛИA -T'7'(RE)
+ ПИБЛ БC2(RE)
+ CЛИA T'7'-T'0'(RE)
+ ПИMH БC2(RE)
+ CЧ ДPOБЬ
+ CДЛ 3
+ ИЛИЛ (RE)
+ ЗП ДPOБЬ
+ ЦИKЛ БC0(R7)
+БC1 И =0FFH
+ ПФC
+ УИA -T'%'(RE)
+ ПБ BG00
+БC2 HTЖ CПKЛ+L_CПKЛ(R4)
+ И =0FFH
+ ПPB БC3
+ BД
+ ЦИKЛ БC2(R4)
+ ПБ БC1
+БC3 BД
+ CДП 8
+ ПБ БC1
+  
+LS УИ R2
+ ПФ ДPOБЬ
+ УИA (R4)
+ ПИPB S2(R8);BЛEBO
+ УИИ R9(R2);УПPЯT
+ УИA -1(R4)
+: CЛИA 1(R4)
+ ПB GETC(RA);ПOДCЧET ДЛИHЫ CTPOKИ
+ ПИHP #-1(RE)
+ УИИ R2(R9);BOCT
+ CЧ ДPOБЬ
+ ПPB S1
+ BЧЦ (R4)
+ ПБP S1
+ ПФ ДPOБЬ
+ УИA (R4)
+S1 CЧ LEN
+ BЧЦ (R4)
+ ПMH S2
+ ПФC
+ CЛИA (R3)
+S2 CЛИA -1(R4)
+ ПB GETC(RA)
+ ПИPB BEG(RE)
+ ПB PUTC(RA)
+ ПИHP S2(R4)
+ ПБ BEG
+  
+ 
+LC УИ R2
+ ПИPB #+2(R8);BЫPABHИBAHИE BЛEBO
+ ПФ LEN
+ CЛИA -1(R3)
+ ПB GETC(RA)
+ ПИPB BEG(RE)
+ УИA BEG(RA)
+PUTC BИM R3
+ CЛИA 1(R3)
+ CДПM 3
+ УИ RE
+ CЧ =0FFH
+ CДПД -56
+ HTЖЛ -1
+ И (RE)
+ ЗПM (RE)
+ CДП 3
+ CЧ -1(RF)
+ CДПД -56
+ ИЛИ (RE)
+ ЗПM (RE)
+ ПБ (RA)
+  
+ 
+FTOX УИA (R6)
+ ЗПH FRAC
+F1 УMH =Ч'10'
+ ЦEЛФM 52
+ CЛИA 4(R6)
+ CДПM -64(R6)
+ ИЛИ FRAC
+ ЗПM FRAC
+ KOP 434H
+ BЧOБ (RF)
+ HTЖ
+ ПHO F1
+ BИ R6
+ CДП 2;CM=ДЛИHA
+ ПБ (RA)
+ 
+ 
+ITOX УИA (R9);CЧETЧИK ЦИФP
+ ЗПH INT
+ И =.[52:1]
+ УPЖ 30H
+I1 УMH =8001 9999 9999 999AH
+ BДM
+ УMH =8000 0000 0000 000AH
+ CДЛ (R9)
+ ИЛИ INT
+ ЗПM INT
+ CЛИA 4(R9)
+ ПHP I1
+ УPЖ
+ BИ R9
+ CДП 2;/4
+ ПБ (RA)
+ 
+ 
+LU И =.[52:1]
+ ЗП -1(R5)
+ 
+ 
+LD ИHB
+ ПB ITOX(RA)
+ УИA LD2(RA)
+ ПИPB LD1(R8);BЫPABHИBAHИE BЛEBO
+ CЧM -1(R5);ФOPMИPOBAHИE ЗHAKA
+ CЧH (RF)
+: ПБЛ #+1
+ CЛK =1
+ BЧOБ LEN
+ ПMH LD1
+ ПФC
+ CЛИA (R3)
+LD1 CЧ -1(R5)
+ ПБЛ LD2
+ CЧ =T'-'
+ ПB PUTC(RA)
+LD2 ПИPB BEG(R9)
+ CЛИA -4(R9)
+ CЧ INT
+ CДП (R9)
+ И =0FH
+ ИЛИ =T'0'
+ ПБ PUTC
+ 
+ 
+LF ИHB
+ ЦEЛФM 52;ДEHOPMAЛИЗAЦИЯ
+ ЗП (RF)
+ ПB ITOX(RA);ЦEЛAЯ ЧACTЬ
+ УИM R4;ДЛИHA
+ KOP 434H
+ BЧOБ (RF)
+ ПB FTOX(RA);ДPOБHAЯ ЧACTЬ
+ ЗП (RF)
+ BЧ ДPOБЬ
+ CЧH (RF)
+: ПБP #+1
+ ЗП ДPOБЬ
+ CЧ ДPOБЬ
+ УИ R2
+ ПИPB LF1(R8);BЫPABHИBAHИE BЛEBO
+ CЛKЛ 1(R4);ПOДCЧET ДЛИHЫ
+ CЧM -1(R5)
+ CЧH (RF)
+: ПБЛ #+1;ЗHAK
+ CЛK =1
+ BЧOБ LEN
+ ПMH LF1
+ ПФC
+ CЛИA (R3)
+LF1 CЧ -1(R5)
+ ПБЛ LF2
+ CЧ =T'-'
+ ПB PUTC(RA)
+LF2 CЛИA -4(R9)
+ CЧ INT
+ CДП (R9)
+ И =0FH
+ ИЛИ =T'0'
+ ПB PUTC(RA)
+ ПИHP LF2(R9)
+ УИA 64(R6);HOMEP CИMBOЛA
+ CЧ =T'.'
+ ПB PUTC(RA)
+LF3 ПИPB BEG(R2)
+ CЛИA -1(R2)
+ CЛИA -4(R6)
+ CЧ FRAC
+ CДП (R6)
+ И =0FH
+ ИЛИ =T'0'
+ ПБ PUTC
+ 
+ 
+LX УИA LX1(RA);%20X,%10X
+ CЧ -1(R5)
+ HEД =3
+ BЧOБ =64
+ И =7CH
+ УИ R9;ДЛИHA BЫBOДA
+ CДП 2
+ BЧOБ LEN
+ ПMH LX1
+ ПФC
+ CЛИA (R3)
+LX1 ПИPB BEG(R9)
+ CЛИA -4(R9)
+ CЧ -1(R5)
+ CДП (R9)
+ И =0FH
+ CДП 3
+ ПФC
+ CЧ TAB_X
+ CДЛД -56
+ И =0FFH
+ ПБ PUTC
+ 
+ 
+LO УИA LO1(RA)
+ CЧ -1(R5)
+ HEД =2
+ BЧOБ =64
+ УMH =8005 5555 5555 5556H;R1/3
+ ЗП (RF)
+ УMH =3
+ УИM R9
+ BЧOБ LEN
+ ПMH LO1
+ ПФC
+ CЛИA (R3)
+LO1 ПИPB BEG(R9)
+ CЛИA -3(R9)
+ CЧ -1(R5)
+ CДП (R9)
+ И =7
+ ИЛИ =T'0'
+ ПБ PUTC
+ 
+ДPOБЬ ПAM
+LEN ПAM
+INT ПAM
+FRAC ПAM
+TAB_X TEKCT T'0123456789ABCDEF'
+ KБЛOK PRINT
+ ЛИTEP
+ ФИHИШ

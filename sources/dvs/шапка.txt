@@ -1,0 +1,399 @@
+!     OPДEHA ПOЧETHOГO ЛEГИOHA ИHCTИTУT TOЧHOЙ MEXAHИKИ
+!    И BЫЧИCЛИTEЛЬHOЙ TEXHИKИ ИMEHИ C.A.ЛEБEДEBA AH CCCP              
+!                                                                    
+!                                                                    
+!                                                                    
+!                                                                    
+!                                                                    
+!                                                                    
+!                                                                    
+!                 ДДДДД     BBBBBB      CCCCC             
+!                Д   ДД     BB   BB    CC    C
+!               ДД   ДД     BBBBBB     CC     
+!               ДД   ДД     BB   BB    CC     
+!               ДД   ДД     BB   BB    CC    C
+!              ДДДДДДДДД    BBBBBB      CCCCC 
+!                                                                    
+!                                                                    
+!                                                                    
+!  Д И C П E T Ч E P    B И P T У A Л Ь H Ы X   C И C T E M            
+!                                                                    
+!             B K    " Э Л Ь Б P У C   1 - K Б "            
+!                                                                    
+!                                                                    
+!                         BEPCИЯ  1.1                                 
+ HЛИCT
+ CTPH 'ПOЛE MAЛOГO УПPЯTЫBAHИЯ'
+OБЩ_ПEPEM CEKЦИЯ A#.OБЩ_ПEPEM,П20,ЧИT,ЗAП,HBЫП,COBM,CEKT ;;
+MAЛ_УПP БЛOK ;OБЛACTЬ УПPЯTЫBAHИЯ ДЛЯ ЭK И ПPEPЫBAHИЙ
+$CM :ПAM  ;CУMMATOP
+$PK :ПAM  ;PEЖИMЫ И ПPИЗHAKИ AУ
+$ИC2:ПAM  ;ИCПOЛHИTEЛЬHЫЙ AДPEC KOMAHДЫ
+$PMP:ПAM  ;PEГИCTP MЛAДШИX PAЗPЯДOB
+$ИC0:ПAM  ;ПPEФИKCAЦИЯ
+$ИC3:ПAM  ;PEЖИM УУ
+$ИC6:ПAM  ;AДPEC KOMAHДЫ ПEPEДAЧИ УПPABЛEHИЯ
+$ИC7:ПAM  ;AДPEC ПPEPЫBAHИЯ
+$ИC8:ПAM  ;ЧИCЛO ПOBTOPEHИЙ B Г-PEЖИME
+$RF :ПAM  ;ИHДEKC-PEГИCTP F
+$RE :ПAM  ;ИHДEKC-PEГИCTP E
+L_KAДP:ЭKB #-MAЛ_УПP ;PAЗMEP KAДPA, УПPЯTЫBAEMOГO B CTEK ПOЛЬЗ.
+ЗAKP_ПPEP: ПAM ;ПPИЗHAK PAБOTЫ BИPT.OC B ЗAKP.BHEШ.ПPEPЫBAHИЯX
+$CM_ПPEP: ПAM   ;BP.ЯЧEЙKA ДЛЯ CУMMATOPA ПPИ ПPEPЫBAHИИ
+$PK_ПPEP: ПAM   ;BP.ЯЧEЙKA ДЛЯ PEЖИMOB AУ ПPИ ПPEPЫBAHИИ
+ФЛAГ_BHEШ: ПAM   ;ПPИЗHAK BHEШHEГO ПPEPЫBAHИЯ B "OKHE" БПУ
+ГДE_Я :KOHД 0 ;ЗHAЧEHИE ПEPEKЛЮЧATEЛЯ ДЛЯ ПPEP_ПPEP
+Я_BO_BHУTP:ЭKB 1
+Я_BO_BHEШH:ЭKB 2
+Я_B_ЭK75  :ЭKB 3
+Я_B_CП    :ЭKB 4
+$CM_ЭK: ПAM ;CУMMATOP ПPИ ЭK ДBC (ЧИCЛO ПAPAMETPOB)
+ШKИP: ПAM ;ШKAЛA УПPЯT.ИHДEKCHЫX PEГИCTPOB (1 P - ИP 1)
+$PПP:ПAM ;PEГИCTP BHУTPEHHИX ПPEPЫBAHИЙ
+MУ:ПAM  ;PAБOЧAЯ ЯЧEЙKA
+CTEK:ПAM 60 ;CTEK PEЖИMA ПPEPЫBAHИЯ
+     KБЛOK MAЛ_УПP
+ CTPH 'PACПPEДEЛEHИE ПAMЯTИ'
+OБЩ_KOHCT CEKЦИЯ A#.OБЩ_KOHCT,П20,ЧИT,HЗAП,HBЫП,COBM,ГPA=5;
+!
+!
+!     P A C П P E Д E Л E H И E   П A M Я T И
+!
+!
+A#MOHOC    ЭKB 04 400H
+L#MOHOC_ДAH BHEШ  'CXEMOC.ДЛИHAДAH'
+L#MOHOC_KOД BHEШ  'CXEMOC.ДЛИHAKOД'
+A#TУC_1     ЭKB 10 000 H
+A#TУC_2     ЭKB 12 000 H
+A#TУC_3     ЭKB 12 400 H
+A#PAЗД_1    ЭKB 12 800 H
+A#PAЗД_2    ЭKB 13 800 H
+A#PAЗД_3    ЭKB 14 800 H
+A#PAЗД_4    ЭKB 15 800 H
+A#TAБ_CИC_N ЭKB 16 800 H
+A#OПT       ЭKB 16 C00 H
+A#CEPBИC    ЭKB 3E 000 H
+A#K_CEPBИC  ЭKB 3F FFF H
+ 
+ПAP_CEPBИC  ЭKB 3E 000 H
+BX_CEPBИC   ЭKB 3E 010 H
+ 
+A_ПAPAM     ЭKB 04 200 H
+ 
+ 
+A#KOД БЛOK
+ДИCП   ЭKB 0
+ПPOЦ   ЭKB ДИCП   + 300H
+ЭKДBC  ЭKB ПPOЦ   + 200H
+ЭKCMOC ЭKB ЭKДBC  + 300H
+ЭKУCTP ЭKB ЭKCMOC + 200H
+ECKAH  ЭKB ЭKУCTP + 400H
+ЖДУЩИЙ ЭKB ECKAH  + 200H
+ДPAKAH ЭKB ЖДУЩИЙ + 100H
+ДPMД   ЭKB ДPAKAH + 200H
+OПPOC  ЭKB ДPMД   + 500H
+ИHИЦ   ЭKB OПPOC  + 200H
+ПPOTOK ЭKB ИHИЦ   + 100H
+TEPMИH ЭKB ПPOTOK + 100H
+BЫЗOB  ЭKB TEPMИH + 100H
+RUNLIB ЭKB BЫЗOB  + 100H
+PRINTF ЭKB RUNLIB + 100H
+MПД    ЭKB PRINTF + 400H
+END    ЭKB MПД    + 100H
+       KБЛOK A#KOД
+ 
+ 
+A#KOHCT БЛOK
+ДИCП   ЭKB 23C0H
+ПPOЦ   ЭKB ДИCП   +  20H
+ЭKДBC  ЭKB ПPOЦ   +  20H
+ЭKCMOC ЭKB ЭKДBC  +  20H
+ЭKУCTP ЭKB ЭKCMOC +  20H
+ECKAH  ЭKB ЭKУCTP +  20H
+ЖДУЩИЙ ЭKB ECKAH  + 000H
+ДPAKAH ЭKB ЖДУЩИЙ + 000H
+ДPMД   ЭKB ДPAKAH +  20H
+OПPOC  ЭKB ДPMД   + 0A0H
+ИHИЦ   ЭKB OПPOC  +  20H
+ПPOTOK ЭKB ИHИЦ   + 0A0H
+TEPMИH ЭKB ПPOTOK +  20H
+BЫЗOB  ЭKB TEPMИH +  20H
+RUNLIB ЭKB BЫЗOB  +  20H
+PRINTF ЭKB RUNLIB + 000H
+MПД    ЭKB PRINTF +  20H
+END    ЭKB MПД    +  20H
+       KБЛOK A#KOHCT
+ 
+ 
+A#ПEPEM БЛOK
+ДИCП   ЭKB 2700H
+ПPOЦ   ЭKB ДИCП   + 000H
+ЭKДBC  ЭKB ПPOЦ   + 100H
+ЭKCMOC ЭKB ЭKДBC  + 000H
+ЭKУCTP ЭKB ЭKCMOC + 000H
+ECKAH  ЭKB ЭKУCTP + 000H
+ЖДУЩИЙ ЭKB ECKAH  + 000H
+ДPAKAH ЭKB ЖДУЩИЙ + 100H
+ДPMД   ЭKB ДPAKAH + 300H
+OПPOC  ЭKB ДPMД   + 500H
+ИHИЦ   ЭKB OПPOC  + 200H
+ПPOTOK ЭKB ИHИЦ   + 100H
+TEPMИH ЭKB ПPOTOK + 200H
+BЫЗOB  ЭKB TEPMИH + 000H
+RUNLIB ЭKB BЫЗOB  + 000H
+PRINTF ЭKB RUNLIB + 000H
+MПД    ЭKB PRINTF + 100H
+END    ЭKB MПД    + 100H
+       KБЛOK A#ПEPEM
+ 
+ 
+A# БЛOK
+OБЩ_ПEPEM    ЭKB 3800H
+OБЩ_KOHCT    ЭKB 3860H
+ПEPEM_ФИЗ_OП ЭKB OБЩ_ПEPEM    + 100H
+ПEPEM_УCTP   ЭKB ПEPEM_ФИЗ_OП + 100H
+KOHCT_УCTP   ЭKB ПEPEM_УCTP   + 100H
+УЧET         ЭKB KOHCT_УCTP    + 100H
+ПEPEM_ИПЗ    ЭKB УЧET         + 100H
+CTPУKTУPЫ    ЭKB ПEPEM_ИПЗ    + 100H
+ KБЛOK A#
+ CTPH 'ПAPAMETPЫ   Д B C'
+!
+!
+!     П A P A M E T P Ы   T P A H C Л Я Ц И И
+!
+!
+Ч_ПPOЦ     ЭKB  150   ;MAKCИMAЛЬHOE ЧИCЛO ПPOЦECCOB
+Ч_TAЙM     ЭKB    6   ;ЧИCЛO TAЙMEPOB HA OДИH ПPOЦECC
+Ч_ПAKETOB  ЭKB   24   ;MAKCИMAЛЬHOE ЧИCЛO ПAKETOB
+L_ФИЗ_OП   ЭKB   60   ;MAKCИMAЛЬHAЯ ФPAГMEHTAЦИЯ OП
+ 
+!
+!
+!     П A P A M E T P Ы   И H И Ц A Л И З A Ц И И    Д  B  C
+!
+!
+ПAPAM ;ПAPAMETPЫ ГEHEPAЦИИ ДBC
+Ч_ПPOЦ$ ПAM ;PEAЛЬHOE ЧИCЛO ПPOЦECCOB
+Ч_БЛOKOB$ ПAM ;ЧИCЛO 16-CЛOBHЫX БЛOKOB
+Ч_TУC$ ПAM ;PEAЛЬHOE ЧИCЛO ФИЗ.BУ - TAЙMEP/MД/MЛ/AЦД/AЦПУ
+Ч_TAЙM$ ПAM ;OБЩEE ЧИCЛO BЫДEЛЯEMЫX TAЙMEPOB
+Ч_TBУC$ ПAM ;PEAЛЬHOE ЧИCЛO BИPT.BУ
+Ч_PAЗД$ ПAM ;PEAЛЬHOE ЧИCЛO PAЗДEЛOB
+PAЗMEP_OП ПAM ;ЧИCЛO ЛИCTOB ФИЗИЧECKOЙ OП
+ФЛAГ_UNIX ПAM ;ПPИЗHAK BЫДEЛEHИЯ OП B ФOPME,
+ ; УДOБHOЙ ДЛЯ ДEMOC'A
+ЧC_CTAPШИE ПAM ;52-49 PP. P-PA ЧACOB C ПOPЯДKOM
+PAЗД_ПPOT ПAM 2 ;ИMЯ PAЗДEЛA C ПPOTOKOЛOM
+ШAГ_OПT ПAM ;ЧACTOTA BЫЗOBA ПPOЦECCA БУФEPИЗAЦИИ ПPOTOKOЛA
+KAHAЛ_MПД  KOHД 8;8-OЙ KAHAЛ -ЧEPEЗ PEГ.MEЖПPOЦECCOPHOЙ CBЯЗИ
+BAP_MПД KOHД 1;HOMEP BAPИAHTA ПOДCOEДИHEHИЯ MПД ЧEPEЗ PEГ.MEЖПP.CBЯЗИ
+ЭBM_MПД KOHД 4;HOMEP MAШИHЫ ДЛЯ MПД
+KOH_ПAPAM KOHД T'HAЧ  TУC'
+ИДEHT_ДBC TEKCT '   Д B C'
+ CTPH 'OПPEДEЛEHИЯ AППAPATHЫX PEГИCTPOB'
+ CEKЦИЯ OБЩ_ПEPEM
+ 
+ 
+ 
+$MГPBП KOHД .[48,47,37,34] ;KOEC,ИCEC,ПOП,TAЙMEP
+ 
+ HЛИCT
+ 
+* ИHДEKC-PEГИCTPЫ
+ 
+R1 ЭKB 1
+R2 ЭKB 2
+R3 ЭKB 3
+R4 ЭKB 4
+R5 ЭKB 5
+R6 ЭKB 6
+R7 ЭKB 7
+R8 ЭKB 8
+R9 ЭKB 9
+RA ЭKB 0AH
+RB ЭKB 0BH
+RC ЭKB 0CH
+RD ЭKB 0DH
+RE ЭKB 0EH
+RF ЭKB 0FH
+ 
+* CПEЦИAЛЬHЫE ИHДEKC-PEГИCTPЫ
+ 
+ИC0 ЭKB 8
+ИC1 ЭKB 9
+ИC2 ЭKB 0AH
+ИC3 ЭKB 0BH
+ИC4 ЭKB  0CH
+ИC5 ЭKB 0DH
+ИC6 ЭKB 0EH
+ИC7 ЭKB 0FH
+ИC8 ЭKB 0
+ ЛИCT
+ 
+* ИCПOЛHИTEЛЬHЫE AДPECA УPГ,BPГ
+ 
+CKП ЭKB 14H
+PПOM ЭKB 1AH
+ПPП ЭKB 1BH
+ЧC ЭKB 1DH
+TM ЭKB 1EH
+PПP ЭKB 1FH
+PMC ЭKB 22H
+HП ЭKB 22H
+ПOБ ЭKB 23H
+PПEC ЭKB 24H
+MГPBП ЭKB 26H
+ГPBП ЭKB 27H
+PCПO ЭKB 29H
+PЗЗ ЭKB 2AH
+PФO ЭKB 2BH
+PП ЭKB 40H
+MПK ЭKB 80H
+ 
+* PAЗPЯДЫ ИC1, ИC3
+ 
+ИC13   БЛOK
+ 
+PП##    : ЭKB 1
+PЗ##    : ЭKB 2
+PBП##   : ЭKB 3
+KA##    : ЭKB 4
+Ф48##   : ЭKB 5
+ПPП##   : ЭKB 6
+ШP##    : ЭKB 7
+ABTБ##  : ЭKB 8
+ПPЗ##   : ЭKB 9
+БOП##   : ЭKB 10
+ЗCT##   : ЭKB 11
+PП3T##  : ЭKB 12
+TT##    : ЭKB 13
+ЗПC5##  : ЭKB 14
+PПCИ6## : ЭKB 15
+TЗAHPK##: ЭKB 16
+ПPAB##  : ЭKB 17
+ПГ##    : ЭKB 18
+ЛГ##    : ЭKB 19
+TИK##   : ЭKB 20
+ПУП##   : ЭKB 21
+TKOПP## : ЭKB 22
+ЗЗT##   : ЭKB 24
+ПPПД##  : ЭKB 28
+ПPИ##   : ЭKB 29
+БOПД##  : ЭKB 30
+PBПД##  : ЭKB 31
+CMOC##  : ЭKB 32
+ 
+PП#     : ЭKB .PП##
+PЗ#     : ЭKB .PЗ##
+PBП#    : ЭKB .PBП##
+KA#     : ЭKB .KA##
+Ф48#    : ЭKB .Ф48##
+ПPП#    : ЭKB .ПPП##
+ШP#     : ЭKB .ШP##
+ABTБ#   : ЭKB .ABTБ##
+ПPЗ#    : ЭKB .ПPЗ##
+БOП#    : ЭKB .БOП##
+ЗCT#    : ЭKB .ЗCT##
+PП3T#   : ЭKB .PП3T##
+TT#     : ЭKB .TT##
+ЗПC5#   : ЭKB .ЗПC5##
+PПCИ6#  : ЭKB .PПCИ6##
+TЗAHPK# : ЭKB .TЗAHPK##
+ПPAB#   : ЭKB .ПPAB##
+ПГ#     : ЭKB .ПГ##
+ЛГ#     : ЭKB .ЛГ##
+ 
+TИK$    : ЭKB E20
+ПУП$    : ЭKB E21
+TKOПP$  : ЭKB E22
+ЗЗT$    : ЭKB E24
+ПPПД$   : ЭKB E28
+ПPИ$    : ЭKB E29
+БOПД$   : ЭKB E30
+PBПД$   : ЭKB E31
+CMOC$   : ЭKB E32
+PЭФ$    : ЭKB E33
+ЭK1$    : ЭKB E34
+ПPEP$   : ЭKB E64
+ KБЛOK
+ 
+* OПEPAHДЫ KOMAHДЫ  У П P
+ 
+УПP_C_З ЭKB 0
+УПP_C_O ЭKB 4
+УПP_П_З ЭKB 3
+УПP_П_O ЭKB 7
+ CTPH 'KOHCTAHTЫ'
+ CEKЦИЯ OБЩ_KOHCT
+ HЛИCT
+E64 KOHД [64]1H
+E63 KOHД [63]1H
+E62 KOHД [62]1H
+E61 KOHД [61]1H
+E60 KOHД [60]1H
+E59 KOHД [59]1H
+E58 KOHД [58]1H
+E57 KOHД [57]1H
+E56 KOHД [56]1H
+E55 KOHД [55]1H
+E54 KOHД [54]1H
+E53 KOHД [53]1H
+E52 KOHД [52]1H
+E51 KOHД [51]1H
+E50 KOHД [50]1H
+E49 KOHД [49]1H
+E48 KOHД [48]1H
+E47 KOHД [47]1H
+E46 KOHД [46]1H
+E45 KOHД [45]1H
+E44 KOHД [44]1H
+E43 KOHД [43]1H
+E42 KOHД [42]1H
+E41 KOHД [41]1H
+E40 KOHД [40]1H
+E39 KOHД [39]1H
+E38 KOHД [38]1H
+E37 KOHД [37]1H
+E36 KOHД [36]1H
+E35 KOHД [35]1H
+E34 KOHД [34]1H
+E33 KOHД [33]1H
+E32 KOHД [32]1H
+E31 KOHД [31]1H
+E30 KOHД [30]1H
+E29 KOHД [29]1H
+E28 KOHД [28]1H
+E27 KOHД [27]1H
+E26 KOHД [26]1H
+E25 KOHД [25]1H
+E24 KOHД [24]1H
+E23 KOHД [23]1H
+E22 KOHД [22]1H
+E21 KOHД [21]1H
+E20 KOHД [20]1H
+E19 KOHД [19]1H
+E18 KOHД [18]1H
+E17 KOHД [17]1H
+E16 KOHД [16]1H
+E15 KOHД [15]1H
+E14 KOHД [14]1H
+E13 KOHД [13]1H
+E12 KOHД [12]1H
+E11 KOHД [11]1H
+E10 KOHД [10]1H
+E9 KOHД [09]1H
+E8 KOHД [08]1H
+E7 KOHД [07]1H
+E6 KOHД [06]1H
+E5 KOHД [05]1H
+E4 KOHД [04]1H
+E3 KOHД [03]1H
+E2 KOHД [02]1H
+E1 KOHД [01]1H
+*
+ ЛИCT
+E64П28 KOHД .[64:28]
+E27П1 KOHД .[27:1]
+ CEKЦИЯ OБЩ_ПEPEM
+ ЛИCT

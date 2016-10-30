@@ -1,0 +1,58 @@
+ HЛИCT
+ CTPH 'CTPУKTУPЫ ДAHHЫX ДЛЯ УПPABЛEHИЯ ПAMЯTЬЮ'
+ 
+БЛOK CEKЦИЯ 0,ФИK,CBOБ
+БЛOK БЛOK
+N_ПPOЦ:  ПOЛE 63:55
+ПPEД_ПP: ПOЛE 54:28
+CЛEД_ПP: ПOЛE 27:1
+ ПAM
+ГOЛ_ЦEПЬ:  ПOЛE 64:43
+ПPEД_ЦEПЬ: ПOЛE 42:22
+CЛEД_ЦEПЬ: ПOЛE 21:1
+ ПAM
+ ПAM 6
+ KБЛOK БЛOK
+ 
+ГOЛOBA CEKЦИЯ 0,ФИK,CBOБ
+ГOЛOBA БЛOK
+ПPOЦ_OCBOБ: ПOЛE 63:43
+KOH_ЦEПЬ: ПOЛE 42:22
+HAЧ_ЦEПЬ: ПOЛE 21:1
+ ПAM
+ KБЛOK ГOЛOBA
+ 
+ПEPEM_ФИЗ_OП CEKЦИЯ 03C00H,CEKT,ЧИT,ЗAП,HBЫП,COBM
+ФИЗ_OП БЛOK
+ДЛИHA: ПOЛE 13:1
+HAЧAЛO: ПOЛE 26:14
+CЛEД_OП: ПOЛE 42:27 ;УBEЛИЧEHИE AДPECOB
+ПPEД_OП: ПOЛE 58:43 ;УMEHЬШEHИE AДPECOB
+ ПAM L_ФИЗ_OП
+ПEPBЫЙ:ЭKB 0
+ПOCЛEДHИЙ : ЭKB 1
+HAЧ_П:ЭKB 100000H/1024-PAЗMEP_CMOC ;BMECTO 256
+ KБЛOK ФИЗ_OП
+ 
+CBOБ_OП ПAM
+CBOБ_БЛOK    ПAM ;ГOЛOBA ЦEПOЧKИ CBOБOДHЫX БЛOKOB
+ 
+ 
+ЛИCT_ИO ЭKB 7FFFC00H ;ЛИCT ИO ДЛЯ $PП_ИO
+ 
+PAЗMEP_CMOC ЭKB 2 ;ЛИCTЫ ДAHHЫX
+Ч_ЛИCTOB_CMOC ЭKB PAЗMEP_CMOC + 3 ; + ЛИCTЫ KOДA
+ЛИCT_CMOC ЭKB  ПEPEД_CMOC/1024+1+2
+ BHEШH ПEPEД_CMOC
+ 
+MECTO_БЛOKOB ЭKB 240*1024
+ 
+ 
+OПT CEKЦИЯ 04000H,П20,ЛИCT,ЧИT,ЗAП,HBЫП,COBM
+OПT$ДЛИHA ЭKB 1024
+OПT_ДЛИHA KOHД OПT$ДЛИHA - 4
+OПT_ЦИKЛ KOHД 0
+OПT_HAЧ KOHД 0
+OПT_УKAЗ KOHД 0
+OПT_БУФEP ПAM OПT$ДЛИHA - 4
+ ЛИCT

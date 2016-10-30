@@ -1,0 +1,322 @@
+﻿*RED                                                                               
+*0STA*NN*RG*1RL*0MCS1 67                                                           
+*ST4 35 42 67                                                                      
+ 1)*MD                                                                             
+*MD                                                                                
+*/*10C                                                                             
+ 2)*MD                                                                             
+*MD                                                                                
+*/*10C                                                                             
+$                                                                                  
+*0MCS5 63                                                                          
+*3/                                                                                
+*MD BЫЧИCЛИTEЛЬHЫЙ KOMПЛEKC "ЭЛЬБPYC 1-KБ"                                         
+*MDOБЩEE CИCTEMHOE ПPOГPAMMHOE OБECПEЧEHИE                                         
+*MDCИCTEMЫ ПPOГPAMMИPOBAHИЯ PEЖИMA COBMECTИMOCTИ                                   
+*MDPYKOBOДCTBO CИCTEMHOГO ПPOГPAMMИCTA                                             
+*MD                                                                                
+*MD                                                                                
+*3/                                                                                
+*0MCS1 67*ST9 32 40 67                                                             
+ 2)*MD                                                                             
+*MD                                                                                
+*2/                                                                                
+*/*11C                                                                             
+*2/                                                                                
+*/*11C                                                                             
+*2/                                                                                
+ $                                                                                 
+*0MCS5 63                                                                          
+*3/                                                                                
+*MD                                                                                
+*/*48G                                                                             
+*P                                                                                 
+*ST9 31                                                                            
+ 1)*MDYTBEPЖДEH                                                                    
+*/*MDИЫ.00110-01 32 02-ЛY                                                          
+$                                                                                  
+*5/                                                                                
+*MD BЫЧИCЛИTEЛЬHЫЙ KOMПЛEKC "ЭЛЬБPYC 1-KБ"                                         
+*MDOБЩEE CИCTEMHOE ПPOГPAMMHOE OБECПEЧEHИE                                         
+*MDCИCTEMЫ ПPOГPAMMИPOBAHИЯ PEЖИMA COBMECTИMOCTИ                                   
+*MDPYKOBOДCTBO CИCTEMHOГO ПPOГPAMMИCTA                                             
+*MDИЫ.00110-01 32 02                                                               
+*MD     ЛИCTOB 15                                                                  
+*17/*MD1988                                                                        
+*/*48GЛИTEPA                                                                       
+*2N                                                                                
+*0STA*RG*0MCS5 63                                                                  
+*0STPИЫ.00110-01 32 02                                                             
+*3/                                                                                
+*S*MD AHHOTAЦИЯ                                                                    
+*2S OДHOЙ ИЗ COCTABHЫX ЧACTEЙ OCПO ЯBЛЯЮTCЯ                                        
+CИCTEMЫ ПPOГPAMMИPOBAHИЯ. HA BK "ЭЛЬБPYC 1-KБ"                                     
+B KAЧECTBE CИCTEM ПPOГPAMMИPOBAHИЯ, OБECПEЧИBAЮЩИX                                 
+PEШEHИE ЗAДAЧ                                                                      
+B PEЖИME 1, ИCПOЛЬЗOBAHЫ CИCTEMЫ ПPOГPAMMИPOBAHИЯ.                                 
+PAБOTAЮЩИE HA ЭBM БЭCM-6 И MBK "ЭЛЬБPYC 1-KБ".                                     
+HAЛИЧИE ЭTИX CИCTEM ПPOГPAMMИPOBAHИЯ OБECПEЧИBAET                                  
+COBMECTИMOCTЬ HA YPOBHE ЗAДAЧ ПOЛЬЗOBATEЛЯ MEЖДY                                   
+BCEMИ ЭBM ЛИHИИ БЭCM-6.                                                            
+*P*2/*MD COДEPЖAHИE                                                                
+*0MCS1 67                                                                          
+*ST5 62 65 67                                                                      
+ 1)*2/1. OБЩИE CBEДEHИЯ O ПPOГPAMME *F  2)*2/4                                     
+1)*/2. CTPYKTYPA ПPOГPAMMЫ*F  2)*/5                                                
+1)*/3. HACTPOЙKA ПPOГPAMMЫ*F  2)*/7                                                
+1)*/4. ПPOBEPKA ПPOГPAMMЫ*F  2)*/8                                                 
+1)*/5. ДOПOЛHИTEЛЬHЫE BOЗMOЖHOCTИ*F 2)*/9                                          
+1)*/6. COOБЩEHИЯ CИCTEMHOMY ПPOГPAMMИCTY*F  2)*/10                                 
+1)*/   ПPИЛOЖEHИE. CTAHДAPTHЫE ПACПOPTA*F  2)*/11                                  
+1)*/*3G CИCTEM ПPOГPAMMИPOBAHИЯ                                                    
+$                                                                                  
+*P*2/*MD 1. OБЩИE CBEДEHИЯ O ПPOГPAMME                                             
+*2S CИCTEMЫ ПPOГPAMMИPOBAHИЯ PEЖИMA COBMECTИMOCTИ                                  
+ПPEДCTABЛЯЮT COБOЙ HAБOP HAИБOЛEE PACПPOCTPAHEHHЫX                                 
+CИCTEM ПPOГPAMMИPOBAHИЯ ЭBM БЭCM-6                                                 
+И MBK "ЭЛЬБPYC 1-K2". B COCTAB YKAЗAHHЫX CИCTEM ПPOГPAMMИPOBAHИЯ                   
+BKЛЮЧAЮTCЯ TPAHCЛЯTOP C ABTOKOДA ИTM, TPAHCЛЯTOP C MAKPOKOДA                       
+БEMШ, CИCTEMA ПPOГPAMMИPOBAHИЯ БЭCM-AЛГOЛ, MOHИTOPHAЯ CИCTEMA                      
+"ДYБHA", MOHИTOP-80 C TPAHCЛЯTOPAMИ C ЯЗЫKOB ФOPTPAH-ДYБHA,                        
+ФOPTPAH-ГДP, AЛГOЛ-ГДP, ABTOKOДA MADLEN.                                           
+CЮДA BKЛЮЧEHЫ TAKЖE БИБЛИOTEKИ CTAHДAPTHЫX ПPOГPAMM                                
+MOHИTOPA-80 LIBRARY 1,2 И 3.                                                       
+CИCTEMЫ ПPOГPAMMИPOBAHИЯ PEЖИMA COBMECTИMOCTИ ПPEДHAЗHAЧEHЫ ДЛЯ                    
+ПPOXOЖДEHИЯ ЗAДAЧ ПOЛЬЗOBATEЛЯ, HAПИCAHHЫX                                         
+HA YKAЗAHHЫX ЯЗЫKAX                                                                
+B PEЖИME 1.                                                                        
+*P*2/*MD 2. CTPYKTYPA ПPOГPAMMЫ                                                    
+*2S ИCTOPИЧECKИ CИCTEMЫ ПPOГPAMMИPOBAHИЯ HA ЭBM БЭCM-6                             
+И MBK "ЭЛЬБPYC 1-K2" ПOMEЩAЛИCЬ HA ДИCKE 2048.                                     
+TAKOЙ ЖE HOMEP ПAKETA OCTABЛEH И HA BK "ЭЛЬБPYC 1-KБ".                             
+HO, YЧИTЫBAЯ ШИPOKOE ИCПOЛЬЗOBAHИE APXИBA HA BK "ЭЛЬБPYC 1-KБ".                    
+ЭTOT ДИCK CДEЛAH APXИBHЫM, A OCHOBHЫE CИCTEMЫ ПPOГPAMMИPOBAHИЯ                     
+ПOMEЩEHЫ B OБЛACTЬ "PEЖCOBM". OДHAKO, OБPAЩATЬCЯ                                   
+MOЖHO И HAПPЯMYЮ K ДИCKY 2048.                                                     
+B HAЧAЛE ДИCKA 2048 PACПOЛOЖEHЫ KATAЛOГИ APXИBHOЙ                                  
+CИCTEMЫ И HEKOTOPЫE CEPBИCHЫE ПPOГPAMMЫ B COOTBETCTBYЮЩИX                          
+OБЛACTЯX. CTPYKTYPY HAЧAЛЬHЫX ЗOH 2048 MOЖHO                                       
+YЗHATЬ, HAБPAB KЛЮЧ "CBOДKA" <ШИФP> HA PAБOTAЮЩEЙ                                  
+OПEPAЦИOHHOЙ CИCTEME.                                                              
+*S HИЖE ПPИBEДEHA CTPYKTYPA OБЛACTИ "PEЖCOBM".                                     
+HOMEPA ЗOH YKAЗAHЫ ПPИMEHИTEЛЬHO K OБЛACTИ,                                        
+ЧTOБЫ ПOЛYЧИTЬ HOMEPA ЗOH HEПOCPEДCTBEHHO HA ДИCKE                                 
+2048, K YKAЗAHHЫM HOMEPAM HEOБXOДИMO ПPИБABИTЬ 100.                                
+*/     N ЗOHЫ MД = N ЗOHЫ OБЛACTИ + 100                                            
+*2S  CTPYKTYPA OБЛACTИ "PEЖCOBM"                                                   
+*S   ----------------------------                                                  
+*S   2-2    ЗOHЫ  - TECT AЦПY                                                      
+*S   5-6    ЗOHЫ  - ЗAГPYЗЧИK БEMШ                                                 
+*S   7-23   ЗOHЫ  - APФA.CTAPФA                                                    
+*S  25-25   ЗOHЫ  - ПAKETHAЯ ПPOГPAMMA "BЫCЛ"                                      
+*S  26-32   ЗOHЫ  - KATAЛOГИ БЮДЖETA                                               
+*S  33-35   ЗOHЫ  - PERSO.CЛYГA                                                    
+*S  37-77   ЗOHЫ  - TPAHCЛЯTOP C MAKPOACCEMБЛEPA БEMШ                              
+*S 100-177  ЗOHЫ  - MOHИTOPHAЯ CИCTEMA "ДYБHA"                                     
+*S 176-276  ЗOHЫ  - CИCTEMA ПPOГPAMMИPOBAHИЯ "БЭCM-AЛГOЛ"                          
+*S 300-337  ЗOHЫ  - ABTOKOД ИTM (ПACПOPT 88)                                       
+*S 340-367  ЗOHЫ  - ПACKAЛЬ-MOHИTOP                                                
+*S 370-567  ЗOHЫ  - LIBR3                                                          
+*S 600-657  ЗOHЫ  - ABTOKOД MГЧ                                                    
+*S 700-777  ЗOHЫ  - ПYЛЬT                                                          
+*S1000-1017 ЗOHЫ  - ПACKAЛЬ-ABTOKOД                                                
+*S1130-1177 ЗOHЫ  - FOREX 3                                                        
+*S1200-1437 ЗOHЫ  - MOHИTOP-80                                                     
+*2S ЗA OБЛACTЬЮ "PEЖCOBM" PACПOЛOЖEHЫ OБЛACTИ                                      
+"LIBR1" И "LIBR2", COДEPЖAЩИE БИБЛИOTEKИ                                           
+LIBRARY 1 И 2 COOTBETCTBEHHO.                                                      
+PACПOЛOЖEHИE ЭTИX OБЛACTEЙ HA ДИCKE HE ДOЛЖHO                                      
+MEHЯTЬCЯ, TAK KAK HACTPOЙKA HA БИБЛИOTEKИ                                          
+ B MOHИTOPE-80 OCYЩECTBЛЯETCЯ, OPИEHTИPYЯCЬ HA HOMEPA ЗOH MД 2048.                 
+*P*2/*MD 3. HACTPOЙKA ПPOГPAMMЫ                                                    
+*2S HACTPOЙKA CИCTEM ПPOГPAMMИPOBAHИЯ BKЛЮЧAET B CEБЯ                              
+ЗABEДEHИE CTAHДAPTHЫX ПACПOPTOB B OПEPAЦИOHHOЙ CИCTEME,                            
+A TAKЖE YKAЗAHИЯ MOHИTOPY-80 HA PACПOЛOЖEHИЯ EГO БИБЛИOTEK.                        
+*S ПPИ ЗABEДEHИИ ПACПOPTA HEOБXOДИMO YЧИTЫBATЬ, ЧTO                                
+ПPИ OБPAЩEHИИ K OБЛACTИ CДBИГ BHYTPИ OБЛACTИ YKAЗЫBAETCЯ                           
+B ЗOHAX CO ЗHAKOM "+" ИЛИ "-". ПPИ OБPAЩEHИИ K MД 2048                             
+HAПPЯMYЮ CДBИГ ЗAДAETCЯ ЭKCTPAKOДOM B KYCKAX (OДИH                                 
+KYCOK PABEH 40 ЗOH). COOTBETCTBEHHO PACПOЛOЖEHИE                                   
+CИCTEM ПPOГPAMMИPOBAHИЯ HA ДИCKE ДOЛЖHO YЧИTЫBATЬ,                                 
+ЧTO HOMEP ЗOHЫ HA ДИCKE MOЖET БЫTЬ TOЛЬKO KPATEH 40.                               
+CTAHДAPTHЫE ПACПOPTA CИCTEM ПPOГPAMMИPOBAHИЯ ПPИBEДEHЫ                             
+B ПPИЛOЖEHИИ.                                                                      
+*S ДЛЯ HACTPOЙKИ MOHИTOPA-80 HA PACПOЛOЖEHИE БИБЛИOTEK                             
+HEOБXOДИMO B ШECTOЙ ЗOHE MOHИTOPA-80 ЗAHECTИ ИHФOPMAЦИЮ                            
+O БИБЛИOTEKAX B ЯЧEЙKИ:                                                            
+*/ 1751 - ДЛЯ LIBRARY 1;                                                           
+*/ 1752 - ДЛЯ LIBRARY 2;                                                           
+*/ 1753 - ДЛЯ LIBRARY 3.                                                           
+*S CTPYKTYPA ЯЧEЙKИ:                                                               
+*/ 1-12 PAЗPЯДЫ - HOMEP TOMA C БИБЛИOTEKOЙ B BOCЬMEPИЧHOM BИДE;                    
+*/13-30 PAЗPЯДЫ - HOMEP TOMA C БИБЛИOTEKOЙ B ДBOИЧHO-ДECЯTИЧHOM BИДE;              
+*/31-42 PAЗPЯДЫ - HOMEP HAЧAЛЬHOЙ ЗOHЫ БИБЛИOTEKИ.                                 
+*P*2/*MD 4. ПPOBEPKA ПPOГPAMMЫ                                                     
+*2S ПPOBEPKA ПPOГPAMMЫ OCYЩECTBЛЯETCЯ ПPИ ПEPEПИCИ                                 
+C MAГHИTHOЙ ЛEHTЫ HA MAГHИTHЫЙ ДИCK B ПPOЦECCE                                     
+ПOЛYЧEHИЯ PAБOЧEЙ KOПИИ OCПO (CM. "ФOPMYЛЯP"                                       
+*/ ИЫ.00110-01 30 01). ПOCЛE ПEPEПИCИ HA AЦПY                                      
+PACПEЧATЫBAETCЯ KOHTPOЛЬHAЯ CYMMA ЛEHTЫ C CИCTEMAMИ                                
+ПPOГPAMMИPOBAHИЯ PEЖИMA COBMECTИMOCTИ.                                             
+ПOЛYЧEHHAЯ CYMMA CPABHИBAETCЯ C ЭTAЛOHHOЙ,                                         
+ПPИBEДEHHOЙ B ФOPMYЛЯPE.                                                           
+*P*2/*MD5. ДOПOЛHИTEЛЬHЫE BOЗMOЖHOCTИ                                              
+*2S KPOME CИCTEM ПPOГPAMMИPOBAHИЯ PEЖИMA COBMECTИMOCTИ                             
+ПPOCTPAHCTBO HA ДИCKE 2048 И B OБЛACTИ "PEЖCOBM"                                   
+MOЖET БЫTЬ ИCПOЛЬЗOBAHO ДЛЯ PACПOЛOЖEHИЯ OTДEЛЬHЫX                                 
+ПPOГPAMM. TAK B ЗOHE 2 OБЛACTИ "PEЖCOBM" PACПOЛOЖEH                                
+TECT AЦПY, KOTOPЫЙ BЫЗЫBAETCЯ ПO KЛЮЧY "TECTAЦ" C                                  
+ЛЮБЫM ШИФPOM И OCYЩECTBЛЯET ПPOBEPKY AЦПY HA KOCOM                                 
+И ПPЯMOM TECTAX.                                                                   
+*S B ЗOHAX 5-6 OБЛACTИ "PEЖCOBM" HAXOДИTCЯ ЗAГPYЗЧИK                               
+ MAKPOKOДA БEMШ ДЛЯ БOЛЬШИX ПPOГPAMM.                                              
+ B ЗOHAX 7-23 OБЛACTИ "PEЖCOBM" HAXOДИTCЯ ПPOГPAMMA                                
+APФA.CTAPФA, BЫЗЫBAEMAЯ ПO KЛЮЧY "CTAPФA".                                         
+*S B 25-Й ЗOHE OБЛACTИ "PEЖCOBM" PAЗMEЩEHA ПPOГPAMMA                               
+BЫДAЧИ CЛYЖEБHЫX CЛOB B ПAKETHOM PEЖИME "BЫCЛ",                                    
+BЫЗЫBAEMAЯ ПO KЛЮЧY "BЫCЛП" И HACTPOEHHAЯ HA BЫДAЧY                                
+CЛYЖEБHЫXHE CИCTEMHOГO ДИCKA 2053.                                                 
+B ЗOHAX 26-32 OБЛACTИ "PEЖCOBM" PAЗMEЩEHЫ KATAЛOГИ                                 
+БЮДЖETHOЙ CИCTEMЫ, A B ЗOHAX 33-35 - ЛИЧHAЯ БИБЛИOTEKA                             
+OTЛAДЧИKA "CЛYГA".                                                                 
+*S CBOБOДHЫE ЗOHЫ OБЛACTИ "PEЖCOBM" MOГYT                                          
+ИCПOЛЬЗOBATЬCЯ ДЛЯ PAЗMEЩEHИЯ И ДPYГИX CEPBИCHЫX ПPOГPAMM.                         
+ *P*2/*MD 6. COOБЩEHИЯ CИCTEMHOMY ПPOГPAMMИCTY                                     
+*2S COOБЩEHИЯ CИCTEMHOMY ПPOГPAMMИCTY MOГYT                                        
+BOЗHИKATЬ ПPИ HEBEPHOM BЫПOЛHEHИИ HACTPOЙKИ.                                       
+И TPEБYЮT OT CИCTEMHOГO ПPOГPAMMИCTA ПOBTOPEHИЯ                                    
+И YTOЧHEHИЯ HACTPOЙKИ CИCTEM.                                                      
+*/*MD ПEPEЧEHЬ BOЗMOЖHЫX COOБЩEHИЙ:                                                
+*S - "OTCYTCTBYET ПPOГPAMMA" - COOБЩEHИE BЫДAETCЯ                                  
+MOHИTOPHOЙ CИCTEMOЙ (MOHИTOPOM-80) И OЗHAЧAET,                                     
+ЧTO B ЗAKAЗAHHOЙ БИБЛИOTEKE HET YKAЗAHHOЙ ПPOГPAMMЫ;                               
+*S - "HA BAШEM BЦ HET БИБЛИOTEKИ 13",                                              
+*S "ИCПOPЧEH KATAЛOГ БИБЛИOTEKИ 13" - COOБЩEHИЯ BЫДAЮTCЯ                           
+MOHИTOPHOЙ CИCTEMOЙ (MOHИTOPOM-80) И OЗHAЧAЮT, ЧTO                                 
+ЛИБO HET YKAЗAHHOЙ БИБЛИOTEKИ, ЛИБO HEBEPHO YKAЗAHЫ                                
+EE KOOPДИHATЫ;                                                                     
+*S - "HEBEPHЫЙ KOMПИЛИPYЮЩИЙ ПAKET" - COOБЩEHИE                                    
+BЫДAETCЯ ПPИ PAБOTE C MAKPOKOДOM БEMШ И OЗHAЧAET,                                  
+ЧTO HEBEPHO YKAЗAHЫ KOOPДИHATЫ БИБЛИOTEKИ MAKPOOПPEДEЛEHИЙ.                        
+*P*45G ПPИЛOЖEHИE.                                                                 
+*2/*MD CTAHДAPTHЫE ПACПOPTA CИCTEM ПPOГPAMMИPOBAHИЯ                                
+*S 1) CTAHДAPTHЫЙ ПACПOPT MOHИTOPA-80:                                             
+*S ЗCX                                                                             
+*S ABO^                                                                            
+*S BPE 120^                                                                        
+*S ФИЗO 21^                                                                        
+*S ЛEH 30(2048)^                                                                   
+*S OЗY 27^                                                                         
+*S AЦПY 3^                                                                         
+*S TPAK 32^                                                                        
+*S BXOД 4200^                                                                      
+*S E                                                                               
+*S B 4200                                                                          
+*S K 00 010 4300 00 050 0112                                                       
+*S K 00 070 4301                                                                   
+*S K 00 010 4302 00 063 0003                                                       
+*S K 00 30 00100                                                                   
+*S B 4300                                                                          
+*S C 0000 0000 0030 0026                                                           
+*S C 0010 0000 0030 0010                                                           
+*S C 0000 0000 0000 0004                                                           
+*S B 6000                                                                          
+*S K 00 010 6002 00 072 0067                                                       
+*S K 00 30 04200                                                                   
+*S C 2264 2531 2123 3462                                                           
+ *S 2) CTAHДAPTHЫЙ ПACПOPT MOHИTOPHOЙ CИCTEMЫ "ДYБHA":                             
+*S ЗC2                                                                             
+*S ФИЗO MБ21^                                                                      
+*S TPAK 32^                                                                        
+*S AЦПY 3^                                                                         
+*S ЛИCT 0-25,32^                                                                   
+*S BPEM 240^                                                                       
+*S BXOД 1775^                                                                      
+*S ЛEHT 30(2048)^                                                                  
+*S CПEЦ^                                                                           
+*S POCП 2^                                                                         
+*S ABOC^                                                                           
+*S E                                                                               
+*S B 1774                                                                          
+*S C 3177 0000 0002 0110                                                           
+*S K 00 010 1774 00 050 0131                                                       
+*S K 15 24 40000 00 010 1774                                                       
+*S K 00 050 0121                                                                   
+*S K 00 010 2005 00 050 0156                                                       
+*S K 00 26 02002 00 22 00001                                                       
+*S K 00 010 2005 00 050 0112                                                       
+*S K 15 24 00200                                                                   
+*S K 00 066 0005 00 000 0100                                                       
+*S C 0000 0000 0030 0004                                                           
+ *S 3) CTAHДAPTHЫЙ ПACПOPT CИCTEMЫ БЭCM-AЛГOЛ:                                     
+*S ЗC3                                                                             
+*S ФИЗO MБ21^                                                                      
+*S TPAK 32^                                                                        
+*S ЛИCT 0-27^                                                                      
+*S BXOД 37^                                                                        
+*S BPEM 240^                                                                       
+*S AЦПY 3^                                                                         
+*S ЛEHT 57(PEЖCOBM+200)30(1C)^                                                     
+*S POCП 0^                                                                         
+*S ABOC^                                                                           
+*S CПEЦ^                                                                           
+*S E                                                                               
+*S B 37                                                                            
+*S K 00 010 0042                                                                   
+*S K 15 24 00100                                                                   
+*S K 00 066 0011 00 000 0100                                                       
+*S C 0000 0000 0057 0002                                                           
+*S B 20                                                                            
+ *S 4) CTAHДAPTHЫЙ ПACПOPT MAKPOKOДA БEMШ:                                         
+*S ЗC1                                                                             
+*S TPAK 64^                                                                        
+*S ЛEHT 30(PEЖCOBM-1700)^                                                          
+*S AЦП 40^                                                                         
+*S POCП 0^                                                                         
+*S BPEM 240^                                                                       
+*S ЛИCT 0-37^                                                                      
+*S BXOД 4000^                                                                      
+*S E                                                                               
+*S B 4000                                                                          
+*S K 00 010 4003                                                                   
+*S K 15 24 04000                                                                   
+*S K 00 066 0001 00 000 0100                                                       
+*S C 3000 70                                                                       
+*S B 14000                                                                         
+*S A1                                                                              
+ *S 5) CTAHДAPTHЫЙ ПACПOPT TPAHCЛЯTOPA C ABTOKOДA ИTM:                             
+*S З88                                                                             
+*S TPAK 32^                                                                        
+*S ЛИCT 0-24^                                                                      
+*S BXOД 4240^                                                                      
+*S ФИЗO MБ21^                                                                      
+*S POCП 0^                                                                         
+*S AЦПY 3^                                                                         
+*S ЛEHT 40(2048)^                                                                  
+*S BPEM 240^                                                                       
+*S CПEЦ^                                                                           
+*S E                                                                               
+*S B 4240                                                                          
+*S K 00 010 4243 00 050 0112                                                       
+*S K 00 070 4244                                                                   
+*S K 00 010 0003 00 30 06770                                                       
+*S C 0000 0000 0040 0010                                                           
+*S C 4014 0301 0021 0111                                                           
+*S B 7000                                                                          
+*P*0RL*0MCS1 67                                                                    
+*3/*MDЛИCT PEГИCTPAЦИИ ИЗMEHEHИЙ                                                   
+*2/*D.-----------------------------------------------------------------.           
+*/*DI   IHOMEPA ЛИCTOB (CTPAHИЦ)IBCEГO I        I          I      I   I            
+*/*DI И I-----------------------IЛИCTOBI        I BXOДЯЩИЙ I      I   I            
+*/*DI З I ИЗ- I ЗA- I     IAHHY-I(CTP.)I HOMEP  I   HOMEP  I ПOД- I Д I            
+*/*DI M I ME- I ME- I HO- IЛИPO-I  B   I ДOKY-  ICOПPOBOДИ-I ПИCЬ I A I            
+*/*DI . I HEH-I HEH-I BЫX IBAH- IДOKY- I MEHTA  I TEЛЬHOГO I      I T I            
+*/*DI   I HЫX I HЫX I     IHЫX  IMEHTE I        IДOKYMEHTA I      I A I            
+*SL1 5 11 17 23 29 36 45 56 63 67                                                  
+ 1)*2/ 1)*2/ 1)*2/ 1)*2/ 1)*2/ 1)*2/                                               
+ 1)*2/ 1)*2/ 1)*2/ 1)*2/ 1)*2/ 1)*2/                                               
+ 1)*2/ 1)*2/ 1)*2/ 1)*2/ 1)*2/ 1)*2/                                               
+ 1)*2/ 1)*2/ 1)*2/ 1)*2/ 1)*2/                                                     
+$                                                                                  
+*E                                                                                 
+*END                                                                               

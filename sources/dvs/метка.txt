@@ -1,0 +1,61 @@
+ HЛИCT
+ CTPH
+ 
+* ФИKCИPOBAHHAЯ ЧACTЬ METKИ TOMA
+ 
+MMД CEKЦИЯ 0,ФИKT
+MMД БЛOK
+ 
+KЛЮЧ      :ПAM
+ 
+BEPC_MET  :ПOЛE 64:57
+BAPИ_MET  :ПOЛE 56:49
+ЭBM_PAЗM  :ПOЛE 48:33
+BPEMЯ_PAЗM:ПOЛE 32: 1
+           ПAM
+ 
+ИMЯ_TOMA  :ПAM
+ 
+MOДEЛЬ    :ПOЛE 64:57
+ДЛ_БЛOKA  :ПOЛE 56:49
+ДЛ_METKИ  :ПOЛE 48:41
+ДЛ_TOMA   :ПOЛE 24: 1
+           ПAM
+ 
+PEЗEPB    :ПOЛE 64:49
+HAЧ_PEЗEPB:ПOЛE 48:25
+HAЧ_KOПИИ :ПOЛE 24: 1
+           ПAM
+ 
+ДЛ_KAT    :ПOЛE 64:49
+HAЧ_KAT   :ПOЛE 16: 1
+           ПAM
+ 
+ 
+ЭT_BEPCИЯ :ЭKB 1
+ЭT_BAPИAHT:ЭKB 0
+ 
+ 
+ 
+ 
+* KATAЛOГ PAЗДEЛOB
+ 
+KAT_PAЗД CEKЦИЯ 0,ФИKT
+ 
+ИMЯ_PAЗД  :ПAM
+ 
+ИMЯ_PAЗД_2:ПOЛE 64:33
+BAPИAHT   :ПOЛE 32:25
+HAЧ_БЛOK  :ПOЛE 24: 1
+           ПAM
+ 
+ДЛИHA     :ПOЛE 24: 1
+           ПAM
+ 
+           ПAM ;PEЗEPBИPУETCЯ
+ 
+ 
+ KБЛOK MMД
+ 
+ 
+ ЛИCT

@@ -1,0 +1,642 @@
+ CTPH 'MПД',
+ MOДУЛЬ 'MПД'
+ BKЛ ШAПKA
+ BKЛ ИПЗИO
+ BKЛ ФИЗOП
+ BKЛ УCTP
+ CTPH 'MПД'
+ 
+ 
+ПEPEM CEKЦИЯ A#ПEPEM.MПД,П20,ЧИT,ЗAП,HBЫП,CEKT;;
+ 
+MПД:БЛOK
+MГ_ЭBM       : KOHД .32;MГ 7
+MACKA_ПPИEMA : KOHД  .27;MП 6
+MACKA_BЫДAЧИ : KOHД .31;MП 7
+PAЗP_ПPИEMA  : KOHД .25;ПOП 6
+PAЗP_BЫДAЧИ  : KOHД .29;ПOП 7
+CTPOБ_ПPИEMA : KOHД .25;ПП 6
+CTPOБ_BЫДAЧИ : KOHД .[30,29];OПП 7,ПП 7
+ПOЛУ_CЛOГ    : KOHД .[22,21, 18,17, 14,13, 6,5];ПП,OПП(OПOП,ПOП) OT 1,3,4 5 ПPOЦECCOPOB
+ГAШ_ПPИEMA   : KOHД ^.[25, 22,21, 18,17, 14,13, 6,5];^[PAЗP_ПPИEMA,ПOЛУ_CЛOГ]
+ГAШ_BЫДAЧИ   : KOHД ^.29;^ PAЗP_BЫДAЧИ
+У0_AДAПTEPA  : KOHД .26;OПП 6
+CДB_TAЙHA : KOHД .64![54]4;5 PAЗPЯД CЛOГA
+ПPИЗH_CЛ_CЛ: KOHД .16
+L_ПAP_MПД      ЭKB  #-MГ_ЭBM
+TEK_KBAHT : ПAM 
+CЛOГ_ПPИEMA:ПAM
+CЛOГ_BЫДAЧИ:ПAM
+ KБЛOK MПД
+ 
+ЦEПЬ_З_MПД:KOHД 0;ЦEПOЧKA ЗAKAЗOB MПД
+$PПOM:KOHД 0;KOПИЯ PПOM  
+ 
+KOHCT CEKЦИЯ A#KOHCT.MПД,П20,ЧИT,HBЫП,HЗAП,ГPA=5
+MПД_BAP_1 БЛOK
+MГ_ЭBM       : KOHД .32;MГ 7
+MACKA_ПPИEMA : KOHД  .27;MП 6
+MACKA_BЫДAЧИ : KOHД .31;MП 7
+PAЗP_ПPИEMA  : KOHД .25;ПOП 6
+PAЗP_BЫДAЧИ  : KOHД .29;ПOП 7
+CTPOБ_ПPИEMA : KOHД .25;ПП 6
+CTPOБ_BЫДAЧИ : KOHД .[30,29];OПП 7,ПП 7
+ПOЛУ_CЛOГ    : KOHД .[22,21, 18,17, 14,13, 6,5];ПП,OПП(OПOП,ПOП) OT 1,3,4 5 ПPOЦECCOPOB
+ГAШ_ПPИEMA   : KOHД ^.[25, 22,21, 18,17, 14,13, 6,5];^[PAЗP_ПPИEMA,ПOЛУ_CЛOГ]
+ГAШ_BЫДAЧИ   : KOHД ^.29;^ PAЗP_BЫДAЧИ
+У0_AДAПTEPA  : KOHД .26;OПП 6
+CДB_TAЙHA : KOHД .64![54]4;5 PAЗPЯД CЛOГA
+ПPИЗH_CЛ_CЛ KOHД .16
+  KБЛOK MПД_BAP_1
+ЛИCT_MПД ЭKB 256
+ДЛЯ_AДP_MПД:KOHД [11]ЛИCT_MПД
+ДЛЯ_PП_MПД:KOHД  ЛИCT_MПД
+ CTPH 'ПPEPЫBAHИЯ OT ПPOЦECCOPOB'
+KOД   CEKЦИЯ A#KOД.MПД,П20,HЧИT,HЗAП,BЫП,ПPEФ,ЛKOM,CEKT;;
+ПOП:БЛOK
+ BИ RD
+ ЗП (RF)
+ BPГ ПPП
+ И MПД.PAЗP_ПPИEMA
+ ПHP ПPИEM_MПД ;--> ПPИEM CЛOГA ИЗ MПД
+BЫДAЧA 
+ CЧ $PПOM
+ И MПД.MACKA_BЫДAЧИ
+ ПPB CЛEДУЮЩИЙ;--> HEЧEГO BЫДABATЬ
+ BPГ ПPП
+ И MПД.PAЗP_BЫДAЧИ
+ ПHP BЫДAЧA_MПД;--> BЫДAЧA CЛOГA B MПД
+CЛEДУЮЩИЙ
+ CЧ (RF)
+ УИ RD
+ ПБ OБP_BHEШ;УXOД B ДИCП
+ KБЛOK ПOП
+ 
+ CTPH 'ПPИEM ИЗ MПД'
+ 
+ПPИEM_MПД БЛOK
+ 
+***************************************************
+*                                                 * 
+*           П P И E M    C Л O Г A                * 
+ 
+ПPИEM_CЛOГA БЛOK BKЛ=MПД
+ BPГ ПPП
+ CБP ПOЛУ_CЛOГ
+ CДП 48
+ ЗП CЛOГ_ПPИEMA;16-9 PP CЛOГA
+ 
+ CЧ ГAШ_ПPИEMA
+ УPГ ПPП;ПOГACИЛИ PEГИCTP ПPИEMA
+ 
+ CЧ CTPOБ_ПPИEMA
+ ИЛИ $PПOM
+ УPГ PПOM
+ HTЖ CTPOБ_ПPИEMA
+ УPГ PПOM
+ 
+ BPГ ПPП
+ CБP ПOЛУ_CЛOГ
+ CДП 56;8-1 PP CЛOГA
+ ИЛИ CЛOГ_ПPИEMA
+ ЗП CЛOГ_ПPИEMA
+ 
+ ЗП 0
+ ЗП 0
+ 
+ CЧ CTPOБ_ПPИEMA
+ ИЛИ $PПOM
+ УPГ PПOM
+ HTЖ CTPOБ_ПPИEMA
+ УPГ PПOM
+ 
+ CЧ ГAШ_ПPИEMA
+ УPГ ПPП;ПOГACИЛИ PEГИCTP ПPИEMA
+ 
+ KБЛOK ПPИEM_CЛOГA
+ 
+*                                                 * 
+***************************************************
+ 
+***************************************************
+*                                                 * 
+*           A H A Л И З   C Л O Г A               * 
+ 
+AHAЛИЗ_CЛOГA БЛOK BKЛ=(MПД,KBAHT_BЫД,TУC)
+ CЧ CЛOГ_ПPИEMA
+ CДП 8
+ И =0 7F H
+ CЧM KAHAЛ_MПД;S = HOMEP ЛИHИИ
+ CДЛ 8
+ ИЛИ (RF)
+ CДП 2
+ ПФC
+ CЧ TAБ_CИC_N
+ CДЛД -48
+ И =.[16:1]
+ УИ RE;RE - HOMEP TУC-A
+ ПPB HA_ДP_ЭBM;--> ЛИHИИ HET B ПAPAMETPAX ГEHEPAЦИИ
+* ПEPEЙДEM K HOMEPУ OKHA
+ CЧ TУC(RE)
+ BЫД @TEK_OKHO ;
+ ПPB HET_OKHA ;--> BЫЗOB MOHOCA
+ 
+ УИ RD;RD - HOMEP TBУC-A
+ CЧ CЛOГ_ПPИEMA
+ И ПPИЗH_CЛ_CЛ
+ ПHP CЛУЖ_CЛOГ;--> ПPИHЯЛИ CЛУЖEБHЫЙ CЛOГ
+ KБЛOK AHAЛИЗ_CЛOГA
+ 
+*                                                 * 
+***************************************************
+  
+ 
+***************************************************
+*                                                 * 
+*         ПEPEДAЧA CИMBOЛA BИPT. O C              * 
+*                                                 * 
+***************************************************
+ 
+ 
+П_C_BИPOC БЛOK BKЛ=(MПД,TУC,ИПЗ)
+ CЧ CЛOГ_ПPИEMA
+ И = 0 FF H
+ ПB CПEЦ_ПPEP(RE)
+ ПPB HET_ПPOЦECCA
+ 
+HET_ПPOЦECCA
+ ПБ ПOП.BЫДAЧA
+ KБЛOK П_C_BИPOC
+ 
+ 
+***************************************************
+*                                                 * 
+*         ПEPEBOДИM ЛИHИЮ HA 0-УЮ ЭBM             *
+*                                                 * 
+***************************************************
+ 
+HA_ДP_ЭBM БЛOK BKЛ=(KBAHT_BЫД,MПД)
+ CЧ CЛOГ_ПPИEMA
+ И =0 7F00 H
+ ПPB ПOП.BЫДAЧA;--> CЛOГ ГOTOBHOCTИ ЭBM
+ ЗП CЛOГ_ПPИEM
+ CЧ TAБ_ПPOЦ+N_ПPOЦ_ЖДУ
+ УИ RE;RE= AДPEC ИПЗ ЖДУЩEГO
+ ПB ДAЙ_БЛOK(RD)
+ БAЗA KBAHT_BЫД:RD
+ CЧ CЛOГ_ПPИEMA
+ ЗП ЛИHИЯ
+ CЧ E53
+ ЗП KB_AДP;MACCИB ДAHHЫX ПУCT,TOЛЬKO HAЧ_CЛOГ
+ CЧ ЛИHИЯ
+ ИЛИ =0 8000 H ;ПPИEM HA ЭBM 0
+ CДЛ П@HAЧ_CЛOГ
+ ЗП HAЧ_CЛOГ
+ BИ R5
+ BИM R6
+ ЗП (RF)
+ УИИ R6(RD)
+ УИA ЦEПЬ_З_MПД(R5)
+ БAЗA KBAHT_BЫД
+ ПB BKЛ_ЦEПЬ(RD)
+ CЧ (RF)
+ УИM R6
+ УИ R5
+ CЧ $PПOM
+ ИЛИ MACKA_BЫДAЧИ
+ ЗП $PПOM
+ УPГ PПOM
+ ПБ ПOП.BЫДAЧA
+ KБЛOK HA_ДP_ЭBM
+ 
+ 
+***************************************************
+*                                                 * 
+*       COБЫTИE ИHИЦ-У - HOBЫЙ TEPMИHAЛ           *
+*                                                 * 
+***************************************************
+ 
+HET_OKHA БЛOK BKЛ=TУC
+ CЧ TУC(RE)
+ И =ЖД_ИHИЦ#
+ ПHP ПOП.BЫДAЧA
+ CЧ =ЖД_ИHИЦ#
+ ИЛИ TУC(RE)
+ ЗП TУC(RE)
+ ЗПH AЗAЯB(RE);AKTИBИЗИPOBATЬ ДИCПЛEЙ
+ CЧ HOB_TEPM
+ ИЛИ E28 ;HOMEP OKHA ( 1 )
+ ЗП БУC(RE) ;ПOCTABИTЬ B OЧEPEДЬ AKTИBИЗИPУEMЫX
+ BИ RE
+ ЗП HOB_TEPM
+ CЧ =[63:58] 1 ! [57:49] N_ПPOЦ_ИHИЦ
+ ПB ПPEP_ГЛAB(RD) ;ПPEPЫBAHИE ИHИЦИATOPУ
+ ПБ ПOП.BЫДAЧA
+ KБЛOK HET_OKHA
+ 
+ 
+***************************************************
+*                                                 * 
+*           ПPИHЯЛИ  CЛУЖEБHЫЙ CЛOГ               * 
+*                                                 * 
+***************************************************
+ 
+CЛУЖ_CЛOГ БЛOK BKЛ=(MПД,KBAHT_BЫД)
+ CЧ TУC(RD)
+ И =TУC.B_PAБOTE#
+ ПPB ПOП.BЫДAЧA;!!
+*HA ЛИHИЮ ИДET BЫДAЧA
+ CЧ TУC.AЗAЯB(RE)
+ ПPB OШ_ДBC
+ УИ RE;RE=AДPEC KBAHTA BЫДAЧИ
+ БAЗA KBAHT_BЫД:RE
+ CЧM KB_HAЧ;S - AДPEC ПEPBOГO KBAHTA
+ CЧM KOЛ_БAЙT;S - AДPEC BTOPOГO KBAHTA
+ CЧM KOMУ_ПPEP;S - KOЛ.ПEPEДAHHЫX БAЙTOB
+ BЫД @KOMУ_ПPEP
+ ПPB MИHУC_CTEK
+ ПB ПPEP_ПPOЦ(RD)
+ УИ RE;RE = AДPEC PУ
+ CЧ (RE)
+ И =.[64:45]
+ ИЛИ (RF);KOЛ.ПEPEДAHHЫX БAЙTOB
+ ИЛИ =1;OШИБKA COГЛOCOBAHИЯ
+ ЗП (RE)
+ПPEP_HE_HУЖHO
+ CЧ (RF)
+ ПPB HET_BTOPOГO
+ BЧ =2;CM - AДPEC BTOPOГO KBAHTA
+ ПB OCB_БЛOK(RD)
+HET_BTOPOГO
+ CЧ (RF)
+ ПB OCB_БЛOK(RD)
+ БAЗA KBAHT_BЫД
+ ПБ ПOП.BЫДAЧA
+ 
+MИHУC_CTEK CЛИA -1(RF)
+ ПБ ПPEP_HE_HУЖHO
+ KБЛOK CЛУЖ_CЛOГ
+ 
+ 
+ KБЛOK ПPИEM_MПД
+ 
+ CTPH 'BЫДAЧA  MПД'
+ 
+BЫДAЧA_MПД БЛOK BKЛ=(БЛOK,MПД,ГOЛOBA,KBAHT_BЫД)
+HOB_ЛИHИЯ
+ CЧ TEK_KBAHT
+ ПPB CЛEД_KPУГ
+HOB_KPУГ
+ БAЗA KBAHT_BЫД:RE
+ БAЗA БЛOK:RE
+ УИ RE
+ CЧ CЛEД_ЦEПЬ
+ BЫД @CЛEД_ЦEПЬ
+ ЗП TEK_KBAHT
+ CЧ CЧ_CKOP
+ ПPB УЖE_MOЖHO
+ BЧ =1
+ ЗП CЧ_CKOP
+ ПБ HOB_ЛИHИЯ
+ 
+CЛEД_KPУГ
+ CЧ ЦEПЬ_З_MПД
+ BЫД @HAЧ_ЦEПЬ
+ ПHP HOB_KPУГ;HAЧAЛИ HOBЫЙ KPУГ
+ 
+ 
+*БOЛЬШE BЫДABATЬ HEЧEГO
+ CЧ $PПOM
+ HTЖ MACKA_BЫДAЧИ
+ ЗП $PПOM
+ УPГ PПOM;УБPAЛИ MACKУ BЫДAЧИ B MПД
+ ПБ BЫX_BЫД
+ 
+УЖE_MOЖHO
+ CЧ CKOPOCTЬ
+ ЗП CЧ_CKOP
+ ПB ДAЙ_CЛOГ(RD)
+ ПPB BЫДAЧA_ЗAKOHЧИЛACЬ
+ ЗП CЛOГ_BЫДAЧИ
+ 
+***************************************************
+*                                                 * 
+*          B Ы Д A Ч A   C Л O Г A                * 
+*                                                 * 
+ 
+BЫД_CЛOГA БЛOK BKЛ=MПД
+ CДЛ 48
+ PЗБ ПOЛУ_CЛOГ
+ ИЛИ $PПOM
+ ИЛИ CTPOБ_BЫДAЧИ
+ УPГ PПOM
+ HTЖ CTPOБ_BЫДAЧИ
+ УPГ PПOM ;BЫДAЛИ 16-9 PP CЛOГA
+ 
+ CЧ CЛOГ_BЫДAЧИ
+ CДЛ 56
+ PЗБ ПOЛУ_CЛOГ
+ ИЛИ $PПOM
+ ИЛИ CTPOБ_BЫДAЧИ
+ УPГ PПOM
+ HTЖ CTPOБ_BЫДAЧИ
+ УPГ PПOM ;BЫДAЛИ 8-1 PP CЛOГA
+ 
+ CЧ ГAШ_BЫДAЧИ
+ УPГ ПPП 
+ KБЛOK BЫД_CЛOГA
+*                                                 * 
+***************************************************
+ 
+BЫX_BЫД
+ ПБ ПOП.CЛEДУЮЩИЙ
+BЫДAЧA_ЗAKOHЧИЛACЬ
+ 
+ BИ RE
+ CЧM KB_HAЧ;S - AДPEC ПEPBOГO KBAHTA
+ CЧM KOЛ_БAЙT;S - AДPEC BTOPOГO KBAHTA
+ CЧM KOMУ_ПPEP;S - KOЛ.ПEPEДAHHЫX БAЙTOB
+ BЫД @KOMУ_ПPEP ;CM - HOMEP TУC-A
+ ПPB MИHУC_CTEK
+ ПB ПPEP_ПPOЦ(RD)
+ УИ RE;RE - AДPEC PУ
+ CЧ (RE)
+ И =.[64:45]
+ ИЛИ (RF);KOЛ.ПEPEДAHHЫX БAЙTOB
+ ЗП (RE);KOT = 0
+ПPEP_HE_HУЖHO
+ CЧ (RF);CM - KB_HAЧ
+ ПPB HET_BTOPOГO
+ BЧ =2;CM - AДPEC BTOPOГO KBAHTA
+ ПB OCB_БЛOK(RD)
+HET_BTOPOГO
+ CЧ (RF);CM - AДPEC ПEPBOГO KBAHTA
+ ПB OCB_БЛOK(RD);
+ ПБ HOB_ЛИHИЯ
+ БAЗA БЛOK
+ БAЗA KBAHT_BЫД
+ 
+MИHУC_CTEK CЛИA -1(RF)
+ ПБ ПPEP_HE_HУЖHO
+ KБЛOK BЫДAЧA_MПД
+ CTPH 'ПOДPOГPAMMЫ'
+ 
+!------------------------------------------------------------!
+!                                                            !
+!                                                            !
+!                                                            !
+!                                                            !
+!                                                            !
+!       П   O   Д   П   P   O   Г   P   A   M   M   Ы        !
+!                                                            !
+!                                                            !
+!                                                            !
+!                                                            !
+!                                                            !
+!                                                            !
+!------------------------------------------------------------!
+ CTPH 'ДAЙ_CЛOГ'
+***************************************************
+*                Д A Й _ C Л O Г                  *
+***************************************************
+*       BЫБOP CЛEДУЮЩEГO CИMBOЛA ДЛЯ ЛИHИИ        *
+*-------------------------------------------------*
+* ПAPAMETPЫ:                                      *
+*  RE - AДPEC KBAHTA ЛИHИИ                        *
+* BЫXOД :                                         *
+*  CM - CЛOГ ИЛИ 0                                *
+*-------------------------------------------------*
+* BOЗBPAT ПO RD                                   *
+***************************************************
+ 
+ДAЙ_CЛOГ БЛOK BKЛ=KBAHT_BЫД
+ БAЗA KBAHT_BЫД:RE
+  CЧ KB_AДP 
+ ПMH BЫД_HAЧ_CЛOГA
+ ПPB BЫД_KOH_CЛOГA
+  ПФC
+ CЧ
+ CДЛ 8
+ ПФ KB_AДP
+ ЗП
+ BД
+ CЧM KB_AДP;S - CИMBOЛ
+ HTЖ KB_KOH
+ ПPB ЗAПOЛHИTЬ_KBAHT
+ CЧ KB_AДP
+ УPЖ 200 H;БA
+ CЛK E62
+ УPЖ 0
+BЫX_BЫД
+ ЗПM KB_AДP
+ ИЛИ ЛИHИЯ
+ ПБ (RD)
+ 
+BЫД_HAЧ_CЛOГA
+ HTЖ E53
+ ЗП KB_AДP ;УБPAЛИ ПPИЗHAK BЫДAЧИ HAЧAЛЬHOГO CЛOГA
+ CЧ HAЧ_CЛOГ
+ BЫД @HAЧ_CЛOГ
+ ПБ (RD);BЫДAEM HAЧAЛЬHЫЙ CЛOГ
+ 
+ 
+BЫД_KOH_CЛOГA
+ CЧ KOH_CЛOГ
+ BЫД @KOH_CЛOГ
+ ПPB (RD); BCE ЗAKOHЧИЛИ ДЛЯ ЭTOЙ ЛИHИИ
+ ЗП (RF)
+ CДЛ П@KOH_CЛOГ
+ HTЖ KOH_CЛOГ
+ ЗПM KOH_CЛOГ;
+ ПБ (RD);BЫДAEM KOHEЧHЫЙ CЛOГ
+ 
+ЗAПOЛHИTЬ_KBAHT
+ CЧ OП_KOH
+ ПPB BЫX_BЫД;БOЛЬШE CИMBOЛOB HET
+ CЧ OП_PП
+ УPГ PП
+ CЧ OП_PП+1
+ УPГ PП+1
+ CЧ =.[64,63]
+ УPГ PCПO
+ CЧ 0
+ УPГ PMC
+ BИ RD
+ BИM R1
+ BИM R2
+ CЧM KB_HAЧ
+ ЗП KB_AДP
+ УИ RD;RD - KУДA ПИCATЬ
+ CЧ OП_AДP
+ УИ R1;R1 - OTKУДA ЧИTATЬ
+ УИA -L_KB_BЫД+1(R2)
+ЦИKЛ_ПEPE
+ CЧT (R1)
+ ЗП (RD)
+ BИ R1
+ HTЖ OП_KOH
+ И =.[27:1]
+ ПPB KOH_ЦИKЛA
+ CЛИA 1(R1)
+ CЛИA 1(RD)
+ ЦИKЛ ЦИKЛ_ПEPE(R2)
+ CЧ OП_AДP
+ CЛK =L_KB_BЫД
+ ЗП OП_AДP
+ ПБ KOHEЦ
+ 
+KOH_ЦИKЛA
+ CЧ OП_KOH
+ И =.[64:62]
+ ИЛИЛ (RD)
+ ЗП KB_KOH
+ ЗПH OП_KOH;OП_KOH =0 - БУФEP BИPOC ПУCT
+ 
+KOHEЦ
+ ПФ TEK_ИПЗ
+ CЧ ИПЗ.$PП+1-ИПЗ
+ УPГ PП+1;BOCCTAHOBИЛИ PП 1
+ CЧ (RF)
+ УИM R2
+ УИM R1
+ УИM RD
+ ИЛИ ЛИHИЯ
+ ПБ (RD)
+ 
+ KБЛOK ДAЙ_CЛOГ
+ 
+ CTPH 'CПEЦ_ПPEP'
+***************************************************
+*          C П E Ц _ П P E P                      *
+***************************************************
+*  ПEPEДAЧA CЛOГA B PEЖИME CПEЦ. ПPEPЫBAHИЯ       *
+*-------------------------------------------------*
+* ПAPAMETPЫ:                                      *
+*  RD - HOMEP TBУC-A                              *
+*  CM - (48-1 P.P.) CЛOГ ДЛЯ BИPT. OC            *
+* BЫXOД :                                         *
+*  CM = 0 ,CЛOГ HE ПEPEДAЛИ                       *
+*-------------------------------------------------*
+* BOЗBPAT ПO RE                                   *
+***************************************************
+ 
+CПEЦ_ПPEP:БЛOK BKЛ=(TУC,MAЛ_УПP)
+ ЗП  $CM_ПPEP;CЛOГ ДЛЯ BИPT.OC
+ BИ RE
+ ЗП (RF)
+ CЧ TBУC(RD)
+ BЫД @N_ПPOЦ
+ ПPB ПЛOXO;--> HET ПPOЦECCA
+ ПФC
+ CЧ TAБ_ПPOЦ
+ УИ RE;RE = AДPEC ИПЗ
+ БAЗA ИПЗ:RE
+ 
+ 
+ CЧ ИПЗ.COCT_ПPOЦ
+ ПMH ПЛOXO;--> ПPOЦECC KOHЧAET
+ 
+ CЧ ИПЗ.AДPEC_MПД
+ ПPB ПЛOXO;--> HET AДPECA ДЛЯ CПEЦ.ПPEPЫBAHИЯ
+ УP ИC7
+ CЧ ИC3_CП
+ УP ИC3
+ 
+ CЧ ИПЗ.$PП_MПД
+ УPГ PП
+ CЧ ИПЗ.$PMC_MПД
+ УPГ PMC
+ CЧ E64
+ УPГ PCПO
+ CЧ 0
+ УPГ PЗЗ
+ 
+ CЧ  $CM
+ CЧM $PK
+ CЧM  $PMP
+ BИM RD
+ BИM RF
+ ЗП RF_CП
+ 
+ CЧ TBУC(RD)
+ BЫД @ЛOГ_HOM
+ CДЛ 48
+ ИЛИ  $CM_ПPEP
+ ЗП  $CM;CM = ЛOГ.HOM(64-49 P.P.)+CЛOГ(48-1 P.P.)
+ BPГ ЧC
+ ЗП  $PMP
+ ЗП HAЧAЛO
+ 
+ CЧ =Я_B_CП
+ ЗП  ГДE_Я;HOMEP B ДEШ.BHУTPEH.ПPEPЫBAHИЙ
+ 
+ ПБ BЫXOД_CП;УXOД B CПEЦ.ПPEPЫBAHИЯ B BИPT. OC
+ 
+ 
+ 
+  
+ 
+BЫX_ИЗ_CП:
+*!!
+ BPГ ЧC
+ BЧ HAЧAЛO
+ ЗП HAЧAЛO
+ CДП 18
+ ПHP CTOЯЛИ
+ CЧ УЧET.CK_PAЗ_CП
+ CЛ =1
+ ЗП УЧET.CK_PAЗ_CП
+ CЧ УЧET.BPEMЯ_CП
+ CЛ HAЧAЛO
+ ЗП УЧET.BPEMЯ_CП
+CTOЯЛИ
+ BPГ ЧC
+ ЗП УЧET.HAЧAЛO
+ CЧ =УЧET.BHEШ-УЧET.ИMЯ
+ ЗП УЧET.KTO_ЗДECЬ
+*!!
+ CЧ RF_CП
+ УИ RF
+ CЧ (RF)
+ УИM RD
+ ЗПM  $PMP
+ ЗП  $PK
+ CЧ  $CM
+ ПPB ПPEP_HE_HAДO
+ BИ RD
+ ИЛИ E64;ИAБ
+ ПB ПPEP_ПPOЦ(RD)
+ 
+ПPEP_HE_HAДO
+ 
+ CЧ (RF)
+ ЗП $CM
+ CЧ =Я_BO_BHEШH
+ ЗП ГДE_Я
+BЫXOД
+ ПФ (RF)
+ ПБ 0
+ 
+ПЛOXO
+ CЧ 0
+ ПБ BЫXOД
+!
+*BHУTPEHHИE ПPEPЫBAHИE ПPИ CПEЦ.ПPEPЫBAHИИ
+!
+BHУTP_B_CП :
+ CTOП 4
+ ПБ BHУTP_B_CП
+ 
+ CEKЦИЯ KOHCT
+ИC3_CП KOHД ИC13.TT#!ИC13.PП3T#!ИC13.БOП#!ИC13.ПPП#!ИC13.PЗ#!ИC13.PП#
+ CEKЦИЯ ПEPEM
+ЯЧ_OП_N3 KOHД 0;COДEPЖИMOE TPETЬEЙ ЯЧEЙKИ ПPИ CПEЦ.ПPEP.
+RF_CП  KOHД  0
+HAЧAЛO KOHД  0
+ CEKЦИЯ KOД
+ KБЛOK CПEЦ_ПPEP
+ BHEШH ДAЙ_БЛOK,BKЛ_ЦEПЬ
+ BHEШH OБP_BHEШ,ПPEP_ПPOЦ,OCB_БЛOK,OШ_ДBC,ПPEP_ГЛAB,BЫXOД_CП
+ CEKЦИЯ KOHCT
+ ЛИTEP
+ ФИHИШ

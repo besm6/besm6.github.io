@@ -1,0 +1,17 @@
+ ЗAГЛ 'Д И C П E T Ч E P  B И P T У A Л Ь H Ы X  C И C T E M',
+ ЗAГЛ 'CTPУKTУPЫ ДAHHЫX'
+ MOДУЛЬ 'INCLUDE'
+ ЗAГЛ 'OБЩИE OПPEДEЛEHИЯ',
+ BKЛ ШAПKA
+ ЗAГЛ 'CTPУKTУPЫ ДAHHЫX ДЛЯ УПPABЛEHИЯ ПAMЯTЬЮ',
+ BKЛ ФИЗOП
+ ЗAГЛ 'CTPУKTУPЫ ДAHHЫX ДЛЯ УПPABЛEHИЯ УCTPOЙCTBAMИ',
+ BKЛ УCTP
+ ЗAГЛ 'CTPУKTУPA METKИ TOMA MAГHИTHЫX ДИCKOB',
+ BKЛ METKA
+ ЗAГЛ 'CTPУKTУPЫ ДAHHЫX, CBЯЗAHHЫE C ПPOЦECCAMИ',
+ BKЛ ИПЗИO
+ ЗAГЛ 'OПИCAHИE CTPУKTУP ДAHHЫX ДBC ДЛЯ MOHOCA',
+ BKЛ CTPУKT
+ ЗAГЛ 'Д И C П E T Ч E P  B И P T У A Л Ь H Ы X  C И C T E M',
+ ФИHИШ

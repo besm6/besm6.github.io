@@ -1,0 +1,1969 @@
+﻿*RED                                                                               
+*0STA*RG*NN*1RL*0MCS1 67                                                           
+*ST4 35 42 67                                                                      
+ 1)*MDCOГЛACOBAHO                                                                  
+*MDПPEДCTABИTEЛЬ ЗAKAЗЧИKA N2272                                                   
+*/*10C B.И.ПOHOMAPEHKO*/                                                           
+ 2)*MDYTBEPЖДAЮ                                                                    
+*MDPYKOBOДИTEЛЬ ПPEДПPИЯTИЯ                                                        
+*/*10C Г.Г.PЯБOB*/                                                                 
+$                                                                                  
+*0MCS5 63                                                                          
+*3/                                                                                
+*MDBЫЧИCЛИTEЛЬHЫЙ KOMПЛEKC "ЭЛЬБPYC 1-KБ"                                          
+*MDOБЩEE CИCTEMHOE ПPOГPAMMHOE OБECПEЧEHИE                                         
+*MDOПEPAЦИOHHAЯ CИCTEMA ДИCПAK                                                     
+*MDOПИCAHИE ПPOГPAMMЫ                                                              
+*MDЛИCT YTBEPЖДEHИЯ                                                                
+*MDИЫ.00110-01 13 01-ЛY                                                            
+*/                                                                                 
+*0MCS1 67*ST9 32 40 67                                                             
+ 2)*MDПPEДCTABИTEЛИ                                                                
+*MDПPEДПPИЯTИЯ-PAЗPAБOTЧИKA                                                        
+*/*MDHAЧAЛЬHИK OTДEЛA                                                              
+*/*11C B.Ф.TЮPИH                                                                   
+*2/     ИCПOЛHИTEЛИ */*11C E.B.ГOЛEHKOBA                                           
+*2/*11C C.A.ЛЮБCKИЙ                                                                
+*2/     HOPMOKOHTPOЛEP */*11C T.П.PYДAЧEHKO                                        
+ $                                                                                 
+*0MCS5 63                                                                          
+*3/                                                                                
+*MD1988                                                                            
+*/*48GЛИTEPA O1                                                                    
+*P                                                                                 
+*ST9 31                                                                            
+ 1)*MDYTBEPЖДEH                                                                    
+*/*MDИЫ.00110-01 13 01-ЛY                                                          
+$                                                                                  
+*5/                                                                                
+*MDBЫЧИCЛИTEЛЬHЫЙ KOMПЛEKC "ЭЛЬБPYC 1-KБ"                                          
+*MDOБЩEE CИCTEMHOE ПPOГPAMMHOE OБECПEЧEHИE                                         
+*MDOПEPAЦИOHHAЯ CИCTEMA ДИCПAK                                                     
+*MDOПИCAHИE ПPOГPAMMЫ                                                              
+*MDИЫ.00110-01 13 01                                                               
+*MD      ЛИCTOB 75                                                                 
+*17/*MD1988                                                                        
+*/*48GЛИTEPA O1                                                                    
+*2N                                                                                
+*0STA*RG*2N*0MCS5 63                                                               
+*1RL                                                                               
+*0STPИЫ.00110-01 13 01                                                             
+*S*MD AHHOTAЦИЯ                                                                    
+*2SB ДAHHOM ДOKYMEHTE COДEPЖATCЯ OБЩИE CBEДEHИЯ O                                  
+ПPOГPAMME OПEPAЦИOHHOЙ CИCTEMЫ ( OC ) ДИCПAK . ПPИBOДЯTCЯ                          
+TAKЖE ДAHHЫE O ФYHKЦИOHAЛЬHOM HAЗHAЧEHИИ, ЛOГИЧECKOЙ                               
+CTPYKTYPE, ИCПOЛЬЗYEMЫX TEXHИЧECKИX CPEДCTBAX, BЫЗOBE                              
+И ЗAГPYЗKE OC. OПИCЫBAETCЯ OPГAHИЗAЦИЯ BXOДHЫX И BЫXOДHЫX                          
+ДAHHЫX ПPOГPAMMЫ, ПPИBOДЯTCЯ CBEДEHИЯ O БAЗOBЫX BOЗMOЖHOCTЯX,                      
+APXИBHO - ФAЙЛOBOЙ CИCTEME OC ДИCПAK.                                              
+*P*2/*MDCOДEPЖAHИE                                                                 
+*2S                                                                                
+*S*2G  1. OБЩИE CBEДEHИЯ OБ OC                         *RF   5                     
+*S*2G  1.1. HAЗHAЧEHИE                                 *RF   5                     
+*S*2G  1.2. ПPOГPAMMHOE OБECПEЧEHИE, HEOБXOДИMOE                                   
+*S*2G       ДЛЯ PAБOTЫ OC                              *RF   6                     
+*S*2G  2. ФYHKЦИOHAЛЬHOE HAЗHAЧEHИE OC                 *RF   7                     
+*S*2G  3. OПИCAHИE ЛOГИЧECKOЙ CTPYKTYPЫ OC             *RF   8                     
+*S*2G  3.1. CTPYKTYPHЫE EДИHИЦЫ                        *RF   8                     
+*S*2G  3.2. AЛГOPИTM HAЧAЛA PAБOTЫ OC ДИCПAK           *RF  12                     
+*S*2G  3.3. ИCПOЛЬЗYEMЫE METOДЫ                        *RF  15                     
+*S*2G  3.4. COCTABHЫE ЧACTИ OПEPAЦИOHHOЙ CИCTEMЫ.      *RF  15                     
+*S*2G  3.5. CBЯЗЬ C ДPYГИMИ ПPOГPAMMAMИ                *RF  16                     
+*S*2G  4. ГEHEPATOP OC                                 *RF  17                     
+*S*2G  5. ПЛAHИPOBЩИK ЗAДAЧ                            *RF  19                     
+*S*2G  6. ПЛAHИPYЮЩAЯ CИCTEMA BBOДA-BЫBOДA             *RF  23                     
+*S*2G  7. CИCTEMA YПPABЛEHИЯ ПPOЦECCAMИ                *RF  27                     
+*S*2G  7.1. ПPИHЦИПЫ YПPABЛEHИЯ ПPOЦECCAMИ И PECYPCAMИ *RF  27                     
+*S*2G  7.2. ПPOЦECCЫ, COБЫTИЯ И ИX CИHXPOHИЗAЦИЯ       *RF  32                     
+*S*2G  7.3. AППAPAT ГЛABHOЙ И ПOДЧИHEHHOЙ ЗAДAЧ        *RF  33                     
+*S*2G  7.4. CИCTEMHЫE ПPИMИTИBЫ AППAPATA ГЛABHOЙ                                   
+*S*2G       И ПOДЧИHEHHOЙ ЗAДAЧ                        *RF  35                     
+*S*2G  7.5. CИCTEMHЫE ПPИMИTИBЫ AППAPATA COБЫTИЙ       *RF  36                     
+*S*2G  7.6. COБЫTИЯ B ЗAДAЧE ПOЛЬЗOBATEЛЯ              *RF  37                     
+*S*2G  7.7. AППAPAT ПEPEXBATA ЭKCTPAKOДOB              *RF  43                     
+*S*2G  7.8. ПEPEДAЧA COOБЩEHИЙ MEЖДY ЗAДAЧAMИ          *RF  46                     
+*S*2G  8. CИCTEMA YПPABЛEHИЯ ДAHHЫMИ                   *RF  50                     
+*S*2G  8.1. APXИBHAЯ CИCTEMA OC ДИCПAK                 *RF  50                     
+*S*2G  8.2. PAБOTA C OБЛACTЯMИ                         *RF  52                     
+*S*2G  9. OTЛAДKA ПPOГPAMM B OC ДИCПAK                 *RF  54                     
+*S*2G  9.1. OБЩEE OПИCAHИE                             *RF  54                     
+*S*2G  9.2. BЫЗOB OTЛAДЧИKA                            *RF  56                     
+*S*2G 10. ЭKCTPAKOДЫ                                   *RF  58                     
+*S*2G 11. ИCПOЛЬЗYEMЫE TEXHИЧECKИE CPEДCTBA            *RF  65                     
+*S*2G 12. BЫЗOB И ЗAГPYЗKA OПEPAЦИOHHOЙ CИCTEMЫ        *RF  66                     
+*S*2G 13. BXOДHЫE ДAHHЫE                               *RF  68                     
+*S*2G 13.1. CTPYKTYPA ПAKETA ЗAДAЧИ ПOЛЬЗOBATEЛЯ       *RF  68                     
+*S*2G 13.2. KOMПЛEKTOBAHИE ПPOГPAMM                    *RF  70                     
+*S*2G 14. BЫXOДHЫE ДAHHЫE                              *RF  71                     
+*S*2G ПEPEЧEHЬ TEPMИHOB                                *RF  72                     
+*S*2G ПEPEЧEHЬ COKPAЩEHИЙ                              *RF  73                     
+*S*2G ПEPEЧEHЬ CCЫЛOЧHЫX ДOKYMEHTOB                    *RF  74                     
+*S*2G ЛИCT PEГИCTPAЦИИ ИЗMEHEHИЙ                       *RF  75                     
+*P*2/*MD 1. OБЩИE CBEДEHИЯ OБ OC                                                   
+*2S1.1. HAЗHAЧEHИE OC.                                                             
+*2SOПИCЫBAEMAЯ ПPOГPAMMA ПPEДCTABЛЯET COБOЙ OПEPAЦИOHHYЮ                           
+CИCTEMY (OC) ДЛЯ BЫЧИCЛИTEЛЬHOГO KOMПЛEKCA "ЭЛЬБPYC 1-KБ".                         
+*/HAИMEHOBAHИE                                                                     
+ПPOГPAMMЫ*/- ' ДИCПAK '.                                                           
+*S OC  ДИCПAK  OБECПEЧИBAET:                                                       
+*/- PEШEHИE CИCTEMHЫX ЗAДAЧ И ЗAДAЧ ПOЛЬЗOBATEЛEЙ B                                
+MYЛЬTИПPOГPAMMHOM PEЖИME;                                                          
+*/- PEШEHИE ЗAДAЧ B PEЖИMAX ПAKETHOЙ, ДИCTAHЦИOHHO-ПAKETHOЙ                        
+OБPAБOTKИ, ДИAЛOГOBOM PEЖИME И PEЖИME PEAЛЬHOГO BPEMEHИ;                           
+*/- PAБOTY BЫЧИCЛИTEЛЬHOГO KOMПЛEKCA KAK B PEЖИME KOPOTKOГO                        
+AДPECA (PEЖИM 1), TAK И B PEЖИME ДЛИHHOГO AДPECA (PEЖИM 3);                        
+*/- OПEPATOPA ЭBM ШИPOKИM HAБOPOM CPEДCTB И BOЗMOЖHOCTEЙ                           
+ДЛЯ ПPOCTOЙ И OПEPATИBHOЙ PAБOTЫ ЗA TEPMИHAЛOM;                                    
+*/- ЭФФEKTИBHYЮ ЗAЩИTY CAMOЙ  OC  И ИHФOPMAЦИИ ПOЛЬЗOBATEЛEЙ                       
+OT HECAHKЦИOHИPOBAHHOГO ДOCTYПA;                                                   
+*/- BЫCOKYЮ HAДEЖHOCTЬ PAБOTЫ BЫЧИCЛИTEЛЬHOЙ CИCTEMЫ B ЦEЛOM                       
+И OTДEЛЬHЫX EE KOMПOHEHTOB, A TAKЖE ПPOCTOTY ЭKCПЛYATAЦИИ;                         
+*/- ПOЛЬЗOBATEЛЯ CPEДCTBAMИ OTЛAДKИ ПPOГPAMM И HEKOTOPЫM                           
+HAБOPOM CPEДCTB YПPABЛEHИЯ PEШEHИEM ЗAДAЧИ;                                        
+*/- OПEPATИBHYЮ BЫДAЧY COOБЩEHИЙ OБ OTKAЗAX AППAPATYPЫ;                            
+*/- BOЗMOЖHOCTЬ ИCПOЛЬЗOBAHИЯ PЯДA KOMПИЛЯTOPOB, PAЗPAБOTAHHЫX                     
+HEЗABИCИMO OT OПEPAЦИOHHOЙ CИCTEMЫ;                                                
+*/- PEГИCTPAЦИЮ, OБPAБOTKY И BЫДAЧY CTATИCTИЧECKOЙ                                 
+ИHФOPMAЦИИ O PAБOTE ПOЛЬЗOBATEЛEЙ И AППAPATYPЫ;                                    
+*/- *CCOXPAHEHИE ПPEEMCTBEHHOCTИ K ПPOГPAMMHOMY XOЗЯЙCTBY,                         
+HAKOПЛEHHOMY HA ЭBM БЭCM-6 И MBK "ЭЛЬБPYC-1" KOMПЛEKTAЦИИ 2                        
+ ЗA BPEMЯ EE ЭKCПЛYATAЦИИ;                                                         
+*/- ДOCTATOЧHO ПPOCTOE BKЛЮЧEHИE B COCTAB OC HOBЫX                                 
+BOЗMOЖHOCTEЙ И ЗAMEHY OTДEЛЬHЫX EE KOMПOHEHTOB БOЛEE                               
+COBEPШEHHЫMИ, TO ECTЬ BOЗMOЖHOCTЬ PAЗBИTИЯ.                                        
+*S ПPOГPAMMЫ OПEPAЦИOHHOЙ CИCTEMЫ HAПИCAHЫ HA MAKPOKOДE "БEMШ" И                   
+ACCEMБЛEPE BK "ЭЛЬБPYC 1-KБ".                                                      
+*2S1.2. ПPOГPAMMHOE OБECПEЧEHИE, HEOБXOДИMOE                                       
+ДЛЯ PAБOTЫ OC.                                                                     
+*2SДЛЯ ФYHKЦИOHИPOBAHИЯ OC ДИCПAK HEOБXOДИMO, ЧTOБЫ B COCTAB                       
+BЫЧИCЛИTEЛЬHOЙ CИCTEMЫ БЫЛ BKЛЮЧEH KOMПЛEKC ПYЛЬTOBOГO                             
+ПPOГPAMMHOГO OБECПEЧEHИЯ                                                           
+("ППO. PYKOBOДCTBO OПEPATOPA" ИЫ.00112-01 34 01),                                  
+B COCTAB KOTOPOГO ДOЛЖHЫ BXOДИTЬ CEPBИCHЫE ПPOГPAMMЫ                               
+ДЛЯ ПOCTAHOBKИ И BЫЗOBA OC.                                                        
+*P*2/*MD2. ФYHKЦИOHAЛЬHOE HAЗHAЧEHИE OC                                            
+*2S OC ДИCПAK ЯBЛЯETCЯ OПEPAЦИOHHOЙ CИCTEMOЙ OБЩEГO HAЗHAЧEHИЯ                     
+И MOЖET БЫTЬ ИCПOЛЬЗOBAHA ДЛЯ PEШEHИЯ ШИPOKOГO KPYГA                               
+HAPOДHOXOЗЯЙCTBEHHЫX, HAYЧHЫX, ЭKOHOMИЧECKИX                                       
+И CПEЦИAЛЬHЫX ЗAДAЧ,                                                               
+TPEБYЮЩИX БOЛЬШOГO OБ'EMA BЫЧИCЛEHИЙ.                                              
+*S OC ДИCПAK TAKЖE OБECПEЧИBAET PAБOTY ПPOЦECCOPA                                  
+BK "ЭЛЬБPYC 1-KБ" B PAMKAX                                                         
+CИCTEM KOЛЛEKTИBHOГO ПOЛЬЗOBAHИЯ C ПPИMEHEHИEM ПAKETHOГO                           
+PEЖИMA И PEЖИMA PAЗДEЛEHИЯ BPEMEHИ.                                                
+*S ИMEETCЯ ШИPOKИЙ HAБOP BXOДHЫX ЯЗЫKOB, ПOДДEPЖИBAEMЫX                            
+KOMПИЛЯTOPAMИ, PAБOTAЮЩИMИ ПOД YПPABЛEHИEM OC, B TOM ЧИCЛE                         
+ФOPTPAH-ДYБHA, ФOPTAH-ГДP, FOREX (БЛИЗKИЙ K ФOPTPAHY-77),                          
+БЭCM-AЛГOЛ, AЛГOЛ-ГДP, ПACKAЛЬ, PEФAЛ, ABTOKOДЫ БEMШ, MADLEN,                      
+ИTM, ACCEMБЛEP BK "ЭЛЬБPYC 1-KБ".                                                  
+*S OПEPAЦИOHHAЯ CИCTEMA ДИCПAK ПOДДEPЖИBAET HA BK "ЭЛЬБPYC 1-KБ"                   
+PAБOTY OДHOTEPMИHAЛЬHЫX И MHOГOTEPMИHAЛЬHЫX ДИAЛOГOBЫX CИCTEM,                     
+PAБOTAЮЩИX HA ЭBM TИПA БЭCM-6 И YЧИTЫBAЮЩИX CПEЦИФИKY                              
+AППAPATYPЫ BЫЧИCЛИTEЛЬHOГO KOMПЛEKCA.                                              
+*S ДЛЯ OБMEHA ИHФOPMAЦИEЙ C ЭBM БЭCM-6 И MBK "ЭЛЬБPYC 1-K2"                        
+ИCПOЛЬЗYЮTCЯ MAГHИTHЫE ЛEHTЫ TИПA EC, PAБOTAЮЩИE                                   
+B PEЖИME EC.                                                                       
+*P*2/*MD3. OПИCAHИE ЛOГИЧECKOЙ CTPYKTYPЫ OC                                        
+*2S3.1. CTPYKTYPHЫE EДИHИЦЫ OC.                                                    
+*2S OПEPAЦИOHHAЯ CИCTEMA ДИCПAK ПPEДCTABЛЯET COБOЙ                                 
+COBOKYПHOCTЬ БOЛЬШOГO ЧИCЛA CЛYЖEБHЫX ПPOГPAMM,                                    
+CBЯЗAHHЫX MEЖДY COБOЙ B EДИHЫЙ ИEPAPXИЧECKИЙ KOMПЛEKC.                             
+ПO ФYHKЦИOHAЛЬHЫM И OPГAHИЗAЦИOHHЫM ПPИHЦИПAM                                      
+B CTPYKTYPE ЭTOГO KOMПЛEKCA MOЖHO BЫДEЛИTЬ ЧETЫPE                                  
+OCHOBHЫE ЧACTИ:                                                                    
+*/- CYПEPBИЗOP;                                                                    
+*/- YПPABЛЯЮЩYЮ ПPOГPAMMY;                                                         
+*/- MOHИTOP;                                                                       
+*/- БЛOK OБPAБOTKИ ЭKCTPAKOДOB.                                                    
+*S KAЖДAЯ ИЗ ЭTИX ЧACTEЙ B CBOЮ OЧEPEДЬ ECTЬ                                       
+COBOKYПHOCTЬ COГЛACOBAHHЫX MEЖДY COБOЙ CЛYЖEБHЫX ПPOГPAMM.                         
+ЧACTЬ CЛYЖEБHЫX ПPOГPAMM PAЗMEЩAETCЯ ПOCTOЯHHO B OПEPATИBHOЙ                       
+ПAMЯTИ, OБPAЗYЯ PEЗИДEHT OC, OCTAЛЬHЫE XPAHЯTCЯ BO                                 
+BHEШHEЙ ПAMЯTИ И B OБЛACTИ OП, ИMИTИPYЮЩEЙ BHEШHЮЮ ПAMЯTЬ                          
+(ПPOГPAMMHЫЙ MAГHИTHЫЙ БAPAБAH, CИCTEMHЫЙ MAГHИTHЫЙ ДИCK).                         
+ЭTИ CЛYЖEБHЫE ПPOГPAMMЫ HAЗЫBAЮTCЯ HEPEЗИДEHTAMИ OC И                              
+BЫЗЫBAЮTCЯ B OПEPATИBHYЮ ПAMЯTЬ ПO MEPE HAДOБHOCTИ.                                
+B PEЗИДEHTHYЮ ЧACTЬ OC BXOДЯT TAKЖE HEKOTOPЫE ИHФOPMAЦИOHHЫE                       
+И БYФEPHЫE ПOЛЯ.                                                                   
+*2S3.1.1. CYПEPBИЗOP.                                                              
+*2/1) OБCЛYЖИBAET CИCTEMY AППAPATHЫX ПPEPЫBAHИЙ ЭBM.                               
+ПPИ OБCЛYЖИBAHИИ KAKOГO-ЛИБO ПPEPЫBAHИЯ ДOПYCKAETCЯ                                
+BOЗHИKHOBEHИE ДPYГOГO ПPEPЫBAHИЯ БOЛEE BЫCOKOГO                                    
+ПPИOPИTETA;                                                                        
+*/2) OБCЛYЖИBAET CИCTEMY ФИKTИBHЫX ПPEPЫBAHИЙ, TO ECTЬ                             
+ПPEPЫBAHИЙ, BOЗБYЖДAEMЫX CЛYЖEБHЫMИ ПPOГPAMMAMИ OC И                               
+ИCПOЛЬЗYEMЫX ДЛЯ PACПAPAЛЛEЛИBAHИЯ PAБOTЫ OC;                                      
+*/3) OБCЛYЖИBAET KAHAЛЫ CBЯЗИ C BHEШHИMИ YCTPOЙCTBAMИ.                             
+CYПEPBИЗOP ПPИ BBOДE ДAHHЫX ПPИBOДИT ИX K CTAHДAPTHOMY                             
+BHYTPEHHИM KOДAM, A ПPИ BЫBOДE - OT CTAHДAPTHOГO KOДA                              
+K KOДY, COOTBETCTBYЮЩEMY PEAЛЬHOMY KAHAЛY BЫBOДA;                                  
+*/4) PEAГИPYET HA HEKOTOPЫE ДИPEKTИBЫ OПEPATOPA.                                   
+ */5) PEAKЦИЮ HA ABAPИЙHOE COCTOЯHИE CИCTEMЫ.                                      
+*S OБMEH C BHEШHИMИ YCTPOЙCTBAMИ И ПOCTAHOBKA ЗAKAЗOB                              
+ OCYЩECTBЛЯETCЯ ЧEPEЗ EДИHЫЙ БЛOK,                                                 
+KOTOPЫЙ COБИPAET ЗAKAЗЫ OT ИCПOЛHИTEЛЬHЫX БЛOKOB - ДPAЙBEPOB.                      
+CИCTEMA OБMEHA C BHEШHИMИ YCTPOЙCTBAMИ OБECПEЧИBAET:                               
+*/- KOHTPOЛИPYEMЫЙ OБMEH C BHEШHИMИ YCTPOЙCTBAMИ;                                  
+*/- ABTOMATИЧECKOE CЛEЖEHИE ЗA ПOCTAHOBKOЙ И OTKЛЮЧEHИEM                           
+CMEHHЫX HOCИTEЛEЙ;                                                                 
+*/- ПOBTOPEHИE OБMEHA B CЛYЧAE CБOЯ.                                               
+*2S3.1.2. YПPABЛЯЮЩAЯ ПPOГPAMMA.                                                   
+*2S YПPABЛЯЮЩAЯ ПPOГPAMMA BЫПOЛHЯET CЛEДYЮЩИE ФYHKЦИИ:                             
+*/1) ПPИHИMAET И OPГAHИЗYET BЫПOЛHEHИE ДИPEKTИB OПEPATOPA;                         
+*/2) AKTИBИЗИPYET PAБOTY ИCПOЛHИTEЛЬHЫX БЛOKOB  OC  ПO ЗAKAЗY                      
+ ИЛИ ПO TAЙMEPY;                                                                   
+*/3) OCYЩECTBЛЯET PACПPEДEЛEHИE ПPOЦECCOPA MEЖДY ПPOЦECCAMИ                        
+B COOTBETCTBИИ C ИX ПPИOPИTETAMИ;                                                  
+*/4) YПPABЛЯET PACПPEДEЛEHИEM PECYPCOB MEЖДY ПPOЦECCAMИ.                           
+*/5) OCYЩECTBЛЯET MEPЫ ПO CБOPY ИHФOPMAЦИИ OБ                                      
+ИCПOЛЬЗOBAHИИ PECYPCOB OC И HAДEЖHOCTИ                                             
+ФYHKЦИOHИPOBAHИЯ OTДEЛЬHЫX YCTPOЙCTB ЭBM.                                          
+*2S3.1.3. MOHИTOP.                                                                 
+*2S MOHИTOP BЫПOЛHЯET CЛEДYЮЩИE ФYHKЦИИ:                                           
+*/1) OCYЩECTBЛЯET ПPИEM ЗAДAЧ ПOЛЬЗOBATEЛЯ И                                       
+OPГAHИЗYET OЧEPEДЬ ДЛЯ ИX AKTИBИЗAЦИИ;                                             
+*/2) ИHФOPMИPYET OПEPATOPA O ДEЙCTBИЯX, KOTOPЫE                                    
+OH ДOЛЖEH ПPOИЗBECTИ ДЛЯ AKTИBИЗAЦИИ TOЙ ИЛИ ИHOЙ                                  
+ЗAДAЧИ ПOЛЬЗOBATEЛЯ;                                                               
+*/3) OCYЩECTBЛЯET OПEPATИBHOE PACПPEДEЛEHИE PECYPCOB                               
+OC MEЖДY AKTИBИЗИPOBAHHЫMИ ЗAДAЧAMИ ПOЛЬЗOBATEЛЯ                                   
+B ПPOЦECCE ИX BЫПOЛHEHИЯ;                                                          
+*/4) AKTИBИЗИPYET CЛYЖEБHЫE ПPOГPAMMЫ ДЛЯ BЫПOЛHEHИЯ                               
+ЗAДAHИЙ, COДEPЖAЩИXCЯ B ДИPEKTИBAX ЗAДAЧ ПOЛЬЗOBATEЛЯ;                             
+*/5) OCYЩECTBЛЯET ПPEДBAPИTEЛЬHYЮ БYФEPИЗAЦИЮ ДAHHЫX                               
+ДЛЯ ПOCЛEДYЮЩEГO BЫBOДA HA PEAЛЬHЫE YCTPOЙCTBA;                                    
+*/6) OPГAHИЗYET COBMEЩEHHOE BЫПOЛHEHИE AKTИBИЗИPOBAHHЫX                            
+CЛYЖEБHЫX ПPOГPAMM И ЗAДAЧ ПOЛЬЗOBATEЛЯ;                                           
+*/7) OCYЩECTBЛЯET BЫBOД ЗAДAЧ ПOЛЬЗOBATEЛЯ ИЗ OC C                                 
+BЫДAЧEЙ HAKOПЛEHHЫX PEЗYЛЬTATOB ПO CTAHДAPTHЫM                                     
+KAHAЛAM OC;                                                                        
+*/8) YПPABЛЯET OЧEPEДHOCTЬЮ BЫПOЛHEHИЯ ЗAKAЗOB,                                    
+ПOCTYПAЮЩИX ИЗ PAЗЛИЧHЫX ЧACTEЙ OC И ИЗ ЗAДAЧ                                      
+ПOЛЬЗOBATEЛЯ, HA OБMEH C BHEШHEЙ ПAMЯTЬЮ ИЛИ                                       
+ПO KAHAЛAM BBOДA-BЫBOДA;                                                           
+*/9) BEДET YЧET PACXOДOBAHИЯ PECYPCOB ПPИ BЫПOЛHEHИИ                               
+KAЖДOЙ AKTИBИЗИPOBAHHOЙ ЗAДAЧИ ПOЛЬЗOBATEЛЯ И ПEPEДAET                             
+HAKOПЛEHHYЮ ИHФOPMAЦИЮ OБ ЭTOM БЛOKY CБOPA CTATИCTИЧECKOЙ                          
+ИHФOPMAЦИИ ПOCЛE BЫBOДA ЗAДAЧ ПOЛЬЗOBATEЛЯ ИЗ BC.                                  
+*2S3.1.4. БЛOK OБPAБOTKИ ЭKCTPAKOДOB.                                              
+*2S БЛOK OБPAБOTKИ ЭKCTPAKOДOB ИHTEPПPETИPYET MAKPOKOMAHДЫ,                        
+BCTPEЧAЮЩИECЯ ПPИ BЫПOЛHEHИИ ПPOГPAMM B PEЖИME ПOЛЬЗOBATEЛЯ                        
+ И B OC. HAЛИЧИE ЭKCTPAKOДOB OБECПEЧИBAET PACШИPEHИE CИCTEMЫ                       
+KOMAHД, ЧTO COЗДAET ЭKOHOMИЮ MATEMATИЧECKOЙ ПAMЯTИ, HECKOЛЬKO YCKOPЯET             
+ BЫЧИCЛEHИЯ ЗA CЧET БOЛEE БЫCTPOГO BЫЧИCЛEHИЯ CTAHДAPTHЫX ФYHKЦИЙ                  
+И ДAET ГИБKИЙ ИHTEPФEЙC ДЛЯ OБPAЩEHИЯ K OC. CAMA OПPEЦИOHHAЯ                       
+CИCTEMA ШИPOKO ИCПOЛЬЗYET BOЗMOЖHOCTИ ЭKCTPAKOДOB ДЛЯ CBЯЗИ OTДEЛЬHЫX              
+ ПPOЦECCOB MEЖДY COБOЙ.                                                            
+*S БЛOK OБPAБOTKИ ЭKCTPAKOДOB BЫПOЛHЯET CЛEДYЮЩИE                                  
+ФYHKЦИИ:                                                                           
+*/1) ДEШИФPAЦИЮ ЭKCTPAKOДOB;                                                       
+*/2) AKTИBИЗAЦИЮ HEOБXOДИMЫX ИCПOЛHИTEЛEЙ;                                         
+*/3) AKTИBИЗAЦИЮ ПPOЦECCA, BЫДABШEГO ЭKCTPAKOД, ПOCЛE EГO                          
+ИCПOЛHEHИЯ;                                                                        
+*/4) YCTAHABЛИBAET COOTBETCTBИE MEЖДY AБCTPAKTHЫM                                  
+KAHAЛOM BBOДA-BЫBOДA, YKAЗAHHЫM B ЭKCTPAKOДE ЗAДAЧИ                                
+ПOЛЬЗOBATEЛЯ, И COOTBETCTBYЮЩEЙ ЧACTЬЮ БYФEPA BBOДA-BЫBOДA;                        
+*/5) YCTAHABЛИBAET COOTBETCTBИE MEЖДY AБCTPAKTHЫM И                                
+PEAЛЬHЫM KAHAЛAMИ BBOДA-BЫBOДA.                                                    
+ OCHOBHЫE ЧACTИ OC ПPEДCTABЛEHЫ HA PИC.1.                                          
+*0RL                                                                               
+*/*D                                                                               
+*/*D  I---------I                  I-------------I                                 
+*/*D  I         I                  I YПPABЛЯЮЩAЯ I                                 
+*/*D  I MOHИTOP I------------------I             I                                 
+*/*D  I         I                  I  ПPOГPAMMA  I                                 
+*/*D  I---------I                  I-------------I                                 
+*/*D       I                          I   I   I                                    
+*/*D       I                          I   I   I                                    
+*/*D  I--------------I                I   I   I------I                             
+*/*D  I              I                I   I          I                             
+*/*D  I    ЗAДAЧИ    I----------------I   I   I-------------I                      
+*/*D  I ПOЛЬЗOBATEЛЯ I                    I   I    БЛOK     I                      
+*/*D  I              I                    I   I OБPAБOTKИ   I                      
+*/*D  I--------------I                    I   I ЭKCTPAKOДOB I                      
+*/*D                                      I   I-------------I                      
+*/*D                                      I                                        
+*/*D  I--------------I           I----------------I                                
+*/*D  I              I           I                I                                
+*/*D  I AППAPATYPA   I-----------I  CYПEPBИЗOP    I                                
+*/*D  I              I           I                I                                
+*/*D  I--------------I           I----------------I                                
+*/*D                                                                               
+*/*D                                                                               
+*/*D               OCHOBHЫE ЧACTИ OC ДИCПAK.                                       
+*/*D                                                                               
+*/*D                        PИC.1.                                                 
+*0RL*P*S 3.2. AЛГOPИTM HAЧAЛA PAБOTЫ OC ДИCПAK                                     
+*/*D                                                                               
+*/*D             1                             2                                   
+*/*D                                                                               
+*/*D      ***************                                                          
+*/*D     *               *                                                         
+*/*DA    *    HAЧAЛO     *                                                         
+*/*D     *               *                                                         
+*/*D      ***************                                                          
+*/*D             I              I--------------I                                   
+*/*D             I              I              I                                   
+*/*D      ППO    V              I      ГEHC    V PEЖИM 1                           
+*/*D     *****************      I      *****************                           
+*/*D     *               *      I      *               *                           
+*/*D     * ЧTEHИE C ГMД  *      I      * ЧTEHИE        *                           
+*/*DB    *               *      I      *               *                           
+*/*D     * B OП ПPOГPAM- *      I      * ПAPAMETPOB    *                           
+*/*D     *               *      I      *               *                           
+*/*D     * MЫ "CEPBИCTCT"*      I      * ГEHEPAЦИИ     *                           
+*/*D     *****************      I      *****************                           
+*/*D             I              I              I                                   
+*/*D             I              I              I                                   
+*/*D   CEPBИCTCT V              I              V                                   
+*/*D     *****************      I      *****************                           
+*/*D     *               *      I      *               *                           
+*/*D     * ПEPEПИCЬ ГOTO-*      I      * ПEPEПИCЬ OC   *                           
+*/*DC    *               *      I      *               *                           
+*/*D     * BЫX ПPOГPAMM  *      I      * PEЖИMA 1 HA   *                           
+*/*D     *               *      I      *               *                           
+*/*D     * OC B OП       *      I      * CBOE MECTO    *                           
+*/*D     *****************      I      *****************                           
+*/*D             I              I              I                                   
+*/*D             V              I              V                                   
+*/*D     *****************      I      *****************                           
+*/*D     *               *      I      *               *                           
+*/*D     * ФOPMИPOBAHИE  *      I      *    POCПИCЬ    *                           
+*/*DD    *               *      I      *               *                           
+*/*D     * ПPИПИCKИ.     *      I      *   KATAЛOГOB   *                           
+*/*D     *               *      I      *               *                           
+*/*D     *               *      I      *               *                           
+*/*D     *****************      I      *****************                           
+*/*D             I              I              I                                   
+*/*D             I              I              I                                   
+*/*D      OC4    V PEЖИM 3      I              V                                   
+*/*D     *****************      I      *****************                           
+*/*D     *               *      I      *               *                           
+*/*D     * ПEPEПИCЬ ГEHC *      I      *   ABAPИЙHOE   *                           
+*/*DE    *               *      I      *               *                           
+*/*D     * И OC PEЖИMA 3 *      I      *  ЗABEPШEHИE   *                           
+*/*D     *               *      I      *               *                           
+*/*D     * HA CBOИ MECTA *      I      *     ЗAДAЧ     *                           
+*/*D     *****************      I      *****************                           
+*/*D             I              I              I                                   
+*/*D             I--------------I            *****                                 
+*/*D                                         * 1 *                                 
+*/*DF                                        *   *                                 
+*/*D                                          * *                                  
+*/*D                                           *                                   
+*/*D                                                                               
+*/*D                                                                               
+*P*/                                                                               
+*/*D             1                             2                                   
+*/*D                                                                               
+*/*D           *****                                                               
+*/*D           *`1 *                                                               
+*/*DA          *   *                                                               
+*/*D            * *                                                                
+*/*D             *                                                                 
+*/*D             I                                                                 
+*/*D             O------------O<---------------I                                   
+*/*D     ДИCП80  V            I        HOMБOБ  I PEЖИM 1                           
+*/*D     *****************    I        *****************                           
+*/*D     *               *    I        *               *                           
+*/*D     * БЛOK BЫБOPA   *    I        * ФИKCAЦИЯ ИЗME-*                           
+*/*DB    *               *    I        *               *                           
+*/*D     * ЗAДAЧ. ЖДYЩИЙ *    I        * HEHИЯ COCTOЯ- *                           
+*/*D     *               *    I        *               *                           
+*/*D     * TECT PEЖИMA 1 *    I        * HИЯ MД, MЛ    *                           
+*/*D     *****************    I        *****************                           
+*/*D             I            I                X                                   
+*/*D             V            I                I                                   
+*/*D            .*.           I        *****************                           
+*/*D          .*   *.         I        *               *                           
+*/*D        .*       *.       I        *               *                           
+*/*D      .*  TAЙMEP   *. HET I        *               *                           
+*/*DC    *.             .*----I   I--->*    KЛЮЧ:=0    *                           
+*/*D       *. ПPEPBAЛ`.*          I    *               *                           
+*/*D         *.     .*            I    *               *                           
+*/*D           *. .*              I    *****************                           
+*/*D             *                I                                                
+*/*D             I ДA             I                                                
+*/*D             V                I    OC4       PEЖИM 3                           
+*/*D            .*.               I    *****************                           
+*/*D          .*   *.             I    *               *                           
+*/*D        .*       *.           I    * БЛOK BЫБOPA   *                           
+*/*D      .*           *.  1      I    *               *                           
+*/*DD    *.    KЛЮЧ=    .*--------I    * ЗAДAЧ. ЖДYЩИЙ *                           
+*/*D       *.         .*               *               *                           
+*/*D         *.     .*                 * TECT PEЖИMA 3 *                           
+*/*D           *. .*                   *****************                           
+*/*D             *                             X                                   
+*/*D             I 0                           I                                   
+*/*D             V                     ЗBOHOK  I PEЖИM 3                           
+*/*D     *****************             *****************                           
+*/*D     *               *             *               *                           
+*/*D     *               *             * ФИKCAЦИЯ ИЗME-*                           
+*/*DE    *   KЛЮЧ:=1     *------------>*               *                           
+*/*D     *               *             * HEHИЯ COCTOЯ- *                           
+*/*D     *               *             *               *                           
+*/*D     *               *             * HИЯ MД, MЛ    *                           
+*/*D     *****************             *****************                           
+*P*/                                                                               
+*/*D                                                                               
+*/*D                ******                                                         
+*/*D          ******     *                                                         
+*/*D     *****  ДИPEKTИ- *                                                         
+*/*D     *               *                                                         
+*/*DA    * BЫ OПEPATOPA  *                                                         
+*/*D     *               *                                                         
+*/*D     * "CME", "BPE"  *                                                         
+*/*D     *****************                                                         
+*/*D             I                                                                 
+*/*D             I                                                                 
+*/*D     ПPИKAЗ  V PEЖИM 1                                                         
+*/*D     *****************                                                         
+*/*D     *               *                                                         
+*/*D     * OTKPЫTИE BCEX *                                                         
+*/*D     *               *                                                         
+*/*DB    *   PAБOT       *                                                         
+*/*D     *               *                                                         
+*/*D     *               *                                                         
+*/*D     *****************                                                         
+*/*D             I                                                                 
+*/*D             V                                                                 
+*/*D     *****************                                                         
+*/*D     *               *                                                         
+*/*D     * BЫДAЧA ABAPИЙ-*                                                         
+*/*D     *               *                                                         
+*/*DC    * HЫX COOБЩEHИЙ *                                                         
+*/*D     *               *                                                         
+*/*D     * HA TEPMИHAЛ   *                                                         
+*/*D     *****************                                                         
+*/*D             I                                                                 
+*/*D             V                                                                 
+*/*D     *****************                                                         
+*/*D     *               *                                                         
+*/*D     * ФOPMИPOBAHИE  *                                                         
+*/*D     *               *                                                         
+*/*DD    *    APXИBA     *                                                         
+*/*D     *               *                                                         
+*/*D     *               *                                                         
+*/*D     *****************                                                         
+*/*D             I                                                                 
+*/*D             V                                                                 
+*/*D     *****************                                                         
+*/*D     *               *                                                         
+*/*D     * ПEPEXOД HA    *                                                         
+*/*D     *               *                                                         
+*/*DE    * ЖДYЩИЙ TECT   *                                                         
+*/*D     *               *                                                         
+*/*D     * PEЖИMA 1      *                                                         
+*/*D     *****************                                                         
+*/*D             I                                                                 
+*/*D             V                                                                 
+*/*D           *****                                                               
+*/*D           * 1 *                                                               
+*/*DF          *   *                                                               
+*/*D            * *                                                                
+*/*D             *                                                                 
+*/*D                                                                               
+*/*D                                                                               
+*P*1RL*2S3.3. ИCПOЛЬЗYEMЫE METOДЫ                                                  
+*2S3.3.1. METOД CTPAHИЧHOЙ OPГAHИЗAЦИИ ПAMЯTИ.                                     
+*2S OПEPAЦИOHHAЯ CИCTEMA OPИEHTИPYETCЯ HA AППAPATHO                                
+ПOДДEPЖИBAEMYЮ CTPAHИЧHYЮ OPГAHИЗAЦИЮ ПAMЯTИ.                                      
+ПPИ PAБOTE B ПEPBOM PEЖИME (PEЖИM KOPOTKOГO AДPECA)                                
+ДЛИHA CTPAHИЦЫ COCTABЛЯET 1K CЛOB (K=1024).                                        
+OБMEHЫ C BHEШHEЙ ПAMЯTЬЮ B ЭTOM PEЖИME PAЗPEШEHЫ                                   
+KBAHTAMИ PABHЫMИ CTPAHИЦE, A C MAГHИTHЫMИ ЛEHTAMИ                                  
+B PEЖИME EC И C ЛOГИЧECKИMИ MAГHИTHЫMИ БAPAБAHAMИ                                  
+TAKЖE ЧETBEPTЬЮ CTPAHИЦЫ.                                                          
+ПPИ PAБOTE B TPETЬEM PEЖИME (PEЖИM ДЛИHHOГO AДPECA)                                
+ДЛИHA CTPAHИЦЫ COCTABЛЯET 32K CЛOB.                                                
+*2S3.3.2. METOД MOДYЛЬHOCTИ OC.                                                    
+*2S OПEPAЦИOHHAЯ CИCTEMA ДИCПAK ПPEДCTABЛЯET COБOЙ                                 
+HAБOP MOДYЛEЙ ПPOГPAMM, KOTOPЫE MOГYT БЫTЬ HAПИCAHЫ                                
+И ПPOTPAHCЛИPOBAHЫ HEЗABИCИMO ДPYГ OT ДPYГA.                                       
+ПOЛYЧEHHЫE ПOCЛE TPAHCЛЯЦИИ OБ'EKTHЫE MOДYЛИ                                       
+OБ'EДИHЯET И                                                                       
+ПPEBPAЩAET B ГOTOBЫE ПPOГPAMMЫ KOMПOHOBЩИK.                                        
+ПPOГPAMMЫ ДЛЯ ПEPBOГO И TPETЬEГO PEЖИMOB TPAHCЛИPYЮTCЯ                             
+И KOMПAHYЮTCЯ HEЗABИCИMO ДPYГ OT ДPYГA.                                            
+*2S3.4. COCTABHЫE ЧACTИ OПEPAЦИOHHOЙ CИCTEMЫ.                                      
+*2S B COCTAB OПEPAЦИOHHOЙ CИCTEMЫ ДOЛЖHЫ BXOДИTЬ CЛEДYЮЩИE                         
+OCHOBHЫE ЧACTИ:                                                                    
+*/- ГEHEPATOP OC;                                                                  
+*/- CИCTEMA YПPABЛEHИЯ ПPOXOЖДEHИEM ЗAДAЧ ЧEPEЗ                                    
+*/  BЫЧИCЛИTEЛЬHYЮ CИCTEMY (ПЛAHИPOBЩИK ЗAДAЧ);                                    
+*/- CИCTEMA YПPABЛEHИЯ BBOДOM/BЫBOДOM (ПЛAHИPOBЩИK PAБOT);                         
+*/- CИCTEMA YПPABЛEHИЯ ПPOЦECCAMИ;                                                 
+*/- CИCTEMA YПPABЛEHИЯ ДAHHЫMИ;                                                    
+*/- ДИAЛOГOBЫЙ OTЛAДЧИK;                                                           
+*/- БЛOKИ OБPAБOTKИ ЭKCTPAKOДOB, OБECПEЧИBAЮЩИE                                    
+*/  CBЯЗЬ OПEPAЦИOHHOЙ CИCTEMЫ C CИCTEMAMИ ПPOГPAMMИPOBAHИЯ                        
+*/  KAK B PEЖИME COBMECTИMOCTИ, TAK И B PEЖИME ДЛИHHOГO                            
+*/  AДPECA.                                                                        
+*S B HИЖECЛEДYЮЩИX PAЗДEЛAX OПИCAHЫ YKAЗAHHЫE OCHOBHЫE                             
+ЧACTИ OC.                                                                          
+ *2S3.5. CBЯЗЬ C ДPYГИMИ ПPOГPAMMAMИ                                               
+*2S CBЯЗЬ OПEPAЦИOHHOЙ CИCTEMЫ C ЗAДAЧAMИ ПOЛЬЗOBATEЛЯ                             
+OCYЩECTBЛЯETCЯ C ПOMOЩЬЮ ЭKCTPAKOДOB И TPAHCЛЯTOPOB C                              
+PAЗЛИЧHЫX ЯЗЫKOB ПPOГPAMMИPOBAHИЯ. TPAHCЛЯTOPЫ B CBOЮ                              
+OЧEPEДЬ CBЯЗAHЫ C OПEPAЦИOHHOЙ CИCTEMOЙ ПOCPEДCTBOM                                
+ЭKCTPAKOДOB. OПИCAHИE ЭKCTPAKOДOB ПPИBEДEHO B ДOKYMEHTE                            
+"OC ДИCПAK. PYKOBOДCTBO ПPOГPAMMИCTA" ИЫ.00110-01 33 01.                           
+B HACTOЯЩEE BPEMЯ OПEPAЦИOHHOЙ CИCTEMOЙ ДИCПAK                                     
+PAБOTAЮT CИCTEMЫ ПPOГPAMMИPOBAHИЯ И TPAHCЛЯTOPЫ:                                   
+*/ - MOHИTOPHAЯ CИCTEMA "ДYБHA";                                                   
+*/ - MOHИTOP-80;                                                                   
+*/ - CИCTEMA БЭCM-AЛГOЛ;                                                           
+*/ - TPAHCЛЯTOP C MAKPOKOДA "БEMШ";                                                
+*/ - TPAHCЛЯTOP C ABTOKOДA ИTM;                                                    
+*/ - CИCTEMA ПPOГPAMMИPOBAHИЯ C ACCEMБЛEPOM BK "ЭЛЬБPYC 1-KБ".                     
+*P*2/*MD4. ГEHEPATOP OC                                                            
+*2S ГEHEPATOP OПEPAЦИOHHOЙ CИCTEMЫ BKЛЮЧAET B CEБЯ                                 
+MOДYЛИ ГEHC, ГEHC1, ГEHC2, ЗBOHOK.                                                 
+MOДYЛЬ ЗBOHOK PAБOTAET B TPETЬEM PEЖИME, MOДYЛИ ГEHC,                              
+ГEHC1, ГEHC2 - B ПEPBOM PEЖИME.                                                    
+ГEHEPATOP CИCTEMЫ BЫПOЛHЯET CЛEДYЮЩИE OCHOBHЫE ФYHKЦИИ:                            
+*/1) ЧTEHИE ПAPAMETPOB ГEHEPAЦИИ C ЗOHЫ CИCTEMHOГO MД;                             
+*/2) BЫБOP ЗAДAHHOГO HAБOPA ПAPAMETPOB ГEHEPAЦИИ;                                  
+*/3) ПEPEПИCЬ ГOTOBЫX ПPOГPAMM OC HA CBOИ PAБOЧИE MECTA;                           
+*/4) POCПИCЬ KATAЛOГOB OC, ECЛИ ЭTO БЫЛO ЗAДAHO HA                                 
+*/   ЛOГИЧECKOM TYMБЛEPHOM PEГИCTPE;                                               
+*/5) OПPEДEЛEHИE YCTAHOBЛEHHЫX TOMOB MД И MЛ,                                      
+*/   ЗAHECEHИE ИHФOPMAЦИИ O HИX B CИCTEMHЫE TAБЛИЦЫ;                               
+*/6) ФOPMИPOBAHИE ШKAЛ ДЛЯ PAБOTЫ C TEPMИHAЛAMИ;                                   
+*/7) ABAPИЙHOE ЗABEPШEHИE ЗAДAЧ;                                                   
+*/8) BЫБOP ДATЫ ИЗ ЗOHЫ CTATИCTИKИ;                                                
+*/9) BЫДAЧA COOБЩEHИЙ HA TEPMИHAЛ OБ YCTAHOBЛEHHЫX                                 
+*/   MД, MЛ, TEKYЩEЙ ДATE, PECYPCAX OC, ABAPИЙHЫX ЗAДAЧAX;                         
+*/10) ПEPEXOД HA ЖДYЩИЙ TECT B БЛOK BЫБOPA ЗAДAЧ.                                  
+*2S K MOMEHTY HAЧAЛA PAБOTЫ ГEHEPATOPA HA ЛOГИЧECKOM                               
+TYMБЛEPHOM PEГИCTPE (CЛOBO 1) YЖE ДOЛЖHA БЫTЬ ЗAДAHA                               
+HEOБXOДИMAЯ ИHФOPMAЦИЯ:                                                            
+*/- B 1-3 PAЗPЯДAX - HOMEP ЭBM, ECЛИ ЭTИ PAЗPЯДЫ PABHЫ                             
+*/  HYЛЮ, HOMEP ЭBM ПPИHИMAETCЯ PABHЫM EДИHИЦE;                                    
+*/- B 25-28 PAЗPЯДAX - HOMEP BAPИAHTA ПAPAMETPOB                                   
+*/  ГEHEPAЦИИ, ECЛИ B ЭTOM ПOЛE HYЛИ, ПPИHИMAETCЯ                                  
+*/  ПEPBЫЙ BAPИAHT;                                                                
+*/- B 48 PAЗPЯДE - HEOБXOДИMOCTЬ POCПИCИ KATAЛOГOB.                                
+*/ HOMEPA PAЗPЯДOB ПPИBEДEHЫ B ПPEДCTABЛEHИИ БЭCM-6.                               
+*S BAPИAHTЫ ПAPAMETPOB ГEHEPAЦИИ PAЗMEЩEHЫ B 750 ЗOHE                              
+CИCTEMHOГO MД. OHИ ПPEДCTABЛЯЮT COБOЙ HAБOPЫ KOHCTAHT                              
+ПO 40(8) CЛOB, COДEPЖAЩИE ИHФOPMAЦИЮ O HOMEPE ЭBM,                                 
+HOMEPAX MД ЗAГPYЗKИ, BBOДA И BЫBOДA, ПOCЛEДHИX ЦИФPAX                              
+ГOДA, BЛAДEЛЬЦE ЭBM, ПOДKЛЮЧEHИИ БЮДЖETHOЙ И APXИBHOЙ                              
+CИCTEM, ПOДKЛЮЧEHHЫX TEPMИHAЛAX И BЫДEЛEHИИ CPEДИ HИX                              
+OПEPATOPCKИX, И ДPYГИE CBEДEHИЯ.                                                   
+*S ПPИ BЫЗOBE OC HOMEP TPEБYEMOГO HAБOPA ЗAДAETCЯ HA                               
+ЛOГИЧECKOM TYMБЛEPHOM PEГИCTPE (25-28 PAЗPЯДЫ),                                    
+ECЛИ ЭTИ PAЗPЯДЫ PABHЫ HYЛЮ, BЫБИPAETCЯ HAБOP HOMEP 1                              
+ДЛЯ ЗAДAHHOГO HOMEPA ЭBM. ECЛИ HE HAXOДИTCЯ BAPИAHTA                               
+C TPEБYEMЫM HOMEPOM ДЛЯ YKAЗAHHOЙ ЭBM, ПPOГPAMMA                                   
+BЫXOДИT HA ФATAЛЬHЫЙ (HEПPOTAЛKИBAEMЫЙ) CTOП C AДPECHOЙ                            
+ЧACTЬЮ "11111".                                                                    
+*S HAЙДEHHЫЙ HAБOP ПAPAMETPOB ГEHEPAЦИИ ПEPEПИCЫBAETCЯ                             
+B ПOЛE "ПAPOC", PACПOЛOЖEHHOE B AДPECAX ПAMЯTИ                                     
+71740-71777(8), ДЛЯ ДAЛЬHEЙШEЙ PAБOTЫ C HИM.                                       
+*S HYMEPAЦИЯ HAБOPOB PAЗДEЛЬHAЯ ДЛЯ KAЖДOЙ ЭBM.                                    
+TAKИX HAБOPOB KOHCTAHT MOЖHO ИMETЬ ДO 15 ДЛЯ BCEX ЭBM.                             
+*S HAБOPЫ KOHCTAHT ГOTOBЯTCЯ ЗAPAHEE C ПOMOЩЬЮ ДИPEKTИBЫ                           
+"ГEHC" CEPBИCHOЙ ПPOГPAMMЫ "CEPП". PAБOTA C ЭTOЙ ДИPEKTИBOЙ                        
+И OПИCAHИE ПAPAMETPOB ГEHEPAЦИИ ПPИBEДEHO B ДOKYMEHTE                              
+"OC ДИCПAK. PYKOBOДCTBO CИCTEMHOГO ПPOГPAMMИCTA"                                   
+*/ ИЫ.00110-01 32 01.                                                              
+*P*2/*MD5. ПЛAHИPOBЩИK ЗAДAЧ                                                       
+*2S K ПЛAHИPOBЩИKY ЗAДAЧ OTHOCЯTCЯ                                                 
+MOДYЛИ HПЛAH, HПЛAH2, БOП, БOП1, БOП2, ПPИK, ПPИK1-ПPИK10.                         
+*S OCHOBHЫE ФYHKЦИИ ПЛAHИPOBЩИKA PAБOT:                                            
+*/1) ЧTEHИE KATAЛOГOB BBOДA;                                                       
+*/2) BЫБOP ЗAДAЧИ B PEШEHИE:                                                       
+*/ - OБPAБOTKA ПACПOPTA;                                                           
+*/ - ПPOBEPKA PEЖИMOB PAБOTЫ OC (CTOП, CПEЦ, OTЛ, БЮДЖET);                         
+*/ - ПPOBEPKA HAЛИЧИЯ TPEБYEMЫX TOMOB;                                             
+*/ - ПPOBEPKA HAЛИЧИЯ PECYPCOB;                                                    
+*/ - ПPOBEPKA HAЛИЧИЯ KAHAЛOB;                                                     
+*/ - BKЛЮЧEHИE ЗAДAЧИ B PEШEHИE;                                                   
+*/3) OБPAБOTKA KOHЦA ЗAДAЧИ;                                                       
+*/4) OБPAБOTKA ДИPEKTИB OПEPATOPA.                                                 
+*2S5.1. KЛACCЫ ЗAДAЧ                                                               
+*2S B OC ДИCПAK BCE ПOЛЬЗOBATEЛЬCKИE ЗAДAЧИ, ПOCTYПAЮЩИE ДЛЯ                       
+PEШEHИЯ HA BЫЧИCЛИTEЛЬHOM KOMПЛEKCE, ПOПAДAЮT CHAЧAЛA HA БYФEP                     
+BBOДA, OБPAЗYЯ BXOДHYЮ OЧEPEДЬ ЗAДAЧ.                                              
+ДЛЯ TOГO, ЧTOБЫ BKЛЮЧИTЬ ЗAДAЧY B PEШEHИE ИЗ BXOДHOЙ                               
+OЧEPEДИ, EЙ HYЖHO BЫДEЛИTЬ ПPOГPAMMHЫЙ KAHAЛ И HEOБXOДИMЫE                         
+PECYPCЫ, YKAЗAHHЫE B ПACПOPTE ЗAДAЧИ. B OC ДИCПAK ИMEETCЯ                          
+96 ПPOГPAMMHЫX KAHAЛOB, CPEДИ KOTOPЫX MOЖET БЫTЬ ДO                                
+48 ПOЛЬЗOBATEЛЬCKИX ЗAДAЧ И 48 CЛYЖEБHЫX ЗAДAЧ.                                    
+K ЧИCЛY ЗAДAЧ, KOTOPЫE HEЛЬЗЯ BЫБPATЬ B PEШEHИE                                    
+ИЗ BXOДHOЙ OЧEPEДИ ДAЖE ПPИ HAЛИЧИИ PECYPCOB, OTHOCЯTCЯ:                           
+*/- TEPMИHAЛЬHЫE ЗAДAЧИ, TO ECTЬ ЗAДAЧИ C PAЗДEЛOM                                 
+*/  "TEЛE" B ПACПOPTE;                                                             
+*/- ЗAДAЧИ, B ПACПOPTE KOTOPЫX ECTЬ PAЗДEЛ "ЖДEM"                                  
+*/  (ЖДEM ШИФPA ИЛИ ЖДEM BPEMEHИ);                                                 
+*/- ЗAДAЧИ, B ПACПOPTE KOTOPЫX ECTЬ PAЗДEЛ "MAШ",                                  
+*/  YKAЗЫBAЮЩИЙ, HA KAKOЙ ИЗ ЭBM MHOГOMAШИHHOГO                                    
+*/  KOMПЛEKCA OHИ MOГYT БЫTЬ BKЛЮЧEHЫ B PEШEHИE;                                   
+*/- ЗAДAЧИ, BЫБOP KOTOPЫX B PEШEHИE ПO KAKOЙ-ЛИБO                                  
+*/  ПPИЧИHE ЗAПPEЩEH БЮДЖETHOЙ CИCTEMOЙ.                                           
+*S BCE ПOЛЬЗOBATEЛЬCKИE ЗAДAЧИ, ПOCTYПAЮЩИE BO BXOДHYЮ                             
+OЧEPEДЬ, ДEЛЯTCЯ HA 9 KЛACCOB. CTAHДAPTHOE                                         
+PACПPEДEЛEHИE ЗAДAЧ HA KЛACCЫ B CИCTEME:                                           
+*/- 0 KЛACC - ЗAДAЧИ C BPEMEHEM PEШEHИЯ БOЛEE 10 MИH 40 CEK;                       
+*/- 1 KЛACC - ЗAДAЧИ C BPEMEHEM PEШEHИЯ OT 5 MИH 20 CEK.                           
+*/  ДO 10 MИH 40 CEK;                                                              
+*/- 2 KЛACC - ЗAДAЧИ C BPEMEHEM PEШEHИЯ OT 2 MИH 40 CEK                            
+*/  ДO 5 MИH 20 CEK;                                                               
+*/- 3 KЛACC - ЗAДAЧИ C BPEMEHEM PEШEHИЯ OT 2 MИH 40 CEK                            
+*/  ДO 2 MИH 40 CEK;                                                               
+*/- 4 KЛACC - ЗAДAЧИ C BPEMEHEM PEШEHИЯ MEHEE 1 MИH 20 CEK;                        
+*/- 5 KЛACC - TEPMИHAЛЬHЫE ЗAДAЧИ;                                                 
+*/- 6 И 7 KЛACCЫ - ЗAДAЧИ ИЗ ПPИOPИTETHOГO KATAЛOГA;                               
+*/- 8 KЛACC - ЗAДAЧИ PEAЛЬHOГO BPEMEHИ.                                            
+*S KAЖДЫЙ PAЗ, KOГДA ПOЯBЛЯETCЯ BOЗMOЖHOCTЬ                                        
+BKЛЮЧEHИЯ ЗAДAЧИ B PEШEHИE, ПPOCMATPИBAЮTCЯ ЗAДAЧИ                                 
+CHAЧAЛA OДHOГO KЛACCA, ЗATEM BCE ЗAДAЧИ ДPYГOГO KЛACCA                             
+И TAK ДAЛEE, ПOKA HE БYДYT ПPOCMOTPEHЫ ЗAДAЧИ BCEX                                 
+KЛACCOB. ПOPЯДOK ПPOCMOTPA MOЖET БЫTЬ ИЗMEHEH                                      
+ДИPEKTИBOЙ "ПЛAH" CEPBИCHOЙ ПPOГPAMMЫ "CEPП".                                      
+*2S5.2. OБ'EДИHEHHЫЙ БYФEP BBOДA-BЫBOДA B OC.                                      
+*2S5.2.1. ПPИ ИCПOЛЬЗOBAHИИ OC  ДИCПAK B PAЗЛИЧHЫX                                 
+KOHФИГYPAЦИЯX BЫЧИCЛИTEЛЬHЫX                                                       
+CИCTEM И HA PAЗHOOБPAЗHЫX KЛACCAX ЗAДAЧ CTOЯЛA ПPOБЛEMA OБ'EMA                     
+БYФEPA BBOДA И БYФEPA BЫBOДA, TAK KAK ЧACTO BOЗHИKAЛA CИTYAЦИЯ,                    
+KOГДA HE БЫЛO MECTA HA БYФEPE BBOДA, B TO BPEMЯ, KAK HA БYФEPE BЫBOДA              
+БЫЛO CBOБOДHOE ПPOCTPAHCTBO. ПOЭTOMY ПOЯBИЛACЬ HEOБXOДИMOCTЬ                       
+OБ'EДИHИTЬ БYФEPA BBOДA И BЫBOДA B EДИHЫЙ ПYЛ.                                     
+TAKOE PACПPEДEЛEHИE CГЛAЖИBAET HEДOCTATKИ B PACПPEДEЛEHИИ ДИCKOBOГO                
+ПPOCTPAHCTBA MEЖДY БYФEPAMИ BBOДA И BЫBOДA.                                        
+BBEДEHИE B OC OБ'EДИHEHHOГO                                                        
+БYФEPA ПOЗBOЛИЛO COKPATИTЬ BPEMЯ OTBETA CИCTEMHЫM ЗAДAЧAM ИЗ-ЗA                    
+YMEHЬШEHИЯ ПEPEMEЩEHИЙ ГOЛOBOK MД ПPИ ПOДBOДAX.                                    
+*SПPИ PAЗPAБOTKE ПPOГPAMMHOГO OБECПEЧEHИЯ БЫЛИ YЧTEHЫ HEДOCTATKИ                   
+MAЛOЙ EMKOCTИ БYФEPA. OБЩAЯ EMKOCTЬ БYФEPA YBEЛИЧEHA ДO 2000(8) ЗOH.               
+*S OБЩEE KOЛИЧECTBO ЗAДAЧ ПOЛЬЗOBATEЛЯ B CИCTEME HE ДOЛЖHO                         
+ПPEBЫШATЬ 255 (256-Ю ЗAДAЧY CИCTEMA HE ПPИMET).                                    
+ИHФOPMAЦИЯ O ЗAДAЧAX ЗAHOCИTCЯ B KATAЛOГИ BBOДA-BЫBOДA,                            
+PACПOЛOЖEHHЫE B 545-547 ЗOHAX CИCTEMHOГO MД.                                       
+*2S5.2.2. B 545 ЗOHE HAXOДИTCЯ KATAЛOГ ШИФPOB И ЗOH BBOДA.                         
+HИЖE ПPИBEДEHA EГO CTPYKTYPA.                                                      
+*S 0 CЛOBO - ПYCTOE.                                                               
+*S B CЛOBAX 1-177(8) - ПEPBЫЙ KATAЛOГ. B HEM HAXOДЯTCЯ                             
+B ДBOИЧHO-ДECЯTИЧHOM BИДE ШИФPЫ BBEДEHHЫX ЗAДAЧ.                                   
+HOMEP CЛOBA COOTBETCTBYET HOMEPY OЧEPEДИ (CKB N). ИЗ                               
+ПEPBOГO KATAЛOГA ЗAДAЧИ HEПOCPEДCTBEHHO BЫБИPAЮTCЯ B PEШEHИE.                      
+*S 200 CЛOBO - ПYCTOE.                                                             
+*S B CЛOBAX 201-377(8) ШИФPЫ ЗAДAЧ, OKOHЧAHИЯ KOTOPЫX                              
+ЖДYT ЗAДAЧИ ПEPBOГO KATAЛOГA (PAЗДEЛ ПACПOPTA "ЖДEM")                              
+COOTBETCTBEHHO CЛOBAM ПEPBOГO KATAЛOГA. KOГДA ЗAДAЧA,                              
+KOTOPYЮ ЖДYT, ЗAKOHЧИЛACЬ, B CЛOBAX 201-377 OБHYЛЯETCЯ                             
+COOTBETCTBYЮЩAЯ CTPOKA. ЗAДAЧИ C PAЗДEЛOM ПACПOPTA "TEЛE"                          
+B CЛOBE ДЛЯ ШИФPA                                                                  
+OЖИДAEMOЙ ЗAДAЧИ ИMEЮT KOД "999999999999". ЗAДAЧИ C                                
+PAЗДEЛAMИ ПACПOPTA "TEЛE" И "ЖДEM" MOГYT ПOПACTЬ                                   
+TOЛЬKO B ПEPBЫЙ KATAЛOГ.                                                           
+*S B CЛOBAX 400-577(8) PACПOЛOЖEH BTOPOЙ KATAЛOГ.                                  
+CTPYKTYPA EГO AHAЛOГИЧHA ПEPBOMY KATAЛOГY. ПPИ OCBOБOЖДEHИИ                        
+MECTA B ПEPBOM KATAЛOГE ЗAДAЧИ ИЗ BTOPOГO KATAЛOГA                                 
+ПEPEXOДЯT B ПEPBЫЙ.                                                                
+*S B CЛOBAX 700-777(8) PAЗMEЩEH KATAЛOГ ПPИOPИTETHЫX                               
+ШИФPOB, HA OДИH ШИФP OTBOДИTCЯ ДBA CЛOBA. ИHФOPMAЦИЯ                               
+B HEГO ЗAHOCИTCЯ ДИPEKTИBOЙ "ПPИO" CEPBИCHOЙ ПPOГPAMMЫ "CEPП".                     
+*S HAЧИHAЯ C 1000(8) CЛOBA PAЗMEЩAETCЯ                                             
+ИHФOPMAЦИЯ O ЗAHЯTЫX ЗOHAX БYФEPA BBOДA-BЫBOДA.                                    
+B KAЖДOM CЛOBE ЭTOГO ПPOCTPAHCTBA ИCПOЛЬЗYЮTCЯ CTAPШИE                             
+32 PAЗPЯДA. CTAPШИЙ PAЗPЯД COOTBETCTBYET HYЛEBOЙ ЗOHE                              
+БYФEPA BBOДA-BЫBOДA.                                                               
+EДИHИЦA B COOTBETCTBYЮЩEM PAЗPЯДE OЗHAЧAET, ЧTO ЗOHA                               
+ЗAHЯTA.                                                                            
+*2S5.2.3. B 546-547 ЗOHAX CИCTEMHOГO MД HAXOДИTCЯ                                  
+БOЛЬШOЙ KATAЛOГ BBOДA. B HEГO ЗAПИCЫBAЮTCЯ ПACПOPTHЫE                              
+ДAHHЫE ЗAДAЧИ. ДЛЯ KAЖДOЙ ЗAДAЧИ OTBOДИTCЯ 8 CЛOB,                                 
+B 10-17(8) CЛOBAX 546-OЙ ЗOHЫ ИHФOPMAЦИЯ O ПEPBOЙ                                  
+B OЧEPEДИ ЗAДAЧE (CKB 1), B 20-27(8) CЛOBAX -                                      
+O BTOPOЙ B OЧEPEДИ ЗAДAЧE (CKB 2) И T.Д.                                           
+B 547 ЗOHE AHAЛOГИЧHAЯ ИHФOPMAЦИЯ O ЗAДAЧAX BTOPOГO                                
+KATAЛOГA.                                                                          
+*P*2/*MD6. ПЛAHИPYЮЩAЯ CИCTEMA BBOДA-BЫBOДA                                        
+*2S ПЛAHИPYЮЩAЯ CИCTEMA BBOДA-BЫBOДA BKЛЮЧAET B CEБЯ                               
+MOДYЛИ B1K, B3B4, B6B7, POБOT, ПEЧATЬ, MOTCBC, HEPOT, PEЗOT, TEPCBC.               
+*2S 6.1. MOДYЛИ B1K, B3B4, B6B7 OБCЛYЖИBAЮT BBOД ЗAДAЧ                             
+B OПEPAЦИOHHYЮ CИCTEMY,                                                            
+A MOДYЛИ POБOT, ПEЧATЬ OCYЩECTBЛЯЮT BЫBOД ИHФOPMAЦИИ                               
+HA PEAЛЬHЫE YCTPOЙCTBA.                                                            
+ЗAДAЧИ BBOДЯTCЯ C ПOMOЩЬЮ                                                          
+ЭKCTPAKOДA ФOPMИPOBAHИЯ ИЗ ДИAЛOГOBЫX CИCTEM.                                      
+C TOЧKИ ЗPEHИЯ ПPOГPAMM BBOДA ЗAДAЧA ПPEДCTABЛЯET                                  
+COБOЙ HAБOP MACCИBOB. ПACПOPT ЗAДAЧИ ЯBЛЯETCЯ                                      
+HYЛEBЫM MACCИBOM.                                                                  
+*/ ПPOГPAMMЫ BBOДA BЫПOЛHЯЮT CЛEДYЮЩИE ФYHKЦИИ:                                    
+*/ 1) ЗAПOЛHEHИE KATAЛOГOB ШИФPOB И ЗOH BBOДA;                                     
+*/ 2) ЗAПOЛHEHИE БOЛЬШOГO KATAЛOГA BBOДA;                                          
+*/ 3) PAЗБИEHИE ЗAДAЧ HA KЛACCЫ И ПPИCBOEHИE ПPИOPИTETOB;                          
+*/ 4) PAЗБOP PAЗДEЛOB ПACПOPTA, ПPOBEPKA ДOПYCTИMOГO                               
+*/    И ЗAДAHHOГO ЧИCЛA ЛИCTOB, TPAKTOB;                                           
+*/ 5) AHAЛИЗ ПPИЗHAKOB BBOДA "A0"-"A5";                                            
+*/ 6) PAБOTA C KATAЛOГAMИ БЮДЖETHOЙ CИCTEMЫ;                                       
+*/ 7) ПOДCЧET И BЫДAЧA OШИБOK BBOДA.                                               
+*S OПИCAHИE ПPИЗHAKOB BBOДA И PAЗДEЛOB ПACПOPTA ПPИBEДEHO                          
+B ДOKYMEHTE "OC ДИCПAK. PYKOBOДCTBO ПPOГPAMMИCTA"                                  
+*/ ИЫ.00110-01 33 01.                                                              
+*2S 6.2. MOДYЛИ PEЗOT, HEPOT, TEPCBC, MOTCBC OБCЛYЖИBAЮT                           
+TEPMИHAЛЫ.                                                                         
+ДЛЯ PAБOTЫ C TEPMИHAЛAMИ OC ИCПOЛЬЗYET PEЖИM HEПOCPEДCTBEHHOГO                     
+ДOCTYПA. B ЭTOM PEЖИME KOHTPOЛИPYETCЯ KAЖДЫЙ CИMBOЛ, ПEPEДABAEMЫЙ                  
+C TEPMИHAЛA. HAИБOЛEE YПOTPEБИTEЛЬHЫM PEЖИMOM PAБOTЫ TEPMИHAЛA                     
+ЯBЛЯETCЯ B ЭTOM CЛYЧAE PEЖИM PAБOTЫ HA ЛИHИЮ. B ЭTOM PEЖИME                        
+KAЖДЫЙ HAБИPAEMЫЙ CИMBOЛ ПEPEДAETCЯ B ЭBM (ПAMЯTЬ ДИCПЛEЯ                          
+ДOCTYПHA ДЛЯ ЗAПИCИ B HEE CИMBOЛOB, ПOCTYПAЮЩИX B ЭBM) И                           
+ЗATEM ПO BTOPOMY KAHAЛY - B TEPMИHAЛ, T.E. YCTAHABЛИBAETCЯ                         
+ДBYCTOPOHHЯЯ CBЯЗЬ TEPMИHAЛA И OC . B ЭTOM CЛYЧAE ЛЮБAЯ OШИБKA                     
+AППAPATYPЫ ИЛИ ПOЛЬЗOBATEЛЯ BЛEЧET BЫДAЧY COOTBETCTBYЮЩEГO                         
+COOБЩEHИЯ: OШИБKИ B PAБOTE ЛИHИИ ИЛИ OШИБKИ B ЗAДAHИИ OПEPAЦИИ                     
+ДЛЯ CИCTEMЫ OБCЛYЖИBAHИЯ TEPMИHAЛOB.                                               
+*SOБMEH ИHФOPMAЦИEЙ C TEPMИHAЛAMИ ИMEET PЯД OCOБEHHOCTEЙ,                          
+KOTOPЫE BЫЗBAHЫ TEXHИЧECKИMИ XAPAKTEPИCTИKAMИ OБOPYДOBAHИЯ                         
+И ПPИCYTCTBИEM ЧEЛOBEKA CO CBOИMИ OCOБEHHOCTЯMИ ПOBEДEHИЯ. ЭTO                     
+ПPEД'ЯBЛЯET OПPEДEЛEHHЫE TPEБOBAHИЯ K OPГAHИЗAЦИИ ПPOГPAMM,                        
+OCOБEHHO MHOГOTEPMИHAЛЬHЫX, T.E. OБCЛYЖИBAЮЩИX HECKOЛЬKO YCTPOЙCTB.                
+*SПPИ PAБOTE C TEPMИHAЛAMИ ПOЛЬЗOBATEЛЬ ДOЛЖEH YKAЗЫBATЬ HOMEPA                    
+YCTPOЙCTB, ПOД KOTOPЫMИ OHИ ФИГYPИPYЮT BHYTPИ OC . ПOЭTOMY, ПPEЖДE,                
+ЧEM HAЧATЬ PAБOTY C TEPMИHAЛOM, HEOБXOДИMO OПPEДEЛИTЬ ЗAKPEПЛEHHЫЙ                 
+ЗA HИM HOMEP И B ДAЛЬHEЙШEM BCEГДA YKAЗЫBATЬ EГO ПPИ PAБOTE. ДЛЯ                   
+ЭTOГO ИMEETCЯ ЭKCTPAKOД OПPEДEЛEHИЯ HOMEPOB TEPMИHAЛOB, ПOДKЛЮЧEHHЫX               
+K ЗAДAЧE.                                                                          
+*SBCE ЭKCTPAKOДЫ, BЫПOЛHЯЮЩИE ФYHKЦИИ, CBЯЗAHHЫE  C OБPAЩEHИEM K                   
+TEPMИHAЛY, YKAЗЫBAЮT HA ИHФOPMAЦИOHHOE CЛOBO OБMEHA. B ЭTOM CЛOBE                  
+YKAЗЫBAETCЯ PACПOЛOЖEHИE ИHФOPMAЦИИ OБMEHA B OП, HOMEP TEPMИHAЛA И                 
+KOД PEЖИMA OБMEHA. PAЗДEЛЬHOE BЫПOЛHEHИE ПPИEMA И ПEPEДAЧИ ПOЗBOЛЯET               
+COЗДATЬ CЛEДYЮЩИE PEЖИMЫ: ПPИEM, BЫДAЧA, ПPИEM C PAЗPЫBOM ДYПЛEKCA И               
+ПPИEM C ПPИГЛAШEHИEM. PEЖИMЫ ПPИEMA И BЫДAЧИ HE TPEБYЮT ПOЯCHEHИЙ.                 
+*SПPИEM C PAЗPЫBOM ДYПЛEKCA ИMEET CMЫCЛ ДЛЯ TEPMИHAЛOB, B KOTOPЫX                  
+CИMBOЛ HE ПOCTYПET HA ЭKPAH, ECЛИ HET CИГHAЛA C ЭBM. EГO YДOБHO                    
+ИCПOЛЬЗOBATЬ ДЛЯ ПOДTBEPЖДEHИЯ PAЗЛИЧHЫX KЛЮЧEЙ, ПAPOЛEЙ.                          
+*SB PEЖИME ПPИEMA C ПPИГЛAШEHИEM BHAЧAЛE ПPOИЗBOДИTCЯ BЫДAЧA                       
+TEKCTA - ПPИГЛAШEHИЯ, ЗATEM TEPMИHAЛ ПEPEBOДИTCЯ B PEЖИM ПPИEMA,                   
+ПPИЧEM BBOДИMЫЙ TEKCT ЗAПИCЫBAETCЯ HA MECTO ПPИГЛAШEHИЯ, ЗAMEHЯЯ                   
+EГO. PEAЛИЗAЦИЯ ЭKCTPAKOДOB OБMEHA BЫПOЛHEHA TAK, ЧTO OБMEH                        
+ПPOИЗBOДИTCЯ ПOCЛEДOBATEЛЬHO, ПPИЧEM OC БEPET HA CEБЯ ФYHKЦИИ ПO                   
+ABTOMATИЧECKOЙ CИHXPOHИЗAЦИИ OБMEHOB И OБPAЩEHИЙ ЧEPEЗ AППAPAT                     
+COБЫTИЙ. TOЛЬKO ПOCЛE OПPOCA ГOTOBHOCTИ TEPMИHAЛOB И ПOЛYЧEHИЯ                     
+OПPEДEЛEHHOГO KOДA OTBETA MOЖHO ПPOДOЛЖATЬ PAБOTY C YCTPOЙCTBOM.                   
+B OCTAЛЬHЫX CЛYЧAЯX ЗAДAЧA CHИMAETCЯ ИЗ-ЗA HEKOPPEKTHOCTИ                          
+OБPAЩEHИЯ K TEPMИHAЛY. ЗAДAЧA, OБCЛYЖИBAЮЩAЯ TEPMИHAЛЫ, MOЖET                      
+OTKAЗATЬCЯ OT ДAЛЬHEЙШEЙ PAБOTЫ C KAKИM - ЛИБO ИЗ HИX, ECЛИ OH                     
+HE ЗAHЯT OБMEHOM.                                                                  
+*SЗAДAЧИ, PAБOTAЮЩИE C TEPMИHAЛAMИ, ДOЛЖHЫ ИMETЬ B ПACПOPTE PAЗДEЛ                 
+"TEЛE". OHИ HAЗЫBAЮTCЯ TEPMИHAЛЬHЫMИ. BЫБOP ИX B PEШEHИE ПPOИЗBOДИTCЯ              
+TOЛЬKO ПOCЛE HAБOPA ПOЛЬЗOBATEЛEM COOTBETCTBYЮЩEЙ ДИPEKTИBЫ,                       
+COДEPЖAЩEЙ ШИФP ИЛИ KЛЮЧ ЗAДAЧИ, ПPИЧEM TEPMИHAЛ, HA KOTOPOM                       
+HAБИPAЛACЬ ДИPEKTИBA, ЗAKPEПЛЯETCЯ ЗA ДAHHOЙ ЗAДAЧEЙ. ECЛИ BKЛЮЧEHИE               
+ЗAДAЧИ B ДAHHЫЙ MOMEHT HEBOЗMOЖHO, HAПPИMEP, ДЛЯ HEE HE YCTAHOBЛEHA                
+ЛEHTA, TO TEPMИHAЛ MOЖET БЫTЬ ИCПOЛЬЗOBAH ДЛЯ BЫЗOBA ДPYГOЙ ЗAДAЧИ.                
+ПEPBAЯ ЗAДAЧA BЫБИPAETCЯ B PEШEHИE ПOCЛE BЫПOЛHEHИЯ BCEX YCЛOBИЙ,                  
+HEOБXOДИMЫX ДЛЯ EE PEШEHИЯ, И OCBOБOЖДEHИЯ TEPMИHAЛA. OHA MOЖET                    
+БЫTЬ BЫЗBAHA C ДPYГOГO TEPMИHAЛA. ДEЙCTBYЮЩEE ПPABИЛO ЗAKPEПЛЯET ЗA                
+ЗAДAЧEЙ TOT TEPMИHAЛ, HA KOTOPOM ПOCЛEДHИЙ PAЗ HAБИPAЛCЯ EE ШИФP                   
+ИЛИ KЛЮЧ. ЗAДAЧИ, PAБOTAЮЩИE C HECKOЛЬKИMИ TEPMИHAЛAMИ, MOГYT БЫTЬ                 
+BЫЗBAHЫ ПO KЛЮЧY ДЛЯ KAЖДOГO HOBOГO TEPMИHAЛA.                                     
+*SCФOPMYЛИPOBAHHЫE ПPИHЦИПЫ PAБOTЫ C TEPMИHAЛAMИ ПOЗBOЛЯЮT                         
+OPГAHИЗOBЫBATЬ PAЗЛИЧHЫE CИCTEMЫ, PAБOTAЮЩИE C TEPMИHAЛAMИ И                       
+ПPEДOCTABЛЯЮЩИE ПOЛЬЗOBATEЛЯM PAЗЛИЧHЫE YCЛYГИ. CPEДИ TAKИX CИCTEM                 
+"YПO", И MHOГИE ДPYГИE. BCE ЭTИ TEPMИHAЛЬHЫE CИCTEMЫ                               
+ИMEЮT CBOИ APXИBЫ, B KOTOPЫX XPAHИTCЯ ИHФOPMAЦИЯ ПOЛЬЗOBATEЛEЙ, И                  
+BCE OHИ ИMEЮT CBOИ ПPABИЛA PAБOTЫ C ФAЙЛAMИ, HO, B CИЛY OБЩИX ЗAДAЧ,               
+ИMEЮT И MHOГO OБЩEГO. KAЖДЫЙ ПOЛЬЗOBATEЛЬ B HИX ПOOЧEPEДHO HAБИPAET                
+KЛЮЧ ДИAЛOГOBOЙ CИCTEMЫ, KOД, ШИФP И KЛЮЧ ФAЙЛA И ПOЛYЧAET ДOCTYП K                
+CBOEЙ ПPOГPAMME. TAKИE ПPABИЛA BXOДA COЗДAHЫ ДЛЯ ЗAЩИTЫ MACCИBOB OT                
+HECAHKЦИOHИPOBAHHOГO ДOCTYПA.                                                      
+*SПOЛYЧИB ДOCTYП K CBOEЙ ПPOГPAMME, ПOЛЬЗOBATEЛЬ MOЖET BHOCИTЬ B HEE               
+ИЗMEHEHИЯ, ДOПOЛHЯTЬ EE И ПYCKATЬ B PEШEHИE. ПO PEЗYЛЬTATAM PAБOTЫ                 
+ПPOГPAMMЫ, KOTOPЫE MOЖHO BИДETЬ B TOЙ ЖE CAMOЙ CИCTEME, MOЖHO CPAЗY                
+ЖE BHECTИ ИCПPABЛEHИЯ И BBECTИ ПPOГPAMMY BHOBЬ B PAБOTY. ДЛЯ ЭTOГO                 
+TEPMИHAЛЬHЫE CИCTEMЫ ПOЗBOЛЯЮT ПPOCMATPИBATЬ ПOЛYЧEHHЫE ДAHHЫE,                    
+OTTPAHCЛИPOBAHHYЮ ПPOГPAMMY И ПPOИЗBOДИTЬ OTЛAДOЧHЫE PAБOTЫ. BCE ЭTO               
+ПOЗBOЛЯET PEЗKO YCKOPИTЬ PAБOTY ПO OTЛAДKE ПPOГPAMM.                               
+*P*2/*MD7. CИCTEMA YПPABЛEHИЯ ПPOЦECCAMИ                                           
+*2S YПPABЛEHИE ПPOЦECCAMИ OCYЩECTBЛЯЮT MOДYЛИ ПPOЦEC, KAHAЛ.                       
+*2S 7.1. ПPИHЦИПЫ YПPABЛEHИЯ ПPOЦECCAMИ И PECYPCAMИ                                
+*2SK ПPOГPAMMAM PEAKЦИИ HA BHEШHИE И BHYTPEHHИE ПPEPЫBAHИЯ ПO                      
+ЭKCTPAKOДAM HEПOCPEДCTBEHHO ПPИMЫKAЮT CИCTEMHЫE ИCПOЛHИTEЛИ.                       
+OДHAKO ПPEЖДE, ЧEM ПEPEXOДИTЬ K OПИCAHИЮ ПPИHЦИПOB PAБOTЫ                          
+ CИCTEMHЫX ИCПOЛHИTEЛEЙ, BBEДEM ПOHЯTИE ИHTEPФEЙCA OБMEHA                          
+ИHФOPMAЦИEЙ C БЛOKAMИ  OC .                                                        
+*S ПEPBЫЙ YPOBEHЬ ИHTEPФEЙCA CYЩECTBYET ДЛЯ OБMEHA ИHФOPMAЦИEЙ                     
+MEЖДY  OC  И OПEPATOPOM BЫЧИCЛИTEЛЬHOЙ CИCTEMЫ, T.E. BHEШHИЙ                       
+ИHTEPФEЙC. OH BKЛЮЧAET B CEБЯ ДИPEKTИBЫ OПEPATOPA, ПACПOPTHЫE                      
+ДAHHЫE ЗAДAЧИ ПOЛЬЗOBATEЛЯ И OTBETHЫE COOБЩEHИЯ  OC . BECЬ                         
+OБMEH ПPOИCXOДИT, B CИЛY ПPИCYTCTBИЯ ЧEЛOBEKA, ЧEPEЗ BHEШHИE                       
+YCTPOЙCTBA.                                                                        
+*SBTOPOЙ YPOBEHЬ ИHTEPФEЙCA ПPEДHAЗHAЧEH ДЛЯ OБMEHA                                
+ИHФOPMAЦИEЙ MEЖДY БЛOKAMИ  OC . OH BKЛЮЧAET БOЛЬШOЙ HAБOP                          
+ЭKCTPAKOДOB И CИCTEMHЫX KOMAHД, YKAЗЫBAЮЩИX HA ДEЙCTBИЯ                            
+HEOБXOДИMЫE ДЛЯ ПPOДOЛЖEHИЯ BЫЧИCЛEHИЙ. KOHKPETHЫЙ TИП                             
+BЗAИMOДEЙCTBИЯ OПPEДEЛЯETCЯ BЗAИMOOTHOШEHИEM ЗAДAЧ ПOЛЬЗOBATEЛЯ                    
+И CИCTEMHЫX ПPOЦECCOB, A HEПOCPEДCTBEHHAЯ ПEPEДAЧA ИHФOPMAЦИИ                      
+MEЖДY PAЗЛИЧHЫMИ CTPYKTYPHЫMИ EДИHИЦAMИ OCYЩECTBЛЯETCЯ ЧEPEЗ                       
+CИCTEMHЫE TAБЛИЦЫ И ШKAЛЫ, KOTOPЫE OTPAЖAЮT COCTOЯHИE BCEX                         
+ПPOЦECCOB И PECYPCOB CИCTEMЫ. ИCXOДHOE ЗHAЧEHИE ЭTИX TAБЛИЦ И                      
+ШKAЛ YCTAHABЛИBAETCЯ B MOMEHT ГEHEPAЦИИ, T.E. ЗAПYCKA  OC .                        
+*SECЛИ ПEPBЫЙ YPOBEHЬ - ЯЗЫK OБЩEHИЯ C ЧEЛOBEKOM - HAПPABЛEH B                     
+OCHOBHOM HA YЛYЧШEHИE YCЛOBИЙ PAБOTЫ OПEPATOPA И                                   
+ ПOЛЬЗOBATEЛЯ, TO BTOPOЙ - HAПPABЛEH HA YCKOPEHИE ПPOXOЖДEHИЯ                      
+ЗAДAЧ И ПOBЫШEHИE                                                                  
+ПPOИЗBOДИTEЛЬHOCTИ BЫЧИCЛИTEЛЬHOЙ YCTAHOBKИ.                                       
+*S ECЛИ ПEPBЫЙ YPOBEHЬ ИHTEPФEЙCA ПOHЯTЬ HETPYДHO, TO METOДЫ                       
+ИCПOЛЬЗOBAHИЯ CИCTEMHЫX TAБЛИЦ И ШKAЛ TPEБYЮT ДOПOЛHИTEЛЬHЫX                       
+ПOЯCHEHИЙ. CДEЛAEM ЭTO HA KOHKPETHOM ПPИMEPE БЛOKA "TБYФ",                         
+BXOДЯЩEГO B ЯДPO OC .                                                              
+*S ПPИ ПOMOЩИ ПPOЦEДYPЫ "TБYФ" BЫПOЛHЯETCЯ ЗAПPOC И BOЗBPAT                        
+ПOЛEЙ OПEPATИBHOЙ ПAMЯTИ, KOTOPЫE БEPYTCЯ BO BPEMEHHOE                             
+ПOЛЬЗOBAHИE ПPOЦECCAMИ OC . ИCПOЛЬЗYЯ PAЗЛИЧHЫE ЗHAЧEHИЯ ПAPAMETPOB                
+BЫЗOBA ПPOЦEДYPЫ, MOЖHO ИHИЦИИPOBATЬ CЛEДYЮЩИE ДEЙCTBИЯ:                           
+*/- ЗAПPOC AБЗAЦA ДЛЯ PAЗMEЩEHИЯ HEPEЗИДEHTA ИЗ CПEЦИAЛЬHO                         
+BЫДEЛEHHOЙ B ДAHHOЙ KOHФИГYPAЦИИ BЫЧИCЛИTEЛЬHOЙ CИCTEMЫ OБЛACTИ                    
+ПAMЯTИ;                                                                            
+*/- ЗAПPOC ЛИCTA OПEPATИBHOЙ ПAMЯTИ B HYЛEBOM CEГMEHTE;                            
+*/-  ЗAГPYЗKA ЛИCTOBOГO HEPEЗИДEHTHOГO ИCПOЛHИTEЛЯ C ПPEДBAPИTEЛЬHЫM               
+BЫДEЛEHИEM ЛИCTA ДЛЯ EГO PAЗMEЩEHИЯ;                                               
+*/- BOЗBPAT PAHEE ЗAПPOШEHHOГO ПOЛЯ B HAБOP CBOБOДHЫX.                             
+*SCAMA ПPOЦEДYPA "TБYФ" BЫДEЛЯET ДЛЯ ИCПOЛЬЗOBAHИЯ TOЛЬKO                          
+CBOБOДHЫE AБЗAЦЫ OПEPATИBHOЙ ПAMЯTИ. ECЛИ ЗAПPOШEH ЦEЛЫЙ                           
+ЛИCT, A CBOБOДHЫX ЛИCTOB B HYЛEBOM CEГMEHTE HET, TO                                
+ПPOИЗBOДИTCЯ OБPAЩEHИE K ИCПOЛHИTEЛЮ "KAЧKA", KOTOPЫЙ                              
+OCYЩECTBЛЯET OTKAЧKY (ПEPEMEЩEHИE) COДEPЖИMOГO KAKOГO -                            
+HИБYДЬ ЗAHЯTOГO ЛИCTA HA BHEШHЮЮ ПAMЯTЬ, A ЗATEM И CAMO                            
+BЫДEЛEHИE OCBOБOДИBШEГOCЯ PECYPCA ЗAKAЗЧИKY. ПPИ ЭTOM                              
+ПPOЦECC, BЫДABШИЙ ЗAПPOC, HA BPEMЯ PAБOTЫ ПPOЦECCA "KAЧKA"                         
+ПEPEBOДИTCЯ B COCTOЯHИE "БЛOKИPOBAH".                                              
+*SECЛИ HET B HAЛИЧИИ CBOБOДHOГO AБЗAЦA, TO BЫПOЛHEHИE                              
+COOTBETCTBYЮЩEГO ЗAПPOCA OTKЛAДЫBAETCЯ ДO TEX ПOP, ПOKA                            
+KAKOЙ-ЛИБO AБЗAЦ HE БYДET BOЗBPAЩEH B HAБOP CBOБOДHЫX,                             
+A ПPOЦECC, BЫДABШИЙ ЗAПPOC, HA ЭTO BPEMЯ ПEPEBOДИTCЯ B COCTOЯHИE                   
+"БЛOKИPOBAH".                                                                      
+*SOБPAЩEHИE K ПPOЦEДYPE ПPOИЗBOДИTCЯ ПPЯMOЙ ПEPEДAЧEЙ                              
+YПPABЛEHИЯ C ПOMOЩЬЮ KOMAHДЫ  31(ПB). ПAPAMETPЫ BЫЗOBA                             
+ПPИ ЭTOM HAXOДЯTCЯ HA CYMMATOPE AY. PACCMOTPИM ПOДPOБHEE                           
+PAБOTY ПPOЦEДYPЫ "TБYФ" ПPИ PAЗЛИЧHЫX ЗHAЧEHИЯX ПAPAMETPOB:                        
+*S1)  ПPИЗHAKOM ЗAПPOCA ЛИCTA ЯBЛЯETCЯ HYЛEBOЙ KOД BO BCEX                         
+PAЗPЯДAX CYMMATOPA. B ЭTOM CЛYЧAE "TБYФ" ЗAHOCИT B ШKAЛY ЗAKAЗOB                   
+ДЛЯ ИCПOЛHИTEЛЯ "KAЧKA" EДИHИЦY B PAЗPЯД, COOTBETCTBYЮЩИЙ                          
+HOMEPY KAHAЛA ПPOЦECCA - ЗAKAЗЧИKA. ECЛИ "KAЧKA" HE БЫЛA B                         
+PAБOTE, T.E. B ШKAЛE ЗAKAЗOB ДЛЯ ИCПOЛHИTEЛЯ "KAЧKA" HE БЫЛO                       
+EДИHИЦ, TO OHA ПPИBOДИTCЯ B ГOTOBHOCTЬ: B 38-Й (COOTBETCTBYЮЩИЙ                    
+HOMEPY CЧETHOГO KAHAЛA "KAЧKИ") PAЗPЯД ШKAЛЫ ГOTOBHOCTИ                            
+ЗAHOCИTCЯ EДИHИЦA. ПPOЦECC - ЗAKAЗЧИK ПEPEBOДИTCЯ B COCTOЯHИE                      
+"БЛOKИPOBAH". PAБOTA ПPOЦECCA БYДET ПPOДOЛЖATЬCЯ ПOCЛE OKOHЧAHИЯ                   
+PAБOTЫ БЛOKA "KAЧKA", T.E. ПEPEДAЧИ ЗAKAЗЧИKY ЛИCTA;                               
+*S2)  ECЛИ HA CYMMATOPE KOД "1" B 1-OM PAЗPЯДE ПPИ HYЛE BO BCEX                    
+OCTAЛЬHЫX, TO ЭTO ЗAПPOC HA AБЗAЦ ИЗ ПAMЯTИ ДЛЯ CEKTOPHЫX                          
+HEPEЗИДEHTOB. CBOБOДHAЯ ПAMЯTЬ ДЛЯ CEKTOPHЫX HEPEЗИДEHTOB                          
+OTMEЧEHA B ШKAЛE "ШKCBM", HAЧAЛЬHOE ЗHAЧEHИE KOTOPOЙ ЗAДAETCЯ                      
+ПPИ BЫЗOBE OC . ШKAЛA "ШKCBM" ИMEET CЛEДYЮЩYЮ CTPYKTYPY.                           
+CBOБOДHЫE AБЗAЦЫ OTMEЧAЮTCЯ B ШKAЛE EДИHИЦAMИ.                                     
+ЛИCTЫ ПOД AБЗAЦЫ ДЛЯ CEKTOPHЫX HEPEЗИДEHTOB OTBOДЯTCЯ B HYЛEBOM                    
+CEГMEHTE И ЗAДAЮTCЯ ПPИ ГEHEPAЦИИ KOHФИГYPAЦИИ BЫЧИCЛИTEЛЬHOЙ                      
+CИCTEMЫ. ЗAKOHЧИBШИE CBOЮ PAБOTY CEKTOPHЫE HEPEЗИДEHTЫ HE YДAЛЯЮTCЯ                
+ИЗ ЗAHИMAEMЫX ИMИ AБЗAЦEB ПAMЯTИ, ПOCKOЛЬKY ЭTO ПOЗBOЛЯET YCKOPИTЬ                 
+ПOBTOPHYЮ AKTИBИЗAЦИЮ ИCПOЛHИTEЛЯ. BCE HEPEЗИДEHTЫ, OKOHЧИBШИE                     
+CBOЮ PAБOTY, HO HE YДAЛEHHЫE ИЗ ПAMЯTИ, OБOЗHAЧEHЫ EДИHИЦAMИ                       
+B ШKAЛE "ШKHП". ЗAHЯTAЯ ЭTИMИ HEPEЗИДEHTAMИ ПAMЯTЬ MOЖET                           
+БЫTЬ OCBOБOЖДEHA, ECЛИ ECTЬ ЗAПPOC HA AБЗAЦ,                                       
+A CBOБOДHЫX AБЗAЦEB HET, T.E. ШKCBM=0. B TAKOM CЛYЧAE ПPOЦECCY -                   
+ЗAKAЗЧИKY BЫДEЛЯETCЯ AБЗAЦ, ЗAHЯTЫЙ OДHИM ИЗ PAHEE OTPAБOTABШИX                    
+HEPEЗИДEHTOB, ПEPEЧИCЛEHHЫX B "ШKHП". ДЛЯ OПPEДEЛEHИЯ AДPECA                       
+AБЗAЦA, XPAHЯЩEГO OTPAБOTABШИЙ HEPEЗИДEHT, ИMEETCЯ MACCИB CCЫЛOK,                  
+BЫБOPKA ИЗ KOTOPOГO ПPOИCXOДИT ПO HOMEPY HEPEЗИДEHTA.                              
+*SПAMЯTЬ, HA KOTOPOЙ HAXOДИTCЯ CBOБOДHЫЙ HEPEЗИДEHT ИЗ ШKAЛЫ                       
+"ШKHП", OTCYTCTBYET B ШKAЛE "ШKCBM".                                               
+*SПPOЦEДYPA "TБYФ", HAЙДЯ CBOБOДHЫЙ PAЗPЯД B OДHOЙ ИЗ ШKAЛ,                        
+ГACИT EДИHИЦY B COOTBETCTBYЮЩEЙ ШKAЛE, ECЛИ CBOБOДHЫЙ AБЗAЦ                        
+HAЙДEH, TO "TБYФ" BOЗBPAЩAET YПPABЛEHИE OБPATИBШEMYCЯ ПPOЦECCY,                    
+AДPEC BЫДEЛEHHOГO AБЗAЦA ЗAHOCИTCЯ HA CYMMATOP AY, AБЗAЦ                           
+ИCKЛЮЧAETCЯ ИЗ HAБOPA CBOБOДHЫX.                                                   
+*SECЛИ CBOБOДHЫЙ AБЗAЦ HE HAЙДEH, ПPOЦECC - ЗAKAЗЧИK                               
+ПEPEBOДИTCЯ B COCTOЯHИE "БЛOKИPOBAH";                                              
+*S3)  ПPИ BЫЗOBE ЛИCTOBOГO HEPEЗИДEHTA ИЛИ ПOДKAЧKE CПEЦИAЛЬHOГO                   
+ЛИCTA ПAPAMETPЫ OБPAЩEHИЯ K "TБYФ" CЛEДYЮЩИE: HOMEP ЛИCTA,                         
+HOMEP ЗAДAЧИ. HOMEP ЛИCTA OПPEДEЛЯETCЯ ПO HOMEPY BЫЗЫBAEMOГO                       
+HEPEЗИДEHTA. HOMEP ЛИCTA И HOMEP HEPEЗИДEHTA - ЭTO KOOPДИHATЫ                      
+ДЛЯ ПOИCKA ЛИCTA B OЗY ИЛИ БYФEPHOЙ ПAMЯTИ, ECЛИ ЛИCT OTKAЧAH.                     
+ B CЛYЧAE HEOБXOДИMOCTИ BЫЗOBA ЛИCTA B OЗY ФOPMИPYETCЯ ЗAKAЗ                       
+ БЛOKY "KAЧKA" ДЛЯ ПEPEПИCИ ИЗ БYФEPHOЙ ПAMЯTИ B OЗY TPEБYEMOГO                    
+ ЛИCTA;                                                                            
+*S4)  ECЛИ ПPИ BXOДE B "TБYФ" PAЗPЯДЫ CYMMATOPA C 13-ГO ПO 48-Й                    
+HE PABHЫ "0" И B 19-M PAЗPЯДE ECTЬ EДИHИЦA, TO ЭTO OЗHAЧAET                        
+BOЗBPAT ЛИCTA B HAБOP CBOБOДHЫX, ПPИЧEM HOMEP ЛИCTA ЗAДAETCЯ B                     
+PAЗPЯДAX C 13-ГO ПO 17-Й. ЭTOT CЛYЧAЙ BKЛЮЧAET BOЗBPAT ЛИCTA B                     
+OБЩИЙ PECYPC C COXPAHEHИEM И БEЗ COXPAHEHИЯ ИHФOPMAЦИИ;                            
+*S5) BOЗBPAT CИCTEME AБЗAЦEB OПEPATИBHOЙ ПAMЯTИ.                                   
+*S HA ПPИMEPE ПPOЦEДYPЫ "TБYФ" MOЖHO BИДETЬ CЛEДYЮЩEE:                             
+*/- *1CCИCTEMHЫE KOMAHДЫ ПPEДCTABЛЯЮT COБOЙ KOMAHДЫ ПEPEДAЧИ                       
+YПPABЛEHИЯ C OПPEДEЛEHHЫM ЗHAЧEHИEM KOДA HA CYMMATOPE ЧИCЛA;                       
+*/- KAЖДЫЙ CИCTEMHЫЙ ИCПOЛHИTEЛЬ MOЖET OБPATИTЬCЯ K ДPYГOЙ                         
+ИCПOЛHИTEЛЬHOЙ ПPOГPAMME ЗA ДOПOЛHИTEЛЬHЫMИ ДEЙCTBИЯMИ,                            
+ЧTO TPEБYET MHOГOKPATHOЙ BKЛAДЫBAEMOCTИ ИCПOЛHИTEЛЬHЫX                             
+ПPOГPAMM;                                                                          
+*/- OБPAЩEHИE ИЗ OДHOГO ИCПOЛHИTEЛЬHOГO БЛOKA B ДPYГOЙ                             
+ПPOИЗBOДИTCЯ B ЗABИCИMOCTИ OT HAЛИЧИЯ TOГO ИЛИ ИHOГO                               
+HEPEЗИДEHTA B OПEPATИBHOЙ ПAMЯTИ.                                                  
+*SKAЖДЫЙ ПPOЦECC B XOДE PAБOTЫ OC MOЖET HAXOДИTЬCЯ B OДHOM                         
+ИЗ CЛEДYЮЩИX COCTOЯHИЙ:                                                            
+*/- TEKYЩИЙ ПPOЦECC, B ДAHHЫЙ MOMEHT ЗAHИMAЮЩИЙ ПPOЦECCOP. B                       
+KAЖДЫЙ MOMEHT BPEMEHИ ПPOЦECCOP ЗAHИMAETCЯ TOЛЬKO OДHИM                            
+ПPOЦECCOM. ДЛЯ TOГO, ЧTOБЫ ПPOЦECC CTAЛ TEKYЩИM, HEOБXOДИMO                        
+ЗAГPYЗИTЬ BCE YПPABЛЯЮЩИE PEГИCTPЫ ПPOЦECCOPA COOTBETCTBYЮЩEЙ                      
+ИHФOPMAЦИEЙ ДAHHOГO ПPOЦECCA. PEШEHИE O TOM, KAKOЙ ПPOЦECC                         
+B ДAHHЫЙ MOMEHT CTAHET TEKYЩИM, ПPИHИMAET CПEЦИAЛЬHЫЙ                              
+ПЛAHИPOBЩИK BЫБOPA ПPOЦECCOB. ПPOЦECCЫ, PAБOTAЮЩИE B CИCTEMHЫX                     
+KAHAЛAX, OБCЛYЖИBAЮTCЯ B ПEPBYЮ OЧEPEДЬ C YЧETOM ИX                                
+BЗAИMHOГO ПPИOPИTETA;                                                              
+*/- БЛOKИPOBAH - PAЗBИTИE ПPOЦECCA ПPИOCTAHOBЛEHO ПO KAKOЙ -                       
+ЛИБO ПPИЧИHE. B OC  ДИCПAK ПPOЦECC БYДET ПPEPBAH, ECЛИ EГO HET B                   
+ШKAЛE ГOTOBHOCTИ ИЛИ OH ЗAKPЫT XOTЯ БЫ OДHOЙ ИЗ MACOK ШKAЛЫ                        
+ГOTOBHOCTИ. ПPOЦECC ПEPEBOДИTCЯ B COCTOЯHИE "БЛOKИPOBAH"                           
+ДPYГИM ПPOЦECCOM ИЛИ CAM ПEPEBOДИT CEБЯ B ЭTO COCTOЯHИE.                           
+ПPEPBAHHЫЙ ПPOЦECC MOЖET CTATЬ ГOTOBЫM K BЫПOЛHEHИЮ, ECЛИ                          
+OH ПPИCYTCTBYET B ШKAЛE ГOTOBHOCTИ И OTKPЫT BO BCEX EE MACKAX.                     
+*/- ГOTOB K BЫПOЛHEHИЮ - ПPOЦECC OБPAЗOBAH, ИMEET ДECKPИПTOP,                      
+ЗAHECEH B ШKAЛY ГOTOBHOCTИ И OTKPЫT BO BCEX EE MACKAX.                             
+ГOTOBЫЙ K BЫПOЛHEHИЮ ПPOЦECC MOЖET B CЛEДYЮЩИЙ MOMEHT BPEMEHИ                      
+ПEPEЙTИ B COCTOЯHИE "TEKYЩИЙ" ИЛИ "БЛOKИPOBAH".                                    
+*2S 7.2. ПPOЦECCЫ, COБЫTИЯ И ИX CИHXPOHИЗAЦИЯ                                      
+*2S ПOCЛEДOBATEЛЬHЫЙ ПPOЦECC ECTЬ PAБOTA, BЫПOЛHЯEMAЯ ПOCЛEДOBATEЛЬHO              
+ПPOЦECCOPOM HAД ПPOГPAMMOЙ C EE ДAHHЫMИ. ЛOГИЧECKИ BCЯKИЙ ПPOЦECC                  
+ДOЛЖEH ИMETЬ CBOЙ COБCTBEHHЫЙ ПPOЦECCOP И ПPOГPAMMY, A KPOME                       
+TOГO ДBA ИЛИ БOЛEE ПPOЦECCA MOГYT PAЗДEЛЯTЬ OДHY И TY ЖE                           
+ПPOГPAMMY И  ПPOЦECCOP. HAЗOBEM ПOCЛEДHИЙ BИД ПPOЦECCA ACИHXPOHHЫM                 
+ ПOCЛEДOBATEЛЬHЫM ПPOЦECCOM.                                                       
+*S PAЗBИTИE BCЯKOГO ПPOЦECCA MOЖET БЫTЬ OПИCAHO B BИДE MHOЖECTBA                   
+BEKTOPOB COCTOЯHИЯ ПPOЦECCA E1,....,EN,..., ГДE BCЯKИЙ ЭЛEMEHT                     
+MHOЖECTBA EK OПPEДEЛЯET KOOPДИHATHOE ПOЛOЖEHИE ПPOЦECCA И ЗHAЧEHИE                 
+BCEX ДAHHЫX, ИCПOЛЬЗYEMЫX ПPOЦECCOM. TAKИM OБPAЗOM BEKTOP COCTOЯHИЯ                
+ПPOЦECCA EK ЯBЛЯETCЯ ПOЛHЫM OПИCATEЛEM ДЛЯ ПPOЦECCOPA.*SB KOHKPETHЫЙ               
+MOMEHT BPEMEHИ ПPOЦECC MOЖET HAXOДИTЬCЯ B OДHOM ИЗ ДBYX COCTOЯHИЙ:                 
+ПPOДOЛЖAЮЩИЙCЯ И БЛOKИPOBAHHЫЙ. ПPOЦECC П БYДET HAXOДИTЬCЯ B                       
+COCTOЯHИИ БЛOKИPOBKИ ДO TOГO MOMEHTA, ПOKA HE БYДET ПOЛYЧEH CИГHAЛ,                
+COOБЩEHИE ИЛИ PECYPC OT ДPYГOГO ПPOЦECCA. ПPOЦECC П HAЗЫBAETCЯ                     
+ПPOДOЛЖAЮЩИMCЯ, ECЛИ OH BЫПOЛHЯETCЯ ПPOЦECCOPOM ИЛИ MOГ БЫ ИM                      
+BЫПOЛHЯTЬCЯ ПPИ YCЛOBИИ ДOCTYПHOCTИ ПPOЦECCOPA ДAHOMY ПPOЦECCY.                    
+*S BCЯKAЯ MYЛЬTИПPOГPAMMHAЯ OC MOЖET БЫTЬ OПИCAHA B TEPMИHAX                       
+ACИHXPOHHЫX ПOCЛEДOBATEЛЬHЫX ПPOЦECCOB, KOTOPЫE ДEЙCTBYЮT                          
+HEЗABИCИMO ДPYГ OT ДPYГA, BCTYПAЮT B CBЯЗЬ ДPYГ C ДPYГOM ПYTEM                     
+ПEPECЫЛKИ OБYCЛOBЛEHHЫX COOБЩEHИЙ И ИEPAPXИЧECKИ PAЗДEЛЯЮT OБЩИE                   
+ PECYPCЫ BЫЧИCЛИTEЛЬHOЙ CИCTEMЫ. PAЗДEЛEHИE OC HA ПPOЦECCЫ                         
+CTAHOBИTCЯ BOЗMOЖHЫM ЛИШЬ ПPИ HAЛИЧИИ AППAPATHOЙ ПOДДEPЖKИ CO                      
+CTOPOHЫ BЫЧИCЛИTEЛЬHOЙ CИCTEMЫ, HA KOTOPOЙ ФYHKЦИOHИPYET OC.                       
+KOHЦEПЦИЯ ПPOЦECCA ПOЗBOЛЯET ЭФФEKTИBHO OPГAHИЗOBЫBATЬ, BЫДEЛЯTЬ                   
+ И OПPEДEЛЯTЬ БAЗOBЫE ЗAДAЧИ OC, YПPOЩAET ИX OPГAHИЗAЦИЮ                           
+И ИЗYЧEHИE ДИHAMИKИ.*SAППAPAT ПPOЦECCOB ПEPEHECEH C YPOBHЯ OC                      
+HA YPOBEHЬ ЗAДAЧИ ПOЛЬЗOBATEЛЯ ПPOГPAMMHЫM ПYTEM И ЯBЛЯETCЯ                        
+BИPTYAЛЬHЫM ПPOЦECCOM БOЛEE BЫCOKOГO YPOBHЯ, ЧEM AППAPAT                           
+ПPOЦECCOB COБCTBEHHO OC. ПEPEBOД ПPOЦECCA ПOЛЬЗOBATEЛЯ ИЗ                          
+COCTOЯHИЯ БЛOKИPOBKИ B COCTOЯHИE ПPOДOЛЖEHИЯ ИЛИ ГOTOBHOCTИ                        
+K ПPOДOЛЖEHИЮ OCYЩECTBЛЯETCЯ C ПOMOЩЬЮ ЛOГИЧECKOГO ПPИMИTИBA                       
+TИПA " ФЛAГ " HAЗЫBAEMOГO " COБЫTИEM ". B PACПOPЯЖEHИE                             
+ПOЛЬЗOBATEЛЯ BЫДEЛЯЮTCЯ CPEДCTBA ПOЗBOЛЯЮЩИE OПPEДEЛИTЬ ПOДMHOЖECTBO               
+ COБЫTИЙ, ИHTEPECYЮЩИX ПOЛЬЗOBATEЛЯ, A TAKЖE MECTO,                                
+ДOCTYПHOE ПPOЦECCY ПOЛЬЗOBATEЛЯ, KYДA OC ПEPEДACT ИHФOPMAЦИЮ                       
+ O HACTYПИBШИX COБЫTИЯX. ФИЗИЧECKИ ЭTИ OПEPAЦИИ OCYЩECTBЛЯЮTCЯ                     
+ ПYTEM ЗAДAHИЯ MECTA B ПPOГPAMME ПOЛЬЗOBATEЛЯ, KYДA                                
+OC ПEPEДACT YПPABЛEHИE ПPИ ПOЯBЛEHИИ COБЫTИЙ, ЗAДAHHЫX                             
+ПOЛЬЗOBATEЛEM.*SCИHXPOHИЗAЦИЯ ПPOЦECCOB B ЗAДAЧE ПOЛЬЗOBATEЛЯ                      
+OCYЩECTBЛЯETCЯ HA БAЗE CEMAФOPHЫX ПPИMИTИBOB PAЗPEШAЮЩИX ИЛИ                       
+ЗAПPEЩAЮЩИX HACTYПЛEHИE COБЫTИЙ B ЗAДAЧE ПOЛЬЗOBATEЛЯ.                             
+HAKOПЛEHИE PAЗЛИЧHЫX COБЫTИЙ ДЛЯ ЗAДAЧИ ПOЛЬЗOBATEЛЯ ПPOИЗBOДИTCЯ                  
+AДДИTИBHO И, TAKИM OБPAЗOM, ПOTEPЬ PAЗЛИЧHЫX COБЫTИЙ B CИCTEME                     
+HE ПPOИCXOДИT. ДOПYCKAETCЯ BOЗMOЖHOCTЬ MHOГOKPATHOЙ BЛOЖEHHOCTИ                    
+COБЫTИЙ, T.E. HACTYПЛEHИE COБЫTИЯ P (N+1) BOЗMOЖHO ПPИ                             
+ПPOДOЛЖAЮЩEMCЯ ПPOЦECCE OБPAБOTKИ COБЫTИЯ P (N). B ДAHHOM CЛYЧAE                   
+BOCCTAHOBЛEHИE ПPOЦECCA YPOBHЯ N ПPOИЗOЙДET ПO OKOHЧAHИИ                           
+ПPOЦECCA YPOBHЯ N+1.                                                               
+*2S 7.3. AППAPAT ГЛABHOЙ И ПOДЧИHEHHOЙ ЗAДAЧ.                                      
+*2S ПOЛHOMOЧИЯ ПPOЦECCA B CИCTEME ECTЬ MHOЖECTBO ДEЙCTBИЙ, KOTOPЫE                 
+ДAHHЫЙ ПPOЦECC MOЖET ПPOИЗBOДИTЬ KAK HAД COБOЙ, TAK И HAД ДPYГИMИ                  
+OБ'EKTAMИ B CИCTEME. ПOCTABИM B COOTBETCTBИE BCЯKOMY ПPOЦECCY                      
+MHOЖECTBO BOЗMOЖHЫX ПOЛHOMOЧИЙ ПPOЦECCA B CИCTEME И OПPEДEЛИM                      
+ПOДЧИHEHHЫЙ ПPOЦECC KAK ПPOЦECC, MHOЖECTBO ПOЛHOMOЧИЙ KOTOPOГO-                    
+XI ЯBЛЯETCЯ ПOДMHOЖECTBOM MHOЖECTBA ПOЛHOMOЧИЙ HEKOTOPOГO                          
+ДPYГOГO ПPOЦECCA - XJ:*MDXJ0I.                                                     
+*S AППAPAT ГЛABHOЙ И ПOДЧИHEHHOЙ ЗAДAЧИ ЯBЛЯETCЯ ДAЛЬHEЙШИM                        
+PAЗBИTИEM KOHЦEПЦИИ ДEPEBA ПPOЦECCOB И ПOЗBOЛЯET ПEPEHOCИTЬ AППAPAT                
+COБЫTИЙ C YPOBHЯ EДИHИЧHOГO ПPИMИTИBA ПPOЦECCA HA YPOBEHЬ MHOЖECTB                 
+ПPOЦECCOB C HAЛOЖEHИEM OГPAHИЧEHИЯ O CYЩECTBOBAHИИ EДИHCTBEHHOГO                   
+ГЛABHOГO ПPOЦECCA B KAЖДЫЙ MOMEHT BPEMEHИ ДЛЯ BCЯKOГO ПOДЧИHEHHOГO                 
+ПPOЦECCA. ИЗ OПPEДEЛEHИЯ CЛEДYET, ЧTO MHOЖECTBO ПOЛHOMOЧИЙ                         
+XJ XAPAKTEPИЗYET ГЛABHYЮ ЗAДAЧY ( ПPOЦECC ), A XI - ПOДЧИHEHHYЮ                    
+ЗAДAЧY.                                                                            
+*S ГЛABHAЯ ЗAДAЧA ИMEET BOЗMOЖHOCTЬ YПPABЛЯTЬ CBOEЙ                                
+ПOДЧИHEHHOЙ ЗAДAЧEЙ BO BCЯKИЙ MOMEHT BPEMEHИ, KOГДA ПOДЧИHEHHAЯ                    
+ЗAДAЧA ПEPEДAЛA ПOЛHOMOЧИЯ ИEPAPXИЧECKOГO ПOДЧИHEHИЯ ГЛABHOЙ                       
+ЗAДAЧE. OДHOBPEMEHHO ПOДЧИHEHHAЯ ЗAДAЧA MOЖET ЯBЛЯTЬCЯ ГЛABHOЙ                     
+ЗAДAЧEЙ ПO OTHOШEHИЮ K CBOИM ПOДЧИHEHHЫM ЗAДAЧAM. ПOДЧИHEHHAЯ ЗAДAЧA               
+ИMEET ПOЛHOMOЧИЯ HA OTKAЗ OT ПOДЧИHEHИЯ И HA ПEPEBЫБOP CBOEЙ                       
+ГЛABHOЙ ЗAДAЧИ B ПPOЦECCE CBOEГO PEШEHИЯ. ПPИ OKOHЧAHИИ ГЛABHOЙ                    
+ЗAДAЧИ BCE EE ПOДЧИHEHHЫE ЗAДAЧИ TAKЖE ЗABEPШAЮTCЯ.*SПO XAPAKTEPY                  
+BЗAИMOДEЙCTBИЯ MEЖДY COБOЙ ЗAДAЧИ, PEШAЮЩИECЯ ПOД YПPABЛEHИEM OC,                  
+MOГYT БЫTЬ PAЗДEЛEHЫ HA TPИ KЛACCA:*S- ПOДЧИHEHHЫE ЗAДAЧИ;                         
+*S- HEЗABИCИMЫE ЗAДAЧИ, ИMEЮЩИE ПOДЧИHEHHЫE ЗAДAЧИ;*S- HEЗABИCИMЫE                 
+ЗAДAЧИ HE ИMEЮЩИE ПOДЧИHEHHЫX ЗAДAЧ.                                               
+*P*2S7.4. CИCTEMHЫE ПPИMИTИBЫ AППAPATA ГЛABHOЙ                                     
+И ПOДЧИHEHHOЙ ЗAДAЧ                                                                
+*2SMHOЖECTBO ПOЛHOMOЧИЙ ГЛABHOЙ ЗAДAЧИ BKЛЮЧAET B CEБЯ OПEPAЦИИ:                   
+*S- OCTAHOBИTЬ ПOДЧИHEHHYЮ ЗAДAЧY;*S- ПYCTИTЬ ПOДЧИHEHHYЮ ЗAДAЧY;                  
+*S- OKOHЧИTЬ ПOДЧИHEHHYЮ ЗAДAЧY;*S- ПEPEДATЬ PECYPCЫ ПOДЧИHEHHOЙ                   
+ЗAДAЧE;*S- OTOБPATЬ PECYPCЫ Y ПOДЧИHEHHOЙ ЗAДAЧИ;*S- CMEHИTЬ                       
+ПOДЧИHEHИE ЗAДAЧИ.*SПOДЧИHEHHAЯ ЗAДAЧA OБ'ЯBЛЯET CBOЮ ГЛABHYЮ                      
+ЗAДAЧY C ПOMOЩЬЮ ПPИMИTИBA OБ'ЯBЛEHИЯ ГЛABHOЙ ЗAДAЧИ.ПOCЛE                         
+ИCПOЛHEHИЯ ДAHHOГO ПPИMИTИBA ЗAДAЧA ПEPEXOДИT B KЛACC ПOДЧИHEHHЫX                  
+ЗAДAЧ ПPИ YCЛOBИИ HAXOЖДEHИЯ B PEШEHИИ ЗAДAЧИ, OБ'ЯBЛЯEMOЙ ГЛABHOЙ.                
+*SOTKЛЮЧEHИE ПOДЧИHEHHOЙ ЗAДAЧИ OT ГЛABHOЙ ПPOИЗBOДИTCЯ ПPИ                        
+OБPAЩEHИИ K COOTBETCTBYЮЩEMY ПPИMИTИBY И ЗAДAЧA ПEPEXOДИT B KЛACC                  
+HEЗABИCИMЫX ЗAДAЧ.*SПOДЧИHEHHAЯ ЗAДAЧA ИMEET BOЗMOЖHOCTЬ ПEPEДATЬ                  
+KOHTPOЛЬ HAД CBOИM ДAЛЬHEЙШИM PEШEHИEM ГЛABHOЙ ЗAДAЧE OБPAЩEHИEM                   
+K ПPИMИTИBY PAЗPEШEHИЯ ПPOДOЛЖEHИЯ PEШEHИЯ. PEЗYЛЬTATOM BЫПOЛHEHИЯ                 
+ЭTOГO ПPИMИTИBA ЯBЛЯETCЯ ПEPEBOД ПOДЧИHEHHOЙ ЗAДAЧИ B PEЖИM                        
+OЖИДAHИЯ ДO MOMEHTA ПOЛYЧEHИЯ COOTBETCTBYЮЩEГO PAЗPEШEHИЯ OT                       
+ГЛABHOЙ ЗAДAЧИ.                                                                    
+*2S7.4.1. ПPИMИTИBЫ ГЛABHOЙ ЗAДAЧИ                                                 
+*2S7.4.1.1. OБPAЩEHИE K ПPИMИTИBY OCTAHOBKИ ПOДЧИHEHHOЙ ЗAДAЧИ                     
+BЫЗЫBAET ПEPEBOД YKAЗAHHOЙ ПOДЧИHEHHOЙ ЗAДAЧИ B PEЖИM OЖИДAHИЯ                     
+И ДAЛЬHEЙШEE EE PEШEHИE CTAHOBИTCЯ BOЗMOЖHЫM ЛИШЬ ПO YKAЗAHИЮ                      
+OT ГЛABHOЙ ЗAДAЧИ.                                                                 
+*2S7.4.1.2. OБPAЩEHИE K ПPИMИTИBY ПYCKA                                            
+ПOДЧИHEHHOЙ ЗAДAЧИ BЫЗЫBAET CHЯTИE PEЖИMA OЖИДAHИЯ B ПOДЧИHEHHOЙ                   
+ЗAДAЧE И ПPOДOЛЖEHИE EE PEШEHИЯ.                                                   
+*2S7.4.1.3. ПPИMИTИB OKOHЧAHИЯ                                                     
+ПOДЧИHEHHOЙ ЗAДAЧИ BЫЗЫBAET БEЗYCЛOBHOE OKOHЧAHИE ПOДЧИHEHHOЙ                      
+ЗAДAЧИ И BЫXOД EE ИЗ PEШEHИЯ.                                                      
+*2S7.4.1.4. B KAЧECTBE PECYPCOB,                                                   
+ПPEДHAЗHAЧEHHЫX ДЛЯ OБMEHA MEЖДY ГЛABHOЙ И ПOДЧИHEHHOЙ ЗAДAЧEЙ                     
+PACCMATPИBAЮTCЯ PECYPCЫ OПEPATИBHOЙ ПAMЯTИ, BHEШHИE ЗAПOMИHAЮЩИE                   
+YCTPOЙCTBA, TEPMИHAЛЬHЫE YCTPOЙCTBA, COДEPЖИMOE OПEPATИBHOЙ ПAMЯTИ                 
+И ИHДEKCHЫX PEГИCTPOB ГЛABHOЙ И ПOДЧИHEHHOЙ ЗAДAЧ. BCE ПPИMИTИBЫ,                  
+OБECПEЧИBAЮЩИE OБMEH PECYPCAMИ, ЯBЛЯЮTCЯ ДOCTYПHЫMИ ЛИШЬ ГЛABHOЙ                   
+ЗAДAЧE.                                                                            
+*2S7.4.1.5. ГЛABHAЯ ЗAДAЧA ИMEET BOЗMOЖHOCTЬ OПPOCИTЬ HAЛИЧИE                      
+CBOИX ПOДЧИHEHHЫX ЗAДAЧ, A TAKЖE ПOДЧИHEHHЫX ЗAДAЧ, HAXOДЯЩИXCЯ B                  
+PEЖИME OЖИДAHИЯ.                                                                   
+*2S7.4.2. BCE OПИCAHHЫE BЫШE ПPИMИTИBЫ AППAPATA ГЛABHOЙ                            
+И ПOДЧИHEHHOЙ ЗAДAЧ PEAЛИЗOBAHЫ HA БAЗE ЭKCTPAKOДOB OC.                            
+*2S7.5. CИCTEMHЫE ПPИMИTИBЫ AППAPATA COБЫTИЙ                                       
+*2S7.5.1. HEOБXOДИMЫM YCЛOBИEM PAБOTЫ C AППAPATOM COБЫTИЙ OC                       
+ЯBЛЯETCЯ YKAЗAHИE MECTA, B ДOCTYПHOЙ ЗAДAЧE OБЛACTИ OПEPATИBHOЙ                    
+ПAMЯTИ, KYДA OC БYДET ПEPEДAHO YПPABЛEHИE ПPИ BOЗHИKHOBEHИИ                        
+ИHTEPECYЮЩИX ПOЛЬЗOBATEЛЯ COБЫTИЙ. ДЛЯ ЭTOЙ ЦEЛИ ИCПOЛЬЗYETCЯ                      
+ПPИMИTИB ЗAДAHИЯ AДPECA ПPOЦECCA " ДEШИФPATOP ".                                   
+*2S7.5.2. BЫБOP                                                                    
+ИHTEPECYЮЩEГO ПOЛЬЗOBATEЛЯ ПOДMHOЖECTBA MHOЖECTBA COБЫTИЙ                          
+OCYЩECTBЛЯETCЯ ПPИ OБPAЩEHИИ K ПPИMИTИBY ЗAДAHИЯ MACKИ ШKAЛЫ                       
+COБЫTИЙ. PEЗYЛЬTATOM ИCПOЛЬЗOBAHИЯ ДAHHOГO ПPИMИTИBA ЯBЛЯETCЯ                      
+BЫДEЛEHИЯ TPEБYEMOГO ПOДMHOЖECTBA COБЫTИЙ.                                         
+*2S7.5.3. BЫДAЧA                                                                   
+HACTYПИBШИX K ДAHHOMY MOMEHTY COБЫTИЙ ПPOИCXOДИT ПPИ OБPAЩEHИИ                     
+K ПPИMИTИBY BЫДAЧИ ШKAЛЫ HACTYПИBШИX COБЫTДAЧA, ЗAДAHHOГO                          
+PAHEE, ИHTEPECYЮЩEГO ПOЛЬЗOBATEЛЯ ПOДMHOЖECTBA MHOЖECTBA COБЫTИЙ                   
+COБЫTИЙ.                                                                           
+*2S7.5.4. ПEPEBOД ЗAДAЧИ ПOЛЬЗOBATEЛЯ B PEЖИM OЖИДAHИЯ                             
+COБЫTИЙ ПPOИCXOДИT ПPИ OБPAЩEHИИ K COOTBETCTBYЮЩEMY ПPИMИTИBY.                     
+*2S7.5.5. BCЯKOE COБЫTИE MOЖET БЫTЬ OБ'ЯBЛEHO ИЛИ CБPOШEHO ПPИ                     
+OБPAЩEHИИ K ПPИMИTИBY ДOПOЛHEHИЯ TEKYЩEЙ ШKAЛЫ COБЫTИЙ ДAЖE ПPИ                    
+YCЛOBИИ OTCYTCTBИЯ ДAHHOГO COБЫTИЯ B BЫБPAHHOM ПOДMHOЖECTBE                        
+MHOЖECTBA COБЫTИЙ.                                                                 
+*2S7.5.6. ПPИ OKOHЧAHИИ PAБOTЫ ПO ПPOЦECCY                                         
+BOЗBPAT B ПPEPBAHHOE MECTO ЗAДAЧИ ПOЛЬЗOBATEЛЯ MOЖET БЫTЬ                          
+ЭKCTPAKOДOB OC.                                                                    
+*2S7.5.7. BCE OПИCAHHЫE ПPИMИTИBЫ PEAЛИЗOBAHЫ HA БAЗE AППAPATA                     
+ЭKCTPAKOДOB OC.                                                                    
+*2S7.6. COБЫTИЯ B ЗAДAЧE ПOЛЬЗOBATEЛЯ                                              
+И ИX OБPAБOTKA                                                                     
+*2/*SBCЯKOE COБЫTИE, ПEPEДABAEMOE OC ЗAДAЧE ПOЛЬЗOBATEЛЯ, ДOЛЖHO                   
+БЫTЬ OПPEДEЛEHO B MACKE ШKAЛЫ COБЫTИЙ ЭTOЙ ЗAДAЧИ. ЗHAЧEHИE                        
+COБЫTИЯ OПPEДEЛЯETCЯ ПOЗИЦИOHHO.                                                   
+*2S7.6.1. COБЫTИE " БYДИЛЬHИK " - 1-Й PAЗPЯД B MACKE ШKAЛЫ COБЫTИЙ.                
+ДAHHOE COБЫTИE OПPEДEЛЯET BPEMEHHOE ПPEPЫBAHИE ЗAДAЧИ ПOЛЬЗOBATEЛЯ                 
+И ЯBЛЯETCЯ HEOБXOДИMЫM ДЛЯ PAБOTЫ C AППAPATOM COБЫTИЙ И ПPOЦECCOB.                 
+ДЛИTEЛЬHOCTЬ ИHTEPBAЛA CPAБATЫBAHИЯ БYДИЛЬHИKA YCTAHABЛИBAETCЯ                     
+ПOЛЬЗOBATEЛEM И MOЖET COCTABЛЯTЬ OT 0.08 C ДO 2 MИH. 43 C.                         
+*2S7.6.2.COБЫTИE " KOHEЦ BBOДA C TEPMИHAЛA " - 3-Й PAЗPЯД B MACKE                  
+ШKAЛЫ COБЫTИЙ. ДAHHЫM COБЫTИEM OC OПOBEЩAET ЗAДAЧY ПOЛЬЗOBATEЛЯ                    
+O TOM, ЧTO COOБЩEHИE, ПEPEДAHHOE C TEPMИHAЛA B ЗAДAЧY, PAЗMEЩEHO                   
+B БYФEPE TEPMИHAЛA, OПPEДEЛEHHOM ПOЛЬЗOBATEЛEM.                                    
+*2S7.6.3.COБЫTИE                                                                   
+" KOHEЦ BЫBOДA HA TEPMИHAЛ " - 4-Й PAЗPЯД B MACKE ШKAЛЫ COБЫTИЙ.                   
+ДAHHЫM COБЫTИEM OC COOБЩAET ЗAДAЧE ПOЛЬЗOBATEЛЯ, ЧTO OДИH ИЗ                       
+PAБOTAЮЩИX C HEЙ TEPMИHAЛOB OKOHЧИЛ BЫBOД И OCBOБOДИЛCЯ.                           
+*2S7.6.4.COБЫTИE " ПOЛYЧEHO COOБЩEHИE OT ДPYГOЙ ЗAДAЧИ " - 5-Й                     
+PAЗPЯД MACKИ ШKAЛЫ COБЫTИЙ. ДAHHOE COБЫTИE BOЗHИKAET B ЗAДAЧE                      
+ПOЛЬЗOBATEЛЯ ПPИ ИCПOЛЬЗOBAHИИ AППAPATA OБMEHA COOБЩEHИЯMИ TИПA                    
+" ПAMЯTЬ - ПAMЯTЬ ". COБЫTИE OПPEДEЛЯET MOMEHT ПOЛYЧEHИЯ COOБЩEHИЯ                 
+БYФEPOM ПPИEMA ПOPTA ДAHHOЙ ЗAДAЧИ.                                                
+*2S7.6.5.COБЫTИE " OKOHЧAHИE                                                       
+OБMEHA C MЛ, MД " - 6-Й PAЗPЯД B MACKE ШKAЛЫ COБЫTИЙ. ДAHHЫM                       
+COБЫTИEM OC OПOBEЩAET ЗAДAЧY O PEAЛЬHOM OKOHЧAHИИ OБMEHA C BHEШHИM                 
+ЗAПOMИHAЮЩИM YCTPOЙCTBOM.                                                          
+*2S7.6.6.COБЫTИE " CBЯЗЬ C OПEPATOPOM " -                                          
+8-Й PAЗPЯД B MACKE ШKAЛЫ COБЫTИЙ. ДAHHOE COБЫTИE OПOBEЩAET ЗAДAЧY                  
+ПOЛЬЗOBATEЛЯ O BЫПOЛHEHИИ OПEPAЦИИ ПPИHYДИTEЛЬHOГO OKOHЧAHИЯ EE                    
+ДИPEKTИBOЙ OПEPATOPA.                                                              
+*2S7.6.7.COБЫTИE " COБЫTИE B ПOДЧИHEHHOЙ ЗAДAЧE "                                  
+- 9-Й PAЗPЯД B MACKE ШKAЛЫ COБЫTИЙ. ДAHHЫM COБЫTИEM OC OПOBEЩAET                   
+ЗAДAЧY, ЯBЛЯЮЩYЮCЯ ГЛABHOЙ, ЧTO B OДHOЙ ИЗ EE ПOДЧИHEHHЫX ЗAДAЧ                    
+ПPOИЗOШЛO COБЫTИE ЗAДAHHOE B MACKE ШKAЛЫ COБЫTИЙ, YCTAHOBЛEHHOЙ                    
+ГЛABHOЙ ЗAДAЧEЙ ДЛЯ CBOEЙ ПOДЧИHEHHOЙ ЗAДAЧИ.                                      
+*2S7.6.8.COБЫTИE                                                                   
+" OБPAЗOBAHИE ПOДЧИHEHHOЙ ЗAДAЧИ " - 11-Й PAЗPЯД B MACKE ШKAЛЫ                     
+COБЫTИЙ. ДAHHЫM COБЫTИEM OC OПOBEЩAET ЗAДAЧY ПOЛЬЗOBATEЛЯ O                        
+ПOЯBЛEHИИ Y HEE ПOДЧИHEHHOЙ ЗAДAЧИ.                                                
+*2S7.6.9.COБЫTИE " ДOBEPEHИE                                                       
+ PECYPCA " - 12-Й PAЗPЯД B MACKE ШKAЛЫ COБЫTИЙ. ДAHHЫM COБЫTИEM                    
+OC OПOBEЩAET ЗAДAЧY O ПEPEДAЧE ИЛИ OTHЯTИИ Y HEE PECYPCA: ЛИCTOB                   
+OПEPATИBHOЙ ПAMЯTИ, BHEШHИX ЗAПOMИHAЮЩИX YCTPOЙCTB, TEPMИHAЛOB.                    
+*2S7.6.10." ПPOГPAMMHOE COБЫTИE " - 14-16-Й PAЗPЯДЫ MACKИ ШKAЛЫ                    
+COБЫTИЙ. ДAHHЫE COБЫTИЯ HE ИHИЦИИPYЮTCЯ OC, A MOMEHT ИX HACTYПЛEHИЯ                
+OПPEДEЛЯETCЯ CAMИM ПOЛЬЗOBATEЛEM. ДAHHЫE COБЫTИЯ ИCПOЛЬЗYЮTCЯ                      
+ПPИ PAБOTE ПPOГPAMMHЫX KOMПЛEKCOB ДЛЯ CИHXPOHИЗAЦИИ PAЗЛИЧHЫX                      
+ЧACTEЙ KOMПЛEKCA ИЛИ ДЛЯ CИHXPOHИЗAЦИИ BЫПOЛHEHИЯ PAЗЛИЧHЫX                        
+ЧACTEЙ OДHOЙ ЗAДAЧИ.                                                               
+*2S7.6.11.COБЫTИE " ABAPИЙHAЯ CИTYAЦИЯ                                             
+B ЗAДAЧE " - 17-Й PAЗPЯД MACKИ ШKAЛЫ COБЫTИЙ. ДAHHЫM COБЫTИEM OC                   
+COOБЩAET ЗAДAЧE ПOЛЬЗOBATEЛЯ OБ ABAPИИ B ЗAДAЧE. ПPИ PAБOTE ПO                     
+ЭTOMY COБЫTИЮ OC HE БEPET HA CEБЯ ФYHKЦИИ OБPAБOTKИ ABAPИИ B                       
+ЗAДAЧE ПOЛЬЗOBATEЛЯ, A ПEPEДAET ЭTИ ФYHKЦИИ CAMOЙ ЗAДAЧE.                          
+*2S7.6.12.COБЫTИE " OБPAЩEHИE B ЗAKPЫTЫЙ ЛИCT " - 18-Й PAЗPЯД                      
+B MACKE ШKAЛЫ COБЫTИЙ. ДAHHЫM COБЫTИEM OC OПOBEЩAET ЗAДAЧY                         
+ПOЛЬЗOBATEЛЯ OБ OБPAЩEHИИ B ЛИCT ЗAHЯTЫЙ OБMEHOM ИЛИ ПEPEBEДEHHЫЙ                  
+OC HA BHEШHИE ЗAПOMИHAЮЩИE YCTPOЙCTBA.                                             
+*2S7.6.13.COБЫTИE " ПEPEXBAT                                                       
+ЭKCTPAKOДA " - 19-Й PAЗPЯД B MACKE ШKAЛЫ COБЫTИЙ. ДAHHЫM COБЫTИEM                  
+OC COOБЩAET O ПEPEДAЧE ЗAДAЧE ПOЛЬЗOBATEЛЯ ФYHKЦИИ BЫПOЛHEHИЯ                      
+ЭKCTPAKOДA, KOTOPЫЙ ЗAДAЧA ПOЛЬЗOBATEЛЯ БYДET ИHTEPПPETИPOBATЬ                     
+ИHAЧE, ЧEM OC.                                                                     
+*2S7.6.14.COБЫTИE " ГOTOB K ПPИEMY COOБЩEHИЯ " -                                   
+20-Й PAЗPЯД B MACKE ШKAЛЫ COБЫTИЙ. ДAHHOE COБЫTИE OПOBEЩAET                        
+ЗAДAЧИ, PAБOTAЮЩИE ПOД YПPABЛEHИEM OC, O ГOTOBHOCTИ HEKOTOPOЙ                      
+ЗAДAЧИ K ПPИEMY COOБЩEHИЯ.                                                         
+*2S7.6.15.OБPAБOTKA ПOЛYЧEHHOГO COБЫTИЯ                                            
+OCYЩECTBЛЯETCЯ ПPEPЫBAHИEM ПOCЛEДOBATEЛЬHOГO BЫПOЛHEHИЯ KOMAHД                     
+B ЗAДAЧE ПOЛЬЗOBATEЛЯ И ПEPEДAЧEЙ YПPABЛEHИЯ ПO AДPECY ДEШИФPATOPA                 
+COБЫTИЙ. ДЛЯ ПOЛYЧEHИЯ COБЫTИЯ HEOБXOДИMO BЫПOЛHEHИE CЛEДYЮЩИX                     
+YCЛOBИЙ:*S- B ЗAДAЧE ПOЛЬЗOBATEЛЯ PAЗPEШEH ПEPEXOД HA ACИHXPOHHЫE                  
+ПPOЦECCЫ;*S- ЗAДAH AДPEC ДEШИФPATOPA COБЫTИЙ;*S- B MACKE ШKAЛЫ COБЫTИЙ             
+ECTЬ PAЗPЯД COOTBETCTBYЮЩИЙ TPEБYEMOMY COБЫTИЮ И OПPEДEЛEHO                        
+COБЫTИE " БYДИЛЬHИK ".                                                             
+*SB TOM CЛYЧAE, ECЛИ XOTЯ БЫ OДHO ИЗ BЫШEYKAЗAHHЫX YCЛOBИЙ HE BЫПOЛHEHO,           
+ПPИЗHAK COБЫTИЯ ДЛЯ ЗAДAЧИ YCTAHABЛИBAETCЯ, HO PEШEHИE ЗAДAЧИ                      
+ПOЛЬЗOBATEЛЯ HE ПPEPЫBAETCЯ. KAK TOЛЬKO BCE TPИ YCЛOBИЯ B ЗAДAЧE                   
+ПOЛЬЗOBATEЛЯ БYДYT BЫПOЛHEHЫ, TO OC ИЗBECTИT ПOЛЬЗOBATEЛЯ O                        
+HACTYПИBШEM COБЫTИИ.*SПO HACTYПЛEHИЮ PAЗPEШEHHOГO COБЫTИЯ, ПPИ                     
+ПPEPЫBAHИИ ECTECTBEHHOГO BЫПOЛHEHИЯ ЗAДAЧИ ПOЛЬЗOBATEЛЯ, OC                        
+ПPOДEЛЫBAET PAБOTY ПO ФOPMИPOBAHИЮ BEKTOPA COCTOЯHИЯ ПPEPBAHHOГO                   
+ПPOЦECCA B ПOЛE YПPЯTЫBAHИЯ, ЗAHИMAЮЩEM CЛOBA C AДPECAMИ Д-1,...                   
+...Д-11, ГДE Д - AДPEC HAЧAЛA ПPOГPAMMЫ ДEШИФPATOPA, ЗAДAHHЫЙ                      
+ПOЛЬЗOBATEЛEM PAHEE. COДEPЖИMOE ПOЛЯ YПPЯTЫBAHИЯ:                                  
+*/- Д-1: CПEЦИAЛЬHAЯ ИHФOPMAЦИЯ O COCTOЯHИИ ПPOЦECCA;                              
+*/- Д-2: COДEPЖИMOE 15(8) ИHДEKC-PEГИCTPA ЗAДAЧИ ПOЛЬЗOBATEЛЯ                      
+*S     HA MOMEHT ПPEPЫBAHИЯ ( 1 - 15 PP. );                                        
+*/- Д-3: COДEPЖИMOE 16(8) ИHДEKC-PEГИCTPA ЗAДAЧИ ПOЛЬЗOBATEЛЯ                      
+*S     HA MOMEHT ПPEPЫBAHИЯ ( 1 - 15 PP. );                                        
+*/- Д-4: COДEPЖИMOE 17(8) ИHДEKC-PEГИCTPA ЗAДAЧИ ПOЛЬЗOBATEЛЯ                      
+*S     HA MOMEHT ПPEPЫBAHИЯ ( 1 - 15 PP. );                                        
+*/- Д-5: COДEPЖИMOE CПEЦИAЛЬHOГO ИHДEKC-PEГИCTPA ИC0 HA MOMEHT                     
+*S     ПPEPЫBAHИЯ;                                                                 
+*/- Д-6: CПEЦИAЛЬHAЯ ИHФOPMAЦИЯ O COCTOЯHИИ ПPOЦECCA;                              
+*/- Д-7: AДPEC BOЗBPATA ИЗ ПOCЛEДHEГO BЫПOЛHEHHOГO ЭKCTPAKOДA                      
+*S     HA MOMEHT ПPEPЫBAHИЯ;                                                       
+*/- Д-8: COДEPЖИMOE CПEЦИAЛЬHOГO ИHДEKC-PEГИCTPA ИC7 HA MOMEHT                     
+*S     ПPEPЫBAHИЯ;                                                                 
+*/- Д-9: COДEPЖИMOE PEГИCTPA MЛAДШИX PAЗAPЯДOB HA MOMEHT ПPEPЫBAHИЯ;               
+*/- Д-10: COДEPЖИMOE PEГИCTPA PEЖИMA PAБOTЫ APИФMETИЧECKOГO                        
+*S      YCTPOЙCTBA (42 - 48 PP.); ПPИ HACTYПЛEHИИ COБЫTИЯ                          
+*S      " OБPAЩEHИE B ЗAKPЫTЫЙ ЛИCT " B 1-5 PP. ЗAHOCИTCЯ                          
+*S      HOMEP ЛИCTA B ЗAДAЧE ПOЛЬЗOBATEЛЯ, ПPИ OБPAЩEHИИ K                         
+*S      KOTOPOMY BOЗHИKЛO COБЫTИE; B 6-Й PAЗPЯД ЗAHOCИTCЯ                          
+*S      1, ECЛИ ДAHHЫЙ ЛИCT YЧACTBYET B OБMEHE, И 0 -                              
+*S      ECЛИ ДAHHЫЙ ЛИCT БЫЛ ПEPEHECEH OC B BИPTYAЛЬHYЮ                            
+*S      ПAMЯTЬ HA BHEШHИX ЗAПOMИHAЮЩИX YCTPOЙCTBAX; ПPИ                            
+*S      HACTYПЛEHИИ COБЫTИЯ " ПEPEXBAT ЭKCTPAKOДA " B 1-6                          
+*S      PP. ЗAHOCИTCЯ ИДEHTИФИKATOP ПEPEXBAЧEHHOГO                                 
+*S      ЭKCTPAKOДA, KOTOPЫЙ MOЖET БЫTЬ OПPEДEЛEH ИЗ                                
+*S      BЫPAЖEHИЯ                                                                  
+*/*MD K O П - 40(8),                                                               
+*S      ГДE KOП - KOД OПEPAЦИИ ПEPEXBAЧEHHOГO ЭKCTPAKOДA;                          
+*/- Д-11: COДEPЖИMOE CYMMATOPA ЗAДAЧИ HA MOMEHT ПPEPЫBAHИЯ.                        
+*SПOCЛE OБPAЗOBAHИЯ ПOЛЯ YПPЯTЫBAHИЯ OC YCTAHABЛИBAET ЗAПPET                       
+ПEPEXOДA HA ACИHXPOHHЫE ПPOЦECCЫ B ЗAДAЧE ПOЛЬЗOBATEЛЯ ПPИ                         
+ПOЯBЛEHИИ COБЫTИЙ, ЗACЫЛAET B 16(8) ИHДEKC-PEГИCTP ЗAДAЧИ                          
+AДPEC HAЧAЛA ПPOГPAMMЫ ДEШИФPATOPA ACИHXPOHHЫX ПPOЦECCOB (Д),                      
+ЗAПИCЫBAET HA CYMMATOP ЗAДAЧИ MACKY ШKAЛЫ COБЫTИЙ (48-25 PP.),                     
+ШKAЛY HACTYПИBШИX K ДAHHOMY MOMEHTY COБЫTИЙ (1-24 PP.), ГACИT                      
+BCE BOЗHИKШИE K ДAHHOMY MOMEHTY COБЫTИЯ, BKЛЮЧAЯ И TE, KOTOPЫE                     
+HE БЫЛИ ЗAДAHЫ B MACKE ШKAЛЫ COБЫTИЙ И ПEPEДAET YПPABЛEHИE B                       
+ЗAДAЧY ПOЛЬЗOBATEЛЯ HA HAЧAЛO ПPOГPAMMЫ ДEШИФPATOPA ACИHXPOHHЫX                    
+ПPOЦECCOB.                                                                         
+*SПOCЛE OKOHЧAHИЯ PAБOTЫ ПO ACИHXPOHHOMY ПPOЦECCY, ПO ЖEЛAHИЮ                      
+ПOЛЬЗOBATEЛЯ, OC ПPOИЗBOДИT BOCCTAHOBЛEHИE ПPEPBAHHOГO ПPOЦECCA                    
+ПO EГO COCTOЯHИЮ HA MOMEHT ПPEPЫBAHИЯ ИЗ ПOЛЯ YПPЯTЫBAHИЯ ЗAДAЧИ.                  
+BOЗMOЖHOCTЬ ИЗMEHEHИЯ AДPECA BOCCTAHOBЛEHИЯ ПPEPBAHHOГO ПPOЦECCA                   
+ДOПYCKAETCЯ ЛИШЬ C ЗAHECEHИEM HYЛEBOГO KOДA B CЛOBO ПO AДPECY                      
+Д-6.                                                                               
+*SПPИ COBMECTHOM ИCПOЛЬЗOBAHИИ AППAPATA COБЫTИЙ И AППAPATA ГЛABHOЙ И               
+ПOДЧИHEHHOЙ ЗAДAЧ BOЗMOЖHЫ ДBA BAPИAHTA PAБOTЫ:                                    
+*S- COБЫTИЯ OБPAБATЫBAЮTCЯ ЛИШЬ ГЛABHOЙ ЗAДAЧEЙ;                                   
+*S- COБЫTИЯ OБPAБATЫBAЮTCЯ KAK ГЛABHOЙ, TAK И ПOДЧИHEHHOЙ ЗAДAЧEЙ.                 
+*SB ПEPBOM CЛYЧAE, PAБOTA ГЛABHOЙ ЗAДAЧИ ПO COБЫTИЮ HИЧEM HE                       
+OTЛИЧAETCЯ OT CЛYЧAЯ PAБOTЫ HEЗABИCИMOЙ ЗAДAЧИ C YЧETOM HAЛИЧИЯ COБЫTИЯ            
+TИПA " OБPAЗOBAЛACЬ ПOДЧИHEHHAЯ ЗAДAЧA " И " COБЫTИE B ПOДЧИHEHHOЙ                 
+ЗAДAЧE ". ГЛABHAЯ ЗAДAЧA ИMEET BOЗMOЖHOCTЬ YCTAHOBИTЬ MACKY ШKAЛЫ                  
+COБЫTИЙ ДЛЯ ПOДЧИHEHHOЙ ЗAДAЧИ И OБPAБATЫBATЬ COБЫTИЯ, BOЗHИKAЮЩИE                 
+B ПOДЧИHEHHOЙ ЗAДAЧE, OT CBOEГO ИMEHИ.                                             
+*SBO BTOPOM CЛYЧAE, OБOЗHAЧИM MACKY ШKAЛЫ COБЫTИЙ, YCTAHOBЛEHHYЮ                   
+ГЛABHOЙ ЗAДAЧEЙ ДЛЯ CBOEЙ ПOДЧИHEHHOЙ, - MГ, A MACKY ШKAЛЫ COБЫTИЙ                 
+COБCTBEHHO ПOДЧИHEHHOЙ ЗAДAЧИ - MП. B CЛYЧAE, KOГДA ПEPECEЧEHИE                    
+MHOЖECTB MГ И MП ПYCTO, KAЖДAЯ ИЗ ЗAДAЧ БYДET OБPAБATЫBATЬ                         
+ПOЯBИBШEECЯ COБЫTИE PAЗДEЛЬHO. B TOM CЛYЧAE, KOГДA ПEPECEЧEHИE                     
+MHOЖECTB MГ И MП HE ПYCTO, TO ПPИ PAБOTE ПO COБЫTИЮ, ПPИHAДЛEЖAЩEMY                
+ПEPECEЧEHИЮ MHOЖECTB MГ И MП, ПEPBOЙ O ПPOИCШEДШEM COБЫTИИ                         
+БYДET OПOBEЩEHA ГЛABHAЯ ЗAДAЧA, A ПO OKOHЧAHИЮ PAБOTЫ ГЛABHOЙ ЗAДAЧИ               
+ПO ДAHHOMY COБЫTИЮ БYДET ИHИЦИИPOBAHA OБPAБOTKA ЭTOГO COБЫTИЯ                      
+B ПOДЧИHEHHOЙ ЗAДAЧE.                                                              
+*2S7.7. AППAPAT ПEPEXBATA ЭKCTPAKOДOB                                              
+*2/                                                                                
+*SAППAPAT ПEPEXBATA ЭKCTPAKOДOB ПOЗBOЛЯET ПOЛЬЗOBATEЛЮ OБECПEЧИTЬ                  
+TPACCИPOBKY CBOEЙ ПPOГPAMMЫ И ИHTEPПPETAЦИЮ HEKOTOPЫX ЭKCTPAKOДOB.                 
+ПEPEXBAT ЭKCTPAKOДOB BOЗMOЖEH KAK C ПOMOЩЬЮ AППAPATA COБЫTИЙ, TAK                  
+И БEЗ EГO ИCПOЛЬЗOBAHИЯ.                                                           
+*2S7.7.1. ПEPEXBAT ЭKCTPAKOДOB БEЗ ИCПOЛЬЗOBAHИЯ                                   
+AППAPATA COБЫTИЙ                                                                   
+*SБEЗ ИCПOЛЬЗOBAHИЯ AППAPATA COБЫTИЙ OC ПOЗBOЛЯET ПEPEXBATЫBATЬ:                   
+*S- ЭKCTPAKOД OБMEHA C BHEШHИMИ ЗAПOMИHAЮЩИMИ YCTPOЙCTBAMИ (Э70);                  
+*S- ЭKCTPAKOД ПEЧATИ HA AЦПY (Э64);                                                
+*S- ЭKCTPAKOД PAБOTЫ C TEPMИHAЛAMИ (Э71);                                          
+*S- ЭKCTPAKOД KOHЦA ЗAДAЧИ (Э74).                                                  
+*SPAБOTA ПO ПEPEXBATY ЭKCTPAKOДOB ПPEДCTABЛЯETCЯ ПOЛЬЗOBATEЛEM                     
+ДЛЯ OC B BИДE ШKAЛЫ ПEPEXBATЫBAEMЫX ЭKCTPAKOДOB. ПPИ BЫПOЛHEHИИ                    
+ПEPEXBATA OC BЫПOЛHЯET CЛEДYЮЩИE ДEЙCTBИЯ:                                         
+*S- ЭKCTPAKOД ПEPEXBATЫBAETCЯ ДO EГO ИCПOЛHEHИЯ OC;                                
+*S- ФOPMИPYET ИHФOPMAЦИOHHOE ПOЛE ПEPEXBATA ЭKCTPAKOДA                             
+*S  COCTOЯЩEE ИЗ TPEX CЛOB;                                                        
+*S- ЗAПPEЩAET ДAЛЬHEЙШИЙ ПEPEXBAT ЭTOГO ЭKCTPAKOДA;                                
+*S- ПEPEДAET YПPABЛEHИE B TOЧKY HAЧAЛA ПPOГPAMMЫ                                   
+*S  ДEШИФPATOPA ПEPEXBATA (П), YKAЗAHHYЮ ПOЛЬЗOBATEЛEM                             
+*S  PAHEE;                                                                         
+*S- ЗACЫЛAET B 16(8) ИHДEKC-PEГИCTP ИCПOЛHИTEЛЬHЫЙ AДPEC                           
+*S  ПEPEXBAЧEHHOГO ЭKCTPAKOДA.                                                     
+*SИHФOPMAЦИOHHOE ПOЛE ПEPEXBATA ЭKCTPAKOДA ФOPMИPYETCЯ                             
+OTHOCИTEЛЬHO AДPECA HAЧAЛA ПPOГPAMMЫ ДEШИФPAЦИИ ПEPEXBAЧEHHЫX                      
+ЭKCTPAKOДOB И COДEPЖИT CЛEДYЮЩYЮ ИHФOPMAЦИЮ:                                       
+*/- П-1: COДEPЖИMOE CYMMATOPA HA MOMEHT ПEPEXBATA ЭKCTPAKOДA                       
+*/- П-2: COДEPЖИMOE CПEЦИAЛЬHOГO ИHДEKC-PEГИCTPA 32(8)-                            
+*S     AДPEC BЫПOЛHEHИЯ ПEPEXBATЫBAEMOГO ЭKCTPAKOДA;                               
+*/- П-3: ИCПOЛHИTEЛЬHЫЙ AДPEC ЭKCTPAKOДA (1-15 PP.)                                
+*S     ИДEHTИФИKAЦИЮ ПEPEXBAЧEHHOГO ЭKCTPAKOДA B BИДE                              
+*S     EДИHИЦЫ ШKAЛЫ (16-26 PP.).                                                  
+*SДЛЯ ДAЛЬHEЙШEГO ПEPEXBATA ЭKCTPAKOДA HEOБXOДИMO BHOBЬ BHECTИ                     
+*2S7.7.2. ПEPEXBAT ЭKCTPAKOДOB C ИCПOЛЬЗOBAHИEM                                    
+AППAPATA COБЫTИЙ                                                                   
+*SПPИ ИCПOЛЬЗOBAHИИ AППAPATA COБЫTИЙ MHOЖECTBO ЭKCTPAKOДOB,                        
+KOTOPЫE ПOЗBOЛЯET ПEPEXBATЫBATЬ OC, ЗHAЧИTEЛЬHO PACШИPЯETCЯ.                       
+ПPИ PAБOTE C AППAPATOM COБЫTИЙ PAЗPEШAETCЯ ПEPEXBAT:                               
+*S- ЭKCTPAKOДA ЧTEHИЯ CTPOKИ C БYФEPA BBOДA;                                       
+*S- ЭKCTPAKOДA BЫBOДA HA AЦПY(Э64);                                                
+*S- ЭKCTPAKOДA OБMEHA C MЛ И MД(Э70);                                              
+*S- ЭKCTPAKOДA PAБOTЫ C TEPMИHAЛAMИ(Э71);                                          
+*S- ЭKCTPAKOДA KOHЦA ЗAДAЧИ(Э74);                                                  
+*S- ЭKCTPAKOДOB Э52 И Э53;                                                         
+*S- ЭKCTPAKOДA OБMEHA C БYФEPHOЙ ПAMЯTЬЮ(Э70);                                     
+*S- ЭKCTPAKOДOB Э63,Э66,Э62,Э51,Э72,Э73,Э54,Э55,Э56,Э57,                           
+*S  Э67,Э61.                                                                       
+*SДЛЯ BЫПOЛHEHИЯ ПEPEXBATA YKAЗAHHЫX ЭKCTPAKOДOB HEOБXOДИMO                        
+BЫПOЛHИTЬ CЛEДYЮЩИE ПOДГOTOBИTEЛЬHЫE OПEPAЦИИ:                                     
+*S- YCTAHOBИTЬ AДPEC ДEШИФPATOPA ACИHXPOHHЫX ПPOЦECCOB;                            
+*S- ЗAДATЬ B MACKE ШKAЛЫ COБЫTИЙ ПO KPAЙHEЙ MEPE 1 И 19                            
+*S  PAЗPЯДЫ ;                                                                      
+*S- PAЗPEШИTЬ ПEPEXOД HA ACИHXPOHHЫE ПPOЦECCЫ;                                     
+*S- ЗAДATЬ MACKY ШKAЛЫ ПEPEXBATЫBAEMЫX ЭKCTPAKOДOB.                                
+*SMACKA ШKAЛЫ ПEPEXBATЫBAEMЫX ЭKCTPAKOДOB ЗAДAETCЯ ПOЗИЦИOHHO                      
+ЗHAЧEHИE ПOЗИЦИИ B MACKE CЛEДYЮЩEE:                                                
+*S1 P.-ПEPEXBAT ЭKCTPAKOДOB Э60,Э50,Э51,Э54-Э57;                                   
+*S2 P.-ПEPEXBAT ЭKCTPAKOДA Э64;                                                    
+*S3 P.-ПEPEXBAT ЭKCTPAKOДA OБMEHA C MЛ И MД;                                       
+*S4 P.-ПEPEXBAT ЭKCTPAKOДOB Э71,Э72,Э73;                                           
+*S5 P.-ПEPEXBAT ЭKCTPAKOДA Э74;                                                    
+*S6 P.-ПEPEXBAT ЭKCTPAKOДOB Э52 И Э53;                                             
+*S7 P.-ПEPEXBAT ЭKCTPAKOДA OБMEHA C БYФEPHOЙ ПAMЯTЬЮ OЗY;                          
+*S8 P.-ПEPEXBAT ЭKCTPAKOДOB Э63,Э66,Э62,Э61,Э67.                                   
+*SПPИ PAБOTE ПO COБЫTИЮ " ПEPEXBAT ЭKCTPAKOДA " OC ЗAHOCИT                         
+B 1-6 PP. CЛOBA C AДPECOM Д-10 ИДEHTИФИKATOP ПEPEXBAЧEHHOГO                        
+ЭKCTPAKOДA, OПPEДEЛЯEMЫЙ ИЗ BЫPAЖEHИЯ                                              
+*MDKOП - 40(8),                                                                    
+ГДE KOП- KOД OПEPAЦИИ ПEPEXBAЧEHHOГO ЭKCTPAKOДA.                                   
+*2S7.8. ПEPEДAЧA COOБЩEHИЙ MEЖДY ЗAДAЧAMИ                                          
+*2SCYЩECTBOBAHИE ПPOГPAMMHЫX KOMПЛEKCOB, T.E. ЗAДAЧ BЫПOЛHЯЮЩИX                    
+COBMECTHOE PEШEHИE OБЩEЙ ПPOБЛEMЫ, ПPИBOДИT K HEOБXOДИMOCTИ                        
+OБMEHA ИHФOPMAЦИEЙ MEЖДY ЗAДAЧAMИ KOMПЛEKCA. OБMEH БOЛЬШИMИ                        
+ПOPЦИЯMИ ИHФOPMAЦИИ MOЖHO OCYЩECTBЛЯTЬ C ПOMOЩЬЮ BHEШHИX                           
+ЗAПOMИHAЮЩИX YCTPOЙCTB, CИHXPOHИЗИPOBAB PAБOTY BCEX ЧACTEЙ                         
+ПPOГPAMMHOГO KOMПЛEKCA ПO BЫПOЛHEHИЮ OПEPAЦИЙ ЧTEHИЯ И ЗAПИCИ                      
+HA OБЩEM ПOЛE ПAMЯTИ. TAKOЙ CПOCOБ OБMEHA ИHФOPMAЦИEЙ                              
+OKAЗЫBAETCЯ MEДЛEHHЫM И HEЭФФEKTИBHЫM B CЛYЧAE OБMEHA MAЛЫMИ                       
+OБ'EMAMИ ИHФOPMAЦИИ. ДЛЯ ПOДДEPЖKИ OБЩEHИЯ ЗAДAЧ B ПPOЦECCE                        
+PEШEHИЯ ПPOГPAMMHOГO KOMПЛEKCA B OC BBOДИTCЯ AППAPAT OБMEHA                        
+COOБЩEHИЯMИ MEЖДY ЗAДAЧAMИ, HAXOДЯЩИMИCЯ B PEШEHИИ. ПEPEДAЧA                       
+COOБЩEHИЯ ПPEДCTABЛЯET COБOЙ OБMEH TИПA  " ПAMЯTЬ - ПAMЯTЬ "                       
+И ПOЗBOЛЯET ПEPEПИCЫBATЬ ИHФOPMAЦИЮ ИЗ HEKOTOPOГO YЧACTKA                          
+OПEPATИBHOЙ ПAMЯTИ ( БYФEPA BЫДAЧИ - БB ) OДHOЙ ЗAДAЧИ B                           
+HEKOTOPЫЙ YЧACTOK OПEPATИBHOЙ ПAMЯTИ ( БYФEP ПPИEMA - БП )                         
+ДPYГOЙ ЗAДAЧИ.                                                                     
+*SBCЯKAЯ ЗAДAЧA MOЖET ИMETЬ ДO 255 БП И CTOЛЬKO ЖE БB, KOTOPЫE                     
+PACПOЛAГAЮTCЯ B EE OПEPATИBHOЙ ПAMЯTИ. ДЛЯ TOЧHOГO OПPEДEЛEHИЯ                     
+KOOPДИHAT OTПPABЛEHИЯ И ПPИEMA COOБЩEHИЯ ПPИMEHЯETCЯ ПOHЯTИE                       
+ПOPTA - COBOKYПHOCTЬ OДHOГO БП И OДHOГO БB. BCЯKИЙ ПOPT                            
+XAPAKTEPИЗYETCЯ CBOИM HOMEPOM И ГPYППOЙ ПPИЗHAKOB, OПИCЫBAЮЩИX                     
+TEKYЩEE COCTOЯHИE ДAHHOГO ПOPTA. BCE ДAHHЫE O ПOPTE ПPEДCTABЛЯЮT                   
+COБOЙ CTPOKY B CПEЦИAЛЬHOЙ MATPИЦE, HAЗЫBAЮЩEЙCЯ TAБЛИЦEЙ                          
+ПOPTOB ( TП ).                                                                     
+*SДAHHЫMИ, OПИCЫBAЮЩИMИ TEKYЩEE COCTOЯHИE ПOPTA, ЯBЛЯЮTCЯ:                         
+*S- ПPИЗHAK CYЩECTBOBAHИЯ ДAHHOГO ПOPTA Y ЗAДAЧИ;                                  
+*S- ПPИЗHAK OTKPЫTИЯ ИЛИ ЗAKPЫTИЯ ДAHHOГO ПOPTA                                    
+*S  HA ПPИEM ИЛИ BЫДAЧY COOБЩEHИЯ;                                                 
+*S- CCЫЛOЧHЫE YKAЗATEЛИ HA COOTBETCTBYЮЩИЙ БП И БB;                                
+*S- MAKCИMAЛЬHЫE PAЗMEPЫ COOБЩEHИЙ ПPИHИMAEMЫX B БП                                
+*   И BЫДABAEMЫX ИЗ БB.                                                            
+*S TП PACПOЛAГAETCЯ B OПEPATИBHOЙ ПAMЯTИ ПOЛЬЗOBATEЛЯ, A                           
+EE AДPECC COOБЩAETCЯ OC. ДAHHAЯ TAБЛИЦA ЯBЛЯETCЯ ПOЛHOЙ                            
+XAPAKTEPИCTИKOЙ ЗAДAЧИ ПOЛЬЗOBATEЛЯ C TOЧKИ ЗPEHИЯ AППAPATA                        
+ПEPEДAЧИ COOБЩEHИЙ.                                                                
+*SДЛЯ ПEPEДAЧИ ИHФOPMAЦИИ ПOЛЬЗOBATEЛЬ ДOЛЖEH YKAЗATЬ OC                           
+HOMEP ПOPTA ИЗ KOTOPOГO ЗAДAЧA БYДET OTПPABЛЯTЬ COOБЩEHИE.                         
+ДAЛEE OC OБPATИTCЯ K COOTBETCTBYЮЩEMY БB YKAЗAHHOГO ПOPTA.                         
+ИHФOPMAЦИЯ OБ AДPECATE COOБЩEHИЯ ЯBЛЯETCЯ ЗAГOЛOBKOM                               
+ПEPEДABAEMOГO COOБЩEHИЯ. AДPEC ПOЛYЧATEЛЯ COCTOИT ИЗ HOMEPA                        
+ПPOГPAMMHOГO KAHAЛA, ПO KOTOPOMY PEШAETCЯ ЗAДAЧA ПOЛЬЗOBATEЛЯ,                     
+KOTOPOЙ HAПPABЛЯETCЯ COOБЩEHИE, HOMEP ПOPTA ПOЛYЧEHИЯ                              
+COOБЩEHИЯ B ЭTOЙ ЗAДAЧE И ПPИЗHAK HEOБXOДИMOCTИ OПOBEЩEHИЯ                         
+AДPECATA O ПOCTYПЛEHИИ K HEMY COOБЩEHИЯ ЧEPEЗ CPEДCTBA                             
+AППAPATA COБЫTИЙ. KPOME TOГO ДOЛЖHA БЫTЬ YKAЗAHA ДЛИHA                             
+ПEPEДABAEMOГO COOБЩEHИЯ.                                                           
+*S CTPOГO ЗAДABAEMЫЙ AДPEC ПOЛYЧATEЛЯ COOБЩEHИЯ ПOЗBOЛЯET                          
+TOЧHO HAПPABИTЬ ИHФOPMAЦИЮ YKAЗAHHOMY AДPECATY. AППAPAT                            
+PAБOTЫ C БП БOЛEE ГИБOK И ПOЗBOЛЯET OБECПEЧИTЬ ЭФФEKTИBHYЮ                         
+PAБOTY  "ПOЧTOBOГO ЯЩИKA"  ПPИ BOЗMOЖHOCTИ ПOCTYПЛEHИЯ                             
+COOБЩEHИЯ OT PAЗЛИЧHЫX ЗAДAЧ ПPOГPAMMHOГO KOMПЛEKCA.                               
+*SOБOЗHAЧИM HOMEP ПPOГPAMMHOГO KAHAЛA OTПPABИTEЛЯ - HK, A                          
+HOMEP ПOPTA OTПPABИTEЛЯ - HП. PACCMOTPИM PAЗЛИЧHЫE                                 
+KOMБИHAЦИИ ЗHAЧEHИЙ BEЛИЧИH HK И HП:                                               
+*/ECЛИ HK`0 И HП`0, TO B ДAHHЫЙ БП MOЖET БЫTЬ ПPИHЯTO                              
+COOБЩEHИE ЛИШЬ OT ЗAДAЧИ PEШAЮЩEЙCЯ ПO ПPOГPAMMHOMY KAHAЛY                         
+C HOMEPOM HK OTПPABЛEHHOE ИЗ EE ПOPTA C HOMEPOM HП;                                
+*/ECЛИ HK`0, A HП=0, TO B ЭTOT БП MOЖET БЫTЬ ПPИHЯTO BCЯKOE                        
+COOБЩEHИE, OTПPABЛEHHOE ЗAДAЧEЙ, PEШAЮЩEЙCЯ ПO ПPOГPAMMHOMY                        
+KAHAЛY C HOMEPOM HK.                                                               
+*/ECЛИ HK=0, A HП`0, TO B ДAHHЫЙ БП MOЖET ПOCTYПИTЬ                                
+COOБЩEHИE OT ЛЮБOЙ PEШAЮЩEЙCЯ B ДAHHЫЙ MOMEHT ЗAДAЧИ, HO                           
+TOЛЬKO ИЗ OПPEДEЛEHHOГO Y HEE ПOPTA C HOEPOM HП;                                   
+*/ECЛИ HK=0 И HП=0, TO ДAHHЫЙ БП CЧИTAETCЯ OTKPЫTЫM ДЛЯ                            
+ПPИEMA BCEX COOБЩEHИЙ ИЗ BCEX ПOPTOB PEШAЮЩИXCЯ B                                  
+HACTOЯЩEE BPEMЯ ЗAДAЧ.                                                             
+*S TП MOЖET COCTOЯTЬ ИЗ HECKOЛЬKИX ЧACTEЙ, CBЯЗAHHЫX MEЖДY                         
+COБOЙ CCЫЛKAMИ. OC COOБЩAETCЯ AДPEC HAЧAЛA TAБЛИЦЫ                                 
+ПOPTOB (ATП). KAЖДAЯ ЧACTЬ TП MOЖET COДEPЖATЬ ИHФOPMAЦИЮ                           
+HE БOЛEE ЧEM O 32 ПOPTAX ДAHHOЙ ЗAДAЧИ. ПEPBЫE TPИ CЛOBA                           
+ЧACTИ TП OПИCЫBAЮT COCTOЯHИE ПOPTA, A ИMEHHO: CYЩECTBOBAHИE                        
+ДAHHOГO ПOPTA, OПИCAHHOГO ДAHHOЙ ЧACTЬЮ TAБЛИЦЫ И COCTOЯHИE                        
+EГO БП И БB ДЛЯ ПPИHЯTИЯ И ПEPEДAЧИ COOБЩEHИЯ COOTBETCTBEHHO.                      
+HAЧИHAЯ C 4-ГO CЛOBA PACПOЛAГAETCЯ ИHФOPMAЦИЯ O BCEX ПOPTAX                        
+ЗAДAЧИ ИЗ PACЧETA 2 CЛOBA HA OДИH ПOPT. B ЭTИX CЛOBAX                              
+COДEPЖИTCЯ ИHФOPMAЦИЯ OБ AДPECAX БП И БB ДAHHOГO ПOPTA,                            
+MAKCИMAЛЬHAЯ ДЛИHA COOБЩEHИЯ ДЛЯ БП И БB ДAHHOГO ПOPTA,                            
+A TAKЖE ИHФOPMAЦИЯ O ЗAДAЧAX, ПEPEДAЧA COOБЩEHИЙ OT KOTOPЫX                        
+B БП ДAHHOГO ПOPTA ЗAKOHЧИЛACЬ HEYДAЧHO.                                           
+*SECЛИ ЗAДAЧA ИCПOЛЬЗYET MEHEE 225 ПOPTOB, TO TП MOЖET                             
+COCTOЯTЬ MEHEE ЧEM ИЗ 8 ЧACTEЙ И ПOCЛEДHЯЯ ЧACTЬ MOЖET                             
+БЫTЬ HEПOЛHOЙ. ПEPEДAЧA COOБЩEHИЙ BHYTPИ OДHOЙ ЗAДAЧИ                              
+ЗAПPEЩAETCЯ OC. KPOME TOГO ЗAПPEЩAETCЯ YKAЗЫBATЬ CCЫЛKY                            
+HA K+1 ЧACTЬ TП B K-1 ЧACTИ: BCE ЧACTИ TП ДOЛЖHЫ БЫTЬ                              
+CBЯЗAHЫ HEПOCPEДCTBEHHO.                                                           
+*SДЛЯ OБECПEЧEHИЯ BOЗMOЖHOCTИ ПEPEДAЧИ COOБЩEHИЙ MEЖДY                             
+ЗAДAЧAMИ B OC BKЛЮЧEHЫ CЛEДYЮЩИE ПPИMИTИBЫ:                                        
+*S- " YCTAHOBИ AДPEC TП ";                                                         
+*S- " YПPABЛEHИE COCTOЯHИEM ПOPTA ";                                               
+*S- " ПEPEДAЙ COOБЩEHИE ".                                                         
+*SAППAPAT ПEPEДAЧИ COOБЩEHИЙ ПOДДEPЖИBAETCЯ AППAPATOM                              
+COБЫTИЙ C ПOMOЩЬЮ ПPИMИTИBOB " ПPИШЛO COOБЩEHИE " И                                
+" ГOTOB K ПPИEMY COOБЩEHИЙ ".                                                      
+*P*2/*MD8. CИCTEMA YПPABЛEHИЯ ДAHHЫMИ                                              
+*2S ПOД CИCTEMOЙ YПPABЛEHИЯ ДAHHЫMИ ПOHИMAETCЯ                                     
+CИCTEMA OБЩEHИЯ C ФИЗИЧECKИMИ MAГHИTHЫMИ HOCИTEЛЯMИ                                
+HAПPЯMYЮ, A TAKЖE OБЩEHИE C OБЛACTЯMИ APXИBHOЙ CИCTEMЫ.                            
+HAПPЯMYЮ C MAГHИTHЫMИ HOCИTEЛЯMИ OБЩAЮTCЯ MOДYЛИ                                   
+BЗY, OБMEH, ЭKC, OC4;                                                              
+K MOДYЛЯM APXИBHOЙ CИCTEMЫ OTHOCЯTCЯ APXИH, TPAX,                                  
+ГИДPA, KOMAP, PEЗAPX, APФA, PA, OБPAЗ, HEPEЗA.                                     
+APXИBHЫE MOДYЛИ И MOДYЛЬ BЗY PAБOTAЮT B ПEPBOM PEЖИME,                             
+MOДYЛИ ЭKC, OБMEH И OC4 - B TPETЬEM PEЖИME.                                        
+*2S8.1. APXИBHAЯ CИCTEMA OC ДИCПAK                                                 
+*2SAPXИBHAЯ CИCTEMA OC ПPEДHAЗHAЧEHA ДЛЯ OБECПEЧEHИЯ ПOЛЬЗOBATEЛЯ                  
+CPEДCTBAMИ PAБOTЫ C MACCИBAMИ ИHФOPMAЦИИ, XPAHЯЩИMИCЯ HA BHEШHИX                   
+HOCИTEЛЯX. APXИBHAЯ CИCTEMA ПOЗBOЛЯET:                                             
+*S- OPГAHИЗOBATЬ ЦEHTPAЛИЗOBAHHHOE XPAHEHИE ДAHHЫX;                                
+*S- OБECПEЧИTЬ ЭФФEKTИBHOE ДИHAMИЧECKOE PACПPEДEЛEHИE                              
+*/*6GПAMЯTИ HA BHEШHИX HOCИTEЛЯX;                                                  
+ *S- ПPEДOCTABИTЬ ПOЛЬЗOBATEЛЮ CPEДCTBA ДOCTYПA K ДAHHЫM,                          
+ */*6GПOЗBOЛЯЮЩИE OБPAЩATЬCЯ K HИM HA YPOBHE CИMBOЛИЧECKИX                         
+  ИMEH;                                                                            
+ *S- OБECПEЧИTЬ ПOЛЬЗOBATEЛЯ CPEДCTBAMИ ЗAЩИTЫ ИHФOPMAЦИИ                          
+ */*6GOT HECAHKЦИOHИPOBAHHOГO ДOCTYПA;                                             
+ *S- OБECПEЧИTЬ COXPAHHOCTЬ ДAHHЫX.                                                
+*SAPXИB PACПOЛAГAETCЯ HA TOMAX - ДИCKOBЫX ПAKETAX.                                 
+ BCЯ COBOKYПHOCTЬ TOMOB, HAXOДЯЩИXCЯ ПOД                                           
+YПPABЛEHИEM APXИBHOЙ CИCTEMЫ, OБPAЗYET APXИBHOE ПPOCTPAHCTBO.                      
+HA HEKOTOPЫX TOMAX KPOME OБЛACTEЙ PACПOЛAГAETCЯ И CЛYЖEБHAЯ                        
+ИHФOPMAЦИЯ - KATAЛOГИ APXИBA.                                                      
+*SДЛЯ ПOЛЬЗOBATEЛЯ APXИBHOE ПPOCTPAHCTBO ПPEДCTABЛЯETCЯ B BИДE                     
+COBOKYПHOCTИ OБЛACTEЙ, ГДE OБЛACTЬ - ИMEHOBAHHAЯ EДИHИЦA BHEШHEЙ                   
+ПAMЯTИ. OБЛACTЬ ЗAHИMAET ЦEЛOE ЧИCЛO ЗOH HA APXИBHOM TOME И                        
+ИДEHTИФИЦИPYETCЯ CBOИM ИMEHEM И ШИФPOM XOЗЯИHA ДAHHOЙ OБЛACTИ.                     
+ИMЯ    OБЛACTИ - ЭTO ПOCЛEДOBATEЛЬHOCTЬ ПPOCTЫX ИMEH, PAЗДEЛEHHЫX                  
+TOЧKAMИ. ПPOCTOE ИMЯ COДEPЖИT HE БOЛEE ДEBЯTИ CИBOЛOB, A                           
+ИMЯ COДEPЖИT HE БOЛEE CEMИ ПPOCTЫX ИMEH. ШИФP XOЗЯИHA ЭTO                          
+ПEPBЫE ШECTЬ ЦИФP ШИФPA ПOЛЬЗOBATEЛЯ B OПEPAЦИOHHOЙ CИCTEME,                       
+ПPИЧEM ЛЮБAЯ ЦИФPA MOЖET БЫTЬ ЗAMEHEHA TOЧKOЙ, OБOЗHAЧAЮЩEЙ                        
+ПPOИЗBOЛЬHYЮ ЦИФPY.                                                                
+*SBCE TOMA, OБPAЗYЮЩИE APXИBHOE ПPOCTPAHCTBO, PAЗДEЛЯЮTCЯ                          
+HA ДBE KATEГOPИИ : ПEPBИЧHЫE И BTOPИЧHЫE HOCИTEЛИ. OБЛACTЬ                         
+ДOCTYПHA ПOЛЬЗOBATEЛЮ TOЛЬKO TOГДA, KOГДA OHA HAXOДИTCЯ HA                         
+ПEPBИЧHOM HOCИTEЛE. HA BTOPИЧHЫE HOCИTEЛИ "BЫTAЛKИBAЮTCЯ"                          
+(ПEPEHOCЯTCЯ) OБЛACTИ, K KOTOPЫM HE БЫЛO OБPAЩEHИЙ B TEЧEHИE                       
+ДЛИTEЛЬHOГO BPEMEHИ. BЫTAЛKИBAHИE ПPOИЗBOДИTCЯ ЛИШЬ TOГДA,                         
+KOГДA HEOБXOДИMO OCBOБOДИTЬ MECTO ДЛЯ KAKOЙ-ЛИБO "BTAЛKИBAEMOЙ"                    
+OБЛACTИ. ПOЛЬЗOBATEЛЬ, B PAMKAX BЫДEЛEHHOГO EMY БЮДЖETA, MOЖET                     
+ЗAПPOCИTЬ ДYБЛИPOBAHИE OБЛACTEЙ. B ЭTOM CЛYЧAE HA OДHOM ИЗ                         
+BTOPИЧHЫX HOCИTEЛEЙ БYДET ЗABEДEHA ПEPИOДИЧECKИ OБHOBЛЯEMAЯ                        
+KOПИЯ OБЛACTИ.*SДЛЯ KAЖДOЙ OБЛACTИ B APXИBHOЙ CИCTEME OПPEДEЛEHЫ                   
+CЛEДYЮЩИE ATPИБYTЫ :*S- ШИФP ПOЛЬЗOBATEЛЯ, COЗДABШEГO OБЛACTЬ;                     
+*S- ДATA COЗДAHИЯ OБЛACTИ;*S- ЧИCЛO OБPAЩEHИЙ K OБЛACTИ;                           
+*S- ДATA ПOCЛEДHEГO OБPAЩEHИЯ K OБЛACTИ;*S- ДATA, BPEMЯ                            
+ПOCЛEДHEЙ ЗAПИCИ B OБЛACTЬ;*S- ШИФP ПOЛЬЗOBATEЛЯ, BЫПOЛHИBШEГO                     
+ПOCЛEДHЮЮ ЗAПИCЬ B*/*6GOБЛACTЬ;*S- ДЛИHA OБЛACTИ;*S- TИП OБЛACTИ.                  
+TИП OПPEДEЛЯET HOCИTEЛЬ, HA KOTOPOM БYДET */*6GPACПOЛOЖEHA OБЛACTЬ;                
+*S- ПAPOЛИ HA ЧTEHИE И HA ЗAПИCЬ;*S- CПИCOK ШИФPOB ПOЛЬЗOBATEЛEЙ,                  
+ ИMEЮЩИX ПPABO PAБOTATЬ C OБЛACTЬЮ. *SДЛЯ PACПPEДEЛEHИЯ APXИBHOГO                  
+ПPOCTPAHCTBA MEЖДY ПOЛЬЗOBATEЛЯMИ B COCTABE APXИBA ФYHKЦИOHИPYET                   
+БЮДЖETHAЯ CИCTEMA. БЮДЖETЫ B APXИBE ПPEДCTABЛЯЮT COБOЙ ДEPEBO                      
+C ПPOИЗBOЛЬHЫM KOЛИЧECTBOM YPOBHEЙ. "KOPHEM" ДEPEBA БЮДЖETOB                       
+ЯBЛЯETCЯ ФИKTИBHЫЙ БЮДЖET ШИФPA '......', PACПOЛAГAЮЩEГO                           
+HEOГPAHИЧEHHЫM KOЛИЧECTBOM PECYPCOB BCEX TИПOB. AДMИHИCTPATOP                      
+ЭTOГO БЮДЖETA ЯBЛЯETCЯ AДMИHИCTPATOPOM BCEГO APXИBA. TOЛЬKO EMY                    
+PAЗPEШEHO ИЗMEHЯTЬ PEЖИM PAБOTЫ APXИBA, BKЛЮЧATЬ B COCTAB APXИBA                   
+ HOBЫE TOMA И BЫПOЛHЯTЬ PЯД ДPYГИX AДMИHИCTPATИBHЫX ФYHKЦИЙ.*S                     
+CPEДCTBA ЗAЩИTЫ OБЛACTEЙ OT HECAHKЦИOHИPOBAHHOГO ДOCTYПA BKЛЮЧAЮT:                 
+*S- ЗAЩИTY APXИBHЫX TOMOB OT ПPЯMOГO OБPAЩEHИЯ K HИM */*6GЭKCTPAKOДOM              
+OБMEHA;*S- ЗAЩИTY OБЛACTEЙ ПO CПИCKY ДOПYЩEHHЫX ЛИЦ;*S- ЗAЩИTY                     
+OБЛACTEЙ ПO ПAPOЛЮ.                                                                
+*2S8.2. PAБOTA C OБЛACTЯMИ                                                         
+*2SЗAKAЗ OБЛACTEЙ B ПACПOPTE ЗAДAЧИ OCYЩECTBЛЯETCЯ AHAЛOГИЧHO ЗAKAЗY               
+ЛEHT И ДИCKOB. B TOM CЛYЧAE, KOГДA B ПACПOPTE ЗAДAЧИ ЗAKAЗAHA                      
+HECYЩECTBYЮЩAЯ OБЛACTЬ, ЗAДAЧA BЫБPACЫBAETCЯ C БYФEPA BBOДA C                      
+COOTBETCTBYЮЩEЙ ДИAГHOCTИKOЙ. ПOCЛE TOГO, KAK APXИB ПPOCMOTPEЛ ЗAДAЧY,             
+ OHA ПOПAДAET B OБЩYЮ OЧEPEДЬ ЗAДAЧ, OЖИДAЮЩИX BKЛЮЧEHИЯ B PEШEHИE,                
+И BЫБИPAETCЯ B PEШEHИE ПO OБЩИM ПPABИЛAM.                                          
+B ПPOЦECCE OБPAБOTKИ ЗAДAЧИ APXИBOM OПPEДEЛЯETCЯ ПPABOMOЧHOCTЬ                     
+ДOCTYПA K OБЛACTИ. ECЛИ ПOЛЬЗOBATEЛЬ HE ИMEET ПPABA PAБOTATЬ C                     
+OБЛACTЬЮ, TO ЗAДAЧA BЫБPACЫBAETCЯ C БYФEPA BBOДA. B ПPOЦECCE                       
+PEШEHИЯ ПOЛЬЗOBATEЛЬ MOЖET OБPAЩATЬCЯ K OБЛACTИ, ИCПOЛЬЗYЯ BCE                     
+ЭKCTPAKOДЫ, Y KOTOPЫX ПAPAMETPAMИ ЯBЛЯЮTCЯ BИPTYAЛЬHЫE HOMEPA                      
+И PEГИCTPAЦИOHHЫE HOMEPA TOMOB.                                                    
+*S ИHCTPYKЦИИ ПO PAБOTE C APXИBHOЙ CИCTEMOЙ ПPИBEДEHЫ                              
+B ДOKYMEHTAX "OC ДИCПAK. PYKOBOДCTBO CИCTEMHOГO ПPOГPAMMИCTA"                      
+*D ИЫ.00110-01 32 01 И "OC ДИCПAK. PYKOBOДCTBO ПPOГPAMMИCTA"                       
+*D ИЫ.00110-01 33 01.                                                              
+*P*2/*MD9. OTЛAДKA ПPOГPAMM B OC ДИCПAK                                            
+*2S9.1. OБЩEE OПИCAHИE                                                             
+*2S                                                                                
+   ДЛЯ Э1-KБ HAД'ЯЗЫKOBЫM CPEДCTBOM OTЛAДKИ ЯBЛЯETCЯ                               
+CИMBOЛЬHЫЙ ДИAЛOГOBЫЙ OTЛAДЧИK ( CДO ). OTЛAДЧИK PEЛИЗOBAH B                       
+PAMKAX OПEPAЦИOHHOЙ CИCTEMЫ ДИCПAK  И B KAЧECTBE CИCTEMЫ                           
+ПPOГPAMMИPOBAHИЯ OPИEHTИPYETCЯ HA MOHИTOPHYЮ CИCTEMY ДYБHA.                        
+CИMBOЛЬHЫЙ ДИAЛOГOBЫЙ OTЛAДЧИK ПPEДCTABЛЯET ИЗ CEБЯ, C TOЧKИ                       
+ЗPEHИЯ OПEPAЦИOHHOЙ CИCTEMЫ, OTДEЛЬHYЮ ЗAДAЧY. CДO MOЖET                           
+OДHOBPEMEHHO OБCЛYЖИBATЬ ДO 11 ПOЛЬЗOBATEЛEЙ.                                      
+   B HACTOЯЩEE BPEMЯ CИMBOЛЬHAЯ OTЛAДKA PEAЛИЗOBAHA ДЛЯ                            
+FORTRAN-ДYБHA, FORTRAN-ГДP, AЛГOЛ-ГДP, FOREX И ABTOKOДA MADLEN.                    
+   ЯЗЫK CДO YЧИTЫBAET CЛEДYЮЩИE TPEБOBAHИЯ:                                        
+*/ - OБECПEЧИTЬ BOЗMOЖHOCTЬ BEДEHИЯ ГИБKOЙ И ЭФФEKTИBHOЙ                           
+OTЛAДKИ ПPOГPAMM B TEPMИHAX ИCXOДHOГO ЯЗЫKA ПPOГPAMMИPOBAHИЯ;                      
+*/ - OБECПEЧИTЬ ИHФOPMAЦИOHHYЮ ПOЛHOTY ЯЗЫKA;                                      
+*/ - ПPEДYCMOTPETЬ BOЗMOЖHOCTЬ ПPOCTOГO И YДOБHOГO PACШИPEHИЯ                      
+*/   ЯЗЫKA CДO ДЛЯ PEAЛИЗAЦИИ OTЛAДKИ B TEPMИHAX ДИHAMИЧECKИX                      
+*/   ЯЗЫKOB ПPOГPAMMИPOBAHИЯ;                                                      
+*/                                                                                 
+ - OБECПEЧИTЬ ПPOCTOTY И YДOБCTBO ИCПOЛЬЗOBAHИЯ ЯЗЫKA OTЛAДKИ;                     
+   CPEДИ TPEБOBAHИЙ K PEAЛИЗAЦИИ CДO CЛEДYET BЫДEЛИTЬ:                             
+*/                                                                                 
+ - PEAЛИЗAЦИЮ CДO HA YPOBHE ЗAДAЧИ ПOЛЬЗOBATEЛЯ C TOЧKИ                            
+  ЗPEHИЯ  OC  ДИCПAK, CBEДEHИE BЗAИMOДEЙCTBИЯ C OC K YPOBHЮ                        
+ ЭKCTPAKOДOB;                                                                      
+*/                                                                                 
+ - OДHOBPEMEHHOE OБCЛYЖИBAHИE OДHOЙ KOПИEЙ CДO BCEX BEДYЩИX                        
+ OTЛAДKY ПOЛЬЗOBATEЛEЙ;                                                            
+*/                                                                                 
+ - CBEДEHИE BЗAИMOДEЙCTBИЯ C MC ДYБHA K BЗAИMOДEЙCTBИЮ C TAБЛИЦEЙ                  
+ PACПPEДEЛEHИЯ ПAMЯTИ И MOДYЛЯMИ ЗAГPYЗKИ ИЗ BPEMEHHOЙ БИБЛИOTEKИ;                 
+*/                                                                                 
+ - BЫДEЛEHИE BCEX CBЯЗEЙ CИCTEMЫ ПPOГPAMMИPOBAHИЯ B OTДEЛЬHЫЙ                      
+   CTЫKOBOЧHЫЙ MOДYЛЬ CДO C ДOПOЛHИTEЛЬHЫM KOHTPOЛEM ABAPИЙHЫX                     
+  CИTYAЦИЙ;                                                                        
+*/                                                                                 
+ - BOЗMOЖHOCTЬ CИMBOЛЬHOЙ OTЛAДKИ БEЗ ПOBTOPHOЙ TPAHCЛЯЦИИ                         
+  ПPOГPAMM;                                                                        
+*/                                                                                 
+ - PAБOTY HEПOCPEДCTBEHHO C PAБOЧEЙ ПPOГPAMMOЙ БEЗ EE MOДИФИKAЦИИ;                 
+*/                                                                                 
+ - ИCПOЛЬЗOBAHИE AППAPATHЫX BOЗMOЖHOCTEЙ Э1-KБ ДЛЯ PEAЛИЗAЦИИ                      
+   KOHTPOЛЬHЫX TOЧEK;                                                              
+*/ - ПOЛHЫЙ OTKAЗ OT ИCПOЛЬЗOBAHИЯ ДЛЯ HYЖД OTЛAДKИ OПEPATИBHOЙ                    
+   ПAMЯTИ OTЛAЖИBAEMOЙ ЗAДAЧИ;                                                     
+*/ - ПOЛHЫЙ CИHTAKCИЧECKИЙ И CEMAHTИЧECKИЙ KOHTPOЛЬ ДИAЛOГA C                      
+*/                                                                                 
+   ПOЛЬЗOBATEЛEM C BЫДAЧEЙ ПOДPOБHOЙ ДИAГHOCTИKИ.                                  
+*SПPOЦECC OTЛAДKИ ЗAДAЧИ BO BPEMEHИ  BЫГЛЯДИT  KAK  CMEHA                          
+ПEPИOДOB AKTИBHOCTИ ПOЛЬЗOBATEЛЯ И ЗAДAЧИ.                                         
+*S                                                                                 
+     B ПEPИOД CBOEЙ AKTИBHOCTИ ПOЛЬЗOBATEЛЬ C ПOMOЩЬЮ KOMAHД                       
+CДO MOЖET:                                                                         
+*S1) YCTAHOBИTЬ PEЖИM OTЛAДKИ;                                                     
+*S2) YCTAHOBИTЬ ИЛИ ПOГACИTЬ TOЧKИ ПPEPЫBAHИЯ (TAK HAЗЫBAEMЫE                      
+*S   KOHTPOЛЬHЫE TOЧKИ) B OTЛAЖИBAEMЫX ПPOГPAMMAX;                                 
+*S3) ИCCЛEДOBATЬ И ИЗMEHИTЬ ДAHHЫE;                                                
+*S4) BOЗOБHOBИTЬ BЫПOЛHEHИE ЗAДAЧИ C YKAЗAHHOГO ИЛИ                                
+*S   ПPEPBAHHOГO MECTA;                                                            
+*S5) ПOЛYЧИTЬ ДOПOЛHИTEЛЬHYЮ ИHФOPMAЦИЮ OБ OTЛAЖИBAEMЫX                            
+*S   ПPOГPAMMAX;                                                                   
+*S6) BЫПOЛHИTЬ HECTAHДAPTHЫE ДEЙCTBИЯ.                                             
+*S                                                                                 
+      ПEPИOД AKTИBHOCTИ  ПOЛЬЗOBATEЛЯ  ПPOДOЛЖAETCЯ  ДO  TEX                       
+ПOP, ПOKA ПOЛЬЗOBATEЛЬ HE  BOЗOБHOBИT  BЫПOЛHEHИЯ  ЗAДAЧИ  C                       
+YKAЗAHOГO ИЛИ ПPEPBAHHOГO MECTA. ПPИ ПEPEXOДE B AKTИBHOE                           
+COCTOЯHИE ЗAДAЧA HAЧHET PEШATЬCЯ И OCTAHOBИTCЯ TOЛЬKO ПO                           
+KOHTPOЛЬHOЙ TOЧKE ИЛИ OШИБKE CЧETA. ПOЛЬЗOBATEЛЬ MOЖET CAM                         
+OCTAHOBИTЬ ЗAДAЧY, HAБPAB HA KЛABИATYPE TEPMИHAЛA KOMAHДY  CTOП.                   
+KOГДA  ЗAДAЧA OCTAHOBИTCЯ, TO HA TEPMИHAЛ БYДET BЫДAHO COOБЩEHИE                   
+ C YKAЗAHИEM MECTA И ПPИЧИHЫ OCTAHOBA, ПOCЛE ЧEГO CHOBA                            
+ HACTYПAET ПEPИOД AKTИBHOCTИ ПOЛЬЗOBATEЛЯ.                                         
+*SHEЗABИCИMO  OT  ПEPИOДA OTЛAДKИ ПOЛЬЗOBATEЛЬ MOЖET                               
+ЗAПPAШИBATЬ ИHФOPMAЦИЮ  KAK OБ OTЛAЖИBAEMOЙ  ЗAДAЧE,  TAK И  O                     
+BCEX PEШAEMЫX HA MAШИHE ЗAДAЧAX.                                                   
+*2S9.2. BЫЗOB OTЛAДЧИKA                                                            
+*2S9.2.1. OTЛAДOЧHЫЙ PEЖИM TPAHCЛЯЦИИ                                              
+*2S ПAKET ЗAДAЧИ ПOЛЬЗOBATEЛЯ MOЖET BKЛЮЧATЬ KAK HEOTЛAЖEHHЫE,                     
+TAK И OTЛAЖEHHЫE ПPOГPAMMЫ.  ПPOГPAMMЫ,  ПPEДHAЗHAЧEHЫE                            
+ДЛЯ OTЛAДKИ, ДOЛЖHЫ TPAHCЛИPOBATЬCЯ  B  PEЖИME OTЛAДKИ. ЭTOT                       
+PEЖИM YCTAHABЛИBAETCЯ YПPABЛЯЮЩEЙ KAPTOЙ                                           
+*MD* D E B U G                                                                     
+И OTMEHЯETCЯ YПPABЛЯЮЩEЙ KAPTOЙ                                                    
+*MD* N O  D E B U G                                                                
+*SПPOГPAMMЫ, OTTPAHCЛИPOBAHHЫE B OTЛAДOЧHOM PEЖИME, MOГYT                          
+БЫTЬ ЗAПИCAHЫ B ЛИЧHYЮ БИБЛИOTEKY И, CЛEДOBATEЛЬHO,                                
+ИCПOЛЬЗOBAHЫ ПOBTOPHO.                                                             
+*S OTЛAДOЧHЫЙ PEЖИM TPAHCЛЯЦИИ  HE  MEHЯET  ЗAГPYЗKY ПPO-                          
+ГPAMM B OПEPATИBHYЮ ПAMЯTЬ И HE BЛИЯET HA ИX PAБOTY.                               
+*2S9.2.2. ПACПOPT OTЛAЖИBAEMOЙ ЗAДAЧИ                                              
+*2S ДЛЯ  BEДEHИЯ  OTЛAДKИ C TEPMИHAЛA  B  ПACПOPTE  ЗAДAЧИ                         
+ДOЛЖEH БЫTЬ ЗAKAЗAH PAЗДEЛ "TEЛE^".                                                
+*2S9.2.3. ЗAПYCK ЗAДAЧИ ЧEPEЗ OTЛAДЧИK                                             
+*S ДЛЯ ЗAПYCKA ЗAДAЧИ ЧEPEЗ OTЛAДЧИK  HEOБXOДИMO  HAБPATЬ                          
+HA TEPMИHAЛE KЛЮЧ                                                                  
+*MDCЛYГA                                                                           
+ПOCЛE OTBETA                                                                       
+*MDCЛYГA OT <ДATA BEPCИИ>                                                          
+HAБPATЬ                                                                            
+*MDШИФP <ШИФP ЗAДAЧИ>                                                              
+И ЖДATЬ OTBETA                                                                     
+*MDECTЬ                                                                            
+*SДЛЯ ПPOXOЖДEHИЯ  ЗAДAЧИ  ЧEPEЗ  ЭTAПЫ                                            
+TPAHCЛЯЦИИ И ЗAГPYЗKИ HEOБXOДИMO BЫПOЛHИTЬ  CЛEДYЮЩИE                              
+CTAHДAPTHЫE ДEЙCTBИЯ:                                                              
+*S-YCTAHOBИTЬ CИMBOЛЬHЫЙ PEЖИM OTЛAДKИ (T.K. B HAЧAЛE PAБOTЫ                       
+*S C CДO YCTAHOBЛEH AДPECHЫЙ PEЖИM);                                               
+*S-BЫПOЛHИTЬ KOMAHДY  ЖДY C ИMEHEM ГOЛOBHOЙ ПPOГPAMMЫ;                             
+*S-ПYCTИTЬ ЗAДAЧY.                                                                 
+*SПOCЛE ЭTOГO ПOЛЬЗOBATEЛЬ ЛИБO ПOЛYЧAET COOБЩEHИE OБ  OШИБKAX                     
+TPAHCЛЯЦИИ ИЛИ ЗAГPYЗKИ, ЛИБO, ECЛИ  TPAHCЛЯЦИЯ  И  ЗAГPYЗKA                       
+ПPOШЛИ YCПEШHO, ЗAДAЧA БYДET  OCTAHOBЛEHA  B HAЧAЛE  ГOЛOBHOЙ                      
+ПPOГPAMMЫ, HA TEPMИHAЛ БYДET BЫДAHO COOTBETCTBYЮЩEE  COOБЩEHИE,                    
+ И ПOЛЬЗOBATEЛЬ MOЖET ПPИCTYПИTЬ K OTЛAДKE  CBOИX  ПPOГPAMM.                       
+*P*2/*MD10. ЭKCTPAKOДЫ                                                             
+*2S CBЯЗЬ OПEPAЦИOHHOЙ CИCTEMЫ C ПPOГPAMMAMИ ПOЛЬЗOBATEЛЯ                          
+OCYЩECTBЛЯETCЯ C ПOMOЩЬЮ MAKPOKOMAHД, ИMEHYEMЫX ЭKCTPAKOДAMИ.                      
+B HACTOЯЩEE BPEMЯ CYЩECTBYЮT ЭKCTPAKOДЫ ДЛЯ ПEPBOГO И ДЛЯ                          
+TPETЬEГO PEЖИMOB. K HAИБOЛEE PACПPOCTPAHEHHЫM OTHOCЯTCЯ                            
+ЭKCTPAKOДЫ BЫЧИCЛEHИЯ CTAHДAPTHЫX ФYHKЦИЙ. HИЖE ПPИBEДEHЫ                          
+ПPИHЦИПЫ ПOCTPOEHИЯ ЭTИX ЭKCTPAKOДOB ДЛЯ TPETЬEГO PEЖИMA.                          
+*2S10.1. BЫЧИCЛEHИE SQRT(X)                                                        
+*2SECЛИ  X=0,  TO  SQRT(X)=0.  ДЛЯ BЫЧИCЛEHИЯ ЗHAЧEHИЯ ФYHKЦИИ                     
+  SQRT(X)  ПPИ  X>0  BOCПOЛЬЗYEMCЯ ПPEДCTABЛEHИEM ЧИCЛA  X  B BИДE                 
+*/*10G                                                                             
+X=F*H*B*H**H*E, ГДE 1/B<=F<1 *9G(1)*/TAK KAK ЭЛЬБPYC-Б MAШИHA C                    
+ДBOИЧHЫM ПPEДCTABЛEHИEM ЧИCEЛ, B=2. TOГДA*/                                        
+*5GSQRT(X)=SQRT(F)*H*2*H**H*(E/2), ECЛИ E-ЧETHOE*/                                 
+*5GSQRT(X=SQRT(F)/SQRT(2)*H*2*H**H*((E+1)/2), ECЛИ E-HEЧETHOE.                     
+*SBЫЧИCЛEHИE  SQRT(X)  BKЛЮЧAET З ЭTAПA:*S  ПPИBEДEHИE APГYMEHTA                   
+X K BИДY (1)*S  BЫЧИCЛEHИE SQRT(F)*S  BOCCTAHOBЛEHИE SQRT(X).                      
+*SДЛЯ BЫЧИCЛEHИЯ SQRT(X) ПPИMEHЯETCЯ ИTEPAЦИOHHЫЙ ПPOЦECC                          
+ ГEPOHA:*/*5G Y(I)=((Y(I-1)+F/Y(I-1)))/2, I=1,2,....J,                             
+*/B KOTOPOM ЗA HAЧAЛЬHOE ПPИБЛИЖEHИE ПPИHЯTO                                       
+*5G Y0=0.41731+0.59016*H*F.                                                        
+*SKAЖДAЯ ПOCЛEДYЮЩAЯ ИTEPAЦИЯ YДBAИBAET KOЛИЧECTBO                                 
+BEPHЫX ЗHAKOB B SQRT. ДЛЯ ПOЛYЧEHИЯ 15 BEPHЫX ЗHAKOB                               
+ДOCTATOЧHO 3 ИTEPAЦИЙ.                                                             
+*2S10.2. BЫЧИCЛEHИE LN(X),LG(X)                                                    
+*2SПYCTЬ  X=F*H*2*H**H*M, 0.5<=F<1.                                                
+*SOПPEДEЛИM  G  И  N  TAK, ЧTO  F=G*H*2*H**H*(-N),                                 
+  1/SQRT(2)<=G<SQRT(2).                                                            
+TOГДA */*10GLN(X)=(K*H*M-N)*H*LN2                                                  
+*/*10GLG(X)=LG(E)*H*LN(X)=LN(X)/LN(10).                                            
+*SBЫЧИCЛEHИE ЛOГAPИФMA BKЛЮЧAET З ЭTAПA:*SCBEДEHИE ДAHHOГO                         
+APГYMEHTA K COOTBETCTBYЮЩEMY APГYMEHTY B MAЛOM ИHTEPBAЛE                           
+ИЗMEHEHИЯ  [1/SQRT(X),SQRT(X))*SBЫЧИCЛEHИE ЛOГAPИФMA ДЛЯ ЭTOГO                     
+ APГYMEHTA*SBOCCTAHOBЛEHИE ЗHAЧEHИЯ ИCKOMOГO ЛOГAPИФMA ПO                          
+KOMПOHEHTAM.                                                                       
+*SПYCTЬ  S=(G-1)/(G+1) .TOГДA                                                      
+LN(G)=LN((1+S)/(1-S)) . OH BЫЧИCЛЯETCЯ C ИCПOЛЬЗOBAHИEM                            
+MИHИMAKCHOЙ AППPOKCИMAЦИИ.                                                         
+*/*10GLN(G)=2*H*S+S*H*SUM(1,..)A(J)*H*S*H**H*(2*H*J), G>0.                         
+*/ (SUM(1,..) OБOЗHAЧAET CYMMY ПO J OT 1 ДO БECKOHEЧHOCTИ)                         
+*/ИCПOЛЬЗYETCЯ PAЦИOHAЛЬHAЯ AППPOKCИMAЦИЯ  R(Z*H**H*2).                            
+B ЗABИCИMOCTИ OT BEЛИЧИHЫ  F  OПPEДEЛЯETCЯ  Z.*SECЛИ  F>SQRT(0.5)                  
+ Z1=(F-0.5)-0.5, Z2=F*H*0.5+0.5*SECЛИ  F<=SQRT(0.5)                                
+Z1=F-0.5, Z2=Z1*H*0.5+0.5                                                          
+*/ДAЛEE BЫЧИCЛЯETCЯ  Z.  Z=Z1/Z2 .  W=Z*H**H*2 . И*/*5G                            
+R(Z*H**H*2)=W*H*A(W)/B(W), ГДE A(W) И B(W) - ПOЛИHOMЫ C                            
+KOЭФФИЦИEHTAMИ LN0,LN1,LN2 И LG0,LG1,LG2.                                          
+*/*10GLN0=-0.641249434237455E+2                                                    
+*/*10GLN1= 0.163839435630215E+2                                                    
+*/*10GLN2=-0.789561128875912E+0                                                    
+*/*10GLG0=-0.769499321084948E+3                                                    
+*/*10GLG1= 0.312032220919209E+3                                                    
+*/*10GLG2=-0.356679777390346E+2                                                    
+*/OПPEДEЛEHИE RR(Z) ПPOИЗBOДИTCЯ ПO ФOPMYЛE                                        
+ RR(Z)=Z+*H*R(Z*H**H*2).*/ПYCTЬ  XN=FLOAT(N) , TOГДA                               
+*/*5GRES=(XN*H*C2+RR(Z))+XN*H*C1, ГДE                                              
+*/*5GC1=0.693359375*/*5GC2=-0.2121944400546E-5                                     
+*S LN(X)=RES. ECЛИ TPEБYETCЯ BЫЧИCЛИTЬ  LG(X)  YMHOЖAEM  RES                       
+ HA  LG(E)=0.434294481903251 .                                                     
+*SФYHKЦИИ  LN  И  LG  OПPEДEЛEHЫ ПPИ  X>0 . ПOЭTOMY B ПPOГPAMME                    
+ ПPOИЗBOДИTCЯ BЫДEЛEHИE  X<=0  KAK HEДOПYCTИMЫX ЗHAЧEHИЙ                           
+ APГYMEHTA.                                                                        
+*2/                                                                                
+*2S10.3. BЫЧИCЛEHИE EXP(X)                                                         
+*2S ПYCTЬ  X=N*H*LN(C)+G,  IGI<=LN(2)/2.                                           
+  TOГДA E*H**H*X=E*H**H*G*H*C*H**H*N.                                              
+*S BЫЧИCЛEHИE ЭKCПOHEHTЫ BKЛЮЧAET 3 ЭTAПA:                                         
+*S CBEДEHИE ДAHHOГO APГYMEHTA K APГYMEHTY B MAЛOM ИHTEPBAЛE                        
+ИЗMEHEHИЯ  [-LN(2)/2,LN(2)/2]                                                      
+*S BЫЧИCЛEHИE ЭKCПOHEHTЫ OT ЭTOГO APГYMEHTA*S                                      
+ BOCCTAHOBЛEHИE ЭKCПOHEHTЫ ПO KOMПOHEHTAM.*S                                       
+ TOЧHOCTЬ OПPEДEЛEHИЯ ФYHKЦИИ CYЩECTBEHHO ЗABИCИT OT TOЧHOCTИ                      
+ G . ПYCTЬ  Y=EXP(G) . TOГДA  DY/Y=DG , TAKИM OБPAЗOM OTHOCИTEЛЬHAЯ                
+ OШИБKA B  EXP(G)  ПPИБЛИЗИTEЛЬHO PABHA OШИБKE  G . EДИHCTBEHHЫЙ                   
+ ПYTЬ ПOЛYЧИTЬ MAЛYЮ AБCOЛЮTHYЮ OШИБKY B  G - ИCПOЛЬЗOBAHИE                        
+ПOBЫШEHHOЙ TOЧHOCTИ. ПPEДCTABЛEHИE                                                 
+*MD G=[(X1-XN*C1)+X2]-XN*C2           , ГДE                                        
+*MD X1=FLOAT(X) X2=X-X1, XN=FLOAT([X/LN(2)]).                                      
+*MD C1=0.693359375, C2=-2.1219444005469E-4                                         
+*/ПOЗBOЛЯET BECTИ BЫЧИCЛEHИЯ C ПOBЫШEHHOЙ TOЧHOCTЬЮ (ИCПOЛЬЗYETCЯ                  
+ PMP). PAЦИOHAЛЬHAЯ ФYHKЦИЯ  R(G)  AППPOKCИMИPYET  EXP(G)/2. ПYCTЬ                 
+  Z=G*H**H*2.*S*5GG*H*P(Z)=((EX2*H*Z+EX1)*H*Z+EX0)*H*G,                            
+*5GQ(Z)=(EXP2*H*Z+EXP1)*H*Z+EXP0.                                                  
+*S*10GEX2=0.16520330026827E-4                                                      
+*S*10GEX1=0.69436000151179E-2                                                      
+*S*10GEX0=0.24999999999999999                                                      
+*S*10GEXP2=0.49586288490544E-3                                                     
+*S*10GEXP1=0.55553866696900E-1                                                     
+*S*10GEXP0=0.5E+0                                                                  
+*S TOГДA  R(G)=0.5+G*H*P(Z)/[Q(Z)-G*H*P(Z)].                                       
+*S X=RES=R(G)*H*2*H**H*N                                                           
+*SECЛИ  XMIN- MИHИMAЛЬHOE ПOЛOЖИTEЛЬHOE ЧИCЛO, ПPEДCTABИMOE                        
+B MAШИHE, A  XMAX- MAKCИMAЛЬHOE, TOГДA  EXP(X)  MOЖET БЫTЬ                         
+BЫЧИCЛEHA B ПPEДEЛAX  LN(XMIN), LN(XMAX).                                          
+*2S10.4. BЫЧИCЛEHИE SIN(X),COS(X)                                                  
+*2S ПYCTЬ  IXI=N*H*ПИ+F , ГДE  IFI<=ПИ/2 . TOГДA                                   
+*S        SIN(X)=SIGN(X)*H*SIN(F)*H*(-1)*H**H*N И                                  
+*S        COS(X)=SIN(X+ПИ/2).                                                      
+*SBЫЧИCЛEHИE  SIN  И  COS  BKЛЮЧAET 3 ЭTAПA:                                       
+*S*5GПPИBEДEHИE APГYMEHTA  X  K APГYMEHTY  F  B MAЛOM ИHTEPBAЛE                    
+ ИЗMEHEHИЯ  [-ПИ/2,ПИ/2]                                                           
+*S*5GBЫЧИCЛEHИE  SIN(F)                                                            
+*S*5GBЫЧИCЛEHИE  SIN(X)  ПO ПOЛYЧEHHЫM KOMПOHEHTAM.                                
+*S TOЧHOCTЬ BЫЧИCЛEHИЯ  SIN(X),COS(X)  CYЩECTBEHHO ЗABИCИT OT                      
+ TOЧHOCTИ HAXOЖДEHИЯ F.                                                            
+*S ДЛЯ ПOBЫШEHИЯ TOЧHOCTИ BЫЧИCЛEHИЙ ИCПOЛЬЗYETCЯ ПPEДCTABЛEHИE                    
+*MD F=(X-XN*C1)-XN*C2, ГДE                                                         
+*S C1=3.1416015625,   C2=-8.90891020676E-6,  XN=FLOAT[Y/ПИ].                       
+*S ПYCTЬ G=F*H*F. ДAЛEE BЫЧИCЛЯETCЯ  R(G)=G*H*P(G) , ГДE                           
+  P(G) - MHOГOЧЛEH C KOЭФФИЦИEHTAMИ                                                
+*S*10GSIN8= 0.2720479095788E-14                                                    
+*S*10GSIN7=-0.764291780689E-12                                                     
+*S*10GSIN6= 0.16058936490371E-9                                                    
+*S*10GSIN5=-0.2505210679827E-7                                                     
+*S*10GSIN4= 0.27557319210152E-5                                                    
+*S*10GSIN3=-0.1984126984120E-3                                                     
+*S*10GSIN2= 0.83333333333331E-2                                                    
+*S*10GSIN1=-0.1666666666666666                                                     
+*S TOГДA  RES=SGN*H*F+F*H*R(G) , ГДE                                               
+ SGN=1, ECЛИ TPEБYETCЯ BЫЧИCЛИTЬ  COS(X)  ИЛИ  X>=0  ПPИ                           
+ HAXOЖДEHИИ  SIN(X).  SGN=-1  B ПPOTИBHOM CЛYЧAE.                                  
+*S B ПPOГPAMME OCYЩECTBЛЯETCЯ ПPOBEPKA  Y<YMAX , ГДE                               
+  Y=IXI  ДЛЯ  SIN(X)  И  Y=IXI+ПИ/2  ДЛЯ COS(X) .  YMAX                            
+ BЫБИPAETCЯ CЛEДYЮЩИM OБPAЗOM:                                                     
+*S (XN-C1)  И  (XN-0.5)*H*C1  ДOЛЖHЫ БЫTЬ TOЧHO ПPEДCTABИMЫ                        
+ B MAШИHE ДЛЯ  Y<YMAX                                                              
+*S OШИБKA OKPYГЛEHИЯ B ПOCЛEДHEЙ ЦИФPE BEЛИЧИHЫ  Y  HE                             
+ДOЛЖHA ПPИBOДИTЬ K OШИБKE B  SIN(Y)                                                
+, HAMHOГO БOЛЬШEЙ ПO BEЛИЧИHE, ЧEM  2*H**H*(T/2),                                  
+(T- KOЛИЧECTBO PAЗPЯДOB B ИЗOБPAЖEHИИ MAHTИCCЫ ЧИCЛA. B                            
+ HAШEM CЛYЧAE T=52) ДЛЯ  Y<YMAX                                                    
+*S N=INTRND(Y/ПИ)  ДOЛЖHO БЫTЬ ПPEДCTABИMO KAK ЦEЛOE B MAШИHE.                     
+*S ЭTИM YCЛOBИЯM OTBEЧAET  YMAX=ПИ*H*2*H**H*26.*S ДЛЯ MAЛЫX ПO                     
+AБCOЛЮTHOЙ BEЛИЧИHE ЗHAЧEHИЙ  F , TAKИX ЧTO  IFI<EPS ,                             
+(EPS=2*H**H*(-26))      SIN(F)=F .                                                 
+*2S10.5. BЫЧИCЛEHИE TG(X),CTG(X)                                                   
+*2S ПYCTЬ   X=N*H*ПИ/2 , ГДE   IFI<=ПИ/4 ,  TOГДA                                  
+*S*10GTG(X)=TG(F),    ECЛИ N - ЧETHOE,                                             
+*S*10GTG(X)=-1/TG(F), ECЛИ N - HEЧETHOE.                                           
+*S*10GCTG(X)=1/TG(X)                                                               
+*S BЫЧИCЛEHИE  TG(X)  TAKИM OБPAЗOM CBOДИTCЯ K 3 ЭTAПAM:                           
+*S  ПPИBEДEHИE ДAHHOГO APГYMEHTA  X  K COOTBETCTBYЮЩEMY                            
+ APГYMEHTY B ИHTEPBAЛE ИЗMEHEHИЯ  [-ПИ/4,ПИ/4]                                     
+*S  BЫЧИCЛEHИE  TG(F)                                                              
+*S  BЫЧИCЛEHИE  TG(X) .                                                            
+*S ФYHKЦИИ  TG(X)  И  CTG(X)  OЧEHЬ ЧYBCTBИTEЛЬHЫ K                                
+MAЛЫM ИЗMEHEHИЯM APГYMEHTA BO BCEЙ OБЛACTИ OПPEДEЛEHИЯ.                            
+ ECЛИ  Y=TG(X),  TOГДA  DY/Y=2*H*X*H*COSEC(2*H*X)*H*DX/X.                          
+ И OTHOCИTEЛЬHAЯ OШИБKA B BЫЧИCЛEHИИ  TG(X)  ПPИБЛИЗИTEЛЬHO                        
+ PABHA OTHOCИTEЛЬHOЙ OШИБKE APГYMEHTA, OПPEДEЛЯEMOЙ                                
+  M(X)=2*H*X*H*COSEC(2*H*X). TAK KAK M(X)  BEЛИKO ДЛЯ                              
+X  БЛИЗKИX K  N*H*ПИ/2,  TG(X)  ЧYBCTBИTEЛEH K MAЛЫM ИЗMEHEHИЯM                    
+ APГYMEHTA, БЛИЗKИM K  0  И K OCOБEHHOCTЯM. COOTBETCBEHHO И                        
+  CTG(X) , TOЛЬKO  M(X)  MEHЯET ЗHAK.                                              
+*S APГYMEHT  F  BЫЧИCЛЯETCЯ ПO ФOPMYЛE:                                            
+*MD F=(X-XN*C1)-XN*C2  , ГДE                                                       
+*S*10G C1=1.57080078125,*10G C2=-4.45445510338076E-6.                              
+*S XN=FLOAT(N) , ГДE  N=INTRND[X*H*2/ПИ] . ПPИ ЭTOM                                
+ YЧИTЫBAETCЯ YЧACTИE  PMP  B APИФMETИЧECKИX ДEЙCTBИЯX.                             
+*S ПYCTЬ  G=F*H**H*2 . ДAЛEE BЫЧИCЛЯЮTCЯ MHOГOЧЛEHЫ  F(G)                          
+ И  P(G)  C KOЭФФИЦИEHTAMИ:                                                        
+*S*10GTAN1=-0.12828347040957E+0                                                    
+*S*10GTAN2= 0.28059182411699E-2                                                    
+*S*10GTAN3=-0.74836349666612E-5                                                    
+*S*10GCTA1=-0.46161680374290E+0                                                    
+*S*10GCTA2= 0.23344852822068E-1                                                    
+*S*10GCTA3=-0.20844804422038E-3                                                    
+*S ECЛИ OБOЗHAЧИTЬ  XNUM=F*H*P(G)  И  XDEN=(G) , TO                                
+PEЗYЛЬTAT BЫЧИCЛЯETCЯ ПO ФOPMYЛAM  RES=+-XNUM/XDEN  ИЛИ                            
+  RES=+-XDEN/XNUM  B ЗABИCИMOCTИ OT TOГO, OПPEДEЛЯETCЯ                             
+ TG(X)  ИЛИ  CTG(X)  И ЧETHOCTИ  N.                                                
+*2S*10G YCЛOBHЫE OБOЗHAЧEHИЯ *2/                                                   
+*S*5G X=FLOAT(N) OБOЗHAЧAET ПEPEBOД ЧИCЛA ИЗ ЦEЛOГO                                
+ПPEДCTABЛEHИЯ N B ПPEДCTABЛEHИE X C ПЛABAЮЩEЙ ЗAПЯTOЙ.                             
+*S*5G N=INTRND(X) OБOЗHAЧAET BЫДEЛEHИE ЦEЛOЙ ЧACTИ ЧИCЛA X.                        
+*P*2/MD11. ИCПOЛЬЗYEMЫE TEXHИЧECKИE CPEДCTBA                                       
+*2S ДЛЯ OБECПEЧEHИЯ ПPOПYCKA ЗAДAЧ HA OПEPAЦИOHHOЙ CИCTEME                         
+ДИCПAK HEOБXOДИM CЛEДYЮЩИЙ MИHИMAЛЬHЫЙ KOMПЛEKT OБOPYДOBAHИЯ:                      
+*S- ЦП ЭЛЬБPYC 1-KБ;                                                               
+*S- CEKЦИЯ OП (OБ'EM 64 MБAЙT);                                                    
+*S- ПYЛЬTOBAЯ ЭBM, CHAБЖEHHAЯ ПYЛЬTOBЫM ПPOГPAMMHЫM OБECПEЧEHИEM (ППO);            
+*S- YCTPOЙCTBO YПPABЛEHИЯ HAKOПИTEЛЯMИ HA MЛ EC-5525;                              
+*S- HAKOПИTEЛЬ HA MAГHИTHOЙ ЛEHTE EC-5025;                                         
+*S- YCTPOЙCTBO YПPABЛEHИЯ HAKOПИTEЛЯMИ HA CMEHHЫX MAГHИTHЫX                        
+*S  ДИCKAX EC-5580;                                                                
+*S- ДBA HAKOПИTEЛЯ HA CMEHHЫX MAГHИTHЫX ДИCKAX EC-5080;                            
+*S- AЦПY EC-7040;                                                                  
+*S- AЛФABИTHO-ЦИФPOBOЙ ДИCПЛEЙHЫЙ KOMПЛEKC EC-7980;                                
+*S- ДBA AЛФABИTHO-ЦИФPOBЫX ДИCПЛEЯ EC-7927.                                        
+ *S BHEШHИE YCTPOЙCTBA                                                             
+ ПOДKЛЮЧAЮTCЯ K KAHAЛAM B COOTBETCTBИИ C KOMПЛEKTAЦИEЙ BK                          
+ "ЭЛЬБPYC 1-KБ". CTAHДAPTHAЯ KOMПЛEKTAЦИЯ BK "ЭЛЬБPYC 1-KБ"                        
+ И PACПPEДEЛEHИE YCTPOЙCTB ПO KAHAЛAM ПPИBEДEHO B ДOKYMEHTE                        
+ "CTП. PYKOBOДCTBO OПEPATOPA" ИЫ.04301-01 34 01.                                   
+ *S PAБOTA C ПYЛЬTOBOЙ MAШИHOЙ OПИCAHA B ДOKYMEHTE                                 
+ "ППO. PYKOBOДCTBO OПEPATOPA" ИЫ.00112-01 34 01.                                   
+*P*2/*MD12. BЫЗOB И ЗAГPYЗKA OПEPAЦИOHHOЙ CИCTEMЫ.                                 
+*2S 12.1. ПEPBOHAЧAЛЬHAЯ ПOCTABKA OC ДИCПAK OCYЩECTBЛЯETCЯ                         
+HA TPAHCПOPTHOЙ MAГHИTHOЙ ЛEHTE. OБ'EM ГOTOBЫX ПPOГPAMM OC                         
+HA TPAHCПOPTHOЙ MЛ - 500 ЗOH. ПEPEПИCЬ OC C MЛ HA CИCTEMHЫЙ                        
+MAГHИTHЫЙ ДИCK И ПOCЛEДYЮЩИЙ BЫЗOB OПEPAЦИOHHOЙ CИCTEMЫ                            
+(ЗAГPYЗKA OC) COCTOИT ИЗ TPEX ЭTAПOB:                                              
+*S 1) ПEPEПИCЬ ГOTOBЫX ПPOГPAMM OC C TPAHCПOPTHOЙ MAГHИTHOЙ                        
+ЛEHTЫ B OПEPATИBHYЮ ПAMЯTЬ;                                                        
+*S 2) ПEPEПИCЬ ГOTOBЫX ПPOГPAMM OC ИЗ OПEPATИBHOЙ ПAMЯTИ HA                        
+CИCTEMHЫЙ MAГHИTHЫЙ ДИCK;                                                          
+*S 3) BЫЗOB OC C CИCTEMHOГO MAГHИTHOГO ДИCKA.                                      
+*S ПEPBЫЙ ЭTAП BЫПOЛHЯETCЯ ПPOГPAMMOЙ "MЛOПOC", HAXOДЯЩEЙCЯ                        
+HA TPAHCПOPTHOЙ MAГHИTHOЙ ЛEHTE И BЫЗЫBAEMOЙ ПO ПYЛЬTOBOЙ ПPOГPAMME.               
+BTOPOЙ И TPETИЙ ЭTAПЫ BЫПOЛHЯЮTCЯ CEPBИCHOЙ ПPOГPAMMOЙ ПYЛЬTOBOГO                  
+ПPOГPAMMHOГO OБECПEЧEHИЯ.                                                          
+*S ПOCЛE ПOCTAHOBKИ OПEPAЦИOHHOЙ CИCTEMЫ HA BЫЧИCЛИTEЛЬHOM                         
+KOMПЛEKCE ДЛЯ EЖEДHEBHOГO BЫЗOBA OC ДOCTATOЧHO BЫПOЛHЯTЬ                           
+TOЛЬKO TPETИЙ ЭTAП. ДEЙCTBИЯ ПO ПOCTAHOBKE И BЫЗOBY OC                             
+ПPИBEДEHЫ B ДOKYMEHTE "OC ДИCПAK. PYKOBOДCTBO CИCTEMHOГO                           
+ПPOГPAMMИCTA" */ИЫ.00110-01 32 01.                                                 
+*2S 12.2. ПOCЛE BЫЗOBA OC PEЗИДEHTHЫE MOДYЛИ PACПOЛAГAЮTCЯ                         
+B OПEPAЦИOHHOЙ ПAMЯTИ B ПEPBЫX 32K CЛOB (K=1024 CЛOBA).                            
+HEPEЗИДEHTHЫE MOДYЛИ PAЗMEЩEHЫ B ЗOHAX CИCTEMHOГO MД 2053,                         
+A TAKЖE B OБЛACTИ ПAMЯTИ, HAЧИHAЯ C AДPECA 10600000(BOCЬM.).                       
+TAK KAK HA BЫЧИCЛИTEЛЬHOM KOMПЛEKCE HET ФИЗИЧECKИX MAГHИTHЫX                       
+БAPAБAHOB, TO БAPAБAHHAЯ ПAMЯTЬ (MБ10-MБ27) TAKЖE                                  
+ИMИTИPYETCЯ B OПEPATИBHOЙ ПAMЯTИ (AДPECA 4000000-5777777 BOCЬM.).                  
+ПPOДOЛЖEHИE БAPAБAHHOЙ ПAMЯTИ HA MAГHИTHOM ДИCKE, ЗAДABAEMOE                       
+B ПAPAMETPAX ГEHEPAЦИИ KAK "HPДИC", И CEГMEHTЫ PAБOЧИX ЛEHT                        
+(PAЗДEЛ "MДPЗO" B ПAPAMETPAX ГEHEPAЦИИ), PACПOЛAГAЮTCЯ                             
+HA MAГHИTHЫX ДИCKAX ПO YKAЗAHИЮ ПAPAMETPOB ГEHEPAЦИИ.                              
+*P*2/*MD13. BXOДHЫE ДAHHЫE                                                         
+*2SBXOДHЫMИ ДAHHЫMИ ДЛЯ OПEPAЦИOHHOЙ CИCTEMЫ ДИCПAK                                
+ЯBЛЯETCЯ ПAKET ЗAДAЧИ ПOЛЬЗOBATEЛЯ.                                                
+ЗAДAЧA ПOЛЬЗOBATEЛЯ ФOPMИPYETCЯ C TEPMИHAЛA ПPИ ПOMOЩИ                             
+OДHOЙ ИЗ ДИAЛOГOBЫX CИCTEM.                                                        
+*2S13.1. CTPYKTYPA ПAKETA ЗAДAЧИ ПOЛЬЗOBATEЛЯ                                      
+*2S ПAKET ЗAДAЧИ ПOЛЬЗOBATEЛЯ ДOЛЖEH COCTOЯTЬ ИЗ                                   
+ПACПOPTA ЗAДAЧИ, TEЛA ПPOГPAMMЫ И CTAHДAPTHOГO OKOHЧAHИЯ.                          
+*2S13.1.1. ПACПOPT ЗAДAЧИ                                                          
+*2S ПACПOPT COCTOИT ИЗ OTДEЛЬHЫX PAЗДEЛOB.                                         
+HAЧAЛЬHЫM ЯBЛЯETCЯ PAЗДEЛ "ШИФP". ПOPЯДOK CЛEДOBAHИЯ                               
+OCTAЛЬHЫX PAЗДEЛOB БEЗPAЗЛИЧEH. ЗAKAHЧИBAETCЯ ПACПOPT                              
+CИMBOЛOM "E" C HAДЧEPKИBAHИEM ИЛИ БEЗ HEГO.                                        
+*S KAЖДЫЙ PAЗДEЛ COДEPЖИT HAЗBAHИE (HAЧИHAЯ C                                      
+KPAЙHEЙ ЛEBOЙ ПOЗИЦИИ) И HEKOTOPYЮ ИHФOPMAЦИЮ, KOTOPAЯ                             
+ЗAДAETCЯ ЧEPEЗ OДИH ИЛИ HECKOЛЬKO ПPOБEЛOB ПOCЛE                                   
+HAЗBAHИЯ PAЗДEЛA. ЗAKAHЧИBAETCЯ PAЗДEЛ CИMBOЛOM                                    
+ ^ ( HAДЧEPKИBAHИE ).                                                              
+*S OПИCAHИE PAЗДEЛOB ПACПOPTA ПPИBEДEHO B ДOKYMEHTE                                
+"OC ДИCПAK. PYKOBOДCTBO ПPOГPAMMИCTA" ИЫ.00110-01 33 01.                           
+*2S13.1.2. CTAHДAPTHЫE ПACПOPTA                                                    
+*2S ДЛЯ OБPAЩEHИЯ K ЧACTOИCПOЛЬЗYEMЫM TPAHCЛЯTOPAM, A TAKЖE                        
+K ДИAЛOГOBЫM CИCTEMAM BBEДEHЫ CTAHДAPTHЫE ПACПOPTA, ПOЗBOЛЯЮЩИE                    
+HE ПOBTOPЯTЬ B KAЖДOЙ ПPOГPAMME HAБOP ПOCTOЯHHЫX PAЗДEЛOB                          
+ПACПOPTA. HAБOP CTAHДAPTHЫX ПACПOPTOB OПPEДEЛЯETCЯ                                 
+CИCTEMHЫMИ ПPOГPAMMИCTAMИ KAЖДOГO BЦ. KAK ПPABИЛO ИCПOЛЬЗYЮTCЯ                     
+CЛEДYЮЩИE CTAHДAPTHЫE ПACПOPTA:                                                    
+*S C1 - ПACПOPT TPAHCЛЯTOPA C MAKPOKOДA "БEMШ",                                    
+*S C2 - ПACПOPT MOHИTOPHOЙ CИCTEMЫ "ДYБHA",                                        
+*S C3 - ПACПOPT CИCTEMЫ "AЛГOЛ-БЭCM",                                              
+*S CX - ПACПOPT MOHИTOPA-80 (MC "ДYБHA" BEPCИЯ M-80),                              
+*S 88 - ПACПOPT TPAHCЛЯTOPA C ABTOKOДA ИTM,                                        
+*S ЭБ - ПACПOPT ДЛЯ OБPAЩEHИЯ K ACCEMБЛEPY BK "ЭЛЬБPYC 1-KБ",                      
+*S AP - ПACПOPT APXИBHOЙ CИCTEMЫ                                                   
+*SИ ДPYГИE.                                                                        
+*S ЗAKAЗ CTAHДAPTHOГO ПACПOPTA ПPOИЗBOДИTCЯ ИЗ ЗAДAЧИ                              
+MATEMATИKA CЛEДYЮЩИM OБPAЗOM: B PAЗДEЛE ПACПOPTA ЗAДAЧИ                            
+"ШИФP" ПOCЛE ЦИФP ШИФPA ПИШETCЯ TPИ                                                
+CИMBOЛA "ЗXX", ГДE XX - OБOЗHAЧEHИE CTAHДAPTHOГO                                   
+ПACПOPTA.                                                                          
+*/*10GПPИMEP:      ШИФP 123401 ЗCX^                                                
+*S TAKAЯ ЗAПИCЬ OЗHAЧAET ЗAKAЗ CTAHДAPTHOГO ПACПOPTA                               
+"CX" (T.E. MOHИTOPA-80 ) ЗAДAЧEЙ C ШИФPOM 123401.                                  
+*S ЗABEДEHИE CTAHДAPTHЫX ПACПOPTOB, ПPOCMOTP ИX COДEPЖИMOГO                        
+OCYЩECTBЛЯETCЯ C ПOMOЩЬЮ ДИAЛOГOBOЙ ПPOГPAMMЫ "CEPП"                               
+(CM. "OC ДИCПAK. PYKOBOДCTBO CИCTEMHOГO ПPOГPAMMИCTA"                              
+*/ ИЫ.00110-01 32 01). ДЛЯ ДИAЛOГOBЫX CИCTEM CTAHДAPTHЫЙ                           
+ПACПOPT CTABИTCЯ B COOTBETCTBИE KЛЮЧY BЫЗOBA ДИAЛOГOBOЙ CИCTEMЫ.                   
+HAБOP KЛЮЧEЙ И COOTBETCTBYЮЩИX ИM CTAHДAPTHЫX ПACПOPTOB MOЖHO                      
+ПPOCMOTPETЬ TAKЖE C ПOMOЩЬЮ ПPOГPAMMЫ "CEPП".                                      
+*S B MAШИHHЫX ПPOГPAMMAX CTAHДAPTHЫX ПACПOPTOB MOГYT                               
+ИCПOЛЬЗOBATЬCЯ CЛEДYЮЩИE                                                           
+YKAЗЫBAЮЩИE CИMBOЛЫ:                                                               
+*/ B - ПPИЗHAK BBOДHOГO CЛOBA,                                                     
+*/ K - ПPИЗHAK KOMAHДHOГO CЛOBA,                                                   
+*/ C - ПPИЗHAK ЛOГИЧECKOЙ KOHCTAHTЫ,                                               
+*/ Б - ПPИЗHAK БYKBEHHOЙ KOHCTAHTЫ,                                                
+*/ Ч - ПPИЗHAK ЧИCЛA,                                                              
+*/ И - ПPИЗHAK ИCПPABЛEHИЯ,                                                        
+*/ A0-A5 - ПPИЗHAKИ TИПA BBOДHOЙ ИHФOPMAЦИИ,                                       
+*/ _*H$ - ПPИЗHAK KOHЦA TEKCTOBOЙ ИЛИ ABTOKOД-ИHФOPMAЦИИ,                          
+*/ E - ПPИЗHAK KOHЦA ПPOГPAMMЫ.                                                    
+*2S13.2. KOMПЛEKTOBAHИE ПPOГPAMM                                                   
+*2S KOMПЛEKT ПPOГPAMM ДOЛЖEH COCTABЛЯTЬCЯ ПO CЛEДYЮЩEMY                            
+ПPABИЛY:                                                                           
+*/*D                 ПACПOPT ЗAДAЧИ                                                
+*/*D                 KOHEЦ ПACПOPTA ( CИMBOЛ 'E' )                                 
+*/*D                 MACCИB ПEPBЫЙ                                                 
+*/*D                 KOHEЦ MACCИBA ( CИMBOЛ 'E' )                                  
+*/*D                 MACCИB BTOPOЙ                                                 
+*/*D                 KOHEЦ MACCИBA ( CИMBOЛ 'E' )                                  
+*/*D                 ..............                                                
+*/*D                 KOHEЦ KOMПЛEKTA ( EKOHEЦ )                                    
+*S B KOMПЛEKTE OБЯЗATEЛЬHO ДOЛЖHЫ БЫTЬ ПACПOPT ЗAДAЧИ И                            
+ПEPBЫЙ MACCИB. MACCИB HAЧИHAETCЯ BBOДHЫM                                           
+CЛOBOM И ЗAKAHЧИBAETCЯ CИMBOЛOM 'E'.                                               
+*P*2/*MD14. BЫXOДHЫE ДAHHЫE                                                        
+*2S BЫXOДHЫE ДAHHЫE OC ДИCПAK BKЛЮЧAЮT B CEБЯ CЛEДYЮЩИE                            
+KOMПOHEHTЫ:                                                                        
+*S- COOБЩEHИЯ ПOЛЬЗOBATEЛЮ HA TEPMИHAЛ;                                            
+*S- COOБЩEHИЯ OПEPATOPY HA TEPMИHAЛ;                                               
+*S- COOБЩEHИЯ, ПEЧATAEMЫE HA AЦПY.                                                 
+*S ПOДPOБHO ЭTИ KOMПOHEHTЫ OПИCAHЫ B ДOKYMEHTAX                                    
+"OC ДИCПAK. PYKOBOДCTBO                                                            
+OПEPATOPA" *D(ИЫ.00110-01 34 01)                                                   
+И "OC ДИCПAK. PYKOBOДCTBO ПPOГPAMMИCTA" *D(ИЫ.00110-01 33 01).                     
+*P*2/*MD ПEPEЧEHЬ TEPMИHOB                                                         
+*2/                                                                                
+*/   ABOCT - ПPEKPAЩEHИE BЫПOЛHEHИЯ ПPOГPAMMЫ B PEЗYЛЬTATE                         
+*/         ABAPИЙHOЙ CИTYAЦИИ                                                      
+*/   ЗOHA - YЧACTOK BHEШHEГO HOCИTEЛЯ, COДEPЖAЩИЙ                                  
+*/         1024 ИHФOPMAЦИOHHЫX CЛOBA И 8 CЛYЖEБHЫX CЛOB                            
+*/   TOM - ФИЗИЧECKAЯ EДИHИЦA BHEШHEЙ ПAMЯTИ                                       
+*P*2/*MD ПEPEЧEHЬ COKPAЩEHИЙ                                                       
+*2/ AИCП - ИCПOЛHИTEЛЬHЫЙ AДPEC                                                    
+*/ AY - APИФMETИЧECKOE YCTPOЙCTBO                                                  
+*/ AЦД - AЛФABИTHO-ЦИФPOBOЙ ДИCПЛEЙ                                                
+*/ AЦПY - AЛФABИTHO-ЦИФPOBOE ПEЧATAЮЩEE YCTPOЙCTBO                                 
+*/ BC - BЫЧИCЛИTEЛЬHAЯ CИCTEMA                                                     
+*/ BY - BHEШHИE YCTPOЙCTBA                                                         
+*/ ИP - ИHДEKCHЫЙ PEГИCTP                                                          
+*/ MЛ - MAГHИTHAЯ ЛEHTA                                                            
+*/ MД - MAГHИTHЫЙ ДИCK                                                             
+*/ MBK - MHOГOПPOЦECCOPHЫЙ BЫЧИCЛИTEЛЬHЫЙ KOMПЛEKC                                 
+*/ HY - HOMEP HAПPABЛEHИЯ И YCTPOЙCTBA                                             
+*/ OП - OПEPATИBHAЯ ПAMЯTЬ                                                         
+*/ OЗY - OПEPATИBHOE ЗAПOMИHAЮЩEE YCTPOЙCTBO                                       
+*/ OC - OПEPAЦИOHHAЯ CИCTEMA                                                       
+*/ P - PAЗPЯД                                                                      
+*/ PK - PEГИCTP KOMAHД                                                             
+*/ PMP - PEГИCTP MЛAДШИX PAЗPЯДOB                                                  
+*/ PP - PAЗPЯДЫ                                                                    
+*/ CM - CYMMATOP                                                                   
+*/ KД - KOHTPOЛЛEP ДИCKOBЫЙ                                                        
+*/ VT - BИДEOTOH                                                                   
+*P*2/*MD ПEPEЧEHЬ CCЫЛOЧHЫX ДOKYMEHTOB                                             
+*2/1) OБЩEE CИCTEMHOE ПPOГAMMHOE OБECПEЧEHИE.                                      
+*/*4GOПEPAЦИOHHAЯ CИCTEMA ДИCПAK. PYKOBOДCTBO ПPOГPAMMИCTA.                        
+*/*4GИЫ.00110-01 33 01                                                             
+*/2) OБЩEE CИCTEMHOE ПPOГAMMHOE OБECПEЧEHИE.                                       
+*/*4GOПEPAЦИOHHAЯ CИCTEMA ДИCПAK.*/*4GPYKOBOДCTBO CИCTEMHOГO                       
+ПPOГPAMMИCTA.                                                                      
+*/*4GИЫ.00110-01 32 01                                                             
+*/3) OБЩEE CИCTEMHOE ПPOГAMMHOE OБECПEЧEHИE.                                       
+*/*4GOПEPAЦИOHHAЯ CИCTEMA ДИCПAK. PYKOBOДCTBO OПEPATOPA.                           
+*/*4GИЫ.00110-01 34 01.                                                            
+*/4) CИCTEMA TECTOBЫX ПPOГPAMM.                                                    
+*/*4GPYKOBOДCTBO OПEPATOPA.                                                        
+*/*4GИЫ.04301-01 34 01                                                             
+*/5) ПYЛЬTOBOE ПPOГAMMHOE OБECПEЧEHИE.                                             
+*/*4GPYKOBOДCTBO OПEPATOPA.                                                        
+*/*4GИЫ.00112-01 34 01                                                             
+*P*0RL*0MCS1 67                                                                    
+*2/*D.-----------------------------------------------------------------.           
+*/*DI                    ЛИCT PEГИCTPAЦИИ ИЗMEHEHИЙ                   I            
+*/*DI-----------------------------------------------------------------I            
+*/*DI   IHOMEPA ЛИCTOB (CTPAHИЦ)IBCEГO I        I          I      I   I            
+*/*DI И I-----------------------IЛИCTOBI        I BXOДЯЩИЙ I      I   I            
+*/*DI З I ИЗ- I ЗA- I     IAHHY-I(CTP.)I HOMEP  I   HOMEP  I ПOД- I Д I            
+*/*DI M I ME- I ME- I HO- IЛИPO-I  B   I ДOKY-  ICOПPOBOДИ-I ПИCЬ I A I            
+*/*DI . I HEH-I HEH-I BЫX IBAH- IДOKY- I MEHTA  I TEЛЬHOГO I      I T I            
+*/*DI   I HЫX I HЫX I     IHЫX  IMEHTE I        IДOKYMEHTA I      I A I            
+*SL1 5 11 17 23 29 36 45 56 63 67                                                  
+ 1)*2/ 1)*2/ 1)*2/ 1)*2/ 1)*2/ 1)*2/                                               
+ 1)*2/ 1)*2/ 1)*2/ 1)*2/ 1)*2/ 1)*2/                                               
+ 1)*2/ 1)*2/ 1)*2/ 1)*2/ 1)*2/ 1)*2/                                               
+ 1)*2/ 1)*2/ 1)*2/ 1)*2/ 1)*2/                                                     
+$                                                                                  
+*E                                                                                 
+*END                                                                               

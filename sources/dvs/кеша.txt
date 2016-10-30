@@ -1,0 +1,5 @@
+ MOДУЛЬ 'KEШA'
+KOД         CEKЦИЯ     0H, П20, HЧИT,HЗAП, BЫП, CEKT
+KOHCT       CEKЦИЯ     0H, П20,  ЧИT,HЗAП,HBЫП, CEKT
+ПEPEM       CEKЦИЯ     0H, П20,  ЧИT, ЗAП,HBЫП, CEKT
+ ФИHИШ

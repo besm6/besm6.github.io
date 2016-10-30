@@ -1,0 +1,421 @@
+ HЛИCT
+ CTPH 'TИПЫ BHEШHИX УCTPOЙCTB'
+ 
+* TИПЫ BHEШHИX УCTPOЙCTB
+ 
+TИП_MПД ЭKB 1
+TИП_AЦД ЭKB 2
+TИП_HMЛ ЭKB 3
+TИП_AЦПУ ЭKB 4
+TИП_PAЗДEЛ ЭKB 5
+TИП_TAЙMEP ЭKB 6
+* 22.05.90 AP ДOБABЛEHЫ AKK (7) И CПД (8) BO BCE TAБЛИЦЫ
+TИП_AKK ЭKB 7
+TИП_CПД ЭKB 8
+TИП_Ф_MПД ЭKB 1DH
+TИП_Ф_AЦД ЭKB 1EH
+TИП_MД ЭKB 1FH
+ CTPH 'TAБЛИЦA УCTPOЙCTB  '' T У C '''
+ 
+ 
+* TAБЛИЦA УCTPOЙCTB  ' T У C ' :  'TУC', 'TAЙMEP', 'TBУC'
+* -------------------------------------------------------
+ 
+MECTO_1 CEKЦИЯ A#TУC_1,ФИKT
+ 
+TУC БЛOK
+BCE#.TBУC
+ 
+ЗAПPET    :ПOЛE 64:64
+TИП_BУ    :ПOЛE 63:59
+N_ПPOЦ    :ПOЛE 58:50
+ЛOГ_HOM   :ПOЛE 49:41
+ПPИЗHAKИ  :ПOЛE 40:33
+ПOB_OTK$  :ЭKB E34
+OTB_CБOЙ$ :ЭKB E33
+AДPEC_BУ  :ПOЛE 32:21
+B_PAБOTE# :ЭKB .17
+KЛACC_BУ  :ПOЛE 14:9
+MOДEЛЬ_BУ :ПOЛE 8:1
+ 
+TEK_OKHO  :ПOЛE 48:33     ;TУC TEPMИHAЛA
+CKOPOCTЬ  :ПOЛE 20:16
+ЖД_ИHИЦ#  :ЭKB .15
+ 
+ИHФ_ДP    :ПOЛE 58:57;TУC MД
+OБM_ДAH$  :ЭKB E58
+TPБA$     :ЭKB E57
+ГOT_MД$   :ЭKB E56 
+ГOT_MД    :ПOЛE 56:56
+HOB_MД$   :ЭKB E55
+CTATУC    :ПOЛE 54:53
+COCT_MД   :ПOЛE 56:53 ;OБ'EДИHEHИE ГOT_MД,HOB_MД И CTATУC
+ШK_PEЗ    :ПOЛE 52:49
+ШK_KAH    :ПOЛE 48:45
+ШK_ИCK    :ПOЛE 44:41
+УУ_HMД    :ПOЛE 40:25
+N_HMД     :ПOЛE 24:21
+N_TOMA    :ПOЛE 20:9 
+ 
+OKHO      :ПOЛE 20:18     ;TBУC TEPMИHAЛA
+CЛEД_OKHO :ПOЛE 16:1 
+PEЖ_PAБ   :ПOЛE 37:35;TBУC MПД
+ПOЛУДУП   :ПOЛE 37:37
+ПOЛУДУП$  :ЭKB E37
+CEKPET    :ПOЛE 36:36
+CEKPET$   :ЭKB E36
+ПPOЗP     :ПOЛE 35:35
+ПPOЗP$    :ЭKB E36
+ 
+HET_CTA$  :ЭKB E37        ;TBУC MД
+HET_ЗAП$  :ЭKB E36
+HET_KЧT$  :ЭKB E35
+KOД_OTB   :ПOЛE 27:24 
+Ч_ЗAKAЗOB :ПOЛE 23:18 
+N_PAЗДEЛA :ПOЛE 16:1  
+ 
+ 
+MECTO_2 CEKЦИЯ A#TУC_2,ФИKT
+ 
+БУC:
+ 
+ 
+MECTO_3 CEKЦИЯ A#TУC_3,ФИKT
+ 
+AЗAЯB:
+ 
+ 
+ 
+ KБЛOK TУC
+ 
+ 
+ 
+ CEKЦИЯ MECTO_1
+ 
+TAЙMEP БЛOK
+ 
+AБC:ПOЛE 64:64
+TИП_BУ:ПOЛE 63:59
+N_ПPOЦ:ПOЛE 58:50
+ЛOГ_HOM:ПOЛE 49:41
+BПEPEД:ПOЛE 16:1
+ 
+ 
+ CEKЦИЯ MECTO_2
+ 
+HAЗAД:ПOЛE 64:49
+ШAГ:ПOЛE 48:1
+ 
+ 
+ CEKЦИЯ MECTO_3
+ 
+ЗHAЧ:ПOЛE 48:1
+ 
+ 
+ KБЛOK TAЙMEP
+ 
+ 
+ 
+ 
+ПEPEM_УCTP CEKЦИЯ A#.ПEPEM_УCTP,П20,ЧИT,ЗAП,HBЫП,COBM,CEKT;;
+ 
+ 
+Ч_TУC_OБЩ$ ПAM ;OБЩAЯ ДЛИHA 'TУC'+'TAЙMEP'+'TBУC'
+ 
+KAHAЛЫ_MД ПAM ;MACKA KAHAЛOB MД B 64-61 PP.
+KAHAЛЫ_EC ПAM ;MACKA CTAHД.KAHAЛOB B 64-57 PP.
+ 
+TAБ_CИC_N ЭKB A#TAБ_CИC_N
+ CTPH 'CTPУKTУPЫ ДЛЯ УПPABЛEHИЯ MAГHИTHЫMИ ДИCKAMИ'
+ 
+ 
+* TAБЛИЦA  ' П A K E T Ы _ M Д '
+ 
+ 
+ПAKETЫ_MД БЛOK
+ 
+ИMЯ_MД:
+ ПAM 1
+ KOHД T'BИPT_TOM'
+ ПAM Ч_ПAKETOB-2
+ 
+ЗAПPET$ ЭKB E64
+ЗAПPET:ПOЛE 64:64
+БEЗ_TEГA:ПOЛE 63:63
+БEЗ_TEГA$:ЭKB E63
+ДЛ_БЛOKA:ПOЛE 60:57
+BИPT_TOM$:ЭKB E56
+BИPT_TOM:ПOЛE 56:56
+CЧETЧИK:ПOЛE 55:37
+HAЧ_PAЗД:ПOЛE 36:17
+CИC_HOM:ПOЛE 16:1
+ ПAM 1
+ KOHД [@ДЛ_БЛOKA] 7 ! [@BИPT_TOM] 1 ! [@CЧETЧИK]1
+ ПAM Ч_ПAKETOB -2
+ 
+ KБЛOK ПAKETЫ_MД
+ 
+ 
+XAP_БЛOK ЭKB 7 ;ЛOГAPИФMИЧECKAЯ XAPAKTEPИCTИKA ДЛИHЫ БЛOKA
+ 
+ 
+* TAБЛИЦA  ' P A З Д E Л Ы _ M Д '
+ 
+ 
+PAЗДEЛЫ_MД CEKЦИЯ A#PAЗД_1,ФИKT
+ 
+PAЗДEЛЫ_MД БЛOK   
+ 
+ИMЯ_PAЗД:
+ ПAM A#PAЗД_2-A#PAЗД_1
+ 
+ИMЯ_PAЗД_2 : ПOЛE 64:33
+BAPИAHT    : ПOЛE 32:25
+HAЧ_БЛOK   : ПOЛE 24:1
+ ПAM A#PAЗД_3-A#PAЗД_2
+ 
+ЗAПPET     : ПOЛE 64:64
+ЗAПPET$    : ЭKB E64
+CЛEД_PAЗД  : ПOЛE 44:25
+ДЛИHA      : ПOЛE 21:1
+ ПAM A#PAЗД_4-A#PAЗД_3
+ 
+PAБOЧИЙ    : ПOЛE 64:64
+PAБOЧИЙ$   : ЭKB E64
+MOHOПOЛ    : ПOЛE 63:63
+MOHOПOЛ$   : ЭKB E63
+BИPT_PAЗ   : ПOЛE 62:62
+BИPT_PAЗ$  : ЭKB E62
+CЧETЧИK    : ПOЛE 61:45
+CЧET_ЗAK   : ПOЛE 44:27
+N_TOMA     : ПOЛE 12:1
+ 
+ KБЛOK PAЗДEЛЫ_MД
+ CTPH 'TAБЛИЦЫ, OПИCЫBAЮЩИE TИПЫ BHEШHИX УCTPOЙCTB'
+ 
+KOHCT_УCTP CEKЦИЯ A#.KOHCT_УCTP,П20,ЧИT,HЗAП,HBЫП,COBM,ГPA=5;
+ 
+ 
+* TAБЛИЦЫ, ИHДEKCИPУEMЫE TИПOM   B У
+ 
+ 
+ 
+ ПOЗ +0,+0,+27
+TИП_ЗAXB ПOЛE 64:61
+TИП_OБM  ПOЛE 60:57
+TAЙM_AУT ПOЛE 29:17 ;PAЗMEP TAЙM_AУTA B MKC,CДBИHУTЫЙ HA 17
+ПPT_ПPEP ПOЛE 16:1
+ 
+ KOHД [@ПPT_ПPEP] 1![@TAЙM_AУT]0000![@TИП_ЗAXB]0![@TИП_OБM]2;MПД
+ KOHД [@ПPT_ПPEP] 1![@TAЙM_AУT]0008![@TИП_ЗAXB]0![@TИП_OБM]0;AЦД
+ KOHД [@ПPT_ПPEP] 1![@TAЙM_AУT]2400![@TИП_ЗAXB]1![@TИП_OБM]0;HMЛ
+ KOHД [@ПPT_ПPEP] 1![@TAЙM_AУT]0120![@TИП_ЗAXB]1![@TИП_OБM]0;AЦПУ
+ KOHД [@ПPT_ПPEP] 0![@TAЙM_AУT]0000![@TИП_ЗAXB]3![@TИП_OБM]1;PAЗДEЛ
+ KOHД [@ПPT_ПPEP] 0![@TAЙM_AУT]0000![@TИП_ЗAXB]2![@TИП_OБM]3;TAЙMEP
+ KOHД [@ПPT_ПPEP] 1![@TAЙM_AУT]0120![@TИП_ЗAXB]1![@TИП_OБM]0;AKK
+ KOHД [@ПPT_ПPEP] 1![@TAЙM_AУT]0050![@TИП_ЗAXB]1![@TИП_OБM]0;CПД 
+ ПAM 24
+ KOHД [@ПPT_ПPEP]  1   ;MПД
+ KOHД [@ПPT_ПPEP]  1   ;AЦД
+ KOHД [@ПPT_ПPEP]  0   ;HMЛ
+ KOHД [@ПPT_ПPEP]  0   ;AЦПУ
+ KOHД [@ПPT_ПPEP]  0   ;PAЗДEЛ
+ KOHД [@ПPT_ПPEP]  0   ;TAЙMEP
+ KOHД [@ПPT_ПPEP]  0   ;AKK
+ KOHД [@ПPT_ПPEP]  0   ;CПД 
+ ПAM 24
+ ПOЗ -0,-0,-27
+ 
+ 
+ 
+ CEKЦИЯ ПEPEM_УCTP
+ 
+ 
+HAЧ_TУC ПOЛE 16:1
+ ПAM 32
+ 
+ЖДУ_ЗAXBAT
+ KOHД (32)[@ГOЛOBA.ПPOЦ_OCBOБ] 1
+ CTPH 'ПPOЧИE CTPУKTУPЫ'
+ 
+ 
+* OБCЛУЖИBAHИE CTAHДAPTHЫX KAHAЛOB
+ 
+ 
+ CEKЦИЯ ПEPEM_УCTP
+ 
+MПK_CK ПAM 4*8 ;KOПИЯ MECTHOЙ ПAMЯTИ C-KAHAЛOB
+MПK_УK ПAM 4*8 ;ИMИTAЦИЯ MECTHOЙ ПAMЯTИ У-KAHAЛOB
+ЧДK ЭKB 8 ;ЧИCЛO ДPAKAHOB
+ 
+ЗAHЯT_KAHAЛ ПAM 8 ;ЗAHЯTOCTЬ KAHAЛOB. '0' - CBOБOДEH.
+CБPOC_KAH ПAM  8 ;CБPOC KAHAЛOB
+ШAГ_T_A KOHД 0D3EД8H;ШAГ TAЙM_AУT ДЛЯ CБPOCA KAHAЛOB C0-У3 (1 CEK)
+BPEMЯ_T_A ПAM 
+Ф_CБИT_CKП ПAM 1
+ 
+ЗAЯB_CK CEKЦИЯ 0,П20,ФИKT,CBOБ
+ЗAЯB_CK БЛOK
+ ПAM 2 ;ПPOШИBKИ B OЧEPEДЯX
+N_BУ: ПAM ;CИCTEMHЫЙ HOMEP BУ
+KOП:     ПAM ;KOДЫ KAHAЛЬHЫX KOMAHД И ФЛAГИ
+ДЛИHA :  ПAM ;ДЛИHA MACCИBA OБMEHA B БAЙTAX
+HAM   :  ПAM ;HAЧAЛЬHЫЙ AДPEC MACCИBA OБMEHA
+CCK1  :  ПAM ;ПEPBOE CCK
+CЧET_T_A :ПAM 
+CCK2  :  ПAM ;BTOPOE CCK
+ KБЛOK ЗAЯB_CK
+ 
+* ЗAЯBKA  MПД
+ 
+KBAHT_BЫД CEKЦИЯ 0,П20,ФИKT,CBOБ
+KBAHT_BЫД БЛOK
+ ПAM 2 ;ПPOШИBKИ B OЧEPEДЯX
+ЛИHИЯ :  ПAM ;HOMEP ЛИHИИ C 9 PAЗPЯДA
+OП_PП :  ПAM 2;ДBA PEГИCTPA ПPИПИCKИ
+OП_AДP:  ПAM ;
+OП_KOH:  ПAM ;
+KB_AДP:  ПAM ;
+KB_KOH:  ПAM 
+KB_HAЧ:  ПAM ;
+CЧ_CKOP: ПAM ;
+CKOPOCTЬ:ПAM ;
+KOMУ_ПPEP : ПOЛE 64:49;HOMEP TУC-A
+HAЧ_CЛOГ:ПOЛE 48:25
+KOH_CЛOГ:ПOЛE 24:1
+         ПAM
+KOЛ_БAЙT : ПOЛE 44:28
+OДИH_БAЙT :ЭKB E28
+ДЛЯ_PУ:ПOЛE 27:1
+         ПAM 
+ ПAM ;CBOБOДHO
+ ПAM ;CBOБOДHO
+L_KB_BЫД: ЭKB #-ЛИHИЯ
+ KБЛOK KBAHT_BЫД
+ 
+* OБCЛУЖИBAHИE TAЙMEPA
+ 
+ 
+ CEKЦИЯ ПEPEM_УCTP
+ 
+TEK_TAЙM ПAM    ;CИCTEMHЫЙ HOMEP TEKУЩEГO TAЙMEPA
+PAЗM_TAЙM ПAM   ;BEЛИЧИHA TEKУЩEГO TAЙMEPA
+AБC_TAЙMEP ПAM  ;ГOЛOBA ЦEПOЧKИ AБC.TAЙMEPOB
+CBOБ_TAЙMEP ПAM ;ГOЛOBA ЦEПOЧKИ CBOБ.TAЙMEPOB
+BPEMЯ_CKП ПAM ;BPEMЯ CPAБATЫBAHИЯ CЛУЖEБHOГO TAЙMEPA
+ 
+ 
+* ГOЛOBЫ PAЗHЫX ЦEПOЧEK
+ 
+ 
+HOB_TEPM ПAM ;ГOЛOBA ЦEПOЧKИ TEPMИHAЛOB, OЖИДAЮЩИX ФOPMИPOBAHИЯ CMOC
+ЖДET_ИПЗ ПAM ;ГOЛOBA ЦEПOЧKИ TEPMИHAЛOB,OЖИДAЮЩИX CBOБ.ИПЗ ДЛЯ ФOP.CMOC
+ЖДET_OП  ПAM ;ГOЛOBA ЦEПOЧKИ TEPMИHAЛOB,OЖИДAЮЩИX CBOБ. OП ДЛЯ ФOP.CMOC
+ЦEПЬ_ЗAK ПAM 8 ;ГOЛOBA ЦEПOЧKИ ЗAKAЗOB K ДPAЙBEPAM KAHAЛOB C0-У3
+ЦEПЬ_BЫП ПAM 8 ;ГOЛOBA ЦEПOЧKИ BЫПOЛHЯEMЫX ЗAKAЗOB K KAHAЛAM C0-У3
+ЦEПЬ_ЗAK_MД ПAM 1 ;ГOЛOBA ЦEПOЧKИ ЗAKAЗOB K ДPAЙBEPУ MД
+ЦEПЬ_HOB_MД ПAM 1 ;ГOЛOBA ЦEПOЧKИ COOБЩEHИЙ OБ OПOЗHAHИИ
+CBOБ_TBУC    ПAM ;ГOЛOBA ЦEПOЧKИ CBOБOДHЫX TBУC
+CBOБ_PAЗДEЛ ПAM ;ГOЛOBA ЦEПOЧKИ CBOБOДHЫX PAЗДEЛOB
+ 
+ 
+* KOHCTAHTЫ
+ 
+ 
+ CEKЦИЯ KOHCT_УCTP
+ 
+ДЛЯ_TИП_TAЙM KOHД [@TУC.TИП_BУ]TИП_TAЙMEP
+ДЛЯ_TИП_MПД KOHД [@TУC.TИП_BУ]TИП_MПД
+ KOHД [@TУC.TИП_BУ]TИП_AЦД
+ 
+ 
+ 
+УЧET CEKЦИЯ A#.УЧET,П20,ЧИT,ЗAП,HBЫП,COBM,CEKT;
+УЧET БЛOK
+ИMЯ: 
+ЭK_ДBC
+  KOHД T'ЭK   800'
+  KOHД T'ЭK   801'
+  KOHД T'ЭK   802'
+  KOHД T'ЭK   803'
+  KOHД T'ЭK   804'
+  KOHД T'ЭK   805'
+  KOHД T'ЭK   806'
+  KOHД T'ЭK   807'
+  KOHД T'ЭK   808'
+  KOHД T'ЭK   809'
+  KOHД T'ЭK   80A'
+  KOHД T'ЭK   80B'
+  KOHД T'ЭK   80C'
+  KOHД T'ЭK   80D'
+  KOHД T'ЭK   80E'
+  KOHД T'ЭK   80F'
+  KOHД T'ЭK   810'
+  KOHД T'ЭK   811'
+  KOHД T'ЭK   812'
+  KOHД T'ЭK   813'
+  KOHД T'ЭK   814'
+  KOHД T'ЭK   815'
+  KOHД T'ЭK   816'
+  KOHД T'ЭK   817'
+  KOHД T'ЭK   818'
+  KOHД T'ЭK   819'
+  KOHД T'ЭK   81A'
+  KOHД T'ЭK   81B'
+  KOHД T'ЭK   81C'
+  KOHД T'ЭK   81D'
+  KOHД T'ЭK   81E'
+  KOHД T'ЭK   81F'
+ЭK_MOHOC
+  KOHД T'ЭK   900'
+  KOHД T'ЭK   901'
+  KOHД T'ЭK   902'
+  KOHД T'ЭK   903'
+  KOHД T'ЭK   904'
+  KOHД T'ЭK   905'
+  KOHД T'ЭK   906'
+  KOHД T'ЭK   907'
+  KOHД T'ЭK   908'
+  KOHД T'ЭK   909'
+  KOHД T'ЭK   90A'
+  KOHД T'ЭK   90B'
+  KOHД T'ЭK   90C'
+  KOHД T'ЭK   90D'
+  KOHД T'ЭK   90E'
+  KOHД T'ЭK   90F'
+ЭK_УCTP
+  KOHД T'ЭK   XX0'
+  KOHД T'ЭK   XX1'
+  KOHД T'ЭK   XX2'
+  KOHД T'ЭK   XX3'
+  KOHД T'ЭK   XX4'
+  KOHД T'ЭK   XX5'
+  KOHД T'ЭK   XX6'
+  KOHД T'ЭK   XX7'
+  KOHД T'ЭK   XX8'
+  KOHД T'ЭK   XX9'
+  KOHД T'ЭK   XXA'
+  KOHД T'ЭK   XXB'
+  KOHД T'ЭK   XXC'
+  KOHД T'ЭK   XXD'
+  KOHД T'ЭK   XXE'
+  KOHД T'ЭK   XXF'
+BHEШ KOHД T'BHEШ_ПPE'
+ЭK3  KOHД T'ЭK.3 PEЖ'
+ЭK1  KOHД T'ЭK.1 PEЖ'
+БПУ :KOHД T'БПУ  БBЗ'
+ИMЯ_CП: KOHД T'CПEЦ ПP '
+ ПAM 11
+ 
+CKOЛЬKO_PAЗ :    ПAM 67
+CK_PAЗ_CП:ПAM 1
+ ПAM 11
+ 
+BPEMЯ :          ПAM 67
+BPEMЯ_CП:ПAM 1
+ ПAM 11
+ 
+HAЧAЛO:ПAM 1
+KTO_ЗДECЬ : ПAM 1
+ KБЛOK
+ ЛИCT
