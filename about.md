@@ -1,15 +1,40 @@
 ---
 layout: page
-title: About
+title: "О проекте"
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+Данный сайт работает в технологии
+[GitHub Pages](https://help.github.com/articles/what-is-github-pages/).
+Страницы создаются в простом текстовом формате, с использованием языка
+[Markdown](https://ru.wikipedia.org/wiki/Markdown) (расширение .md).
+Синтаксис Markdown описан [здесь](https://daringfireball.net/projects/markdown/syntax).
 
-You can find the source code for the Jekyll new theme at:
-{% include icon-github.html username="jekyll" %} /
-[minima](https://github.com/jekyll/minima)
+Содержимое сайта хранится в репозитории Github, наподобие других программных проектов.
+Командой git всякий желающий может получить его полное содержимое.
+Сервис GitHub Pages, посредством механизма [Jekyll](http://jekyllrb.com/),
+автоматически преобразует страницы из формата Markdown в традиционный формат HTML.
+Для составления статей язык Jekyll знать необязательно,
+но при необходимости подсказки по его конструкциям
+[можно найти здесь](http://ricostacruz.com/cheatsheets/jekyll.html).
 
-You can find the source code for Jekyll at
-{% include icon-github.html username="jekyll" %} /
-[jekyll](https://github.com/jekyll/jekyll)
+Работать над содержимым сайта можно одним из трёх способов.
+
+Вариант первый, самый простой. Файлы *.md можно редактировать
+непосредственно через стандартный веб-интерфейс github.com,
+нажимая иконку-карандаш "Edit this file" справа вверху [соответствующей
+страницы](https://github.com/besm6/besm6.github.io/blob/master/about.md).
+
+Вариант второй: командой git получить содержимое сайта на свой компьютер,
+внести нужные изменения, затем отправить всё обратно посредством "git commit"
+и "git push". При этом вы можете также добавлять и изменять бинарные файлы.
+Кроме того, установив на своём компьютере интерпретатор языка Ruby и
+к нему несколько дополнительных пакетов, вы можете также "запускать"
+копию сайта локально и проверять свои изменения.
+[Подробности здесь](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/).
+
+Если у Вас нет доступа к репозиторию github.com/besm6/besm6.github.io на запись,
+тем не менее путь для Вас не закрыт: существует третий вариант.
+Вы можете оформить и отправить свои изменения в виде так называемого
+[Pull Request](http://yangsu.github.io/pull-request-tutorial/).
+Это совсем нетрудно.
