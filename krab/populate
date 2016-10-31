@@ -1,0 +1,33 @@
+#!/bin/bash
+. options
+
+#
+# Расписываем каталог АРХ-1
+#
+./scripts/mkfs_krab 2063 300 1400
+
+expect -f - <<EOF
+spawn ./krab -bv
+		expect "S00010*\n"
+send "100004=12\n"
+		expect "^- "
+send "g\n"
+		expect "К  Р  А  Б*\n"
+send "си\n"
+		expect "КТО?"
+send "4102\n"
+		expect "*\r\n-"
+send "икл 2415\n"
+		expect "*\r\n-"
+send "адм рос ста\n"
+		expect "ЕСТЬ*\n"
+send "адм рос сб\n"
+		expect "ЕСТЬ*\n"
+send "стп\n"
+		expect "КОНЕЦ ЗАДАЧИ"
+EOF
+
+#
+# Заселяем Первый Архив
+#
+./scripts/arch1_populate
