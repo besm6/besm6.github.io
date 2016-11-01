@@ -9,14 +9,14 @@ title: Файлы
 
 | Файл | Том |
 | --- | --- |
-| sbor2048.bin  | 2048 |
-| sbor2053.bin  | 2053 |
-| svs2048.bin   | 2148 |
-| svs2053.bin   | 2153 |
-| svs2113.bin   | 2113 |
-| alt2048.bin   | 2248 |
-| tape1.bin     | 4001 |
-| tape23.bin    | 4023 |
+| [sbor2048.bin](disks/sbor2048.bin)  | 2048 |
+| [sbor2053.bin](disks/sbor2053.bin)  | 2053 |
+| [svs2048.bin](disks/svs2048.bin)    | 2148 |
+| [svs2053.bin](disks/svs2053.bin)    | 2153 |
+| [svs2113.bin](disks/svs2113.bin)    | 2113 |
+| [alt2048.bin](disks/alt2048.bin)    | 2248 |
+| [tape1.bin](disks/tape1.bin)        | 4001 |
+| [tape23.bin](disks/tape23.bin)      | 4023 |
 
 Каждые 8 байтов файла представляют собой 64-битное слово (левые байты вперёд).
 В младших 50 битах располагается машинное слово БЭСМ-6. Биты 1-48 (справа
