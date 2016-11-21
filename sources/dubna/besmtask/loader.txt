@@ -1,0 +1,2024 @@
+ REDUOL:,NAME,
+ 'DECLARATION'
+ *REGIM//:,LC,1.HAXOdiTCq B PEzidEHTE MOHiTOPA,OCTOPOvHO C pEPECbOPKOj!
+ AC:,EQU,8.10B
+ AS:,EQU,9.11B
+ AU:,EQU,10.12B
+ MODE:,EQU,11.13B
+ REGIM:,EQU,12.14B
+ SECENTRY:,EQU,13.15B
+ ALF1:,EQU,14.16B
+ ALF2:,EQU,15.17B
+ OVFLJUMP:,EQU,16.20B
+ IR1:,EQU,17.21B
+ IR12:,EQU,28.34B
+ IR13:,EQU,29.35B
+ NDEF:,EQU,30.36B
+ NSET:,EQU,31.37B
+ NDATA:,EQU,32.40B
+ R:,EQU,33.41B
+ DEFADR:,EQU,34.42B
+ LEX:,EQU,35.43B
+ ALFA:,EQU,36.44B
+ RLEX:,EQU,37.45B
+ WLEX:,EQU,38.46B
+ RCAT:,EQU,39.47B
+ WCAT:,EQU,40.50B
+ LI14:,EQU,41.51B
+ LR:,EQU,42.52B
+ AEX:,EQU,43.53B
+ CARWORD:,EQU,46.56B
+ AR:,EQU,47.57B
+ RLOAD:,EQU,49.61B
+ QNAME:,EQU,50.60B
+ RELADR:,EQU,51.63B
+ ERROFLAG:,EQU,52.64B
+ LOCSUBP:,EQU,53.65B
+ INFSUB:,EQU,2.2B
+ TYPE:,EQU,3.3B
+ STR:,EQU,4.4B
+ STR1:,EQU,5.5B
+ STR2:,EQU,6.6B
+ NBODY:,EQU,7.7B
+ LOCLIST:,EQU,ADRCAT
+ BITDEBUG:,EQU,CFIX
+ WORDADR:,EQU,54.66B
+ PR:,EQU,55.67B
+ ASUBP:,EQU,57.71B
+ SHIFR:,EQU,58.72B
+ RETN:,EQU,LI14.
+ C2000:,EQU,C1PAGE.
+ CCOMN:,EQU,INFMSK.
+ AP:,EQU,ALF2.
+ ADATA:,EQU,56.70B
+ LOADLIBR:,EQU,60
+ LTAPES:,EQU,59
+ NAME:,EQU,QNAME.
+ INSTR:,EQU,TYPE.
+ MENDATA:,EQU,NBODY.
+ MENDSUB:,EQU,NDATA.
+ ADR:,EQU,INFSUB.
+ ADR1:,EQU,TYPE.
+ ADR2:,EQU,STR.
+ ADR3:,EQU,STR1.
+ ADR4:,EQU,STR2.
+ MRESPAGE:,EQU,C1777.
+ DTUPFLG:,EQU,PR.zApPET DATA UP
+ CSUBP:,EQU,LIBMASK.
+ WRITFIX:,EQU,ERROFIX.
+ READFIXS:,EQU,ERROFIX.
+ SKIPFIXS:,EQU,ERROFIX.
+ STORFIXS:,EQU,ERROFIX.
+ PUTFIXS:,EQU,ERROFIX.
+ CHEKFIXS:,EQU,ERROFIX.
+ PAREXP:,EQU,ERROFIX.
+ PWORD:,EQU,ERROFIX.
+ BSHIFT:,EQU,W+1776B.HA~AlO CdBigAEMyX AdPECOB
+ CSHIFT:,EQU,W+1777B.HA~AlO CdBiHYTyX AdPECOB
+C         |Ti KOHCTAHTy zAHOCqTCq pPi
+C         *CALL LDSHIFT dlq zAgPYzKi HA
+C         HOPMAlxHO HEdOCTYpHyE AdPECA
+C
+ 'INSTRUCTION'                            .
+  W:,BSS,
+            ,ITA,                         .
+          11,VTM,-2                       .
+ PACKDIST:  ,ASN,64-15                    .
+          11,XTS,AU                       .
+ ,AAX,M3L.
+          15,AOX,                         .
+ 11,VLM,PACKDIST.
+ ,ATX,ALF1.
+ ,XTA,LISTEND.
+ ,A-X,BEGLIST.
+            ,ASN,64-30                    .
+            ,AOX,AP                       .
+ ,XTS,LISTMAX
+ ,X-A,LOCLIST
+ ,ASN,64-15
+ 15,AOX,
+            ,ATX,ALF2                     .
+ ,XTA,ERROFLAG.
+ ,U1A,CHEKLIBS.
+ ,XTA,ALFA
+ ,ARX,
+ ,UZA,SKIPPR.
+ PRINT:,BSS,
+ ,XTA,*REGIM//
+ ,ASN,64+47
+ ,ATI,8
+ ,XTA,LISTEND
+ ,A-X,SECLIST.
+ ,ASN,64+2
+ 8,V1M,P2
+ ,ASN,64+1.E}E HA 2,ECli B 4 CTOlbcA
+ P2:,BSS,
+ ,ARX,C1.
+ ,ATI,7.~iClO CTPOK HA pE~ATi
+ ,ASN,64-1
+ ,ATX,DPRINT.{Ag BybOPKi iz CpiCKA zAgPYzKi
+ ,PRINT,INF64
+ LP1:,XTA,SECLIST.
+ ,ATX,WORDADR.
+ 9,VTM,BUF.
+ 8,VTM,-1
+ ,XTA,*REGIM//
+ ,ARX,
+ ,UZA,LP2
+ 8,VTM,-3.ECli B 4 CTOlbcA
+ LP2:,XTA,WORDADR.
+ ,A-X,LISTEND.
+ ,UIA,LP20
+C  CHENDL:  , BSS ,
+ ,AOX,
+ ,UIA,LP2E
+ ,XTA,FRIE
+ 5,VTM,ALF1
+ ,UJ,LP2F
+ LP20:,BSS,
+ ,XTA,WORDADR
+ 14,VJM,READWORD.
+ ,AAX,MSKER.
+ ,AEX,ERROR.
+ ,UZA,SETERROR.
+ 5,XTA,.
+ LP2F:9,ATX,1
+ 5,XTA,1
+ ,ASN,64-33
+ ,AUX,CUA.
+ ,AOX,C50.
+ 9,ATX,2
+ 5,XTA,1
+ ,AAX,LIBMASK.
+ ,U1A,LP2E.
+ 9,XTA,2
+ ,AOX,CC.
+ 9,ATX,2
+ 5,XTA,1
+ ,AAX,INFMSK.
+ ,U1A,LP2E.
+ ,XTA,CTE.
+ 9,ARX,2
+ 9,ATX,2
+ LP2E:9,UTM,4
+ ,XTA,WORDADR
+ ,ARX,DPRINT.
+ ,ATX,WORDADR
+ 8,VLM,LP2.
+ 14,VJM,PRINT6.
+ ,XTA,SECLIST.
+ ,ARX,C2.
+ ,ATX,SECLIST.
+ 7,UTM,-1.
+ 7,V1M,LP1.
+ ,PRINT,INF64
+ SKIPPR:,BSS,.
+ DRUMOFF:,XTA,NLIST.
+            ,ATI,1                        .
+ ,A-X,NCAT.
+            ,ATI,10                       .
+ WRLIST:1,XTA,TCOR.
+ ,AAX,CHM.IF IN MEMORY(BY IR IN TCOR)
+ ,UZA,WSK.
+ 1,XTA,TCOR.
+ ,AAX,CMEM.
+ ,ITS,1.
+            ,ASN,64-34                    .
+          15,ARX,                         .
+ ,AAX,CMEM.
+ ,ATX,FRIEPAGE.
+ 14,VJM,SETFDR.
+ :14,VJM,WRITDRUM.
+ WSK:1,UTM,1.
+          10,UTM,1                        .
+ 10,V1M,WRLIST.
+ ,WTC,NPRT.
+ 1,VTM,.
+ RDMEM:1,XTA,TCOR.
+ ,AAX,CHM.
+ ,U1A,RSK.
+ ,ITA,1.
+   ,ASN,64-34                             .
+ ,ATX,FRIEPAGE.
+C    CHFM:  , BSS ,
+ 14,VJM,SETFDR
+ ,XTA,FRIEDR
+ ,UIA,RDM
+ ,ITA,1
+ ,ASN,64-10
+ ,A-X,C8
+ ,XTS,AP
+ ,AAX,M3L
+ 15,X-A,
+ ,UZA,RSK
+ 14,VTM,RSK
+ ,UJ,ZEROS1
+ RDM:14,VJM,READDRUM.
+ RSK:1,UTM,-1.
+ 1,V1M,RDMEM.
+ EXIT:1,VTM,-2.
+ STORETN:1,XTA,CRETN+2
+ 1,CTX,RETN+2.
+ :1,VLM,STORETN.
+ ,XTA,MODE.
+ ,UZA,SKM1.
+ ,ATI,14
+ ,XTA,ALF1
+ 14,ATX,5
+ ,XTA,ALF2
+ 14,ATX,6
+ ,XTA,SECENTRY
+ 14,ATX,7
+ ,XTA,SRETN.
+ ,CTX,RETN+2.
+ SKM1:,XTA,ERROFLAG
+ ,UZA,SKM2.
+C ERROCOND: , BSS ,
+ ,XTA,ABSFLG
+ ,UIA,SRCHLIBS
+ ,XTA,ERETN
+ ,CTX,RETN+2
+ SKM2:14,VTM,-12
+ RESTIRS :14,XTA,IR13                     .
+          14,ATI,13                       .
+ 14,VLM,RESTIRS.
+ ,UJ,RETN.
+ CRETN:,DRUM,RLEX.
+         :  ,STX,                         .
+            ,XTR,REGIM                    .
+            ,WTC,SECENTRY                 .
+            ,UJ ,                         .
+ SRETN   :13,UJ ,                         .
+ ERETN:,UJ,OVFLJUMP
+ SETERROR:5,XTA,
+ ,AAX,M37.
+ ,ATI,14
+ 14,UTM,ERTEXTS.
+ 14,XTA,.
+ 9,ATX,
+ 14,XTA,1
+ 9,ATX,1
+ 14,XTA,2
+ 9,ATX,2
+ 5,XTA,
+ ,AAX,M40.
+ ,U1A,LP2E.
+ 5,XTA,1
+ 9,ATX,2
+ ,UJ,LP2E.
+ PRINT6:,ITA,14
+ ,ITS,
+ 1,VTM,-14
+ 11,VTM,BUF.
+ 10,VTM,BUFP.
+ 4,VTM,-5.
+ RW:2,VTM,-7
+ RS:11,XTA,
+ ,ASN,64-6
+ 11,ATX,
+ ,YTA,
+ 5,VTM,-1
+ SCHA:,ATI,14
+ ,A-X,C6.
+ 5,UTM,1
+ ,UZA,SCHA.
+ 5,XTA,TABL.
+ 14,UTM,1.
+ SCHS:,ASN,64-8
+ 14,UTM,-1
+ 14,V1M,SCHS.
+ ,YTA,.
+ 10,XTS,
+ ,ASN,64-8
+ 15,AOX,
+ 10,ATX,
+ 4,VLM,ENDRS.
+ 10,UTM,1.
+ 4,VTM,-5
+ ENDRS:2,VLM,RS.
+ 11,UTM,1.
+ 1,VLM,RW.
+ ,XTA,CSTR.
+ 10,ATX,.
+ ,PRINT,INF6.
+ ,XTA,
+ 14,VTM,-14
+ :11,UTM,-1
+ 11,ATX,
+ 14,VLM,*-1.
+ 15,WTC,.
+ ,UJ,
+ INF6:10,Z00,-20
+ 10,Z00,-20
+ ,001,
+ 8,,
+ INF64:,Z00,LAB
+ ,Z00,LAB
+ ,000,
+ 8,000,
+ BUFP:,BSS,6
+ BUF:,BSS,15
+ TABL    :  ,OCT,0365 5441 1542 2064      .
+         :  ,OCT,1062 4022 0461 4451      .
+         :  ,OCT,1263 7046 0300 0001      .
+         :  ,OCT,0040 1404 0120 3007      .
+         :  ,OCT,0200 4473 0542 7413      .
+         :  ,OCT,0243 5047 1002 1061      .
+         :  ,OCT,1762 2500 2022 6502      .
+         :  ,OCT,2062 5104 1304 2456      .
+         :  ,OCT,1404 3107 2203 1111      .
+         :  ,OCT,2244 5465 1464 6070      .
+         :  ,OCT,1703 4467 1720 7414      .
+ CSTR:,OCT,462
+ MSKER:,OCT,7777 7777 7777 7700
+ CC:,TEXT,2H C
+ LAB:,GOST,2H'34''231'
+ CTE:,OCT,0002
+ C6:,LOG,6
+ DPRINT:,OCT,
+ ERTEXTS:,BSS,
+ ,TEXT,8H dliHHyj
+ ,TEXT,8H CpiCOK
+ ,TEXT,8H   dliHH
+ ,TEXT,8Hyj AdPEC
+ ,TEXT,8H   OTCYT
+ ,TEXT,8HCTBYET
+ ,TEXT,8H HEBEPHA
+ ,TEXT,8Hq dliHA
+ ,TEXT,8H pEPEpOl
+ ,TEXT,8HHEHiE S-
+ ,TEXT,8HOblACTi
+ ,TEXT,8H     MAl
+ ,TEXT,8HO pAMqTi
+ ,TEXT,8H
+ ,TEXT,8H O{ibKA
+ ,TEXT,8HB PACCyl
+ ,TEXT,8HKE DATA
+ ,TEXT,8H iCpOP~E
+ ,TEXT,8HHA pOdpP
+ ,TEXT,8HOgPAMMA
+ ,TEXT,8H plOXAq
+ ,TEXT,8H|KBiBAlE
+ ,TEXT,8HHTHOCTx
+ FRIE:,TEXT,8HCBObOdHO
+ CHEKLIBS:,XTA,ABSFLG.
+ ,UZA,PRINT.
+ ,XTA,LTAPES.
+ ,UZA,NOSRCH.
+ ,XTA,TYESFLG.
+ ,U1A,SKIPPR.
+ NOSRCH:,ATX,ABSFLG.
+ ,UJ,PRINT.
+ SRCHLIBS:,DRUM,WPAGE1.
+ 13,VTM,W.dlq LOADLIBR
+ ,DRUM,LOADLIBR.
+ ,UJ,2000B.
+ WPAGE1:,OCT,00000100 00200026.
+ L       :14,VTM,                         .
+ :14,VZM,MNENT.
+ ,UJ,RELOAD.
+ SPENT:,WTC,ALF2
+ 14,VTM,-10B
+ 14,ATX,
+ ,XTA,ALF1
+ 14,ATX,1
+C
+C   bylO:   ,XTA,ALF2
+C
+C.....   CpACAEM flAg zApPETA PACCylKi
+C        B By{ECTOq}iE PAzdEly (dlq OVERLAY)
+ ,XTA,RETN
+ ,ATX,DTUPFLG
+ 14,XTA,
+ MNENT:15,ATX,
+            ,RTE,177B                     .
+            ,ATX,REGIM                    .
+            ,ITA,14                       .
+            ,ATX,MODE                     .
+ 14,VTM,-12
+ *1:14,ITA,13
+ 14,ATX,IR13
+ 14,VLM,*1.
+ ,NTR,3
+ LOAD:,WTC,BSHIFT
+ 3,VTM,.HE 0- PAbOTA LDSHIFT
+            ,XTA,SHIFR                    .
+ ,UZA,SKIPSH.
+ ,XTA,CWRITW.
+ ,CTX,WRITW1.
+ SKIPSH:,BSS,.
+            ,XTA,                         .WITTHOUT FIXES
+ ,ATX,HEADFLAG.
+            ,ATX,ERROFLAG                 .
+ ,ATX,MEMERFLG.
+ ,XTA,OVFLJUMP
+ ,ATX,SAVE20.
+ ,XTA,ERJUMP.
+ ,CTX,OVFLJUMP
+            ,XTA,ALF1                     .
+            ,ASN,64-3                     .
+          11,VTM,-2                       .
+   ,*75,0000B
+ STORDIST:  ,ASN,64-15                    .
+          15,ATX,                         .
+            ,YTA,                         .
+          11,STX,AU                       .AC,AS,AU
+ 11,VLM,STORDIST.
+ ,XTA,ALF2.
+            ,ASN,64+30                    .
+ ,ARX,BEGLIST.
+ ,ATX,LISTEND.
+ ,ATX,AQUEUE.
+ ,ATX,SECLIST.
+ ,XTA,ALF2
+ ,ASN,64+15
+ ,AAX,M3L
+ ,X-A,LOCLIST
+ ,ATX,LISTMAX
+ ,XTA,ALF2
+ ,AAX,M3L
+ ,ATX,AP
+ ,XTA,AU.
+ ,ATI,2.
+ ,XTA,AP.
+ NZERO:,A-X,AU.
+ ,ATI,4.
+ 14,VTM,INITDRUM.
+ ,X-A,.
+ ,AAX,MP.
+ ,UZA,ZEROSET.
+ ,XTA,AP.
+ ,AAX,MP.
+ ,ARX,C1777.
+ ,ATI,2.
+ ,X-A,AP.
+ ,ATI,4.
+ 14,VTM,CLAU.
+ ,UJ,ZEROSET.
+ BEGLOAD:,STX,.
+            ,ATX,QNAME                    .
+ ,XTA,TSUBP.
+            ,ATX,TYPE                     .
+            ,ATX,CARWORD                  .
+ ,XTA,
+ ,XTS,
+ 14,VJM,INCRAP.
+ 14,VJM,CHEKLIST.
+ :,XTA,ENTRY.
+ ,ATX,SECENTRY.ENTRY IN SECTION.ORIG A IN M
+ LOADQUE:,XTA,C1.
+ ,ATX,NFIXP1.
+ ,XTA,
+ ,ATX,GLOBASE.
+ CHEKQUE:,XTA,AQUEUE.
+ ,AEX,LISTEND.
+ ,UZA,ENDLOAD.
+ ,XTA,AQUEUE.
+ 14,VJM,READWORD.
+ :,ATX,NAME.
+           5,XTA,1                        .
+ ,ATX,LIBCODE.
+ ,AAX,M3L.
+            ,ATX,LOCSUBP                  .
+ ,XTA,AQUEUE.
+ ,ARX,C2.
+ ,ATX,AQUEUE.
+ PTSKIP  : 5,XTA,1                        .
+ ,AAX,CSUBP.
+ ,UZA,CHEKQUE.
+           5,XTA,1                        .
+ ,AAX,CFIX.
+ ,U1A,PUTFIXS.
+ HCH:,XTA,HEADFLAG.
+ ,U1A,HEADSKIP.
+ 14,VJM,LIBR.
+ HEADSKIP:10,VTM,-2.
+ READSTR:14,VJM,READWP1.
+ :10,STX,STR+2.
+ 10,VLM,READSTR.
+ ,ITA,.
+ ,ATX,HEADFLAG.
+            ,ITA,                         .
+            ,ATX,NBODY                    .
+            ,XTA,STR+2                    .FOR BSS
+            ,ASN,64+30                    .
+            ,ARX,STR+2                    .
+ ,AAX,M3L.
+            ,ATX,NBODY                    .INSTR.+CONST.
+            ,XTA,LOCSUBP                  .
+ ,AAX,M3L.
+            ,ATX,LOCSUBP                  .
+         :10,VTM,-2                       .
+            ,XTA,STR+1                    .
+ CTDATA  :15,ATX,                         .
+ ,AAX,M3L.
+          10,ATX,NSET+2                   .3 CELLS: NSET,NDATA,R
+            ,STX,NDEF                     .
+            ,ASN,64+15                    .
+ 10,VLM,CTDATA.
+ ,XTA,RELADR.
+            ,ATX,ASUBP                    .
+            ,ARX,NBODY                    .
+            ,ATX,ADATA                    .
+            ,ARX,NDATA                    .
+            ,ARX,NSET                     .
+            ,ATX,DEFADR                   .
+ ,ARX,NFIXP1.
+            ,ATX,RELADR                   .
+ ,XTA,CDEFADR.
+            ,ATX,WORDADR                  .
+            ,XTS,LOCSUBP                  .
+ 14,VJM,WRITWP1.WRITE MAINE ENTRY ADDRESS
+ :,XTA,STR.AND INCREASE WORDADR BY 1
+ ,AAX,M4S.
+            ,ATI,10                       .
+ 14,VTM,ERSKIP.
+ ,AEX,NFIXP1.SETSFIRSTQUE
+ ,U1A,ERROFIX.INCORRECT FIX NUMBER
+ ERSKIP:10,UTM,-1.
+ 10,V1M,WRITFIX.IF THERE ARE FIXES
+ CHEKDEF:,XTA,STR.SHIFT M,READFIXS AND SAVE A
+            ,ASN,64+12                    .
+ ,AAX,M4S.NUMBER OF DEFINITIONS
+            ,ATI,10                       .
+ PRODEF:10,VZM,FORMINST.
+ 14,VJM,READWP1.
+ :,ATX,CARWORD.
+          10,UTM,-1                       .
+ ,AAX,MTYPE.
+            ,ASN,64+18                    .
+            ,STX,TYPE                     .
+ 14,VJM,PUTNAME
+ ,STX,QNAME
+            ,WTC,TYPE                     .
+ ,UJ,SWITCH.
+ SWITCH:,UJ,PROCOMP.
+ :,UJ,PROLAB.
+ :,UJ,PROLOC.
+ :,UJ,PROSUBP.
+ :,UJ,PROS.
+ :,UJ,PROP.
+ :,UJ,PROP.
+ :,UJ,PROC.
+ PROLAB:14,VJM,REDLOWA.
+ :,ARX,LOCSUBP.
+ ,AAX,M3L.
+ LDSH/WEX:,BSS,
+ 14,VTM,PROWEX
+ 3,V1M,LDSHIFT
+ PROWEX:14,VJM,WRITWP1.
+ 14,VJM,LOCNAM
+ :,UJ,PRODEF.
+ PROCOMP:,XTA,CARWORD.
+ ,AAX,CIDENT.
+ ,U1A,PROEQU.IF EQUALITY
+            ,XTA,CARWORD                  .PROCESS COMPAUND ADDRESS
+            ,ASN,64+24                    .
+ PROEQU  :  ,ATX,R                        .
+ ,AAX,C4000.
+ ,UZA,REDUSKIP.
+            ,XTA,R                        .
+ ,AAX,C3777.
+ ,ARX,CDEFADR.
+ 14,VJM,READWORD.
+ :,ATX,R.
+ REDUSKIP:14,VJM,REDLOWA.
+ ,XTS,CARWORD.
+ ,AAX,CS.
+ ,U1A,PROMUDIV.
+            ,STX,                         .
+         :  ,ARX,R                        .
+ ,AAX,M3L.
+ ,UJ,PROWEX.
+ PROMUDIV:  ,XTA,CARWORD                  .
+ ,AAX,CIDENT.
+ ,U1A,PROWEQ.
+ ,XTA,CARWORD
+ ,AAX,CMINUS.
+ ,U1A,PRODIV.
+            ,XTA,R                        .
+ ,AOX,CEXP.
+          15,A*X,                         .
+            ,YTA,64-40                    .
+ ,AAX,M3L.
+ ,UJ,PROWEX.
+ PRODIV  :  ,STX,                         .
+ ,AOX,CEXP.
+            ,NTR,2                        .
+            ,A+X,                         .
+            ,XTS,R                        .
+ ,AOX,CEXP.
+            ,A+X,                         .
+          15,A/X,                         .
+            ,NTR,3                        .
+ ,A+X,CEXP.
+ ,AAX,M3L.
+ ,UJ,PROWEX.
+ PROWEQ: 15,XTA,-1
+ ,A-X,AP
+ ,UZA,ERWEQ.
+ ,STX,
+ 14,VJM,READWORD.
+ ,AAX,M3L.
+ ,UJ,PROWEX.
+ ERWEQ:14,VJM,ERROEQ.
+ ,STX,.
+ ,XTA,
+ ,UJ,PROWEX.
+ PROS    :  ,XTA,CARWORD                  .
+ ,AAX,CSP.
+ ,U1A,ERRORSC.
+ PROLS   :  ,XTS,AS                       .ADDRESS OF ARRAY
+ 14,VJM,REDLOWA.
+ :,ARX,AS.
+            ,STX,AS                       .
+            ,XTS,AC                       .
+ ,AEX,CAL7.
+            ,ARX,AS                       .
+ ,UZA,SETS.
+ 14,VJM,ERRORSC.
+ SETS:,STX,.ADDRESS OF ARRAY TO A
+ ,UJ,PROWEX.
+ PROP:14,VJM,REDLOWA.SHIFTS MAGAZINE
+ :,XTS,CARWORD.
+ ,AAX,CSP.MARK OF SEC.OR PAGE ARRAY
+ 14,VJM,INCRAP.CORRECTING OF P-FIELD
+ :,UJ,PROWEX.ADDR OF ARRAY IN A
+ PROC:14,VJM,PUTNAME.
+ :14,VJM,REDLOWA.
+ :,ASN,64-15.SHIFT IN POSITION N BODY
+            ,STX,INFSUB                   .LENGTH
+            ,ATX,QNAME                    .
+ ,AEX,/GLOBAS/.
+ ,U1A,SKIPBAS.
+ ,XTA,INFSUB
+ ,ASN,64-5
+ ,ATX,GLOBASE.
+ ,UJ,PROWEX.
+ SKIPBAS:,BSS,
+ 14,VJM,CHEKLIST.PROCESS AS SUBPROGRAM
+ :,XTA,ENTRY.
+ ,UJ,LDSH/WEX
+ PROLOC:,XTS,CARWORD.
+ ,AAX,CS.
+ ,U1A,PROPAR.
+            ,STX,                         .
+ ,UJ,PROSUBP.
+ PROPAR  :  ,STX,                         .
+ 14,VJM,REDLOWA.
+ ,AOX,CEXT.
+ ,UJ,PROWEX.
+ PROSUBP:,XTS,C1.
+ ,STX,NFIXP1.
+ 14,VJM,REDLOWA.
+ :,U1A,READFIXS.IF THERE ARE FIXES
+ ,STX,.RESET MAG
+ PRONAME:14,VJM,PUTNAME.
+ ,ATX,QNAME.
+C     pPizHAK OTlAdKi pPOCTABlqETCq
+C     pPi  *CALL DEBUGER
+ ,UJ,SKIPBAS
+ READWP1:,XTS,RELADR.
+          15,ATX,                         .
+ ,ARX,C1.
+            ,STX,RELADR                   .
+ ,UJ,READWORD.
+ WRITWP1:  ,XTS,WORDADR                   .
+          15,ATX,                         .
+ ,ARX,C1.
+            ,STX,WORDADR                  .
+ ,UJ,WRITWORD.RETURN IN IR14
+ REDLOWA :14,MTJ,9                        .
+            ,XTS,CARWORD                  .
+ ,AAX,M3L.
+           ,XTS,CARWORD                   .
+ ,AAX,CDEF.
+ ,UZA,CHMINUS.
+            ,STX,                         .
+ ,ARX,CDEFADR.
+ 14,VJM,READWORD.
+ :,XTS,.
+ CHMINUS :  ,XTA,CARWORD                  .
+ ,AAX,CMINUS.
+ ,UZA,LOWEX.
+            ,XTA,CARWORD                  .FOR * /
+ ,AAX,CS.
+ ,U1A,LOWEX.
+            ,STX,                         .
+ ,AEX,M3L.
+ ,ARX,C1.
+ ,AAX,M3L.
+            ,XTS,                         .
+ LOWEX   :  ,STX,                         .
+           9,UJ ,                         .RETURN FROM REDLOWA
+ INCRAP  :14,MTJ,9                        .SUBP. FOR CORRECTING P-FIELD
+ ,UZA,PROLP.IF NOT PAGE ARRAY
+ ,XTS,C1777.
+ ,STX,CSMSK.
+ ,AAX,CS.
+ ,UZA,IFNOTS.
+ ,XTA,C377.
+ ,ATX,CSMSK.
+ IFNOTS  :  ,BSS,                         .
+            ,XTA,AP                       .
+ ,AAX,CSMSK.
+ ,UZA,PROLP.
+            ,XTS,AP                       .
+ ,ARX,CSMSK.
+ ,ARX,C1.
+          15,AEX,                         .
+            ,ATX,AP                       .
+ PROLP   :  ,STX,                         .
+            ,ATX,AR                       .ARRAY LENGTH
+            ,XTA,AP                       .
+          15,ATX,                         .
+            ,ARX,AR                       .
+            ,ATX,AP                       .
+            ,XTA,AU                       .
+ ,AEX,CAL7.
+            ,ARX,AP                       .
+ ,UZA,SETP.
+ 14,VJM,ERRORPU.
+ SETP:,STX,.ADDRESS OF ARRAY TO A FROM M
+           9,UJ ,                         .RETURN FROM INCRAP
+ PUTNAME :  ,XTS,CARWORD                  .
+ ,AAX,CIDENT
+ 14,UZA,
+ ,XTA,CARWORD
+ ,AAX,CLONGNAM.
+ ,U1A,LONGNAME.
+            ,XTA,CARWORD                  .
+ ,AAX,UPPERMSK.
+          14,UJ ,                         .RETURN FROM PUTNAME
+ CHEKLIST:  ,ITA,14                       .
+ ,ATX,LISTRETN.
+ ,XTA,BEGLIST.
+ ,ATX,LB.
+ ,XTA,LISTEND.
+ ,ATX,LE.
+ 14,VJM,SLIST.
+ :,XTA,AQ.
+ ,UZA,COMPLECT.
+ CHEKINF:5,XTA,1.
+            ,ATX,R                        .
+ ,AAX,M3L.
+ ,ATX,ENTRY.
+           5,XTA,1                        .
+ ,AAX,CFIX.
+ ,U1A,CHEKFIXS.
+            ,XTA,TYPE                     .
+ ,AEX,TCOMN.
+ ,U1A,ELSKIP.
+ CHPAGE  :  ,XTA,CARWORD                  .
+ ,AAX,CSP.
+ ,UZA,CHLENGTH.
+            ,XTA,R                        .
+ ,AAX,C377.
+ ,U1A,ERLG.
+            ,XTA,CARWORD                  .
+ ,AAX,CS.
+ ,U1A,CHLENGTH.
+            ,XTA,R                        .
+ ,AAX,C1777.
+ ,U1A,ERLG.
+ CHLENGTH:  ,XTA,R                        .
+            ,ASN,64+15                    .
+ ,AAX,M3L.
+ ,AEX,CAL7.
+            ,XTS,INFSUB                   .
+            ,ASN,64+15                    .
+ ,AAX,M3L.
+          15,ARX,                         .
+ ,UZA,ELSKIP.
+ ERLG:14,VJM,ERLENGTH.
+ ELSKIP:,XTA,R.
+ EXLIST:,WTC,LISTRETN.
+            ,UJ ,                         .RETURN FROM CHEKLIST
+ COMPLECT:  ,XTA,TYPE                     .
+ ,AEX,TCOMN.
+ ,U1A,SUBP.
+            ,XTA,QNAME                    .
+ ,AAX,MSKSMB.
+ ,AEX,CSTAR.
+ ,U1A,COMMON.
+ SUBP:,XTA,ADRCAT.
+ ,ATX,LB.
+ ,XTA,CATEND.
+ ,ATX,LE.
+ 14,VJM,SLIST.
+ :,XTA,AQ.
+ ,U1A,COMPL.
+ ,XTA,TYPE.
+ ,AEX,TCOMN.
+ ,UZA,COMMON.
+ 14,VTM,EXLIST.
+ ,UJ,NAMEERRO.
+ COMPL:,ARX,C1.
+ ,ATX,AQ.
+ 5,XTS,1.
+ ,AAX,M3L.
+ ,ATX,ENTRY.
+           5,UTM,1                        .
+           5,XTA,                         .
+ ,UJ,SKR.
+ CMPLP   :15,ATX,                         .
+ 14,VJM,READWORD.
+ SKR:,AAX,INFMSK.
+ ,U1A,STORINF.IF MAIN ENTRY
+ ,STX,.
+ ,A-X,C2.
+ ,ATX,AQ.
+ ,UJ,CMPLP.SEARCH MAIN ENTRY
+ STORINF :  ,XTA,TYPE                     .
+ ,AEX,TCOMN.
+ ,UZA,BDATA.
+ STINF   : 5,XTA,                         .
+ STINF1:,AAX,FCLEAN.
+            ,ATX,INFSUB                   .
+            ,ASN,64+15                    .
+ ,AAX,M3L.
+            ,STX,R                        .RESET MAGAZINE
+ ,UJ,STOLIST.
+ BDATA   : 5,XTA,                         .
+            ,ASN,64+15                    .
+ ,AAX,M3L.
+            ,XTS,INFSUB                   .
+            ,ASN,64+15                    .
+ ,AAX,M3L.
+          15,A-X,                         .
+ ,U1A,STINF.
+            ,ASN,64-15                    .
+           5,ARX,                         .
+ ,UJ,STINF1.
+ COMMON  :  ,XTA,                         .
+ ,ATX,ENTRY.
+            ,XTA,INFSUB                   .
+            ,ASN,64+15                    .
+            ,ATX,R                        .LENGTH
+ ,UJ,STL1.
+ STOLIST :  5,XTA,-1                      .
+            ,ATX,QNAME                    .
+ STL1    :  ,XTA,R                        .
+            ,XTS,CARWORD                  .
+ ,AAX,CSP.
+ 14,VJM,INCRAP.
+ :,ATX,R.ADDRESS
+ ,A+X,ENTRY.
+ ,ATX,ENTRY.
+            ,XTA,INFSUB                   .
+ ,AAX,M3L.
+ ,UZA,ZEROENTR.
+            ,XTA,INFSUB                   .
+ ,AAX,MLOCN.ERASE ENTRY
+            ,AOX,R                        .
+ ,XTS,PB.PHIZICAL BEGIN
+ 14,VJM,WRITWEND.
+ :,XTA,INFSUB.
+ ,AAX,M3L.
+            ,ATX,INFSUB                   .
+ ZEROENTR:  ,XTA,INFSUB                   .
+            ,ARX,R                        .
+            ,XTS,QNAME                    .
+ SLP:14,VJM,WRITWEND.
+ ,XTA,INFSUB.
+ ,UZA,EXLIST.
+ ,XTA,AQ.
+ ,A+X,C2.
+ ,ATX,AQ.
+ 14,VJM,READWORD.
+ :,AAX,INFMSK.
+ ,U1A,EXLIST.
+ 5,XTA,.
+            ,ARX,R                        .
+           5,XTS,-1                       .
+ ,UJ,SLP.
+ WRITWEND:  ,ITS,14                       .
+ ,ATX,WREX.
+ ,XTA,LISTEND.
+ ,A-X,LISTMAX.
+ ,U1A,ERWRSKIP.
+ 14,VJM,ERROLIST.
+ ERWRSKIP:,XTA,LISTEND.
+ 15,ATX,.
+ ,ARX,C2.
+ ,STX,LISTEND.
+ ERWRSK2:,BSS,
+ 14,VJM,WRITWORD.
+ :5,ATX,1.
+ ,WTC,WREX.
+            ,UJ ,                         .
+ LOCNAM:,BSS,
+ ,XTA,QNAME
+ 14,UZA,
+ ,XTA,ALFA
+ ,AAX,BITDEBUG
+ 14,UZA,
+ ,XTA,TYPE
+ ,AEX,TSUBP
+ 14,UZA,
+ ,XTA,TYPE
+ ,AEX,TCOMN
+ 14,UZA,
+C        idEHTifiKATOPy pOpAdA`T B CpiCOK
+C        lOKAlxHyX idEHTifiKATOPOB, ECli
+C        ECTx pPizHAK OTlAdKi i OHi HE
+C        COMMON ili SUBP.
+ ,XTA,AQUEUE
+ ,A-X,BEGLIST
+ ,A-X,C2
+ ,ASN,64-6
+ ,AOX,TYPE
+ ,ASN,64-18
+ 5,AOX,
+ ,XTS,QNAME
+ ,ITS,14
+ ,ATX,WREX
+ ,XTA,LISTEND
+ ,A-X,LISTMAX
+ ,UZA,ERWRSKIP-1
+ ,XTA,LISTMAX
+ ,A-X,C2
+ ,ATX,LISTMAX
+ ,UJ,ERWRSK2
+  LDSHIFT:,ATX,R
+ ,A-X,BSHIFT
+ ,U1A,NOSHIFT
+ ,A+X,CSHIFT
+ ,AAX,M3L
+ 14,UJ,
+ NOSHIFT:,XTA,R
+ 14,UJ,
+ SLIST   :  ,ITS,14                       .
+            ,ITS,11                       .
+            ,XTS,                         .
+ ,ATX,AQ.
+ ,XTA,LB.
+ SLEND:,A-X,LE.
+ ,UZA,SEX.
+          15,ATX,                         .
+            ,ASN,64+1                     .
+            ,STI,11                       .
+ ,A+X,C2000.
+ ,UZA,ENDJP.
+          11,VTM,-512                     .
+ ENDJP:,XTA,LB.
+ 14,VJM,READWORD.
+ :11,UTM,1.
+            ,AEX,QNAME                    .
+ LSTLP:,UZA,NORMEX.
+           5,XTA,2                        .
+            ,AEX,QNAME                    .
+           5,UTM,2                        .
+ 11,VLM,LSTLP.
+ ,XTA,LB.
+ ,A+X,C2000.
+ ,ATX,LB.
+ ,UJ,SLEND.
+ NORMEX:,ITA,1.
+            ,ASN,64-10                    .
+            ,ITS,5                        .
+ ,AAX,C1777.
+          15,AOX,                         .
+ ,ATX,AQ.
+ SEX     :  ,STX,                         .
+            ,STI,11                       .
+            ,STI,14                       .
+          14,UJ ,                         .
+ FORMINST:,XTA,MEMERFLG.
+ ,U1A,LOADQUE.
+ ,XTA,STR
+            ,ASN,64+24                    .
+ ,AAX,M4S.
+ ,U1A,PAREXP.
+           ,XTA,STR2                      .
+            ,ATI,10                       .NUMBER OF INSTR. WORDS
+            ,XTA,LOCSUBP                  .
+            ,ATX,WORDADR                  .
+            ,XTA,ASUBP                    .
+            ,ATX,RELADR                   .
+ WORDLOOP:10,VZM,SETDATA.
+ 14,VJM,READWP1.
+ :,STX,CARWORD.
+           9,VTM,-1                       .
+ INSTLOOP:  ,XTA,CARWORD                  .
+            ,ASN,64+24                    .
+            ,ATX,INSTR                    .
+ ,AAX,CLADR.
+ ,U1A,LINSTR.IF LONG ADDRESS
+ ,XTA,INSTR
+ ,AAX,C4000
+ ,U1A,MDEF
+            ,XTA,INSTR                    .
+ ,AAX,CMADR.
+ ,U1A,CHEKGLOB.
+ ,UJ,ENDINSTR
+ MDEF:,BSS,
+            ,XTA,INSTR                    .
+ ,AAX,C3777.
+ ,ARX,CDEFADR.
+ 14,VJM,READWORD.
+ ,ARX,.
+ ,UZA,SETADR.
+         :  ,ATX,R                        .
+            ,XTA,INSTR                    .
+ ,AAX,CMADR.
+ ,UZA,MSKIP.IF PLUS ADDRESS
+            ,XTA,R                        .
+ ,ARX,C70000.
+            ,ATX,R                        .
+ MSKIP   :  ,XTA,INSTR                    .
+ ,AAX,MSINSTR.
+            ,ATX,INSTR                    .
+            ,XTA,R                        .
+ ,AAX,C10000.
+ ,ASN,64-6
+            ,AOX,INSTR                    .
+            ,XTS,R                        .
+ ,AAX,M4S.
+          15,AOX,                         .
+            ,ATX,INSTR                    .
+            ,XTA,R                        .
+ ,ARX,C10000.
+ ,AAX,C60000.
+ ,UZA,ENDINSTR.
+ ,ATX,R
+ 14,VTM,ENDINSTR.
+ ,XTA,GLOBASE.
+ ,UZA,ERROADR.
+ ,XTA,INSTR.
+ ,AAX,CMOD.
+ ,U1A,ERROADR.
+ ,XTA,R
+ ,ASN,64-7
+ ,ARX,GLOBASE.
+ ,ARX,CM1M.
+ ,AOX,INSTR
+ ,ATX,INSTR
+ ENDINSTR:,XTA,CARWORD
+ ,ASN,64-24
+ ,AOX,INSTR
+ ,ATX,CARWORD
+ 9,VLM,INSTLOOP
+ ,XTS,CARWORD
+ 10,UTM,-1
+ 14,VJM,WRITWP1
+ ,UJ,WORDLOOP
+ CHEKGLOB:,XTA,GLOBASE.
+ ,UZA,ENDINSTR
+ ,AAX,M4S.
+ ,XTA,INSTR
+ ,AAX,C3777.
+ ,ARX,LOCSUBP
+ ,ATX,R
+ ,UJ,MSKIP.
+ LINSTR  :  ,XTA,INSTR                    .
+ ,AAX,C40000.
+ ,UZA,ENDINSTR.IF CONSTANT ADDRESS
+            ,XTA,INSTR                    .
+ ,AAX,C74000.
+ ,AEX,C74000.
+ ,UZA,CONVADR.IF CONVENTIONAL ADDRESS
+            ,XTA,INSTR                    .
+ ,AAX,M37777.
+            ,ARX,LOCSUBP                  .
+ 14,VTM,SETADR
+ 3,V1M,LDSHIFT
+ SETADR:,AAX,M3L.
+            ,XTS,INSTR                    .
+ ,AAX,MLINSTR.
+          15,AOX,                         .
+            ,ATX,INSTR                    .
+ ,UJ,ENDINSTR.
+ CONVADR :  ,XTA,INSTR                    .
+ ,AAX,C3777.
+ ,ARX,CDEFADR.
+ 14,VJM,READWORD.
+ :,UJ,SETADR.
+ SETDATA:,BSS,.
+ REWCON  :  ,XTA,RELADR                   .
+            ,AEX,ADATA                    .
+ ,UZA,CHEKSET.
+ 14,VJM,READWP1.
+ :14,VJM,WRITWP1.
+ :,UJ,REWCON.
+ CHEKSET:,XTA,RELADR.
+            ,ARX,NDATA                    .
+            ,ATX,RELADR                   .
+            ,XTA,NSET                     .
+            ,ATI,10                       .
+            ,XTA,LOCSUBP                  .
+            ,ARX,NBODY                    .
+ ,ARX,CM1.
+            ,ATX,MENDATA                  .
+ ,AEX,CAL7.
+            ,XTS,MENDATA                  .
+            ,ARX,NDATA                    .
+ ,AEX,CAL7.
+            ,STX,MENDATA                  .
+            ,ATX,MENDSUB                  .
+ PUTSET:10,VZM,LOADQUE.PUT NEW SUBROUTINE
+ 14,VJM,READWP1.
+ :,STX,CARWORD.
+           9,VTM,-3                       .
+ DATLP   :  ,XTA,CARWORD                  .
+ ,AAX,C3777.
+           9,ATX,ADR4                     .
+            ,XTA,CARWORD                  .
+ ,AAX,C4000.
+ ,UZA,SKIPCONV.
+           9,XTA,ADR4                     .
+ ,ARX,CDEFADR.
+ 14,VJM,READWORD.
+ :,AAX,M3L.
+ 9,ATX,ADR4.
+ 3,VZM,SKIPCONV
+C        ObPATHyj CdBig AdPECOB pOClE LDSHIFT
+C        dlq pPABilxHOj PACCylKi dAHHyX.
+ ,A-X,CSHIFT
+ ,U1A,SKIPCONV
+ ,A+X,BSHIFT
+ ,AAX,M3L
+ 9,ATX,ADR4
+ SKIPCONV:  ,XTA,CARWORD                  .
+            ,ASN,64+12                    .
+            ,ATX,CARWORD                  .
+ 9,VLM,DATLP.
+ ,XTA,ADR2.
+            ,ATI,8                        .
+ SETLOOP:8,VZM,ESETLP.
+ ,XTA,ADR4.
+            ,XTS,ADR3                     .
+            ,STX,ADR                      .
+            ,ATI,9                        .
+ DATLOOP:9,VZM,EDATLP.
+ ,XTA,DTUPFLG.PRELOAD FLAG
+ ,U1A,CHAPD.
+ ,XTA,MODE
+ ,A-X,ADR1
+ ,UZA,ERD.
+ CHAPD:,XTA,ADR1
+ ,A-X,AP
+ ,UZA,ERD.
+ ,XTA,ADR1
+ ,A-X,AMIN.
+ ,U1A,ERD.
+            ,XTA,ADR                      .
+            ,ATX,ADR2                     .
+            ,ARX,MENDATA                  .
+ ,UZA,SERSKIP.
+ ERD:14,VJM,ERROSET.
+ ,STX,.
+ ,UJ,SKWRDAT.
+ SERSKIP :  ,XTA,ADR                      .
+            ,ARX,MENDSUB                  .
+ ,UZA,DATSKIP.IF NOT DATA
+ ,ARX,CM1.
+            ,ARX,ADATA                    .
+            ,ATX,ADR2                     .
+ DATSKIP :  ,XTA,ADR2                     .
+ 14,VJM,READWORD.
+ :,XTS,ADR1.
+ 14,VJM,WRITWORD.
+ SKWRDAT:,XTS,ADR1.
+ ,ARX,C1.
+            ,ATX,ADR1                     .
+            ,XTA,ADR                      .
+ ,ARX,C1.
+            ,ATX,ADR                      .
+           9,UTM,-1                       .
+ ,UJ,DATLOOP.
+ EDATLP  : 8,UTM,-1                       .
+ ,UJ,SETLOOP.
+ ESETLP  :10,UTM,-1                       .
+ ,UJ,PUTSET.
+ ERRORSC:6,VTM,50B.
+ ,XTA,
+ FATER:14,VJM,WRITER
+ ENDLOAD:,XTA,SAVE20.
+ ,CTX,OVFLJUMP
+ ,XTA,C8.
+ ,XTS,
+ 14,VJM,INCRAP.
+ ,ATX,AP.
+  ,*75,0001B
+ READEND:,XTA,RLOAD
+ ,ARX,C4U1L.
+ ,ATX,R
+ ,DRUM,R
+ ,UJ,W.HA pPO~iTAHHyj CEgMEHT
+ ERROLIST:,XTS,ERROR.
+ ,XTS,LISTEND.
+ ,ATX,ERROFLAG
+ ,ARX,CM2.
+ 14,VJM,WRITWORD.
+ ,XTA,.
+ 5,ATX,1
+ ,UJ,ENDLOAD.
+ NAMEERRO:6,VTM,4
+ ,XTA,QNAME
+ ,ATX,ABSFLG.
+ ,UJ,WRITER.
+ ERLENGTH:6,VTM,6
+ ,XTA,QNAME
+ ,UJ,WRITER.
+ ERRORPU:,XTA,MEMERFLG.
+ 14,U1A,.
+ 6,VTM,13B
+ ,XTA,
+ ,XTA,C1.
+ ,ATX,MEMERFLG.
+ ,XTA,AU
+ ,UJ,WRITADER.
+ ERROSET:6,VTM,56B
+ ,UJ,WRITER.
+ ERROFIX:6,VTM,61B
+ ,UJ,FATER.
+ ERROEQ:6,VTM,64B
+ ,UJ,WRITER.
+ ERROADR:6,VTM,2."dliHHyj AdPEC"
+ ,XTA,WORDADR
+ WRITADER:,ASN,64-33
+ ,AUX,CUA.
+ ,AOX,B00000.
+ WRITER:,ATX,ERN.
+ ,ITA,14
+ ,XTS,ERN.
+ ,ITS,6
+ ,AOX,ERROR.
+ ,ATX,ER.
+ 14,VJM,WRITWEND.
+ ,XTA,AQUEUE.
+ ,ARX,C2.
+ ,ATX,AQUEUE.
+ LPWRER:,ATX,RER.
+ ,ARX,CM2.
+ ,A-X,LISTEND.
+ ,UZA,ENDWRER.
+ ,XTA,ER.
+ ,XTS,ERN.
+ ,XTS,RER.
+ ,ARX,CM2.
+ 14,VJM,READWORD.
+ ,ATX,ER.
+ 5,XTA,1.
+ ,STX,ERN.
+ 5,STX,1
+ 5,ATX,
+ ,XTA,RER.
+ ,ARX,C2.
+ ,UJ,LPWRER.
+ ENDWRER:,XTA,C1.
+ ,ATX,ERROFLAG
+ 15,WTC,
+ ,UJ,
+ ERJUMP:13,VTM,W
+ ,UJ,ERROFIX.
+ LIBR:,ITA,14
+ ,XTS,LIBCODE.
+ ,AAX,MSEG.
+            ,ASN,64+36                    .
+ ,ARX,LIBADR.
+            ,ATX,RELADR                   .
+ ,XTA,LIBCODE.
+ ,APX,MPACKSA.PACK SUBP.ADDRESS
+            ,ASN,64+36                    .FORMAL P.NUMER TO LOW D.
+ ,ATX,LIBSHIFT.
+           4,VTM,TCORLIB-TCOREND          .
+ RELLOOP:4,XTA,TCOREND.
+ ,AAX,CEXT.
+ ,U1A,SKEXTSET.
+ ,XTA,EXTJUMP.
+ 4,CTX,TCOREND.
+ SKEXTSET:4,VLM,RELLOOP.
+ ,WTC,NPRT.
+ 4,VTM,.
+ DECLOOP : 4,UTM,-1                       .
+ 4,XTA,TPRT.
+ ,AAX,LOWMSK.
+ ,A-X,LIBSHIFT.
+ ,U1A,DECLOOPE.
+ ,A+X,NLIBR.
+ ,ATI,2.FORMAL NUMER OF PAGE
+ ,X-A,NLIBRMAX.
+ ,U1A,DECLOOPE.
+ 4,XTA,TPRT.
+ ,AAX,CMEM.MEMORY PLACE
+ ,ITS,2.
+            ,ASN,64-34                    .
+ ,AAX,CMEM.
+          15,X-A,                         .
+ ,AAX,CMEM.
+            ,ITS,4                        .
+ ,A-X,IPRT.
+ ,UZA,ZPRT.
+ ,XTA,NORMJUMP.
+          15,AOX,                         .
+ ,UJ,SETJUMP.
+ ZPRT:,XTA,PRTJUMP.
+          15,AOX,                         .
+ SETJUMP:2,CTX,TCOR.
+ DECLOOPE:4,V1M,DECLOOP.
+ ,STX,.
+            ,ATI,14                       .
+          14,UJ ,                         .
+ LONGNAME:,XTA,CARWORD
+ ,ASN,64+24
+ ,AAX,C3777
+ ,ARX,DEFADR.BOzBPAT B i14
+ READWORD:6,VJM,GIVPLACE.
+ :5,XTA,.
+          14,UJ ,                         .
+ WRITWORD:14,MTJ,7                        .
+ 6,VJM,GIVPLACE.
+ WRITW1:5,STX,.
+ 5,CTX,.
+         :  ,STX,                         .
+           7,UJ ,                         .
+ CHEKPAGE:  ,ITA,14                       .
+            ,ITS,2                        .
+            ,ITS,4                        .
+            ,ITS,1                        .
+ ,A-X,NDEFPLAC.
+ ,U1A,CLEANPAG.IF MEMORY PAGE
+ READPAGE:  ,ITA,1                        .
+ ,ATX,RWR.INF FOR SETFDR
+ 14,VJM,SETFDR.GIVES 0 FRIEDR FOR EMPTY PAGE
+ :,ITA,1.
+            ,ASN,64-34                    .
+ ,AAX,CMEM.
+ ,X-A,FRIEPAGE.
+ ,AAX,CMEM.
+ ,AOX,PRTJUMP.
+ 1,CTX,TCOR.NOW PAGE IN MEMORY
+ :,XTA,FRIEDR.
+ ,UZA,ZEROS.
+ 14,VJM,READDRUM.
+ SKIPREDR:,ITA,1.
+ ,A-X,NLIST.
+ ,UZA,SKIPERAS.IF CONSTANT TRACK
+ ,XTA,FRIEDR.
+ ,WTC,NFRIEDR.
+ ,ATX,TFRIEDR.NEW TRACK IS EMPTY
+ ,XTA,NFRIEDR.
+ ,ARX,C1.
+ ,ATX,NFRIEDR.
+ SKIPERAS:,WTC,NPRT.
+          14,VTM,-2                       .
+ ,XTA,NFRIEDR.
+ ,A-X,C2.
+ ,UZA,CLEANP.IF 2 TRACKS ARE FREE
+ SERCHC:14,XTA,TPRT.
+ ,AAX,LOWMSK.
+ ,A-X,NLIST.
+ 14,UTM,-1.
+ ,U1A,SERCHC.IF NOT CONST.TRACK
+          14,UTM,1                        .
+ CLEANP  :  ,ITA,14                       .
+ ,ATX,PRT.NUMER OF STRING FOR CHAINGING
+ ,XTA,FRIEPAGE.
+ 14,XTS,TPRT.OLD FRIEPAGE TO MAGAZINE
+ ,AAX,CMEM.
+ ,ATX,FRIEPAGE.
+ 14,XTA,TPRT.
+ ,AAX,LOWMSK.
+ ,ATX,RWR.F.NUMER OF ERASED PAGE
+ ,ATI,2.
+            ,ITA,1                        .
+ ,A-X,NLIBR.
+ ,U1A,*5.
+ ,A+X,LIBSHIFT.
+ ,UJ,*6.
+ *5      :  ,ITA,1                        .
+ *6      :15,AOX,                         .
+ 14,ATX,TPRT.
+ ,XTA,.
+ ,ATX,FRIEDR.
+ CHEKLIBR:,XTA,RWR.
+ ,A-X,NLIBR.
+ ,U1A,CHEKCAT.
+ ,XTA,RWR.
+ ,A-X,LIBSHIFT.
+ ,U1A,ERASPRT.
+ ,A+X,NLIBR.
+            ,ATI,2                        .
+ ,X-A,NLIBRMAX.
+ ,U1A,ERASPRT.
+ ,UJ,SETDRUM.
+ CHEKCAT:,XTA,RWR.
+ ,A-X,NCAT.
+ ,UZA,SETDRUM.
+C   CHFM1:  , BSS ,
+ ,WTC,RWR
+ ,XTA,TCOR
+ ,AEX,FRIMEMJ
+ ,UZA,SETDRUM
+ CHEKLST:,XTA,RWR.
+ ,A-X,NLIST.
+ ,U1A,SCHFRDR.
+ ,A+X,LSTDRUM.
+ ,ATX,FRIEDR.
+ ,UJ,WRITDR.LIST DRUM IS FIXED
+ SCHFRDR:,XTA,NFRIEDR.
+ ,A-X,C1.
+ ,ATX,NFRIEDR.
+            ,ATI,14                       .
+ 14,XTA,TFRIEDR-1.
+ ,ATX,FRIEDR.TRACK FOR WRITING PAGE
+ 14,XTA,TFRIEDR.
+ 14,ATX,TFRIEDR-1.
+ WRITDR:14,VJM,WRITDRUM.
+ SETDRUM:,XTA,FRIEDR.FOR LIST DRUM IS WRITING W105
+ ,AOX,EXTJUMP.BUT IT IS NOT NECESSARY
+ 2,CTX,TCOR.NOW PAGE ON DRUM
+ ERASPRT:2,VTM,TCORV-TCOREND.
+ ERASLP:2,XTA,TCOREND.
+ ,AAX,CPRT.D23
+ ,UZA,ERLPEND.
+ 2,XTA,TCOREND.
+ ,AAX,UPPERMSK.
+ ,AOX,PRTJUMP.
+ 2,CTX,TCOREND.
+ ERLPEND:2,VLM,ERASLP.
+ ,XTA,.
+ ,ATX,IPRT.
+ ,XTA,NORMJUMP.
+ ,WTC,NPRT.
+ ,CTX,TCORV.
+ :,STX,.
+            ,STI,4                        .
+            ,STI,2                        .
+            ,ATI,14                       .
+ 1,UJ,TCOR.
+ SETPRT:,ITA,14.
+            ,ITS,1                        .
+ ,ATX,S2.
+ ,A-X,NLIBR.
+ ,U1A,*4.
+ ,A+X,LIBSHIFT.
+ ,ATX,S2.
+ *4      :  ,ITA,5                        .
+            ,ASN,64+10                    .
+            ,ASN,64-34                    .
+ ,AOX,S2.
+ ,ATX,S2.
+ ,ATX,S1.
+ ,XTA,IPRT.
+            ,ATI,14                       .
+ ,A+X,C1.
+ ,ATX,IPRT.
+ LSET:14,XTA,TPRT.
+ ,XTS,S2.
+ 14,STX,TPRT.
+ ,ATX,S2.
+ ,AEX,S1.
+ 14,UTM,1.
+ ,U1A,LSET.
+ 1,XTA,TCOR.
+ ,AAX,UPPERMSK.
+ ,AOX,NORMJUMP.
+ 1,CTX,TCOR.
+ :,STX,.
+            ,ATI,14                       .
+           6,UJ ,                         .RETURN
+ CLEANPAG:  ,ITA,1                        .
+            ,ASN,64-34                    .
+ ,AEX,FRIEPAGE.
+ ,UZA,READPAGE.
+          4,VTM,                          .
+ CLOOP:4,XTA,TPRT.
+ ,AAX,CMEM.
+ ,ASN,64+34.
+            ,ITS,1                        .
+          15,AEX,                         .
+ ,UZA,SEND.
+          4,UTM,1                         .
+ ,UJ,CLOOP.
+ SEND:,XTA,FRIEPAGE.
+            ,ASN,64+24                    .
+            ,ATI,2                        .
+ 4,XTA,TPRT.
+ ,AAX,LOWMSK.
+ ,ATX,S1.
+ ,AOX,FRIEPAGE.
+ 4,ATX,TPRT.
+ ,ATI,14.
+            ,ITA,14                       .
+ ,A-X,NLIBR.
+ ,U1A,*7.
+            ,ITA,14                       .
+ ,A-X,LIBSHIFT.
+ ,U1A,CHGFRP.
+ ,A+X,NLIBR.
+            ,ATI,14                       .
+ ,X-A,NLIBRMAX.
+ ,U1A,CHGFRP.
+ *7      :  ,ITA,14                       .
+            ,ASN,64-34                    .
+ ,AAX,CMEM.
+ ,X-A,FRIEPAGE.
+ ,AAX,CMEM.
+          14,UTC,                         .
+ ,XTS,TCOR.
+ ,AAX,MEMCLEAN.
+          15,AOX,                         .
+          14,UTC,                         .
+ ,CTX,TCOR.
+ CHGFRP:,ITA,1.
+            ,ASN,64-34                    .
+ ,ATX,FRIEPAGE.
+            ,ASN,64+24                    .
+            ,ATI,4                        .
+          14,VTM,-1023                    .
+ RESELL  : 4,XTA,                         .
+           2,ATX,                         .
+           4,UTM,1                        .
+           2,UTM,1                        .
+ 14,VLM,RESELL.
+ ,UJ,READPAGE.
+ SETFDR:,ITA,1.
+ ,A-X,NLIBR.
+ ,U1A,CHCAT.
+ ,A+X,LIBSHIFT.
+ ,UJ,STFEX.
+ CHCAT   :  ,ITA,1                        .
+ ,A-X,NCAT.
+ ,U1A,CHLST.
+ ,A+X,CATDRUM.
+ ,UJ,STFEX.
+ CHLST   :  ,ITA,1                        .
+ ,A-X,NLIST.
+ ,U1A,CHWAR.
+ ,A+X,LSTDRUM.
+ ,UJ,STFEX.
+ CHWAR:1,XTA,TCOR.
+ ,AAX,LOWMSK.
+ STFEX:,ATX,FRIEDR.
+ 14,UJ,.
+ READDRUM:  ,ITS,14                       .
+           ,ITS,                          .
+ 14,VJM,FA.
+ :,A+X,CREAD.
+ ,ATX,AEX.
+ ,DRUM,AEX.
+         :  ,STX,                         .
+            ,STI,14                       .
+          14,UJ ,                         .
+ WRITDRUM:  ,ITS,14                       .
+            ,ITS,                         .
+ 14,VJM,FA.
+ :,DRUM,AEX.
+         :  ,STX,                         .
+            ,STI,14                       .
+          14,UJ ,                         .
+ FA:,XTA,FRIEDR.
+            ,ASN,64-36                    .
+ ,AUX,CUNPDRUM.
+            ,ATX,AEX                      .
+ ,XTA,FRIEDR.
+ ,AAX,C33777.
+ ,A-X,BTAPE.
+ ,U1A,SKTP.
+ ,XTA,FRIEDR.
+ ,A+X,CTAPE.
+            ,ASN,64-24                    .
+ ,AUX,CUNPTAPE.
+            ,ATX,AEX                      .
+ SKTP:,XTA,FRIEPAGE.
+            ,ASN,64+4                     .
+            ,AOX,AEX                      .
+            ,ATX,AEX                      .
+          14,UJ ,                         .
+ INITDRUM:  ,XTA,ALFA                     .
+            ,ASN,64+25                    .
+ ,AAX,M37.
+ ,ARX,CM1.
+ ,ATX,NPRT.
+ ,XTA,CNFRIEDR.
+ ,ATX,NFRIEDR.
+ ,XTA,CGIVPLAC.
+ ,CTX,GIVPLACE.
+ ,XTA,CGIVPLC1
+ ,CTX,GIVPLAC1.
+ :,XTA,RCAT.
+ ,APX,MPDRUM.
+            ,ASN,64+36                    .
+ ,ATX,CATDRUM.
+           4,VTM,                         .COMPUTE INITIAL PRIORYTY
+            ,XTA,AP                       .
+ ,AAX,M3L.
+            ,ASN,64+10                    .NUMER OF P-PAGE
+ ,U1A,*8.
+ ,UJ,CL1P.
+ *8      :  ,ATI,1                        .
+            ,ATI,2                        .
+ ,X-A,NPRT.
+ ,UZA,UPPLOOP.
+ ,XTA,NPRT.
+            ,ATI,1                        .
+            ,ATI,2                        .
+ UPPLOOP : 2,UTM,1                        .
+            ,ITA,2                        .
+ ,X-A,NPRT.
+ ,U1A,LOWLOOP.
+ ,XTA,FRIMEMJ.
+C    FCOR:  , BSS ,
+ 2,CTX,TCOR
+ ,ITA,2
+ ,ASN,64-34
+ UP1:,ITS,2
+          15,AOX,                         .
+ 4,ATX,TPRT.
+ 4,UTM,1.
+ ,UJ,UPPLOOP.
+ LOWLOOP :  ,ITA,1                        .
+ LOWLOOP1:,ARX,CM1.
+ ,UZA,CLP.
+            ,ATI,2                        .
+            ,ASN,64-34                    .
+            ,ITS,2                        .
+          15,AOX,                         .
+ 4,ATX,TPRT.
+ 4,UTM,1.
+           ,ITA,2                         .
+ ,UJ,LOWLOOP1.
+ CLP     :  ,ITS,1                        .
+            ,ASN,64-34                    .
+ ,ATX,FRIEPAGE.
+            ,ASN,64+24                    .
+            ,ATI,5                        .
+            ,XTS,                         .
+            ,XTS,                         .
+ 6,VJM,SKIPERAS.
+ :,XTA,ADRCAT.
+ ,ATX,CATEND.
+ SCHCEND:,ARX,C1.
+ 14,VJM,READWORD.
+ :,AEX,CAL7.
+ ,UZA,BEGLOAD.
+ ,XTA,CATEND.
+ ,A+X,C2.
+ ,ATX,CATEND.
+ ,UJ,SCHCEND.
+ CWRITW:,STX,.
+           5,ATX,                         .
+ CGIVPLAC:  ,ATI,5                        .
+            ,ASN,64+10                    .
+ CGIVPLC1:  ,ATI,1                        .
+ 1,UJ,TCOR.
+ NORMJUMP: 5,UTM,                         .
+           6,UJ ,                         .
+ PRTJUMP : 5,UTM,                         .
+ ,UJ,SETPRT.
+ EXTJUMP:,UJ,CHEKPAGE.
+            ,   ,                         .
+ TCOR    : 5,UTM,                         .
+           6,UJ ,                         .
+ TCORV   : 5,UTM,                         .
+ ,UJ,SETPRT.
+         : 5,UTM,                         .
+ ,UJ,SETPRT.
+         : 5,UTM,                         .
+ ,UJ,SETPRT.
+         : 5,UTM,                         .
+ ,UJ,SETPRT.
+         : 5,UTM,                         .
+ ,UJ,SETPRT.
+         : 5,UTM,                         .
+ ,UJ,SETPRT.
+         : 5,UTM,                         .
+ ,UJ,SETPRT.
+         : 5,UTM,                         .
+ ,UJ,SETPRT.
+         : 5,UTM,                         .
+ ,UJ,SETPRT.
+         : 5,UTM,                         .
+ ,UJ,SETPRT.
+         : 5,UTM,                         .
+ ,UJ,SETPRT.
+         : 5,UTM,                         .
+ ,UJ,SETPRT.
+         : 5,UTM,                         .
+ ,UJ,SETPRT.
+         : 5,UTM,                         .
+ ,UJ,SETPRT.
+         : 5,UTM,                         .
+ ,UJ,SETPRT.
+         : 5,UTM,                         .
+ ,UJ,SETPRT.
+         : 5,UTM,                         .
+ ,UJ,SETPRT.
+         : 5,UTM,                         .
+ ,UJ,SETPRT.
+         : 5,UTM,                         .
+ ,UJ,SETPRT.
+         : 5,UTM,                         .
+ ,UJ,SETPRT.
+         : 5,UTM,                         .
+ ,UJ,SETPRT.
+         : 5,UTM,                         .
+ ,UJ,SETPRT.
+         : 5,UTM,                         .
+ ,UJ,SETPRT.
+         : 5,UTM,                         .
+ ,UJ,SETPRT.
+         : 5,UTM,                         .
+ ,UJ,SETPRT.
+         : 5,UTM,                         .
+ ,UJ,SETPRT.
+         : 5,UTM,                         .
+ ,UJ,SETPRT.
+         : 5,UTM,                         .
+ ,UJ,SETPRT.
+         : 5,UTM,                         .
+ ,UJ,SETPRT.
+         : 5,UTM,                         .
+ ,UJ,SETPRT.
+         : 5,UTM,                         .
+ ,UJ,SETPRT.
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE
+ ,,.
+ :,UJ,CHEKPAGE
+ ,,.
+ :,UJ,CHEKPAGE
+ ,,.
+ :,UJ,CHEKPAGE
+ ,,.
+ :,UJ,CHEKPAGE
+ ,,.
+ :,UJ,CHEKPAGE
+ ,,.
+ :,UJ,CHEKPAGE
+ ,,.
+ :,UJ,CHEKPAGE
+ ,,.
+ :,UJ,CHEKPAGE
+ ,,.
+ :,UJ,CHEKPAGE
+ ,,.
+ :,UJ,CHEKPAGE
+ ,,.
+ :,UJ,CHEKPAGE
+ ,,.
+ TCORLIB:,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ :,UJ,CHEKPAGE.
+            ,   ,                         .
+ TCOREND:,UJ,CHEKPAGE.
+            ,   ,                         .
+ 'CONST'
+ C1      :  ,OCT,0000 0000 0000 0001      .
+ M3L     :  ,OCT,0000 0000 0007 7777      .
+ CM1     :  ,OCT,7777 7777 7777 7776      .
+ LIBMASK :  ,OCT,5777 7700 0000 0000      .
+ M4S     :  ,OCT,0000 0000 0000 7777      .
+ MTYPE   :  ,OCT,0000 0000 0700 0000      .
+ C1777   :  ,OCT,0000 0000 0000 1777      .
+ C4000   :  ,OCT,0000 0000 0000 4000      .
+ C1PAGE  :  ,OCT,0000 0000 0000 2000      .
+ CAL7    :  ,OCT,7777 7777 7777 7777      .
+ C3777   :  ,OCT,0000 0000 0000 3777      .
+ CDEF    :  ,OCT,0000 0000 0010 0000      .
+ CMINUS  :  ,OCT,0000 0000 0020 0000      .
+ CLONGNAM:  ,OCT,0000 0000 2000 0000      .
+ UPPERMSK:  ,OCT,7777 7777 0000 0000      .
+ CFIX    :  ,OCT,2000 0000 0000 0000      .FIX MARK IN QUEUE
+ CMADR   :  ,OCT,0000 0000 0100 0000      .MINUS ADR INSTR
+ C70000  :  ,OCT,0000 0000 0007 0000      .
+ CLADR   :  ,OCT,0000 0000 0200 0000      .
+ MSINSTR :  ,OCT,0000 0000 7677 0000      .
+ C40000  :  ,OCT,0000 0000 0004 0000      .
+ C74000  :  ,OCT,0000 0000 0007 4000      .
+ M37777  :  ,OCT,0000 0000 0003 7777      .
+ MLINSTR :  ,OCT,0000 0000 7770 0000      .
+ CIDENT  :  ,OCT,0000 0000 4000 0000      .
+ MLOCN   :  ,OCT,7777 7777 7770 0000      .
+ M37     :  ,OCT,0000 0000 0000 0037      .
+ TSUBP   :  ,OCT,0000 0000 0000 0003      .
+ C2      :  ,OCT,0000 0000 0000 0002      .
+ CM1M:,OCT,7777 7777 7377 7777
+  B 00000:,TEXT,8H B 00000
+ TCOMN   :  ,OCT,0000 0000 0000 0007      .
+ PB      :  ,OCT,0000 0000 0000 6042      .PB IN 6TEXT
+ CEXT    :  ,OCT,4000 0000 0000 0000      .
+ C377    :  ,OCT,0000 0000 0000 0377      .
+ CSP     :  ,OCT,0000 0000 1040 0000      .
+ CEXP    :  ,OCT,6400 0000 0000 0000      .
+ MSKSMB  :  ,OCT,7700 0000 0000 0000      .
+ CSTAR   :  ,6TEXT,''*''                  .
+ INFMSK  :  ,OCT,5777 7777 7770 0000      .
+ MPACKSA :  ,OCT,4037 7700 0000 0000      .
+ MSEG    :  ,OCT,1740 0000 0000 0000      .
+ CREAD   :  ,OCT,0010 0000 0000 0000      .
+ CMEM    :  ,OCT,0007 7777 0000 0000      .
+ MEMCLEAN:  ,OCT,7770 0000 7777 7777      .
+ CHM:,OCT,2000 0000
+ LOWMSK  :  ,OCT,0000 0000 7777 7777      .
+ CS:,BSS,
+ CPRT    :  ,OCT,0000 0000 1000 0000      .
+ MPDRUM:,BSS,
+ CUNPDRUM:  ,OCT,0004 0000 0077 0037      .
+ BTAPE   :  ,OCT,0000 0000 0000 1400      .
+ CTAPE   :  ,OCT,0000 0000 0000 3000      .
+ CUNPTAPE:  ,OCT,0004 0000 0077 0777      .
+ C33777  :  ,OCT,0000 0000 0003 3777      .
+ FCLEAN  :  ,OCT,5777 7777 7777 7777      .
+ CDEFADR :  ,OCT,0000 0000 0010 0000      .
+ M40:,BSS,
+ NDEFPLAC:  ,OCT,0000 0000 0000 0040      .
+ BEGLIST :  ,OCT,0000 0000 0010 4000      .
+ NLIST   :  ,OCT,0000 0000 0000 0042      .
+ LISTMAX :  ,OCT,0000 0000 0010 6000      .
+ ADRCAT:,OCT,0000 0000 0012 4000
+ NCAT:,OCT,0000 0000 0000 0052
+ LIBADR:,OCT,0000 0000 0014 4000
+ NLIBR:,OCT,0000 0000 0000 0062
+ NLIBRMAX:,OCT,0000 0000 0000 0124
+ LSTDRUM :  ,OCT,0000 0000 0000 1000      .
+ AMIN:,LOG,100
+ C8:,LOG,10
+ CNFRIEDR:  ,OCT,0000 0000 0000 0012      .
+ PRT     :  ,OCT,                         .
+ TFRIEDR :  ,OCT,0000 0000 0000 1037      .
+         :  ,OCT,0000 0000 0000 1036      .
+         :  ,OCT,0000 0000 0000 1035      .
+         :  ,OCT,0000 0000 0000 1034      .
+         :  ,OCT,0000 0000 0000 1033      .
+         :  ,OCT,0000 0000 0000 1032      .
+         :  ,OCT,0000 0000 0000 1031      .
+         :  ,OCT,0000 0000 0000 1030      .
+         :  ,OCT,0000 0000 0000 1027      .
+         :  ,OCT,0000 0000 0000 1026      .
+         :  ,OCT,0000 0000 0000 1025      .
+         :  ,OCT,0000 0000 0000 1024      .
+         :  ,OCT,0000 0000 0000 1023      .
+         :  ,OCT,0000 0000 0000 1022      .
+         :  ,OCT,0000 0000 0000 1021      .
+         :  ,OCT,0000 0000 0000 1020      .
+ ERROR:,TEXT,8H ERROR
+ /GLOBAS/:,TEXT,4H1970.
+ CM2:,OCT,7777 7777 7777 7775
+ C10000:,LOG,10000
+ C60000:,LOG,60000
+ CMOD:,LOG,74000000
+ C4U1L:,OCT,4000 0000 0000 0001
+ CUA:,LOG,707070707
+ C50:,LOG,2020202020
+ SAVE20:,OCT,
+ SECLIST:,OCT,
+ GLOBASE:,OCT,
+ MEMERFLG:,OCT,
+ ERN:,OCT,
+ ER:,OCT,
+ RER:,OCT,
+ CSMSK   :  ,OCT,                         .
+ WREX    :  ,OCT,                         .
+ LISTEND :  ,OCT,                         .
+ AQUEUE  :  ,OCT,                         .
+ NFRIEDR :  ,OCT,                         .
+ CATDRUM :  ,OCT,                         .
+ ENTRY   :  ,OCT,                         .
+ NFIXP1  :  ,OCT,                         .
+ LIBCODE :  ,OCT,                         .
+ CATEND  :  ,OCT,                         .
+ HEADFLAG:  ,OCT,                         .
+ LISTRETN:  ,OCT,                         .
+ LB      :  ,OCT,                         .
+ LE      :  ,OCT,                         .
+ AQ      :  ,OCT,                         .
+ LIBSHIFT:  ,OCT,                         .
+ IPRT    :  ,OCT,                         .
+ RWR     :  ,OCT,                         .
+ FRIEDR  :  ,OCT,                         .
+ FRIEPAGE:  ,OCT,                         .
+ S2      :  ,OCT,                         .
+ S1      :  ,OCT,                         .
+ GIVPLACE:  ,OCT,                         .
+ GIVPLAC1:  ,OCT,                         .
+ NPRT    :  ,OCT,                         .
+ TPRT    :  ,OCT,                         .
+ ,BSS,40B
+ CLAU:,XTA,AU.
+ ,ATI,2.
+ ,AAX,MP.
+ ,UJ,NZERO.
+ ZEROSET:,ITA,.
+ 4,UTC,.
+ 2,ATX,.
+ 4,VLM,ZEROSET.
+ 14,UJ,.
+ ZEROS:14,VTM,SKIPERAS.
+ ZEROS1:,XTA,FRIEPAGE.
+ ,ASN,64+24.
+ ZEROS2:,ATI,2.
+ 2,UTM,1023.
+ 4,VTM,-1023.
+ ,UJ,ZEROSET.
+ FRIMEM:,ITA,14.
+ ,ITS,2.
+ ,ITS,4.
+ ,XTS,PRTJUMP.
+ 1,CTX,TCOR.
+ ,ITA,1.
+ ,ASN,64-10.
+ 14,VTM,ERASPRT.
+ ,UJ,ZEROS2.
+ FRIMEMJ:,UJ,FRIMEM.
+ ,,.
+ MP:,LOG,76000.
+ CL1P:,BSS,.
+ ,XTA,FRIMEMJ.
+ ,CTX,TCORV.
+ ,XTA,C1.
+ ,UJ,*8.
+ RELOAD:,ATX,TYESFLG.
+ ,DRUM,RPAGE1.
+ ,WTC,MODE.
+ 14,VTM,.
+ 14,XTA,.
+ 14,XTS,1.
+ ,ATX,ALF1.
+ 14,XTA,2.
+ ,ARX,C8.
+ ,ATX,ALF2.
+ ,NTR,3
+ ,UJ,LOAD.
+ ABSFLG:,LOG,0.
+ TYESFLG:,LOG,1.
+ RPAGE1:,OCT,00100100 00200026.
+ ,END,

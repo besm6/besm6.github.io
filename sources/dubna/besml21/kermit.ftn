@@ -1,0 +1,2844 @@
+      SUBROUTINE MAKEDATA(SEQ, RESULT)
+      IMPLICIT INTEGER(A-Z)
+      INTEGER SEQ, RESULT
+C     ! FUNCTION : THIS ROUTINE IS CALLED FROM THE SEND STATE TO MAKE
+C     !            A NEW 'D' PACKET. IT GETS FILE DATA FROM THE CHARACTE
+C     !            BUFFER, CALLING THE VIRTUAL DISK READ ROUTINE BUFIN
+C     !            WHENEVER THE BUFFER IS EMPTY. LOGICAL RTNE. BUFIN
+C     !            EVALUATES .FALSE. IFF A DISK READ FAILS; IT SETS
+C     !            ITS SECOND ARGUMENT .TRUE. IFF THE CURRENT BUFFER
+C     !            CONTAINS THE EOF INDICATOR. MAKEDATA CONVERTS CTSS
+C     !            EOL CHARACTERS TO QUOTED CR,LF SEQUENCES, AND OTHER
+C     !            EMBEDDED FILE CONTROL CHARACTERS TO THE STANDARD
+C     !            KERMIT QUOTED/CONTROLIFIED SEQUENCES.
+C     !  CALLED PROCEDURES : BUFIN, ERRORPKT, KCTL, KCHAR
+      PARAMETER( FULL = 0, LASTPKT = 1, NOPKT = 3, ERR = 4)
+C     PARAMETER( US = O'0000000000037', FS = O'0000000000000034')
+      PARAMETER( US = 31,               FS = 28                 )
+      PARAMETER( SOH = 1, CR=13, LF=10)
+      PARAMETER( PX = 1, OK = 0 )
+      PARAMETER( RPMAX = 94, CUTOFF = 4 )
+      LOGICAL BUFIN, LAST, LASTBUF, DEBUG, NATIVE, QUOTE8, REPEAT
+      CHARACTER *6144 BUFFER
+      CHARACTER *108 PACKET(2)
+      CHARACTER CMDSTR*80, REPORT*80
+      CHARACTER KCHAR, CKSUM, QUOTE, KCTL, PCHAR, OLD
+      CHARACTER EOLSEQ*4, PKTSEQ*6
+      CHARACTER*9 MYPARMS, HISPARMS, DEFAULTS
+      CHARACTER*18 DIAGN
+      DIMENSION FDB(8)
+      COMMON /PACKETS/ PACKET
+      COMMON /BUFFERS/ BUFFER
+      COMMON /PKSTATS/  BPTR, BUFHOLD, MAXPACK, LASTBUF, RPCOUNT
+      COMMON /RUNPARMS/ MYPARMS, HISPARMS, DEFAULTS
+      COMMON /STRINGS/ CMDSTR, CMDLEN, REPORT
+      COMMON /ENVIRON/ DEBUG, NATIVE, QUOTE8, REPEAT
+      COMMON /UNITS/ TYPMED, LOGIOC, MAXZON, DIAGN, OPTWR, TYPUNI, NZONE
+      EQUIVALENCE (FDB, TYPMED)
+C                                           PT TO 1ST DATA CHAR IN PKT
+      PKPTR = 5
+C                                         QUOTE CHAR TO SEND
+      QUOTE = MYPARMS(6:6)
+      EOLSEQ = QUOTE//KCTL(CHAR(CR))
+     !         // QUOTE // KCTL(CHAR(LF))
+C                                          REMNANT LEFT FROM LAST PKT
+      IF (RPCOUNT.GT.0) THEN
+C                                           REPEATED CHAR FOR COMPARISON
+        OLD = BUFFER(BPTR-1:BPTR-1)
+      END IF
+C                                           TOP OF PACKING LOOP
+10    CONTINUE
+C                                           BUFFER EMPTY
+      IF (BPTR.GT.BUFHOLD)  THEN
+C                                           WE ARE IN A RUN
+        IF (RPCOUNT.GT.0) THEN
+C         ! TRUNCATE RUN AT END OF BUFFER
+C                                           INDEX LAST CHAR OF RUN
+          BPTR = BPTR - 1
+C                                           PUT REMNANT IN PKT FIRST
+          GO TO 100
+C                                           THERE'S FILE DATA LEFT
+        ELSE IF (.NOT.(LASTBUF))THEN
+C         !  USE NEXT TEST TO FORCE EVALUATION OF READ FN :
+          IF (.NOT.(BUFIN(BUFFER,LAST))) THEN
+            REPORT = 'FILE READ ERROR: '//DIAGN//'.'
+            RESULT = ERR
+C                                           EXIT WITH THE BAD NEWS
+            GO TO 900
+C                                           THIS EVALUATION GOT LAST CHU
+          ELSE IF (LAST) THEN
+C                                           REMEMBER THIS
+            LASTBUF = .TRUE.
+          END IF
+C                                           FINAL PACKET A SHORTY
+        ELSE IF (PKPTR.GT.5) THEN
+          RESULT = LASTPKT
+C                                           GO POLISH IT OFF NOW
+          GO TO 400
+C                                           STARTING PKT - NO DATA TO PA
+        ELSE
+          RESULT = NOPKT
+C                                           GO RETURN WITH THIS NEWS NOW
+          GO TO 900
+        END IF
+C                                           IF BUFFER EMPTY
+      END IF
+C                                           GET NEXT BUFFER CHAR
+      PCHAR = BUFFER(BPTR:BPTR)
+C                                           WE'RE DOING REPEAT PREFIXING
+      IF (REPEAT)  THEN
+C                                           START A NEW SCOPE
+        IF (RPCOUNT.EQ.0) THEN
+          OLD = PCHAR
+          RPCOUNT = 1
+          BPTR = BPTR + 1
+C                                           GO GET NEXT DATA CHARACTER
+          GO TO 10
+C                                           OLD SCOPE CONTINUES
+        ELSE IF (PCHAR.EQ.OLD) THEN
+          RPCOUNT = RPCOUNT + 1
+          IF (RPCOUNT.LT.RPMAX) THEN
+            BPTR = BPTR + 1
+            GO TO 10
+C                                           ELSE TRUNCATE HERE
+          END IF
+C                                           PCHAR ENDS OLD SCOPE
+        ELSE
+C                                           INDEX LAST CHAR OF RUN
+          BPTR = BPTR - 1
+C                                           IF RPCOUNT
+        END IF
+C                                           WE'RE NOT DOING REPEATS
+      ELSE
+        OLD = PCHAR
+        RPCOUNT = 1
+      END IF
+100   CONTINUE
+      SAVECT = RPCOUNT
+C                                           THESE ARE THE STD CASES
+C                                           MINIMUM LENGTH WE NEED
+        J = 1
+C       !  DOES CHAR NEED A REPEAT PREFIX
+        IF ((REPEAT).AND.(RPCOUNT.GE.CUTOFF)) THEN
+          PKTSEQ(J:J+1) = '-' //KCHAR(RPCOUNT)
+          J = J+2
+          RPCOUNT = 1
+C                                         IF REPEAT PREFIXED
+        END IF
+C       IF ((QUOTE8).AND.(ICHAR(OLD).GE.O'0000000000000200')) THEN
+        IF ((QUOTE8).AND.(ICHAR(OLD).GE.               128 )) THEN
+          PKTSEQ(J:J) = '&'
+          OLD = CHAR(IBIT(BIT(ICHAR(OLD)).BAND.O'0000000000000177'))
+          J = J +1
+        ELSE IF ((NATIVE).AND.(OLD.EQ.CHAR(US))) THEN
+C         ! WE HAVE TO CONVERT THIS TO STD TEXT EOL SEQUENCE
+          PKTSEQ(J:J+3) = EOLSEQ
+          J = J+3
+          GO TO 120
+C                                           IF 8TH BIT PREFIXING
+        END IF
+C       !  NOW ENCODE LO-ORDER 7 BITS OF THE CHAR, IF NEEDED
+C       IF ((ICHAR(OLD).GT.O'0000000000000037')
+        IF ((ICHAR(OLD).GT.                31 )
+     !   .AND.(OLD.NE.CHAR(               127 ))
+     !   .AND.(OLD.NE.QUOTE)
+     !   .AND.((OLD.NE.'&').OR.(.NOT.(QUOTE8)))
+     !   .AND.((OLD.NE.'-').OR.(.NOT.(REPEAT))) )
+     ! THEN
+C                                          IT NEEDS NO QUOTING
+          PKTSEQ(J:J) = OLD
+        ELSE
+          PKTSEQ(J:J) = QUOTE
+          IF ((OLD.NE.QUOTE).AND.(OLD.NE.'&').AND.(OLD.NE.'-'))
+C                                           TRANSFORM THE QUOTED CHAR
+     !    THEN
+            OLD = KCTL(OLD)
+          END IF
+          J = J + 1
+          PKTSEQ(J:J) = OLD
+        END IF
+C                                           END OF ALL CHAR CASES
+120   CONTINUE
+      DO 170 I=1,RPCOUNT
+        SEQEND = PKPTR + J - 1
+C                                             THERE'S ROOM
+        IF (SEQEND.LE.MAXPACK) THEN
+          PACKET(PX)(PKPTR:SEQEND) = PKTSEQ(1:J)
+          PKPTR = SEQEND + 1
+C                                          CODED CHAR WONT FIT IN PKT
+        ELSE
+C                                         IT WAS REPEAT PREFIXED
+          IF (SAVECT.GE.CUTOFF) THEN
+            RPCOUNT = SAVECT - 1
+C                                          IT WAS A MINI-RUN
+          ELSE IF (RPCOUNT.GT.1) THEN
+C                                          INDEX FIRST EXCLUDED CHAR
+            BPTR = BPTR - (SAVECT-I)
+C                                          AND LET IT START NEW SCOPE
+            RPCOUNT = 0
+          ELSE
+            RPCOUNT = 0
+          END IF
+          GO TO 200
+C                                           IF ROOM
+        END IF
+170   CONTINUE
+       RPCOUNT = 0
+       BPTR = BPTR + 1
+       IF(PKPTR.LE.MAXPACK) GO TO 10
+200   RESULT = FULL
+400   CONTINUE
+C                                           CODED COUNT
+      PACKET(PX)(2:2) = KCHAR(PKPTR-2)
+      PACKET(PX)(3:3) = KCHAR(MOD(SEQ,64))
+      PACKET(PX)(4:4) = 'D'
+      PACKET(PX)(PKPTR:PKPTR) = CKSUM(PACKET(PX))
+900   CONTINUE
+      RETURN
+C                                           SUBROUTINE MAKEDATA
+      END
+      SUBROUTINE PUTDATA(PX,RESULT)
+      IMPLICIT INTEGER(A-Z)
+      INTEGER PX, RESULT
+C     ! FUNCTION : THIS ROUTINE IS CALLED IN THE RECEIVE STATE TO
+C     !            PROCESS A 'D' PACKET.  IT PACKS THE DATA PORTION
+C     !            OF A 'D' PKT INTO THE CHARACTER BUFFER, REPLACING
+C     !            QUOTED AND/OR PREFIXED SEQUENCES IF NECESSARY.
+C     !            IF FILE IS CTSS NATIVE, QUOTED CR,LF SEQUENCES ARE
+C     !            STORED AS THE SINGLE CTSS EOL CHARACTER, ASCII US.
+C     !            EVALUATION OF LOGICAL FUNCTION BUFOUT FORCES TRANSFER
+C     !            OF CONTENTS OF CHARACTER BUFFER INTO THE SECTOR-SIZED
+C     !            WORD BUFFER DKBUF WHICH IS MANAGED BY BUFOUT.
+C     !  CALLED PROCEDURES : KCTL, UNCHAR, BUFOUT
+C     PARAMETER( CR=13, LF =10, US = O'0000000000000037' )
+      PARAMETER( CR=13, LF =10, US =                 31  )
+C                                           BUFSIZE = MAX CHAR STRING
+      PARAMETER( BUFLEN =6144 )
+C                                           PUTDATA RETURN CODES
+      PARAMETER( OK=0, ERROR=1 )
+      CHARACTER *6144 BUFFER
+      CHARACTER*108 PACKET(2)
+      CHARACTER*9 MYPARMS, HISPARMS, DEFAULTS
+      CHARACTER  KCTL, QUOTE, QCHAR, PCHAR
+      LOGICAL BUFOUT, EOFSW, HIBIT, DEBUG, NATIVE, QUOTE8, REPEAT
+     !        ,LASTBUF, SAVEDCR
+      COMMON /RUNPARMS/ MYPARMS, HISPARMS, DEFAULTS
+      COMMON /PACKETS/ PACKET
+      COMMON /BUFFERS/ BUFFER
+      COMMON /PKSTATS/  BPTR, BUFLEFT, MAXPACK, LASTBUF
+     !                , RPCOUNT, SAVEDCR
+      COMMON /ENVIRON/ DEBUG, NATIVE, QUOTE8, REPEAT
+C                                           GET PARTNER'S QUOTE CHAR
+      QUOTE = HISPARMS(6:6)
+      EOFSW = .FALSE.
+      HIBIT = .FALSE.
+C                                          INDEX 1ST DATA CHAR
+      PKPTR = 5
+C                                            INDEX LAST DATA CHAR
+      PKEND = UNCHAR(PACKET(PX)(2:2)) + 1
+C                                           TOP OF PACKING LOOP
+10    CONTINUE
+C                                           REACHED END OF PACKET
+      IF (PKPTR.GT.PKEND) THEN
+        RESULT = OK
+        GO TO 800
+      END IF
+C                                           GET NEXT PACKET CHARACTER
+      PCHAR = PACKET(PX)(PKPTR:PKPTR)
+C     !  CHECK FOR REPEAT PREFIX
+      IF ((REPEAT).AND.(PCHAR.EQ.'-')) THEN
+C                                           INDEX COUNT CHAR
+        PKPTR = PKPTR + 1
+        COUNT = UNCHAR(PACKET(PX)(PKPTR:PKPTR))
+        PKPTR = PKPTR + 1
+        PCHAR = PACKET(PX)(PKPTR:PKPTR)
+      ELSE
+        COUNT = 1
+C                                           IF REPEAT
+      END IF
+      IF ((QUOTE8).AND.(PCHAR.EQ.'&')) THEN
+        HIBIT = .TRUE.
+C                                           INDEX PREFIXED CHARACTER
+        PKPTR = PKPTR + 1
+        PCHAR = PACKET(PX)(PKPTR:PKPTR)
+      ELSE
+        HIBIT = .FALSE.
+C                                           IF 8TH BIT QUOTING
+      END IF
+C                                       CHARACTER IS QUOTED CTL
+      IF (PCHAR.EQ.QUOTE)  THEN
+C                                       INDEX THE QUOTED CHARACTER
+        PKPTR = PKPTR + 1
+        PCHAR = PACKET(PX)(PKPTR:PKPTR)
+        IF ((PCHAR.NE.QUOTE).AND.(PCHAR.NE.'&').AND.(PCHAR.NE.'-'))
+     !  THEN
+C                                           TRANSFORM QUOTED CHARACTER
+          PCHAR = KCTL(PCHAR)
+        END IF
+C                                           IF QUOTED SEQUENCE
+      END IF
+C                                           CHAR HAD AN 8TH BIT PREFIX
+      IF (HIBIT) THEN
+C       PCHAR = CHAR(ICHAR(PCHAR).OR.200B)
+        PCHAR = CHAR(IBIT(BIT(ICHAR(PCHAR)).BOR.O'0000000000000200'))
+      ELSE IF ((NATIVE).AND.(COUNT.EQ.1)) THEN
+C       ! MAP INCOMING CR,LF SEQUENCES TO CTSS END-OF-LINE CHAR
+        IF ((PCHAR.EQ.CHAR(LF)).AND.(SAVEDCR)) THEN
+C                                           REPLACE BY NATIVE EOL CHAR
+          SAVEDCR = .FALSE.
+          IF (.NOT. BUFOUT(BUFFER,EOFSW)) THEN
+            RESULT = ERROR
+            GO TO 800
+          END IF
+          GO TO 50
+C                                           PREVIOUS CR NOT IN A SEQUENC
+        ELSE IF (SAVEDCR) THEN
+          PCHAR = CHAR(CR)
+          SAVEDCR = .FALSE.
+C                                           PICK UP CURRENT CHAR NXT TIM
+          PKPTR = PKPTR - 1
+        ELSE IF (PCHAR.EQ.CHAR(CR)) THEN
+          SAVEDCR = .TRUE.
+        END IF
+      END IF
+C                                           PUT CHAR INTO BUFFER
+      IF (.NOT.(SAVEDCR))  THEN
+        DO 40 I=1,COUNT
+C                                           NEED TO EMPTY BUFFER FIRST
+          IF (BPTR.GT.BUFLEN)  THEN
+            IF (.NOT. NATIVE) THEN
+              IF (.NOT.(BUFOUT(BUFFER,EOFSW))) THEN
+                RESULT = ERROR
+                GO TO 800
+              END IF
+            END IF
+          END IF
+C                                           PUT PKT CHAR INTO BUFFER
+          BUFFER(BPTR:BPTR) = PCHAR
+          BPTR = BPTR + 1
+40      CONTINUE
+      END IF
+50    CONTINUE
+      PKPTR = PKPTR + 1
+C                                           BOTTOM OF UNPACKING LOOP
+      GO TO 10
+800   CONTINUE
+      RETURN
+C                                     SUBROUTINE PUTDATA
+      END
+      LOGICAL FUNCTION PUTEOF(USRFIL)
+      IMPLICIT INTEGER(A-Z)
+C     ! FUNCTION : THIS ROUTINE IS CALLED IN THE RECEIVE STATE TO
+C     !            PROCESS A 'Z' PACKET.  IT TERMINATES CTSS NATIVE BUT
+C     !            OTHER, FILES WITH AN ASCII FS CHARACTER,  AND
+C     !            EVALUATES THE LOGICAL FUNCTION BUFOUT WITH 2ND ARG
+C     !            SET .TRUE. TO FORCE A WRITE OF THE LAST SECTOR NOW.
+C     !            IF USER'S FILESPACE HAS AN OLD COPY OF THE RECEIVE FI
+C     !            THIS COPY IS DESTROYED BEFORE SWITCHING RECEIVE FILE'
+C     !            NAME FROM THE INTERIM 'KMTFIL' TO NAME IN 'F' PKT.
+C     !  CALLED PROCEDURES : BUFOUT, LOGLINE
+C                                           MAX LENGTH CHARACTER STRING
+      PARAMETER( BUFLEN =6144 )
+C                                          DEBUGGERY
+      CHARACTER DUM1*4
+      LOGICAL DEBUG, NATIVE
+      CHARACTER KCHAR
+      CHARACTER *6144 BUFFER
+      CHARACTER CMDSTR*80
+      LOGICAL OLDFILE, BUFOUT
+C     PARAMETER(NULL=0, FS=O'0000000000000034', US=O'0000000000000037' )
+      PARAMETER(NULL=0, FS=                28 , US=                31  )
+      COMMON /BUFFERS/ BUFFER
+      COMMON /PKSTATS/  BPTR, BUFLEFT
+      COMMON /STRINGS/ CMDSTR
+      COMMON /ENVIRON/ DEBUG, NATIVE
+C
+      NX = (BUFLEN - BPTR)/6
+      IF (.NOT. NATIVE)  THEN
+        DO 10 I=1,NX
+10      BUFFER(BUFLEN-I+1:BUFLEN-I+1) = CHAR(NULL)
+      END IF
+C
+        PUTEOF = BUFOUT(BUFFER,.TRUE.)
+      RETURN
+      END
+      LOGICAL FUNCTION BUFIN(STRING,LAST)
+      IMPLICIT INTEGER(A-Z)
+C     ! FUNCTION : ~TEHiE dAHHyX C zAKAzAHHOgO HOCiTElq
+C     !    B PEviME NATIVE    -  pOCTPO~HO ~EPEz pPOgPAMMY RECARD
+C     !            .NOT.NATIVE-  pOzOHHO ~EPEz pPOgPAMMY JFEX1
+C                                B |TO ClY~AE STRING ObqzATElxHO CTPAHi~
+C                                             ------             -------
+C     !      pAPAMETPy:
+C     !      ---------
+C     !      STRING     -  BXOdHOj bYfEP ili O~EPEdHAq CTPOKA TEKCTA
+C     !      LAST       -  pPizHAK pOClEdHEgO ObMEHA
+C     !      BUFIN = .TRUE. HOPMAlxHyj ObMEH
+C     !              .FALSE. byli O{ibKi
+C     !            .
+C     PARAMETER( US = O'0000000000000037' )
+      PARAMETER( US =                 31  )
+      PARAMETER (BUFLEN = 6144)
+C                                         TREAT 504 CHAR BUF AS 63 WORDS
+      CHARACTER*81 STRING
+      CHARACTER  KCTL
+C                                           SECTOR-SIZED BUFFER
+      LOGICAL  LAST, DEBUG, NATIVE
+      COMMON /UNITS/ TYPMED, LOGIOC, MAXZON, DIAGN,OPTWR,TYPUNI,NZONE
+      COMMON /PKSTATS/  BPTR, BUFHOLD
+      COMMON /ENVIRON/ DEBUG, NATIVE
+      CHARACTER*18 DIAGN
+      DIMENSION FDB(8)
+      EQUIVALENCE (FDB,TYPMED)
+C                                           INDEX 1ST WORD OF STRING
+C--
+C--   HA~AlxHyE YCTAHOBKi
+C
+      LAST = .FALSE.
+      BPTR = 1
+      BUFHOLD= 0
+      BUFIN= .TRUE.
+C--
+C--   pOEXAli
+C
+      IF (NATIVE) THEN
+C--
+C--   pOCTPO~Hyj BBOd
+C
+        CALL RECARD(STRING)
+        IF (STRING(1:9) .EQ. '*READ OLD') THEN
+C--
+C--     KOHEc fAjlA
+C
+          LAST = .TRUE.
+        ELSE
+C--
+C--       ObPEvEM XBOCTOByE pPObEly
+C
+          DO 10 I=80,1,-1
+           IF (STRING(I:I) .NE. ' ') GO TO 20
+   10     CONTINUE
+          I = 1
+   20     CONTINUE
+C
+          STRING(I+1:I+1) = CHAR(US)
+          BUFHOLD = I+1
+        END IF
+      ELSE
+C--
+C--   pOzOHHyj BBOd iHfOPMAcii
+C
+        NZONE = NZONE + 1
+        IF (NZONE .GE. MAXZON) THEN
+C--
+C--       pPO~iTAli pOClEdH`` zOHY
+C
+          LAST = .TRUE.
+        ELSE
+          IF (JFEX1(FDB,STRING,NZONE,'R') .EQ. 0) THEN
+C--
+C--         HOPMAlxHO pPO~iTAli zOHY
+C
+             BPTR = 1
+             BUFHOLD = BUFLEN
+         ELSE
+            BUFIN = .FALSE.
+         END IF
+       END IF
+      END IF
+      RETURN
+C                                           LOGICAL FUNCTION BUFIN
+      END
+      LOGICAL FUNCTION BUFOUT(STRING,EOF)
+      IMPLICIT INTEGER(A-Z)
+C     ! FUNCTION : THIS IS A VIRTUAL DISK WRITE ROUTINE THAT PACKS THE
+C     !            CONTENTS OF THE CALLER'S BUFFER INTO THE 512-WORD SEC
+C     !            BUFFER DKBUF.  CALLER'S BUFFER IS ASSUMED TO BE AT MO
+C     !            504 CHARACTERS LONG (THE MAXIMUM CFT STRING), WITH BP
+C     !            INDEXING  PAST THE LAST POSITION USED, AND IS TREATED
+C     !            AN ARRAY OF 63 WORDS.  WHEN DKBUF IS FULL, OR IF ENTE
+C     !            WITH EOF ARGUMENT .TRUE., .
+C     ! CALLED PROCEDURES : LOGLINE, TDISP
+      LOGICAL EOF
+C                                           MAX NUM. CHARS IN STRING
+      PARAMETER( BUFLEN = 6144 )
+      LOGICAL DEBUG, NATIVE
+      COMMON /PKSTATS/  BPTR, BUFHOLD
+      COMMON /UNITS/ TYPMED, LOGIOC, MAXZON, DIAGN,OPTWR,TYPUNI, NZONE
+      CHARACTER*18 DIAGN
+      DIMENSION FDB(8)
+      EQUIVALENCE (FDB,TYPMED)
+      COMMON /ENVIRON/ DEBUG, NATIVE
+      CHARACTER*4 DUM1
+C                                           TREAT 504 CHARS AS 63 WORDS
+      CHARACTER*84 STRING,EOTEXT
+C                                           NUM. CHARS IN STRING
+      BUFOUT = .TRUE.
+C
+      IF (NATIVE) THEN
+        IF (BPTR .GT. 1) THEN
+C--
+C--     dObABiM pPObEly dO KOHcA CTPOKi
+C
+          STRING(BPTR:84) = ' '
+          CALL WRCARD(STRING)
+          BUFHOLD = 80
+       END IF
+       IF (EOF) THEN
+          EOTEXT = '*READ OLD'
+          CALL WRCARD(EOTEXT)
+          CALL WRIEND
+          BUFHOLD = 0
+       END IF
+       BPTR = 1
+      ELSE
+C--
+C--   PAbOTAEM C cElOj zOHOj
+C
+        NZONE = NZONE + 1
+        IF (NZONE .GE. MAXZON) THEN
+C--
+C--   dAlx{E piCATx HEKYdA
+C
+          BUFOUT = .FALSE.
+        ELSE IF (JFEX1(FDB,STRING,NZONE,'W') .EQ. 0) THEN
+          BPTR = 1
+          BUFHOLD = BUFLEN
+        ELSE
+          BUFOUT = .FALSE.
+        END IF
+      END IF
+C--
+C--   OTlAdKA
+C
+      IF (EOF .AND. DEBUG)  THEN
+         IF (NATIVE) NZONE=NZEDIT(0) - 1
+         CALL  PUTO(DUM1,NZONE,1,4,4,IPOZ)
+         CALL LOGLINE('AT EOF - LAST OCCUPEDED ZONES: '//DUM1//'B$$')
+      END IF
+      RETURN
+C                                           LOGICAL FN BUFOUT
+      END
+        SUBROUTINE KERMIT(    )
+C-CR.KERMAIN-!
+C       PROGRAM KERMIT(INPUT=TTY, OUTPUT=TTY)
+C   KERMIT-B6  -  ALMA-ATA, DUBNA  BESM6 KERMIT
+C
+CAdApTiPOBAHA dlq b|CM-6 i`Hx, CEHTqbPx 1987 g.
+C     pOClEdHqq KOPPEKciq 09 i`Hq 1988 g. (fAjH B.|.)
+C
+C dEHqKiH p.A.
+C   lBM KAzgY g.AlMA-ATA TEl.:67-78-10, 69-50-21
+C KAdAHcEB.C.g.
+C   lBTA Oiqi g.dYbHA TEl:6-35-36
+C CApOvHiKOB.A.p.
+C   lBTA Oiqi g.dYbHA TEl.:63-429, 62-467
+C fAjH B.|.
+C   lBM KAzgY g.AlMA-ATA TEl.:69-50-21, 67-78-10
+C-----------------------------------------------
+C
+C     !  AUTHOR :  LEAH MILLER,
+C     !            COMPUTER USER SERVICES GROUP (C-10)
+C     !            LOS ALAMOS NATIONAL LABORATORY
+C     !            LOS ALAMOS, NEW MEXICO  87545
+C     !
+C     !            ARPANET ADDRESS :  LFM@LANL
+C     !
+C     !*****************************************
+C     !  ACKNOWLEDGEMENT :  THE KERMIT PROTOCOL WAS DEVELOPED BY THE
+C     !                     COLUMBIA UNIVERSITY CENTER FOR COMPUTING
+C     !                     ACTIVITIES (CUCCA),  N.Y., N.Y., USA
+C     !    KERMIT-B6 RUNS ON THE BESM-6 COMPUTERS, UNDER
+C     !  THE "DUBNA"  (BESM-6M) OPERATING SYSTEM.
+C     !  IT IS WRITTEN IN FOREX , THE BESM-6 VERSION OF FORTRAN-77.
+C     !  ALL INPUT/OUTPUT FUNCTIONS ARE DONE BY INVOKING CTSS OPERATING
+C     !  SYSTEM FUNCTIONS FROM LOW LEVEL FORTRAN SUBROUTINES.
+C     !
+C     !    KERMIT-CR IS A REMOTE HOST KERMIT.  IT HAS A SERVER
+C     !  AND CAN TIME OUT.  FILE TRANSFER INTERRUPT  PACKETS FROM
+C     !  LOCAL KERMITS ARE RECOGNIZED.  DEFAULT FILE TRANSFER
+C     !  MODE IS CTSS NATIVE TEXT.  IN THIS MODE THE SINGLE CHARACTER
+C     !  CTSS END-OF-LINE INDICATOR (ASCII US) IS CONVERTED TO
+C     !  THE STANDARD QUOTED CR,LF SEQUENCE ON SENDS, AND VICE-VERSA
+C     !  ON RECEIVES.  IF THIS OPTION IS DISABLED BY USER'S COMMAND
+C     !  "SET NATIVE OFF", ONLY THE STANDARD KERMIT QUOTING OF CONTROL
+C     !  CHARACTERS IS DONE.  BINARY FILES MAY BE TRANSFERRED VIA 8TH BI
+C     !  QUOTING IF THE LOCAL KERMIT ALSO HAS THIS CAPABILITY.
+C     !  DATA COMPRESSION VIA REPEAT PREFIXING WILL BE DONE IF THE OTHER
+C     !  KERMIT AGREES.
+C     !  WILDCARD SENDS ARE NOT DONE, BUT MORE THAN ONE FILE MAY BE
+C     !  SPECIFIED ON A SEND COMMAND (NON-SERVER MODE).
+C     !  THE KERMIT-CR SERVER CANNOT LOG ITSELF IT, SO THAT A LOCAL
+C     !  KERMIT'S "FINISH" OR "BYE" COMMAND WILL CAUSE EXIT FROM
+C     !  KERMIT-CR AND RETURN TO THE CTSS LEVEL.
+C     !
+C     !    INSTALLERS SHOULD NOTE THAT BESM-6, UNDER "DUBNA"
+C     !  ACCEPT LINE, NOT CHARACTER, INPUT.  NETWORK LINE CONCENTRATOR
+C     !  HARDWARE MAY IMPOSE A MAXIMUM MESSAGE LENGTH OF LESS THAN
+C     !  THE MAXIMUM KERMIT PACKET LENGTH.  THIS HARDWARE MAY ALSO PERFO
+C     !  ECHOBACK OF TERMINAL MESSAGES.  IF THE LOCAL KERMIT DOES NOT
+C     !  CHECK INCOMING PACKET TYPE (AND IGNORE PACKETS OF TYPE JUST SEN
+C     !  THEN THE LOCAL KERMIT MAY USE APPROPRIATE PAD AND EOL CHARACTER
+C     !  TO DISABLE CONCENTRATOR ECHOBACK.
+C     !  SITE DEPENDANCY : SOME NETWORK LINE CONCENTRATORS ARE UNABLE TO
+C     !                    KEEP UP WITH THE DATA RATE OF A SENDING LOCAL
+C     !                    KERMIT UNLESS ECHOBACK IS DISABLED.  [LFM 1/8
+C
+      IMPLICIT INTEGER(A-Z)
+C
+C     !  FUNCTION :  THIS IS THE MAIN KERMIT-CR PROGRAM.
+C     !              SESSION INITIALIZATION IS FORCED VIA EVALUATION
+C     !              OF THE LOGICAL FUNCTION KINIT, AND THE PROGRAMS ENT
+C     !              A COMMAND LOOP:  USER'S INPUT COMMAND IS ACCEPTED
+C     !              BY SUBROUTINE READCMD, VALIDATED & PARSED INTO TOKE
+C     !              BY KPARSE, AND THE APPROPRIATE COMMAND INTERPRETER
+C     !              INVOKED.  EXIT FROM LOOP OCCURS WHEN USER TYPES THE
+C     !              EXIT COMMAND, OR WHEN THE KERMIT-CR SERVER ENTERS E
+C     !              MODE IN RESPONSE TO LOCAL KERMIT'S 'FINISH', 'BYE'
+C     !              'LOGOUT' PACKET.
+C     !  CALLED PROCEDURES :  KINIT, PROMPT, LOGLINE, READCMD, KPARSE,
+C     !                       DISPLAY.  ALSO THESE CMD INTERPRETERS :
+C     !                         KSERV, KTRANS, KRECV, KSET, KSTATUS,
+C     !                         KHELP AND KCLOSE.
+      CHARACTER  CMDSTR*80, REPORT*80
+      LOGICAL KPARSE, KINIT
+      LOGICAL DEBUG, DONE
+        CHARACTER *300 KAP
+      COMMON /PROTO/ AP, NUNIT, NL, NF, INT, KAP
+      COMMON /STRINGS/ CMDSTR, CMDLEN, REPORT
+      COMMON /STATES/ STATE, RETRY, NTRIES, OLDTRIES, SEQ
+     !              , DELAY, STDELAY,TCPU, TIO
+      COMMON /GLOBALS/ RUNTYPE, NARGS, ARGS(10,2), THISARG
+C      INTEGER IKAP(15), ICMD(14), IREP(14)
+C      EQUIVALENCE (IKAP,KAP),(ICMD,CMDSTR),(IREP,REPORT)
+      PARAMETER(SEND=1, RECEIVE = 2, HELP = 3, EXITYPE = 4, SERVER = 5 )
+      PARAMETER(SET = 6, STATUS = 7 )
+      PARAMETER( INIT = 1, ABORT = 6, COMPLETE = 7 )
+      PARAMETER( WAIT = 0 )
+      PARAMETER( CR = 13 )
+C
+       COMMON /ITLINK/NTERM
+C
+C       CHARACTER *1 ZERO
+C       DATA ZERO/Z'00'/
+C       PARAMETER (ZERO= Z'00')
+C     ! MAIN PROC. RTNE.
+C
+        NTERM = ITCONB(-1)
+      CALL DISPLAY(' DUBNA/ALMA-ATA  KERMIT-B6   BEPCiq 1.4.')
+      CALL DISPLAY('.')
+      CALL DISPLAY(' TYPING "?" TO LIST VALID COMMAND NAMES.')
+      CALL DISPLAY('.')
+C
+C     !  EVALUATE INITIALIZATION FUNCTION :
+      IF (.NOT.(KINIT()))  THEN
+        CALL DISPLAY(' CANT INITIALIZE - BYE.')
+        GO TO 900
+C                                           ELSE SESSION INITIALIZED
+      END IF
+      DONE = .FALSE.
+ 120  CONTINUE
+C                                          PROMPT USER
+      REPORT = 'KERMIT-B6>.'
+      CALL PROMPT(REPORT)
+C                                          GET USER'S CMD & ITS LENGTH
+C     CALL READCMD(STRAD(CMDSTR),CMDLEN)
+      IF (CMDLEN.EQ.0)  GO TO  120
+C
+      IF (KPARSE()) GO TO  200
+C                                           KPARSE PROVIDES REPORT
+        CALL LOGLINE(REPORT)
+        CALL DISPLAY(REPORT)
+        CALL DISPLAY( 'TYPE HELP FOR MENU.')
+        GO TO 120
+C                    KPARSE HAS PARSED A VALID CMD
+200   CONTINUE
+      IF (RUNTYPE .EQ. SERVER) THEN
+C                                           START SERVER LOOP
+          CALL KSERV
+C                                           SHUT LOG FILE
+          CALL KCLOSE
+C                                           TELL KERMIT TO EXIT
+          DONE = .TRUE.
+      ELSE IF ( RUNTYPE .EQ. SEND ) THEN
+CF .. IF (RUNTYPE .EQ. SEND ) THEN
+          CALL KTRANS
+      ELSE IF (RUNTYPE .EQ. RECEIVE) THEN
+C                                           INITIALIZE NON-SERVER XFER
+          STATE = INIT
+          CALL KRECV
+      ELSE IF (RUNTYPE .EQ. HELP) THEN
+          CALL KHELP
+      ELSE IF (RUNTYPE .EQ. EXITYPE) THEN
+          CALL KCLOSE
+          DONE = .TRUE.
+      ELSE IF (RUNTYPE .EQ. SET) THEN
+        CALL KSET
+      ELSE IF (RUNTYPE .EQ. STATUS) THEN
+        CALL KSTATUS
+      ELSE
+          CALL LOGLINE('CMD PARSE ERROR.$$')
+      END IF
+C                                           BOTTOM OF COMMAND LOOP
+      IF (.NOT.(DONE)) GO TO 120
+900   CONTINUE
+      CALL DISPLAY('GOOD BYE.')
+      NTDIS = ITDISB(NTERM)
+      CALL EXIT
+C               KERMIT MAIN PROGRAM
+      END
+      LOGICAL FUNCTION KPARSE()
+C     ! SCANS USER'S INPUT LINE IN CMDSTR FOR VALID CMD TYPE;
+C     ! IF CMD = (SERVER, STATUS, RECEIVE, HELP, EXIT) :
+C     !                            SETS RUNTYPE, RETURNS .TRUE.
+C     ! IF CMD = (SEND, SET)     : SETS RUNTYPE, SETS NARGS <= NUM.ARGS.
+C     !                            ARGS(I,1) <= INDEX OF START ITH ARGUM
+C     !                                        IN INPUT COMMAND STRING,
+C     !                            ARGS(I,2) <= INDEX  LAST CHAR OF ITH
+C     ! ELSE  RTURNS .FALSE.
+C     ! CALLED PROCEDURES : NONE
+      IMPLICIT INTEGER(A-Z)
+      CHARACTER  CMDSTR*80, REPORT*80
+      COMMON /STRINGS/ CMDSTR, CMDLEN, REPORT
+      COMMON /GLOBALS/ RUNTYPE, NARGS, ARGS(10,2), THISARG
+C       CHARACTER *1,CMD,CHCR
+C       EQUIVALENCE (CMD,ICMD), (CHCR,ICHCR)
+      PARAMETER( SEND=1, RECEIVE=2, HELP=3, EXITYPE=4, SERVER = 5 )
+      PARAMETER( SET = 6, STATUS = 7 )
+      PARAMETER( CR = 13 )
+C       PRINT *,' PARSER'
+      NARGS = 0
+C     ! LOOK FOR CMD TYPE
+      IF ( CMDSTR (1:6) .EQ. 'SERVER' ) THEN
+        RUNTYPE = SERVER
+        GO TO 800
+      ELSE IF (CMDSTR(1:3).EQ.'SET') THEN
+CF .. IF (CMDSTR(1:3) .EQ.'SET') THEN
+        RUNTYPE = SET
+      ELSE IF (CMDSTR(1:2).EQ.'ST') THEN
+        RUNTYPE = STATUS
+        GO TO 800
+      ELSE IF (CMDSTR (1:3) .EQ. 'SEN' ) THEN
+        RUNTYPE = SEND
+      ELSE IF ( CMDSTR (1:1) .EQ. 'R' ) THEN
+        RUNTYPE = RECEIVE
+      ELSE IF ( (CMDSTR (1:1) .EQ. 'H').OR.(CMDSTR(1:1).EQ.'?')) THEN
+        RUNTYPE = HELP
+C                     NO ARGS TO SCAN
+        GO TO 800
+      ELSE IF ( CMDSTR (1:1) .EQ. 'E' ) THEN
+        RUNTYPE = EXITYPE
+        GO TO 800
+      ELSE
+        REPORT = 'INVALID CMD TYPE:' // CMDSTR(1:1) //'.'
+        KPARSE = .FALSE.
+        GO TO 900
+      END IF
+C     ! FIND END OF CMD ARG
+      I = 1
+      CMDLEN = MIN0(CMDLEN,80)
+CD      PRINT *,' CMDLEN=',CMDLEN
+20    CONTINUE
+      I = I + 1
+      IF (CMDSTR (I:I) .EQ. ' ') GO TO 30
+C                                    ERROR : ARG TOO LONG
+      IF ( I .GE. 8 ) GO TO 700
+      GO TO 20
+C     ! FIND START OF NEXT ARG : SKIP PAST BLANKS
+30    CONTINUE
+C                                    THERE ARE NO MORE ARGS
+      IF ( I .GE. CMDLEN ) GO TO 780
+      I = I + 1
+C                                              LOOP TIL NONBLANK
+      IF ( CMDSTR (I:I) .EQ. ' ') GO TO 30
+C     ! ELSE CURRENT CHAR MARKS START OF NXT ARGUMENT
+      NARGS = NARGS + 1
+C                                       ERROR : TOO MANY ARGS
+      IF (NARGS .GT. 2) GO TO 600
+C                             SAVE STARTING POSITION
+      ARGS(NARGS,1) = I
+C     ! FIND END OF CURRENT AERG
+40    CONTINUE
+      I = I + 1
+      IF ((CMDSTR(I:I) .EQ. ' ') .OR. ( I .GE. CMDLEN ))
+     !    GO TO 50
+C                                                  TOO LONG
+      IF ( (I-ARGS(NARGS,1)) .GE. 34 ) GO TO 700
+C                            LOOP TIL TERM DELIMITER FOUND
+      GO TO 40
+50    CONTINUE
+      ARGS(NARGS,2) = I - 1
+C                                              IF BLANK WAS DELIMITER
+      IF (CMDSTR (I:I) .EQ. ' ') GO TO 30
+C                                              IF  DELIMITER
+      GO TO 880
+600   CONTINUE
+      REPORT = 'MORE THAN 2 ARGS.'
+      KPARSE = .FALSE.
+      GO TO 900
+700   CONTINUE
+      REPORT = 'ARG LENGTH EXCEEDS 34:' // CMDSTR(ARGS(NARGS,1):I)//'.'
+      KPARSE = .FALSE.
+      GO TO 900
+780   CONTINUE
+      IF (NARGS .EQ. 0) THEN
+        REPORT = 'NO ARGUMENTS.'
+        KPARSE = .FALSE.
+        GO TO 900
+      END IF
+800   CONTINUE
+880   CONTINUE
+      KPARSE = .TRUE.
+900   RETURN
+C                 LOGICAL FUNCTION KPARSE
+      END
+      LOGICAL FUNCTION KINIT()
+      IMPLICIT INTEGER(A-Z)
+C     !  FUNCTION : THIS IS THE SESSION INITIALIZATION FUNCTION.  IT SET
+C     !             SESSION PARAMETERS TO THEIR DEFAULT VALUES AND CREAT
+C     !             A NEW SESSION LOGFILE, DESTROYING THE PREVIOUS
+C     !             LOGFILE IF ONE EXITS.
+C     !  CALLED PROCEDURES :  KCHAR, KCTL, INITLOG.
+      LOGICAL LOGGING, DEBUG, NATIVE, QUOTE8, REPEAT, ECHO
+      PARAMETER( CR = 13, CTLW = 23, CTLZ = 26)
+      PARAMETER( SOH = 01 )
+      PARAMETER( NS = 15 )
+      PARAMETER( NULL = O'0000000000000000' )
+C                                          CURRENT LENGTH OF KBD INPUT B
+      PARAMETER( LINEBUF = 86 )
+      PARAMETER( SITEMAX = LINEBUF-4)
+      CHARACTER PAD, EOL, QUOTE, BQ8, CKTYPE, REPCHAR
+      CHARACTER BUFSIZE,TIMOUT, NPAD
+      CHARACTER RPKTHEAD
+      CHARACTER *9 MYPARMS, HISPARMS, DFLT
+      CHARACTER KCHAR, KCTL
+      COMMON /UNITS/ TYPMED, LOGIOC, MAXZON, DIAGN, OPTWR, TYPUNI, NZONE
+     !              ,LUNLOG
+      CHARACTER *18 DIAGN
+      COMMON /STATES/ STATE, RETRY, NTRIES, OLDTRIES, SEQ, DELAY
+     !      , STDELAY
+      COMMON /RUNPARMS/ MYPARMS, HISPARMS, DFLT
+      COMMON /ENVIRON/ DEBUG, NATIVE, QUOTE8, REPEAT, WINDOW, ECHO
+     !,                LOGGING
+      EQUIVALENCE (BUFSIZE,DFLT(1:1)),(TIMOUT,DFLT(2:2)),
+     ! (NPAD,DFLT(3:3)),(PAD,DFLT(4:4)),(EOL,DFLT(5:5)),
+     ! (QUOTE,DFLT(6:6)),
+     ! (BQ8,DFLT(7:7)),(CKTYPE,DFLT(8:8)),(REPCHAR,DFLT(9:9))
+C     ! SET DEFAULT SYSTEM PARAMETERS
+C                                    HIS SAFE MAX COUNT FOR PKTS
+      BUFSIZE  = KCHAR(SITEMAX)
+C                             I WANT NS SECS. TO RESPOND, BY HIS CLOCK
+      TIMOUT = KCHAR(NS)
+      NPAD = KCHAR(0)
+      PAD = KCTL(NULL)
+C                           END PKTS TO ME WITH THIS KCHAR
+      EOL = KCHAR(CR)
+      QUOTE = '#'
+C                             DEFAULT FILETYPE IS ASCII TEXT
+      BQ8 = 'N'
+C                             DEFAULT IS SINGLE CHARACTER CHECKSUMS
+      CKTYPE = '1'
+C                             DEFAULT IS NO DATA COMPRESSION
+      REPCHAR = ' '
+C                                  INITIALIZE TO DEFAULTS
+      MYPARMS(1:9) = DFLT(1:9)
+C     !  SITE-DEPENDANCY : CURRENT LINE CONCENTRATOR HARDWARE ECHOES BAC
+C     !                    PACKETS. THE FOLLOWING NPAD, PAD AND EOL CHAR
+C     !                    ARE USED TO DISABLE ECHOBACK.  IF ECHOBACK IS
+C     !                    DISABLED, THEN TRANSMISSIONS WILL FAIL (EVEN
+C     !                    LOCAL KERMIT DETECTS AND IGNORES ECHO) BECAUS
+C     !                    LOCAL KERMIT'S PACKETS SWAMP THE CONCENTRATOR
+CD... MYPARMS(3:5) = KCHAR(1)//KCTL(CHAR(CTLZ))//KCHAR(CTLW)
+C                                           MY 8TH BIT PREFIX CHAR
+      MYPARMS(7:7) = '&'
+C                                           MY REPEAT COUNT PREFIX
+      MYPARMS(9:9) = '^'
+C     !  USE THIS DEFAULT TILL WE GET HIS PARAMS :
+C                                          STORE THE REAL CHARACTER
+      HISPARMS(5:5) = CHAR(CR)
+CD... LUNLOG = 8            ! bylO dlq pPOTOKOlA
+      LUNLOG = 51
+      LOGIOC = 0
+C                              DEFAULT BESM-6 TIMEOUT =  6 SECS.
+      STDELAY =  6000000
+      DELAY   =  STDELAY
+C                              I'LL RETRY UP TO 5 TIMES
+      RETRY = 5
+C     ! ESTABLISH DEFAULT SESSION ENVIRONMENT :
+      DEBUG = .FALSE.
+C                               DEFAULT FILETYPE IS CTSS NATIVE TEXT
+      NATIVE = .TRUE.
+C                               ASSUME  ECHOBACK MUST BE DISABLED
+      ECHO = .TRUE.
+C                               DEFAULT SIZE OF FLOATING WINDOW
+      WINDOW = 1
+      REPEAT = .FALSE.
+      QUOTE8 = .FALSE.
+      SEQ = 0
+C     ! INITIALIZE SESSION LOG
+      CALL INITLOG(LOGGING)
+      KINIT = LOGGING
+900   CONTINUE
+        RETURN
+C                              LOGICAL FUNCTION KINIT
+      END
+      SUBROUTINE KCLOSE()
+      IMPLICIT INTEGER(A-Z)
+C     !  FUNCTION : THIS IS THE EXIT COMMAND INTERPRETER,  BUT IS ALSO
+C     !             INVOKED UPON RETURN TO MAIN PROGRAM FROM SERVER MODE
+C     !             IT MERELY CLOSES THE SESSION LOGFILE.  ALL DATA FILE
+C     !             ARE CLOSED BY THE APPROPRIATE STATE-SWITCHER WHEN
+C     !             THE CURRENT COMMAND (SEND/RECEIVE) COMPLETES OR ABOR
+      CALL ENDLOG()
+      RETURN
+      END
+C-CR.KFUTIL-!
+C     !  THIS MODULE CONTAINS A COLLECTION OF BOTTOM-LEVEL FORTRAN
+C     !  SUBROUTINES, EACH OF WHICH INVOKES A CTSS OPERATING SYSTEM
+C     !  FUNCTION VIA A CALL TO THE LIBRARY ROUTINE SYCALL.
+C     !  THE FIRST SYCALL PARAMETER IS A LITERAL INDEX OF THE CTSS
+C     !  FUNCTION REQUESTED.  THE SECOND SYCALL PARAMETER NAMES THE
+C     !  ARRAY BY WHICH REQUEST PARAMETERS ARE PASSED BETWEEN THE
+C     !  CALLER AND CTSS.  RESULT CODES ARE RETURNED IN THE SECOND WORD
+C     !  OF THIS ARRAY.  THEIR MEANING MAY BE SITE-DEPENDENT.  THE
+C     !  POSSIBILITY OF ERROR RECOVERY IS SITE-DEPENDENT.
+      LOGICAL FUNCTION KFOPEN(FNAME)
+      IMPLICIT INTEGER(A-Z)
+C     ! FUNCTION : OPENS FILE FNAME ON KERMIT STD. IOC, RETURNS .TRUE.,
+C     !            ELSE  RETURNS .FALSE.
+C     ! CALLED PROCEDURES : SYCALL, TDISP, LOGLINE
+      LOGICAL DEBUG, NATIVE
+      COMMON /STRING/ CMDSTR
+      COMMON /GLOBALS/RUNTYP, NARGS,ARGS(10,2),THISARG
+      CHARACTER*80 CMDSTR, BUFSTR
+      COMMON /UNITS/ TYPMED, LOGIOC, MAXZON, DIAGN, OPTWR, TYPUNI, NZONE
+      COMMON /ENVIRON/ DEBUG,NATIVE
+      CHARACTER*34 FNAME
+      CHARACTER*6 OPTWR, CODE
+      CHARACTER*18 DIAGN
+      DIMENSION FDB(8)
+      EQUIVALENCE (FDB,TYPMED)
+C
+      NZONE = -1
+      IF (NARGS .GT. 1) THEN
+C
+C  !!!!!  BHiMAHi` PAzPAbOT~iKOB !!!!!!
+C
+C libO zdECx, libO B 'SENDHDR' ClEdYET AKKYPATHEE PAbOTATx
+C  THISARG  i  ARGS, ECli HAdYMAETCq pEPEdABATx zA OdHY
+C  diPEKTiBY  'SEND' bOlEE OdHOgO fAjlA
+C
+        THISAR = 2
+        BUFSTR = CMDSTR(ARGS(2,1):ARGS(2,2))
+        CALL SCANER(BUFSTR,
+     *             NZONE,4,ITYP,KOD,IPOZ)
+        IF (ITYP .NE. 1 .OR. IPOZ .GT. 5) THEN
+          KFOPEN = .FALSE.
+          DIAGN = ' ILLEGAL ZONE: '//CMDSTR( ARGS(2,1) : (ARGS(2,1)+2) )
+          GO TO 100
+        END IF
+        NZONE = LOR(NZONE,0) - 1
+      END IF
+      LOGIOC = 0
+      OPTWR = 'R'
+C
+      CSTAT= JFOCC(FNAME,FDB)
+        IF (CSTAT.NE.0)          THEN
+          KFOPEN = .FALSE.
+C                                          LOG THE CAUSE OF FAILURE
+        IF (DEBUG) THEN
+C                                           MAKE ERROR CODE PRINTABLE
+          CALL TDISP(CSTAT,CODE)
+          CALL LOGLINE('OPEN FAILS WITH CODE:'//CODE//'$$')
+C                                          IF DEBUG
+        END IF
+      ELSE
+         IF (NATIVE) CALL RBEGIN(LOR(LSHIFT(LOGIOC,-12),NZONE+1))
+         KFOPEN = .TRUE.
+         IF (DEBUG) THEN
+           CALL LOGLINE(' OPENED FILE '//FNAME//'$$')
+         END IF
+      END IF
+  100 CONTINUE
+      RETURN
+C                SUBROUTINE KFOPEN
+      END
+      SUBROUTINE KFCLOSE()
+      IMPLICIT INTEGER(A-Z)
+C     ! FUNCTION : CLOSE  KERMIT STD IOC
+C     ! CALLED PROCEDURES : TAKTAP
+      COMMON /UNITS/ TYPMED, LOGIOC
+      CALL TAKTAP(LOGIOC)
+      RETURN
+      END
+      LOGICAL FUNCTION KFCREATE()
+      IMPLICIT INTEGER(A-Z)
+C     ! FUNCTION : DESTROYS OLD KMT STD RECV FILE, IF IT EXISTS,
+C     !                AND CREATES A NEW ONE.
+      COMMON /UNITS/ TYPMED,LOGIOC,MAXZON,DIAGN,OPTWR,TYPUNI,NZONE
+      LOGICAL DEBUG, NATIVE
+      COMMON /ENVIRON/ DEBUG, NATIVE
+      CHARACTER*80 CMDSTR,FILENM, BUFSTR
+      COMMON /STRINGS/ CMDSTR
+      CHARACTER*18 DIAGN
+      CHARACTER*6 OPTWR
+      DIMENSION FDB(8)
+      EQUIVALENCE (FDB,TYPMED)
+      COMMON /GLOBALS/ RUNTYPE, NARGS, ARGS(10,2), THISARG
+C
+      FILENM = CMDSTR(ARGS(1,1):ARGS(1,2))
+      NZONE = -1
+      IF (NARGS .GT. 1) THEN
+        BUFSTR = CMDSTR(ARGS(2,1):ARGS(2,2))
+        CALL SCANER(BUFSTR,NZONE,4,ITYP,KOD,IPOZ)
+        IF (ITYP .NE. 1 .AND. IPOZ .GT. 5) THEN
+          KFCREATE = .FALSE.
+          DIAGN = ' ILLEGAL ZONE '
+          IF (DEBUG) THEN
+           CALL LOGLINE(' OPENED FAILS, ILLEGAL ZONE - '//
+     *                  CMDSTR(ARGS(2,1):ARGS(2,2))//'$$')
+          END IF
+          GO TO 100
+        END IF
+        NZONE = LOR(NZONE,0) - 1
+      END IF
+      LOGIOC = 0
+      OPTWR = 'W'
+C
+      IF (JFOCC(FILENM,FDB) .NE. 0) THEN
+         KFCREATE = .FALSE.
+      ELSE
+        IF (NATIVE) THEN
+           CALL WBEGIN(LOR(LSHIFT(LOGIOC,-12),NZONE+1))
+        END IF
+        KFCREATE = .TRUE.
+      END IF
+  100 CONTINUE
+      RETURN
+C                                           LOGICAL FN KFCREATE
+      END
+      SUBROUTINE DISPLAY(STRING)
+      IMPLICIT INTEGER(A-Z)
+      LOGICAL NL
+      CHARACTER *80 STRING
+C     PARAMETER( CR=13, LF=10 )
+      CHARACTER CMDSTR*80, REPORT*80
+      LOGICAL DEBUG,NATIVE,QUOTE8,REPEAT,ECHO,LOGGING
+      COMMON /ENVIRON/ DEBUG,NATIVE,QUOTE8,REPEAT,WINDOW,ECHO,LOGGING
+      DIMENSION ICMDSTR(14)
+      EQUIVALENCE (ICMDSTR,CMDSTR)
+      COMMON /STRINGS/ CMDSTR, CMDLEN, REPORT
+      CHARACTER WRKLINE*80
+      CHARACTER KAP*300
+      COMMON /PROTO/ AP,NUNIT,NL1,NF,INT,KAP
+      COMMON /ITLINK/ NTERM
+      CHARACTER  LF*1, CR*1, LFCR*2, CNTRLH*1
+      EQUIVALENCE (ZLFCR,LFCR), (ZLF,LF), (ZCR,CR)
+      DATA ZLFCR/Z'0A0D'/, ZLF/Z'0A'/, ZCR/Z'0D'/
+C
+      NL = .TRUE.
+      GO TO  10
+C
+      ENTRY PROMPT(STRING)
+C
+      NL = .FALSE.
+      CNTRLH = CHAR(8)
+   10 CONTINUE
+      K = IANY (STRING,'.')
+      IF (K.EQ.0 .OR. K.GT.75 )  K = 75
+CD    STRING(K:K+1) = CHAR(13) // CHAR(10)
+      K = K - 1
+CD    K = K+1
+      WRKLINE = CHAR(10)//CHAR(13)//STRING(1:K)
+C     CALL DIALOQ(WRKLINE,K,NL)
+  17  CONTINUE
+      NTOUT = ITOUTB(NTERM,WRKLINE,K+2,5.0)
+      IF (DEBUG) CALL TIMPRT('DISOUT',K+2)
+        IF (.NOT. NL) THEN
+          IF (ITINPB(NTERM,KAP,LINP,1000.0) .EQ. 0) THEN
+             KAP(1:4) = 'EXIT'
+             LINP = 4
+          END IF
+          IF (DEBUG) CALL TIMPRT('PROMPT',LINP)
+C--
+C--     Y~ET CiBOlA "CTPElKA BlEBO" - CNTRLH
+C
+  171     IPOINT = IANY(KAP(1:LINP),CNTRLH)
+          KH = 0
+          IF (IPOINT .GT.0) THEN
+  172       KH = KH+1
+            IF (KAP(IPOINT+KH:IPOINT+KH) .EQ. CNTRLH) GO TO 172
+C--
+C--     HE OpYCTElA li CTPOKA?
+C
+            IF (KH .LT. LINP-1) THEN
+              IF (IPOINT-KH .GT. 0) THEN
+C--
+C--     HET, KOE ~TO BCE vE COXPAHilOCx
+C
+                KAP(IPOINT-KH:LINP-2*KH) = KAP(IPOINT+KH:LINP)
+                LINP = LINP - 2*KH
+              ELSE
+               KAP(1:LINP-KH-IPOINT+1) = KAP(IPOINT+KH:LINP)
+               LINP = LINP - IPOINT- KH + 1
+              END IF
+              GO TO 171
+            ELSE
+              LINP =0
+            END IF
+          END IF
+          IF ( LINP.EQ.0) GO TO 17
+          IF (NTERM .GT. 4) THEN
+            NTOUT = ITOUTB(NTERM,KAP,LINP,2.0)
+          END IF
+C
+          CMDLEN = MIN0( IANY(KAP(1:LINP),LF), IANY(KAP(1:LINP),CR) )
+          IF (CMDLEN-1) 19,17,23
+C B CTPOKE HE bylO Hi LF Hi CR
+C
+   19     CMDLEN = LINP + 1
+   23     CMDSTR = KAP(1:CMDLEN-1)//' $$'
+          IF (DEBUG) CALL LOGLINE(CMDSTR)
+        END IF
+900   RETURN
+C                         SUBROUTINE DISPLAY, ENTRY PROMPT
+      END
+C-CR.KUTCMDS-!
+      SUBROUTINE KSERV()
+C     IMPLICIT INTEGER(A-Z)
+C     ! FUNCTION : THIS IS THE KERMIT SERVER CMD INTERPRETER.
+C     !            IT IS A COMMAND PACKET ACCEPTING LOOP, WITH EXIT
+C     !            TO TOP-LEVEL UPON RECEIVING A FINISH("GF") OR
+C     !            BYE/LOGOUT('GL") PKT FROM OTHER KERMIT.
+C     !            NOTE : BESM6 KERMIT DOES NOT LOG ITSELF OUT.
+C     ! CALLED PROCEDURES :  GETPKT, UNCHAR, STDNAME, KTRANS, KRECV,
+C     !                      SENDACK, DECODE, ENCODE, SENDPKT,
+C     !                      ERRORPKT, LOGLINE.
+C     LOGICAL DONE, OK
+C     CHARACTER PTYPE, SIGNAL
+C     CHARACTER *108 PACKET(2)
+C     CHARACTER CMDSTR*80, REPORT*80
+C     COMMON /GLOBALS/ RUNTYPE, NARGS, ARGS(10,2), THISARG
+C     COMMON /STATES/ STATE, RETRY, NTRIES, OLDTRIES, SEQ
+C    !               , DELAY, STDELAY
+C     COMMON /PACKETS/ PACKET, SIGNAL
+C     COMMON /STRINGS/ CMDSTR, CMDLEN, REPORT
+C                                                  STATES
+C     PARAMETER( INIT = 1, HDR = 2, ABORT = 6 )
+C     PARAMETER(GOOD = 0, BAD = 1, TIMEOUT = 2, ESCAPE = 3)
+C                                           RUNTYPE ON EXIT
+C     PARAMETER( EXITYPE = 4 )
+C     DONE = .FALSE.
+C                                           TOP OF SERVER LOOP
+C10   CONTINUE
+C                                           LOOK FOR CMD PKT
+C     CALL GETPKT(1,STATUS)
+C                                           GOT A GOOD PKT
+C     IF (STATUS.EQ.GOOD)  THEN
+C       PTYPE = PACKET(1)(4:4)
+C                                           THEY WANT TO RECEIVE
+C       IF (PTYPE.EQ.'R')  THEN
+C         !  GET FILENAME FROM R PKT
+C         LAST = UNCHAR(PACKET(1)(2:2)) + 1
+C         IF (LAST.GT.4)  THEN
+C           NARGS = 1
+C           LX = LAST - 4
+C           CMDSTR(1:8) = PACKET(1)(5:LAST)
+C                                           CONVERT NAME TO LOWER CASE
+C           CALL STDNAME(CMDSTR(1:8))
+C           ARGS(1,1) = 1
+C           ARGS(1,2) = LX
+C           THISARG = 1
+C                                 CALL SEND STATE SWITCHER
+C           CALL KTRANS
+C         ELSE
+C           REPORT = 'SERVER - NO FILENAME.'
+C           DONE = .TRUE.
+C                                           IF GOOD FILE NAME
+C         END IF
+C                                           THEY WANT TO SEND
+C       ELSE IF (PTYPE.EQ.'S') THEN
+C                                       CALL RECEIVE STATE SWITCHER
+C           CALL KRECV
+C                                           GENERIC SERVER PKT TYPE
+C       ELSE IF (PTYPE.EQ.'G')  THEN
+C                                           1ST DATA CHAR TELLS CMD
+C         PTYPE = PACKET(1)(5:5)
+C         IF ((PTYPE.NE.'F').AND.(PTYPE.NE.'L')) THEN
+C           REPORT = 'SERVER - UNKNOWN G CODE:'//PTYPE//'.'
+C                                          IT'S A VALID G PKT CODE
+C         ELSE
+C                                           ACK IT
+C           CALL SENDACK(2,' ','Y')
+C           REPORT = 'SERVER - SHUT DOWN BY PARTNER.'
+C                                           IF CMDTYPE IN G PKT
+C         END IF
+C         DONE = .TRUE.
+C       ELSE IF (PTYPE.EQ.'I') THEN
+C                                           DECODE THEIR NEW INITIAL PAR
+C         CALL DECODE(1,OK)
+C                                           WE CAN COMPLY
+C         IF (OK) THEN
+C                                           MAKE A 'Y' PKT WITH OUR PARA
+C           CALL ENCODE(2,0,'Y')
+C                                           REPLY WITH OUR PARAMS
+C           CALL SENDPKT(2)
+C         ELSE
+C           REPORT = 'CANT COMPLY WITH PARAMS.'
+C           DONE = .TRUE.
+C         END IF
+C       ELSE
+C         REPORT = 'SERVER - UNKNOWN PKT TYPE:'//PTYPE//'.'
+C         DONE = .TRUE.
+C                                              IF GOOD STATUS
+C       END IF
+C                                           IF BAD PKT OR TIMEOUT
+C     ELSE IF (STATUS.NE.ESCAPE) THEN
+C                                           NAK IT
+C       CALL SENDACK(2,' ','N')
+C     ELSE
+C       REPORT = 'SERVER - ABORTED.'
+C       DONE = .TRUE.
+C                                           IF GETPKT
+C     END IF
+C     IF (.NOT.(DONE))  THEN
+C                                           GO GET ANOTHER SERVER PKT
+C       GO TO 10
+C                                           THIS IS EXIT FROM SERVER LOO
+C     ELSE
+C       CALL ERRORPKT(REPORT)
+C       CALL LOGLINE(REPORT)
+C                                           TELL KERMIT TO SHUT DOWN
+C       RUNTYPE = EXITYPE
+C     END IF
+      RETURN
+C                             SUBROUTINE KSERV
+      END
+      SUBROUTINE KSTATUS()
+      IMPLICIT INTEGER(A-Z)
+C     ! FUNCTION : THIS IS THE STATUS COMMAND INTERPRETER.  IT DISPLAYS
+C     !            CURRENT BESM6 SETTABLE PARAMETERS.
+C     ! CALLED PROCEDURES :  TDISP, UNCHAR
+      CHARACTER CMDSTR*80, REPORT*80, VALUE*4, KCTL
+      CHARACTER*9 MYPARMS, HISPARMS, DEFAULTS
+       LOGICAL DEBUG, NATIVE, QUOTE8, REPEAT, ECHO
+      COMMON /STRINGS/ CMDSTR, CMDLEN, REPORT
+      COMMON /STATES/ STATE, RETRY, NTRIES, OLDTRIES, SEQ
+     !      , DELAY, STDELAY
+      COMMON /RUNPARMS/ MYPARMS, HISPARMS, DEFAULTS
+      COMMON /ENVIRON/ DEBUG, NATIVE, QUOTE8, REPEAT, WINDOW, ECHO
+C                                           CONVERT STDELAY TO ASCII SEC
+      CALL TDISP(STDELAY/1000000,VALUE)
+      REPORT = 'TIMEOUT DELAY IS ' //VALUE //'.'
+      CALL DISPLAY(REPORT)
+      CALL TDISP(RETRY,VALUE)
+      REPORT = 'MAX NUM TRIES IS ' //VALUE(3:4) // '.'
+      CALL DISPLAY( REPORT)
+      IF (DEBUG) THEN
+        VALUE = 'ON'
+      ELSE
+        VALUE = 'OFF'
+      END IF
+      REPORT = 'DEBUG '//VALUE//'.'
+      CALL DISPLAY(REPORT)
+C                                               CONVERT CODED CHAR
+      CALL TDISP(UNCHAR(MYPARMS(1:1)),VALUE)
+      REPORT = 'BSM6 RECEIVING BUFSIZE IS '//VALUE(3:4)//' CHARS.'
+      CALL DISPLAY(REPORT)
+      IF (NATIVE) THEN
+        VALUE = 'ON'
+      ELSE
+        VALUE = 'OFF'
+      END IF
+      REPORT = ' TEXT MODE '//VALUE//'.'
+      CALL DISPLAY(REPORT)
+C     ! SITE DEPENDANCY: SEE COMMENTS IN KSET INTERPRETER.
+C     !                  THIS PARAM IS NOT YET MADE SETABLE.
+C     !IF (ECHO) THEN
+C     !  VALUE = 'ON'
+C     !ELSE
+C     !  VALUE = 'OFF'
+C     !END IF
+C     !REPORT = 'ECHOBACK DISABLE '//VALUE//'.'
+C     !PRINT *, REPORT
+C     !CALL DISPLAY(REPORT)
+C     !  FLOATING WINDOW OPTION NOT YET IMPLEMENTED
+C     !    CALL TDISP(WINDOW,VALUE)
+C     !    REPORT = 'WINDOW WIDTH IS '//VALUE//'.'
+C     !    PRINT *, REPORT
+C     ! CALL DISPLAY(REPORT)
+      RETURN
+C                                SUBROUTINE KSTATUS
+      END
+      SUBROUTINE KSET()
+      IMPLICIT INTEGER(A-Z)
+C     ! FUNCTION : THIS IS IS THE SET COMMAND INTERPRETER.  IT CHANGES
+C     !            THE  BESM-6 DELAY TIME, RETRY, DEBUG, BUFSIZE OR
+C     !            FILETYPE PARAMETERS FOR CURRENT SESSION.
+C     ! CALLED PROCEDURES :  KCHAR, KCTL, UNCHAR, SETHELP
+      PARAMETER( MINPKT = 20, MAXPKT = 94 )
+      PARAMETER( CTLZ = 26, CTLW = 23)
+      PARAMETER( MICROSEC = 1000000 )
+      CHARACTER  CMDSTR*80, REPORT*80
+      CHARACTER TYPE*3, OPT*2, NUMSTR*2, LIM1*4, LIM2*4
+      CHARACTER *9 MYPARMS, HISPARMS, DEFAULTS
+      LOGICAL DEBUG, TURNON, NATIVE, QUOTE8, REPEAT, ECHO
+      LOGICAL CODE
+      CHARACTER KCHAR, KCTL
+      COMMON /STRINGS/ CMDSTR, CMDLEN, REPORT
+      COMMON /STATES/ STATE, RETRY, NTRIES, OLDTRIES, SEQ
+     !               , DELAY, STDELAY
+      COMMON /GLOBALS/ RUNTYPE, NARGS, ARGS(10,2)
+      COMMON /RUNPARMS/ MYPARMS, HISPARMS, DEFAULTS
+      COMMON /ENVIRON/ DEBUG, NATIVE, QUOTE8, REPEAT, WINDOW, ECHO
+      IF (NARGS.EQ.1) THEN
+        IF ( (CMDSTR(ARGS(1,1):ARGS(1,1)).EQ.'?')
+     !  .OR. (CMDSTR(ARGS(1,1):ARGS(1,1)+3).EQ.'HELP')) THEN
+          CALL SETHELP()
+          RETURN
+C                                           IF USER REQUESTED HELP
+        END IF
+      END IF
+      IF (NARGS.LT.2) THEN
+        CALL DISPLAY('SET <OPTION> <VALUE>.')
+      ELSE
+        TYPE = CMDSTR(ARGS(1,1):ARGS(1,1)+2)
+        IF ((TYPE.EQ.'DEB').OR.(TYPE.EQ.'TEX').OR.(TYPE.EQ.'ECH'))
+C                                          THESE ARE THE ON ! OFF OPTION
+     !  THEN
+          OPT = CMDSTR(ARGS(2,1):ARGS(2,1)+1)
+CD        IF ((OPT.EQ.'ON').OR.(OPT.EQ.'ON')) THEN
+          IF (OPT.EQ.'ON') THEN
+            TURNON = .TRUE.
+CD        ELSE IF ((OPT.EQ.'OF').OR.(OPT.EQ.'OF')) THEN
+          ELSE IF (OPT.EQ.'OF') THEN
+            TURNON = .FALSE.
+          ELSE
+            CALL DISPLAY('     OPTION VALUES:  ON ! OFF.')
+            GO TO 800
+C                                      IF OPTION VALUE
+          END IF
+          IF (TYPE.EQ.'DEB') THEN
+            DEBUG = TURNON
+C         ! SITE DEPENDANCY: DEFER IMPLEMENTATION OF THE SET ECHO <ON!OF
+C         !                  CMD BECAUSE CURRENT KCC'S (NETWORK LINE
+C         !                  CONCENTRATORS) CANNOT KEEP UP WITH A SENDIN
+C         !                  LOCAL KERMIT'S DATA RATE, IF ECHOBACK IS
+C         !                  ENABLED.
+C         !ELSE IF (TYPE.EQ.'ECH') THEN
+C            !ECHO = TURNON
+C            !IF (ECHO) THEN
+C            !  MYPARMS(3:5) = KCHAR(1)//KCTL(CHAR(CTLZ))//KCHAR(CTLW)
+C            !  MYPARMS(1:1) = KCHAR(UNCHAR(DEFAULTS(1:1))-2)
+C            !ELSE
+C            !  MYPARMS(3:5) = DEFAULTS(3:5)
+C            !  MYPARMS(1:1) = DEFAULTS(1:1)
+C            !END IF
+          ELSE
+            NATIVE = TURNON
+          END IF
+        ELSE IF ((TYPE.EQ.'TIM').OR.(TYPE.EQ.'RET').OR.(TYPE.EQ.'BUF'))
+     !  THEN
+          VLEN = ARGS(2,2) - ARGS(2,1) + 1
+          IF (VLEN.GT.2) THEN
+            CALL DISPLAY(':  VALUE IS 1 OR 2 DECIMAL DIGITS.')
+            GO TO 800
+          ELSE IF (VLEN.EQ.1) THEN
+            NUMSTR = '0'//CMDSTR(ARGS(2,1):ARGS(2,1))
+          ELSE
+            NUMSTR = CMDSTR(ARGS(2,1):ARGS(2,2))
+          END IF
+          CALL UNDISP(NUMSTR,VALUE,CODE)
+          IF (.NOT.(CODE)) THEN
+            CALL DISPLAY(': USE DECIMAL CHARACTERS FOR VALUE.')
+            GO TO 800
+          END IF
+          IF (TYPE.EQ.'TIM') THEN
+            STDELAY = VALUE * MICROSEC
+          ELSE IF (TYPE.EQ.'RET') THEN
+            RETRY = VALUE
+          ELSE IF (TYPE.EQ.'BUF') THEN
+            IF ((VALUE.GE.MINPKT).AND.(VALUE.LE.MAXPKT)) THEN
+              MYPARMS(1:1) = KCHAR(VALUE)
+            ELSE
+              CALL TDISP(MINPKT,LIM1)
+              CALL TDISP(MAXPKT,LIM2)
+              REPORT = 'USE BUFFER SIZE BETWEEN '//LIM1
+     !                //' AND '//LIM2//'.'
+              CALL DISPLAY(REPORT)
+            END IF
+          END IF
+        ELSE
+          CALL DISPLAY(':NOT A VALID SET OPTION.')
+        END IF
+      END IF
+800   CONTINUE
+      RETURN
+C                             SUBROUTINE KSET
+      END
+      SUBROUTINE SETHELP()
+      IMPLICIT INTEGER(A-Z)
+C     ! FUNCTION : THIS SUBROUTINE DISPLAYS THE SETTABLE PARAMETERS.
+C     ! CALLED PROCEDURES : NONE.
+      CALL DISPLAY('SET OPTIONS ARE :.')
+      CALL DISPLAY('.')
+      CALL DISPLAY('    TIMEOUT <DECIMAL VALUE>.')
+      CALL DISPLAY('    RETRY <DECIMAL VALUE>.')
+      CALL DISPLAY('    DEBUG <ON ! OFF).')
+      CALL DISPLAY('    BUFSIZE <DECIMAL VALUE>.')
+      CALL DISPLAY('    TEXT <ON ! OFF).')
+C     ! DEFER IMPLEMENTATION OF THE SET ECHO OPTION  [LFM 1/85]
+C     !PRINT *,'    ECHO <ON ! OFF>'
+C     !CALL DISPLAY('    ECHO <ON ! OFF>.')
+      RETURN
+C                                          SUBROUTINE SETHELP
+      END
+      SUBROUTINE KHELP()
+C     ! FUNCTION : THIS IS THE HELP COMMAND INTERPRETER.
+      CALL DISPLAY('  BSM6 KERMIT COMMANDS :.')
+      CALL DISPLAY('.')
+CD    CALL DISPLAY(' SERVER.')
+CD    CALL DISPLAY
+CD   !     ('    (ENTER SERVER MODE : ALL TRANSMISSION INFO WILL.')
+CD    CALL DISPLAY('     COME FROM PARTNER KERMIT, AS PACKETS).')
+      CALL DISPLAY
+     !     (' SEN[D] <FILE NAME IN "JFOCC"-FORMAT   [#ZONE (OCTAL)] >.')
+      CALL DISPLAY('    (SEND FILES TO A PARTNER IN RECEIVE MODE).')
+      CALL DISPLAY
+     !    (' R[ECEIVE] <FILE NAME IN "JFOCC"-FORMAT [#ZONE (OCTAL)] >.')
+      CALL DISPLAY
+     !     ('    (RECEIVE FILES FROM NON-SERVER PARTNER).')
+      CALL DISPLAY(' E[XIT].')
+      CALL DISPLAY
+     !     ('    (EXIT FROM NON-SERVER KERMIT, RETURN TO BESM-6 OS).')
+      CALL DISPLAY(' ST[ATUS].')
+      CALL DISPLAY
+     !    ('    (DISPLAY STATUS OF SETTABLE BESM-6 KERMIT PARAMETERS).')
+      CALL DISPLAY(' SET ( <OPTION> <VALUE> ! HELP ! ? ).')
+      CALL DISPLAY('    (SET VALUE OF A PARAMETER).')
+      CALL DISPLAY(' H[ELP]  ! ?.')
+      CALL DISPLAY('    (DISPLAY THIS MENU).')
+        RETURN
+      END
+C-CR.PKTIO-!
+      SUBROUTINE SENDPKT(PINDEX)
+      IMPLICIT INTEGER(A-Z)
+      INTEGER PINDEX
+C     ! FUNCTION : THIS IS THE PHYSICAL PACKET SEND ROUTINE.  PACKETS
+C     !            ARE SENT AS MESSAGES TO THE KEYBOARD CONTROLLER.
+C     !            IF PAD OR EOL CHARACTERS HAVE BEEN REQUESTED BY
+C     !            THE OTHER KERMIT,  THEY ARE ADDED HERE.
+C     ! CALLED PROCEDURES : STRAD, UNCHAR, KCTL, SYCALL, LOGPKT
+      CHARACTER KCTL, PAD
+      CHARACTER *108 PACKET(2)
+      CHARACTER *9 MYPARMS, HISPARMS
+      LOGICAL DEBUG
+      PARAMETER(  WAIT = 300.0)
+      PARAMETER( SOH = 01, CR = 13 )
+      COMMON /ITLINK/ NTERM
+      COMMON /PACKETS/ PACKET
+      COMMON /RUNPARMS/ MYPARMS, HISPARMS
+      COMMON /ENVIRON/ DEBUG
+      DIMENSION BETA(5)
+C
+      DIMENSION IWRK(18)
+      CHARACTER *108 WRKL
+      EQUIVALENCE (WRKL,IWRK)
+C
+      PACKET(PINDEX)(1:1) = CHAR(SOH)
+CD    BETA(3) = STRAD(PACKET(PINDEX))
+C                                                     PT PAST CHKSUM
+      BETA(4) = UNCHAR(PACKET(PINDEX) (2:2)) + 3
+C                                                          APPEND HIS EO
+      PACKET (PINDEX) (BETA(4):BETA(4)) = HISPARMS(5:5)
+C                                           GET NUM PADS IF ANY
+      NPAD = UNCHAR(HISPARMS(3:3))
+C                                           HE WANTS PAD CHAR PREFIX
+      IF (NPAD.GT.0)  THEN
+C                                           UNCONTROLIFY - TRUE PAD CHAR
+        PAD = KCTL(HISPARMS(4:4))
+C                                           SHIFT DATA RIGHT
+         PACKET(PINDEX)(NPAD+1:BETA(4)+NPAD)
+     !   = PACKET(PINDEX)(1:BETA(4))
+        DO 10 I=1,NPAD
+          PACKET(PINDEX)(I:I) = PAD
+10      CONTINUE
+C                                           REVISE LENGTH TO INCLUDE PAD
+        BETA(4) = BETA(4) + NPAD
+      END IF
+C     BETA(5) = WAIT
+C                                   SEND PACKET AS MSG TO KBD CONTROLLER
+C     CALL SYCALL(4L1400,BETA)
+      BETA4 = BETA(4)+1
+      PACKET(PINDEX)(BETA4:BETA4) = CHAR(CR)
+      WRKL = PACKET(PINDEX)(1:BETA4)
+      LEN = (BETA4+5)/6
+      BETA(2) = ITOUTB(NTERM,PACKET(PINDEX),BETA4,WAIT)
+C                                           SHOW THE PKT SENT
+      IF (DEBUG) THEN
+         CALL LOGPKT(PINDEX)
+         CALL TIMPRT('SENDPK',BETA4)
+      END IF
+C     !F ( BETA(2) .EQ. 0 ) THEN ... WHAT
+      RETURN
+C                            SUBR SENDPKT
+      END
+      SUBROUTINE SENDACK(PINDEX,THEIRSEQ,OK)
+      IMPLICIT INTEGER(A-Z)
+      INTEGER PINDEX
+C     ! FUNCTION :  THIS IS A VIRTUAL PACKET SEND ROUTINE CALLED
+C     !             IN THE RECEIVE STATES.  IT INVOKES SENDPKT AND
+C     !             IF OK = 'Y', ACK'S PKT NO. THEIRSEQ, ELSE NAK'S IT.
+C     ! CALLED PROCEDURES :  CKSUM, SENDPKT
+      CHARACTER THEIRSEQ, OK, CKSUM
+      CHARACTER *108 PACKET(2)
+      COMMON /PACKETS/ PACKET
+C                                      COUNT IS CODED 3
+      PACKET(PINDEX)(2:2) = '#'
+      PACKET(PINDEX) (3:3) = THEIRSEQ
+      PACKET(PINDEX) (4:4) = OK
+      PACKET(PINDEX)(5:5) = CKSUM(PACKET(PINDEX))
+      CALL SENDPKT(PINDEX)
+      RETURN
+C                 SUBROUTINE SENDACK
+      END
+      SUBROUTINE GETPKT(PX,STATUS)
+      IMPLICIT INTEGER(A-Z)
+      INTEGER PX, STATUS
+C     !  FUNCTION : THIS IS THE PACKET READ ROUTINE. PACKETS ARE READ AS
+C     !             MESSAGES FROM THE KEYBOARD CONTROLLER.  WHEN ENTERED
+C     !             GETPKT SUSPENDS ITSELF UNTIL ARRIVAL OF A MESSAGE
+C     !             OR ELAPSE OF TIMEOUT INTERVAL.  IF A MESSAGE IS THER
+C     !             AT ENTRY, SUSPENSION DOES NOT OCCUR (I.E., AN
+C     !             IMMEDIATE RETURN OCCURS FROM THE DELAY SYCALL).
+C     !             IF AWAKENED BY TIMEOUT, GETPKT RETURNS STAUS=TIMEOUT
+C     !             IF BY MSG ARRIVAL THEN STAUS=GOOD IFF MSG IS
+C     !             A CORRECTLY CHECKSUMED PACKET,  ELSE STATUS=BAD.
+C     !  CALLED PROCEDURES :  SYCALL, LOGLINE, UNCHAR, CKSUM, LOGPKT,
+C     !                      TDISP.
+      CHARACTER KCHAR, CKSUM, NVAL*4
+      CHARACTER *9 MYPARMS
+      CHARACTER *108 PACKET(2)
+      LOGICAL DEBUG
+      COMMON /STATES/ STATE, RETRY, NTRIES, OLDTRIES, SEQ,
+     !      DELAY, STDELAY
+      COMMON /RUNPARMS/ MYPARMS
+      COMMON /PACKETS/ PACKET
+      COMMON /ENVIRON/ DEBUG
+      COMMON /ITLINK/ NTERM
+      PARAMETER( GOOD = 0, BAD = 1, TIMEOUT = 2, ESCAPE = 3 )
+      PARAMETER( ABORT = 6 )
+      PARAMETER( MAXMSG = 108, MINLEN = 5, WAIT =0, NOWAIT = 1 )
+C     !  MAXMSG 108 ALLOWS UP TO 96 PKT CHARS + EOL(STRIPPED BY CTSS),
+C     !  PLUS UP TO 8 PAD/NOISE CHAR PREFIX.
+C                                         MAX LEN OF KCC READ, ALAS.
+      PARAMETER( KCCMAX = 86 )
+C     PARAMETER( SOH = 1, ESC = O'0000000000000033' )
+      PARAMETER( SOH = 1, ESC =                 27  )
+C     DIMENSION ALPHA(3)
+      REAL WAITIO
+      DIMENSION BETA(5)
+C                                             GET ADDR OF PACKET
+CD    BETA(3) = STRAD(PACKET(PX))
+      BETA(5) = NOWAIT
+10    CONTINUE
+C     ALPHA(3) = DELAY
+C                                         SLEEP DT OR TILL MSG COMES
+C     CALL SYCALL(4L3000,ALPHA)
+      BETA(4) = MAXMSG
+C                                         SEE WHICH EVENT OCCURRED
+C     CALL SYCALL(4L1500,BETA)
+      WAITIO = DELAY * 1.E-6
+      ITRET = ITINPB(NTERM,PACKET(PX),BETA(4),WAITIO)
+C                                         TIME ELAPSED WITHOUT MSG
+      IF (ITRET   .EQ. 0)  THEN
+        STATUS = TIMEOUT
+        IF (DEBUG) CALL LOGLINE('TIMED OUT$$')
+C                                         GOT LONE EOL CHAR - IGNORE IT
+      ELSE IF (BETA(4).EQ.0) THEN
+        IF (DEBUG) CALL LOGLINE('NULL PKT$$')
+C                                           GO BACK TO SLEEP
+        GO TO 10
+C                                            SOMEONE HIT ESC KEY
+      ELSE IF (PACKET(PX)(1:1).EQ.CHAR(ESC))
+     !THEN
+        CALL LOGLINE('ESCAPED$$')
+        STATUS = ESCAPE
+C                                           IS MSG A REAL PACKET
+      ELSE
+        IF (DEBUG) THEN
+          CALL TDISP(BETA(4),NVAL)
+          CALL LOGLINE('GOT '//NVAL//' MSG CHARS$$')
+          CALL TIMPRT('GETPKT',BETA(4))
+        END IF
+C                                           LOOK FOR SOH IN MSG
+        SX = INDEX(PACKET(PX),CHAR(SOH))
+        IF ((SX.EQ.0).AND.(BETA(4).LT.MINLEN))
+C                                          HEADLESS BLIP - TREAT AS NOIS
+     !  THEN
+          IF (DEBUG) CALL LOGLINE('NOISE PKT IGNORED$$')
+          GO TO 10
+        ELSE IF ((SX.EQ.0).OR.(BETA(4).LT.MINLEN)) THEN
+C                                          LET IT BE NAK'ED
+          STATUS = BAD
+          GO TO 100
+C                                           IT LOOKS LIKE A PKT
+        ELSE
+30        CONTINUE
+          NX = INDEX(PACKET(PX)(SX+1:SX+1), CHAR(SOH))
+C                                           FOUND ANOTHER SOH
+          IF (NX.NE.0)  THEN
+C                                           GET ITS ABSOLUTE INDEX
+            SX = SX + NX
+            IF (SX.LE.MAXMSG-MINLEN) THEN
+C                                           GO SEE IF IT'S THE LAST ONE
+              GO TO 30
+            ELSE
+              STATUS = BAD
+              GO TO 100
+            END IF
+          END IF
+          PKLEN = UNCHAR(PACKET(PX)(SX+1:SX+1)) + 2
+C                                           NEED TO LEFT-ADJUST
+          IF (SX .GT. 1)  THEN
+            PACKET(PX) (1:PKLEN) = PACKET(PX)(SX:SX+PKLEN-1)
+C                                           IF THERE WERE PAD CHARS
+          END IF
+C                                                 IF SX
+        END IF
+C                                           SHOW THEIR PACKET
+        IF (DEBUG) CALL LOGPKT(PX)
+        IF (CKSUM(PACKET(PX)) .EQ. PACKET(PX)(PKLEN:PKLEN)) THEN
+          STATUS = GOOD
+        ELSE
+          IF (DEBUG) CALL LOGLINE('BAD CHECKSUM$$')
+          STATUS = BAD
+C                                           IF CHECKSUM
+        END IF
+C                                           IF ITRETR
+      END IF
+100   RETURN
+C                                               SUBROUTINE GETPKT
+      END
+      LOGICAL FUNCTION GOTACK(PX,SEQ)
+      IMPLICIT INTEGER(A-Z)
+      INTEGER PX,SEQ
+C     !  FUNCTION :  THIS IS A VIRTUAL PACKET READ ROUTINE CALLED FROM
+C     !              THE SEND STATE.  EVALUATION OF GOTACK FORCES A
+C     !              CALL TO GETPKT, THE PHYSICAL PKT READ RTNE.
+C     !              GOTACK IS .TRUE. IFF A VALID ACK FOR CURRENT PKT
+C     !              OR VALID NAK FOR NEXT IS REC'D.  RECEIPT OF GOOD
+C     !              DISCARD-TYPE ACK FOR CURRENT PKT CAUSES SIGNAL
+C     !              VARIABLE TO BE SET TO ACTION CHARACTER IN PKT.
+C     !  CALLED PROCEDURES :  GETPKT, KCHAR, UNCHAR, LOGLINE
+C                                             GETPKT RETURN CODES
+      PARAMETER( GOOD=0, BAD=1, TIMEOUT=2 )
+      CHARACTER KCHAR, PSEQ, PTYPE, EXPECT, NEXT, SIGNAL
+      CHARACTER *108 PACKET(2)
+      COMMON /PACKETS/ PACKET, SIGNAL
+C                                    LOOK FOR PARTNERS RESPONSE
+      CALL GETPKT(PX,STATUS)
+C                                    GOT A VALID PKT
+      IF (STATUS.EQ.GOOD)  THEN
+        PCOUNT = UNCHAR(PACKET(PX)(2:2))
+        PSEQ = PACKET(PX)(3:3)
+        PTYPE = PACKET(PX)(4:4)
+        EXPECT = KCHAR(MOD(SEQ,64))
+        NEXT = KCHAR(MOD(SEQ+1,64))
+        IF (((PTYPE.EQ.'Y').AND.(PSEQ.EQ.EXPECT)) .OR.
+     !      ((PTYPE.EQ.'N').AND.(PSEQ.EQ.NEXT)))
+C                                    ACK FOR THIS OR NAK FOR NEXT
+     ! THEN
+          GOTACK = .TRUE.
+C         !  WAS IT A DISCARD-TYPE ACK
+          IF ((PTYPE.EQ.'Y').AND.(PCOUNT.GT.3))  THEN
+C                                        SAVE DISCARD ACTION FIELD
+            SIGNAL = PACKET(PX)(5:5)
+            CALL LOGLINE('INTERRUPT REQUEST, TYPE '//SIGNAL//'$$')
+          END IF
+C                                    GOOD PKT,  WRONG TYPE OR SEQ
+        ELSE
+          GOTACK = .FALSE.
+C                                    IF PTYPE
+        END IF
+C                                    BAD PKT OR TIMEOUT
+      ELSE
+        GOTACK = .FALSE.
+C                                    IF GETPKT STATUS
+      END IF
+      RETURN
+C                                    LOGICAL FUNCTION GOTACK
+      END
+C-CR.RECEIVE-!
+      SUBROUTINE KRECV()
+      IMPLICIT INTEGER(A-Z)
+C     !  FUNCTION : RECEIVE STATE SWITCHER
+C     !  CALLED PROCEDURES :  GETINIT, GETHDR, GETFILE, LOGLINE,
+C     !                       KFCLOSE, KGETIME, TDISP.
+      PARAMETER( INIT = 1, HDR = 2, DATA = 3, FEOF = 4, COMPLETE = 7,
+     !            ABORT = 6 )
+      PARAMETER( SECONDS = 1000000, MS = 1000 )
+      CHARACTER*4 CPR,TPR
+      CHARACTER CMDSTR*80, REPORT*80
+      LOGICAL RPCOUNT, SAVEDCR
+      COMMON /STATES/ STATE, RETRY, NTRIES, OLDTRIES, SEQ, DELAY
+     !         , STDELAY,  TCPU, TIO
+      COMMON /PKSTATS/   BPTR, BUFLEFT, MAXPACK, LASTBUF
+     !                , RPCOUNT, SAVEDCR
+      COMMON /STRINGS/ CMDSTR, CMDLEN, REPORT
+      REAL TKB, TCB, TKE, TCE
+      COMMON /ITLINK/ NTERM
+C--------
+      NTRIES = 0
+      DELAY = STDELAY
+      STATE = INIT
+C                                            GET INITIAL TIMES
+CD    CALL KGETIME(TCPU,TIO)
+      CALL CTIME(TKB,TCB)
+C
+C--- pPiBqzKA CETEBOgO TEPMiHAlA
+C
+C pEPEHECli pPiBqzKY B gOlOBY
+C     NTERM= ITCONB(-1)
+100   IF ( STATE .NE. COMPLETE)  THEN
+        IF (STATE .EQ. INIT) THEN
+          CALL GETINIT
+        ELSE IF (STATE .EQ. HDR) THEN
+          CALL GETHDR
+        ELSE IF (STATE .EQ. DATA) THEN
+          CALL GETFILE
+        ELSE IF (STATE .EQ. ABORT) THEN
+C                                        MAKE SURE RECV FILE CLOSED
+          CALL KFCLOSE
+C                                        LOG REPORTED CAUSE OF FAILURE
+          CALL LOGLINE(REPORT)
+          CALL ERRORPKT(REPORT)
+          STATE = COMPLETE
+C                                        END OF NON-COMPLETE CASES
+        END IF
+        GO TO 100
+C                                        ELSE STATE IS COMPLETE
+      END IF
+      CALL TDISP(SEQ,TPR)
+      CALL LOGLINE('NUM PKTS RECEIVED = '//TPR//'$$')
+CD    CALL KGETIME(TCX,TIX)
+      CALL CTIME(TKE,TCE)
+      CALL TDISP(INT((TCE-TCB)*100.), CPR)
+C                                      GET PRINTABLE IO USAGE
+      CALL TDISP(INT((TKE-TKB)*100.), TPR)
+      CALL LOGLINE('TRANSACTION TIME: CPU ='//CPR//'E-2 SEC,  "K"= '//
+     !  TPR//'E-2 SEC$$' )
+      RETURN
+C                                  SUBROUTINE KRECV
+      END
+      SUBROUTINE GETINIT()
+      IMPLICIT INTEGER(A-Z)
+C     ! FUNCTION :  THIS ROUTINE GETS THE OTHER KERMIT'S PARAMETERS IN
+C     !             AN 'S' PACKET, CHECKS THEM,  AND ACK'S WITH OURS
+C     !             IFF WE CAN COMPLY WITH OTHER KERMIT'S REQUESTS.
+      PARAMETER( INIT=1, HDR=2, ABORT=6)
+      PARAMETER( GOOD=0, BAD=1, TIMEOUT=2, ESCAPE=3 )
+      PARAMETER( THISPKT = 1, NXTPKT = 2 )
+C                                           ALLOW MORE TRIES FOR S PKT
+      PARAMETER( INITRY = 20 )
+      CHARACTER *108 PACKET(2)
+      CHARACTER CMDSTR*80, REPORT*80
+      COMMON /STATES/ STATE, RETRY, NTRIES, OLDTRIES, SEQ
+     !               , DELAY, STDELAY
+      COMMON /PACKETS/ PACKET
+      COMMON /STRINGS/ CMDSTR, CMDLEN, REPORT
+      LOGICAL NAKIT, RESOLVE
+      IF (NTRIES .GE. INITRY)  THEN
+        REPORT = 'GETINIT - TOO MANY.$$'
+        STATE = ABORT
+      ELSE
+        NTRIES = NTRIES + 1
+        NAKIT = .FALSE.
+C                                                   WAIT LONGER FOR S &
+C       IF (NTRIES .EQ. 1)  DELAY = STDELAY * 2
+        IF (NTRIES .EQ. 1)  THEN
+          CALL DISPLAY(' RECEIVE WAITING:::.')
+          DELAY = STDELAY*2
+        END IF
+        CALL GETPKT(THISPKT, STATUS)
+        IF (STATUS .EQ. GOOD)  THEN
+C                                                     GOT A GOOD S PKT
+          IF (PACKET(THISPKT)(4:4) .EQ. 'S')  THEN
+C                                                   DECODE HIS PARMS
+            CALL DECODE(THISPKT,RESOLVE)
+            IF (RESOLVE) THEN
+C                                                   SYNCHRONIZE SEQ NOS.
+              SEQ = UNCHAR(PACKET(THISPKT)(3:3))
+C                                                   FORMAT OUR PARAMS
+              CALL ENCODE(NXTPKT,SEQ,'Y')
+C                                                   SEND HIM OURS
+              CALL SENDPKT(NXTPKT)
+              STATE = HDR
+              SEQ = SEQ + 1
+              OLDTRIES = NTRIES
+              NTRIES = 0
+            ELSE
+              REPORT = 'CANT RESOLVE PARAMS.$$'
+              STATE = ABORT
+C                                                   IF RESOLVE
+            END IF
+C                                                   WRONG PKT TYPE
+          ELSE
+            NAKIT = .TRUE.
+          END IF
+        ELSE IF (STATUS.EQ.ESCAPE) THEN
+          STATE = ABORT
+          REPORT = 'HOST USER ESCAPE REQUEST.$$'
+          NAKIT = .FALSE.
+C                                                   BAD PKT OR TIMEOUT
+        ELSE
+          NAKIT = .TRUE.
+C                                                   IF STATUS
+        END IF
+C                                                     SEND NAK
+        IF (NAKIT)  CALL SENDACK(NXTPKT,' ','N')
+C                                                   IF NTRIES
+      END IF
+      RETURN
+C                                  SUBROUTINE       GETINIT
+      END
+      SUBROUTINE GETHDR()
+      IMPLICIT INTEGER(A-Z)
+C     ! FUNCTION :  THIS ROUTINE GETS AN 'F' (HEADER) PACKET FROM THE
+C     !             OTHER KERMIT, SAVES FILE NAME,  OPENS A WORKFILE
+C     !             'KMTFIL' TO RECEIVE THE INCOMING FILE,  AND ACK'S
+C     !             THE 'F' PKT.  WORKFILE NAME WILL BE SWITCHED TO HEAD
+C     !             NAME WHEN TRANSMISSION COMPLETES.
+      PARAMETER( HDR = 2, DATA = 3, ABORT = 6, COMPLETE = 7 )
+      PARAMETER( GOOD = 0, BAD = 1, TIMEOUT = 2 )
+      PARAMETER( THISPKT = 1, ACK = 2 )
+      PARAMETER( BUFLEN =6144)
+      CHARACTER *108 PACKET(2)
+      CHARACTER CMDSTR*80, REPORT*80
+      CHARACTER *10 FNAME
+      DIMENSION DKBUF(512)
+      COMMON /STATES/ STATE, RETRY, NTRIES, OLDTRIES, SEQ
+     !              , DELAY, STDELAY
+      COMMON /PACKETS/ PACKET
+      COMMON /PKSTATS/  BPTR, BUFLEFT,  MAXPACK, LASTBUF, RPCOUNT, SAVED
+      COMMON /STRINGS/ CMDSTR, CMDLEN, REPORT
+      COMMON /ENVIRON/ DEBUG, NATIVE
+      COMMON /GLOBALS/ RUNTYPE, NARGS, ARGS(10,2), THISARG
+      COMMON /UNITS/ TYPMED, LOGIOC, MAXZON, DIAGN, OPTWR,TYPUNI,NZONE
+      CHARACTER*18 DIAGN
+      LOGICAL ACKIT, OLDFILE, KFOPEN, KFCREATE, LASTBUF, SAVEDCR
+      LOGICAL DEBUG, NATIVE
+      CHARACTER PTYPE, KCHAR
+      DIMENSION BETA(9)
+      IF (NTRIES .GE. RETRY)  THEN
+        REPORT = 'GETHDR - TOO MANY.$$'
+        STATE = ABORT
+      ELSE
+        NTRIES = NTRIES + 1
+        CALL GETPKT(THISPKT, STATUS)
+        IF (STATUS .EQ. GOOD)  THEN
+          PTYPE = PACKET(THISPKT) (4:4)
+          IF (PTYPE .EQ. 'F')  THEN
+C           !  SAVE PKT FILE NAME IN COMMAND STRING
+            NAMEND = UNCHAR(PACKET(THISPKT)(2:2)) + 1
+CD***       CMDSTR(1:8) = PACKET(THISPKT) (5:NAMEND)
+C                                           CONVERT TO STD NAME
+CD***       CALL STDNAME(CMDSTR(1:8))
+C                                           IF OPENED STD RECV FILE
+            IF (KFCREATE())  THEN
+              REPORT = 'OPEN:'//
+     *                 CMDSTR(ARGS(1,1):ARGS(1,2))//'.$$'
+              CALL LOGLINE(REPORT)
+C                                           INITIALIZE BUFFER PTR
+              BPTR = 1
+              BUFLEFT = BUFLEN
+              SAVEDCR = .FALSE.
+            ELSE
+              REPORT = 'GETHDR - '//DIAGN//'.$$'
+              STATE = ABORT
+              GO TO 700
+            END IF
+            STATE = DATA
+            SEQ = SEQ + 1
+            OLDTRIES = NTRIES
+            NTRIES = 0
+            ACKIT = .TRUE.
+          ELSE IF (PTYPE .EQ. 'S')  THEN
+C           !  THEY LOST OUR ACK
+C                                             NOT A REGULAR ACK
+            ACKIT = .FALSE.
+            IF (OLDTRIES.LT.RETRY) THEN
+C                                                       SEND IT AGAIN
+              CALL ENCODE(NXTPKT,1,'Y')
+C                                             ACK IT AGAIN
+              CALL SENDPKT(ACK)
+              OLDTRIES =   OLDTRIES + 1
+            ELSE
+              REPORT = 'GETHDR - ABORTING AFTER TOO MANY S PKTS.$$'
+              STATE = ABORT
+            END IF
+          ELSE IF (PTYPE .EQ. 'Z')  THEN
+C           !  LOST ACK FOR PREVIOUS FILE ON LIST
+            ACKIT = .TRUE.
+            NTRIES = 0
+          ELSE IF (PTYPE .EQ. 'B')  THEN
+            STATE = COMPLETE
+            ACKIT = .TRUE.
+          ELSE
+            REPORT = 'GETHDR - ABORTING ON UNKNOWN PKT TYPE.$$'
+            STATE = ABORT
+            ACKIT = .FALSE.
+C                                                   IF PTYPE
+          END IF
+          IF (ACKIT)  CALL SENDACK(ACK,PACKET(THISPKT)(3:3),'Y')
+C                                                   IF BAD PKT OR TIMEOU
+        ELSE IF (STATE .NE. ABORT) THEN
+C                                                       NAK EXPECTED PKT
+          CALL SENDACK(ACK,KCHAR(MOD(SEQ,64)),'N')
+C                                                   IF STATUS
+        END IF
+C                                                   IF NTRIES
+      END IF
+700   CONTINUE
+C                                           RESTORE STD DELAY
+      IF (STATE.GT.HDR)  DELAY = STDELAY
+      RETURN
+C                                          SUBROUTINE GETHDR
+      END
+      SUBROUTINE GETFILE()
+      IMPLICIT INTEGER(A-Z)
+C     ! FUNCTION :  THIS ROUTINE GETS A 'D' (DATA) PACKET FROM THE OTHER
+C     !             KERMIT, ACK'S IT,  AND INVOKES THE PKT-UNPACKING
+C     !             RTNE PUTDATA TO BUFFER RECEIVED DATA.  END OF FILE
+C     !             IS DETECTED IN THIS STATE WHEN A 'Z' PKT ARRIVES.
+C     !             DISCARD-TYPE 'Z' PKTS ARE RECOGNIZED.
+C     !  SEND STATES :
+      PARAMETER( HDR = 2, DATA = 3, ABORT = 6 )
+C     !  GETPKT STATUS CODES :
+      PARAMETER( GOOD = 0, BAD = 1, TIMEOUT = 2 )
+      PARAMETER( PX = 1, ACK = 2 )
+C                                           PUTDATA RESULT CODES
+      PARAMETER( OK= 0, ERR = 1 )
+      CHARACTER KCHAR, PTYPE, PSEQ, EXPECT, LAST
+      CHARACTER CMDSTR*80, REPORT*80
+      LOGICAL PUTEOF
+      CHARACTER *108 PACKET(2)
+      COMMON /STATES/ STATE, RETRY, NTRIES, OLDTRIES, SEQ
+     !               , DELAY, STDELAY
+      COMMON /PACKETS/ PACKET
+      COMMON /STRINGS/ CMDSTR, CMDLEN, REPORT
+      IF (NTRIES .GE. RETRY) THEN
+        REPORT = 'GETFILE - TOO MANY.$$'
+        STATE = ABORT
+      ELSE
+        NTRIES = NTRIES + 1
+C                                           LOOK FOR EXPECTED DATA PKT
+        CALL GETPKT(PX,STATUS)
+        EXPECT = KCHAR(MOD(SEQ,64))
+        LAST = KCHAR(MOD(SEQ-1,64))
+C                                           GOT A PKT
+        IF (STATUS.EQ.GOOD) THEN
+          PSEQ = PACKET(PX)(3:3)
+          PTYPE = PACKET(PX)(4:4)
+C                                           TYPE IS DATA
+          IF (PTYPE.EQ.'D')  THEN
+            IF ((PSEQ.EQ.EXPECT).OR.(PSEQ.EQ.LAST)) THEN
+C                                               ACK IF IT'S NTH OR (N-1)
+              CALL SENDACK(ACK,PSEQ,'Y')
+C                                               IF PSEQ
+            END IF
+            IF (PSEQ.EQ.EXPECT)  THEN
+C                                               STORE DATA FROM NTH PKT
+              CALL PUTDATA(PX,RESULT)
+              IF (RESULT.NE.OK)  THEN
+                REPORT = 'FILE WRITE ERROR.$$'
+                STATE = ABORT
+              ELSE
+                SEQ = SEQ + 1
+                OLDTRIES = NTRIES
+                NTRIES = 0
+              END IF
+C                                               IF PSEQ IN 'D' PKT
+            END IF
+C                                               RECEIVED EOF
+          ELSE IF (PTYPE.EQ.'Z')  THEN
+C                                                    NORMAL EOF PKT
+            IF(UNCHAR(PACKET(PX)(2:2)).EQ.3) THEN
+C             ! EVALUATE PUTEOF TO TERMINATE FILE, SWITCH NAME
+              IF(.NOT.(PUTEOF(CMDSTR(1:8))))  THEN
+                REPORT = 'CAN''T SAVE FILE.$$'
+                STATE = ABORT
+              END IF
+            ELSE IF (PACKET(PX)(5:5).EQ.'D') THEN
+C                                          THIS FILE TO BE DISCARDED.
+              CALL KFCLOSE()
+              CALL LOGLINE('INCOMING COPY DISCARDED BY REQUEST$$')
+            END IF
+            IF (STATE.NE.ABORT) THEN
+              STATE = HDR
+              SEQ = SEQ + 1
+              NTRIES = 0
+              CALL SENDACK(ACK,PSEQ,'Y')
+            END IF
+C                                           THEY LOST OUR ACK
+          ELSE IF (PTYPE .EQ.'F') THEN
+C                                           ACK AGAIN
+            CALL SENDACK(ACK,PSEQ,'Y')
+            NTRIES = 0
+C                                           PROBABLY 'E' OR 'B' PKT
+          ELSE
+           STATE = ABORT
+           IF(PTYPE.EQ.'E') CALL LOGPKT(PX)
+C                                           IF PTYPE
+          END IF
+C                                           TIMEOUT OR BAD PKT
+        ELSE
+C                                           NAK IT
+          CALL SENDACK(ACK,EXPECT,'N')
+C                                             IF STATUS
+        END IF
+C                                           IF NTRIES
+      END IF
+      RETURN
+C                                                   SUBROUTINE GETFILE
+      END
+C-CR.SEND-!
+      SUBROUTINE KTRANS()
+      IMPLICIT INTEGER(A-Z)
+C     ! FUNCTION : STATE-SWITCHER FOR SHIPPING FILES OUT.
+C     !            CALLED PROCEDURES CHANGE THE STATE. COMPLETE STATE
+C     !            OCCURS AFTER SENDEOF FINDS ARG LIST EMPTY, OR AFTER
+C     !            A CALLED PROCEDURE SIGNALS ABORT STATE.
+C     ! CALLED PROCEDURES : SENDINIT, SENDHDR, SENDFILE, SENDEOF,
+C     !                     SENDBRK, ERRORPKT, LOGLINE, KFCLOSE, KGETIME
+C     !                     TDISP
+      PARAMETER( INIT = 1, HDR = 2, DATA = 3, FEOF = 4, BREAK = 5,
+     !           ABORT = 6, COMPLETE = 7 )
+      PARAMETER( SECONDS = 1000000, MS = 1000)
+      CHARACTER CMDSTR*80, REPORT*80
+      LOGICAL LASTBUF, SAVEDCR
+      COMMON /STATES/ STATE, RETRY, NTRIES, OLDTRIES, SEQ
+     !                 , DELAY, STDELAY, TCPU, TIO
+      COMMON /PKSTATS/   BPTR, BUFHOLD, MAXPACK, LASTBUF
+     !                 , RPCOUNT, SAVEDCR
+      COMMON /STRINGS/ CMDSTR, CMDLEN, REPORT
+      CHARACTER*4 CPR, TPR
+      CHARACTER *4 DVAL
+      COMMON /ITLINK/ NTERM
+      REAL TCB, TCE,  TKB, TKE
+      NTRIES = 0
+      DELAY = STDELAY
+C                                          GET INITIAL TRANS. TIMES
+      CALL CTIME(TKB,TCB)
+      STATE = INIT
+C---
+C--  pPiBqzKA CETEBOgO KAHAlA
+C
+C     NTERM = ITCONB(-1)
+100   CONTINUE
+      IF ( STATE .NE. COMPLETE ) THEN
+        IF (STATE .EQ. INIT) THEN
+          CALL SENDINIT
+        ELSE IF (STATE .EQ. HDR) THEN
+          CALL SENDHDR
+        ELSE IF (STATE .EQ. DATA) THEN
+          CALL SENDFILE
+        ELSE IF (STATE .EQ. FEOF) THEN
+          CALL SENDEOF
+        ELSE IF (STATE .EQ. BREAK) THEN
+          CALL SENDBRK
+        ELSE IF (STATE .EQ. ABORT) THEN
+          CALL ERRORPKT(REPORT)
+          CALL LOGLINE(REPORT)
+C                                  CLOSE SEND FILE
+          CALL KFCLOSE()
+          STATE = COMPLETE
+        ELSE
+          REPORT = 'UNRECOGNIZED STATE.$$'
+          STATE = ABORT
+        END IF
+        GO TO 100
+C                                    IF NOT COMPLETE
+      END IF
+C     IF (NTERM .NE. 999) ANS=ITDISB(NTERM)
+      CALL TDISP(SEQ+1,TPR)
+      CALL LOGLINE('NUMBER OF PACKETS SENT = '//TPR//'$$')
+C     !  LOG ELAPSED TIMES FOR TRANS.
+C                                         GET TIMES USED TILL NOW
+      CALL CTIME(TKE,TCE)
+C                                         PRINTABLE CPU TIME IN SEC
+      CALL TDISP(INT((TCE-TCB)*100.), CPR)
+      CALL TDISP(INT((TKE-TKB)*100.), TPR)
+      CALL LOGLINE('TR TIME : CPU ='//CPR
+     !     //'E-2  SEC, "K" ='//TPR//'E-2 SEC$$')
+      RETURN
+C                                  SUBROUTINE KTRANS
+      END
+      SUBROUTINE SENDINIT()
+      IMPLICIT INTEGER(A-Z)
+C     !  FUNCTION :  THIS ROUTINE SENDS AN 'S' PKT WITH OUR PARAMS
+C     !              AND LOOKS FOR PARTNER'S PARAMS IN HIS ACK.
+C     !              IF VALID ACK IS REC'D AND WE CAN COMPLY WITH
+C     !              PARTNER'S SPECS., THEN STATE <== HDR;  ELSE IF
+C     !              WE CANT RESOLVE PARAMS OR WE DONT RECEIVE ACK IN
+C     !              REQUISITE NUM. TRIES, STATE <== ABORT.
+C     !  CALLED PROCEDURES :  ENCODE,SENDPKT, GETPKT, DECODE
+      PARAMETER( HDR = 2, BREAK = 5, ABORT = 6 )
+      PARAMETER( GOOD = 0, BAD = 1, TIMEOUT = 2, ESCAPE = 3 )
+      PARAMETER( THISPKT = 1, NXTPKT = 2 )
+C                                           ALLOW MORE TRIES FOR S PKT
+      PARAMETER( INITRY = 20 )
+      LOGICAL RESOLVE
+      CHARACTER PTYPE, KCHAR
+      CHARACTER CMDSTR*80, REPORT*80
+      CHARACTER *108 PACKET(2)
+      CHARACTER *4 DVAL
+      COMMON /STATES/ STATE, RETRY, NTRIES, OLDTRIES, SEQ,
+     !               DELAY, STDELAY
+      COMMON /GLOBALS/ RUNTYPE, NARGS, ARGS(10,2), THISARG
+      COMMON /STRINGS/ CMDSTR, CMDLEN, REPORT
+      COMMON/PACKETS/PACKET
+       IF (NTRIES .GE. INITRY) THEN
+C                                               RESTORE STD DELAY
+        DELAY = STDELAY
+        REPORT = 'CAN''T GET ACK FOR S PKT.$$'
+        STATE = ABORT
+      ELSE
+        NTRIES = NTRIES + 1
+C                                              IF 1ST TRY, PREPARE
+        IF (NTRIES .EQ. 1)  THEN
+C                                               ALLOW LONGER FOR S & F
+          CALL DISPLAY(' WAITING 10 SECONDS BEFOR SENDING.')
+          CALL WAIT(10.0)
+          DELAY = DELAY * 2
+C                                               MAKE AN S PKT
+          CALL ENCODE(THISPKT,0,'S')
+        END IF
+C                                               SEND OUR S PKT
+        CALL SENDPKT(THISPKT)
+C                                               LOOK FOR HIS ACK
+        CALL GETPKT(NXTPKT,STATUS)
+C                                               GOT A GOOD PKT
+        IF (STATUS .EQ. GOOD)  THEN
+          IF ((PACKET(NXTPKT) (4:4) .EQ. 'Y') .AND.
+     !     (PACKET(NXTPKT) (3:3) .EQ. ' '))  THEN
+C                                               DECODE HIS PARAMS
+            CALL DECODE(NXTPKT,RESOLVE)
+            IF (RESOLVE) THEN
+              STATE = HDR
+            ELSE
+              STATE = ABORT
+              REPORT = 'CANT RESOLVE INITIAL PARAMETERS.$$'
+            END IF
+          ELSE IF((PACKET(NXTPKT)(4:4).EQ.'N')
+     !         .AND.(PACKET(NXTPKT)(3:3).EQ.'!'))
+     !    THEN
+C                                           WE LOST THEIR PREVIOUS ACK
+            STATE = HDR
+          END IF
+          IF (STATE.EQ.HDR) THEN
+            SEQ = 1
+            NTRIES = 0
+            THISARG = 1
+C                                           IF STATE
+          END IF
+        ELSE IF (STATUS.EQ.ESCAPE) THEN
+          STATE = ABORT
+          REPORT = 'USER ESCAPE REQUEST.$$'
+C                                           IF STATUS - ELSE DONT CHANGE
+        END IF
+C                         IF NTRIES OK
+      END IF
+      RETURN
+C               SUBROUTINE SENDINIT
+      END
+      SUBROUTINE SENDHDR()
+      IMPLICIT INTEGER(A-Z)
+C     !  FUNCTION :  THIS ROUTINE SENDS A 'F' (FILE HEADER) PKT,
+C     !              AND ACCEPTS ITS ACK FROM THE OTHER KERMIT.
+C     !              THE SEND FILE IS OPENED AND BUFFERS INITIALIZED
+C     !              BEFORE THE FIRST ATTEMPT TO SEND THE PKT.
+C     !              IF A VALID ACK IS RECEIVED IN THE REQUISITE NUMBER
+C     !              OF TRIES, STATE <== DATA, ELSE STATE <== ABORT.
+C     !              DISCARD-TYPE ACK'S ARE RECOGNIZED IN THIS STATE.
+C     !  CALLED PROCEDURES : LOGLINE, KFOPEN, ERRORPKT, MAKEHDR,
+C     !                      UNCHAR, SENDPKT, GOTACK
+      CHARACTER *108 PACKET(2)
+      CHARACTER CMDSTR*80, REPORT*80
+      CHARACTER *34 FNAME
+      CHARACTER *9 MYPARMS,HISPARMS
+      CHARACTER*18 DIAGN
+      CHARACTER KCHAR, SIGNAL
+      LOGICAL LASTBUF
+      COMMON /RUNPARMS/ MYPARMS, HISPARMS
+      COMMON /UNITS/ TYPMED,LOGIOC,MAXZON,DIAGN
+      COMMON /STATES/ STATE, RETRY, NTRIES, OLDTRIES, SEQ,
+     !               DELAY, STDELAY
+      COMMON /GLOBALS/ RUNTYPE, NARGS, ARGS(10,2), THISARG
+      COMMON /STRINGS/ CMDSTR, CMDLEN, REPORT
+      COMMON /PACKETS/ PACKET, SIGNAL
+      COMMON /PKSTATS/ BPTR, BUFHOLD,  MAXPACK, LASTBUF, RPCOUNT
+      PARAMETER( HDR = 2, DATA = 3, FEOF = 4, ABORT = 6 )
+      PARAMETER( THISPKT = 1, ACK = 2 )
+      LOGICAL KFOPEN, GOTACK
+      IF (NTRIES .GE. RETRY) THEN
+        REPORT = 'CAN''T GET ACK FOR F PKT.$$'
+        STATE = ABORT
+      ELSE
+        NTRIES = NTRIES + 1
+        IF (NTRIES .EQ. 1) THEN
+C         !  DO FILE XFER INITIALIZATION ONCE,
+C         !  BEFORE SENDING 1ST 'F' PKT :
+          FNAME = CMDSTR (ARGS(THISARG,1):ARGS(THISARG,2))
+          IF (.NOT.(KFOPEN(FNAME)))  THEN
+            REPORT = 'CANT OPEN:' // FNAME(1:11)// DIAGN// '.$$'
+            STATE = ABORT
+            GO TO 800
+          ELSE
+            REPORT = 'OPENED SEND FILE: ' // FNAME(1:34) // '.$$'
+            CALL LOGLINE(REPORT)
+C                                           PREPARE THE 'F' PKT
+            CALL MAKEHDR(THISPKT,SEQ)
+C                                           DECLARE CHAR BUFFER EMPTY
+            BUFHOLD = 0
+            BPTR = 1
+C                                                   LAST DATA POS
+            MAXPACK = UNCHAR(HISPARMS(1:1)) - 4
+            IF (MYPARMS(3:3).NE.' ') THEN
+C               ! SITE DEPENDENCY : USE PKT LENGTH 2 LESS THAN PARTNER'S
+C               ! BUFSIZE, LEST ECHOBACK OF HIS PAD & EOL CHARS OVERFLOW
+C               ! HIS INPUT BUFFER
+                MAXPACK = MAXPACK - 2
+            END IF
+C                                           SET DISCARD SIGNAL OFF
+            SIGNAL = ' '
+C                                              SET EOF INDICATOR OFF
+            LASTBUF = .FALSE.
+C                                          INITIALIZE REPEAT COUNT
+            RPCOUNT = 0
+          END IF
+C                                      IF 1ST TRY
+        END IF
+C                                                    SEND AN F PKT
+        CALL SENDPKT(THISPKT)
+C                                          IF PARTNER ACKNOWLEDGES
+        IF (GOTACK(ACK,SEQ)) THEN
+          SEQ = SEQ + 1
+          NTRIES = 0
+C                                          NO COMPLICATIONS
+          IF (SIGNAL.EQ.' ')  THEN
+C                                          HDR ACKED, GO TO DATA STATE
+            STATE = DATA
+C                                          THE ACK WAS A DISCARD SIGNAL
+          ELSE
+C                                          GO DIRECTLY TO EOF STATE
+            STATE = FEOF
+C                                            IF SIGNAL
+          END IF
+C                                            IF GOTACK - ELSE NO CHANGE
+        END IF
+C                                   IF NTRIES
+      END IF
+800   CONTINUE
+C                                                     RESTORE STD. DELAY
+      IF (STATE .NE. HDR)  DELAY = STDELAY
+      RETURN
+C               SUBROUTINE SENDHDR
+      END
+      SUBROUTINE SENDFILE()
+      IMPLICIT INTEGER(A-Z)
+C     !  FUNCTION :  THIS ROUTINE SENDS A 'D' (DATA) PACKET AND
+C     !              LOOKS FOR AN ACK.  END OF FILE IS DETECTED
+C     !              UPON REPORT FROM MAKEDATA, THE DATA PACKET
+C     !              PREPARATION RTNE.  DISCARD-TYPE ACK'S ARE
+C     !              RECOGNIZED IN THIS STATE.
+C     !  CALLED PROCEDURES : MAKEDATA, SENDPKT, GOTACK
+      PARAMETER( THISPKT = 1, ACK = 2 )
+      PARAMETER( DATA = 3, FEOF = 4, ABORT = 6 )
+      PARAMETER( OK = 0, LASTPKT = 1, NOPKT=3, ERR = 4 )
+      LOGICAL GOTACK
+      CHARACTER *108 PACKET(2)
+      CHARACTER SIGNAL
+      CHARACTER KCHAR, CKSUM
+      CHARACTER CMDSTR*80, REPORT*80
+      COMMON /STATES/ STATE, RETRY, NTRIES, OLDTRIES, SEQ
+     !              , DELAY, STDELAY
+      COMMON /PACKETS/ PACKET, SIGNAL
+      COMMON /STRINGS/ CMDSTR, CMDLEN, REPORT
+      IF (NTRIES.GE.RETRY)  THEN
+        REPORT = 'CAN''T GET ACK FOR DATA PKT.$$'
+        STATE = ABORT
+      ELSE
+        NTRIES = NTRIES + 1
+C                                           SET UP PACKET 1ST TIME
+        IF (NTRIES.EQ.1) THEN
+C                                           GET PACKETFULL
+          CALL MAKEDATA(SEQ,RESULT)
+          IF (RESULT.EQ.NOPKT) THEN
+            STATE = FEOF
+            NTRIES = 0
+            GO TO 400
+          ELSE IF (RESULT.EQ.ERR) THEN
+            STATE = ABORT
+            GO TO 400
+C                                           IF NTHG TO SEND
+          END IF
+C                                           IF 1ST TRY
+        END IF
+C                                           SEND DATA PACKET(N)
+        CALL SENDPKT(THISPKT)
+C                                           IF PARTNER ACKNOWLEDGES
+        IF (GOTACK(ACK,SEQ))  THEN
+          SEQ = SEQ + 1
+          NTRIES = 0
+          IF ((SIGNAL.NE.' ').OR.(RESULT.EQ.LASTPKT)) THEN
+            STATE = FEOF
+C                                            IF SIGNAL - ELSE DONT CHANG
+          END IF
+C                                            IF GOTACK - ELSE DONT CHANG
+        END IF
+C                                           IF NTRIES
+      END IF
+400   CONTINUE
+      RETURN
+C              ! SUBROUTINE  SENDHDR
+      END
+      SUBROUTINE SENDEOF()
+      IMPLICIT INTEGER(A-Z)
+C     !  FUNCTION :  SENDS A 'Z' PKT INDICATING END-OF-FILE.
+C     !              IF THIS STATE WAS ENTERED IN RESPONSE TO AN
+C     !              INTERRUPT-REQUEST (OTHER KERMIT'S DISCARD-TYPE
+C     !              ACK FOR A PREVIOUS PKT) OR IF NO MORE FILES TO
+C     !              SEND, THEN STATE <== BREAK,  ELSE STATE <== HDR.
+C     !              DISCARD-TYPE ACK'S ARE RECOGNIZED IN THIS STATE.
+C     !  CALLED PROCEDURES :  LOGLINE, SENDPKT, GOTACK, KFCLOSE
+      PARAMETER( HDR = 2, BREAK = 5, ABORT = 6, COMPLETE = 7 )
+      PARAMETER( THISPKT=1, ACK=2 )
+      PARAMETER( GOOD = 0, BAD = 1, TIMEOUT = 2 )
+      LOGICAL GOTACK, DEBUG
+      CHARACTER *108 PACKET(2)
+      CHARACTER SIGNAL
+      CHARACTER CMDSTR*80, REPORT*80
+      COMMON /STATES/ STATE, RETRY, NTRIES, OLDTRIES, SEQ
+     !               , DELAY, STDELAY
+      COMMON /GLOBALS/ RUNTYPE, NARGS, ARGS(10,2), THISARG
+      COMMON /PACKETS/ PACKET, SIGNAL
+      COMMON /STRINGS/ CMDSTR, CMDLEN, REPORT
+      COMMON /ENVIRON/ DEBUG
+      IF (NTRIES .GE. RETRY) THEN
+        REPORT = 'CAN''T GET ACK FOR Z PKT.$$'
+        STATE = ABORT
+      ELSE
+        NTRIES = NTRIES + 1
+        IF (NTRIES .EQ. 1)  CALL MAKEOF(THISPKT,SEQ)
+        CALL SENDPKT(THISPKT)
+        IF (GOTACK(ACK,SEQ))  THEN
+          NTRIES = 0
+C                             CLOSE THE FILE JUST SENT
+          CALL KFCLOSE
+          IF (DEBUG)  CALL LOGLINE('CLOSE SEND FILE$$')
+          SEQ = SEQ + 1
+          IF ((THISARG .LT. NARGS).AND.(SIGNAL.NE.'Z'))  THEN
+C                                       INDEX NEXT FNAME
+            THISARG = THISARG + 1
+            STATE = HDR
+C                                   NO MORE FILES TO SEND
+          ELSE
+            STATE = BREAK
+          END IF
+C                                   IF GOTACK
+        END IF
+      END IF
+      RETURN
+C               SUBROUTINE SENDEOF
+      END
+      SUBROUTINE SENDBRK()
+      IMPLICIT INTEGER(A-Z)
+C     !  FUNCTION :  SENDS A 'B' (BREAK) PACKET INDICATING COMPLETION
+C     !              OF CURRENT TRANSMISSION.  IF VALID ACK IS RECEIVED
+C     !              STATE <== COMPLETE, ELSE STATE <== ABORT.
+C     !  CALLED PROCEDURES :  KCHAR, SENDPKT, GETPKT
+      CHARACTER KCHAR, MYSEQ
+      CHARACTER *108 PACKET(2)
+      CHARACTER CMDSTR*80, REPORT*80
+      COMMON /STATES/ STATE, RETRY, NTRIES, OLDTRIES, SEQ
+     !              , DELAY, STDELAY
+      COMMON /PACKETS/ PACKET
+      COMMON /STRINGS/ CMDSTR, CMDLEN, REPORT
+      PARAMETER( ABORT = 6, COMPLETE = 7 )
+      PARAMETER( THISPKT = 1, ACK = 2)
+      PARAMETER( GOOD = 0, BAD = 1, TIMEOUT = 2 )
+      IF (NTRIES .EQ. RETRY) THEN
+        REPORT = 'CAN''T GET ACK FOR BREAK PKT.$$'
+        STATE = ABORT
+      ELSE
+        NTRIES = NTRIES + 1
+        IF (NTRIES .EQ. 1)  CALL MAKEBRK(THISPKT,SEQ)
+        CALL SENDPKT(THISPKT)
+        CALL GETPKT(ACK,STATUS)
+        IF (STATUS .EQ. GOOD)  THEN
+          MYSEQ = KCHAR(MOD(SEQ,64))
+          IF ((PACKET(ACK) (4:4) .EQ. 'Y') .AND.
+     !        (PACKET(ACK) (3:3) .EQ. MYSEQ))
+     !    THEN
+            STATE = COMPLETE
+C                           ELSE NAK, WRONG ACK - DONT CHANGE
+          END IF
+C                          IF STATUS ...  ELSE DONT CHANGE STATE
+        END IF
+      END IF
+      RETURN
+C                SUBROUTINE SENDBRK
+      END
+      SUBROUTINE ENCODE(PINDEX, SEQ,TYPE)
+      IMPLICIT INTEGER(A-Z)
+      INTEGER PINDEX, SEQ
+C     ! FUNCTION : PUTS CURRENT BESM-6 PARAMETERS INTO AN 'S' PACKET
+C     !             (IF CALLED IN SEND STATE) OR A 'Y' PACKET
+C     !             (IF CALLED FROM RECEIVE STATE).
+C     ! CALLED PROCEDURES : KCHAR, CKSUM
+      CHARACTER KCHAR, CKSUM, TYPE
+      CHARACTER *108 PACKET(2)
+      CHARACTER *9 MYPARMS, HISPARMS
+      COMMON /PACKETS/ PACKET
+      COMMON /RUNPARMS/ MYPARMS, HISPARMS
+      PARAMETER( SOH = 1, CR = 13, NUMPARM = 9 )
+C                                                    SET COUNT
+      PACKET(PINDEX) (2:2) = KCHAR( NUMPARM + 3 )
+      PACKET(PINDEX) (3:3) = KCHAR(MOD(SEQ,64))
+C                                                 SET TYPE
+      PACKET(PINDEX) (4:4) = TYPE
+      PACKET(PINDEX) (5:13) = MYPARMS(1:9)
+      PACKET(PINDEX)(14:14) = CKSUM(PACKET(PINDEX))
+      RETURN
+C                SUBROUTINE ENCODE
+      END
+      SUBROUTINE MAKEHDR(PINDEX,SEQ)
+      IMPLICIT INTEGER(A-Z)
+      INTEGER PINDEX, SEQ
+C     ! FUNCTION : MAKES AN 'F' (HEADER) PACKET,  GETTING FILE NAME
+C     !            FROM USER'S INPUT LINE, SAVED IN CMDSTR.
+C     ! CALLED PROCEDURES : KCHAR, CKSUM
+      CHARACTER *80 CMDSTR
+      CHARACTER *108 PACKET(2)
+      COMMON /STRINGS/ CMDSTR
+      COMMON /GLOBALS/ RTYPE,N, ARGS(10,2), THISARG
+      COMMON /PACKETS/ PACKET
+      CHARACTER KCHAR,CKSUM
+      ARGLEN = ARGS(THISARG,2) - ARGS(THISARG,1) + 2
+      PACKET (PINDEX) (2:2) = KCHAR(ARGLEN+3)
+      PACKET (PINDEX) (3:3) = KCHAR(MOD(SEQ,64))
+      PACKET (PINDEX) (4:4) = 'F'
+      PACKET(PINDEX)(5:4+ARGLEN) =
+     !    'Z'//CMDSTR (ARGS(THISARG,1) : ARGS(THISARG,2))
+      PACKET(PINDEX) (5+ARGLEN:5+ARGLEN) = CKSUM(PACKET(PINDEX))
+      RETURN
+C               SUBROUTINE MAKEHDR
+      END
+      SUBROUTINE MAKEOF(PINDEX,SEQ)
+      IMPLICIT INTEGER(A-Z)
+      INTEGER PINDEX, SEQ
+C     ! FUNCTION : IF SIGNAL IS THE NORMAL BLANK, MAKES A STD
+C     !            'Z' PKT INDICATING NORMAL EOF,  ELSE
+C     !            MAKES A DISCARD-TYPE 'Z' PACKET.
+C     ! CALLED PROCEDURES : KCHAR, CKSUM
+      CHARACTER *108 PACKET(2)
+      CHARACTER SIGNAL, CX
+      COMMON /PACKETS/ PACKET, SIGNAL
+      CHARACTER KCHAR,CKSUM
+C                                         NORMAL EOF - NO DATA FIELD.
+      IF (SIGNAL.EQ.' ') THEN
+        PACKET (PINDEX) (2:2) = KCHAR(3)
+C                                         INTERRUPT SIGNAL - NEED DATA F
+      ELSE
+        PACKET(PINDEX)(2:2) = KCHAR(4)
+      END IF
+      PACKET (PINDEX) (3:3) = KCHAR(MOD(SEQ,64))
+      PACKET (PINDEX) (4:4) = 'Z'
+C                                         IT'S A NORMAL EOF
+      IF (SIGNAL.EQ.' ') THEN
+        PACKET(PINDEX)(5:5) = CKSUM(PACKET(PINDEX))
+C                                         WE'VE RECEIVED INTERRUPT SIGNA
+      ELSE
+C                                         TELL THEM TO CLOSE AND DISCARD
+        PACKET(PINDEX)(5:5) = 'D'
+        PACKET(PINDEX)(6:6) = CKSUM(PACKET(PINDEX))
+      END IF
+      RETURN
+C              SUBROUTINE MAKEOF
+      END
+      SUBROUTINE MAKEBRK(PINDEX,SEQ)
+      IMPLICIT INTEGER(A-Z)
+      INTEGER PINDEX, SEQ
+      CHARACTER *108 PACKET(2)
+      COMMON /PACKETS/ PACKET
+      CHARACTER KCHAR,CKSUM
+      PACKET (PINDEX) (2:2) = KCHAR(3)
+      PACKET (PINDEX) (3:3) = KCHAR(MOD(SEQ,64))
+      PACKET (PINDEX) (4:4) = 'B'
+      PACKET(PINDEX)(5:5) = CKSUM(PACKET(PINDEX))
+      RETURN
+C               SUBROUTINE MAKEBRK
+      END
+      SUBROUTINE DECODE(PINDEX,OK)
+      IMPLICIT INTEGER(A-Z)
+      INTEGER PINDEX
+C     ! FUNCTION : SAVES PARTNER'S PARAMS & RESOLVES WITH OURS.
+C     !            RETURNS OK = .TRUE. IFF WE CAN COMPLY WITH
+C     !            PARTNER'S PARAMETERS, ELSE OK = .FALSE.
+C     ! CALLED PROCEDURES : KCHAR, UNCHAR, LOGLINE
+      LOGICAL OK, DEBUG, NATIVE, QUOTE8, REPEAT
+      CHARACTER KCHAR
+      CHARACTER *108 PACKET(2)
+      CHARACTER CMDSTR*80, REPORT*80
+      CHARACTER *9 MYPARMS, HISPARMS, DEFAULT
+      COMMON /RUNPARMS/ MYPARMS, HISPARMS, DEFAULT
+      COMMON /ENVIRON/ DEBUG, NATIVE, QUOTE8, REPEAT
+      COMMON /PACKETS/ PACKET
+      COMMON /STRINGS/ CMDSTR, CMDLEN, REPORT
+C                                                   INDEX LAST DATA CHAR
+      HISLAST = UNCHAR(PACKET(PINDEX)(2:2)) + 1
+      IF (HISLAST .GT. 4) THEN
+        IF (DEBUG) THEN
+          REPORT = 'PARTNER''S PARAMS RECEIVED: '//
+     !    PACKET(PINDEX)(5:HISLAST) //'.$$'
+          CALL LOGLINE(REPORT)
+        END IF
+        DO 50 I=5, HISLAST
+          J = I-4
+          IF (PACKET(PINDEX)(I:I) .NE. ' ') THEN
+C                                                  SAVE CHAR HE ASKS FOR
+            HISPARMS(J:J) = PACKET(PINDEX)(I:I)
+          ELSE
+            HISPARMS(J:J) = DEFAULT(J:J)
+          END IF
+50      CONTINUE
+      END IF
+C     !  USE STANDARD DEFAULTS FOR HIS OMISSIONS :
+C                                      IF HE DIDNT SPECIFY ALL
+      IF (HISLAST .LT. 13)  THEN
+        HISPARMS(HISLAST-3:9) = DEFAULT(HISLAST-3:9)
+      END IF
+C                                           START OPTIMISTICALLY
+      OK = .TRUE.
+C     !  TREAT PARTNER'S BUFSIZE PARAM AS MAX COUNT HE WANTS :
+C                                          PACKET LENGTH HE WANTS
+      HISBUF = UNCHAR(HISPARMS(1:1)) + 2
+C                                          NO. PAD CHARS HE WANTS
+      HISNPAD = UNCHAR(HISPARMS(3:3))
+C     ! NOW MAKE SURE WE AGREE ON THINGS ..
+      IF ((HISPARMS(7:7).EQ.'&').OR.(HISPARMS(7:7).EQ.'Y'))
+     !THEN
+        QUOTE8 = .TRUE.
+      ELSE
+        QUOTE8 = .FALSE.
+      END IF
+C                                     I ONLY DO 1-CHAR CHECKS
+      HISPARMS(8:8) = '1'
+      IF ((HISPARMS(9:9).EQ.'-').AND.(MYPARMS(9:9).EQ.'-')) THEN
+C                                     WE BOTH AGREE TO DO 8TH BITS
+        REPEAT = .TRUE.
+      ELSE
+        REPEAT = .FALSE.
+      END IF
+C                                  ! CALL THAT A PACKET  ?
+       IF (HISBUF .LT. 6)   THEN
+          OK = .FALSE.
+       ELSE IF (HISBUF + HISNPAD .GT. 108)  THEN
+          OK = .FALSE.
+       END IF
+C     ! DECODE HIS EOL
+C                                                    SAVE TRUE EOL CHAR
+      HISPARMS(5:5) = CHAR(UNCHAR(HISPARMS(5:5)))
+      RETURN
+C                 SUBROUTINE DECODE
+      END
+      SUBROUTINE ERRORPKT(MSG)
+      IMPLICIT INTEGER(A-Z)
+C     ! FUNCTION : FORMATS AN ERROR PACKET W/MSG ARG TEXT
+C     ! CALLED PROCEDURES : KCHAR, CKSUM
+      PARAMETER (THISPKT = 1, SOH=01 )
+      CHARACTER *40 MSG
+      CHARACTER *108 PACKET(2)
+      CHARACTER KCHAR, CKSUM
+      COMMON /STATES/ STATE, RETRY, NTRIES, OLDTRIES, SEQ
+      COMMON /PACKETS/ PACKET
+C                               LOOK FOR A DELIMITER
+      K = INDEX(MSG,'.')
+C                                  IF NONE - XFER MAX
+      IF (K.EQ.0)  K = 40
+      PACKET(THISPKT)(2:2) = KCHAR(K+3)
+C                                            NO SEQ.
+      PACKET(THISPKT)(3:3) = ' '
+C                                            TYPE IS ERROR
+      PACKET(THISPKT)(4:4) = 'E'
+      PACKET(THISPKT)(5:4+K) = MSG(1:K)
+      PACKET(THISPKT)(5+K:5+K) = CKSUM(PACKET(THISPKT))
+      CALL SENDPKT(THISPKT)
+      RETURN
+C                SUBROUTINE ERRORPKT
+      END
+C-CR.STDUTILS-!
+      CHARACTER FUNCTION KCHAR(N)
+C     ! MAPS AN INTEGER N=(0,136)OCTAL ONTO THE NTH CHARACTER
+C     ! IN THE ASCII PRINTABLE RANGE : 40,176 OCTAL
+CD       PRINT 777,N
+CD777   FORMAT(' KCHAR: N= ',I4)
+        KCHAR = CHAR( N + 32 )
+        RETURN
+      END
+      CHARACTER FUNCTION KCTL(N)
+C     ! FUNCTION : MAPS TRUE CTL CHAR (ASCII 000 - 037) ONTO UNIQUE
+C     !            PRINTABLE REPRESENTATION.
+      CHARACTER N
+      CHARACTER N1
+      N1 = N
+CD    KCTL = CHAR( ICHAR(N) .XOR. 100B)
+      KCTL = CHAR(IBIT(BIT(ICHAR(N1)) .BEOR. O'0000000000000100'))
+      RETURN
+      END
+      INTEGER FUNCTION UNCHAR(N)
+C     ! FUNCTION : MAPS PRINT CHAR ONTO DECODED OCTAL
+      CHARACTER N
+        UNCHAR = ICHAR(N) - 32
+      RETURN
+      END
+      CHARACTER FUNCTION CKSUM(CPKT)
+      IMPLICIT INTEGER(A-Z)
+C     !FUNCTION : COMPUTES TYPE 1 CHECKSUM FOR ARGUMENT PKT
+C     ! CALLED RTNES : UNCHAR, KCHAR
+      CHARACTER KCHAR
+      CHARACTER *108 CPKT
+C                                       DECODE TO TRUE COUNT
+      COUNT = UNCHAR(CPKT(2:2))
+C                      INITIALIZE
+      SUM = 0
+      DO 100 I=2,COUNT + 1
+C                                       ADD CODED CHAR VALUE
+        SUM = SUM + ICHAR(CPKT(I:I))
+100   CONTINUE
+CD    SUM = (SUM + SHIFTR( (SUM .AND. 300B), 6) ) .AND. 077B
+CD    SUM = (SUM + ((SUM .AND. 300B)/64 ) .AND. 077B)
+      SUM = LAND( (SUM + LAND(SUM,192)/64), 63)
+      CKSUM = KCHAR(SUM)
+      RETURN
+      END
+      SUBROUTINE STDNAME(STRING)
+C     IMPLICIT INTEGER(A-Z)
+C     !  FUNCTION : CONVERTS INCOMING FILE NAME FROM UPPERCASE TO LOWER,
+C     !            AND IF THERE IS A TRAILING DOT, BUT NO SUFFIX, BLANKS
+C     !            OUT THE DOT.
+C     CHARACTER*8 STRING
+C     PARAMETER(DOT=O'0000000000000056')
+C     PARAMETER(DOT=                46 )
+C     DO 10 I=1,8
+C       CVAL = ICHAR(STRING(I:I))
+C       IF ((CVAL.GE.101B).AND.CVAL.LE.132B))
+C       IF ((CVAL.GE.65) .AND. (CVAL.LE.90))
+C                                   32 = 040B   CONVERT TO LOWER CASE
+C         STRING(I:I) = CHAR(CVAL+32)
+C       END IF
+C10   CONTINUE
+C     DX = INDEX(STRING(1:8),CHAR(DOT))
+C                                           FILE NAME HAS A DOT
+C     IF (DX.GT.0) THEN
+C       !  SEE IF THE DOT IS FOLLOWED BY A SUFFIX :
+C       IF (DX.EQ.8) THEN
+C                                           BLANK OUT THE DOT
+C         STRING(DX:DX) = ' '
+C       ELSE IF (STRING(DX+1:DX+1).EQ.' ') THEN
+C         STRING(DX:DX) = ' '
+C                                           IF NO SUFFIX FOLLOWS THE DOT
+C       END IF
+C       ! ELSE LEAVE DOT AND SUFFIX IN FILE NAME
+C                                           IF FILE NAME HAS EMBEDDED DO
+C     END IF
+      RETURN
+      END
+      SUBROUTINE TDISP(VALUE,PVAL)
+      IMPLICIT INTEGER(A-Z)
+      INTEGER VALUE
+C     ! FUNCTION : CONVERTS INTEGER VALUE TO ASCII EQUIVALENT
+      CHARACTER*4 PVAL
+      IF (VALUE.GT.9999)  THEN
+        PVAL(1:4) = ' BIG'
+      ELSE
+C       P2 = VALUE/10
+        P1 = VALUE
+        P2 = P1/10
+        P3 = P2/10
+        P4 = P3/10
+        PVAL(1:2) = CHAR(P4+48)//CHAR(MOD(P3,10)+48)
+        PVAL(3:3) =  CHAR(MOD(MOD(P2,100),10)+48)
+        PVAL(4:4) =  CHAR(MOD(MOD(MOD(P1,1000),100),10)+48)
+      END IF
+70    RETURN
+C                                           SUBROUTINE TDISP
+      END
+      SUBROUTINE UNDISP(STR,VAL,CODE)
+      IMPLICIT INTEGER(A-Z)
+      INTEGER VAL
+C     ! FUNCTION : CONVERTS 2-DIGIT ASCII STRING TO NUMERIC VALUE
+      CHARACTER *2 STR
+      LOGICAL CODE
+      IF ((STR(1:1).GE.'0').AND.(STR(1:1).LE.'9').AND.
+     !    (STR(2:2).GE.'0').AND.(STR(2:2).LE.'9')) THEN
+        VAL = 10*(ICHAR(STR(1:1))-48) + ICHAR(STR(2:2)) - 48
+        CODE = .TRUE.
+      ELSE
+        VAL = 0
+        CODE = .FALSE.
+      END IF
+      RETURN
+C                                            SUBROUTINE UNDISP
+      END
+      SUBROUTINE INITLOG(STATUS)
+      IMPLICIT INTEGER(A-Z)
+      CHARACTER *108 PACKET(2)
+      CHARACTER *80 LOGIT
+      CHARACTER SIGNAL
+      LOGICAL STATUS, FEXIST, FOPEN
+      COMMON /UNITS/ FDB(8), NZONE,  LUNLOG
+      COMMON /PACKETS/ PACKET,SIGNAL
+CD... INQUIRE(IOSTAT=IOS,EXIST=FEXIST,OPENED=FOPEN,FILE='KMTLOG')
+CD... IF ((IOS.NE.0).OR.( FEXIST.AND.FOPEN)) THEN
+CD...   STATUS = .FALSE.
+CD...   GO TO 100
+CD... ELSE
+CD...   IF (FEXIST) THEN
+CD...     CALL DESTROY(LUNLOG,'KMTLOG',0,DSTAT)
+CD...     IF (DSTAT.NE.0) THEN
+CD...       STATUS = .FALSE.
+CD...       GO TO 100
+CD...     END IF
+CD...   END IF
+CD...   OPEN(UNIT=LUNLOG,IOSTAT=IOS,FILE='KMTLOG',STATUS='NEW')
+CD...   IF (IOS.NE.0) THEN
+CD...     STATUS = .FALSE.
+CD...     GO TO 100
+CD...   ELSE
+CD...     STATUS = .TRUE.
+CD...   END IF
+CD... END IF
+        LOGIT = '*** pPOTOKOl PAbOTy CiCTEMy KERMIT-B6 ***.'
+        PRINT 1000,LOGIT
+ 1000 FORMAT(' *** LOG ***  ',7A6)
+        STATUS = .TRUE.
+      RETURN
+      END
+      SUBROUTINE LOGLINE(LOGIT)
+C     ! FUNCTION : WRITES CALLING STRING ARGUMENT ONTO STD LOGFILE.
+C     !            USES 1ST 40 CHARS IF NO '$$' TERMINATOR IN STRING.
+      IMPLICIT INTEGER (A-Z)
+      CHARACTER*80 LOGIT
+      CHARACTER*80 WRKLINE
+      LOGICAL LOGGING,DEBUG,NATIVE,QIOTE8,REPEAT,ECHO
+      COMMON /ENVIRON/ DEBUG,NATIVE,QUOTE8,REPEAT,WINDOW,ECHO
+     !,                LOGGING
+      DIMENSION WRK(15)
+      EQUIVALENCE (WRK,WRKLINE)
+      IF (LOGGING)  THEN
+        K = INDEX(LOGIT,'$$')
+        IF ( K .EQ. 0 )  THEN
+C                                          NO TERMINATOR, USE DEFAULT
+          K = 40
+        ELSE
+          K = K-1
+        END IF
+CD..    WRITE(UNIT=LOGIOC,FMT=*) LOGIT(1:K)
+        WRKLINE = LOGIT(1:K)
+C       CALL DIALOG(WRKLINE,-K,-1)
+        L = (K+5)/6
+        PRINT 1000,(WRK(J),J=1,L)
+ 1000 FORMAT(' *** LOGLIN *** ',14A6)
+      END IF
+      RETURN
+      END
+      SUBROUTINE LOGPKT(PX)
+C     ! FUNCTION : WRITES THE PACKET INDEXED IN CALLING ARGUMENT
+C     !            ONTO STD LOGFILE.  THIS ROUTINE IS CALLED FROM
+C     !            THE SENDPKT AND GETPKT ROUTINES IF THE DEBUG
+C     !            OPTION IS ON.
+C                                          NUMBER OF CHARS. TO LOG
+      IMPLICIT INTEGER (A-Z)
+      DIMENSION WRK(19)
+      CHARACTER*114 WRKLINE
+      LOGICAL LOGGING,DEBUG,NATIVE,QUOTE8,REPEAT,ECHO
+      EQUIVALENCE (WRK,WRKLINE)
+      COMMON /ENVIRON/ DEBUG,NATIVE,QUOTE8,REPEAT,WINDOW,ECHO
+     !,                LOGGING
+      COMMON /PACKETS/ PACKET
+      CHARACTER*108 PACKET(2)
+      IF (LOGGING) THEN
+      K = UNCHAR(PACKET(PX)(2:2)) + 2
+CD      WRITE(UNIT=LUNLOG,FMT=*) PACKET(PX)(1:K)
+      WRKLINE = PACKET(PX)(2:K)
+      L = (K+5)/6
+      PRINT 1000,(WRK(I),I=1,L)
+ 1000 FORMAT(' *** LOGPKT *** ',16A6)
+      END IF
+      RETURN
+      END
+      SUBROUTINE LOGGER
+      RETURN
+      END
+      SUBROUTINE ENDLOG
+      IMPLICIT INTEGER (A-Z)
+      LOGICAL LOGGING,DEBUG,NATIVE,QUOTE8,REPEAT,ECHO
+      COMMON /ENVIRON/ DEBUG,NATIVE,QUOTE8,REPEAT,WINDOW,ECHO
+     !,                LOGGING
+      CHARACTER*80 TEXT
+      TEXT = '**** KOHEc pPOTOKOlA KERMIT-B6 ****'
+      PRINT 1000,TEXT
+ 1000 FORMAT(' *** LOG ***  ',6A6)
+      LOGGING = .FALSE.
+      RETURN
+      END
+*ASSEM
+ KERBSM:,NAME,
+ *BUFFER*:,PC,1024
+ KERMIT:,SUBP,
+ ,CALL,KERMIT
+ ,END,
+*FOREX
+      SUBROUTINE TIMPRT(KOD,LSTR)
+C.
+C...   SUBROUTINE TIMPRT (KOD,LSTR) - pE~ATx zACE~EK BPEMEHi HA BBOd/ByB
+C.
+C.     pAPAMETPy:
+C.     ---------
+C.     KOD  -  6-Ti CiMBOlxHAq CTPOKA - iMq zACE~Ki BPEMEHi
+C.     LSTR -  dliHA pOPcii iHfOPMAcii B bAjTAX
+C.
+C.    ------------------
+C.    pPiME~AHiE: dAHHAq pPOgPAMMA PAbOTAET CO CpEciAlxHOj BEPCiEj
+C.                p/pPOgPAMM BINARY-ObMEHA. CTAHdAPTHAq BEPCiq
+C.                |TiX pPOgPAMM dElATx zACE~Ki BPEMEHi HE YMEET i
+C.                ClEdOBATElxHO,PAbOTA dAHHOj p/pPOgPAMMy bECCMyClEHA
+C. -------------------------------------------------------------------
+      CHARACTER*6 KOD
+      COMMON /MOMENT/ MOM(15)
+      DATA K/0/
+     *,   MOM / 15*0/
+      IF (LSTR .GT. 0) THEN
+        TIMINP = (MOM(1) - MOM(7))*1.0E-6
+        BAUNIN =LSTR/TIMINP
+        TIMOUT = (MOM(1) - MOM(2))*1.0E-6
+        BAUNOT = LSTR/TIMOUT
+        IF (KOD .EQ. 'GETPKT') THEN
+          PRINT 1000,KOD,TIMINP,BAUNIN
+        ELSE IF (KOD .EQ. 'SENDPK') THEN
+          PRINT 2000,KOD,TIMOUT,BAUNOT
+        ELSE
+          PRINT 3000,KOD,TIMINP,BAUNIN,TIMOUT,BAUNOT
+        END IF
+      END IF
+ 1000 FORMAT(' ** TIMPRT ** : ',A6,' BP.BBOdA=',F9.4,' CKOPOCTx BBOdA'
+     *       ,'=',F9.4,' CiMB/C')
+ 2000 FORMAT(' ** TIMPRT ** : ',40X,A6,
+     *       ' -- BP.ByBOdA=',F9.4,' CKOPOCTx ByBOdA=',
+     *        F9.4,' CiMB/C')
+ 3000 FORMAT(' ** TIMPRT ** :',A6,'INPUT - TIM/BAUND=',2F9.4,' OUTPUT -'
+     *       ,' TIM/BAUND=',2F9.4)
+       RETURN
+       END

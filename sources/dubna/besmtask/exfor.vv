@@ -1,0 +1,8249 @@
+*     BEPCiq EXFOR'A HA 8 dEKAbPq 80 g.
+*
+*     O C H O B H y E   b l O K i
+ *FUN:,NAME,
+C
+C*****   TAblicA BCTPOEHHyX fYHKcij
+C
+ :,,
+ ,,END-BEG
+ BEG:,BSS,
+ ,ISO,6HSQRT
+ ,ISO,6HSIN
+ ,ISO,6HCOS
+ ,ISO,6HATAN
+ ,ISO,6HASIN
+ ,ISO,6HALOG
+ ,ISO,6HEXP
+ ,BSS,
+ ,ISO,6HAMAX1
+ ,ISO,6HAMAX0
+ ,ISO,6HMAX1
+ ,ISO,6HMAX0
+ ,ISO,6HAMIN1
+ ,ISO,6HAMIN0
+ ,ISO,6HMIN1
+ ,ISO,6HMIN0
+ ,BSS,
+ ,ISO,6HABS
+ ,ISO,6HIABS
+ ,ISO,6HSIGN
+ ,ISO,6HISIGN
+ ,ISO,6HFLOAT
+ ,ISO,6HIFIX
+ ,ISO,6HINT
+ ,ISO,6HAINT
+ ,ISO,6HREAL
+ ,ISO,6HAIMAG
+ ,ISO,6HALOG10
+ ,ISO,6HIAND
+ ,ISO,6HIEOR
+ ,ISO,6HIOR
+ ,ISO,6HISLO
+ ,ISO,6HICOMPL
+ END:,LOG,
+ SC*FUN:,ENTRY,
+ ,LOG,177 7775 2525
+ ,LOG,33 7525 2551
+ ,END,
+ FORHEAD*:,NAME,
+ M/HPR:LC,BLOCK,(1),IDENT,LEN
+ A/I0:,LC,1
+ PRINT8//:,SUBP,
+ NOLISFL*:,LC,1
+ ,ITS,13
+ ,XTS,M/HPR
+ ,U1A,RET
+ ,CALL,DATAPR*
+ 14,VTM,H1
+ 13,VJM,TO PR
+ ,STX,
+ ,ATX,M/HPR
+ ,STI,13
+ 14,VTM,H2
+ TO PR:,ITS,14
+ 14,VTM,H2E
+ PRINTF*:,ENTRY,
+ PRINTF:,BSS,
+ ,ITS,14
+ 14,VTM,1
+ PRINTF1:,ITS,14.BHE{Hij BXOd
+ ,UJ,PRINT8//
+ RET:,STX,
+ ,STX,
+ 13,UJ,
+ CPTIME*:,ENTRY,
+ 9,BASE,*
+ ,ATX,T
+ ,*57,6
+ ,A-X,T
+ 13,UJ,
+ PRTIME*:,ENTRY,
+ 9,BASE,*
+ ,ITS,13
+ ,STX,I13
+ 8,VJM,DECT
+ ,STX,T1
+ 8,VJM,DECT
+ ,ATX,T
+ ,XTA,IDENT
+ ,ATX,NAM
+ ,XTA,LEN
+ ,ASN,64-33
+ ,AUX,MSK1
+ ,AOX,CI1
+ ,ATX,LL
+ 14,VTM,H2
+ 13,VJM,TO PR
+ 14,VTM,p/p
+ ,ITS,14
+ 14,VTM,RPAR
+ ,ITS,14
+ 14,VTM,5
+ ,WTC,I13
+ 13,VTM,
+ ,UJ,PRINTF1
+ DECT:,NTR,2
+ ,A*X,R100
+ ,A+X,R05
+ ,NTR,3
+ ,A+X,A/I0
+ ,CALL,OCTTDEC
+ ,ASN,64-8
+ ,AUX,MSK2
+ ,AOX,CI2
+ 8,UJ,
+ p/p:,ISO,6Hp/p:''''
+ NAM:,BSS,1
+ ,ISO,12H / dliHA-''''''
+ LL:,BSS,1
+ ,ISO,12H / BPEMq-''''''
+ T:,BSS,1
+ ,ISO,6H(''''''''''
+ T1:,BSS,1
+ RPAR:,ISO,6H)
+ MSK1:,GOST,6H777770
+ CI1:,ISO,6H00000B
+ R100:,REAL,100.
+ R05 :,REAL,.5
+ MSK2:,GOST,6H'377''377''377''''377''377'
+ CI2:,ISO,6H   .
+ H1:,ISO,21HfOPTPAH  "dYbHA"  OT
+ ,CONT,13H5 dEKAbPq 80
+ H1E:,CONT,1H
+ H2:,ISO,1H
+ H2E:,CONT,1H
+ I13:,BSS,1
+ ,END,
+ EXFOR:,NAME,
+ *FUN:,LC,1
+ SERROR:,SUBP,
+ ERROFLAG:,LC,2
+ PROFLIST:,LC,66
+ WFLAGINT:,LC,1
+ M/HPR:,LC,3
+ M/FIRST:LC,BLOCK,(3),S*NL,S*FL
+ W1*:,LC,4
+ STRING:,LC,7
+ AR:,LC,21
+      SF5        :,LC,  7
+      IVLIST     :,LC,  435B
+      INFDEC     :,LC,  6
+      INFOUT     :,LC,  6
+ INFWA   :,LC,1
+ INLWA   :,LC,1
+ ERINSL  :,LC,1
+ HERR:,LC,1
+ LABSET:,LC,1
+ NSTORE:,LC,4
+ PILISADS:,LC,1
+      TYPE       :,LC,  1
+      LABEL      :,LC,  1
+      XLABEL     :,LC,  1
+      LOWCORE    :,LC,  1
+      HIGHCORE   :,LC,  1
+ CONSFWA:,LC,1
+ *CONSD:,LC,
+ *CONSE:,LC,
+      ASFCOUNT   :,LC,  1
+      CBNAME     :,LC,  1
+      CERASE     :,LC,  1
+      CSWITCH    :,LC,  1
+      DECPRFLG   :,LC,  1
+      DIM2REF    :,LC,  1
+      DIM3REF    :,LC,  1
+      DOLISTCT   :,LC,  1
+      ENDFLAG    :,LC,  1
+      ERASECT    :,LC,  1
+      INDEXCT    :,LC,  1
+      IR2IM      :,LC,  1
+      LGFUNLIS   :,LC,  1
+      LGIDENT    :,LC,  1
+      LGIFLIST   :,LC,  1
+      LGINVAR    :,LC,  1
+      PARAMCNT   :,LC,  1
+      SBSSFLAG   :,LC,  1
+      SENTRYCT   :,LC,  1
+      STIFFCT    :,LC,  6
+      SWITCH1    :,LC,  1
+      UPI1CNT    :,LC,  1
+      PBPARLIS   :,LC,  6
+      PBLIST     :,LC,  12
+      ENTRYLIS   :,LC,  50B
+      WPCERBAS   :,LC,  1
+      WPERBASE   :,LC,  1
+ NWORDCT:,LC,1
+      WFWA       :,LC,  1
+      WLWA       :,LC,  1
+C((((((((
+      WPW        :,LC,  1
+ WPX:,LC,1
+C))))))))
+      WPMODE     :,LC,  1
+ SCANNER:,SUBP,
+ BUF*TEX:,LC,15
+ LISTS:,LC,24005B
+ MONITOR*:,SUBP,
+ RETTRAN:,EQU,MONITOR*+2
+      FLGEX*     :,LC,  1
+      NOLISFL*   :,LC,  1
+ FULISFL*:,LC,1
+ DUM1*:,LC,
+ SECT* :,SC,512
+ PUTAWAY:,SUBP,
+ FORHEAD*:,SUBP,
+ PRINTER:,SUBP,
+ OCTTDEC:,SUBP,
+ WRITDRUM:,SUBP,
+ SH:,SUBP,
+ PRINT8//:,SUBP,
+ GIV*PG:,SUBP,
+C--------
+ ,XTA,NOLISFL*
+ ,ATX,S*NL
+ ,XTA,FULISFL*
+ ,ATX,S*FL
+ ,XTA,
+ ,CALL,CPTIME*
+ ,ATX,T
+ ,CALL,GIV*PG
+ ,XTA,NOLISFL*
+ ,U1A,*00004
+ ,ATX,M/HPR
+            13 ,  VJM,  FORHEAD*
+ *00004:,XTS,PAS/1/
+ ,CALL,LOADANGO
+ ,XTA,T
+ ,CALL,CPTIME*
+ ,ATX,T1
+ ,XTA,FLGEX*
+ ,U1A,RET MON
+ ,XTS,PAS/2/
+ ,CALL,LOADANGO
+ RETMON*:,ENTRY,
+ RETMON:,BSS,
+ ,XTA,T
+ ,CALL,CPTIME*
+ ,XTS,T1
+ ,CALL,PRTIME*
+ ,CALL,TAK*PG
+ ,XTA,S*NL
+ ,ATX,NOLISFL*
+ ,XTA,S*FL
+ ,ATX,FULISFL*
+ 13,VTM,RET TRAN
+ ,UJ,PRINT8//+1
+ PAS/1/:,TEXT,8HPAS/1/
+ PAS/2/:,TEXT,8HPAS/2/
+ T :,BSS,1
+ T1:,BSS,1
+      ,END,
+ PAS/1/:,NAME,
+C
+C*****   1-yj pPOXOd TPAHClqTOPA
+C
+C*****   BEdY}iE pOdpPOgPAMMy :
+C     C B D P R , C O N T R O L
+C
+C.....   iCpOlxzOBAHHyE  COMMON :
+ FLGEX*:,LC,1
+ WFLAGINT:,LC,1
+ ENDFLAG:,LC,1
+ DOLISTCT:,LC,1
+ M/FIRST:LC,BLOCK,(1),S16,S17
+C
+C.....   PACpPEdElEHiE pAMqTi pO PAzdElAM
+C
+ ASF:,SUBP,
+C-----   PAzdEl   D E C P R O
+ DECPRO  :,SUBP,
+ DLSEARCH:,SUBP,
+ PROC/VAR:,SUBP,
+ PROC/COM:,SUBP,
+ PROC/EQU:,SUBP,
+ GEN/DEC :,SUBP,
+ PROC/DAT   :,SUBP,
+C-----
+ SEND    :,SUBP,
+ SFORMAT :,SUBP,
+C-----   PAzdEl   C O N T R O L
+ CONTROL :,SUBP,
+ PROSIG  :,SUBP,
+ PROPI   :,SUBP,
+C
+ PROF    :,SUBP,
+ WPMS    :,SUBP,
+ WPOWER  :,SUBP,
+ WSQZ    :,SUBP,
+ WSR2    :,SUBP,
+ WSR3    :,SUBP,
+C
+ IFARITH :,SUBP,
+ IFLOGIC :,SUBP,
+ BOOLEAN :,SUBP,
+ LOGEX*:,SUBP,
+ STRUCT:,SUBP,
+ LISTEDIO:,SUBP,
+C
+C********
+ 14,BASE,*
+ ,ITA,13
+ ,ATX,I13
+ ,XTA,16B
+ ,ATX,S16
+ ,XTA,17B
+ ,ATX,S17
+ ,ATX,WFLAGINT
+ ,CALL,DECPRO
+ 15,UTM,2
+ ,CALL,CONTROL
+ ,XTA,ENDFLAG
+ ,U1A,RET
+ ,WTC,DOLISTCT
+ 1,VTM,
+ diAg:1,VZM,TO SEND
+ 14,VTM,21022B
+ ,ITA,14
+ ,CALL,SERROR
+ 1,UTM,-3
+ 1,V1M,diAg
+ TO SEND:,XTA,FLGEX*
+ ,U1A,RET
+ ,CALL,SEND
+ RET:,WTC,I13
+ ,UJ,
+ I13:,BSS,1
+ ,END,
+ PAS/2/:,NAME,
+C
+C*****   2-Oj pPOXOd TPAHClqTOPA
+C
+C*****   BEdY}iE pOdpPOgPAMMy :
+C        E N D P R O , G L I N K
+C
+ FLGEX*:,LC,1
+ ENDFLAG:,LC,1
+ RETMON*:,SUBP,
+ GLINK  :,SUBP,
+ MNEMOKOP:,SUBP,
+ PRINADRE:,SUBP,
+ KOPNAME :,SUBP,
+ MADLEN  :,SUBP,
+ RABINF:,LC,200
+ SPASAN*:,LC,220
+ DUM*:,LC,
+ BUFPER:,PC,256
+ OUTSTR:,SUBP,
+ POISKL*:,SUBP,
+ ENDPRO:,SUBP,
+ WRITDRUM:,SUBP,
+ ,XTA,ENDFLAG
+ ,U1A,NOBODY
+ ,CALL,ENDPRO
+ NOBODY:,XTA,FLGEX*
+ ,U1A,RETMON*
+ ,CALL,WRITDRUM
+ 13,VTM,GLINK
+ ,UJ,WRITDRUM+1
+ ,END,
+ GIV*PG:,NAME,
+ INFLOAD*:LC,BLOCK,ALOAD,INFLOA
+ ,CONT,INFDM
+ ,CONT,INFMD
+ KCOUNT*:,LC,4
+ RM*:,LC,4
+ *C:12,BASE,*
+ ,XTA,RM*+2
+ ,AEX,=73401
+ ,ASN,64+12
+ ,ATX,FL*SAV
+ 13,UZA,
+ ,*72,=:11 4037 77
+ ,XTA,=73401
+ ,ATX,ALOAD
+ ,ATI,15
+ ,AEX,RM*+2
+ ,ASN,64-20
+ ,ATX,*W
+ COMM:14,VTM,-2
+ L/S:14,UTC,2
+ ,XTA,INFLOA
+ ,AEX,*W
+ 14,UTC,2
+ ,ATX,INFLOA
+ 14,VLM,L/S
+ ,XTA,17B
+ ,ATX,*S
+ ,ITA,15
+ ,AEX,|67
+ ,ATX,|67*
+ ,XTA,K67
+ ,CTX,17B
+ ,UJ,17B
+ R17:,XTA,*S
+ ,ATX,17B
+ 13,UJ,
+ |67:,Z00,R17
+ 9,,1
+ K67:,*67,|67
+ TAK*PG:,ENTRY,
+ 12,VTM,*C
+ ,XTA,FL*SAV
+ 13,UZA,
+ ,XTA,RM*+2
+ ,ATI,15
+ ,AAX,=4000
+ ,U1A,GO
+ ,*72,=:00 26 77
+ GO:,BSS,
+ ,*72,REFINF
+ ,UJ,COMM
+ REFINF:,OCT,00 6736 77
+ *W:,BSS,1
+ FL*SAV:,BSS,
+ |67*:,BSS,1
+ *S:,BSS,1
+ ,END,
+ OCTTDEC:,NAME,
+ 14,BASE,*
+ ,AAX,B40/1
+ ,ITS,13
+ 13,VTM,
+ ,NTR,3
+ ,XTS,
+ L1:15,XTS,-3
+ ,A*X,C1/10
+ 15,ATX,-3
+ ,YTA,64
+ ,A*X,C10
+ 13,ASN,64
+ 13,UTM,-4
+ 15,AOX,
+ 15,XTS,-3
+ ,UZA,RET
+ ,STX,
+ ,UJ,L1
+ RET:,STX,
+ 15,UTM,-2
+ ,ASN,64-24
+ ,AUX,MSK
+ ,AOX,ZERO
+ ,NTR,2
+ 15,WTC,1
+ ,UJ,
+ B40/1:,LOG,17 7777 7777 7777
+ C10:,LOG,4000 0000 0000 0012
+ C1/10:,LOG,4001 4631 4631 4632
+ MSK:,GOST,6H
+ ZERO:,ISO,6H000000
+ ,END,
+ SH:,NAME,
+ *CONSE:LC,BLOCK,
+ *CONSD:LC,BLOCK,(17),BLAN
+ PROFLIST:LC,BLOCK,(59),C77777(5),Z3/1
+ ,CONT,(1)
+ BAS:,ITS,13
+ 15,XTS,-2
+ ,CALL,OCTTDEC
+ ,ASN,64-16
+ ,ASN,64+16
+ 15,XTS,-4
+ ,ASN,64-32
+ 15,AOX,
+ 15,UTM,-3
+ 15,WTC,2
+ ,UJ,
+ SF:,ENTRY,
+ ,ITS,13
+ 15,XTS,-2
+ ,ASN,64-8
+ ,ASN,64+8
+ ,UZA,RET/E
+ ,ATI,14
+ ,ASN,64+15
+ ,U1A,RET/E
+ ,ITA,14
+ ,CALL,OCTTDEC
+ 13,BASE,BAS
+ 15,ATX,
+ ,AEX,ZERO
+ ,ANX,C77777
+ ,AAX,Z3/1
+ ,AEX,C77777
+ ,STI,14
+ 14,ASN,64+9
+ ,XTS,BLAN
+ 14,ASN,64+9
+ ,AEX,BLAN*0
+ 15,AEX,
+ RET:15,UTM,-2
+ 15,WTC,1
+ ,UJ,
+ RET/E:,ITA,
+ ,UJ,RET
+ ZERO:,ISO,6H000000
+ BLAN*0:,ISO,6H:
+ ,END,
+ ISO*INT:,NAME,
+C
+C*****   pEPEBOd ~iClA ISO - INT
+C
+ ,ITS,13
+ 13,BASE,*
+ ,NTR,3
+ ,XTS,
+ L1:15,XTS,-3
+ ,UZA,RET
+ ,ASN,64-8
+ 15,ATX,-3
+ ,YTA,
+ ,A-X,DIG0
+ ,U1A,EL1
+ ,A-X,C12
+ ,UZA,EL1
+ ,A+X,C12
+ 15,XTS,-2
+ ,ASN,64-2
+ 15,ARX,-2
+ ,ASN,64-1
+ 15,ARX,
+ 15,ATX,-1
+ EL1:,STX,
+ ,UJ,L1
+ RET:,STX,
+ 15,UTM,-2
+ 15,WTC,1
+ ,UJ,
+ DIG0:,LOG,60
+ C12: ,LOG,12
+ ,END,
+ LSTRTJ:,NAME,
+C*****   OTClEviBAHiE N BypOlHqEMOgO OpEPATOPA
+C
+C--------
+ MONCARD*:LC,BLOCK,MC
+ TYPE:,LC,1
+ BUF*TEX:LC,BLOCK,*NC(2),*NUM,CAR(12)
+ AR:,LC,21
+ NOLISFL*:,LC,1
+ DECPRFLG:,LC,1
+C--------
+ MONREAD*:,SUBP,
+ OCTTDEC:,SUBP,
+ SERROR:,SUBP,
+ READ* :,SUBP,
+ PRINT8//:,SUBP,
+ PRINT8:,EQU,PRINT8//
+C--------
+ BEG:,XTS,
+ ,UTC,SYM
+ ,ATX,
+ ,ITA,13
+ ,ITS,1
+ ,ITS,12
+ 1,BASE,BEG
+ ,XTS,DECPRFLG
+ ,UZA,RETL
+ 12,VTM,-5
+ ,XTA,AR+1
+ ,ASN,64+40
+ ,ATI,14
+ 14,UTM,-103B
+ 14,VZM,RETL
+ ,XTA,AR+1
+ ,AAX,C377
+ ,ATI,14
+ 14,UTM,-40B
+ 14,VZM,READ
+ 14,UTM,40B-60B
+ 14,VZM,READ
+ 14,UTM,60B-55B
+ 14,V1M,RETL
+ READ:,XTA,SYM
+ ,U1A,R SYM
+ 14,XTA,AR+2
+ 14,UTM,1
+ R SYM:,ASN,64-8
+ ,ATX,SYM
+ ,YTA,
+ ,AEX,BL
+ ,UZA,READ
+ ,AEX,BL
+ ,XTS,RES
+ ,ASN,64-8
+ 15,AOX,
+ ,ATX,RES
+ NO WR:12,VLM,READ
+ ,AEX,FORMAT
+ ,UZA,RETL
+ ,AEX,FORMAT
+ ,AEX,ENDFIL
+ ,UZA,NUMBER
+ ,ASN,64+24
+ ,UZA,RETL
+ NUMBER:,XTA,NOP
+ ,ARX,C1
+ ,ATX,NOP
+ RETL:,STX,
+ ,STI,12
+ ,STI,1
+ ,STI,13
+ 13,UJ,
+ KREAD:,ENTRY,
+C
+C*****   BBOd i pE~ATx KAPTy
+C
+ ,ITS,13
+ ,ITS,1
+ 1,BASE,BEG
+ ,ITS,12
+ ,XTS,MC
+ ,ASN,64+40
+ ,UZA,HET KOH
+ ,ATI,14
+ 14,UTM,-52B
+ 14,VZM,HET KOH
+ ,NTR,3
+ ,XTA,NICA
+ ,U1A,FORTR
+ 14,UTM,52B-103B
+ 14,VZM,FORTR
+ ,XTA,MC
+ ,AEX,BLAN
+ ,ASN,64+8
+ ,UZA,FORTR
+ ,XTA,MC
+ ,AAX,C377
+ ,AEX,BL
+ ,UZA,CH*DEC
+ ,AEX,C20
+ ,U1A,SCAN0
+ CH*DEC:,XTA,MC
+ ,ATX,SYM
+ CH*D:,XTA,SYM
+ ,UZA,FORTR
+ ,ASN,64-8
+ ,ATX,SYM
+ ,YTA,
+ ,AEX,BL
+ ,UZA,CH*D
+ ,AEX,BL
+ ,A-X,C60
+ ,U1A,SCAN0
+ ,A-X,C12
+ ,U1A,CH*D
+ SCAN0:13,VTM,SCAN
+ ,ITA,13
+ 15,ATX,-3
+ ,UJ,INPCA
+ FORTR:,BSS,
+ ,XTA,C1
+ ,ARX,NICA
+ ,ATX,NICA
+ INPCA:,XTA,NUM*D
+ ,ATX,*NUM
+ ,XTA,DECPRFLG
+ ,UZA,PRINT
+ ,XTA,NOP
+ ,CALL,OCTTDEC
+ ,ASN,64-24
+ ,ASN,64+8
+ ,AOX,NUM*D
+ ,ATX,*NUM
+ PRINT:,XTA,MC+12
+ ,ATX,*NC
+ ,XTA,MC+13
+ ,AAX,B48/33
+ ,ATX,*NC+1
+ 14,VTM,1-12
+ TRA:14,XTA,MC+11
+ 14,ATX,CAR+11
+ 14,VLM,TRA
+ ,XTA,NOLISFL*
+ ,U1A,RETK
+ 12,VTM,-3
+ 14,VTM,*NC
+ ,ITS,14
+ 14,UTM,10
+ ,ITS,14
+ ,XTS,C1
+ 13,VJM,PRINT8
+ CH*BL:12,XTA,CAR+11
+ ,AEX,BLAN
+ ,U1A,PRINT*2
+ 12,VLM,CH*BL
+ RETK:,STX,
+ ,STI,12
+ ,STI,1
+ ,STI,13
+ 15,ATX,
+ ,UJ,READ*
+ PRINT*2:14,VTM,CAR+8
+ ,ITS,14
+ 14,UTM,3
+ ,ITS,14
+ 14,VTM,39
+ ,ITS,14
+ 13,VTM,RETK
+ ,UJ,PRINT8
+ SCAN:1,BASE,BEG
+ ,XTA,MC
+ ,AEX,BLAN
+ ,UZA,HETKOH
+ ,ASN,64+40
+ ,ATI,14
+ 14,UTM,-40B
+ 14,VZM,HETKOH
+ 14,UTM,40B-52B
+ 14,VZM,HETKOH
+ 13,VTM,SCAN
+ ,UJ,MONREAD*
+ HET KOH:,BSS,
+C-----   HET KOHcA pOdpPOgPAMMy
+ 14,VTM,67B
+ ,ITA,14
+ ,ATX,TYPE
+ ,XTA,NICA
+ ,U1A,NO/BEG
+ ,UTC,40140B-41050B
+ NO/BEG:,BSS,
+ 14,VTM,41050B
+ ,ITA,14
+ ,UJ,SERROR
+ C377:,LOG,377
+ BL:,LOG,40
+ BLAN:,ISO,1H
+ NUM*D:,ISO,6H     ''
+ FORMAT:,ISO,6HFORMAT
+ ENDFIL:,ISO,6HENDFIL
+ C60:,LOG,60
+ C20:,LOG,20
+ C12:,LOG,12
+ NOP:,LOG, 2
+ C1:,LOG,1
+ B48/33:,OCT,777774
+ NICA:,BSS,1
+ SYM:,BSS,1
+ RES:,BSS,1
+ ,END,
+ CONSERCH:,NAME,.01.11.80
+C********
+ NWORDCT:LC,BLOCK,CONS
+ HIGHCORE:,LC,1
+  LOWCORE:,LC,1
+ CONSFWA:LC,BLOCK,FWA
+ PROFLIST:LC,BLOCK,(59),C77777
+ SERROR:,SUBP,
+ *10:,BLOCK,AL,A,B(2),L
+C********
+ 9,BASE,*
+ ,XTA,FWA
+ ,ATI,AL.A HA~AlA CpiCKA
+ ,ASN,64+24
+ ,ARX,FWA
+ ,AAX,C77777
+ ,ATX,LWA.CBObOdHO CpiCKA
+ AL,UTM,-1
+ SEARCH:AL,UTM,1
+ AL,MTJ,A
+ ,XTA,CONS
+ ,ATI,L.dliHA K-Ty
+ ,ASN,64+24
+ ,ATI,B.HA~AlO K-Ty
+ SE*1:,ITA,A
+ ,AEX,LWA
+ ,UZA,ABSENT
+ A,XTA,
+ B,AEX,
+ ,U1A,SEARCH
+ L,UTM,-1
+ L,VZM,CON/IS
+ A,UTM,1
+ B,VLM,SE*1
+ ABSENT:,XTA,CONS
+ ,AAX,C77777
+ ,ARX,HIGHCORE
+ ,ATX,HIGHCORE
+ ,NTR,3
+ ,A-X,LOWCORE
+ ,UZA,MAlO
+ ,WTC,LWA
+ A,VTM,
+ A,MTJ,AL
+ ,XTA,CONS
+ ,ATI,L
+ ,ASN,64+24
+ ,ATI,B
+ WRIT:B,XTA,
+ A,ATX,
+ B,UTM,1
+ A,UTM,1
+ L,UTM,-1
+ L,V1M,WRIT
+ ,XTA,CONS
+ ,ASN,64-24
+ ,ARX,FWA
+ ,ATX,FWA
+ CON/IS:,ITA,AL
+ ,NTR,2
+ 13,UJ,
+ MAlO:14,VTM,45046B
+ ,ITA,14
+ ,UJ,SERROR
+ LWA:,BSS,1
+ ,END,CONSERCH
+ PRINLIST:,NAME,
+ PROFEND :,ENTRY,
+ ,NTR,2
+ 13,UJ,
+ PRINTIFL:,ENTRY,
+ PRINTASF:,ENTRY,
+ ,NTR,2
+ 14,UJ,
+ WOLF:,ENTRY,
+ 8,VTM,
+ 9,VTM,
+ 10,VTM,
+ 11,VTM,
+ ,XTA,
+ 13,UJ,
+ PIPRINT:,ENTRY,
+ ,ITA,13
+ 3,UJ,
+ PRINTER:,ENTRY,
+ :,NTR,2
+ ,UJ,RET/3
+ :13,UJ,
+ :,STX,
+ 13,UJ,
+ RET/3:,STX,
+ ,STX,
+ ,STX,
+ 13,UJ,
+ ERROR:,ENTRY,
+ 14,VTM,47001B
+ ,ITA,14
+ ,CALL,SERROR
+ ,END,
+*     C i C T E M A   C O N T R O L
+ PROSIG:,NAME,.12.07.80
+C********
+ A/I0:,LC,1
+ A/MINUS:,LC,1
+ NWORDCT:,LC,1
+ STIFFCT:LC,BLOCK,/SIF
+ ,CONT,BIF0,BIF,BIF1,BIF2,BIF3
+ TYPE   :,LC,1
+  LABEL :,LC,1
+ XLABEL :,LC,1
+ IR2IM:LC,BLOCK,DI*L
+ DIM2REF:LC,BLOCK,DI2*B
+ DIM3REF:LC,BLOCK,DI3*B
+ LOWCORE:,LC,1
+ HIGHCORE:,LC,1
+ LGIFLIST:,LC,1
+ LGIDENT :,LC,1
+ LGFUNLIS:,LC,1
+ LISTS:LC,BLOCK,(100)
+ ,CONT,INFUNLIS(530)
+ ,CONT,FUNLIS(6000)
+ ,CONT,DIMENLIS
+ SERROR:,SUBP,
+ SERROR*:,SUBP,
+ OCTTDEC:,SUBP,
+ H*CONST :,SUBP,
+ TAK*IV :,SUBP,
+ CONSERCH:,SUBP,
+ SRESERVE:,SUBP,
+ TABLISCT:,EQU,32
+ *CONSD:LC,BLOCK,(7)
+ ,CONT,B21,B20,B16(6)
+ ,CONT,C3,INT1(3),B24/22
+ ,CONT,(10),B48(8),B30/16
+ PROFLIST:LC,BLOCK,(38),/SEQ/
+ ,CONT,B1,C2,C4,C5,C6(2)
+ ,CONT,C10(3),/C13(9),C77(2)
+ ,CONT,C77777(2),C700037
+ ,CONT,B24/1
+C********
+ *WSTOR:I,BLOCK,N*IND,N*INDS,*K2,*KK
+ ,CONT,A*VAR,*LB
+ ,CONT,*P,*PCT,*Q,*R,N*IF
+ ,CONT,B*SI0,B*PI0,B*SI
+ ,CONT,*NDIM,F*TAB,M*NSIF,M*EQIV
+ ,CONT,CAPI,CAPJ,CONADD
+ ,CONT,NIF,CMIV,/NSIF,NAM*IF
+ ,CONT,I13,I15,WS1,WS2,SHIFT
+ ,CONT,NAM
+C********
+ CONS:,EQU,1
+ LPA :,EQU,3
+ RPA :,EQU,4
+ COM :,EQU,5
+ FUN :,EQU,13B
+ VARI:,EQU,30B
+ VFUN:,EQU,213B
+C********
+ C:,BSS,
+             ,  ITA  ,7                   .
+             ,XTS  ,                      .
+  7,BASE,C
+           ,  XTA  ,
+            ,  ATX  ,M*NSIF
+ ,ATX,/NSIF
+ ,ATX,N*IF
+ ,ATX,M*EQIV
+ ,NTR,2
+          ,  ITA  ,15
+          ,  ATX  ,I15
+             ,  ITA  ,13                  .
+             ,  ATX  ,I13            .
+ ,ITA,6
+ ,ATX,B*PI0
+ ,XTA,TYPE
+             ,  ASN  ,64-24               .
+             ,  AOX  ,C17             .
+            6,  ATX  ,                    .   TYPE TO PI1
+ ,XTA,LABEL
+ ,ATX,XLABEL
+             ,  ASN  ,64-5                .
+             ,  AOX  ,C16            .
+            6,  ATX  ,1                   .  LABEL  TO PI2
+            6,  UTM  ,2                   .
+             ,  ITA  ,1                   .
+             ,  ATX  ,B*SI0            .
+            1,  UTM  ,-1           . FWASIGMA-1 TO B1
+ NEXT*SI     :  1,  UTM  ,1                   .
+         12,  VJM  ,CONALFA               .
+            1  , XTA ,                    .   SIGMA TO A
+            ,  AEX  , C6              .
+             ,  UZA  , L*8             .  END SIGMA
+ C11     :  1,  WTC  ,                    .
+            8,  VTM  ,-LPA           .
+            8,  V1M  ,L*2              .
+            1,  WTC  ,-1           .
+            8,  VTM  ,-VARI           .
+ 8,VZM,VARIN1
+ 8,UTM,VARI-FUN
+ 8,VZM,NEXT*SI
+ 8,UTM,FUN-VFUN
+            8,  VZM  ,NEXT*SI                 .
+C-----   PACpOzHABAHiE i zABEdEHiE
+C            KOHCTAHT 'COMPLEX'
+             ,  ITA  ,1                   .
+             ,  ATX  ,B*SI              .
+            1,  UTM  ,1                   .
+            9,  VTM  ,                    .
+           14,  VTM  ,-1           .
+            8,  VTM  ,-1           .
+ CSINBIT :  1,  XTA  ,                    .
+            ,  AEX  ,/MIN/             .
+ ,UZA,CMINUS
+ 1,XTA,
+ ,AEX,/PLUS/
+ ,U1A,CSINPLB
+ ,UTC,-1
+ CMINUS:9,VTM,1
+ 1,UTM,1
+ CSINPLB :  8,  UTM  ,1                   .
+        12,  VJM  ,CHCON1                   .
+           14,  VLM  ,CSINBIT             .
+            1,  UTM  ,-1           .
+            1,  MTJ  ,9                   .
+ CSINPLC:9,UTM,-1
+             ,  XTA  ,                    .
+            9,  ATX  ,                    .
+             ,  ITA  ,9                   .
+             ,  AEX  ,B*SI              .
+ ,U1A,CSINPLC
+ ,XTA,A/BIF
+ ,ATX,NWORDCT
+           13,  VJM  ,CONSERCH            .
+             ,  ASN  ,64-24               .
+            ,  AOX  ,C300001            .
+            1,  ATX  ,                    .
+             ,  UJ   ,NEXT*SI                 .
+ A/BIF:,Z00,BIF
+ ,,2
+ CHCON1    :  1,  XTA  ,                    .
+             ,  AAX  ,B24/1            .
+             ,  AEX  ,C100001           .
+             ,  U1A  ,NEXT1               .
+ ,ITA,8
+ ,AEX,C5
+ 1,AEX,1
+ ,U1A,NEXT1
+ ,RTE,177B
+ ,NTR,2
+ 1,XTS,
+             ,  ASN  ,64+24               .
+ ,ATI,13
+ 13,XTA,
+      9,  VZM  ,*2
+       ,  AVX  ,B48/41
+      *2: 8,  UTC  ,BIF
+            ,  ATX  ,                     .
+ 15,XTR,
+            1,  UTM  ,2                   .
+            9,  VTM  ,                    .
+           12,  UJ   ,                    .
+ NEXT1:,WTC,B*SI
+ 1,VTM,
+ ,UJ,NEXT*SI
+C-----   ObPAbOTKA pEPEMEHHOj C iHdEKCAMi
+ VARIN1:1,XTA,-1
+ ,ASN,64+33
+ ,ATI,14
+ 14,XTA,
+ ,ATX,NAM
+ ,XTA,N*IF
+ ,UZA,VARIN2
+ ,XTA,N*IND
+ ,ASN,64-3
+ ,AOX,*P
+ ,ASN,64-15
+ ,AOX,A*VAR
+ ,ASN,64-24
+ 1,AOX,
+ 1,ATX,
+ VARIN2:1,XTA,
+ ,XTS,B1
+ ,ATX,N*IND
+ ,ATX,*P
+ ,ARX,N*IF
+ ,ATX,N*IF
+             ,  ITA  ,1                   .
+             ,  ATX  ,A*VAR             .
+ C12     :  1,  UTM  ,1                   .
+           12,  VJM  ,CONALFA             .
+             ,  XTA  ,B24/1            .   1 TO K
+            1,  AAX  ,                    .
+             ,  AEX  ,B1             .
+             ,  U1A  ,CHEKVI              .
+             ,  XTA  ,/STAR/           .
+            1,  AEX  ,1                   .
+             ,  U1A  ,C13                 .
+ 12,VJM,CONALF2
+ CHEKVI  :   ,  XTA  ,C700037           .
+            1,  AAX  ,                    .ICK OUT LOWER 18BIT
+ ,AEX,C10
+             ,  U1A  ,C11                 .JUMP C11 IF VARIABLE NOT INTE
+            1,  XTA  ,                    .CHECK IF IN.VAR.N DATA
+             ,  ASN  ,64+33               . OR EQUIVALENCE
+             ,  NTR  ,3                   .
+ ,A-X,A/DIM
+ ,U1A,COKEY
+ ,ATI,2
+ ,X-A,DI*L
+             ,  U1A  ,COKEY               .  GO FURTHER
+             ,  WTC  ,DI2*B             . OTHERWISE HANG FLAG
+            2,  XTA  ,                    . OF POSSIBLE ERROR
+             ,  AAX  ,B23/22             .
+ ,U1A,C11
+ COKEY   :  1,  XTA  ,1                   .
+            2,  VTM  ,2                   .
+            9,  VTM  ,/MIN/             .F SIGMA(I+1) =+,-
+           14,  VJM  ,SE*                 .
+             ,  U1A  ,C13                 .  JUMP  IF NO
+ 12,VJM,CONALF2
+             ,  XTA  ,B24/1            .
+            1,  AAX  ,                    .
+             ,  AEX  ,B1             .
+             ,  U1A  ,C11                 .
+ C13     :  1,  UTM  ,1                   .
+            1,  WTC  ,                    .
+            8,  VTM  ,-RPA           .   -4
+            8,  VZM  ,L*3              . JUMP  PR3 IF )
+ 8,UTM,RPA-COM
+            8,  V1M  ,C11                 . JUMP  C11 IF SIGMA(I) NO )
+ 14,VTM,C12
+ ,UJ,IND/P1
+ L*2:8,UTM,LPA-RPA
+ 8,MTJ,9
+ 9,UTM,RPA-COM
+ 8,VZM,RPAR1
+ 9,V1M,NEXT*SI
+          12,  VJM  ,CH*DUM
+           8,  V1M  ,NEXT*SI
+ 14,VTM,NEXT*SI
+ IND/P1:,WTC,N*IND
+           8,  VTM  ,-3
+           8,  VZM  ,CERROR40
+ ,XTA,/END/
+ 1,ATX,
+ 8,UTM,4
+ ,ITA,8
+ W/IND:,ATX,N*IND
+ 14,UJ,
+ RPAR1:,BSS,
+          12,  VJM  ,CH*DUM
+            ,  ITA  ,8
+            ,  ATX  ,*P
+           8,  V1M  ,NEXT*SI
+            ,  UJ   ,L*5
+ CH*DUM:,BSS,
+           1,  WTC  ,-1
+           8,  VTM  ,-COM
+           8,  VZM  ,pYCTfPAg
+ 8,UTM,COM-LPA
+           8,  VZM  ,pYCTfPAg
+            ,  XTA  ,N*IF
+            ,  UZA  ,NEXT*SI
+ ,WTC,*P
+ 8,VTM,-1
+ 12,UJ,
+ L*3  :   ,  WTC  ,A*VAR              .
+            3,  VTM  ,-1           . ADRESS A(  TO B3
+            3,  XTA  ,                    .   SIGMA-1  TO A
+             ,  ASN  ,64+33               .
+ ,ARX,DI*L
+ ,ATI,2
+ 2,XTA,
+             ,  ASN  ,64-33               .
+             ,  ASN  ,64+33               .ICK  OUT   D1
+ ,ATX,CAPI
+ 2,XTA,
+ ,AAX,B42/41
+ ,UZA,CPAG3
+ ,XTA,B48/41
+ CPAG3:,AEX,B48
+ ,ATX,SHIFT
+ ,WTC,DI*L
+ 2,UTM,
+            2,  XTA  ,                    .  STRING  DIM3  TO A
+             ,  ASN  ,64+45               .
+             ,  ATX  ,*NDIM             .  N  OUT DIM3  TO *NDIM
+ ,NTR,3
+ ,A-X,N*IND
+ ,U1A,CERROR40
+            2,  XTA  ,                    .  STRING  DIM3  TO A
+             ,  ASN  ,64-9                .
+             ,  ASN  ,64+33               .ICKOUT  D2
+             ,  ATX  ,CAPJ               .   D2    TO   CAPJ
+            2,  XTA  ,                    .
+             ,  ASN  ,64-24               .
+             ,  ASN  ,64+45               .ICK OUT  P3P2P1
+             ,  ATX  ,WS1             .3P2P1   TO  WS1
+             ,  ITA  ,1                   .
+             ,  ATX  ,*R             .  B1  TO  *R
+ CH/CLE:  1,  WTC  ,-1           .
+            8,  VTM  ,-CONS           .
+            8,  V1M  ,CLEBIF             .  JUMP  IF  NO  NUMBER
+ 1,XTA,-1
+             ,  ASN  ,64+24               .   LBASE  IN  RECHT
+             ,  XTS  ,INT1              .
+           15,  WTC  ,                    .
+             ,  AEX  ,                    .F SIGMA(AD)J=1
+ ,U1A,CLEBIF
+ 1,XTA,-2
+ ,AEX,/END/
+ ,U1A,NO/ES1
+ 1,UTM,-2
+ 14,VTM,CH/CLE
+ IND/M1:,WTC,N*IND
+ 8,VTM,-1
+ ,ITA,8
+ ,UJ,W/IND
+ NO/ES1:,WTC,A*VAR
+ 1,UTC,-2
+ 8,VTM,
+ 8,VZM,CONAD/0
+ CLEBIF :  8,  VTM  ,-3           .
+             ,  XTA  ,                    .
+ CL/BIF:8,ATX,BIF+3
+ 8,VLM,CL/BIF
+             ,  WTC  ,N*IND              .
+            8,  VTM  ,-1           .F K=1
+            8,  VZM  ,L*4              .  EXIT  IF  INDEX ONE
+             ,  XTA  ,WS1             .
+             ,  ASN  ,64-46               .ICK  OUT  P2P1
+             ,  UZA  ,L*4              .
+             ,  ASN  ,64-1                .ICK  OUT   P1
+ ,U1A,PU/BIF
+ 8,UTM,-1
+ 8,VZM,L*4
+ PU/BIF:   ,  XTA  ,CAPI               .
+             ,  ASN  ,64-30               .
+             ,  ATX  ,BIF1           .
+             ,  XTA  ,C77777            .
+             ,  ATX  ,BIF3           .
+             ,  WTC  ,A*VAR              .
+            1,  VTM  ,                    . ADRESS ( TO B1
+ 3,VTM,1
+ ,XTA,C4
+             ,  ATX  ,*KK            .   KK=4
+ 14,VJM,IND/M1
+ C30     :  1,  UTM  ,1                   .
+            1,  WTC  ,                    .
+            8,  VTM  ,-CONS           .
+            8,  VZM  ,CHSTA*3            .JUMP  IF  SIGMA+1  =CONST
+             ,  XTA  ,B1             .
+ ,UJ,CORBIF
+ CHSTA*3:1,XTA,
+ ,ASN,64+24
+ ,ATI,8
+ ,XTA,/STAR/
+ 1,AEX,1
+ ,UZA,STA*3
+ 8,XTA,
+ ,UJ,L*3A
+ STA*3:8,XTA,
+ 1,UTM,2
+ CORBIF:,BSS,
+             ,  ASX  ,SHIFT              .
+             ,  AAX  ,C77777            .
+             ,  ASN  ,64-15               .
+ 1,XTS,
+             ,  ASN  ,64+33               . ADRESS OF I
+ 15,AOX,
+ 3,AOX,BIF0
+ 3,ATX,BIF0
+             ,  XTA  ,/END/           .F  SIGMA+1 = END
+            1,  AEX  ,1                   .
+ ,UZA,L*3A
+ ,XTA,
+ 1,WTC,1
+ 8,VTM,-RPA
+ 8,VZM,L*3A
+ 1,UTM,2
+ 1,XTA,-1
+             ,  AEX  ,/MIN/            .
+ ,UZA,C31
+ ,XTA,A/MINUS
+ C31:,AEX,A/MINUS
+ 1,XTS,
+ ,ASN,64+24
+ ,ATI,8
+ 8,XTA,
+ 15,AVX,
+ L*3A:,NTR,3
+ ,A-X,INT1
+ 3,UTC,
+            8,  VTM  ,-1           .     M-1
+            8,  VZM  ,CMEQ1               .  JUMP  IF  M=1
+            8,  UTM  ,-1           . JUMP IF M=2
+            8,  VZM  ,CMEQ2               .  JUMP  IF  M=2
+ ,XTS,CAPJ
+             ,  ASN  ,64-30               .
+             ,  AOX  ,BIF2           .
+ ,STX,BIF2
+ 8,VTM,15
+ CMEQ2:,ASX,SHIFT
+ ,AAX,C77777
+ 8,ASN,64-30
+ ,AOX,BIF3
+ ,ATX,BIF3
+ CTESK3A :   ,  WTC  ,N*IND              .
+            8,  VTM  ,                    .
+            8,  VZM  ,L*6              . K=0  JUMP  L*3
+ 14,VJM,IND/M1
+ 3,UTM,1
+ 1,VLM,C30
+ CMEQ1   :   ,  ATX  ,CONADD             .
+             ,  UJ   ,CTESK3A             .
+ L*4  :   ,  XTA  ,                    .
+             ,  ATX  ,*KK            .    0  TO  K
+             ,  ATX  ,*Q             .    0  TO  Q
+             ,  ATX  ,CONADD             .    0  TO  CONADD
+             ,  XTA  ,REAL1              .
+             ,  ATX  ,CMIV               .   E  TO CMIV
+ 14,VJM,IND/M1
+             ,  WTC  ,A*VAR              .
+            1,  VTM  ,                    .
+ C40:,WTC,*KK
+ 5,VTM,BIF
+ 1,UTM,1
+            1,  WTC  ,                    .
+            8,  VTM  ,-CONS           .
+             ,  XTA  ,CMIV               .
+ 8,V1M,NO/CON
+ 1,XTA,1
+ ,AEX,/STAR/
+ ,U1A,C41
+ 13,VJM,GIV/CON
+ 1,UTM,2
+ ,A*X,CMIV
+ NO/CON:,NTR,3
+             ,  A+X  ,A/I0             .
+            ,  ASX  ,SHIFT               .
+             ,  AAX  ,C77777            .
+             ,  ASN  ,64-15               .
+ 5,AOX,
+ 5,ATX,
+ ,XTA,B1
+ ,ARX,*KK
+ ,ATX,*KK
+ ,ATI,5
+            1,  XTA  ,                    .
+             ,  ASN  ,64+33               .
+ 5,AOX,BIF0
+ 5,ATX,BIF0
+            1,  WTC  ,1                   .
+            8,  VTM  ,-RPA           .F SIGMA(I+1) :)
+            8,  VZM  ,CPAR4               .  JUMP  IF  YES
+            1,  XTA  ,1                   .   SIGMA(I+1) TO A
+ ,AEX,/END/
+             ,  UZA  ,CPAR4               .
+            1,  XTA  ,1                   .
+ 1,UTM,2
+             ,  AEX  ,/MIN/            .F  SIGMA(I-1): -
+             ,  U1A  ,C41                 .  JUMP  IF  NO
+ 13,VJM,GIV/CON
+ ,AVX,A/MINUS
+             ,  UJ   ,C42                 .
+ GIV/CON:1,XTA,
+ ,ASN,64+24
+ ,ATI,8
+ 8,XTA,
+ ,NTR,2
+ 13,UJ,
+ C41:,BSS,
+ 13,VJM,GIV/CON
+ C42     :   ,  NTR  ,3                   .
+             ,  A-X  ,INT1              .
+             ,  NTR  ,2                   .
+             ,  A*X  ,CMIV               .   MIV*(A-1)
+             ,  NTR  ,3                   .
+             ,  A+X  ,CONADD             . CONADD + MIV*(ACC-1) TO
+             ,  ATX  ,CONADD             .          CONADD
+             ,  UJ   ,CUPSIG4             .
+ CPAR4   :   ,  NTR  ,3                   .
+             ,  XTA  ,CONADD             .
+             ,  A-X  ,CMIV               .   -MIV+CONADD  TO
+             ,  ATX  ,CONADD             .         CONADD
+ CUPSIG4 :  1,  UTM  ,1                   .   SIGMA+1  TO  SIGMA
+             ,  WTC  ,N*IND              .
+            8,  VTM  ,                    .  JUMP  IF   K=0
+            8,  VZM  ,CTESK4A             .
+ 14,VJM,IND/M1
+ ,XTA,B1
+ ,ARX,*Q
+ ,ATX,*Q
+ ,ATI,5
+             ,  UTC  ,CAPI-1              .
+            5,  XTA  ,                    .
+             ,  AOX  ,A/I0             .
+             ,  NTR  ,2                   .
+             ,  A*X  ,CMIV               .
+             ,  ATX  ,CMIV               .    MIV*DQ  TO MIV
+             ,  UJ   ,C40                 .
+ L*5:,NTR,3
+ ,XTA,TYPE
+ ,AAX,C77
+ ,X-A,C50
+ ,UZA,L*51
+ ,A+X,/C13
+ ,UZA,CERROR54
+ L*51:,WTC,A*VAR
+ 3,VTM,
+            ,  XTA  ,N*IND
+             ,  ATX  ,N*INDS
+           3,  XTA  ,-1            .SIGMA OF INDEX VARIABLE
+            ,  ASN  ,64+33                .
+ ,ATI,14
+ ,ARX,DI*L
+ ,ATI,2
+ ,ARX,DI*L
+           ,  ATI  ,5                     .  L(BASE)+DI*L  TO  B5
+ 14,XTA,
+ ,ATX,NAM
+ 2,XTA,
+            ,  AAX  ,C77777             .
+            ,  ATX  ,CAPI                . D1 SEND TO CAPI
+ 5,XTA,
+            ,  ASN  ,64+45                .
+            ,  ATX  ,*NDIM              .  N SEND TO *NDIM
+ 5,XTA,
+            ,  ASN  ,64+24                .
+ ,AAX,C77777
+            ,  ATX  ,CAPJ                .  D2  TOCAPJ
+ ,XTA,
+ ,ATX,*PCT
+ 5,XTA,
+            ,  AAX  ,B24/22              .
+            ,  ASN  ,64+21                .
+            ,  ATX  ,WS1           .
+            ,  AAX  ,C2.                OMEGA=1  IF A=0  OR P2=1
+ ,ASN,64-23
+            ,  ARX  ,CAPJ                .
+            ,  ATX  ,CAPJ                .F  P2=1 SEND TO CAPJ
+   ,  XTA  ,WS1              .   /    1/    D2/
+            ,  AAX  ,B1
+ ,ASN,64-24
+            ,  ARX  ,CAPI                . SEND  TO CAPI /   1/   D1/
+            ,  ATX  ,CAPI                .F  P1=1
+   ,  WTC  ,N*IND               . CONTENTS OF N*IND INTO A
+           5,  VTM  ,-1            .
+            ,  ITA  ,5                    .    K-1  TOA
+            ,  NTR  ,3                    .
+            ,  A-X  ,*NDIM              .
+            ,  UZA  ,CERROR40             . JUMP CERROR40 K-I > *NDIM
+            ,  XTA  ,                     .
+            ,  ATX  ,CONADD              .   0  TO CONADD
+            ,  ITA  ,1                     .  ADRESS OF  ) TO  A
+            ,  ATX  ,*R              .    AND  *R
+ ,XTA,/END0/
+           1,  ARX  ,                     .  /    26/    04/  TO  PI - L
+           1,  ATX  ,                     .
+ ,XTA,B1
+ ,ARX,/NSIF
+ ,ATX,/NSIF
+ ,NTR,3
+ ,X-A,/C40
+ ,U1A,CERROR45
+ ,X-A,C200
+            ,  ATX  ,NIF
+            ,  XTA  ,C26               .
+ 12,  VJM  ,CSTARTPI             .
+ ,XTA,/NSIF
+ ,CALL,OCT T DEC
+            ,  AAX  ,B16/1
+            ,  AOX   ,N*ST00
+           ,  ATX  ,NAM*IF
+ 6,MTJ,1
+ 6,UTM,2
+ 11,VJM,TO*IDL
+            ,  XTA  ,/SEQ/              .
+ 6,ATX,-1
+ 5,UTM,2
+ 14,VJM,IND/M1
+            ,  WTC  ,A*VAR               .
+           1,  VTM  ,                     .  ADRESS  OF(  TOB1
+ CSP15:,BSS,
+ 12,VJM,CSENDPI
+            ,  XTA  ,N*IND
+            ,  ARX  ,B1
+             ,  AEX  ,N*INDS
+            ,  UZA  ,CSP16
+            ,   XTA  ,/MIN/            .
+           6,  ATX  ,                     .
+ 6,UTM,2
+ ,XTA,A/INT1
+ ,ATX,NWORDCT
+          13,  VJM  ,CONSERCH             .
+            ,  ASN  ,64-24                .
+            ,  ARX  ,B1              .  -1  SEND TO PI-LIST
+ 6,ATX,-1
+ 5,UTM,2
+ CSP16   :  ,  WTC  ,N*IND
+ 8,VTM,
+           8,  VZM  ,CTESTP5              .
+ 14,VJM,IND/M1
+ ,XTA,B1
+ ,ARX,*PCT
+ ,ATX,*PCT
+ ,ATI,3
+ 3,UTM,CAPI-1
+            ,  XTA  ,/PLUS/             .
+           6,  ATX  ,                     .
+           3,  XTA  ,                     .
+            ,  ASN  ,64+24                .
+            ,  UZA  ,CS51E                .
+           3,  XTA  ,                     .
+            ,  ASN  ,64-33                .
+ ,AOX,C10
+ CS51D   : 6,  ATX  ,1                    .
+            ,  XTA  ,/STAR/            .
+           6,  ATX  ,2                    .
+ ,XTA,C3
+           6,  ATX  ,3                    .
+           6,  UTM  ,4                    .
+ 5,UTM,4
+            ,  UJ   ,CSP15
+ CTESTP5 :  ,  XTA  ,*PCT
+ ,ATI,4
+ CTP5:4,VZM,CPILB5
+ 4,UTM,-1
+ ,XTA,C4
+           6,  ATX  ,
+           6,  UTM  ,1
+ 5,VLM,CTP5
+ CS51E:3,XTA,
+           ,  ARX  ,A/I0
+           ,  ATX  ,WS2
+ ,XTA,A/WS2
+ ,ATX,NWORDCT
+          13,  VJM  ,CONSERCH
+            ,  ASN  ,64-24
+            ,  ARX  ,B1
+            ,  UJ   ,CS51D
+ CPILB5  :  ,  WTC  ,*LB
+           3,  VTM  ,
+ ,XTA,
+ ,ATX,*PCT
+ ,ITA,5
+           ,  ASN  ,64-24
+           3,  ARX  ,
+           3,  ATX  ,                     .  /PICT+1     /       26/
+            ,  ATX  ,M*NSIF
+            ,  UJ   ,L*7             .
+ CTESK4A:,XTA,*KK
+ ,UZA,NIF/0
+ L*6  :   ,  WTC  ,*KK             .
+            3,  VTM  ,-4           .
+            3,  VZM  ,C6A                 .F K=4 OR K=1  NO REGULATE
+            3,  UTM  ,3                   .     BIF
+            3,  VZM  ,C6A                 .   (K-1) TO  B3
+             ,  NTR  ,3                   .
+ CORDC   :  3,  MTJ  ,2                   .
+ CORDC1:2,UTM,-1
+ 3,XTA,BIF
+             ,  AAX  ,C77777           .ICK OUT (LA)BIF+(B3)
+ 2,XTS,BIF
+             ,  AAX  ,C77777           .
+          15,  A-X  ,                     .
+             ,  U1A  ,CORDA               .
+ 3,XTA,BIF
+ 2,XTS,BIF
+ 3,STX,BIF
+ 2,ATX,BIF
+ CORDA   :  2,  V1M  ,CORDC1             .
+           3,  UTM  ,-1            .
+            3,  V1M  ,CORDC               .
+           3,  VJM  ,COMBINE1             .  (B2)=0  BEGIN  COMPRESSION
+             ,  WTC  ,*KK             .         BIF
+           8,  VTM  ,-1            .
+            8,  VZM  ,C6A                 .
+           8,  UTM  ,-1            .
+            8,  V1M  ,COMB6B              .  JUMP IF  K=2
+ ,XTA,M*EQIV
+            ,  UZA  ,C6A                  . COMPRESSION  STOP IF  K=2
+             ,  XTA  ,BIF2           .        AND  FIG =0
+             ,  ATX  ,BIF1           .  CASE: K=2 , FLG=1
+ ,UTC,-1
+ COMB6B  :  2,  UTM  ,1                   .  CASE: K=3 , FLG=0
+ 3,VTM,C6A
+ COMBINE1:2,XTA,BIF
+ 2,AEX,BIF1
+ ,AAX,C77777
+            3,  U1A  ,                    .
+             ,  XTA  ,B30/16             .
+ 2,AAX,BIF1
+ 2,ARX,BIF
+ 2,ATX,BIF
+             ,  WTC  ,*KK             .
+            8,  VTM  ,-1           .
+             ,  ITA  ,8                   .
+             ,  ATX  ,*KK            .
+ ,ATX,M*EQIV
+            3,  UJ   ,                    .
+ C6A     :   ,  XTA  ,*KK            .
+             ,  ATX  ,*K2             .      K  TO  M
+             ,  XTA  ,                    .
+ ,ATX,M*EQIV
+             ,  WTC  ,*K2              .
+            3,  VTM  ,-1           .  (M-1) TO   B3
+ C60:3,XTA,BIF
+             ,  AAX  ,C77777           .ICK OUT TAIL
+             ,  UZA  ,C60AA               .F NOT 0 REPEAT
+             ,  AEX  ,C77777           .
+             ,  UZA  ,C60AA               .F NOT -0 REPEAT
+ 3,XTA,BIF
+             ,  AAX  ,C77777           .
+ ,CALL,TAK*IV
+ C60AA   :  3,  VZM  ,C60A                .
+           3,  UTM  ,-1            .
+             ,  UJ   ,C60                 .
+ C60A    :   ,  WTC  ,*K2              .
+           8,  VTM  ,-4            .
+ ,XTA,BIF2
+ ,UZA,C6B0
+            8,  VZM  ,C6B1                .
+ C6B0    :   ,  XTA  ,*K2             .
+             ,  UJ   ,C6C                 .
+ C6B1:,XTA,WS1
+ ,AAX,B1
+ ,ASN,64-1
+ ,XTS,WS1
+ ,ASN,64+1
+ ,AAX,B1
+ 15,AOX,
+ ,AOX,C4
+ C6C:,ASN,64-45
+            ,  AOX  ,BIF             .
+             ,  ATX  ,BIF            .
+    ,  WTC  ,LGIFLIST            . LENGTH OF IFLIST TO B3
+           3,  VTM  ,                     .
+ SE*IF    :  3,  VZM  ,PUT*IF            .
+ 3,UTM,-1
+ 3,XTA,INFUNLIS
+ ,AEX,BIF
+ ,AAX,Z42/28
+ ,U1A,SE*IF
+ ,WTC,*K2
+           2,  VTM  ,-1            .
+ SE1*IF:2,VZM,IF/IS
+           2,  UTM  ,-1            .
+   3,  UTC  ,INFUNLIS+1          .
+           2,  XTA  ,                     .
+             ,  UTC  ,BIF1            .
+           2,  AEX  ,                     .
+             ,  U1A  ,SE*IF                .
+ ,UJ,SE1*IF
+ IF/IS   :   ,  UTC  ,INFUNLIS            .
+           3,  XTA  ,                     .
+             ,  ASN  ,64-3                .
+            ,  ASN  ,64+33                .
+             ,  ATX  ,NIF              . CTOREA  N  INDEXFUNCTION
+            ,  UJ   ,L*7               .
+ PUT*IF:   ,  WTC  ,/SIF             .
+           8,  VTM  ,1                    .
+             ,  ITA  ,8                   .
+ ,ATX,/SIF
+ 8,UTM,-96
+            8,  VZM  ,CERROR53            .
+            ,  ASN  ,64-30                .
+             ,  AOX  ,BIF            .
+            ,  ATX  ,BIF             .
+             ,  WTC  ,LGIFLIST            .
+ 3,VTM,-1
+ ,WTC,*K2
+ 8,VTM,
+ 2,VTM,-1
+ TO*IFL:2,UTM,1
+ 3,UTM,1
+ 8,UTM,-1
+ 2,XTA,BIF
+ 3,ATX,INFUNLIS
+ 8,V1M,TO*IFL
+ ,XTA,/SIF
+             ,  ATX  ,NIF              .
+ ,XTA,*K2
+ ,ARX,LGIFLIST
+ ,ATX,LGIFLIST
+            ,  UJ   ,L*7               .
+ CONAD/0     :   ,  XTA  ,                    .
+            ,  ATX  ,CONADD              .
+ NIF/0     :   ,  XTA  ,                    .
+            ,  ATX  ,NIF               .
+ L*7  :   ,  WTC  ,A*VAR              .
+           3,  VTM  ,-1            . ADRESS OF SIGMA(S-1) TO B2
+             ,  NTR  ,3                   .
+            ,  XTA  ,CONADD              .
+             ,  A+X  ,A/I0             .
+            ,  ASX  ,SHIFT               .
+            ,  ASN  ,64-18                .
+ 3,AEX,
+ ,AAX,CLEMSK
+ 3,AEX,
+           3,  ATX  ,                     . FORM  CONADD  IN SIGMA(S-1)
+             ,  XTA  ,NIF              .
+            ,  UZA  ,CONSUB               .
+             ,  ASN  ,64-8                .
+           3,  AOX  ,                     .
+            3,  ATX  ,                    . FORM IF=  IN  SIGMA(S-1)
+ CP71    : 3,  UTM  ,1
+ 3,MTJ,1
+            ,  XTA  ,M*NSIF
+            ,  U1A  ,CP71X
+          ,  WTC  ,N*IF
+          8,  VTM  ,-1
+          ,  ITA  ,8
+            ,  ATX  ,N*IF
+  CP71X  :  ,  WTC  ,N*IF
+           8,  VTM  ,
+          8,  VZM  ,CLESIG
+          3,  XTA  ,
+          ,  ASN  ,64+42
+           ,  ATX  ,N*IND
+          3,  XTA  ,
+          ,ASN  ,64-6
+          ,  ASN  ,64+45
+           ,  ATX  ,*P
+          3,  XTA  ,
+           ,  ASN   ,64-9
+           ,  ASN  ,64+33
+           ,  ATX  ,A*VAR
+ CLESIG:   ,  XTA  ,                   .
+ 1,ATX,
+ ,ITA,1
+            ,  AEX  ,*R              .
+ 1,UTM,1
+ ,U1A,CLESIG
+ 1,UTM,-1
+             ,  XTA  ,N*IF
+          ,  UZA  ,NEXT*SI
+ 3,MTJ,1
+            ,  XTA  ,M*NSIF
+            ,  UZA  ,NEXT*SI
+ ,ITA,1
+ ,ATX,A*VAR
+           ,  XTA  ,NAM*IF
+          1,  ATX  ,1
+         15,  XTA  ,
+           1,  ATX  ,
+            ,  XTA  ,C4
+           1,  ATX  ,2
+            ,  XTA  ,
+            ,  ATX  ,M*NSIF
+           ,  XTA  ,B1
+           ,  ATX  ,N*IND
+             ,  ATX  ,*P
+             ,  UJ   ,C12
+ CONSUB  :  3,  XTA  ,                    .
+            ,  ASN  ,64+5                 .
+             ,  ASN  ,64-5                .
+ ,AOX,C10
+           3,  ATX  ,                     .
+             ,  XTA  ,CONADD             .
+            ,  UZA  ,CP71                 .
+            3,  XTA  ,                    .
+ ,AAX,B18
+            ,  UZA  ,CP71                 .
+ ,ASN,64+13
+           3,  ARX  ,                     .
+            3,  ATX  ,                    .
+            ,  UJ   ,CP71                 .
+ L*8:,XTA,C6
+           12,  VJM  , CSTARTPI           . BEGIN PI - STRING
+             ,  WTC  ,B*SI0             .
+            1,  VTM  ,-1           . FWASIGMA  TO B1, B1-1 TO B1
+           12,  VJM  ,CSENDPI             .   SEND  SIGMA TO  PI
+ ,ITA,5
+             ,  ASN  ,64-24               .
+             ,  WTC  ,*LB             .
+             ,  AOX  ,                    .
+             ,  WTC  ,*LB             .
+             ,  ATX  ,                    .
+ PIEXIT:,XTA,I15
+          ,  ATI,15
+       15,  WTC  ,
+ 7,VTM,
+             ,  WTC  ,I13             .
+ ,UJ,
+ CSTARTPI:  6,  ATX  ,                    .
+             ,  ITA  ,6                   . B6 = ADRESSPI TO *LB
+             ,  ATX  ,*LB            .
+            6,  UTM  ,1                   .
+ 5,VTM,1
+           12,  UJ   ,                    .  EXIT  CSTARTPI
+ CSENDPI :  1,  UTM  ,1                   .
+            1,  XTA  ,                    .
+             ,  UZA  ,CSENDPI             .
+             ,  AEX  ,C6              .
+           12,  UZA  ,                    .EXIT OUT CSENDPI  IF  END
+             ,  ASN  ,64+24               .
+             ,  AEX  ,C26              .
+           12,  UZA  ,                    .
+            1,  XTA  ,                    .  SEND  ELEMENT SIGMA  TO PI
+            6,  ATX  ,                    .
+ 5,UTM,1
+ 6,VLM,CSENDPI
+ CHTEXT:1,XTA,
+ ,CALL,H*CONST
+ 12,UZA,
+ 12,MTJ,11
+ TO*IDL:14,VJM,SE*IDL
+ ,UZA,RET/9
+ ,WTC,LOWCORE
+            9,  VTM  ,-1           .
+ 9,ATX,
+             ,  ITA  ,9                   .
+ ,ATX,LOWCORE
+ ,AEX,HIGHCORE
+ ,UZA,CERROR52
+ ,XTA,B1
+ ,ARX,LGIDENT
+ ,ATX,LGIDENT
+ RET/9:,ITA,9
+ ,ASN,64-33
+ ,AOX,C10
+ 1,ATX,
+           11,  UJ   ,                    . EXIT  CIDNTSR2
+ CONALF2:1,UTM,2
+C========
+ CONALFA:,ENTRY,
+C========
+ CONALFA: 7,BASE,C
+ ,XTA,
+             ,  ATX  ,F*TAB             .
+            1,  XTA  ,                    .
+ ,ASN,64+40.idEHTifiKATOP
+ ,UZA,CHTEXT. = HET
+            1,  XTA  ,                    .
+ ,ATX,NAM
+ 14,VJM,SE*DIML.B DIMENLIST
+ 1,WTC,1
+ 8,VTM,-LPA
+ ,U1A,VAR*FUN. = HET
+             ,  ITA  ,9                   .
+             ,  ASN  ,64-33               .
+            1,  ATX  ,                    . ADRESS  DIM   TO  SIGMA
+             ,  WTC  ,DI2*B             .
+            2,  XTA  ,                    .
+             ,  ASN  ,64+45               .
+             ,  ASN  ,64-15               .
+            1,  AOX  ,                    .
+            1,  ATX  ,                    .   ADRESS DIM    TYPE
+             ,  WTC  ,DI3*B             .           TO  SIGMA
+            2,  XTA  ,                    .
+             ,  ASN  ,64+45               .
+             ,  UZA  ,CH*FUVA              .      N=0
+ ,XTA,C15
+ 8,V1M,PLUS/T
+ ,XTA,/C30
+ PLUS/T:1,AEX,
+            1,  ATX  ,                    .
+           12,  UJ   ,                    .
+ CH*FUVA:2,MTJ,14
+ ,WTC,DI3*B
+ 2,UTM,
+ 8,VZM,CH*FUN
+            2,  XTA  ,                    .  (DIM3+I) TO A
+             ,  AAX  ,B20           .ICK OUT X
+             ,  U1A  ,PUF                . JUMP  IF  IS FUNCTION,
+            2,  XTA  ,                    .
+             ,  AAX  ,B21           .
+             ,  U1A  ,PUVAR                .F V=1 GO TO PUVAR
+            2,  XTA  ,                    .
+             ,  AOX  ,B21           . FORM V=1 IN DIMLIS3
+            2,  ATX  ,                    .
+             ,  WTC  ,DI2*B             .F FORPAR
+ 14,XTA,
+             ,  AAX  ,B45/43             .
+             ,  U1A  ,PUVAR                . THEN GO TO PUVAR
+ 14,MTJ,2
+           13,  VJM  ,SRESERVE            .LACE FOR SIMPLE VARIABLE
+ PUVAR:,XTA,C10
+ ,UJ,PLUS/T
+ PUFUN:,XTA,/C13
+ ,UJ,PLUS/T
+ PUFUNF:,XTA,C213
+ ,UJ,PLUS/T
+ PUF:9,XTA,
+ 14,VJM,SE*TAB
+ ,U1A,PUFUN
+ 1,XTA,
+ 2,AEX,TABLIS1
+ ,AAX,B24/1
+ ,UJ,PLUS/T
+ CH*FUN:2,XTA,
+             ,  AAX  ,B21           .ICK OUT  SIGN  V
+            ,  U1A  ,CERROR47             .
+           2,  XTA  ,                     .  FORM  X=1  AND SEND TO
+             ,  AOX  ,B20           .  DIMENLIST
+           2,  ATX  ,                     .
+             ,  WTC  ,DI2*B             .
+ 14,XTA,
+             ,  ASN  ,64-27               .
+ ,U1A,PUFUNF
+ 9,XTA,
+ 14,VJM,SE*TAB
+             ,U1A  ,PUFUN                  .
+             ,  XTA  ,B1             .
+             ,  ATX  ,F*TAB             .
+ ,UJ,FUN*1
+ VAR*FUN:8,V1M,SIMPLV
+           1,  XTA  ,                     .
+ 14,VJM,SE*IDL
+             ,  UZA  ,CERROR47            .
+ 14,VJM,SE*TAB
+ ,U1A,FUN*3
+ FUN*1:2,XTA,TABLIS1
+ ,AAX,B24/1
+ ,ITS,9
+ ,ASN,64-33
+ 15,AOX,
+           1,  ATX  ,                     .
+           2,  UTC  ,TABLIS1              .
+             ,  XTA  ,                    . (TABLIS1+J) TO A
+             , AAX ,B48                .
+           12, U1A ,                        .
+             ,  XTA  ,F*TAB             .
+ ,UZA,FUN*2
+             ,  XTA  ,                    .
+             ,  ATX  ,F*TAB             .
+           12,  UJ   ,                    .
+ FUN*2:,XTA,B48
+ 2,AOX,TABLIS1
+ 2,ATX,TABLIS1
+ 12,MTJ,11
+ TO*IFLL:9,XTA,
+ ,WTC,LGFUNLIS
+ 9,VTM,-200
+ 9,VZM,CERROR50
+ 9,UTM,201
+ ,ITS,9
+ ,STX,LGFUNLIS
+ 9,UTM,FUNLIS-1
+ 9,ATX,
+ 11,UJ,
+ FUN*3:   ,  WTC  ,LGFUNLIS            .
+           2,  VTM  ,                     .
+            9,  VTM  ,FUNLIS              . SEARCH  IN  FUNLIS
+          14,  VJM  ,SE*                  .
+ ,UZA,CSRCH1
+ 1,MTJ,9
+ 11,VJM,TO*IFLL
+ CSRCH1:,ITA,9
+ ,ASN,64-33
+ 1,XTS,
+ 11,VJM,C/IJK
+ 15,AOX,
+ ,AOX,/C13
+ 1,ATX,
+ 12,UJ,
+ SIMPLV:1,XTA,
+ 11,VJM,TO*IDL
+ 9,XTA,
+ 11,VTM,PLUS/T
+ C/IJK:,AAX,B48/41
+ 2,VTM,6
+ 9,VTM,IJKLMN
+ 14,VJM,SE*
+ 11,UZA,
+ ,XTA,B16
+ 11,UJ,
+ SE*DIML:,WTC,DI*L
+ 2,VTM,
+ 9,VTM,DIMENLIS
+ ,UJ,SE*
+ SE*IDL:,WTC,LGIDENT
+ 2,VTM,
+ ,WTC,LOWCORE
+ 9,VTM,
+ ,UJ,SE*
+ SE*TAB:2,VTM,TABLISCT
+ 9,VTM,TABLIS
+ SE*:2,J+M,9
+ SE*1:9,UTM,-1
+ 14,UTC,
+ 2,VZM,
+ 2,UTM,-1
+ 9,AEX,
+ 14,UZA,
+ 9,AEX,
+ ,UJ,SE*1
+ A/INT1:,Z00,INT1
+ ,,1
+ A/WS2:,Z00,WS2
+ ,,1
+ A/DIM:,,
+ ,Z00,DIMENLIS
+ CERROR40:  8,  VTM  ,''15040''           .  TOO  MUCH  INDEX
+ ERRORN:,ITA,8
+ ,AOX,ERR*
+ 13,VTM,CERR40B
+ ,UJ,SERROR*
+ ERR*:,Z00,NAM
+ ,,
+ CERR40A :   ,  ITA  ,8                   .
+           13,  VJM  ,SERROR              .
+ CERR40B:,BSS,
+             ,  WTC  ,B*PI0              .
+            6,  VTM  ,                    .
+ ,XTA,/ER1/
+            6,  ATX  ,                    .
+ ,XTA,/ER2/
+            6,  ATX  ,2                   .
+            6,  UTM  ,3                   .
+             ,  UJ   , PIEXIT             . EXIT PROSIG                .
+ pYCTfPAg:8,VTM,15041B.pYCTOj fPAgMEHT
+ ,UJ,CERR40A
+ CERROR45:   8,  VTM  ,''15045''          .LIMIT FOR NON-STANDARD SABSCR
+             ,   UJ    ,CERR40A           . EXPRESSIONS EXC
+ CERROR47:8,VTM,15047B
+ ,UJ,ERRORN
+ CERROR50:  8,  VTM  ,''45050''           . NUMBER OF FUNCTIONS EXCEED
+ ,UJ,CERR40A
+ CERROR52:8,VTM,45052B
+ ,UJ,CERR40A
+ CERROR53:    ,  XTA  ,B1            .
+ ,ATX,/SIF
+            8,  VTM  ,''25053''           .LIMIT FOR STANDARD INDEX
+              ,  UJ   ,CERR40A            .  FUNCTIONS EXCEEDED
+ CERROR54:8,VTM,23001B
+ ,UJ,CERR40A
+ N*ST00:,ISO,6HN*ST00
+ /STAR/:,LOG,03 00000002
+ /MIN /:,LOG,02 00000002
+ /PLUS/:,LOG,01 00000002
+ /ER1/:,LOG,42 00000017
+ /END/ :,LOG,26 00000005
+ /END0/ :,LOG,26 00000000
+ /ER2/  :,LOG,01 00000006
+ C300001:,LOG,3 00001
+ C100001:,LOG,1 00001
+ IJKLMN:,BSS,
+ ,ISO,6HI''''''''''
+ ,ISO,6HJ''''''''''
+ ,ISO,6HK''''''''''
+ ,ISO,6HL''''''''''
+ ,ISO,6HM''''''''''
+ ,ISO,6HN''''''''''
+ TABLIS  :   , 8TEXT ,''AMAX0 ''          .
+             , 8TEXT ,''AMAX1 ''            .
+             , 8TEXT ,''AMIN0 ''            .
+             , 8TEXT ,''AMIN1 ''            .
+             , 8TEXT ,''MAX0  ''          .
+             , 8TEXT ,''MAX1  ''          .
+             , 8TEXT ,''MIN0  ''          .
+             , 8TEXT ,''MIN1  ''          .
+         ,  8TEXT,''DMOD  ''
+         ,  8TEXT,''DEXP  ''
+         ,  8TEXT,''DLOG  ''
+         ,  8TEXT,''DLOG10''
+         ,  8TEXT,''DATAN ''
+         ,  8TEXT,''DATAN2''
+         ,  8TEXT,''DSIN  ''
+         ,  8TEXT,''DCOS  ''
+         ,  8TEXT,''DSQRT ''
+         ,  8TEXT,''CABS  ''
+         ,  8TEXT  ,''CEXP  ''
+         ,  8TEXT,''CLOG  ''
+         ,  8TEXT,''CSIN  ''
+         ,  8TEXT,''CCOS  ''
+         ,  8TEXT,''CSQRT ''
+         ,  8TEXT,''DABS  ''
+         ,  8TEXT,''DMAX1 ''
+         ,  8TEXT,''DMIN1 ''
+         ,  8TEXT,''DSIGN ''
+         ,  8TEXT,''DBLE  ''
+         ,  8TEXT,''CMPLX ''
+         ,  8TEXT,''CONJG ''
+           , 8TEXT ,''DINT  ''
+ ,ISO,6HLOADFO
+ TABLIS1 :   ,  OCT  ,0000 0000 0010 0213 .
+             ,  OCT  ,0000 0000 0010 0213 .
+             ,  OCT  ,0000 0000 0010 0213 .
+             ,  OCT  ,0000 0000 0010 0213 .
+             ,  OCT  ,0000 0000 0000 0213 .
+             ,  OCT  ,0000 0000 0000 0213 .
+             ,  OCT  ,0000 0000 0000 0213 .
+             ,  OCT  ,0000 0000 0000 0213 .
+         ,  OCT  ,0000000000200013
+         ,  OCT  ,0000000000200013
+         ,  OCT  ,0000000000200013
+         ,  OCT  ,0000000000200013
+         ,  OCT  ,0000000000200013
+         ,  OCT  ,0000000000200013
+         ,  OCT  ,0000000000200013
+         ,  OCT  ,0000000000200013
+         ,  OCT  ,0000000000200013
+             ,  OCT  ,0000000000100013
+         ,  OCT  ,0000000000300013
+         ,  OCT  ,0000000000300013
+         ,  OCT  ,0000000000300013
+         ,  OCT  ,0000000000300013
+         ,  OCT  ,0000000000300013
+         ,  OCT  ,0000000000200013
+         ,  OCT  ,0000000000200213
+         ,  OCT  ,0000000000200213
+         ,  OCT  ,0000000000200013
+         ,  OCT  ,0000000000200013
+         ,  OCT  ,0000000000300013
+         ,  OCT  ,0000000000300013
+            ,  OCT  ,0000000000200013
+ C213:,LOG,213
+ REAL1:,REAL,1.
+ CLEMSK:,LOG,77777 0 77740
+ B48/41:,OCT,776
+ Z42/28:,LOG,77 000007 777 77777
+ B45/43:,OCT,07
+ B42/41:,OCT,006
+ B23/22:,LOG,300 00000
+ B18:,LOG,4 00000
+ B16/1:,LOG,1 77777
+ C200:,LOG,200
+  C50:,LOG,50
+ /C40:,LOG,40
+ /C30:,LOG,30
+  C26:,LOG,26
+  C17:,LOG,17
+  C16:,LOG,16
+  C15:,LOG,15
+C--------
+ *WSTOR:,BSS,31
+C--------
+   ,END,
+      LISTEDIO   :,NAME,
+ A/I0:,LC,1
+      SERROR     :,SUBP,
+ SERROR*:,SUBP,
+      PUTAWAY    :,SUBP,
+ ISO*INT:,SUBP,
+      CONTROL    :,SUBP,
+ CONTROL:I,BLOCK,(1)
+ ,CONT,MAK*LOOP,BEG*LOOP,END*LOOP
+ SF:,SUBP,
+ LISTS:LC,BLOCK,(480),DOLIST
+      IR2IM      :,LC,  1
+      DOLISTCT   :,LC,  1
+ *CONSD:LC,BLOCK,(15),C3,INT1
+ PROFLIST:LC,BLOCK,(38),*SEQ*
+ ,CONT,C1,C2,C4,C5(2),C7,C10(11)
+ ,CONT,C37(3),C77777
+ CON:,EQU,1
+ LPA:,EQU,3
+ RPA:,EQU,4
+ COM:,EQU,5
+ VAR:,EQU,10B
+ FUN:,EQU,13B
+ ARR:,EQU,15B
+ VARI:,EQU,30B
+ *CONS*:,EQU,C1
+ *RPAR*:,EQU,C4
+ *COM* :,EQU,C5
+ *PARAM*:,EQU,C15
+ *WSTOR:I,BLOCK,*TYP,PWA,PWS
+ ,CONT,BEG,END,NU*E,RW
+ ,CONT,LDELT,N*LO,OPAR(3)
+ ,CONT,PARL*(7)
+ ,CONT,(1),A/IOE
+ PARL*:I,BLOCK,W*PW,ADR*A(4),M*A,COD
+ *1:,BLOCK,(1),B,R,M,T,P
+ *C:14,BASE,*
+ ,STI,11.Tip OpEPATOPA
+ ,ATI,12.AdPEC KOHcA
+ ,ASN,64+24
+ 12,UTM,1
+ ,ITS,12
+ ,STX,END.AdPEC KOHcA + 1
+ ,ATI,12.= AdPEC HA~AlA
+                 ,ITA,  13
+ 14,VTM,1-P
+ SAVIR:14,ITS,P
+ 14,VLM,SAVIR
+ B,BASE,*C
+ ,XTS,
+ 11,MTJ,T
+ 12,MTJ,P
+C=====   ObPAbOTKA pPEdCpiCO~HOgO ByPAvEHiq
+ 13,VJM,RSYM
+ 14,UTM,RPA-LPA
+ R,VTM,E/FORM
+ 14,V1M,OUTLAB.METKA BHE CKObOK
+ 13,VJM,RSYM
+ M,VTM,
+ R,VJM,OUTLAB.HOMEP YCTP-BA
+ 13,VJM,RSYM
+ 14,VZM,bECf.bECfOPM.ObMEH
+ R,VJM,OUTLAB.METKA fOPMATA
+ 13,VJM,RSYM
+ 14,V1M,ENCDEC.ENCODE/DECODE
+ T,UTC,
+ 14,VTM,-54B
+ 14,V1M,E/FORM
+ T,VTM,52B.READ C lEHTy
+ ,UJ,E/FORM
+ ENCDEC:M,VTM,
+ R,VJM,OUTLAB.BHYTP.bYfEP
+ 13,VJM,RSYM
+ 14,VZM,E/FORM
+ ,UJ,O{*fOPM
+ RSYM:P,XTA,
+ P,UTM,1
+ ,ATX,RW
+ ,ATI,14
+ 14,UTM,-COM
+ 14,VZM,RSYM
+ 14,UTM,COM-RPA
+ M,VTM,1
+            13 ,   UJ,
+ OUTLAB:R,MTJ,13
+               ,  XTA,   RW
+ ,ATX,PWS
+               ,  AAX,   C37
+ ,AEX,*CONS*
+ ,U1A,PUT/P
+ M,VZM,PUT/P
+C.....   pAPAMETP = METKA fOPMATA
+               ,  XTA,   RW
+                 ,ASN,  64+24
+                 ,ATI,  14
+ ,XTA,RW
+ ,ASN,64+15
+ ,AAX,C7
+ ,U1A,METKAf
+ 14,XTA,
+ ,AEX,A/I0
+ ,ASN,64+15
+ ,U1A,PUT/P
+            14 ,  XTA,
+L           13 ,  VJM,   SF
+ ,AEX,*/
+               ,  ATX,   W*PW
+            14 ,  VTM,   W*PW
+                 ,ITA,  14
+ R,MTJ,13
+ ,UJ,PUT/V
+C========
+ bECf:T,UTM,10B
+ ,UTC,T
+ E/FORM:,ITA,
+ ,ATX,N*LO.BPEMEHHO
+ ,ITA,T
+ ,ATX,*TYP
+ ,ITA,P
+ ,ATX,BEG
+ ,XTA,C1
+ ,ATX,NU*E
+C-----   BydA~A KOMAHd HACTPOjKi
+ 14,VTM,FT*000
+ 13,VJM,F*NAM
+C-----
+ ,XTA,N*LO
+ ,ATX,*TYP
+ ,XTA,
+ ,ATX,LDELT
+ ,XTA,SC/RE
+ T,ASN,64-50B
+ ,AAX,C1
+ ,ATI,T
+ ,XTA,C2
+ ,ATX,NU*E
+ M,VTM,
+ R,VJM,CpiCOK
+ M,VTM,1
+ R,VJM,CpiCOK
+ ,XTA,A/IOE
+ ,U1A,OUT/IOE
+ 14,VTM,IOEND*
+ ,ITA,14
+ ,ASN,64-33
+ ,AOX,C10
+ ,ATX,A/IOE
+ ,XTS,*EXT*
+ 13,VJM,PUTAWAY
+ OUT/IOE:,XTA,A/IOE
+ ,XTS,*13VJM*
+ 13,VJM,PUTAWAY
+C=====   B O z B P A T
+ RETURN:,BSS,
+ ,STX,
+ 14,VTM,P
+ RESIR:14,STI,
+ 14,UTM,-1
+ 14,V1M,RESIR
+ ,ATI,13
+ 13,UJ,
+C=====   pPOXOd pO CTPOKE C ObPAbOTKOj CpiCKA
+ CpiCOK:,WTC,BEG
+ P,VTM,-1
+                 ,XTA,
+               ,  ATX,   N*LO
+ NEXT:P,UTM,1
+ ,ITA,P
+                 ,NTR,  3
+               ,  A-X,   END
+ R,UZA,
+ P,XTA,
+               ,  ATX,   RW
+               ,  AAX,   C37
+ ,ATI,14
+ ,XTA,
+ M,V1M,OUTPUT
+C-----   pOiCK i BydElEHiE ciKlOB
+ 14,UTM,-FUN
+ 14,VZM,CH*FUN
+ 14,UTM,FUN
+ ,XTA,PAzP*Tip
+ 14,ASN,64
+ ,AAX,C1.PAzPE{EH Tip
+ ,U1A,NEXT. = dA
+ 14,UTM,-LPA
+ 14,VZM,LPAR/L.= OTKP.CKObKA
+ 14,UTM,LPA-RPA
+ 14,VZM,RPAR/L.= zAKP.CKObKA
+ ,XTA,RW
+ ,AEX,*SEQ*
+ ,U1A,O{*CpiC
+ ,XTA,N*LO
+ ,UZA,O{*CKOb
+C.....   pAPAMETPy HEqBHOgO ciKlA
+ P,UTC,
+ 8,VTM,-1
+             9 ,  VTM,
+ HEqBciK    : 8 ,  XTA,
+             9 ,  UTC,   PARL*
+                 ,ATX,
+                 ,XTA,
+             8 ,  ATX,
+             8 ,  UTM,  1
+ 9,UTM,-6
+ 8,WTC,
+ 14,VTM,-RPA
+ 9,VZM,RPAR/0
+ 9,UTM,7
+ 14,V1M,HEqBciK
+ ,XTS,*COM*
+               ,  ATX,   PARL*+5
+               ,  XTA,   A/INT1
+ ,STX,PARL*+6
+ RPAR/0:14,V1M,O{*ciKl
+             8 ,  ATX,
+             1 ,  VTM,   PARL*
+L           13 ,  VJM,   MAK*LOOP
+ ,WTC,DOLISTCT
+ 8,VTM,-1
+                 ,ITA,  8
+                 ,ASN,  64-6
+ 15,ATX,
+ ,WTC,N*LO
+ ,WTC,OPAR-1
+ 8,VTM,
+ 8,ARX,
+ 8,STX,
+ ,AOX,*RPAR*
+ P,ATX,-1
+ 13,VTM,NEXT
+ ,UJ,N*LO/M1
+C.....   OTKPyBA`}Aq CKObKA ciKlA
+ LPAR/L:,WTC,N*LO
+ 8,VTM,-3
+ 8,VZM,O{*CKOb
+ ,ITA,P
+ 8,UTC,OPAR+3
+ ,ATX,
+ 8,UTM,4
+ ,ITA,8
+ ,ATX,N*LO
+ ,UJ,NEXT
+C.....   li{HiE CKObKi B CpiCKE
+ RPAR/L:,XTA,
+ ,WTC,N*LO
+ 14,VTM,
+ 14,VZM,O{*CKOb
+ 14,WTC,OPAR-1
+ ,ATX,
+ P,ATX,
+ 13,VJM,N*LO/M1
+ 13,VTM,NEXT
+ ,UJ,ER*PAR
+ N*LO/M1:,WTC,N*LO
+ 14,VTM,-1
+ ,ITA,14
+ ,ATX,N*LO
+ 13,UJ,
+ OUTPUT:,BSS,
+ 14,VZM,NEXT
+ 14,UTM,-CON
+ 14,VZM,CH*CON
+ 14,UTM,CON-LPA
+ 14,VZM,LPAR/1
+ 14,UTM,LPA-RPA
+ 14,VZM,RPAR/1
+ 14,UTM,RPA-COM
+ 14,VZM,NEXT
+ 14,UTM,COM-VAR
+ 14,VZM,CH*H
+ 14,UTM,VAR-ARR
+ 14,VZM,OUT/ARR
+ 14,UTM,ARR-VARI
+ 14,V1M,O{*CpiC
+ ,UJ,ELEMENT
+ CH*CON:T,V1M,O{*BBOd.BBOd B KOH-TY
+ ,UJ,ELEMENT
+C-----   HE zAdAHA li H/KOHCTAHTA
+ CH*H:,XTA,RW
+ ,ASN,64+33
+ ,ATI,14
+ 14,XTA,
+ ,AEX,*H
+ ,ASN,64+32
+ ,U1A,ELEMENT.= HE H-CONST
+ T,V1M,O{*BBOd
+ ,XTA,RW
+ 13,VJM,PUT/S
+ ,XTA,RW
+ ,ASN,64+33
+ ,ATI,14
+ 14,XTA,
+ ,CALL,ISO*INT
+ ,AAX,C37
+ ,ASN,64-30
+ ,XTS,
+ ,UJ,TO*FM
+C=====   BydA~A OdiHO~HOgO |lEMEHTA CpiCKA
+ ELEMENT:,XTA,RW
+ ,AAX,B17
+ ,U1A,/PARAM
+ T,V1M,/READ
+ ELEM1:,XTA,RW
+ ,ATX,PWS
+ T,XTA,*XTA*
+ 13,VJM,PUT/A
+ T,V1M,NEXT
+ /READ:,XTA,IOAC*
+ 13,VJM,OUT/CALL
+ T,V1M,ELEM1
+ ,UJ,NEXT
+ /PARAM:,XTA,RW
+ 13,VJM,PUT/S
+ 14,VTM,FD*000
+            13 ,  VJM,   GIV/NAM
+ ,UJ,NEXT
+ GIV/NAM:,BSS,
+               ,  XTA,   RW
+                 ,ASN,  64+15
+               ,  AAX,   C7
+ ,AEX,C2
+ ,UZA,F*NAM
+ ,AEX,C1
+ 14,UTM,1
+ ,UZA,F*NAM
+ 14,UTM,1
+ F*NAM:,XTA,*TYP
+ ,ASN,64-42
+ ,AUX,MSK1
+               ,  AOX,   NU*E
+ 14,AOX,
+ OUT/CALL:,ATX,W*PW
+ ,XTA,A/NAM
+ ,ATX,PWS
+ ,XTA,*CALL*
+ ,UJ,PUT/A
+C=====   BydA~A MACCiBA iz CpiCKA
+ OUT/ARR:,BSS,
+ ,XTA,RW
+ 13,VJM,PUT/S
+               ,  XTA,   RW
+                 ,ASN,  64+33
+ ,ARX,IR2IM
+ ,ATI,8
+             8 ,  XTA,
+               ,  ATX,   ADR*A
+                 ,WTC,  IR2IM
+             8 ,  XTA,
+ ,ATX,ADR*A+2
+ ,ATX,M*A
+                 ,ASN,  64+24
+ ,ATX,ADR*A+1
+                 ,ASN,  64+21
+ ,ATI,8
+ ,XTA,
+ 8,ATX,ADR*A
+ 8,VTM,-2
+ 10,VTM,
+ ,XTA,INT1
+ ,ATX,COD
+ ,NTR,2
+ L*DIM:8,XTA,ADR*A+2
+ ,UZA,OUT/DIM
+ ,XTS,M*A
+ 8,ASN,64+23
+ ,AAX,C1
+ ,UZA,DIM/C
+ 10,UTM,1
+ ,STX,
+ 13,VTM,EL*DIM
+ ,UJ,PUT/V
+ DIM/C:,STX,
+ ,AAX,C77777
+ ,AOX,A/I0
+ ,A*X,COD
+ ,ATX,COD
+ EL*DIM:8,VLM,L*DIM
+ OUT/DIM:,NTR,3
+ ,XTA,COD
+ ,A+X,A/I0
+ ,ASN,64-30
+ ,ITS,10
+ 15,AOX,
+ ,XTS,RW
+ ,AAX,B17
+ TO*FM:15,AOX,
+ ,ATX,W*PW
+ ,XTA,A/W
+ ,ATX,PWS
+ ,XTA,*XTS*
+ 13,VJM,PUT/A
+ ,XTA,FM*007
+ 13,VJM,OUT/CALL
+ ,UJ,NEXT
+C=====   BydA~A KOHcA HEqBHOgO ciKlA
+ RPAR/1:,XTA,C3
+ ,UTC,END*LOOP-BEG*LOOP
+C=====   BydA~A HA~AlA HEqBHOgO ciKlA
+ LPAR/1:12,VTM,BEG*LOOP
+ ,NTR,3
+ ,XTS,RW
+ ,ASN,64+6
+ ,A-X,LDELT
+ ,STI,1
+ ,ARX,LDELT
+ ,ATX,LDELT
+ 1,XTA,DOLIST
+ 12,UTC,
+ 13,VJM,
+ B,BASE,*C
+ ,UJ,NEXT
+ CH*FUN:P,XTA,
+ ,ASN,64+33
+ ,ATI,14
+ 14,XTA,
+ ,AEX,*VALUE
+ ,U1A,O{*fYHK
+ P,XTA,
+ ,AEX,C3
+ P,ATX,
+ ,UJ,NEXT
+C=====   d i A g H O C T i K A
+C
+C..  O{ibKA B METKE fOPMATA
+ METKAf:14,VTM,20107B
+ ,UJ,ERROR
+C
+C..  HEpPABilxHO iCpOlxzOBAHO
+C      HAiMEHOBAHiE fYHKcii
+ O{*fYHK:,ITA,14
+ ,ASN,64-24
+ ,AOX,ER2202
+ 13,VTM,RETURN
+ ,UJ,SERROR*
+ ER2202:,,
+ ,Z00,22202B
+C
+C..  O{.HEqBHyj ciKl B CpiCKE
+ O{*ciKl:14,VTM,24026B
+ ,UJ,ERROR
+C
+C..  O{.CKObKi OpEPATOPA BBOdA/ByBOdA
+ O{*CKOb:14,VTM,24030B
+ ,UJ,ERROR
+C
+C..  O{.CpiCOK BBOdA/ByBOdA libO DATA
+ O{*CpiC:14,VTM,26001B
+ ,UJ,ERROR
+C
+C..  O{.fOPMAT OpEPATOPA BBOdA/ByBOdA
+ O{*fOPM:14,VTM,26002B
+ ,UJ,ERROR
+C
+C..  BBOd dAHHyX B KOHCTAHTy
+ O{*BBOd:14,VTM,26006B
+ ,UJ,ERROR
+C
+ ERROR:13,VTM,RETURN
+ ERRORA:,ITA,14
+ ,UJ,SERROR
+C
+C========   p P E d Y p P E v d E H i E
+C
+C..  O{.CKObKi OpEPATOPA BBOdA/ByBOdA
+ ER*PAR:14,VTM,04030B
+ ,UJ,ERRORA
+C
+C========   H A   P U T A W A Y
+ PUT/V:,ASN,64-33
+ ,AOX,C10
+ PUT/S:,ATX,PWS
+ PUT/P:,XTA,*PARAM*
+ PUT/A:,ATX,PWA
+ ,XTA,PWS
+ ,ATI,14
+ 14,UTM,-15B
+ 14,V1M,TO PUT
+ ,AEX,C5
+ TO PUT:,XTS,PWA
+ ,UJ,PUTAWAY
+ A/W:,Z00,W*PW
+ ,,1
+ A/INT1:,Z00,INT1
+ ,,1
+ A/NAM:,,
+ ,Z00,W*PW
+ SC/RE:,GOST,6H0000'20''36'
+ PAzP*Tip:,GOST,6H0010'51''43'
+ *CALL*:,LOG,10 000 00074
+ *XTA*:,LOG,110
+ ,LOG,100
+ *XTS*:,LOG,103
+ *H:,ISO,2H*H
+ *VALUE:,ISO,6H*VALUE
+ FD*000:,ISO,6HFD*000
+ ,ISO,6HFC*000
+ FT*000:,ISO,6HFT*000
+ IOAC* :,ISO,6HIOAC*
+ IOEND*:,ISO,6HIOEND*
+ FM*007:,ISO,6HFM*007
+ *EXT*:,LOG,45
+ *13VJM*:,LOG,150 00000 000 00031
+ */:,OCT,012
+ MSK1:,GOST,6H000770
+ C15:,LOG,15
+ B17:,LOG,2 00000
+ *WSTOR:,BSS,21
+      ,END,
+*     C i C T E M A   S E R R O R
+ SERROR:,NAME,
+ M/FIRST:LC,BLOCK,(1),S16,S17
+ LOADANGO:,SUBP,
+ PROFLIST:LC,BLOCK,(59),C77777
+ SERROR1:,ENTRY,
+ SERROR3:,ENTRY,
+ CBSTAR:,ENTRY,
+ ,AAX,C77777
+ SERROR*:,ENTRY,
+ ,XTS,S16
+ ,ATX,16B
+ ,XTA,S17
+ ,STX,17B
+ ,XTS,NR/ERR
+ ,UJ,LOADANGO
+ NR/ERR:,TEXT,8HNR/ERR
+ ,END,
+ NR/ERR:,NAME,.31.03.80
+C
+C*****   p/p BydA~i diAgHOCTiKi
+C*****   TPAHClqTOPA 'fOPTPAH-dYbHA'
+C
+ PRINTF*:,SUBP,
+ RETMON*:,SUBP,
+ FLGEX*:,LC,1
+ NOLISFL*:,LC,1
+ ERROFLAG:LC,BLOCK,(1),ERRORCNT
+C.....
+ LABEL:,LC,1
+ CBNAME:,LC,1
+ TYPE:,LC,1
+ SCANNER:,SUBP,
+ PROFLIST:LC,BLOCK,(39),C1(23),B24/1
+ BUF*TEX:LC,BLOCK,TEXOP(15)
+ LISTS:LC,BLOCK,(830),SIGLIST
+ ER*FORTR:,SUBP,
+ ER*FORTR:I,BLOCK,CAT
+C.....
+ *8:,BLOCK,A,B,L
+C.....
+ BAS:,UTC,AC
+ ,ATX,
+C.....   CpACEHiE iHdEKC-PEgiCTPOB
+ 14,VTM,1-6
+ SAV*IR:14,ITS,13
+ 14,VLM,SAV*IR
+ B,BASE,BAS
+ ,XTS,ERRORCNT
+ ,ARX,C1
+ ,ATX,ERRORCNT
+ ,AEX,MAXNER
+ ,U1A,R*CAT
+ ,XTA,MAXCOD
+ ,ATX,AC
+ R*CAT:,BSS,
+ L,VTM,CAT
+C(((((
+ ,*50,70100B+113B
+ ,AAX,=2
+ ,UZA,NO/ADR
+ 13,XTA,-1
+ ,ASN,64-33
+ ,AUX,MSK
+ ,AOX,NERA0
+ ,ATX,ADR
+ ,XTA,AC
+ ,ASN,64-33
+ ,AUX,MSK
+ ,AOX,NERA0
+ ,ATX,NUM
+ ,CALL,FORHEAD*
+ 14,VTM,ADR/0
+ ,ITS,14
+ 14,UTM,6
+ 13,VJM,PRINTF*
+ ,UJ,NO/ADR
+ ADR/0:,ISO,12H ***** AdPEC
+ ADR:,ISO,6H-00000
+ ,ISO,12H , HOMEP''''''''
+ NUM:,ISO,6H-00000
+ ,ISO,6H *****
+ NO/ADR:,BSS,
+C)))))
+ ,XTA,NOLISFL*
+ ,UZA,SE*NUM
+C.....   pE~ATx {ApKi O{ibKi
+ ,XTA,LABEL
+ ,AAX,B24/1
+ ,UZA,MAKN
+ ,ARX,B24/1
+ ,AAX,B24/1
+ MAKN:,NTR,2
+ ,CALL,OCTTDEC
+ ,ASN,64-16
+ ,ASN,64+8
+ ,AOX,RNOP0
+ ,ATX,RNOP.OTH.N OpEPATOPA
+ ,XTA,LABEL
+ ,ASN,64+24
+ ,CALL,OCTTDEC
+ ,ASN,64-8
+ ,AOX,LAB0
+ ,ATX,LLAB.pOClEd.METKA
+ ,XTA,CBNAME
+ ,ATX,NAM.iMq p/p
+ ,CALL,FORHEAD*
+ 14,VTM,TER1
+ ,ITS,14
+ 14,VTM,RNOP
+ 13,VJM,PRINTF*
+ 14,VTM,TEXOP
+ ,ITS,14
+ 14,UTM,10
+ 13,VJM,PRINTF*
+ 14,VTM,-3
+ CH*BL:14,XTA,TEXOP+14
+ ,AEX,BLAN
+ ,U1A,PRINT*2
+ 14,VLM,CH*BL
+ ,UJ,SE*NUM
+ PRINT*2:14,VTM,TEXOP+11
+ ,ITS,14
+ 14,UTM,3
+ ,ITS,14
+ 14,VTM,39
+ 13,VJM,PRINTF*+1
+ SE*NUM:,BSS,
+C.....   pOiCK O{ibKi B KATAlOgE
+ L,XTA,
+ A,VTM,ABSER
+ ,UZA,ER/ABS
+ ,ASN,64+24
+ ,AEX,AC
+ ,ASN,64-36
+ ,UZA,ER/IS
+ L,VLM,SE*NUM
+ ER/ABS:,BSS,
+C.....   HOMEP O{ibKi HE HA{li
+ ,XTA,AC
+ ,ASN,64-33
+ ,AUX,MSK
+ ,AOX,NERA0
+ ,ATX,NERA
+ L,VTM,4
+ ,UJ,PRI*ER
+ ER/IS:,BSS,
+ L,XTA,
+ ,ATI,A
+ ,ASN,64-29
+ ,ASN,64+44
+ ,ATI,L
+ PRI*ER:A,UTM,-2
+ A,XTA,
+ A,XTS,1
+ A,J+M,L
+ L,UTM,2
+ L,XTS,
+ ,XTS,BLAN
+ L,ATX,
+ ,XTA,AC
+ ,ASN,64+24
+ ,ATI,14
+ 14,VZM,F*PRI
+ 14,XTA,
+ L,ATX,
+ F*PRI:,XTA,AC
+ ,AAX,B15/13
+ ,ASN,64-4
+ ,AOX,TH0
+ A,ATX,
+ ,XTA,STARS
+ A,ATX,1
+ ,CALL,FORHEAD*
+ ,ITA,A
+ L,MTJ,14
+ 13,VJM,PRINTF*
+ L,STX,
+ A,STX,1
+ A,ATX,
+C.....   YCTAHOBKA flAgA O{ibKi
+ ,XTA,AC
+ ,AAX,B15/13
+ ,AOX,FLGEX*
+ ,ATX,FLGEX*
+ ,ASN,64+14
+ ,U1A,SCAN
+C.....   BOCCTAHOBlEHiq i BOzBPAT
+ ,STX,
+ 14,VTM,6
+ RES*IR:14,STI,7
+ 14,UTM,-1
+ 14,V1M,RES*IR
+ 13,UJ,
+C.....   CKAHiPOBAHiE dO END
+ SCAN:,WTC,TYPE
+ 14,VTM,-67B
+ 14,VZM,RETMON*
+ 6,VTM,SIGLIST
+ 13,VTM,SCAN
+ ,UJ,SCANNER
+C.....
+ MAXNER:,LOG,144
+ MAXCOD:,LOG,41777
+ BLAN:,ISO,6H
+ TER1 :,ISO,6H******
+ STARS:,ISO,6H*****
+ ,CONT,6Hp/p''''
+ NAM:,CONT,6HiMqp/p
+ ,CONT,12H : METKA''''''
+ LLAB:,CONT,6H00000(
+ RNOP:,CONT,6H+0000)
+ TH0:,ISO,6H(T=0)
+ LAB0:,ISO,6H00000(
+ RNOP0:,ISO,6H+0000)
+ ABSER:,ISO,6HO{ibKA
+ NERA:,ISO,6H-00000
+ ,ISO,12H OTCYTCTBYET
+ NERA0:,ISO,6H-00000
+ MSK:,GOST,6H077777
+ ,BSS,
+C.....
+ B15/13:,LOG,7 0000
+ AC:,BSS,1
+ ,END,
+ PRI*ERR*:,NAME,.01.04.80
+C
+C*****   pE~ATx diAgHOCTiKi "fOPTPAH-dYbHA"
+C
+ MONITOR*:,SUBP,
+ ER*FORTR:,SUBP,
+ C:,EQU,ER*FORTR
+ 8,VTM,C
+ ,PRINT,INP
+ LOOP:8,XTA,
+ ,UZA,END
+ ,ASN,64-12
+ ,AUX,=6H'''7''7''7''7'''
+ ,AOX,=6H*0000(
+ ,ATX,NER
+ 8,XTA,
+ ,ATI,9
+ ,ASN,64+15
+ ,AAX,=17
+ ,ATI,10
+ ,ASN,64-44
+ ,AUX,=6H'1''7'
+ ,AOX,=6H00)''''
+ ,ATX,LL
+ 11,VTM,TEX-1
+ ,NTR,3
+ 8,WTC,
+ 14,VTM,-ER*FORTR
+ ,ITA,14
+ ,A-X,LG
+ ,U1A,L1
+ ,ITA,14
+ ,ATX,LG
+ L1:10,VZM,EL1
+ 10,UTM,-1
+ 9,XTA,
+ 11,UTM,1
+ 11,ATX,
+ 9,VLM,L1
+ EL1:14,VTM,NER
+ ,ITS,14
+ ,ITS,11
+ ,XTS,=1
+ ,CALL,PRINT8
+ 8,VLM,LOOP
+ END:,BSS,
+ ,PRINT,IRES
+ ,UJ,MONITOR*+1
+ INP:,,NP
+ ,,NP
+ :,,
+ 8,,
+ IRES:,,IRB
+ ,,NP
+ :0,020,
+ 0,021,
+ :2,042,4
+ 0,004,
+ :0,,
+ 8,,
+ IRB:,GOST,4H'214''214''200''20'
+ ,CONT,17HCYMMAPHAq dliHA =
+ ,CONT,1H'231'
+ LG:,BSS,1
+ NP:,GOST,2H'201''231'
+ NER:,BSS,1
+ LL:,BSS,1
+ TEX:,BSS,14
+ ,END,
+ ER*FORTR:,NAME,.31.03.80
+C*******************************************
+C
+C--------
+ :,,1
+ ,Z05,*1
+ :,,2
+ ,Z05,*2
+ :,,3
+ ,Z06,*3
+ :,,4
+ ,Z05,*4
+ :,,5
+ ,Z06,*5
+ :,,6
+ ,Z06,*6
+ :,,7
+ ,Z07,*7
+ :,,10B
+ ,Z06,*10
+ :,,11B
+ ,Z06,*11
+ :,,12B
+ ,Z05,*12
+ :,,13B
+ ,Z06,*13
+ :,,14B
+ ,Z04,*14
+ :,,15B
+ ,Z04,*15
+ :,,16B
+ ,Z07,*16
+ :,,17B
+ ,Z05,*17
+ :,,20B
+ ,Z04,*20
+ :,,21B
+ ,Z04,*21
+ :,,22B
+ ,Z06,*22
+ :,,23B
+ ,Z06,*23
+ :,,24B
+ ,Z05,*24
+ :,,25B
+ ,Z05,*25
+ :,,26B
+ ,Z05,*26
+ :,,27B
+ ,Z06,*27
+ :,,30B
+ ,Z05,*30
+ :,,100B
+ ,Z04,*100
+ :,,101B
+ ,Z05,*101
+ :,,102B
+ ,Z05,*102
+ :,,103B
+ ,Z05,*103
+ :,,104B
+ ,Z05,*104
+ :,,105B
+ ,Z05,*105
+ :,,106B
+ ,Z05,*106
+ :,,107B
+ ,Z04,*107
+ :,,140B
+ ,Z06,*140
+ :,,200B
+ ,Z07,*200
+ :,,201B
+ ,Z05,*201
+ :,,202B
+ ,Z05,*202
+ :,,203B
+ ,Z07,*203
+ :,,205B
+ ,Z05,*205
+ :,,206B
+ ,Z04,*206
+ :,,207B
+ ,Z05,*207
+ :,,210B
+ ,Z05,*210
+ :,,211B
+ ,Z05,*211
+ :,,212B
+ ,Z06,*212
+ :,,213B
+ ,Z05,*213
+ :,,214B
+ ,Z05,*214
+C--------
+ :,,1000B
+ ,Z06,*0314
+ :,,1001B
+ ,Z06,*0322
+ :,,1002B
+ ,Z06,*0330
+ :,,1003B
+ ,Z04,*0336
+ :,,1004B
+ ,Z04,*0342
+ :,,1005B
+ ,Z10,*0346
+ :,,1006B
+ ,Z05,*0356
+ :,,1007B
+ ,Z05,*0356
+ :,,1010B
+ ,Z05,*0356
+ :,,1011B
+ ,Z05,*0363
+ :,,1012B
+ ,Z06,*0370
+ :,,1013B
+ ,Z07,*0376
+ :,,1014B
+ ,Z06,*0405
+ :,,1015B
+ ,Z05,*0413
+ :,,1016B
+ ,Z07,*0420
+ :,,1017B
+ ,Z06,*0330
+ :,,1020B
+ ,Z06,*0330
+ :,,1021B
+ ,Z04,*0427
+ :,,1022B
+ ,Z04,*0427
+ :,,1023B
+ ,Z10,*0346
+ :,,1024B
+ ,Z07,*0433
+ :,,1025B
+ ,Z10,*0346
+ :,,1026B
+ ,Z06,*0442
+ :,,1027B
+ ,Z04,*0450
+ :,,1031B
+ ,Z07,*0460
+ :,,1032B
+ ,Z07,*0467
+ :,,1033B
+ ,Z10,*0346
+ :,,1034B
+ ,Z07,*0467
+ :,,1035B
+ ,Z10,*0476
+ :,,1037B
+ ,Z04,*0514
+ :,,1040B
+ ,Z10,*0346
+ :,,1042B
+ ,Z05,*0520
+ :,,1050B
+ ,Z06,*0525
+ :,,1051B
+ ,Z05,*0533
+ :,,1053B
+ ,Z05,*0356
+ :,,1150B
+ ,Z06,*0322
+ :,,1151B
+ ,Z06,*0322
+ :,,1501B
+ ,Z05,*0540
+ :,,1502B
+ ,Z07,*0545
+ :,,1503B
+ ,Z07,*0554
+ :,,1504B
+ ,Z07,*0563
+ :,,1505B
+ ,Z05,*0572
+ :,,1506B
+ ,Z05,*0577
+ :,,1507B
+ ,Z05,*0540
+ :,,1510B
+ ,Z05,*0540
+ :,,1777B
+ ,Z06,*0604
+ :,,2004B
+ ,Z06,*0612
+ :,,2005B
+ ,Z05,*0520
+ :,,2006B
+ ,Z04,*0620
+ :,,2007B
+ ,Z07,*0627
+ :,,2010B
+ ,Z06,*0640
+ :,,2011B
+ ,Z03,*0647
+ :,,2017B
+ ,Z04,*0702
+ :,,2020B
+ ,Z03,*0707
+ :,,2021B
+ ,Z04,*520
+ :,,2022B
+ ,Z03,*0707
+ :,,2024B
+ ,Z03,*0707
+ :,,2035B
+ ,Z06,*0756
+ :,,2040B
+ ,Z04,*521
+ :,,2043B
+ ,Z06,*1012
+ :,,2045B
+ ,Z05,*0520
+ :,,2053B
+ ,Z05,*1033
+ :,,2144B
+ ,Z04,*1040
+ :,,2145B
+ ,Z03,*1044
+ :,,2146B
+ ,Z04,*1040
+ :,,2147B
+ ,Z04,*1040
+ :,,2150B
+ ,Z03,*1044
+ :,,2201B
+ ,Z06,*1012
+ :,,2202B
+ ,Z06,*1047
+ :,,2203B
+ ,Z07,*1057
+ :,,2204B
+ ,Z03,*0707
+ :,,2205B
+ ,Z03,*1044
+ :,,2206B
+ ,Z10,*1066
+ :,,2207B
+ ,Z04,*1076
+ :,,2210B
+ ,Z06,*1107
+ :,,2212B
+ ,Z07,*1115
+ :,,3001B
+ ,Z07,*1124
+ :,,4002B
+ ,Z06,*1134
+ :,,4003B
+ ,Z03,*1044
+ :,,4004B
+ ,Z05,*0520
+ :,,4005B
+ ,Z05,*0520
+ :,,4007B
+ ,Z05,*1142
+ :,,4010B
+ ,Z06,*1147
+ :,,4011B
+ ,Z06,*1147
+ :,,4013B
+ ,Z06,*1147
+ :,,4015B
+ ,Z07,*1155
+ :,,4016B
+ ,Z07,*1164
+ :,,4017B
+ ,Z10,*1173
+ :,,4021B
+ ,Z03,*1203
+ :,,4022B
+ ,Z03,*1206
+ :,,4023B
+ ,Z10,*0476
+ :,,4024B
+ ,Z05,*1211
+ :,,4025B
+ ,Z04,*1216
+ :,,4026B
+ ,Z04,*1222
+ :,,4030B
+ ,Z06,*1227
+ :,,4031B
+ ,Z06,*0322
+ :,,4100B
+ ,Z04,*1216
+ :,,4101B
+ ,Z06,*0322
+ :,,4102B
+ ,Z06,*0322
+ :,,4103B
+ ,Z06,*1236
+ :,,4104B
+ ,Z10,*1244
+ :,,4105B
+ ,Z06,*1236
+ :,,4106B
+ ,Z06,*1254
+ :,,4107B
+ ,Z03,*1203
+ :,,4110B
+ ,Z03,*1203
+ :,,4112B
+ ,Z06,*1254
+ :,,4113B
+ ,Z06,*1265
+ :,,4114B
+ ,Z03,*0647
+ :,,4200B
+ ,Z07,*1276
+ :,,4202B
+ ,Z06,*1305
+ :,,4210B
+ ,Z04,*1313
+ :,,4211B
+ ,Z06,*1254
+ :,,4212B
+ ,Z10,*1244
+ :,,4213B
+ ,Z10,*1244
+ :,,4214B
+ ,Z10,*1244
+ :,,4215B
+ ,Z10,*1244
+ :,,4220B
+ ,Z07,*1324
+ :,,4402B
+ ,Z03,*1333
+ :,,5001B
+ ,Z07,*1341
+ :,,5002B
+ ,Z04,*1350
+ :,,5003B
+ ,Z03,*1354
+ :,,5004B
+ ,Z07,*1357
+ :,,5005B
+ ,Z03,*1354
+ :,,5006B
+ ,Z04,*1366
+ :,,5007B
+ ,Z03,*1372
+ :,,5010B
+ ,Z05,*1375
+ :,,5011B
+ ,Z06,*1012
+ :,,5012B
+ ,Z05,*1402
+ :,,5013B
+ ,Z07,*1407
+ :,,5014B
+ ,Z04,*1416
+ :,,5015B
+ ,Z04,*1416
+ :,,5016B
+ ,Z04,*1422
+ :,,5017B
+ ,Z03,*0647
+ :,,5020B
+ ,Z06,*1426
+ :,,5021B
+ ,Z05,*0540
+ :,,5022B
+ ,Z05,*0540
+ :,,5023B
+ ,Z07,*0545
+ :,,5024B
+ ,Z07,*1407
+ :,,5025B
+ ,Z07,*1434
+ :,,5026B
+ ,Z07,*1443
+ :,,5027B
+ ,Z05,*1452
+ :,,5030B
+ ,Z07,*1357
+ :,,5031B
+ ,Z06,*0322
+ :,,5032B
+ ,Z05,*1457
+ :,,5040B
+ ,Z05,*1464
+ :,,5041B
+ ,Z03,*1470
+ :,,5042B
+ ,Z03,*1470
+ :,,5043B
+ ,Z03,*1470
+ :,,5044B
+ ,Z03,*1470
+ :,,5045B
+ ,Z05,*1473
+ :,,5046B
+ ,Z04,*1500
+ :,,5047B
+ ,Z05,*1504
+ :,,5050B
+ ,Z04,*1512
+ :,,5051B
+ ,Z03,*1354
+ :,,5052B
+ ,Z05,*1516
+ :,,5053B
+ ,Z06,*1523
+ :,,5054B
+ ,Z04,*1531
+ :,,5063B
+ ,Z05,*0520
+ :,,6001B
+ ,Z04,*1535
+ :,,6002B
+ ,Z06,*1546
+ :,,6003B
+ ,Z04,*1555
+ :,,6004B
+ ,Z06,*1546
+ :,,6006B
+ ,Z04,*1573
+ :,,6007B
+ ,Z03,*0707
+ :,,6020B
+ ,Z07,*1124
+ :,,7001B
+ ,Z03,*1044
+ :,,7002B
+ ,Z04,*1422
+ :,,7003B
+ ,Z04,*1616
+ :,,7004B
+ ,Z05,*1625
+ :,,7005B
+ ,Z04,*1632
+ :,,7006B
+ ,Z07,*1636
+ ,LOG,.KOHEc KATAlOgA
+C*******************************************
+ *1 :,ISO,29HiHdEKC HE cElAq KOHCTAHTA Y''''
+ *2 :,ISO,29HiHdEKC bOlx{E PAzMEPHOCTi Y''''
+ *3:,ISO,36HpPOTiBOPE~iBAq |KBiBAlEHTHOCTx , V=''
+ *4:,ISO,30HCAMi CEbE |KBiBAlEHTHy , V=''''''
+ *5:,ISO,36HzApPE}EHHAq |KBiBAlEHTHOCTx , V=''''''''
+ *6 :,ISO,35HEQUIVALENCE/DATA HE HA MECTE dlq -''
+  *7:,ISO,42H|KBiBAlEHTHOCTx CME}AET HA~AlO COMMON , V=
+ *10:,ISO,36H|KBiBAlEHTHOCTx dBYX COMMON , V=''''''''
+ *11:,ISO,33HzAgOlOBOK pOdpPOgPAMMy - pOBTOPHO
+ *12:,ISO,26HHET zAgOlOBKA pOdpPOgPAMMy
+ *13:,ISO,32HzAgOlOBOK pOdpPOgPAMMy C O{ibKOj
+ *14:,ISO,24HpOBTOPHO OpiCAH blOK - ''
+ *15:,ISO,24HB DATA HEdOpYCTiMA - ''''''
+ *16:,ISO,42HO{.PAzdEliTElx B CpiCKE KOHCTAHT , NC=''''''''
+ *17:,ISO,29HB DATA HEOpPEdElEH iHdEKC''''''''
+ *20:,ISO,24HO{.gPAHi~HAq pAPA Y ''''''''
+ *21:,ISO,24HB DATA HET KOHCTAHT , V=
+ *22:,ISO,36HO{.KO|fficiEHT pOBTOPEHiq , NC=''''''''''
+ *23:,ISO,36HB CpiCKE KOHCTAHT HE KOHCTAHTA , NC=
+ *24:,ISO,30HHET KOHcA CpiCKA KOHCTAHT, NC=
+ *25:,ISO,30HB CpiCKE MHOgO KOHCTAHT , V=''''
+ *26:,ISO,30HB CpiCKE MAlO  KOHCTAHT , V=''''
+ *27:,ISO,36HO{.PACCylKA B pPOCTY` pEPEMEHHY` ''''''
+ *30:,ISO,30HByXOd zA gPAHicy MACCiBA ''''''''''
+ *100:,ISO,24HHET KO|fficiEHTA pEPEd H
+ *101:,ISO,30HB fOPMATE O{.PAzdEliTElx ''''''''''
+ *102:,ISO,30HB fOPMATE KO|fficiEHT pEPEd /
+ *103:,ISO,30H~iClO bOlx{E 256 B RC , W , D
+ *104:,ISO,30HB fOPMATE O{.CpEcifiKAciq ''''''''
+ *105:,ISO,30HHE pYCTO pOClE KOHcA fOPMATA
+ *106:,ISO,27HHEdOpYCTiMyj YPOBEHx CKObOK
+ *107:,ISO,22HO{ibKA B METKE fOPMATA
+ *140:,ISO,32H|TO HE fOPTPAH , A ~TO-TO dPYgOE
+ *200:,ISO,40HB lOgi~ECKOM ByPAvEHii zApPE}EHA zApqTAq
+ *201:,ISO,28HB OpEPATOPE IF - MAlO  METOK
+ *202:,ISO,28HB OpEPATOPE IF - MHOgO METOK
+ *203:,ISO,42HB lEBOj ~ACTi dOlvHA byTx lOgi~.pEPEMEHHAq
+ *205:,ISO,30HpPOpY}EH zHAK OpEPAcii , N=''''''
+ *206:,ISO,24HO{.iCpOlxzOBAHiE NOT ,N=
+ *207:,ISO,30HO{.MECTO dlq TRUE/FALSE , N=''''
+ *210:,ISO,30HzApqTAq B lOg.ByPAvEHii , N=''''
+ *211:,ISO,30HlOg.OpEPAciq B APifMETiKE , N=
+ *212:,ISO,36HdBE OpEPAcii OTHO{EHiq pOdPqd , N=''''
+ *213:,ISO,30HdBE lOg.OpEPAcii pOdPqd , N=''''
+ *214:,ISO,30HHE lOg.OpEPAHd pOClE NOT , N=''
+ *0314:,ISO,   36H~iClO OpEPATOPOB DO Cli{KOM BEliKO
+ *0322:,ISO,   36HHEpPABilxHO OPgAHizOBAH OpEPATOP IF
+ *0330:,ISO,   36HO{ibO~Hyj OpEPATOP B KOHcE ciKlA DO
+ *0336:,ISO,   24HpEPECE~EHiE iHdEKCOB DO
+ *0342:,ISO,   24HMHOgO BlOvEHHyX ciKlOB
+ *0346:,ISO,   42HMETKA ili iHdEKC dOlvHy byTx B pPEdElAX 1-
+      2,ISO,   06H32767
+ *0356:,ISO,   30HO{ibKA pAPAMETPOB ciKlA DO
+ *0363:,ISO,   30HHEpPABilxHyj OpEPATOP ENTRY
+ *0370:,ISO,   36HHEpPABilxHOE BlOvEHiE ciKlOB DO
+ *0376:,ISO,   42HB gOlOBHOj pPOgPAMME HE MOvET byTx ENTRY
+ *0405:,ISO,   36HOpiCAHiq dOlvHy byTx B HA~AlE p/p
+ *0413:,ISO,   30HMHOgO iHdEKCHyX pEPEMEHHyX
+ *0420:,ISO,   42HpPOgPAMMA HE ByXOdiT HA dAHHyj OpEPATOP
+ *0427:,ISO,   24HHEzAKOH~EHHyj ciKl DO
+ *0433:,ISO,   42HHECTAHdAPTHAq iHdEKCAciq B OpEPATOPE DO
+ *0442:,ISO,   36HdAHHyj ENTRY byl iCpOlxzOBAH By{E
+ *0450:,ISO,   24HMHOgO OpEPATOPOB ENTRY
+ *0460:,ISO,   42HAPifMETi~ECKij OpEPATOP bEz lEBOj ~ACTi
+ *0467:,ISO,   42HMETKA dOlvHA byTx pPOCTOj cElOj pEPEMEHHOj
+ *0476:,ISO,   42HpAPAMETP dAHHOgO OpEPATOPA dOlvEH byTx cEl
+      2,ISO,   06HyM
+ *520:,ISO,23HO{.PAzdEliTElx pOClE''''''
+ *0514:,ISO,   24HplOXAq CTPOKA pAPAMETPOB
+ *0520:,ISO,30HpOBTOPHO iCpOlxzOBAHO iMq - ''''
+ *521:,ISO,22HHE idEHTifiKATOP pOClE''
+ *0525:,ISO,   36HB pPOgPAMME OTCYTCTBYET KAPTA END
+ *0533:,ISO,   30HOpEPATOP ENTRY BHYTPi ciKlA DO
+ *0540:,ISO,   30HCli{KOM bOlx{Aq KOHCTAHTA
+ *0545:,ISO,   42HB BOCxMEPi~HOj KOHCTAHTE HE BOCxM.cifPA
+ *0554:,ISO,   42HB BOCxMEPi~HOj KOHCTAHTE bOlEE 16 cifP
+ *0563:,ISO,   42HB KOHCTAHTE bOlEE OdHOj dECqTi~HOj TO~Ki
+ *0572:,ISO,   30HHEzAKOHHyj CiMBOl B ~iClE
+ *0577:,ISO,   30HHEzAKOHHyj CiMBOl B |KCpOHEHTE
+ *0604:,ISO,   36HbOlEE 100 O{ibOK pPi TPAHClqcii
+ *0612:,ISO,   36HHAzBAHiE dOlvHO HA~iHATxCq C bYKBy
+ *0620:,ISO,23HHET lEBOj CKObKi pOClE''
+ *0627:,ISO,41HMACCiB pEPEMEHHOj PAzMEPHOCTi HE pAPAMETP
+ *0640:,ISO,35HbOlEE TPEX PAzMEPHOCTEj Y MACCiBA''''
+ *0647:,ISO,   18HHEzAKPyTyE CKObKi
+ *0702:,ISO,23HO{.PAzMEPHOCTx MACCiBA''
+ *0707:,ISO,   18HHECTAHdAPTHyj Tip
+ *0756:,ISO,35HHE OpiCAHy PAzMEPHOCTi pEPEMEHHOj''''
+ *1012:,ISO,   36HMHOgO CiMBOlOB B idEHTifiKATOPE
+ *1033:,ISO,27HMHOgO fOPMAlxHyX pAPAMETPOB
+ *1040:,ISO,22HCli{KOM MHOgO OpiCAHij
+ *1044:,ISO,   18HER*TR:DECLARATION
+ *1047:,ISO,35HHEpPABilxHO iCpOlxzOBAHA fYHKciq -
+ *1057:,ISO,   42HHEpPABilxHO PACCTABlEHy zHAKi OpEPAcij
+ *1066:,ISO,   42HO{ibO~Hyj OpEPATOP libO pPOpY}EH zHAK OpEP
+      2,ISO,   06HAcii
+ *1076:,ISO,28HO{ibO~HOE pPiCBAiBAHiE
+ *1107:,ISO,   36HTPAHClqTOPOM BCTABlEH zHAK YMHOvEHiq
+ *1115:,ISO,   42HlOgi~ECKAq OpEPAciq B pAPAMETPAX CALL
+ *1124:,ISO,40HiHdEKC byl B OpEPATOPAX DATA,EQUIVALENCE
+ *1134:,ISO,   36HPEKYPCiBHyj ByzOB fYHKcii-OpEPATOPA
+ *1142:,ISO,   30HO{.CiHTAKCiC fYHKcii-OpEPATOPA
+ *1147:,ISO,   36HO{ibKA pAPAMETPOB fYHKcii-OpEPATOPA
+ *1155:,ISO,   42HpEPEMEHHyE C iHdEKCOM B fYHKcii-OpEPATOPE
+ *1164:,ISO,   42HHECTAHdAPTHyj iHdEKC B fYHKcii-OpEPATOPE
+ *1173:,ISO,   42HpEPEMEHHAq iCpOlxzOBAHA KAK fYHKciq-OpEPAT
+      2,ISO,   06HOP
+ *1203:,ISO,   18HER*TR:INSTRUCTION
+ *1206:,ISO,   18HER*TR:CALL PUTAWAY
+ *1211:,ISO,   30HI - BHE dOpYCTiMOj OblACTi
+ *1216:,ISO,   24HCli{KOM MHOgO OpEPATOPOB
+ *1222:,ISO,24HO{.HEqBHyj ciKl B CpiCKE
+ *1227:,ISO,32HO{.CKObKi OpEPATOPA BBOdA/ByBOdA
+ *1236:,ISO,   36HO{ibO~HOE pOdByPAvEHiE OTHO{EHiq
+ *1244:,ISO,   42HHEpPABilxHAq CTPYKTYPA lOgi~ECKOgO ByPAvEH
+      2,ISO,   06Hiq
+ *1254:,ISO,33HO{.CiMBOl zA lOgi~ECKOj OpEPAciEj
+ *1265:,ISO,34HO{.HA~AlO lOgi~ECKOgO pOdByPAvEHiq
+ *1276:,ISO,   42HCli{KOM dliHHOE APifMETi~ECKOE ByPAvEHiE
+ *1305:,ISO,   36HHEpPABilxHOE ObPA}EHiE K fYHKcii
+ *1313:,ISO,22HO{.CiMBOl zA OpEPAHdOM
+ *1324:,ISO,   42HHECOOTBETCTBiE TipOB lEBOj i pPABOj ~ACTi
+ *1333:,ISO,17HO{.dliHA MACCiBA''
+ *1341:,ISO,   42HHEdOzBOlEHHyj CiMBOl B {ECTOj pOzicii
+ *1350:,ISO,   24HHEOpOzHAHHyj OpEPATOP
+ *1354:,ISO,   18HpYCTOj OpEPATOP
+ *1357:,ISO,   42HOpEPATOP zAKAH~iBAETCq zHAKOM OpEPAcii
+ *1366:,ISO,   24HHEzAKOHHyj zHAK OpEPAcii
+ *1372:,ISO,   18HHEPACKPyTyE CKObKi
+ *1375:,ISO,   30HHEzAKOHHAq KOMbiHAciq CiMBOlOB
+ *1402:,ISO,   30HCli{KOM dliHHAq KOHCTAHTA
+ *1407:,ISO,   42HHEzAKOHHyj CiMBOl B KOHCTAHTE ili METKE
+ *1416:,ISO,   24HO{ibO~HAq REAL-KOHCTAHTA
+ *1422:,ISO,   24HCli{KOM dliHHyj OpEPATOP
+ *1426:,ISO,   36HlOgi~ECKAq OpEPAciq HE HA MECTE
+ *1434:,ISO,   42HHEpPABilxHAq dliHA XOlEPi~ECKOj KOHCTAHTy
+ *1443:,ISO,   42HHEpPABilxHO pOCTABlEHA dECqTi~HAq TO~KA
+ *1452:,ISO,   30HHEpPABilxHyj Tip KOHCTAHTy
+ *1457:,ISO,   30HMETKA i pPizHAK pPOdOlvEHiq
+ *1464:,ISO,29HMHOgO iHdEKCOB Y pEPEMEHHOj''''
+ *1470:,ISO,   18HpYCTOj fPAgMEHT
+ *1473:,ISO,   30HMHOgO HECTAHdAPTHyX iHdEKCOB
+ *1500:,ISO,   24HCli{KOM MHOgO KOHCTAHT
+ *1504:,ISO,29HiHdEKC Y pPOCTOj pEPEMEHHOj -''''
+ *1512:,ISO,   24HCli{KOM MHOgO fYHKcij
+ *1516:,ISO,   30HCli{KOM MHOgO idEHTifiKATOPOB
+ *1523:,ISO,   36HMHOgO CTAHdAPTHyX iHdEKCHyX fYHKcij
+ *1531:,ISO,   24HzHAK = BHYTPi CKObOK
+ *1535:,ISO,22HO{.CpiCOK BBOdA/ByBOdA
+ *1546:,ISO,32HO{.fOPMAT OpEPATOPA BBOdA-ByBOdA
+ *1555:,ISO,19HO{.HOMEP YCTPOjCTBA
+ *1573:,ISO,   24HBBOd dAHHyX B KOHCTAHTy
+ *1616:,ISO,24HO{ibO~HOE CME{EHiE TipOB
+ *1625:,ISO,   30HO{ibO~Hyj pOKAzATElx CTEpEHi
+ *1632:,ISO,   24HHEpPABilxHyj OpEPAHd
+ *1636:,ISO,   42HOTCYTCTBYET B dAHHOM BAPiAHTE TPAHClqTOPA
+ ,END,
+*     C i C T E M A   P U T A W A Y
+ PUTAWAY:,NAME,.10.04.80
+C********
+ A/I0:,LC,1
+ A/MINUS:,LC,1
+ FLAGS:LC,BLOCK,SC/OPT
+ B/OPT:,EQU,=2000
+ PARAMCNT:,LC,1
+ SWITCH1:,LC,1
+ *FUN:LC,BLOCK,N*FUN
+ NF*:,WEQ,N*FUN
+ NF*1:,EQU,NF*+1
+ SC/FUN:,EQU,*FUN+NF*1
+ SC*FUN:,SUBP,
+ SERROR  :,SUBP,
+ SH      :,SUBP,
+ WRITDRUM:,SUBP,
+ WRITDRUM:I,BLOCK,/DEC,/INS
+ NONDECL*:,SUBP,
+ LOWCORE :,LC,1
+ LGIDENT :,LC,1
+ LISTS:LC,BLOCK,(100)
+ 100,CONT,INFUNLIS(100)
+ 200,CONT,(6430)
+ 6630,CONT,DIMENLIS
+ ASFFLAG :,LC,1
+ ERASECT: ,LC,1
+ INDEXCT: ,LC,1
+ IR2IM   :,LC,1
+ LGIFLIST:,LC,1
+ WPCERBAS:,LC,1
+ WPERBASE:,LC,1
+ PBLIST:LC,BLOCK,ST*R(6),S*S(6)
+ PBPARLIS:LC,BLOCK,IV*R(6)
+ *CONSE:LC,BLOCK,(5),B6(28),B17/16
+ *WSTOR:I,BLOCK,*ACC,*STK,*A2,*S2,*PAR
+ ,CONT,*S1,*A,*S,MIG,MIG1,MIG2
+ ,CONT,*NIF*,*NIR*
+ ,CONT,N*IF,M*C,DELT
+ ,CONT,LAB,FUN/,*SIR*
+ ,CONT,FLFIX,SCBUSY,SCFIX
+ ,CONT,FL/UP
+ ,CONT,N*ATXTA,S*XTA,S*ATX(6)
+ L*BUF:,EQU,7
+ PARAMS:I,BLOCK,PAR*N,PAR*L,PAR*A
+ ,CONT,PAR*S,PAR*S2(62),PAR*S1
+ PROFLIST:LC,BLOCK,(39)
+ ,CONT,C1(0),B1,*KILL*(0),C2
+ ,CONT,C4,C5,C6,C7,C10
+ ,CONT,(10),C37(3)
+ ,CONT,C77777
+ *CONSD:LC,BLOCK,(2),BITC
+ ,CONT,MSKW,B23(2),MSKE(3)
+ ,CONT,B16,B40(5),C3(3),B45/40
+ ,CONT,(11),B48,B47(7),B30/16
+ B39/25:,EQU,MSKW
+ BITNI:,EQU,B48
+ WPMODE  :,LC,1
+ WPW     :,LC,1
+ WPX     :,LC,1
+ CALL:,EQU,10B
+ VJM:,EQU,31B
+ BSS:,EQU,54B
+ ATX:,EQU,100B
+ XTS:,EQU,103B
+ XTA:,EQU,110B
+ AND:,EQU,111B
+ EOR:,EQU,112B
+  OR:,EQU,115B
+C********
+ M:14,BASE,*
+ ,ATX,*ACC
+ ,STX,*A
+ ,ATX,*STK
+ ,ATX,*S
+ 14,VTM,-12
+ :14,ITS,13
+           14,  VLM  ,*                   .
+ 4,VTM,.HE pAPAMETP
+ 7,BASE,M
+ ,NTR,3
+ ,XTS,*S
+  ,AAX,C77777
+  ,AEX,C10
+ ,U1A,NO IDLIS
+ ,WTC,*A
+ 14,VTM,-11B
+ 14,VZM,CH IDLIS.PARAM
+ 14,UTM,-1
+ 14,VZM,CH IDLIS.STORE
+ 14,UTM,-3
+ 14,VZM,CH IDLIS.PARAM-2
+ 14,UTM,15B-100B
+ 14,VZM,CH IDLIS.ATX
+ 14,UTM,-1
+ 14,V1M,NO IDLIS.HE STX
+ CH IDLIS: ,XTA,*A
+ ,ARX,
+ ,UZA,NO IDLIS
+  ,XTA,*S
+ ,ASN,64+33
+ ,A-X,LOWCORE
+ ,U1A,NO IDLIS
+ ,X-A,LGIDENT
+  ,A-X,C1
+ ,U1A,NO IDLIS
+ 15,ATX,
+ ,ASN,64+5
+ ,X-A,
+ ,STI,13
+  ,AAX,C37
+ ,X-A,
+ ,ATI,14
+ ,WTC,NONDECL*
+ 13,UTM,
+  ,XTA,C1
+ 14,ASN,64
+ 13,AAX,
+ 13,AEX,
+ 13,ATX,
+ NO IDLIS: ,XTA,*A
+ ,ATI,14
+ ,ITA,14
+             ,  X-A  ,MLAM                .LENGHTH OF REGION A
+             ,  UZA  ,OP/00021                 .OPERATION TYPE IS A
+             ,  A+X  ,MLBM                .B ETC - SWITCH FOR OPERATION
+             ,  UZA  ,OP/02243                 .TYPE
+             ,  A+X  ,MLCM                .
+             ,  UZA  ,OP/04477                 .
+             ,  A+X  ,MLDM                .
+             ,  UZA  ,OP/10027                 .
+             ,  A+X  ,MLEM                .
+             ,  UZA  ,OP/13057                 .
+ ,UJ,O{/PUTAW
+C====   21 < KOp <= 43
+  OP/02243:,BSS,
+ ,XTA,
+ ,ATX,N*ATXTA
+ ,XTA,*S
+ ,WTC,*A
+ 14,VTM,-VJM
+ 14,VZM,FSCALL
+             ,  U1A  ,OP/10027                 .
+ ,UJ,*A/OUT
+C=====   127 < KOp <= 157
+ OP/13057:,XTA,B48
+ 14,ASN,64-130B
+ ,AAX,SC/CL
+ ,U1A,*A/OUT
+ ,ATX,N*ATXTA
+ ,UJ,*A/OUT
+C=====   43 < KOp <= 77
+ OP/04477:,XTA,B48
+ ,WTC,*A
+ ,ASN,64-44B
+ ,ATX,MIG
+ ,AAX,SC/PD
+ ,U1A,DECLAR
+ ,XTA,MIG
+ ,APX,SC/SW
+ ,UZA,O{/PUTAW
+ ,ANX,
+ ,ATI,14
+ 8,VTM,/DEC
+ ,XTA,*S
+ 14,UJ,SW/OP-1
+ SC/CL:,GOST,6H1'214'0000
+ SC/PD:,OCT,2441
+ SC/SW:,OCT,4032 4003 4
+ SW/OP:,BSS,
+C-----   OP=44 - 13,VJM,*U<I>
+ :,,
+ ,UJ,VJM*UP
+C-----   OP=53 - O C T
+ :9,VTM,OCT
+ ,UJ,OUT/LAB
+C-----   OP=54 - BSS N
+ :,XTA,*A
+ ,UJ,BSS*N
+C-----   OP=56 - E N D
+ :3,VTM,OUT*E.END
+ ,UJ,OUTPUT1
+C-----   OP=60 - CONST
+ CONST:13,VTM,DECLAR1
+ ,UJ,GIV24
+C-----   OP=72 - BEGIN OF STATEMENT
+ :,XTA,
+ ,UJ,BEGSTAT
+C-----   OP=73 - ,XTA,I . 13,VJM,*U
+ :,XTA,*XTA*
+ ,UJ,XTAI*UP
+C-----   OP=74 - SPECIAL OPERANDS
+ :,XTA,*A
+             ,  UJ   ,SPCASE               .SPECIAL CASE
+ OCT:,XTA,*S
+ ,UJ,CONST
+ BSS*N:,AAX,B39/25
+             ,  UZA  ,BSS*0             .
+             ,  AOX  ,C57                .
+             ,  ATX  ,*A
+ DECLAR   :   ,  XTA  ,*S                 .EXT, IDENT, BLOCK, COMMON,
+ 13,VJM,GIV33
+ DECLAR1:,XTS,*S
+             ,  AAX  ,B33/19              .
+             ,  ASN  ,64-6                .
+             ,  AOX  ,*A                  .
+             ,  ARX  ,B23              .
+            13,VJM,/DEC                 .
+ ,STX,
+            13,VJM,/DEC                 .
+ ,WTC,*A
+ 14,VTM,-47B
+ 14,V1M,RETURN
+ ,UJ,CLE*PBL
+ BSS*0:,XTA,*S
+ 13,VJM,GIV33
+ CLE*PBL:14,VTM,-5
+ ,XTS,
+ CLE1:14,ATX,ST*R+5
+ 14,ATX,IV*R+5
+ 14,VLM,CLE1
+ ,ATX,N*ATXTA
+ 8,VTM,/INS
+ 9,VJM,OUT/LAB
+ ,STX,NTRFLAG. = 0
+ ,ATX,LAB
+C=====   B O z B P A T  iz  PUTAWAY
+ RETURN:,NTR,2
+ ,STX,
+ 14,VTM,13
+         : 14,  STI  ,                    .
+           14,  UTM  ,-1                  .
+         : 14,  V1M  ,*-1                 .
+         ,  UTC  ,*S                     .
+             ,  XTA  ,
+           13,  UJ   ,                    .
+ CH/ST*I:,XTA,FUN/
+ ,AEX,/R*ST*I/
+ ,ASN,64-8
+ ,U1A,RETURN
+C-----   13,VJM,*U<I>
+ CVJM*UP:,BSS,
+ ,XTA,*STK
+ ,AAX,MIMSK
+ ,AEX,C10
+ ,U1A,RETURN
+ VJM*UP:,XTA,NTR3
+ 10,VJM,OUT/NTR
+ ,XTA,*13VJMUP
+             ,  ATX  ,MIG                 .
+           ,  XTA  ,*STK                .
+ 13,VJM,GIV33
+             ,  ATX  ,MIG1                .
+            10,  VJM  ,OUTMIG              .
+ ,WTC,N*ATXTA
+ 14,VTM,
+ CL0:14,VZM,CL02
+ 14,XTA,N*ATXTA
+ ,ASN,64+8
+ ,AAX,C177
+ ,UZA,CL01
+ ,XTA,FULWOR
+ 14,ATX,N*ATXTA
+ CL01:14,UTM,-1
+ ,UJ,CL0
+ CL02:,BSS,
+ 8,VTM,-2
+ 9,VTM,64-3
+ CL1:14,VTM,-5
+ CL2:14,XTA,IV*R+5
+            9,  ASN  ,                    .
+ ,AEX,*STK
+ ,ASN,64+33
+ ,U1A,CL3
+ 14,ATX,IV*R+5
+ 14,ATX,ST*R+5
+ CL3:14,VLM,CL2
+ 9,UTM,-15
+            8,  VLM  ,CL1                .
+             ,  UJ   ,RETURN               .
+C=====   0 <= KOp <= 021
+ OP/00021:,WTC,*A
+ 14,VTM,-7
+ ,XTA,*A
+             ,  AAX  ,C77770             .
+ ,UZA,OP*0/7
+ 14,UJ,*
+ :,XTA,*S
+ ,UJ,FSCALL.FUN / SUB CALL
+ :,XTA,*S.PARAMETR
+ ,UJ,PARAM
+ :14,VTM,-8.STORE
+ ,UJ,STORE
+         :   ,  XTA  ,C1                 .FIX ERASABLE
+             ,  UJ   ,FIXERAS               .
+         :   ,  XTA  ,
+             ,  UJ   ,RELERAS               .RELEASE ERASABLE
+ ,XTA,*S.PARAMETR-2
+ ,UJ,PARAM/2
+         :   ,  UJ,O{/PUTAW               .
+         :   ,  UJ,O{/PUTAW               .
+ :,UJ,O{/PUTAW
+ :,UJ,O{/PUTAW
+ STORE:,BSS,
+ OP*0/7:,BSS,
+C
+C     ( LOAD=0,LN=1,AD=2,SU=3,MU=4,DI=5,
+C       COMP=6,POWER=7,STORE=12 )
+C
+ ,WTC,WPMODE
+ 12,VTM,.1 Tip zHA~EHiq
+ 13,VTM,*S
+ 14,VLM,NO/POW
+C.....   P O W E R
+ ,XTA,WPW
+ ,ASN,64+15
+ ,AAX,C7
+ ,ATI,12.1 Tip zHA~EHiq
+ 13,VTM,WPX
+ 14,VTM,1
+ NO/POW:12,UTC,
+             ,  XTA  ,T*OPER               .
+             ,  AAX  ,B48/41                 .
+             ,  WTC  ,*A                  .
+             ,  AOX  ,OPLIS               .
+         : 14,  VLM  ,*+1                 .
+             ,  UJ   ,COMPLEM             .
+ :13,XTS,
+             ,  ASN  ,64+15               .
+ ,AAX,C7
+ ,ATI,12.2 Tip zHA~EHiq
+ 12,XTA,T*OPER
+             ,  AAX  ,C377                 .
+           15,  AOX  ,                    .
+ COMPLEM :   ,  ATX  ,FUN/               .
+          12,  VTM  ,1
+ 14,UTM,5
+ 14,VZM,CH*LOAD
+ 14,UTM,1
+ 14,VZM,CH*STORE
+ SE*OWN  :   ,  UTC  ,OWNFUN              .
+           12,  XTA  ,-1                  .
+             ,  UZA  ,CH/EXTF            .
+             ,  AEX  ,FUN/               .
+             , UZA ,OWN/IS               .
+           12,  VLM  ,SE*OWN              .
+ OWN/IS:,BSS,
+ 2,VTM,
+ ,ITA,12
+ ,A-X,C5
+ ,U1A,FORM*A.= LOAD
+ ,A-X,C6
+ ,U1A,FORM*A.= STORE
+ ,A-X,C3
+ ,U1A,CH*LN.= LOAD NEGATIVE
+ ,A-X,C4
+ ,U1A,POWER.= POWER
+ ,XTA,
+ ,ATX,N*ATXTA
+ ,XTA,NTR18
+ 12,UJ,*-17
+ :2,VTM,1
+ ,UJ,I*AD*I
+ :2,VTM,1
+ ,UJ,I*SU*I
+ :10,VTM,I*MU*I
+ ,UJ,OUT/NTR
+ :2,VTM,1
+ ,UJ,I*DI*I
+ :,UJ,R*DI*I
+         :,UJ,R*AD*R
+         :,UJ,R*SU*R
+         :,UJ,R*MU*R
+         :,UJ,R*DI*R
+ :,XTA,*S
+ ,UJ,CH*RI
+ :2,VTM,1
+ ,UJ,I*COMP
+         :,UJ,R*COMP
+         :,UJ,I*AD*R
+         :,UJ,R*AD*I
+         :,UJ,I*SU*R
+         :,UJ,R*SU*I
+         :,UJ,I*MU*R
+         :,UJ,R*MU*I
+ CH/EXTF: 12,  VTM  ,1
+ SE*EXT:12,XTA,EXTFUN-1
+             ,  UZA  ,MIXER               .
+             ,  AEX  ,FUN/               .
+             ,  UZA  ,EXT/IS              .
+ 12,VLM,SE*EXT
+ EXT/IS:,ITA,12
+ ,A-X,C21
+ ,U1A,NO*POW
+ ,XTS,
+ ,STX,N*ATXTA
+ ,A-X,C6
+ ,UZA,NO*POW
+C.....   P O W E R
+ ,XTA,B48
+ ,ATX,*ACC
+ ,ATX,PAR*A
+ ,XTA,WPW
+ 4,VJM,OUT/PAR
+ ,XTA,WPX
+ ,ATX,*S
+ NO*POW:,XTA,*14VTM*
+ 3,VJM,OUTPUT
+ TO*CALLS:,XTA,FUN/
+ TO*CALL:,ATX,MIG1
+             ,  XTA  ,FCALL               .
+ 10,VTM,CH/ST*I
+ ,UJ,OUT*A
+C-----   FUN / SUBR   C A L L
+ FSCALL:,BSS,
+ ,ATX,*S1
+ 12,VJM,CH/FP
+ 8,XTS,
+ ,STX,FUN/
+ ,U1A,NS*FUN
+ 13,VTM,NF*
+ CHEST:13,XTA,*FUN
+ ,AEX,FUN/
+ ,U1A,ECHEST
+C.....   pPOBEPKA ~iClA pAPAMETPOB
+ 13,MTJ,12
+ 12,UTM,-1
+ ,ITA,12
+ ,ASN,64-1
+ ,AAX,C37
+ ,ATI,14
+ ,ITA,12
+ ,ASN,64+4
+ ,ATI,12
+ 12,XTA,SC*FUN
+ 14,ASN,64
+ ,AAX,C3
+ ,UZA,NOCH*P
+ ,AEX,C3
+ ,UZA,P*GT*1
+ ,AEX,C3
+ ,AEX,PAR*N
+ ,U1A,O{/pAP
+ ,UJ,NOCH*P
+ P*GT*1:,XTA,PAR*N
+ ,ASN,64+1
+ ,UZA,O{/pAP
+ NOCH*P:,BSS,
+ ,XTA,PAR*S
+ ,ATX,*S
+ ,ITA,13
+ ,ASN,64+3
+ ,U1A,HE*|K
+C===  SQRT,SIN,COS,ATAN,ASIN,ALOG,EXP
+ ,ATX,PAR*N
+ ,ITA,13
+ ,ASN,64-24
+ ,ARX,*|K*
+ 3,VTM,OUT*AE
+ CLE*N:,XTS,
+ ,STX,PAR*N
+ OUT/XTA:15,ATX,
+ 10,VJM,SEARCH
+ ,XTS,
+ ,STX,N*ATXTA
+ ,UZA,RET/3
+ ,ITA,3
+ ,XTS,*XTA*
+ ,XTS,PAR*S
+ 3,VJM,OUTPUTS
+ ,STX,
+ ,STI,3
+ 3,UJ,
+ HE*|K:,ASN,64+1
+ ,UZA,*MINMAX
+ ,XTA,NTR18
+ 13,UJ,SW*FU-16
+ SW*FU:,BSS,
+ :2,VTM,RETURN./ABS
+ ,UJ,/ABS
+ :2,VTM,RETURN./IABS
+ ,UJ,/IABS
+ :2,VTM,/SIGN./SIGN
+ ,UJ,/ABS
+ :2,VTM,/ISIGN./ISIGN
+ ,UJ,/IABS
+ :3,VTM,NORM*AC./FLOAT
+ ,UJ,NTR/XTA
+ :3,VTM,AC*TO*I./IFIX
+ ,UJ,CLE*N
+ :3,VTM,/INT./INT
+ ,UJ,CLE*N
+ :3,VTM,/AINT./AINT
+ ,UJ,CLE*N
+ :10,VTM,./REAL
+ ,UJ,/REAL
+ :10,VTM,B19./AIMAG
+ ,UJ,/AIMAG
+ :3,VTM,/ALOG10./ALOG10
+ ,UJ,NTR/XTA
+ :10,VTM,AND./IAND
+ ,UJ,*LOGIC*
+ :10,VTM,EOR./IEOR
+ ,UJ,*LOGIC*
+ :10,VTM,OR./IOR
+ ,UJ,*LOGIC*
+ :,,./ISLO
+ ,UJ,*SLO*
+ :3,VTM,/ICOMPL./ICOMPL
+ ,UJ,CLE*N
+ /IABS:,XTA,NTR3
+ /ABS:,BSS,
+ 3,VJM,NTR/XTA
+ ,XTA,*15ATX*
+ 10,VJM,OUT*A
+ ,XTA,*15AVX*
+ 2,MTJ,10
+ ,UJ,OUT*A
+ /ISIGN:,BSS,
+ /SIGN:,XTA,*AVX*
+ ,XTS,PAR*S2
+ ,UJ,OUT*SE
+ /INT:,XTA,R*TO*INT
+ ,UJ,TO*CALL
+ /AINT:,XTA,R*TO*INT
+ ,ATX,MIG1
+ ,XTA,FCALL
+ 10,VJM,OUT*A
+ ,UJ,NORM*AC
+ /REAL:,BSS,
+ /AIMAG:,BSS,
+ ,XTA,
+ ,ATX,N*ATXTA
+ ,ATX,PAR*N
+ ,XTA,PAR*S
+ ,AAX,C37
+ ,ATI,14
+ 14,UTM,-14B
+ ,XTA,*XTA*
+ ,XTS,PAR*S
+ 10,VZM,OUT*SE
+ 14,V1M,/AIM1
+ 10,VTM,B6
+ ,AEX,B17/16
+ /AIM1:10,ARX,
+ ,UJ,OUT*SE
+ /ALOG10:,XTA,*|K*LG
+ 10,VJM,OUT*A
+ ,XTA,LG*E
+ ,ATX,MIG1
+ ,XTA,
+ ,ATX,PAR*N
+ ,XTA,C/A*X/
+ ,UJ,OUT*AE
+ NTR/XTA:10,VTM,CLE*N
+ ,UJ,OUT/NTR
+C===  IAND , IEOR , IOR
+ *LOGIC*:,ITA,10
+ ,ATX,*S1
+ 3,VJM,OUT/XTA
+ ,XTA,
+ ,ATX,PAR*L
+ LOL:,XTA,PAR*L
+ ,ARX,C1
+ ,ATX,PAR*L
+ ,AEX,PAR*N
+ ,UZA,LOL1
+ ,XTA,*S1
+ ,WTC,PAR*L
+ ,XTS,PAR*S
+ 3,VTM,LOL
+ ,UJ,OUTPUTS
+ LOL1:,ATX,PAR*N
+ ,UJ,RETURN
+ *SLO*:,XTA,PAR*S2
+ ,ATI,14
+ ,ASN,64+15
+ ,AAX,C7
+ ,U1A,O{/pAP
+ 14,UTM,-1
+ 14,VZM,*SLOC*
+ 14,UTM,-13B
+ 14,V1M,*SLOV*
+ ,XTA,PAR*S2
+ ,ATX,*S
+ 10,VJM,SEARCH
+ ,U1A,*SLOV*
+ ,XTA,*ATI14*
+ 10,VJM,OUT*A
+ ,XTA,PAR*S
+ ,ATX,*S
+ 3,VJM,CLE*N
+ ,XTA,*14ASN*
+ ,UJ,OUT*AE
+ *SLOC*:,BSS,
+ 3,VJM,CLE*N
+ ,XTA,PAR*S2
+ 13,VJM,GIV24
+ ,ASN,64-24
+ ,ARX,*ASN64*
+ ,AAX,MSKKOP
+ ,UJ,OUT*AE
+ *SLOV*:,BSS,
+ ,XTA,PAR*S
+ ,ATX,*S
+ 3,VJM,CLE*N
+ ,XTA,*WTC*
+ ,XTS,PAR*S2
+ 3,VJM,OUTPUTS
+ ,XTA,*ASN64*
+ ,UJ,OUT*AE
+ /ICOMPL:,XTA,FULWOR
+ ,ATX,MIG1
+ ,XTA,*AEXC*
+ ,UJ,OUT*AE
+C===  AMAX1 , AMAX0 , MAX1 , MAX0
+C===  AMIN1 , AMIN0 , MIN1 , MIN0
+ *MINMAX:,WTC,PAR*N
+ 14,VTM,-2
+ 14,V1M,*MMFUN
+ 13,MTJ,2
+ ,ITA,2
+ ,AAX,B1
+ ,ATI,14
+ 14,VZM,*MM1
+ ,XTA,PAR*S
+ ,AOX,PAR*S2
+ ,ASN,64+15
+ ,AAX,C7
+ ,U1A,*MMFUN
+ *MM1:14,XTA,NTR18
+ 3,VJM,NTR/XTA
+ 2,UTM,-8
+ ,XTA,*AMIX*
+ ,XTS,PAR*S2
+ 3,VJM,OUTPUTS
+ ,XTA,TEXT*
+ ,ATX,MIG1
+ ,ITA,2
+ ,ASN,64+2
+ ,AOX,*UZA*
+ 10,VJM,OUT*A
+ ,ITA,2
+ ,AAX,B1
+ ,ATI,14
+ 14,XTA,ZER
+ ,ATX,MIG1
+ 14,XTA,*XTAC*1
+ 10,VJM,OUT*A
+ ,XTA,*APLX*
+ ,XTS,PAR*S2
+ 3,VJM,OUTPUTS
+ ,ITA,2
+ 15,ATX,
+ ,ASN,64+1
+ 15,AEX,
+ ,AAX,B1
+ ,UZA,RETURN
+ ,ITA,2
+ ,AAX,C2
+ ,U1A,AC*TO*I
+ ,UJ,NORM*AC
+ *MMFUN:,XTA,B48
+ 13,ASN,64-1
+ ,AOX,SC/FUN
+ ,ATX,SC/FUN
+ ,UJ,NS*FUN
+ ECHEST:13,UTM,-1
+ 13,V1M,CHEST
+ NS*FUN:,XTA,NTR18
+ ,ATX,NTRFLAG
+ ,WTC,PAR*N
+ 13,VTM,
+ 13,VZM,END/PAR
+ ,XTA,PAR*A
+ ,ATX,*ACC
+ ,XTA,
+ ,ATX,PAR*L
+ ,UJ,LCHP1
+ LCHP:,WTC,PAR*L
+ ,XTA,PAR*S
+ ,AEX,PAR*S1
+ ,U1A,LCHP1
+ ,XTA,*15ATX*
+ 10,VJM,OUT*A
+ ,UJ,LCHP2
+ LCHP1:,WTC,PAR*L
+ ,XTA,PAR*S
+ ,ATX,PAR*S1
+ 4,VJM,OUT/PAR
+ LCHP2:,XTA,PAR*L
+ ,ARX,C1
+ ,ATX,PAR*L
+ ,AEX,PAR*N
+ ,UZA,END/PAR
+ ,XTA,
+ ,ATX,*ACC
+ ,UJ,LCHP
+ END/PAR:,XTA,SC/OPT
+ ,AAX,B/OPT
+ ,UZA,NOPARN
+ ,XTA,FUN/
+ ,AEX,******
+ ,ARX,C177*
+ ,AAX,C200*
+ ,AEX,C200*
+ ,U1A,NOPARN
+ ,WTC,PAR*N
+ 14,VTM,
+ ,XTA,FUN/
+ ,AEX,LOADGO
+ ,U1A,NO/LGO
+ 14,VZM,O{/pAP
+ 14,UTM,-1
+ NO/LGO:,ITA,14
+ ,ASN,64-24
+ ,AOX,*12VTM*
+ 10,VJM,OUT*A
+ NOPARN:,XTA,
+ ,ATX,PAR*N
+ ,XTA,*13VJM*
+ ,XTS,*S1
+ OUT*SE:3,VTM,RETURN
+ ,UJ,OUTPUTS
+ CH*LOAD:10,VJM,SEARCH
+ ,UZA,RETURN
+ ,XTA,B1
+ ,ATX,N*ATXTA
+ ,XTA,*S
+ ,ATX,S*XTA
+ ,UJ,TO*OWN
+ SEARCH:,WTC,N*ATXTA
+ 14,VTM,
+ ,XTA,*S
+ ,AAX,C37
+ ,ATI,13
+ 13,UTM,-14B
+ SE*1:14,VZM,RET*S
+ 14,UTM,-1
+ 14,XTA,S*XTA
+ ,ATX,MIG2
+ 13,V1M,SE*2
+ ,AAX,Z5
+ SE*2:,UZA,RET*S
+ ,AEX,*S
+ ,U1A,SE*1
+ 10,UTC,
+ 13,V1M,
+ 9,VJM,ERASER
+ ,XTA,MIG2
+ ,AAX,B5
+ ,AEX,B5
+ ,UZA,SE*3
+ ,XTA,*KILL*
+ ,ATX,MIG
+ ,XTA,
+ ,UJ,OUTMIG
+ RET*S:,XTA,B1
+ 10,UJ,
+ SE*3:10,MTJ,9
+ ,UJ,ERASER1
+ CH*STORE:,XTA,FUN/
+ ,AEX,/R*ST*I/
+ ,U1A,CH*ISTR
+ ,XTA,/R*TO*I/
+ ,ATX,MIG1
+ ,XTA,FCALL
+ 10,VTM,CL*XTA
+ ,UJ,OUT*A
+ CH*ISTR:,XTA,FUN/
+ ,AEX,/I*ST*R/
+ ,U1A,CL*XTA
+ ,XTA,NTR18
+ 10,VJM,OUT/NTR
+ ,XTA,EPLUSN64
+ 10,VJM,OUT*A
+ CL*XTA:,XTA,FUN/
+ ,ASN,64+40
+ ,AEX,FUN/
+ ,AAX,C377
+ ,ATI,12
+ 12,VZM,NO*CL
+ ,XTA,
+ ,ATX,N*ATXTA
+ NO*CL:,WTC,N*ATXTA
+ 14,VTM,-L*BUF
+ 14,V1M,NO*FUL
+ ,UTC,-1
+ NO*FUL:14,UTM,L*BUF
+ 14,V1M,NO*NEW
+ ,XTA,FULWOR
+ ,ATX,S*XTA
+ 14,VTM,1
+ NO*NEW:14,UTM,1
+ ,ITA,14
+ ,ATX,N*ATXTA
+ 14,UTM,S*ATX-2
+ ,XTA,*S
+ 14,ATX,
+ ,WTC,*S
+ 13,VTM,-14B
+ 13,V1M,NO*ERR
+ 12,VZM,NO*ERR
+ ,XTA,B5
+ 14,AOX,
+ 14,ATX,
+ NO*ERR:,XTA,FUN/
+ ,UZA,CH/ATX
+ TO*OWN:12,VTM,1
+ ,UJ,SE*OWN
+ FORM*A:,BSS,
+ ,WTC,*A
+ ,XTA,*XTA*
+             ,  ATX  ,*A                  .
+ ,UJ,CH/ATX
+C=====   77 < KOp <= 127
+ OP/10027:,BSS,
+ ,XTA,
+ ,ATX,FUN/
+ ,WTC,*A
+ 14,VTM,-XTS
+ 14,VZM,CH*XTS
+ 14,UTM,XTS-XTA
+ 14,VZM,CH*XTA
+ 14,UTM,XTA-ATX
+ 14,VZM,CL*XTA
+ ,ATX,N*ATXTA
+ CH/ATX:3,VTM,RETURN
+ ,WTC,*A
+ 14,VTM,-100B
+ 14,V1M,OUTPUT1
+ 3,VTM,CVJM*UP
+ ,UJ,OUTPUT1
+ CH*XTS:10,VJM,SEARCH
+ ,U1A,XTS/XTA
+ ,XTA,*15ATX*
+ ,UJ,OUT*AE
+ CH*XTA:10,VJM,SEARCH
+ XTS/XTA:,UZA,RETURN
+ ,XTA,B1
+ ,ATX,N*ATXTA
+ ,XTA,*S
+ ,ATX,S*XTA
+ ,UJ,CH/ATX
+ CH*LN:,XTA,FUN/
+ ,AEX,/I*LN*I/
+ ,U1A,LN*R
+ 2,VTM,1
+ LN*R:,WTC,*S
+ 14,VTM,-1
+ 14,VZM,LN*C
+ 10,VJM,SEARCH
+ ,U1A,*LN*
+ ,UJ,R*COMP
+ *LN*:,XTA,*XTA*
+ 3,VJM,OUTPUT
+ I*COMP:,BSS,
+ R*COMP:2,XTA,NTR18
+ 10,VJM,OUT/NTR
+ ,XTA,A/MINUS
+ ,ATX,MIG1
+ ,XTA,*AVXC*
+ CLEAR:,XTS,
+ ,STX,N*ATXTA
+ ,UJ,OUT*AE
+ LN*C:,XTA,*S
+ 13,VJM,GIV24
+ 2,NTR,2
+ ,AVX,A/MINUS
+ ,NTR,3
+ ,ATX,MIG1
+ ,XTA,*XTAC*
+ ,UJ,CLEAR
+ OUT*A:,BSS,
+ OUT/NTR:,ATX,MIG
+ ,UJ,OUTMIG
+ CH*RI:,WTC,*A
+ 14,VTM,-1
+ 14,V1M,R*LO*I
+ 13,VJM,GIV24
+ ,NTR,18
+ ,E+N,64
+ ,NTR,3
+ ,ATX,MIG1
+ ,XTA,*XTAC*
+ ,UJ,OUT*AE
+ R*LO*I  :   ,  XTA  ,*XTA*              .
+ 3,VJM,OUTPUT
+ NORM*AC:,XTA,NTR18
+ 10,VJM,OUT/NTR
+ ,XTA,EPLUSN64
+ ,UJ,OUT*AE
+C-----   P A R A M E T R
+ PARAM:,BSS,
+ ,WTC,PAR*N
+ 14,VTM,
+ 14,V1M,PAR/1
+ ,XTS,*ACC
+ ,STX,PAR*A
+ PAR/1:14,ATX,PAR*S
+ 14,UTM,1
+ ,ITA,14
+ ,ATX,PAR*N
+ ,UJ,RETURN
+ PARAM/2:,BSS,
+ 4,VTM,RETURN
+ ,XTS,
+ ,STX,PAR*A
+ OUT/PAR:,XTS,*ACC
+ ,ATX,*PAR
+ ,AAX,Z48/47
+ ,ATX,*ACC
+ ,XTA,
+ ,ATX,N*ATXTA
+ ,XTA,*PAR
+ ,ASN,64+47
+ ,AEX,B1
+ ,STI,5
+ ,ATX,*S
+ ,XTA,*14VTM*
+ 3,VJM,PREPMIGA
+ ,XTS,*PAR
+ ,ASN,64-1
+ ,ASN,64+47
+ ,STI,3
+ ,AEX,MIG
+ ,UZA,PAR/0.pAP-P=REAL0
+ 1,V1M,OUTPAF.pAP-P=fOPM.
+C.....   pOClEdHqq KOMAHdA bylA
+C        14 , VTM , ...
+ 10,VJM,OUTMIG
+C.....   BydA~A : , ITA , 14
+ ,ITA,5
+ ,AOX,*ITA14*
+ 10,VJM,OUT*A
+ CH/AOX:3,VZM,RET/PAR
+C.....   BydA~A : , AOX , B48
+ ,XTA,B48
+ ,ATX,MIG1
+ ,XTA,*AOXC*
+ 10,VJM,OUT*A
+ RET/PAR:4,MTJ,14
+ 4,VTM,.pPizH.pAP-PA
+ 14,UJ,
+C.....   BydA~A : , XTA , .
+C          ili    , XTS , .
+ PAR/0:5,XTA,*XTA*
+ ,ATX,MIG
+ 10,VTM,RET/PAR
+ 3,VZM,OUTMIG
+C.....   BydA~A : , XTA , B48
+C          ili    , XTS , B48
+ ,XTS,B48
+ ,STX,MIG1
+ ,AOX,B23*16
+ ,UJ,OUT*A
+C-----   fOPM.pAPAMETP B fAKTi~ECKOM
+ OUTPAF:1,UTM,-1
+ 1,VZM,CH/AOX
+ 1,UTM,-1
+C.....   pOClEdHqq KOMAHdA bylA
+C          , ARX , CME}EHiE
+ 1,VZM,CH/AOX.= dA
+ 3,V1M,RET/PAR
+ ,XTA,PAR*A
+ ,AAX,B47
+ ,UZA,RET/PAR
+C.....   BydA~A : , AAX , =77777
+ ,XTA,C77777
+ ,ATX,MIG1
+ ,XTA,*AAXC*
+ 10,VTM,RET/PAR
+ ,UJ,OUT*A
+ I*AD*I:,BSS,
+ I*SU*I:,BSS,
+ R*AD*R  :   ,  BSS  ,                    .
+ R*SU*R  :   ,  BSS  ,                    .
+ R*MU*R  :   ,  BSS  ,                    .
+ R*DI*R  :   ,  BSS  ,                    .
+ I*AD*R  :   ,  BSS  ,                    .
+ R*AD*I  :  ,  BSS  ,                     .
+ I*SU*R  :   ,  BSS  ,                    .
+ R*SU*I  :   ,  BSS ,                     .
+ I*MU*R  :   ,  BSS  ,                    .
+ R*MU*I:2,XTA,NTR18
+ 10,VTM,FORM*A
+ ,UJ,OUT/NTR
+ I*MU*I:,XTA,/A*X/
+ 3,VJM,OUTPUT
+ ,XTA,NTR3
+ 10,VJM,OUT/NTR
+ ,XTA,C1
+ ,UJ,OUT*AE
+ R*DI*I:,BSS,
+ I*DI*I:,BSS,
+ ,XTA,*S
+ ,AAX,C37
+ ,AEX,C1
+ ,U1A,NO*POW
+ ,XTA,NTR18
+ 10,VJM,OUT/NTR
+ ,XTA,*S
+ 13,VJM,GIV24
+ ,AEX,A/I0
+ ,UZA,O{/dEl0
+ 14,XTA,
+ ,NTR,2
+ ,E+N,64
+ ,XTS,=R1.
+ 15,A/X,
+ ,ATX,MIG1
+ ,NTR,3
+ ,XTA,C/A*X/
+ 2,VZM,OUT*AE
+ 10,VJM,OUT*A
+ AC*TO*I:,XTA,/R*TO*I/
+ ,UJ,TO*CALL
+ POWER:12,XTA,/R*PO*R/-14
+ ,ATX,FUN/
+ ,XTA,WPW
+ ,ATX,*S
+ ,ATX,PAR*S
+ 3,VJM,OUT/XTA
+ ,XTA,*XTS*
+ ,XTS,WPX
+ 3,VJM,OUTPUTS
+ ,XTA,NTR18
+ 10,VJM,OUT/NTR
+ ,UJ,TO*CALLS
+C-----   FIX ERASEBLE
+ FIXERAS:,ATX,FLFIX
+ ,UJ,Z/MER
+C-----   SPECIAL CASE OF OPERAND'S
+ SPCASE:,BSS,
+             ,  AAX  ,*LESSAG             .
+             ,  XTS  ,*A                  .
+             ,  AAX  ,B39/25               .
+             ,  ASN  ,64+24               .
+           15,  AOX  ,                    .
+             ,  AOX  ,B23              .
+             ,  ATX  ,MIG                 .
+ ,XTA,
+ ,ATX,N*ATXTA
+             ,  XTA  ,*A                  .
+             ,  AAX  ,B16               .= 100 000
+             ,  U1A  ,MCS                 .
+             ,  WTC  ,*S                 .
+ ,XTA,
+             ,  WTC  ,MIG                 .
+ 14,VTM,-BSS
+             ,  ATX  ,MIG1                .
+           14,  VZM  ,CLE*PBL              .
+             ,  XTA  ,*S                 .
+             ,  AAX  ,B39/25               .
+             ,  AOX  ,MIG                 .
+ 14,UTM,BSS-CALL
+ 14,VZM,CH*REL2
+ 14,UTM,CALL-VJM
+ 14,V1M,OUT*AE
+ CH*REL2:,XTS,MIG1
+ ,AEX,*RELCN
+ ,U1A,NO*REL
+ ,UTC,-NTR18
+ NO*REL:,XTA,NTR18
+ ,STX,NTRFLAG
+ ,UJ,OUT*AE
+ MCS: ,XTA,*S
+             ,  ATX  ,MIG1                .
+ OUT*E:10,VTM,RETURN
+             ,  UJ   ,OUTMIG              .
+ OUT*AE:,ATX,MIG
+ ,UJ,OUT*E
+C-----   BEGIN OF STATEMENT
+ BEGSTAT:,BSS,
+ ,ATX,SCBUSY
+ ,ATX,SCFIX
+ *A/OUT:,XTA,*A
+ ,UJ,OUT*AE
+C-----   RELEASE ERASEBLE
+ RELERAS:,ATX,FLFIX
+ ,XTA,SCFIX
+ ,AEX,SCBUSY
+ ,ATX,SCBUSY
+ Z/MER:,XTA,
+ ,ATX,SCFIX
+ ,UJ,RETURN
+ ,BSS,
+C-----   ,XTA,I . 13,VJM,*U<I>
+ XTAI*UP   :   ,  ATX  ,*A                  .
+ ,XTA,
+ ,ATX,N*ATXTA
+             ,  XTA  ,B48               .
+ ,ATX,FL/UP
+            3,  VJM  ,PREPMIG                  .
+ ,XTA,
+ ,ATX,FL/UP
+            10,  VTM  ,VJM*UP               .
+             ,  UJ   ,OUTMIG              .
+C=====   pOdgOTOBKA i BydA~A KOMAHd
+ OUTPUTS:,STX,*S
+ OUTPUT:,ATX,*A
+ OUTPUT1:,ITA,3
+ 3,VJM,PREPMIG
+ ,ATI,10
+ ,UJ,OUTMIG
+ PREPMIGA:,ATX,*A
+ PREPMIG:3,MTJ,6
+ 1,VTM,
+ ,XTS,*S
+ ,U1A,PREP
+ ,XTA,*A
+ ,UJ,RET/PREP
+ RET/3:,BSS,
+ RET/CER:,BSS,
+ RET/PRS:,STX,
+ 3,UJ,
+ PREP:,AAX,C37
+             ,  ATI  ,14                  .
+ 14,UTM,-1
+ 14,VZM,CONSTANT.OP=KOHCT.
+ 14,UTM,1-14B
+ 9,VTM,ERASER*
+ 14,VZM,ERASER.OP=ERASER
+ 14,UTM,14B-15B
+ 14,VZM,CERASE.OP=CERASE
+             ,  A-X  ,C10                 .8
+             ,  U1A  ,O{/PUTAW              .IMPROPER PREPMIG
+             ,  XTA  ,*S                 .
+ ,ASN,64+8
+ ,AAX,C177
+ ,ATX,*NIF*
+ ,XTS,*A
+ ,ATX,*A2
+ ,XTA,*S
+ ,STX,*S2
+ 4,VZM,NOPAR/1
+C.....   PAzbOP fAKTi~ECKOgO pAPAMETPA
+ 12,VJM,CH/FP
+ ,UZA,PAR/NF.= OH HE fOPM.
+C.....   B fAKTi~ECKOM - fOPMAlxHyj
+ 1,VTM,1
+ ,ATX,MIG1
+C.....   BydA~A : , XTA , fOPM.pAP.
+C          ili    , XTS , fOPM.pAP.
+ 5,XTA,*XTA*
+ ,AOX,B40*23
+ 10,VJM,OUT*A
+ ,XTA,*S
+ ,AAX,B33/19
+ ,UZA,PAR/NC.= HET CME}EHiq
+C.....   BydA~A : , ARX , CME}EHiE
+ 1,VTM,2
+ ,ASN,64+18
+ ,ATX,MIG1
+ ,XTA,*ARXC*
+ 10,VJM,OUT*A
+ PAR/NC:,XTA,*NIF*
+ ,UZA,RET/PRS.= HET iHd.fYH.
+ 1,VTM,3
+ PAR/NF:,XTA,*NIF*
+ ,UZA,PREPFP
+ ,XTA,
+ ,ATX,*SIR*
+ 10,VTM,-1
+ ,UJ,SE*IFL
+ NOPAR/1:,UZA,PREPFP
+ 13,VJM,CH*14
+ 10,VTM,-1
+ ,UZA,SE*IFL
+C.....   HE zAgPYvEHA li iHd.fYHKciq B iP
+ 11,VTM,-5
+ SE*IFIR:11,XTA,ST*R+5
+             ,  AEX  ,*NIF*              .
+ ,AAX,C177
+             ,  UZA  ,IF/IS              . = zAgPYvEHA
+ NO*AR:11,VLM,SE*IFIR
+ ,UJ,SE*IR
+ CH*14:,XTA,*A2
+ ,AEX,*14VTM*
+ 13,UJ,
+ IF/IS:11,XTA,S*S+5
+ ,AEX,*S2
+ ,ASN,64+33
+ ,UZA,IF/OKEY
+ 12,VJM,CH/FP
+ ,XTA,M*C
+ ,AOX,*NIF*
+ 11,AEX,ST*R+5
+ ,U1A,NO*AR
+ 11,XTA,S*S+5
+ ,AAX,C77777
+ ,X-A,DELT
+ ,ASN,64-18
+ ,ARX,*S2
+ ,AEX,*S2
+ ,AAX,B33/19
+ ,AEX,*S2
+ ,ATX,*S2
+ IF/OKEY:11,UTM,6
+ ,ITA,11
+ ,ASN,64-42
+ ,UJ,STIF3
+C.....   pOiCK CBObOdHOgO iP
+ SE*IR:10,VTM,-1
+ 13,VJM,SEA*R
+ ,ITA,11
+             ,  ASN  ,64-42              .TO B-FIELD
+ ,ATX,*SIR*
+ ,UJ,SE*IFL
+C-----   pOiCK 'CBObOdHOgO' PEgiCTPA
+C        YCTAHOBKA HA HEgO pPipiCKi
+ SEA*R:12,VTM,-5
+ 11,VTM,
+ SR*1:12,XTA,ST*R+5
+ ,UZA,SR*3
+ ,AAX,BITNI
+ ,UZA,SR*2
+ 12,UTC,6
+ 11,VTM,
+ SR*2:12,VLM,SR*1
+ 11,V1M,SR*4
+ 11,VTM,6
+ ,UJ,SR*4
+ SR*3:12,UTC,6
+ 11,VTM,
+ SR*4:12,VJM,CH/FP
+ ,XTA,M*C
+ ,AOX,*NIF*
+ 11,ATX,ST*R-1
+ ,XTA,
+ 11,ATX,IV*R-1
+ ,XTA,DELT
+ ,AEX,*S
+ ,AAX,C77777
+ ,AEX,*S
+ 11,ATX,S*S-1
+C.....   KOPPEKTiPOBKA C~ET~iKA iCpOlxz.iP
+ ,ITA,11
+ ,A-X,INDEXCT
+ 13,U1A,
+             ,  ITA   ,11                 .
+ ,ATX,INDEXCT
+ 13,UJ,
+C.....   pOiCK iHd.fYHKcii B INFUNLIS
+ SE*IFL:,WTC,LGIFLIST
+ 12,VTM,
+ SE1*IFL:12,VZM,O{/DECL
+ 12,UTM,-1
+ 10,UTM,1
+ 10,XTA,INFUNLIS
+ ,ASN,64+30
+ ,AEX,*NIF*
+ ,AAX,C177
+ ,U1A,SE1*IFL
+ 10,XTA,INFUNLIS
+ ,ASN,64+45
+ ,UZA,SE1*IFL
+ ,ATI,14
+ ,ASN,64+2
+ ,UZA,IFL/IS
+           14,  VTM  ,3                   .
+ ,XTA,
+ IFL/IS:10,MTJ,12
+           14,  MTJ  ,9                   .
+ 4,V1M,OUT/IF
+ 13,VJM,CH*14
+ ,UZA,OUT/IF
+ MAK*AD    : 14,  UTM  ,-1                  .
+             ,  ASN  ,64-15              .
+ 12,XTS,INFUNLIS
+             ,  AAX  ,C77777                 .=77 777
+           15,  ARX  ,                    .
+ 14,VZM,WR/PBL
+           12,  UTM  ,1                   .
+             ,  UJ   ,MAK*AD                .
+ WR/PBL:11,ATX,IV*R-1
+ OUT/IF:,BSS,
+C=====   pOdgOTOBKA i BydA~A 'WTC'
+C=====   dlq iHdEKCHOj fYHKcii
+ 9,UTM,-1
+            9,  V1M  ,FORM*I              .
+ 10,XTA,INFUNLIS
+ ,AAX,B30/16
+             ,  AEX  ,B16                 .= 100 000
+             ,  U1A  ,FORM*I              .
+ 10,XTA,INFUNLIS
+ ,UJ,OUT1/IF
+ FORM*I:,XTA,*I
+             ,  XTS  ,*NIF*              .NUMBER IF
+             ,  NTR  ,2                   .
+           13,  VJM  ,SH                  .
+         :   ,  NTR  ,3                   .
+ 14,VTM,N*IF
+ 14,ATX,
+ ,ITA,14
+ OUT1/IF:,ASN,64-33
+ ,ATX,*S
+ 4,VZM,CH*SPIF
+ 1,VZM,SPIF1
+ ,XTA,*ARXV*
+ 6,VTM,RET/PRS
+ 1,VTM,3
+ PREPFP/A:,ATX,*A
+ ,ITA,6
+ ,XTS,
+ 6,VJM,PREPFP
+ ,ATI,10
+ ,UJ,OUTMIG
+ CH*SPIF:13,VJM,CH*14
+ ,UZA,SPIF1
+ ,XTA,*S
+ ,XTS,*S2
+ ,ATX,*S
+ 12,VJM,CH/FP
+ ,UZA,STIF1
+ ,ATX,MIG1
+ ,WTC,*A2
+ 14,VTM,-XTA
+ 14,V1M,NO/XTA
+ ,UTC,*XTAV*-*XTSV*
+ NO/XTA:,XTA,*XTSV*
+ 10,VJM,OUT*A
+  ,STX,
+ ,ATX,*S
+ ,XTA,*ARXV*
+ 6,VJM,PREPFP/A
+ ,XTA,*SIR*
+ ,ASN,64+18
+ ,AOX,*STI*
+ 10,VTM,STIF2
+ ,WTC,*A2
+ 14,VTM,-XTA
+ 14,V1M,OUT*A
+ ,AEX,C1
+ ,UJ,OUT*A
+  SPIF1:,XTA,*WTC*
+ 6,VJM,PREPFP/A
+ ,XTA,*A2
+ ,ATX,*A
+ ,XTA,*S2
+ ,ATX,*S
+ 3,MTJ,6
+ ,XTA,*SIR*
+ 4,V1M,PREPFP
+ 12,VJM,CH/FP
+ ,UZA,PREPFP
+ ,ATX,MIG1
+ ,XTA,*S
+ ,ASN,64-6
+ ,AAX,B39/25
+ ,AOX,*14VTM*
+ 10,VJM,OUT*A
+ ,XTA,*WTC*
+ 10,VJM,OUT*A
+ ,XTA,*14UTM*
+ ,UJ,RET/PREP
+ STIF1:,STX,
+ ,ATX,*S
+ ,XTA,*WTC*
+ 6,VJM,PREPFP/A
+ ,XTA,*S2
+ ,ASN,64+33
+ ,ATI,8
+ 8,XTA,
+ ,ATX,MIG1
+ ,XTA,*SIR*
+ ,AOX,*VTMV*
+ 10,VJM,OUT*A
+ STIF2:,XTA,*A2
+ ,ATX,*A
+ 3,MTJ,6
+ ,XTA,*SIR*
+ STIF3:,XTS,*S2
+ ,ASN,64-15
+ ,ASN,64+15
+ ,STX,*S
+C=====   pOdgOTOBKA KOMAHdy i BydA~A
+C        'WTC' dlq fOPMAlxHOgO pAPAMETPA
+ PREPFP:,ATX,*NIR*
+ 12,VJM,CH/FP
+             ,  UZA  ,FORM                .
+C.....   OpEPAHd = fOPMAlxHyj pAPAMETP
+ ,ATX,MIG1
+ ,XTA,*WTC*
+ ,AOX,FL/UP
+ ,ATX,MIG
+ 10,VJM,OUTMIG
+ ,XTA,*S
+ ,AAX,B33/19
+ ,ATX,*S
+ ,UJ,FORM1
+C.....   pPOBEPKA HA fOPMAlxHyj pAP-P
+ CH/FP:,XTA,
+ ,ATX,M*C
+ ,XTA,*S
+ ,ASN,64+33
+ ,ATI,8
+ ,A-X,A/DIML
+ ,U1A,NO/FP
+ ,X-A,IR2IM
+ ,U1A,NO/FP
+ 8,MTJ,14
+ ,WTC,IR2IM
+ 14,UTM,
+ 14,XTA,
+ ,AAX,MSKE
+ ,UZA,CH/C1
+ ,ATX,M*C
+ 8,UTC,
+ NO/FP:,XTA,
+ 12,UJ,
+  CH/C1:14,XTA,
+ ,AAX,MSKW
+ ,ASN,64+24
+ ,ATX,DELT
+ 14,XTA,
+ ,AAX,BITC
+ 12,UZA,
+ ,WTC,IR2IM
+ 14,XTA,
+ ,AAX,B45/40
+ ,ASN,64+32
+ ,AOX,BITC
+ ,ATX,M*C
+ ,UJ,NO/FP
+C.....
+ FORM:,XTA,*A
+ ,AAX,B7
+ FORM1:,ATI,14
+ ,XTA,*A
+ ,AAX,B46/43
+ 14,V1M,SHORT
+ ,UZA,/COM
+ ,XTA,*NIR*
+ /COM:,ASN,64+42
+ ,ATI,14
+ ,XTA,*S
+ ,ASN,64-6
+ ,AAX,B39/25
+ ,AOX,FL/UP
+ 8,VZM,F*INS
+ 8,XTS,
+ ,STX,MIG1
+ ,AOX,B40*23
+ F*INS:,AOX,*NIR*
+ 14,VZM,/1COM
+ ,AOX,*UTC*
+ ,ATX,MIG
+ ,XTA,
+ 10,VJM,OUTMIG
+ /1COM:,XTS,*A
+ ,AAX,M/IR*KOP
+ 15,AOX,
+ RET/6:,STX,MIG
+ 6,UJ,
+C-----   KOMAHdA C KOPOTKiM AdPECOM
+ SHORT:,AOX,*NIR*
+ ,U1A,/COM.= PEgiCTP zAHqT
+ ,XTA,M*C
+ ,AOX,BITNI
+ ,ATX,M*C
+ ,AAX,BITC
+ ,UZA,/COM
+ 12,VTM,-5
+ 11,VTM,
+ SE*C1:11,UTM,1
+ 12,XTA,ST*R+5
+ ,AEX,M*C
+ ,UZA,COM/IS
+ 12,VLM,SE*C1
+ 13,VJM,SEA*R.= pOiCK CBObOdy
+ ,XTA,BITNI
+ 11,AOX,ST*R-1
+ 11,ATX,ST*R-1
+C-----   KOMAHdA YCTAHOBKi COMMON B iP
+ 8,XTA,
+ ,ATX,MIG1
+ ,ITA,11
+ ,ASN,64-42
+ ,AOX,*VTMV*
+ 10,VJM,OUT*A
+ COM/IS:11,XTA,S*S-1
+ ,AAX,C77777
+ ,X-A,DELT
+ ,ASN,64-18
+ ,ARX,*S
+ ,ASN,64-6
+ ,AAX,B39/25
+ ,ITS,11
+ ,ASN,64-42
+ 15,AOX,
+ ,XTS,*A
+ ,AAX,C77777
+ 15,AOX,
+ ,UJ,RET/6
+C--------
+ ERASER:,XTA,*S
+ ,ASN,64+16
+ ,AAX,B1
+ ,ATI,8
+ ,XTA,*S
+ ,ASN,64+5
+ ,AAX,C377
+ ,ATI,13
+ ,U1A,DEF/NER
+ ,WTC,*ACC
+ 14,VTM,-12B. STORE
+ 14,V1M,DEF/NER
+ ,XTA,SCBUSY
+ ,AEX,FULWOR
+ 8,VZM,NODOU/1
+ 15,ATX,
+ ,ASN,64-1
+ 15,AAX,
+ NODOU/1:,UZA,O{/ERR
+ ,ANX,C77777
+ ,ATI,13
+ ,ITA,13
+ ,ASN,64-5
+ ,WTC,N*ATXTA
+ 14,VTM,N*ATXTA
+ 14,AOX,
+ 14,ATX,
+ ,AAX,Z5
+ ,ATX,*S
+ ,ITA,8
+ ,ARX,C2
+ 13,ASN,64-46
+ ,AOX,SCBUSY
+ ,ATX,SCBUSY
+ 9,UJ,
+ DEF/NER:,WTC,FLFIX
+ 12,VTM,SCBUSY
+ ,ITA,8
+ ,ARX,C2
+ 13,ASN,64-46
+ 15,ATX,
+ 12,AOX,
+ 15,AEX,
+ 12,ATX,
+ 9,UTM,-ERASER*
+ 9,UTC, ERASER*
+ 9,V1M,
+ 9,VTM,ERASER*
+ ERASER1:,BSS,
+ 13,MTJ,14
+ 8,J+M,14
+ ,ITA,14
+ ,A-X,ERASECT
+ ,U1A,RET/E
+ 14,UTM,1
+ ,ITA,14
+ ,ATX,ERASECT
+ RET/E:,XTA,
+ 9,UJ,
+ ERASER*:,BSS,
+ ,UTC,WPERBASE-WPCERBAS
+ ,BSS,
+C--------
+ CERASE:,XTA,WPCERBAS
+ ,ATX,MIG1
+ ,XTA,*S
+ ,AAX,C77740
+ ,ASN,64-19
+             ,  AOX  ,B23              .
+             ,  AOX  ,*A                  .
+             ,  WTC  ,ASFFLAG             .
+           14,  VTM  ,                    .
+ 14,VZM,RET/PREP
+ ,AOX,B40
+ ,ATX,MIG
+ ,AAX,B46/43
+ ,UZA,RET/CER
+ ,XTA,MIG
+ ,AAX,B7
+ ,UZA,RET/CER
+ ,XTA,MIG
+ ,AAX,B48/16
+ ,AOX,*UTC*
+ ,ATX,MIG
+ 10,VJM,OUTMIG
+ ,XTA,*A
+ ,AAX,C77777
+ ,ATX,MIG
+  ,UJ,RET/CER
+ REAL0:,XTA,*A
+ ,AAX,M/IR*KOP
+ RET/PREP:,STX,MIG
+ 3,UJ,
+C--------
+ CONSTANT  :   ,  XTA  ,*S                 .CONSTA
+ 13,VJM,GIV24
+ ,ATX,MIG1
+ 14,XTA,1
+ ,ATX,MIG2
+ ,XTA,*S
+ ,AAX,B17
+ ,U1A,C/DOU
+ ,XTA,MIG1
+ ,UZA,REAL0
+ ,XTA,
+ C/DOU:,ASN,64-6
+ ,ARX,B23*16
+ ,AOX,*A
+ ,UJ,RET/PREP
+ ,BSS,
+C=====   BydA~A gOTOBOj KOMAHdy
+ OUTMIG:8,VTM,/INS
+ 9,VJM,OUT/LAB
+ ,XTS,MIG
+ ,UZA,RET*M
+ ,AEX,NTR18
+ ,AAX,C77777
+ ,U1A,NTR/NO
+ ,XTA,NTRFLAG
+ ,AEX,MIG
+ ,AAX,MSKKOP
+ ,U1A,NTR/YES
+ RET*M:,STX,
+ 10,UJ,
+ NTR/YES:,AEX,NTRFLAG
+ ,ATX,NTRFLAG
+ NTR/NO:,XTA,*ACC
+ ,AAX,B47
+             ,  AOX  ,MIG                 .
+ 13,VJM,/INS
+ ,ASN,64+22
+ ,AAX,C3
+ ,ATI,8
+ 9,VTM,MIG1
+ L/OUT:8,VZM,RET*M
+ 8,UTM,-1
+ 9,XTA,
+ 9,UTM,1
+ 13,VTM,L/OUT
+ ,UJ,/INS
+ OUT/LAB:,XTS,LAB
+ ,UZA,RET*L
+ ,XTA,*BSS*
+ 13,VJM,INS/DEC
+ ,XTA,LAB
+ 13,VJM,INS/DEC
+ ,XTS,
+ ,STX,LAB
+ ,AEX,*BEGIN
+ ,U1A,RET*L
+ ,XTA,SWITCH1
+ ,UZA,RET*L
+ ,XTA,SC/OPT
+ ,AAX,B/OPT
+ ,UZA,RET*L
+ ,XTA,*EXT*
+ 13,VJM,/DEC
+ ,XTA,ERROR*P
+ 13,VJM,/DEC
+ ,XTA,PARAMCNT
+ ,AEX,C77777
+ ,ARX,C1
+ ,AAX,C77777
+ ,UZA,NO*UTM
+ ,ASN,64-24
+ ,AOX,*12UTM*
+ 13,VJM,/INS
+ NO*UTM:,BSS,
+ ,XTA,*12V1M*
+ 13,VJM,/INS
+ ,XTA,ERROR*P
+ 13,VJM,/INS
+ RET*L:,STX,
+ 9,UJ,
+ INS/DEC:8,UJ,
+ GIV33:,UTC,33-24
+ GIV24:,ASN,64+24
+ ,ATI,14
+ 14,XTA,
+ 13,UJ,
+ ,BSS,
+C
+C=====   d i A g H O C T i K A
+C
+C-----   ER*TR : CALL PUTAWAY
+ O{/PUTAW:14,VTM,44022B
+ ,UJ,ERROR
+C
+C-----   ER*TR : DECLARATION
+ O{/DECL:14,VTM,47001B
+ ,UJ,ERROR
+C
+C-----   Cli{KOM dliHHyj OpEPATOP
+ O{/ERR:14,VTM,25016B
+ ,UJ,ERROR
+C
+C-----   Cli{KOM bOlx{Aq KOHCTAHTA ( = 0 )
+ O{/dEl0:14,VTM,25021B
+ ,UJ,ERROR
+C
+C-----   HEzAKOHHOE CME{EHiE TipOB
+ MIXER:,XTA,
+ ,ATX,N*ATXTA
+ 14,VTM,27003B
+ ,UJ,ERROR
+C
+C-----   plOXAq CTPOKA pAPAMETPOB
+ O{/pAP:14,VTM,21037B
+ ,XTA,
+ ,ATX,PAR*N
+ ,UJ,ERROR
+C
+C-----
+ ERROR:,ITA,14
+ 13,VTM,RETURN
+ ,UJ,SERROR
+ ,BSS,
+C=====
+ A/DIML:,,
+ ,Z00,DIMENLIS
+ *BSS*   :   ,  OCT  ,0000000020000054    .BUFFERETTE
+ EXTFUN:,BSS,
+ ,ISO,18HD*LO*DD*LO*RD*LO*I
+ ,CONT,18HC*LO*CC*LO*RC*LO*I
+ ,CONT,18HD*ST*DD*ST*RD*ST*I
+ ,CONT,12HR*ST*DI*ST*D
+ ,CONT,18HC*ST*CC*ST*RC*ST*I
+ ,CONT,12HR*ST*CI*ST*C
+         ,ISO,6HI*PO*D
+         ,ISO,6HC*PO*I
+         ,ISO,6HR*PO*D
+         ,ISO,6HD*PO*R
+         ,ISO,6HD*PO*I
+         ,ISO,6HD*PO*D
+         ,ISO,6HC*AD*I
+         ,ISO,6HC*SU*I
+         ,ISO,6HC*MU*I
+         ,ISO,6HC*DI*I
+         ,ISO,6HC*AD*R
+         ,ISO,6HC*SU*R
+         ,ISO,6HC*MU*R
+         ,ISO,6HC*DI*R
+         ,ISO,6HC*AD*C
+         ,ISO,6HC*SU*C
+         ,ISO,6HC*MU*C
+         ,ISO,6HC*DI*C
+         ,ISO,6HD*AD*D
+         ,ISO,6HD*SU*D
+         ,ISO,6HD*MU*D
+         ,ISO,6HD*DI*D
+         ,ISO,6HD*AD*R
+         ,ISO,6HD*SU*R
+         ,ISO,6HD*MU*R
+         ,ISO,6HD*DI*R
+         ,ISO,6HD*AD*I
+         ,ISO,6HD*SU*I
+         ,ISO,6HD*MU*I
+         ,ISO,6HD*DI*I
+         ,ISO,6HC*COMP
+         ,ISO,6HD*COMP
+         ,ISO,6HC*LN*I
+         ,ISO,6HC*LN*R
+         ,ISO,6HD*LN*R
+         ,ISO,6HR*LN*D
+         ,ISO,6HC*LN*C
+         ,ISO,6HD*LN*D
+         ,ISO,6HI*LN*D
+         ,ISO,6HD*LN*I
+ ,LOG,
+ EPLUSN64:,LOG,100 000 00134
+ *ASN64*:,LOG,100 000 00136
+ MSKKOP :,LOG,177 000 00177
+ FCALL   :   ,  LOG  ,2000 0010           .
+ *LESSAG :   ,  OCT  ,77700000777         .                       ++++++
+ B48/41     :,OCT,776                        .8
+ *14VTM*  :   ,  OCT  ,1600000000000024    .
+ *14UTM*:,LOG,160 00000 000 00025
+ *15ATX*:,OCT,170 00000 000 00100
+ *15AVX*:,OCT,170 00000 000 00114
+ *|K*   :,OCT,777 77777 000 00147
+ *|K*LG:,LOG,5 000 00150
+ LG*E:,LOG,3755 7133 6612 4470
+ B48/16:,OCT,7777 7777 777
+ FULWOR     :   ,  OCT  ,7777777777777777    .
+ *XTAV*:,LOG,200 00110
+ *XTSV*:,LOG,200 00103
+ *XTAC*:,LOG,201 00110
+ *XTAC*1:,LOG,002 00110
+ ,LOG,203 00110
+ *AAXC*:,LOG,201 00111
+ *AEXC*:,LOG,201 00112
+ *ARXC*:,LOG,201 00113
+ *ARXV*:,LOG,1 00000 200 00113
+ *AVX*:,LOG,114
+ *AVXC*:,LOG,201 00114
+ *AOXC* :   ,  LOG  ,        20100115    .
+ *UZA*:,LOG,200 00001 200 00026
+ ZER:,LOG,
+ ,INT,0
+ B33/19  :   ,  OCT  ,0000077777          .
+ B46/43 :   ,  OCT  ,17                  .
+ M/IR*KOP:,LOG,170 00000 000 77777
+ MIMSK   :   ,  OCT  ,0000077777777437    .
+ *STI*:,LOG,141
+ *VTMV*:,LOG,200 00024
+ *ITA14*  :   ,  OCT  ,0000001600000142    .
+ *ATI14*:,LOG,000 00016 000 00140
+ *14ASN*:,LOG,160 00100 000 00136
+ MLAM    :   ,  OCT  ,0000000000000021    .LENGTH OF A-REGION
+ MLBM    :   ,  OCT  ,0000000000000022    .LENGTH OF B-REGION
+ MLCM    :   ,  OCT  ,0000000000000034    .C
+ MLEM:,BSS,
+ MLDM    :   ,  OCT  ,0000000000000030    .D
+ NTRFLAG:,BSS,1
+ NTR18:,LOG,22 000 00137
+ NTR 3:,LOG,03 000 00137
+ B40*23:,OCT,001 00000 2
+ B23*16  :   ,  OCT  ,00000000201         .
+ C177*:,ISO,6H'177''177''177''177''177''177'
+ C200*:,ISO,6H'200''200''200''200''200''200'
+ ******:,ISO,6H******
+ *BEGIN:,ISO,6H*BEGIN
+ ERROR*P:,TEXT,8HERROR*P
+ *EXT*:,LOG,200 00045
+ *12VTM*:,LOG,140 00000 000 00024
+ *12UTM*:,LOG,140 00000 000 00025
+ *12V1M*:,LOG,140 00000 200 00035
+ LOADGO:,ISO,6HLOADGO
+ *I  :   , 8TEXT ,''    *I''          .
+ *RELCN:,ISO,6H*RELCN
+ C/A*X/:,LOG,201 00117
+ OPLIS   :,ISO,6H'0'*LO*'0'               .
+         ,ISO,6H'0'*LN*'0'
+         ,ISO,6H'0'*AD*'0'
+         ,ISO,6H'0'*SU*'0'
+         ,ISO,6H'0'*MU*'0'
+         ,ISO,6H'0'*DI*'0'
+         ,ISO,6H'0'*COMP
+ ,ISO,6H'0'*PO*'0'
+ C177:,LOG,177
+ C377     :,LOG,377                        .9
+         ,ISO,6H'0'*ST*'0'                .OPLIS+10
+ *XTA*  :,LOG,110                        .XTA
+ *XTS*:,LOG,103
+ *APLX*:,LOG,104
+ *AMIX*:,LOG,105
+ /A*X/:,LOG,117
+         ,LOG,116                         .A/X
+ *UTC*:,LOG,22
+ *WTC* :   ,  OCT  ,0000000020000023    .FORM FOR WTC I
+ *13VJM*:,LOG,150 00000 200 00031
+ *13VJMUP:,LOG,550 00000 200 00031
+ B7:,LOG,100.ATX
+ /R*PO*R/:,TEXT,8HPOWER
+ ,TEXT,8HPOWER
+ ,TEXT,8HA/RHOCHI
+ ,TEXT,8HA/IHOCHI
+ TEXT*:,ISO,6H*
+ R*TO*INT:,TEXT,8HR*TO*INT
+ /R*TO*I/:,ISO,6HR*TO*I
+ OWNFUN:,BSS,
+ ,ISO,24HI*LO*IR*LO*RL*LO*LI*LO*L
+ /R*ST*I/:,CONT,6HR*ST*I
+ /I*ST*R/:,CONT,12HI*ST*RI*ST*L
+ ,CONT,18HI*ST*IR*ST*RL*ST*L
+ /I*LN*I/:,CONT,18HI*LN*IR*LN*RR*LN*I
+ ,CONT,24HR*PO*RI*PO*RR*PO*II*PO*I
+ ,ISO,6HI*AD*I
+ ,ISO,6HI*SU*I
+ ,ISO,6HI*MU*I
+ ,ISO,6HI*DI*I
+ ,ISO,6HR*DI*I
+ ,ISO,6HR*AD*R
+         ,ISO,6HR*SU*R
+ ,ISO,6HR*MU*R
+         ,ISO,6HR*DI*R
+         ,ISO,6HR*LO*I
+         ,ISO,6HI*COMP
+         ,ISO,6HR*COMP
+         ,ISO,6HI*AD*R
+         ,ISO,6HR*AD*I
+         ,ISO,6HI*SU*R
+         ,ISO,6HR*SU*I
+         ,ISO,6HI*MU*R
+         ,ISO,6HR*MU*I
+ ,LOG,
+ T*OPER:,BSS,
+ ,ISO,6HIIIIII
+ ,ISO,6HRRRRRR
+ ,ISO,6HDDDDDD
+ ,ISO,6HCCCCCC
+ ,ISO,6HLLLLLL
+ ,ISO,6HLLLLLL
+ C77740  :   ,  OCT  ,000000000007774     .
+ C77770 :   ,  LOG  ,77770               .
+ C21:,LOG,21
+ B5:,LOG,20
+ C57    :   ,  OCT  ,0000000000000057    .
+ Z5:,LOG,7777 7777 7777 7757
+ Z48/47:,LOG,1777 7777 7777 7777
+ B17    :   ,  OCT  ,00000000002         .
+ B19:,LOG,10 00000
+C-----   PAbO~iE q~EjKi   -----
+ *WSTOR:,BSS,31
+ PARAMS:,BSS,67
+ ,END,
+ WRITDRUM:,NAME,
+C
+C*****   pOClOBHAq zApiCx HA Mb
+C*****   pPOMEvYTO~HOgO KOdA TPAHClqcii
+C
+ M/FIRST:,LC,1
+ INFDEC:,LC,6
+ INFOUT:,LC,6
+ W1*:LC,BLOCK,W1,W2,W3
+ SECT*:SC,BLOCK,DEC(256),OUT(256)
+ PD:,P/P,(DEC)1024
+ SD:,P/P,(DEC)256
+ PD1:,P*P,(PD)60
+ PO:,P/P,(OUT)1024
+ SO:,P/P,(OUT)256
+ PO1:,P*P,(PO)60
+C********
+ BAS:,UTC,INFDEC-INFOUT
+ :14,VTM,INFOUT
+ ,ITS,11
+ 11,BASE,BAS
+ ,ATX,I11
+ ,ITA,12
+ ,STX,I12
+ 14,MTJ,12
+ ,XTS,M/FIRST
+ ,U1A,NO FIR
+ ,XTA,PD0
+ ,ATX,INFDEC
+ ,ATX,INFDEC+2
+ ,ARX,C400
+ ,ATX,INFOUT
+ ,ATX,INFOUT+2
+ ,XTA,IWD
+ ,ATX,INFDEC+1
+ ,AOX,B40
+ ,ATX,INFDEC+3
+ ,ATX,INFDEC+5
+ ,XTA,IWO
+ ,ATX,INFOUT+1
+ ,AOX,B40
+ ,ATX,INFOUT+3
+ ,ATX,INFOUT+5
+ NO FIR:,ATX,M/FIRST
+ 12,XTA,
+ ,ARX,CP1
+ 12,ATX,
+ ,U1A,WRW
+ ,ARX,CP2
+ 12,ATX,
+ 12,DRUM,1
+ 12,XTA,1
+ 14,VJM,NEXT
+ 12,ATX,1
+ 12,ATX,4.byl dOCbPOC
+ WRW:,STX,
+ 12,WTC,
+ ,ATX,-1
+ ,WTC,I11
+ 11,VTM,
+ ,WTC,I12
+ 12,VTM,
+ 13,UJ,
+ OUDEREAD:,ENTRY,
+C
+C*****   fPAgMEHTHOE ~TEHiE C Mb
+C*****   pPOMEvYTO~HOgO KOdA
+C
+ :12,BASE,BAS
+ ,UJ,KBAHT
+ :,UTC,INFDEC-INFOUT
+ :1,VTM,INFOUT
+ ,UJ,YCT 0
+ :12,BASE,BAS
+ ,UJ,WORD
+ YCT 0:12,BASE,BAS
+ ,ITS,13
+ 1,XTS,1
+ ,UZA,HECbPOC
+ 1,XTA,4
+ ,UZA,HECbPOC
+ 1,DRUM,1.dOCbPOC
+ ,XTA,
+ 1,ATX,1.byl dOCbPOC
+ HECbPOC:1,XTA,4
+ ,UZA,NO READ
+ 1,XTA,5
+ ,AOX,B7
+ 1,ATX,3.iC-0 ~TEHiq
+ 1,DRUM,5
+ NO READ:1,XTA,2
+ 1,STX,.YK-0 ~TEHiq
+ ,STI,13
+ KBAHT:,ITS,11
+ ,ATX,I11
+ ,ITA,13
+ 13,VJM,WORD
+ ,ATX,W1
+ ,ASN,64+22
+ ,AAX,C3
+ ,STI,11
+ 11,VZM,RET
+ 13,VJM,WORD
+ ,STX,W2
+ 11,UTM,-1
+ 11,VZM,RET
+ 13,VJM,WORD
+ ,STX,W3
+ RET:,ATI,13
+ ,WTC,I11
+ 11,VTM,
+ ,XTA,W1
+ 13,UJ,
+ WORD:1,XTS,
+ ,ARX,CP1
+ 1,ATX,
+ ,U1A,NO EX
+ ,ARX,CP2
+ 1,ATX,
+ 1,DRUM,3
+ 1,XTA,3
+ 14,VJM,NEXT
+ 1,ATX,3
+ NO EX:1,WTC,
+ ,XTA,-1
+ 13,UJ,
+ NEXT:,BSS,
+C.....   pEPEXOd K ClEd.CEKTOPY
+ ,ITS,14
+ 14,BASE,BAS
+ 15,XTS,-2
+ ,ARX,B7
+ 15,ATX,-2
+ ,AAX,C400
+ ,UZA,RETN
+ 15,XTA,-2
+ ,ARX,CP3
+ 15,ATX,-2
+ RETN:,STX,
+ ,STI,14
+ 14,UJ,
+C.....
+ PD0:3,37,40000B
+ ,Z00,DEC
+ IWD:8,,PD1+SD
+ ,014,
+ IWO:8,,PO1+SO
+ ,015,
+ CP1:,LOG,0004 0000 0000 0001
+ CP2:,LOG,5777 7777 7777 7377
+ CP3:,LOG,7777 7777 7777 7400
+ B40:,OCT,001
+ C400:,LOG,400
+ B7:,LOG,100
+ C3:,LOG,3
+ I11:,BSS,1
+ I12:,BSS,1
+ ,END,
+*     C i C T E M A   G L I N K
+ GLINK   :   ,  NAME ,
+ FLGEX*:,LC,1
+ M/HPR:LC,BLOCK,(1),IDENPROG,LEN
+ PRINTF*:,SUBP,
+ RETMON*:,SUBP,
+ KOHEc:,EQU,RETMON*
+ OUDEREAD:   ,  SUBP ,
+ DECCALL:,EQU,OUDEREAD+1
+ SIMPL*R:,EQU,OUDEREAD+3
+ OPTIM*I:,SUBP,
+ OPTIM*R:,SUBP,
+ OUTSTR  :   ,  SUBP ,
+ MNEMOKOP:   ,  SUBP ,
+ RABINF:,LC,200
+ NKKOS:,EQU,101B
+ LOWCORE :   ,  LC   ,1
+ LGIDENT :   ,  LC   ,1
+ ERASECT :   ,  LC   ,1
+ CERASE  :   ,  LC   ,1
+ NONDECL*:,SUBP,
+ SWITCH1 :   ,  LC   ,1
+ LISTS:LC,BLOCK,(5121),GARR(5000),EGARR
+ PROFLIST:LC,BLOCK,SC*B
+ W1*:LC,BLOCK,WORD1,WORD2
+ ,CONT,WORD3,WORD1R
+ ENDFLAG :   ,  LC   ,1
+ STRING:LC,BLOCK,STR1,STR2,STR3,STR4
+ ,CONT,STR5,STR6,STR7
+ SENTRYCT:,LC,1
+ ENTRYLIS:,LC,40
+ C       :   ,  BSS  ,
+ ,XTS,
+ ,UTC,=:7777 0000 777
+ ,XTS,
+ 9,VTM,-4095
+ C/:9,UTC,LISTS+4095
+ ,ATX,
+ 9,VLM,C/
+ ,UJ,GLINK
+ 7,BAS,C
+C.....   p/p pEPEBOdA idEHTif. ISO - TEXT
+ PERW2   :   ,  XTA  ,WORD2
+             ,  ATX  ,ID1
+ ,AAX,=6H'200''200''200''200''200''200'
+ ,U1A,STANDID
+ PER8T6  :   ,  XTA  ,
+             ,  ATX  ,RES
+ 9,VTM,-1
+           10,  VTM  ,
+           11,  VTM  ,-5
+ L       :   ,  XTA  ,ID1
+             ,  ASN  ,64-8
+             ,  ATX  ,ID1
+             ,  YTA  ,
+           15,  ATX  ,
+             ,  ASN  ,64+3
+ ,STI,14
+ ,AAX,=7
+ 15,ATX,
+ ,ASN,64-1
+ 15,ARX,
+ ,ASN,64-1
+ ,AEX,C77777
+             ,  ATI  ,12
+           14,  UTC  ,TABLE
+             ,  XTA  ,
+ 12,ASN,64+1
+ ,AAX,B48/43
+             ,  UZA  ,EL
+           10,  ASN  ,64
+             ,  AOX  ,RES
+             ,  ATX  ,RES
+           10,  UTM  ,6
+ EL      : 11,  VLM  ,L
+ ,XTA,ID2
+ ,ATX,ID1
+ 11,VTM,-1
+ 9,VLM,L
+ ,XTA,RES
+ RETPER:,XTS,=H
+ ,ATX,ID1
+ ,STX,ID2
+           13,  UJ   ,
+ STANDID:,XTA,ID1
+ ,UJ,RETPER
+ GLINK:7,BASE,C
+ ,XTS,
+ ,ATX,DELT
+ ,XTA,B48
+ 5,VTM,GARR
+             ,  ATX  ,STR3
+             ,  XTA  ,=164
+             ,  STX  ,STR4
+           13,  VJM  ,DECCALL
+             ,  XTA  ,WORD2
+             ,  ATX  ,IDENPROG
+             ,  WTC  ,WORD1
+           13,  VTM  ,-46B
+             ,  ITA  ,13
+             ,  ATX  ,DATBLO
+           13,  VZM  ,NODATB
+             ,  UTC  ,ENDFLAG
+             ,  ATX  ,
+           13,  VTM  ,*L1
+ PERBLO  :   ,  XTA  ,WORD2
+             ,  ASN  ,64+8
+             ,  ATX  ,ID1
+             ,  YTA  ,
+             ,  AOX  ,=6H''*''''''''
+             ,  ATX  ,ID2
+             ,  XTA  ,ID1
+             ,  AOX  ,=6H*''''''''''
+             ,  ATX  ,ID1
+             ,  UJ   ,PER8T6
+ *L1:,ATX,STR2
+           13,  VTM  ,BEWDECL
+             ,  UJ   ,OUTSTR
+ NODATB  : 13,  VJM  ,PERW2
+             ,  STX  ,STR2
+           13,  VJM  ,OUTSTR
+ ,WTC,ERASECT
+            3,  VTM  ,                    .
+            4,  VTM  ,CERCER              .
+             ,  XTA  ,=4H*ERR             .
+ OUTERASE:,BSS,
+  ,ATX,IDER
+ ,XTA,
+  ,ATX,NER
+ ERRCYCL :  4,  UTC  ,                    .
+            3,  VZM  ,                    .
+ ,XTA,NER
+             ,  CALL ,OCT TO DEC          .
+             ,  AAX  ,=177777             .
+ ,AOX,IDER
+ ,XTS,B1
+ ,ARX,NER
+ ,STX,NER
+ 3,UTM,-1
+ 10,VTM,ERRCYCL
+ ,UJ,BSS*1
+ CERCER  :   ,  WTC  ,CERASE              .
+            3,  VTM  ,                    .
+             ,  XTA  ,=4H*CER             .
+ 4,VJM,OUTERASE
+    ,  WTC  ,LOWCORE             .INSTEAD OF IDENLIS
+ 4,VTM,-1
+ ,WTC,LGIDENT
+ 3,VTM,
+ 3,J+M,4
+ ,WTC,NONDECL*
+ 8,VTM,
+ IDECYCL:9,VTM,-31
+ 8,XTA,
+  ,AAX,=3 77777 77777
+  ,ATX,NODEVA
+ IDENCYCL:  3,  VZM  ,BEWDECL             .
+            4,  XTA  ,                    .
+ 3,UTM,-1
+ 13,VJM,CH/ASF
+ ,UZA,YES*
+ ,XTA,NER
+ ,AEX,*H
+ ,UZA,YES*
+  ,XTA,NODEVA
+ ,ASN,64+1
+ ,ATX,NODEVA
+ ,YTA,
+ ,U1A,YES*
+ 4,XTA,
+ 10,VJM,BSS*1
+ YES*:,BSS,
+ 4,UTM,-1
+ 9,VLM,IDENCYCL
+  8,UTM,-1
+ ,UJ,IDECYCL
+ CH/ASF:,ASN,64+32
+ ,ATX,NER
+ 14,VTM,-2
+ CH/AS:14,XTA,E*+2
+ ,AEX,NER
+ 13,UZA,
+ 14,VLM,CH/AS
+ 13,UJ,
+ BEWDECL :   ,  BSS  ,                    .
+ ,XTA,TA0
+ 13,VJM,OUT BLO
+ ,XTA,TAMINUS
+ 13,VJM,OUT BLO
+ DECCYCL1: 13,  VJM  ,OU DE READ          .
+         :   ,  STI  ,13                  ./5
+             ,  XTA  ,WORD1
+           13,  VZM  ,EDCL1               .
+ 13,UTM,-51B
+ 13,VZM,COMMON
+ ,XTA,PRISBLOC
+ ,UZA,NO CONT
+ ,ATX,BLMAR
+ ,XTA,
+ ,ATX,PRISBLOC
+ NO CONT:13,UTM,1
+ 13,V1M,CHECZRO
+ ,XTA,B1
+             ,  ATX  ,PRISBLOC
+             ,  XTA  ,DATBLO
+ ,UZA,DEC1.
+  ,XTA,BLMAR  .
+ ,UZA,DECCYCL1
+ DEC1:,BSS,.
+           13,  VJM  ,PERBLO
+ 13,VTM,DECCYCL1
+ OUT BLO:,BSS,
+             ,  ATX  ,STR2
+             ,  XTA  ,B48
+             ,  ATX  ,STR3
+             ,  XTA  ,=61
+             ,  ATX  ,STR4
+             ,  UJ   ,OUTSTR              .
+ COMMON:,BSS,
+             ,  XTA  ,DATBLO
+ ,UZA,DEC2.
+  ,XTA,BLMAR  .
+ ,UZA,BLOCOM.
+ DEC2:,BSS,.
+             ,  XTA  ,=114
+             ,  ATX  ,STR4
+           13,  VJM  ,PERW2
+             ,  ATX  ,STR5
+             ,  XTA  ,WORD1
+             ,  ASN  ,64+24
+             ,  AAX  ,C77777
+             ,  ATX  ,STR7
+ DCCCL   :   ,  BSS  ,
+           13,  VTM  ,DECCYCL1            .
+             ,  UJ   ,OUTSTR              .
+ BLOCOM  :   ,  BSS  ,
+           13,  VJM  ,PERW2
+             ,  ATX  ,STR2
+             ,  XTA  ,B48
+             ,  ATX  ,STR3
+             ,  XTA  ,=55
+             ,  ATX  ,STR4
+             ,  XTA  ,WORD1
+             ,  ASN  ,64+24
+             ,  AAX  ,C77777
+             ,  ATX  ,STR5
+             ,  UJ   ,DCCCL
+ CHECZRO:13,UTM,50B-57B
+ 13,V1M,CHECEQU.
+ ,XTA,WORD2
+ 13,VJM,CH/ASF
+ ,UZA,DECCYCL1
+  ,XTA,DATBLO  .
+ ,U1A,DECCYCL1.
+  ,XTA,WORD1   .
+ ,AAX,B39/25
+ ,AEX,B25
+ ,UZA,ZRO1
+ ,AEX,B25
+  15,  ATX  ,
+           13,  VJM  ,WRITEGARR
+         :   ,  XTS  ,WORD2               .
+           13,  VTM  ,DECCYCL1            .
+             ,  UJ   ,WRITEGARR           .
+ ZRO1:,XTA,WORD2
+ 10,VTM,DECCYCL1
+ BSS*1:,XTS,B25
+ ,AOX,DELT
+ ,XTS,B1
+ ,ARX,DELT
+ ,STX,DELT
+ 13,VJM,WRITEGAR
+ 15,ATX,
+ 10,MTJ,13
+ ,UJ,WRITEGAR
+ CHECEQU : 13,  UTM  ,2                   .
+           13,  V1M  ,CHECEXT             .KOP=EQU
+         : 14,  VTM  ,GARR                .
+ L*EQU:14,XTA,
+ ,UZA,EQU2
+ 14,XTA,1
+ ,AEX,WORD3
+ ,UZA,EQUYES
+ 14,XTA,
+ ,ARX,
+ :,U1A,*+1
+ 14,WTC,
+ :14,UTM,2
+ ,UJ,L*EQU
+ EQUYES  :   ,  BSS  ,
+    ,  XTS  ,WORD1
+             ,  AAX  ,B39/25               .
+             ,  ITS  ,14                  .
+           15,  AOX  ,                    .
+ ,AOX,B46
+           13,  VJM  ,WRITEGARR           .
+         :   ,  XTS  ,WORD2               .
+           13,  VJM  ,WRITEGARR           .
+ EQU2    :   ,  XTA  ,B47
+             ,  ATX  ,STR1
+           13,  VJM  ,PERW2
+             ,  ATX  ,STR2
+             ,  XTA  ,B48
+             ,  ATX  ,STR3
+             ,  XTA  ,=162
+             ,  ATX  ,STR4
+             ,  XTA  ,WORD3
+             ,  ATX  ,ID1
+           13,  VJM  ,PER8T6
+             ,  ATX  ,STR5
+           13,  VTM  ,DECCYCL1
+ CHKMIN  :   ,  XTA  ,WORD1
+             ,  ASN  ,64+24
+             ,  AAX  ,C77777
+             ,  ATX  ,STR7
+ ,ASN,64+14
+ ,UZA,OUTSTR
+             ,  XTA  ,STR7
+             ,  AEX  ,C77777
+             ,  ARX  ,B1
+             ,  AOX  ,B48
+             ,  ATX  ,STR7
+ ,UJ,OUTSTR
+ CHECEXT : 13,  UTM  ,8                   .
+ 13,V1M,CH*ORGR
+           13,  VJM  ,PERW2
+             ,  ATX  ,STR2
+             ,  XTA  ,B48
+             ,  ATX  ,STR3
+             ,  XTA  ,=56
+             ,  ATX  ,STR4
+ ,UJ,DCCCL
+ CH*ORGR:13,UTM,45B-52B
+ 13,V1M,CH*DAT
+ 5,MTJ,8
+ 13,VJM,WRITEGAR
+ 2,VTM,-1
+ 13,VJM,OUDEREAD
+ ,XTS,WORD2
+ 13,VJM,WRITEGAR
+ L*ORG:2,UTM,1
+ 13,VJM,OUDEREAD
+ ,STI,13
+ 13,UTM,-53B
+ 13,V1M,NO*OCT
+ ,XTS,WORD2
+ 13,VTM,L*ORG
+ ,UJ,WRITEGAR
+ NO*OCT:,ITA,2
+ ,AOX,B48
+ 8,ATX,
+ ,UJ,DECCYCL1
+ CH*DAT:13,UTM,52B-61B
+ 13,V1M,CH*SET
+ ,XTA,WORD1
+ ,AAX,B23
+ :,U1A,*+1
+ ,UTC,-1
+ :14,VTM,
+ ,XTA,WORD1
+ ,ASN,64+24
+ ,ATI,2
+ 14,J+M,2
+ ,ITS,2
+ 2,UTM,1
+ 14,AOX,B48
+ 13,VJM,WRITEGAR
+ 14,V1M,L*DAT
+ 2,UTM,-1
+ ,XTS,WORD2
+ 13,VJM,WRITEGAR
+ L*DAT:13,VJM,SIMPL*R
+ 2,UTM,-1
+ 13,VJM,WRITEGAR
+ 2,V1M,L*DAT
+ ,UJ,DECCYCL1
+ CH*SET:13,UTM,61B-62B
+ 13,V1M,DECCYCL1
+ ,XTS,WORD2
+ 13,VJM,WRITEGAR
+ ,XTS,WORD3
+ 13,VTM,DECCYCL1
+ ,UJ,WRITEGAR
+ EDCL1   :   ,  BSS  ,
+ ,XTA,ENDFLAG
+ ,U1A,LOOPG
+ ,XTA,B47
+ ,ATX,STR1
+ ,XTA,*C
+ ,ATX,STR2
+ ,XTA,B48
+ ,ATX,STR3
+ ,XTA,=162
+ ,ATX,STR4
+ ,XTA,*CON
+ ,ATX,STR5
+ ,XTA,B1
+ ,ATX,STR7
+ ,UTC,RABINF+NKKOS
+ ,XTA,
+ ,ATX,LEN
+ 13,VJM,OUTSTR
+ LOOPG:12,VTM,GARR
+ L*GAR:12,XTA,
+ ,UZA,EL*GAR
+ ,ARX,
+ ,UZA,LG/1
+ ,AAX,=700 00000 000 77777
+ ,U1A,EQ/1
+ ,XTA,DELT
+ 12,AOX,
+ 12,ATX,
+ ,ASN,64+24
+ ,AAX,C77777
+ ,ARX,DELT
+ ,ATX,DELT
+ ,UJ,L*G
+ LG/1:12,WTC,
+ L*G:12,UTM,2
+ ,UJ,L*GAR
+ EQ/1:12,XTA,
+ ,AAX,B46
+ ,UZA,L*G
+ 12,XTA,
+ ,ASN,64+24
+ 12,WTC,
+ ,ARX,
+ ,AAX,C77777
+ 12,ATX,
+ ,UJ,L*G
+ OUTBEGIN:   ,  ITS  ,13                  .
+             ,  STX  ,WI13                .
+             ,  ATX  ,ID1
+           13,  VJM  ,PER8T6
+             ,  ATX  ,STR5
+             ,  XTA  ,B47
+             ,  ATX  ,STR1
+ ,XTA,=12
+             ,  ATX  ,STR3
+             ,  XTA  ,=5
+             ,  ATX  ,STR4
+           13,  VJM  ,OUTSTR
+    ,  XTA  ,B47
+             ,  ATX  ,STR1
+             ,  XTA  ,=13
+             ,  ATX  ,STR4
+             ,  XTA  ,*BEGIN
+             ,  ATX  ,STR5
+ ,WTC,WI13
+           13,  VTM  ,                    .
+             ,  UJ   ,OUTSTR              .
+ EL*GAR:,BSS,
+ ,XTA,SWITCH1
+             ,  U1A  ,*BSSNOPR            .*30
+             ,  XTA  ,PROGR1
+             ,  ATX  ,STR2
+             ,  XTA  ,B48
+             ,  ATX  ,STR3
+             ,  XTA  ,=117
+             ,  ATX  ,STR4
+ 13,VJM,OUTSTR.PROGRAM:,ENTRY,
+ ,XTA,SC*B
+ ,AAX,=2
+ ,U1A,*BSSNOPR
+ ,XTA,B47
+ ,ATX,STR1
+ ,XTA,=7
+ ,ATX,STR3
+ ,XTA,=5
+ ,ATX,STR4
+ ,XTA,*C
+ ,ATX,STR5
+ 13,VJM,OUTSTR
+ ,XTA,=143
+ 13,VJM,MNEMOKOP
+ ,ATX,STR4
+ ,XTA,B47
+ ,ATX,STR1
+ 13,VJM,OUTSTR
+ 13,VTM,OUTCYCL+1
+ ,UJ,OPTIM*I
+ *BSSNOPR:,XTA,ENDFLAG.BLOCK DATA
+ ,U1A,EOTL2. = dA
+ ,WTC,SENTRYCT
+ 5,VTM,
+ 2,VTM,ENTRYLIS
+ ,UJ,ENTCYCL1
+ ENTCYCL :   ,  BSS  ,                    .*46
+            2,  XTA  ,
+             ,  ATX  ,ID1
+           13,  VJM  ,PER8T6
+             ,  ATX  ,STR2
+             ,  XTA  ,B48
+             ,  ATX  ,STR3
+             ,  XTA  ,=117
+             ,  ATX  ,STR4
+           13,  VJM  ,OUTSTR              .69
+ ENTCYCL1:2,XTA,
+           13,  VJM  ,OUTBEGIN            .
+ 2,UTM,1
+ 5,UTM,-1
+ 5,V1M,ENTCYCL
+ ,CALL,OPTIM*I
+ ,UJ,OUTCYCL+1
+ *OUTIN  : 13,  VTM  ,OUCYCL              .
+ OUTIN   :   ,  ITA  ,13
+             ,  ATX  ,II13
+             ,  XTA  ,WORD1
+             ,  ASN  ,64-1
+             ,  AUX  ,=4000000000000017
+             ,  ATX  ,STR3
+             ,  XTA  ,WORD1
+           13,  VJM  ,MNEMOKOP
+             ,  ATX  ,STR4
+             ,  WTC  ,II13
+             ,  UJ   ,
+ OUCYCL:,BSS,
+           13,  VJM  ,PERW2
+             ,  ATX  ,STR5
+ OUTIN*  :   ,  XTA  ,B47
+             ,  ATX  ,STR1
+ 13,VJM,CHKMIN
+ OUTCYCL:,CALL,OPTIM*R
+ ,UZA,EOTL2
+ ,AAX,B7/6
+             ,  AEX  ,B6                . KOP=SPECKOP
+             ,  UZA  ,SPECKOP             . TO YES
+             ,  XTA  ,WORD1               . NO
+             ,  AAX  ,CONT                . T=0
+             ,  U1A  ,T00
+  ,XTA,WORD1
+  ,AAX,B7
+ ,UZA,T0
+ ,XTA,=H
+ ,ATX,WORD2
+  ,XTA,WORD1
+ ,ASN,64+36
+  ,AAX,=7
+ ,UZA,T0
+  ,AEX,=7
+ ,U1A,SHORTUTC
+ T0      : 13,  VTM  ,OUTIN*
+             ,  UJ   ,OUTIN
+ T00     :   ,  BSS  ,
+             ,  XTA  ,WORD1
+             ,  AEX  ,=2000 0010          .
+             ,  U1A  ,NOCALL              .
+           13,  VJM  ,OUTIN               .
+             ,  XTA  ,=133
+             ,  ATX  ,STR4
+             ,  UJ   ,OUCYCL              .
+ NOCALL:,AAX,B16
+ ,UZA,CH/SHOR
+C-----   AdPEC = liTEPAl
+ ,XTA,WORD2
+ ,ATX,STR5
+ ,XTA,WORD3
+ ,ATX,STR6
+ ,XTA,WORD1
+ ,ARX,B23
+ ,AAX,CONT
+  ,ASN,64-22
+ ,ATX,STR1
+ ,AAX,=:04
+ ,U1A,GCON
+ 14,VTM,-2
+ CH/LIT:14,XTA,/AMIN
+ ,AEX,WORD2
+ ,UZA,LITCOM
+ 14,VLM,CH/LIT
+ GCON:13,VTM,NEXT
+ ,UJ,OUTIN
+ LITCOM:14,XTA,TAMINUS
+ ,ATX,WORD2
+ ,XTA,WORD1
+ ,AAX,Z40*16
+ ,ATX,WORD1
+ CH/SHOR:,XTA,WORD1
+ ,AAX,B7
+ ,U1A,SHORTKOP
+ ,UJ,*OUTIN
+ SPECKOP :   ,  WTC  ,WORD1               .
+           13,  VTM  ,-44                 .
+ 13,VZM,/BSS
+ ,CALL,PRINADR
+ ,XTA,B48
+ ,ATX,STR1
+ NEXT:13,VTM,OUTCYCL
+ ,UJ,OUTSTR
+ /BSS:13,VJM,PERW2
+             ,  ATX  ,STR2
+             ,  XTA  ,B48
+             ,  ATX  ,STR3
+             ,  XTA  ,=55
+             ,  ATX  ,STR4
+ ,UJ,NEXT
+ SHORTKOP:   ,  BSS  ,
+             ,  XTA  ,WORD1               .
+             ,  AAX  ,B40                .E=1
+             ,  UZA  ,*OUTIN              .
+            8,  VTM  ,GARR                .
+ SE*G:8,XTA,
+ ,UZA,SHORTUTC
+ 8,XTA,1
+ ,AEX,WORD2
+ ,U1A,SE/NO
+ 8,XTA,
+ ,AAX,B48/46
+ ,UZA,SEYES
+ ,AEX,B48
+ ,UZA,*OUTIN
+ SE/NO:8,XTA,
+ ,ARX,
+ :,U1A,*+1
+ 8,WTC,
+ :8,UTM,2
+ ,UJ,SE*G
+ SEYES:,XTA,WORD1
+ ,ASN,64+24
+ 8,ARX,
+ ,AAX,C77777
+ ,ASN,64+12
+ ,UZA,*OUTIN
+ ,AEX,=7
+ ,UZA,*OUTIN
+ SHORTUTC:   ,  XTA  ,WORD1               .
+             ,  AAX  ,C77777              .
+             ,  ATX  ,WORD1R              .
+             ,  AEX  ,WORD1               .
+             ,  AOX  ,C22                .
+             ,  ATX  ,WORD1               .
+           13,  VJM  ,OUTIN               .OUT UTC
+             ,  XTA  ,B47
+             ,  ATX  ,STR1
+           13,  VJM  ,PERW2
+             ,  ATX  ,STR5
+           13,  VJM  ,CHKMIN
+             ,  XTA  ,WORD1R              .
+             ,  ATX  ,WORD1               .
+             ,  UJ   ,T0                  .
+ OUTCON:,BSS,
+             ,  XTA  ,B48
+             ,  ATX  ,STR3
+ OUTCONS :   ,  BSS  ,
+             ,  XTA  ,=41
+             ,  ATX  ,STR4
+            5,  XTA  ,1
+             ,  ATX  ,STR5
+             ,  UJ   ,OUTSTR
+ EOTL2   :   ,  BSS  ,
+ 2,VTM,OUT*CON
+ ,XTA,B48
+ LCONST:,ATX,WM1
+ 5,VTM,GARR
+ L*CON:5,XTA,
+ 2,UZA,
+ ,ARX,
+ ,U1A,L*C1
+ ,AAX,B48/47
+ ,AEX,WM1
+ ,UZA,L*C2
+ 5,WTC,
+ L*C1:5,UTM,2
+ ,UJ,L*CON
+ L*C2:5,WTC,
+ 4,VTM,
+ ,XTA,WM1
+ ,AEX,B48
+ ,UZA,L*C3
+ 5,UTM,-1
+ 4,UTM,2
+ ,XTA,DATPRISN
+ ,U1A,L*C4
+ ,XTA,=115
+ ,ATX,STR4
+ ,ATX,DATPRISN
+ 13,VJM,OUTSTR
+ ,XTA,*DATA
+ ,ATX,STR2
+ ,XTA,B48
+ ,ATX,STR3
+ ,XTA,=55
+ ,ATX,STR4
+ 13,VTM,L*C4
+ ,UJ,OUTSTR
+ L*C3:5,UTM,1
+ 5,XTA,
+ ,ATX,ID1
+ 13,VJM,PER8T6
+ ,ATX,STR2
+ 13,VJM,OUTCON
+ L*C4:4,UTM,-1
+ 4,VZM,L*C1
+ 13,VTM,L*C4
+ 5,VLM,OUTCONS
+ OUT*CON:5,VTM,INT1-1
+ ,XTA,*CON
+ ,ATX,STR2
+ 13,VJM,OUTCON
+ 5,VTM,GARR
+ 13,VTM,L*BSS1
+ L*BSS1:5,XTA,
+ ,UZA,EL*BSS1
+ ,AAX,B48/46
+ ,U1A,N*BSS1
+ 5,XTA,
+             ,  ASN  ,64+24
+             ,  AEX  ,B1
+ ,U1A,N*BSS1
+             ,  XTA  ,B1
+ CC1     :   ,  BSS  ,
+             ,  ATX  ,STR5
+            5,  XTA  ,1
+             ,  ATX  ,ID1
+             ,  ITA  ,13
+             ,  XTS  ,
+           13,  VJM  ,PER8T6
+             ,  STX  ,STR2
+             ,  ATI  ,13
+             ,  XTA  ,B48
+             ,  ATX  ,STR3
+             ,  XTA  ,=55
+             ,  ATX  ,STR4
+ ,UTC,OUTSTR-L*BSS1
+ N*BSS1:14,VTM,L*BSS1
+ NEXT*:5,XTA,
+ ,ARX,
+ :,U1A,*+1
+ 5,WTC,
+ :5,UTM,2
+ 14,UJ,
+ EL*BSS1:5,VTM,GARR
+ L*BSSN:5,XTA,
+ ,UZA,DATA
+ ,AAX,B48/46
+ ,U1A,N*BSSN
+ 5,XTA,
+             ,  ASN  ,64+24               .
+ ,AAX,C77777
+ ,UZA,N*BSSN
+ ,AEX,B1
+ ,UZA,N*BSSN
+ ,AEX,B1
+ 13,VTM,L*BSSN
+ ,UJ,CC1
+ N*BSSN:14,VTM,L*BSSN
+ ,UJ,NEXT*
+ DATA:,XTA,B48/47
+ 2,VJM,LCONST
+C-----------------------------
+C   ECli iHCTPYKciq :
+C   : L, SET , *DATA + D
+C      ,     , IDENT + A
+C   TO PAzPqdy :
+C   (3),L(12),R(6),D(12),A(15)
+C------------------------------
+ 5,VTM,GARR
+ SET:5,XTA,
+ ,UZA,ENDGLINK
+ ,AAX,B48/46
+ ,AEX,B47
+ ,U1A,E*SET
+ ,XTA,B47
+ ,ATX,STR1
+ 5,XTA,
+ ,ASN,64+33
+ ,AAX,=7777
+ ,ATX,STR3
+ ,XTA,=116
+ ,ATX,STR4
+ ,XTA,*DATA
+ ,ATX,STR5
+ 5,XTA,
+ ,ASN,64+15
+ ,AAX,=7777
+ ,ATX,STR7
+ 13,VJM,OUTSTR
+ ,XTA,B47
+ ,ATX,STR1
+ 5,XTA,
+ ,ASN,64+27
+ ,AAX,=77
+ ,ATX,STR3
+ ,XTA,=237
+ ,ATX,STR4
+ 5,XTA,1
+ ,ATX,ID1
+ 13,VJM,PER8T6
+ ,ATX,STR5
+ 5,XTA,
+ ,AAX,C77777
+ ,ATX,STR7
+ 13,VJM,OUTSTR
+ E*SET:14,VTM,SET
+ ,UJ,NEXT*
+ ENDGLINK:   ,  BSS  ,
+             ,  XTA  ,B47
+             ,  ATX  ,STR1
+             ,  XTA  ,=166
+             ,  ATX  ,STR4
+             ,  XTA  ,IDENPROG
+             ,  ATX  ,ID1
+           13,  VJM  ,PER8T6
+             ,  ATX  ,STR5
+           13,  VJM  ,OUTSTR
+ ENDGLIN*:   , ENTRY ,
+ 14,BASE,C
+ ,XTA,LEN
+ ,ARX,DELT
+ ,ATX,LEN
+ PRINADRE:,SUBP,
+ 13,VTM,KOHEc
+ ,UJ,PRINADRE
+ SAVE*** :   , ENTRY ,.*89
+ 13,UZA,
+ ,XTS,
+           14,  VTM  ,C                   .*105
+ 14,ATX,BLMAR-C.
+           14,  ATX  ,DATPRISN-C          .*115
+           14,  VTM  ,GLINK               .*121
+             ,  ITA  ,14                  .*122
+ IIII13  :   ,  SUBP ,                    .
+             ,  UTC  ,IIII13              .*124
+             ,  STX  ,                    .*125
+           13,  UJ   ,                    .*12M
+ WRITEGAR:   ,  BSS  ,
+ 5,UTM,-EGARR
+ 5,VZM,OVERF
+ 5,UTM,EGARR+1
+ 5,ATX,-1
+ ,XTA,
+ 5,STX,
+           13,  UJ   ,
+ OVERF:,BSS,
+ ,XTA,B1
+ ,CALL,FORHEAD*
+ 14,VTM,ERROR1
+ ,ITS,14
+ 14,UTM,6
+ 13,VJM,PRINTF*
+ ,ATX,FLGEX*
+ ,UJ,KOHEc
+ *C      :   ,  TEXT ,8H*C
+ Z40*16:,LOG,7767 7777 7767 7777
+ B23:,LOG,2000 0000
+C(((((
+ INT1:,INT,1
+ :,INT,0
+ /AMIN:,OCT,002
+ *CON:,TEXT,8HA/I1
+ TA0:,TEXT,8HA/I0
+ TAMINUS:,TEXT,8HA/MINUS
+ ,BSS,
+ *H:,ISO,6H''''''''*H
+ E*:,ISO,6H''''''''E*
+    ,ISO,6H''''''''I*
+    ,ISO,6H''''''''D*
+C)))))
+ PROGR1  :   ,  TEXT ,7HPROGRAM
+ ERROR1  :   ,  ISO,40HCli{KOM MHOgO idEHTifiKATOPOB i KOHCTAHT
+ B39/25   :   ,  OCT  ,000 77777
+ B16    :   ,  LOG  ,100000
+ C77777  :   ,  LOG  ,77777
+ B48/47    :   ,  OCT  ,6
+ B48:,OCT,4.OCTOPOvHO !
+ *DATA:,TEXT,8H*DATA
+ B46    :   ,  OCT  ,1
+ B48/46    :   ,  OCT  ,7
+ B48/43:,OCT,77
+ *BEGIN  :   ,  TEXT ,6H*BEGIN
+ TABLE   :   ,  BSS  ,
+             ,  TEXT ,32H
+             ,  CONT ,10H
+             ,  CONT ,22H*    /0123456789
+             ,  CONT ,27H ABCDEFGHIJKLMNOPQRSTUVWXYZ
+             ,  CONT ,5H
+             ,  CONT ,25H`AbcdEfgXijKlMHOpqPCTYvBx
+             ,  CONT ,7Hyz{|}~
+ B1     :   ,  OCT  ,0000000000000001    .
+ B25    :   ,  OCT  ,00000001            .
+ B7/6    :   ,  OCT  ,0000000000000140    .
+ CONT    :   ,  OCT  ,000000006           .
+ B47    :   ,  OCT  ,2                   .
+ B40    :   ,  OCT  ,001                 .
+ C22    :   ,  OCT  ,0000000000000022    .
+ B6    :   ,  OCT  ,0000000000000040    .
+ B7     :   ,  OCT  ,0000000000000100    .
+ DELT    :   ,  BSS  ,1
+ NER:,BSS,
+ WM1     :   ,  BSS  ,1
+ IDER:,BSS,
+ WI13    :   ,  BSS  ,1
+ PRISBLOC:   ,  BSS  ,1
+ II13    :   ,  BSS  ,1
+ DATPRISN:   ,  BSS  ,1
+ ID1     :   ,  BSS  ,1
+ ID2     :   ,  BSS  ,1
+ RES     :   ,  BSS  ,1
+ DATBLO  :   ,  BSS  ,1
+ BLMAR:,BSS,1
+ NODEVA:,BSS,1
+ ,END,GLINK
+ PRINADRE:,NAME,.05.05.80
+C********
+ RABINF:,LC,200
+ NOLISFL*:,LC,
+ FULISFL*:,LC,
+ AR:LC,BLOCK,STR(16)
+ ,CONT,M/ENTR,XIW,I13
+ SCANNER:,SUBP,
+ SUBP:,EQU,SCANNER
+ PRINTF*:,SUBP,
+C********
+ *8:,BLOCK,B,A,L,IW,L1
+ BEG:,UTC,BLAN
+ PRINADR:,ENTRY,
+ ,XTS,
+ B,BASE,BEG
+ ,STX,M/ENTR
+ A,VTM,RABINF
+ A,XTA,63B
+ A,AAX,166B
+ 13,UZA,
+ ,XTA,NOLISFL*
+ ,AOX,FULISFL*
+ 13,U1A,
+ ,ITA,13
+ ,ATX,I13
+ ,XTA,M/FIRST
+ ,U1A,BUFFER
+ 13,VJM,BL STR
+ 14,VTM,HB
+ ,ITS,14
+ 14,VTM,HE
+ ,ITS,14
+ ,ATX,M/FIRST
+ 14,VTM,15
+ 13,VJM,PRINTF*+1
+ L,VTM,-8
+ 13,VJM,BL STR
+ 14,VTM,-7
+ ,ITA,14
+ ,ATX,XIW
+ ,XTA,BLAN
+ CLE:L,ATX,STR+8
+ L,VLM,CLE
+ BUFFER:,XTA,M/ENTR
+ ,U1A,PRINT
+ ,WTC,XIW
+ IW,VTM,
+ A,XTA,76B
+ ,ASN,64-33
+ ,AUX,MSK
+ 14,VTM,ZERO
+ A,XTS,63B
+ A,AAX,143B
+ ,U1A,BUF 1
+ 14,VTM,TP
+ BUF 1:14,XTA,
+ 15,AOX,
+ IW,ATX,STR+8
+ IW,VLM,RET
+ PRINT:,XTA,NOP
+ ,CALL,OCTTDEC
+ ,ASN,64-24
+ ,AOX,C/MIN
+ ,ATX,STR
+ ,XTA,C10
+ ,ARX,NOP
+ ,ATX,NOP
+ 14,VTM,STR
+ ,ITS,14
+ 14,UTM,8
+ 13,VJM,PRINTF*
+ 14,VTM,-8
+ ,XTA,BLAN
+ CLE1:14,ATX,STR+8
+ 14,VLM,CLE1
+ IW,VTM,-7
+ ,XTA,M/ENTR
+ ,UZA,RET
+ RET:,ITA,IW
+ ,ATX,XIW
+ ,WTC,I13
+ ,UJ,
+ BL STR:14,VTM,BLAN
+ ,ITS,14
+ ,UJ,PRINTF*
+ HB:,ISO,29HTAblicA OTHOCiTElxHyX AdPECOB
+ HE:,CONT,1H
+ BLAN:,ISO,6H
+ MSK:,GOST,6H077777
+ ZERO:,ISO,6H 00000
+ TP  :,ISO,6H:00000
+ NOP:,LOG,1
+ C/MIN:,ISO,6H000 -
+ C10:,LOG,10
+ C1 :,LOG,1
+ M/FIRST:,BSS,1
+ ,END,
+ OPTIM*R:,NAME,.05.05.80
+C
+C*****   OpTiMizATOP fOPTPAH/TPAHClqTOPA
+C
+ A/I0:,LC,1
+ A/MINUS:,LC,1
+ OUDEREAD:,SUBP,
+ OUDEREAD:I,BLOCK,READ(2),INIT
+ W1*:LC,BLOCK,W1,W2,W3(2)
+ SWITCH1:,LC,1
+ ENTRYLIS:,LC,1
+ LB:,EQU,18
+ LBM3:,EQU,LB-3
+ *CONSE:LC,BLOCK,(1),*L
+ PROFLIST:LC,BLOCK,SC*P,pPOX,POINT,XD,XL
+ ,CONT,M/END,MAXIR,LAB,XIR(9)
+ ,CONT,XNR,WS1,NOP,MER,BIT
+ ,CONT,REG,N*IR
+ SCANNER:,SUBP,
+ SCANNER:I,BLOCK,(512),SC/ERR(128)
+ ,CONT,XIW,XSW,BUF(36)
+ PUTAWAY:,SUBP,
+ PUTAWAY:I,BLOCK,LABS(512)
+ LGINVAR:,LC,1
+ IVLIST:,LC,1
+C*****
+ *DEN*:,EQU,C1
+ DEN:,EQU,1
+ *KILL*:,EQU,B2
+ KILL:,EQU,2
+ CALL:,EQU,10B
+ UTC:,EQU,22B
+ WTC:,EQU,23B
+ VTM:,EQU,24B
+ UZA:,EQU,26B
+ U1A:,EQU,27B
+ UJ :,EQU,30B
+ VJM:,EQU,31B
+ BSS:,EQU,54B
+ STAT:,EQU,72B
+ ATX:,EQU,100B
+ XTS:,EQU,103B
+ APLX:,EQU,104B
+ AMIX:,EQU,105B
+ XMIA:,EQU,106B
+ AMX:,EQU,107B
+ XTA :,EQU,110B
+ AAX:,EQU,111B
+ AEX:,EQU,112B
+ ARX:,EQU,113B
+ AVX :,EQU,114B
+ AOX:,EQU,115B
+ ADIX:,EQU,116B
+ A*X:,EQU,117B
+ EPLN:,EQU,134B
+ ASN:,EQU,136B
+ NTR :,EQU,137B
+ ITA:,EQU,142B
+C*****
+ *8:,BLOCK,B,D,IW,SW
+ *9:,BLOCK,IR,NR,L
+C*****
+C
+ BEG:,WTC,XSW
+ OPTIM*I:,ENTRY,
+ 12,VTM,
+ 14,VTM,-3
+ SAV IR:14,ITS,11
+ 14,VLM,SAV IR
+ ,ITS,13
+ B,BASE,BEG
+ 12,MTJ,SW
+ ,XTS,XIW
+ ,ATI,IW
+ ,WTC,XD
+ D,VTM,
+ SW,V1M,NEXR
+ D,VTM,
+ IW,VTM,BUF
+ ,XTA,
+ ,ATX,MER
+ ,XTA,B2
+ ,ATX,SC*P
+ ,ATX,M/END
+ ,XTA,SWITCH1
+ 14,VTM,1
+ ,U1A,IS*BEG
+ ,WTC,LGINVAR
+ 14,VTM,
+ SE*REL:14,VZM,NO*BEG
+ 14,UTM,-1
+ 14,XTA,IVLIST
+ ,AEX,*RELCN
+ ,U1A,SE*REL
+ 14,VTM,1
+ IS*BEG:,XTA,*BEGIN
+ ,UTC,LABS
+ ,ATX,
+ ,UJ,/BEG
+ NO*BEG:,XTA,
+ ,ATX,SC*P
+ ,XTA,*UJ*
+ IW,ATX,
+ ,XTA,ENTRYLIS
+ IW,ATX,1
+ IW,UTM,3
+ /BEG:,ITA,14
+ ,ATX,POINT
+ NEXR:,XTA,
+ ,ATX,W1
+ ,ATX,W2
+ ,ATX,W3
+ ,XTA,M/END
+ ,UZA,END
+ ,ITA,IW
+ ,AEX,IW/MAX
+ ,UZA,END
+ 13,VTM,F CHE
+ SW,V1M,READ
+ ,UJ,INIT
+ F CHE:,STX,M/END
+ ,XTA,W1
+ ,UZA,/END
+ ,AAX,B24/23
+ ,UZA,ANAL 1
+ ,XTA,W1
+ ,AEX,W/CALL
+ ,UZA,ANAL 1
+ ,ARX,
+ ,UZA,CH/IVAR
+ ,AAX,B16
+ ,U1A,ANAL1
+ ,XTA,W2
+ ,AEX,*END
+ ,UZA,CH*END
+ 14,VTM,*ERR
+ ,XTA,W2
+ ,AEX,ERASER
+ ,UZA,CEER
+ ,XTA,W2
+ ,AEX,CERASE
+ ,U1A,ANAL1
+ 14,VTM,*CER
+C.....   fOPMiPOBAHiE *ERR<I> , *CER<I>
+ CEER:,XTA,W1
+ ,AAX,B40
+ ,U1A,ANAL1
+ 14,XTA,
+ ,XTS,W1
+ ,ASN,64+24
+ ,AAX,C177
+ ,CALL,OCTTDEC
+ ,AAX,B16/1
+ 15,AOX,
+ ,ATX,W2
+ ,XTA,W1
+ ,AAX,Z39/25
+ ,AOX,B40
+ ,ATX,W1
+ ,UJ,ANAL 1
+C.....   ObPAbOTKA   * E N D
+ CH*END:,WTC,W1
+ 13,VTM,-BSS
+ 13,VZM,ANAL1
+ ,XTA,*END
+ 12,VTM,ANAL1
+ ,UJ,PU/LAB
+ /END:,BSS,
+ ,UJ,WRI
+C.....   pPOBEPKi   * U <I>
+ CH/IVAR:,WTC,LGINVAR
+ 14,VTM,
+ CH*IV:14,VZM,IV NOT
+ 14,UTM,-1
+ 14,XTA,IVLIST
+ ,AEX,W2
+ ,U1A,CH*IV
+ ,WTC,W1
+ 13,VTM,-VJM
+ 13,V1M,ANAL1
+ ,XTA,W2
+ ,AEX,*RELCN
+ ,UZA,*REL
+ ,ITA,11
+ ,XTS,T*U
+ ,ASN,64+32
+ ,ITS,14
+ ,CALL,SH
+ ,STX,W2
+ ,ATI,11
+ ,UJ,ANAL1
+ IV NOT:,WTC,W1
+ 13,VTM,-UTC
+ 13,VZM,IVNOT1
+ 13,UTM,-1
+ IVNOT1:13,V1M,NEXR
+ 13,VTM,NEXR
+ ,STX,
+ ,UJ,READ
+ *REL:,XTA,*12VJM*
+ ,ATX,W1
+ ANAL 1:,WTC,W1
+ 14,VTM,-BSS
+ 14,V1M,WRI0
+ 14,VTM,-2
+ CH/LAB:14,XTA,T*P
+ ,AEX,W2
+ SW,VTM,ANAL2
+ ,UZA,CH/BEN
+ 14,VLM,CH/LAB
+ ,ASN,64+32
+ ,U1A,WRI
+C.....   *P<I> : , BSS ,
+C.....   *BEGIN : , BSS ,
+C.....   *END   : , BSS ,
+ CH/BEN:,XTA,W2
+ 13,VJM,SE/LAB
+ ,UZA,WRI
+C-----   p P O p Y C K
+ SW,VJM,NEXR
+ WRI0:SW,UTC,-*
+ 13,VTM,
+ 13,VZM,NEXR
+ WRI:,BSS,
+ 14,VTM,-2
+ D,VZM,WRI1
+ ,XTA,W1
+ ,AAX,Z22/17
+ ,ATX,LAB
+ IW,AOX,-3
+ IW,ATX,-3
+ ,AAX,B22
+ ,UZA,WRI1
+ IW,XTA,-6
+ ,AAX,B21/20
+ ,AOX,LAB
+ IW,ATX,-6
+ WRI1:,WTC,W1
+ 13,VTM,-WTC
+ 13,VZM,WTC/UTC
+ 13,UTM,WTC-UTC
+ WTC/UTC:13,V1M,WRI2
+ ,XTA,W1
+ ,AAX,B16
+ ,U1A,WRI2
+ ,XTA,W2
+ ,ATX,W3
+ ,AEX,BLAN
+ ,U1A,WUTC1
+ ,XTA,B23
+ ,AEX,W1
+ ,ATX,W1
+ WUTC1:,XTA,W1
+ ,ATX,W2
+ ,ASN,64-19
+ ,AAX,B21/20
+ D,VZM,WUTC2
+ ,AOX,B22
+ WUTC2:,ATX,W1
+ D,VTM,1
+ WRI2:14,XTA,W1+2
+ IW,ATX,
+ IW,UTM,1
+ 14,VLM,WRI2
+ 13,VZM,WRI3
+ D,VTM,
+ WRI3:SW,V1M,ANAL2
+ SW,VJM,NEXR
+ ANAL 2:IW,MTJ,14
+ D,VZM,WUTC/1
+ 14,UTM,-3
+ 14,XTA,-3
+ ,AAX,B21/20
+ ,UZA,WUTC/1
+ 14,UTM,-3
+ WUTC/1:,ITA,14
+ ,ATX,MAXIR
+ END:,BSS,
+ ,ITA,IW
+ ,ATX,XIW
+ ,ITA,D
+ ,ATX,XD
+ ,ITA,SW
+ ,ATX,XSW
+ AN2/0:IR,VTM,BUF
+ ,XTA,M/END
+ ,UZA,AN2/1
+ ,XTA,XIW
+ ,AEX,IW/MAX
+ ,UZA,AN2/1
+ ,WTC,XD
+ D,VTM,
+ ,WTC,XIW
+ IW,VTM,
+ ,WTC,XSW
+ SW,VTM,
+ ,UJ,NEXR
+ NEXA:,WTC,N*IR
+ IR,VTM,
+ AN2/1:IR,MTJ,14
+ 13,VJM,LIMIT.pOCl.KOMAHdA
+ 14,MTJ,NR
+ ,ITA,NR
+ ,ATX,N*IR
+ IR,XTA,
+ ,ATI,14
+ ,AAX,MSK6
+ ,U1A,NEXA
+ NR,WTC,
+ 13,VTM,-APLX
+ 14,UJ,SWITCH
+ SWITCH:,BSS,
+ :,UJ,KIL/IR.000
+ :13,VZM,KIL/IR.001
+ ,UJ,/DEN
+ :,UJ,KIL/IR.002
+ ,BSS,20B.003-022
+ ,UJ,NEXA.023
+ :,UJ,/VTM.024
+ :,UJ,NEXA.025
+ :,UJ,UZA/U1A.026
+ :,UJ,UZA/U1A.027
+ :,UJ,/UJ.030
+ :,UJ,/VJM.031
+ ,BSS,21B.032-052
+ ,UJ,NEXA.053
+ :,UJ,/BSS.054
+ ,BSS,14B.055-070
+ ,UJ,NEXA.071
+ :,UJ,/STAT.072
+ ,BSS,4.073-076
+ ,UJ,NEXA.077
+ :,UJ,/ATX.100
+ :,UJ,NEXA.101
+ :,UJ,NEXA.102
+ :,UJ,/XTS.103
+ :,UJ,/APLX.104
+ :13,VTM,/AMIX.105
+ ,UJ,CH*MIN
+ :13,VTM,/XMIA.106
+ ,UJ,CH*MIN
+ :,UJ,NEXA.107
+ :,UJ,/XTA.110
+ :,UJ,NEXA.111
+ :,UJ,NEXA.112
+ :13,UTM,APLX-UJ.113
+ ,UJ,/ARX
+ :IR,XTA,.114
+ ,UJ,/AVX
+ :,UJ,NEXA.115
+ :L,VTM,/ADIX.116
+ ,UJ,CH/AVXM
+ :L,VTM,/A*X.117
+ ,UJ,CH/AVXM
+ ,BSS,14B.120-133
+ ,UJ,NEXA.134
+ :,UJ,NEXA.135
+ :,UJ,NEXA.136
+ :,UJ,/NTR.137
+ :,UJ,NEXA.140
+ :,UJ,NEXA.141
+ :,UJ,NEXA.142
+ :,UJ,/ITS.143
+ :IR,XTA,.144
+ ,UJ,/MTJ
+ ,BSS,32B.145-176
+ ,UJ,NEXA.177
+ OUTPUT:IR,VTM,BUF
+ ,NTR,3
+ 14,VTM,-2
+ IR,XTA,
+ ,AEX,*DEN*
+ ,U1A,OUT02
+ ,XTA,*APLX*
+ IR,ATX,
+ ,XTA,A/I0
+ IR,ATX,1
+ OUT02:IR,XTA,
+ ,AAX,B21/20
+ ,UZA,OUT1
+ IR,UTM,1
+ ,AEX,B21/20
+ ,UZA,OUT03
+ IR,XTA,
+ ,AAX,B24/23
+ ,U1A,OUT03
+ IR,XTA,2
+ ,AAX,MSK4
+ ,U1A,OUT03
+ IR,XTA,
+ ,AAX,Z15/1
+ IR,ARX,2
+ IR,AEX,
+ ,AAX,MSK5
+ IR,AEX,
+ IR,ATX,
+ ,XTA,B48
+ IR,ATX,2
+ ,UJ,OUT1
+ OUT03:IR,XTA,2
+ ,AOX,B17
+ IR,ATX,2
+ IR,XTA,-1
+ ,AAX,B22
+ ,U1A,OUT1
+ IR,XTA,-1
+ ,AEX,*WTCUJ*
+ ,ASN,64-2
+ ,U1A,OUT1
+ ,XTA,B22
+ IR,AOX,-1
+ IR,ATX,-1
+ ,AAX,B47
+ ,AOX,*NTR18*
+ ,ATX,W1
+ ,XTA,Z47
+ IR,AAX,-1
+ IR,STX,-1
+ ,UJ,OUT41
+ OUT1:IR,XTA,
+ 14,ATX,W1+2
+ IR,UTM,1
+ 14,VLM,OUT1
+ ,XTA,W1
+ ,AAX,B22
+ ,UZA,OUT11
+ ,XTA,*AOXC*
+ ,ATX,BUF
+ ,XTA,A/I0
+ ,STX,BUF+1
+ ,UJ,OUT41
+ OUT11:,WTC,W1
+ 14,VTM,-BSS
+ 14,V1M,OUT2
+ ,XTA,W2
+ ,AEX,*END
+ ,U1A,OUT2
+ ,XTA,*NTR18*
+ ,AOX,B17
+ ,STX,BUF
+ ,UJ,OUT41
+ OUT2:14,VTM,3-LB
+ ,NTR,3
+ OUT4:14,XTA,BUF+LB
+ 14,ATX,BUF+LBM3
+ 14,VLM,OUT4
+ ,XTA,XIW
+ ,A-X,C3
+ ,ATX,XIW
+ ,XTA,MAXIR
+ ,A-X,C3
+ ,STX,MAXIR
+ OUT41:,BSS,
+ 14,VTM,4
+ ,STI,13
+ RES IR:14,STI,7
+ 14,UTM,-1
+ 14,V1M,RES IR
+ ,XTA,W1
+ 13,UJ,
+ L*NR:NR,MTJ,14
+ LIMIT:,BSS,
+ LIMIT1:14,UTM,3
+ ,NTR,3
+ ,ITA,14
+ ,A-X,MAXIR
+ ,UZA,OUTPUT
+ 14,XTA,-3
+ ,AAX,B21/20
+ ,U1A,LIMIT1
+ 14,XTA,
+ 13,UJ,
+C========
+ /MTJ:,AEX,*14MTJ10
+ ,UZA,KIL/IR
+ ,AEX,*13MTJ12
+ ,UZA,KIL/IR
+ ,UJ,NEXA
+C========
+ /NTR:13,UTM,APLX-BSS
+ 13,VZM,NTR/BSS
+ 13,UTM,BSS-UJ
+ 13,VZM,NTR/UJ
+ 13,UTM,UJ-NTR
+ 13,VZM,KIL/IR
+ 13,UTM,NTR-XTA
+ NR,MTJ,14
+ 13,V1M,/NTR02
+ 13,VJM,LIMIT
+ 14,MTJ,12
+ L,VJM,CH*ARI
+ ,UZA,pEPECT
+ 12,MTJ,14
+ NR,XTA,
+ 14,WTC,
+ 13,VTM,-CALL
+ ,AAX,B16
+ ,UZA,/NTR0
+ 13,VZM,CHXA0
+ 13,UTM,CALL-EPLN
+ 13,VZM,CHXA0
+ 13,UTM,EPLN-DEN
+ 13,VZM,CHXA0
+ 13,UTM,DEN-AVX
+ 13,VZM,CHXA0
+ 14,XTA,
+ ,AAX,B16
+ ,UZA,/NTR0
+ CHXA0:IR,XTA,
+ ,ASN,64+24
+ ,ATI,12
+ 12,NTR,
+ NR,MTJ,IR
+ 14,MTJ,NR
+ NR,WTC,
+ 13,VTM,-AEX
+ L,VTM,1
+ ,UJ,CHXA
+ /NTR02:,BSS,
+ 13,UTM,XTA-VJM
+ 13,VZM,NTR/VJM
+ 13,UTM,VJM-CALL
+ 13,VZM,NTR/CALL
+ 14,XTA,
+C.....   pPOby pEPECTAHOBKi NTR
+ L,VTM,CH*MOV
+ CH*ARI:,BSS,
+ ,ASN,64-33
+ ,AUX,UPM
+ ,ATI,13
+ ,ASN,64+15
+ ,ATI,14
+ ,XTA,B48
+ 13,ASN,64
+ 14,AAX,SC/NTR
+ L,UJ,
+ NTR/CALL:NR,XTA,1
+ ,AEX,*POWER*
+ ,UZA,NEXA
+ NR,XTA,1
+ ,AEX,*HOCH*
+ ,AAX,B30/7
+ ,UZA,NEXA
+ ,UJ,pEPECT
+ NTR/VJM:NR,XTA,1
+ ,AEX,/STOP*/
+ ,UZA,/VJM*UJ
+ NR,XTA,1
+ ,AEX,/EXIT/
+ ,UZA,/VJM*UJ
+ NTR/BSS:,BSS,
+ NTR/UJ:NR,XTA,1
+ ,AEX,T*U
+ ,ASN,64+32
+ ,UZA,NEXA
+ ,UJ,KIL/IR
+ CH*MOV:,UZA,pEPECT
+ NR,MTJ,14
+ /NTR0:IR,XTA,
+ ,AEX,*NTR3*
+ ,U1A,NEXA
+ 13,VJM,LIMIT
+ 14,WTC,
+ 13,VTM,-ATX
+ 13,V1M,/NTR2
+ 13,VJM,LIMIT
+ /NTR2:14,MTJ,NR
+ NR,XTA,
+ ,AEX,*NTR18*
+ ,U1A,NEXA
+ 13,VJM,LIMIT
+ ,UZA,NEXA
+ L,VJM,CH*ARI
+ ,UZA,NEXA
+ ,XTA,*NTR18*
+ IR,ATX,
+ IR,XTA,3
+ ,AEX,*DEN*
+ ,U1A,KIL/NR
+ ,XTA,B48
+ IR,ATX,
+ IR,ATX,3
+ ,UJ,KIL/NR
+C========
+ /DEN:,BSS,
+ 13,UTM,APLX-AMIX
+ 13,VZM,KIL/IR
+ 13,UTM,AMIX-XMIA
+ 13,VZM,KIL/IR
+ ,UJ,NEXA
+C========
+ /APLX:IR,XTA,
+ ,AEX,*APLX0*
+ ,U1A,/APLX2
+ 13,UTM,APLX-STAT
+ 13,V1M,/APLX1
+ 13,VJM,L*NR
+ 14,WTC,
+ 13,VTM,-STAT
+ /APLX1:13,UTM,STAT-UZA
+ 13,VZM,/AMIX
+ 13,UTM,UZA-U1A
+ 13,VZM,/AMIX
+ ,XTA,EPLUSN64
+ IR,ATX,
+ ,UJ,AN2/1
+ /APLX2:NR,XTA,
+ ,AEX,*AVX0*
+ ,U1A,NEXA
+ ,UJ,KIL/NR
+C========
+ /ATX:13,UTM,APLX-KILL
+ 13,VZM,K/IR*NR
+ 13,UTM,KILL-XTA
+ 13,VZM,CH/XTA
+ 13,UTM,XTA-STAT
+ 13,V1M,/ATX2
+ IR,XTA,1
+ ,AEX,*ERR
+ ,ASN,64+16
+ ,UZA,KIL/IR
+ /ATX0:13,VJM,L*NR
+ 14,MTJ,NR
+ NR,WTC,
+ 14,VTM,-XTA
+ 14,VZM,CH/XTA
+ 14,UTM,XTA-NTR
+ 14,V1M,NEXA
+ ,UJ,/ATX0
+ IR/EQ/NR:IR,MTJ,14
+ L,VTM,1
+ CH*1:L,UTM,-1
+ 14,UTM,3
+ 14,XTA,-3
+ ,AAX,B21/20
+ ,U1A,CH*1
+ IR,MTJ,14
+ NR,MTJ,13
+ CH*2:14,XTA,
+ 13,AEX,
+ ,ASN,64+15
+ ,U1A,NEXA
+ 14,XTA,1
+ 13,AEX,1
+ ,U1A,NEXA
+ 14,XTA,2
+ 13,AEX,2
+ ,U1A,NEXA
+ 14,UTM,3
+ 13,UTM,3
+ L,VLM,CH*2
+ 12,UJ,
+ CH/XTA:,BSS,
+ ,ITA,NR
+ ,ATX,XNR
+ 13,VJM,L*NR
+ 14,MTJ,NR
+ 12,VJM,IR/EQ/NR
+ ,WTC,XNR
+ 13,VTM,
+ NR,WTC,
+ 14,VTM,-A*X
+ 14,VZM,KI*1
+ 14,UTM,A*X-APLX
+ 14,VZM,KI*1
+ 14,UTM,APLX-AEX
+ 14,VZM,KI*1
+ 14,UTM,AEX-AAX
+ 14,VZM,KI*1
+ 14,UTM,AAX-AOX
+ 14,VZM,KI*1
+ 14,UTM,AOX-XMIA
+ ,XTA,XTA*AMIX
+ 14,VZM,KI*2
+ 14,UTM,XMIA-AMIX
+ ,XTA,XTA*XMIA
+ 14,VZM,KI*2
+ 14,UTM,AMIX-ADIX
+ 14,V1M,NEXA
+ IR,XTA,1
+ ,AEX,*ERR
+ ,ASN,64+16
+ ,U1A,NEXA
+ ,XTA,*15A/X*
+ NR,ATX,
+ 13,MTJ,NR
+ 14,VTM,XTA*XTS
+ ,UJ,K*IR
+ KI*1:NR,XTA,
+ 13,AEX,
+ KI*2:,AAX,C177
+ ,ATX,WS1
+ IR,XTA,1
+ ,AEX,*ERR
+ ,ASN,64+16
+ ,U1A,KI*3
+ ,XTA,B48
+ IR,ATX,
+ KI*3:13,MTJ,IR
+ 14,VTM,WS1
+ ,UJ,K*NR
+ /ATX2:13,UTM,STAT-ATX
+ 13,V1M,/ATX3
+ IR,XTA,1
+ ,AEX,*ERR
+ ,ASN,64+16
+ ,UZA,KIL/IR
+ ,UJ,NEXA
+ /ATX3:13,UTM,ATX-NTR
+ 13,VZM,/ATX0
+ NR,XTA,
+ ,AEX,*WTCUJ*
+ ,U1A,NEXA
+ IR,XTA,
+ ,AAX,B47
+ NR,AOX,1
+ NR,ATX,1
+ ,UJ,KIL/IR
+C========
+ /AVX:,BSS,
+ ,AEX,*AVX0*
+ 13,V1M,/AVX1
+ ,UZA,KIL/IR
+ IR,XTA,
+ ,AEX,*AVXM*
+ ,U1A,NEXA
+ 14,VTM,PL*MI
+ ,UJ,K*IR
+ /AVX1:13,UTM,APLX-A*X
+ 13,VZM,pEPECT
+ 13,UTM,A*X-ADIX
+ 13,VZM,pEPECT
+ 13,UTM,ADIX-NTR
+ 13,VZM,pEPECT
+ 13,UTM,NTR-AVX
+ 13,V1M,NEXA
+ ,UZA,KIL/IR
+ NR,XTA,
+ ,AEX,*AVX0*
+ ,UZA,KIL/NR
+ IR,XTA,
+ NR,AOX,
+ ,AEX,*AVXM*
+ ,U1A,NEXA
+ ,XTA,*AVX0*
+ IR,ATX,
+ ,UJ,KIL/NR
+ K*IR:NR,XTA,
+ 14,AEX,
+ NR,ATX,
+ ,AAX,B21/20
+ ,UZA,KIL/IR
+ NR,XTA,3
+ ,AAX,B21/20
+ ,UZA,K*IR1
+ NR,UTM,3
+ K*IR1:,BSS,
+ NR,XTA,3
+ 14,AEX,
+ NR,ATX,3
+ ,UJ,KIL/IR
+C========
+ /AMIX:,BSS,
+ ,XTA,*AVX0*
+ IR,ATX,
+ NR,WTC,
+ 13,VTM,-ASN
+ 13,VZM,KIL/IR
+ ,UJ,NEXA
+C========
+ /XMIA:,BSS,
+ ,XTA,*AVXM*
+ IR,ATX,
+ ,XTA,A/MINUS
+ IR,ATX,1
+ ,UJ,NEXA
+ CH*MIN:NR,XTA,
+ ,AEX,*AVX0*
+ ,UZA,KIL/NR
+ NR,XTA,
+ ,AEX,*AVXM*
+ 14,VTM,MIN*MIN
+ ,UZA,K*NR
+ IR,XTA,
+ ,AAX,Z15/1
+ ,U1A,NEXA
+ 13,UJ,
+C========
+ /UJ:13,UTM,APLX-BSS
+ 13,VZM,UJ/BSS
+ IR,XTA,
+ ,AAX,B41
+ NR,MTJ,14
+ ,U1A,UJ/KIL
+ IR,XTA,
+ ,AAX,B21/20
+ ,U1A,NEXA
+ IR,XTA,
+ ,AAX,B47
+ ,U1A,/UJ11
+ /UJ0:,BSS,
+ NR,XTA,
+ ,AEX,*LUJ*
+ ,AOX,B40
+ ,AEX,B40
+ ,UZA,NEXA
+ 13,UTM,BSS-STAT
+ 13,VZM,/UJ2
+ /UJ1:IR,XTA,
+ ,AOX,B41
+ IR,ATX,
+ ,UJ,AN2/0
+C========
+ /STAT:IR,XTA,
+ ,AAX,B47
+ ,UZA,NEXA
+ ,UJ,/UJ12
+C========
+ /UJ11:IR,XTA,1
+ 13,VJM,CH*L
+ ,UZA,/UJ0
+ ,XTA,B47
+ /UJ12:NR,AOX,
+ NR,ATX,
+ ,AAX,B21/20
+ ,UZA,NEXA
+ ,XTA,B47
+ NR,AOX,1
+ NR,ATX,1
+ ,UJ,NEXA
+ UJ/KIL:14,MTJ,NR
+ NR,WTC,
+ 13,VTM,-BSS
+ 13,VZM,UJ/BSS
+ 13,UTM,BSS-STAT
+ 13,V1M,KIL/NR
+ 13,VTM,UJ/KIL
+ ,UJ,LIMIT
+ /UJ2:13,VJM,L*NR
+ 14,WTC,
+ 13,VTM,-BSS
+ 13,V1M,/UJ1
+ 14,MTJ,NR
+ UJ/BSS:IR,XTA,1
+ NR,AEX,1
+ ,UZA,UJB/1
+ NR,XTA,1
+ 12,VTM,NEXA
+ L,VJM,CH/L/
+ ,XTA,B48
+ NR,ATX,
+ ,UJ,/UJ1
+ UJB/1:IR,XTA,
+ ,AAX,B25
+ ,UZA,KIL/IR
+ NR,XTA,1
+ 12,VTM,NEXA
+ L,VJM,CH/L/
+ 13,VJM,L*NR
+ 14,MTJ,12
+ 13,VJM,LIMIT
+ ,XTA,B48
+ 12,ATX,
+ 13,VTM,K/IR*NR
+ ,UJ,KIL*TP
+C========
+ UZA/U1A:IR,XTA,1
+ 13,VJM,CH*L
+ ,U1A,/U1Z
+ CH/NR:13,VJM,L*NR
+ NR,WTC,
+ 13,VTM,-UJ
+ 13,V1M,CH/STAT
+ 14,XTA,1
+ IR,AEX,1
+ ,U1A,PUT*L
+ U1Z/UJ:,BSS,
+ IR,XTA,
+ ,AEX,C31
+ ,AAX,C177
+ ,ATX,LAB
+ 14,VTM,LAB
+ ,UJ,K*IR
+ CH/STAT:13,UTM,UJ-STAT
+ 13,V1M,CH/NTR
+ NR,UTM,3
+ NR,WTC,
+ 13,VTM,-UJ
+ 13,VZM,CH/NR
+ ,UJ,PUT*L
+ CH/NTR:13,UTM,STAT-NTR
+ 13,VZM,NEXA
+ 13,UTM,NTR-BSS
+ 13,VZM,CH/BSS
+ PUT*L:IR,XTA,1
+ 12,VTM,NEXA
+C*****   zApiCx CpEciAlxHyX METOK
+ PU/LAB:,BSS,
+ 13,VJM,SE/LAB
+ 12,UZA,
+ ,XTA,LAB
+ ,WTC,POINT
+ 14,VTM,LABS
+ 14,ATX,
+ 14,UTM,-LABS+1
+ ,ITA,14
+ ,ATX,POINT
+ 12,UJ,
+C*****   pOiCK CpEciAlxHyX METOK
+ SE/LAB:,ATX,LAB
+ ,WTC,POINT
+ 14,VTM,1
+ SE/1:14,UTM,-1
+ 14,VZM,SE/2
+ 14,UTC,LABS-1
+ ,XTA,
+ ,AEX,LAB
+ ,U1A,SE/1
+ 13,UJ,
+ SE/2:,XTA,B1
+ 13,UJ,
+ CH/BSS:NR,XTA,1
+ 12,VTM,PUT*L
+ L,VTM,NEXA
+ CH/L/:,ATX,WS1
+ 13,VJM,CH*L
+ 12,U1A,
+ ,XTA,WS1
+ 13,VJM,SE/LAB
+ 12,UZA,
+ L,UJ,
+ /U1Z:NR,WTC,
+ 13,VTM,-UJ
+ 13,V1M,NEXA
+ NR,XTA,
+ IR,AEX,
+ ,ASN,64+15
+ ,U1A,NEXA
+ IR,XTA,1
+ NR,AEX,1
+ ,UZA,KIL/IR
+ 13,VJM,L*NR
+ 14,WTC,
+ 13,VTM,-STAT
+ 13,V1M,/U2Z
+ 13,VJM,LIMIT
+ /U2Z:14,WTC,
+ 13,VTM,-BSS
+ 13,V1M,NEXA
+ IR,XTA,1
+ 14,AEX,1
+ ,U1A,NEXA
+ ,UJ,U1Z/UJ
+C========
+ /BSS:NR,MTJ,14
+ 13,VJM,KIL*TP
+ IR,XTA,1
+ 12,VTM,NEXA
+ L,VJM,CH/L/
+ 13,VJM,L*NR
+ 13,VTM,KIL/IR
+ ,UJ,KIL*TP
+ CH*L:,ASN,64+32
+ ,AEX,*L
+ 13,UJ,
+C========
+ /ITS:IR,XTA,
+ ,AEX,*ITS0*
+ /ITS0:,BSS,
+ ,U1A,NEXA
+ 13,UTM,APLX-XTA
+ 13,VZM,/ITS2
+ 13,UTM,XTA-VTM
+ 13,VZM,/ITS1
+ 13,UTM,VTM-NTR
+ /ITS1:13,V1M,NEXA
+ 13,VJM,L*NR
+ 14,MTJ,NR
+ NR,WTC,
+ 13,VTM,-XTA
+ 13,VZM,/ITS2
+ 13,UTM,XTA-ITA
+ 13,V1M,NEXA
+ 14,VTM,C1
+ ,UJ,K*IR
+ /ITS2:,BSS,
+ 14,VTM,XTA*XTS
+ ,UJ,K*IR
+C========
+ /XTS:NR,XTA,
+ ,AEX,*15AEX*
+ ,U1A,/XTS1
+ 14,VTM,XTS*AEX
+ K*NR:14,XTA,
+ IR,AEX,
+ IR,ATX,
+ ,AAX,B21/20
+ ,UZA,KIL/NR
+ IR,XTA,3
+ ,AAX,B21/20
+ ,UZA,K*NR1
+ IR,UTM,3
+ K*NR1:,BSS,
+ 14,XTA,
+ IR,AEX,3
+ IR,ATX,3
+ ,UJ,KIL/NR
+ /XTS1:NR,XTA,
+ ,AEX,*15APLX*
+ ,UZA,/XTS2
+ IR,XTA,
+ ,AEX,*XTS*
+ ,UZA,/ITS0
+ L,VJM,CH/CON
+ 12,VTM,*XTS*
+ NR,WTC,
+ 13,VTM,-XTS
+ 13,VZM,/XTAS
+ L,VTM,CALC/MU
+ ,UJ,CH/MUI
+ /XTS2:14,VTM,XTS*APLX
+ ,UJ,K*NR
+ /XTA*XTS:12,VTM,*XTA0*
+ L,VJM,CH/CON
+ /XTAS:,BSS,
+ 13,VJM,LIMIT
+ L,VJM,CH/MUI
+ NR,XTA,
+ ,AAX,B16
+ ,U1A,NEXA
+ ,XTA,*XTSC*
+ IR,ATX,
+ NR,XTA,
+ ,AAX,Z15/1
+ 12,AOX,
+ NR,ATX,
+ ,AAX,B21/20
+ ,UZA,pEPECT
+ NR,XTA,3
+ ,AAX,Z15/1
+ 12,AOX,
+ NR,ATX,3
+ ,UJ,pEPECT
+ CALC/MU:,XTA,WS1
+ ,AEX,B7
+ 14,MTJ,NR
+ ,UZA,K/IR*NR
+ ,ASN,64-24
+ ,X-A,*ASN*
+ IR,ATX,
+ ,XTA,*AAXC*
+ 14,ATX,
+ ,XTA,INTM1
+ 14,ATX,1
+ ,UJ,NEXA
+ CH/CON:IR,XTA,
+ ,AAX,B16
+ ,UZA,NEXA
+ NR,MTJ,14
+ IR,XTA,1
+ 13,VJM,CH/2**N
+ ,UZA,NEXA
+ ,ATX,WS1
+ L,UJ,
+ CH/MUI:14,XTA,1
+ ,AEX,/I*MUI*/
+ L,UZA,
+ 14,WTC,
+ 13,VTM,-NTR
+ 13,V1M,NEXA
+ 13,VTM,CH/MUI
+ ,UJ,LIMIT
+C========
+ /VTM:,BSS,
+ NR,XTA,1
+ ,AEX,/R*ST*I/
+ ,ASN,64-8
+ ,ASN,64+16
+ ,U1A,NEXA
+ 13,VJM,L*NR
+ ,AEX,*KILL*
+ ,UZA,K/14IRNR
+ IR,XTA,
+ ,AEX,*14VTM*
+ ,AAX,MSK2
+ ,U1A,NEXA
+ 14,XTA,
+ ,AEX,*WTCUJ*
+ ,UZA,K/IR*NR
+ ,UJ,NEXA
+ K/14IRNR:,XTA,B48
+ 14,ATX,
+ IR,ATX,
+ ,UJ,KIL/NR
+C========
+ /XTA:13,UTM,APLX-A*X
+ 13,VZM,XTA/A*X
+ 13,UTM,A*X-NTR
+ 13,V1M,/XTA2
+ NR,MTJ,14
+ 13,VJM,LIMIT
+ ,UZA,NEXA
+ L,VJM,CH*ARI
+ ,UZA,NEXA
+ ,UJ,pEPECT
+ /XTA2:IR,XTA,
+ ,AEX,*XTA0*
+ ,AAX,Z47
+ 12,VTM,
+ ,UZA,/XTA3
+ ,AAX,B16
+ ,UZA,/XTA*
+ IR,XTA,1
+ ,AEX,B1
+ ,U1A,/XTA*0
+ 12,VTM,1
+ /XTA3:,BSS,
+ 13,UTM,NTR-ASN
+ 13,VZM,KIL/NR
+ 13,UTM,ASN-UZA
+ 13,VZM,/XTA4
+ 13,UTM,UZA-U1A
+ 13,V1M,/XTA5
+ ,UTC,1
+ /XTA4:12,UTM,-1
+ 12,V1M,/XTA6
+ K/IR*NR:,XTA,B48
+ IR,ATX,
+ ,UJ,KIL/NR
+ /XTA5:13,UTM,U1A-STAT
+ 13,V1M,/XTA*
+ NR,MTJ,14
+ 13,VJM,LIMIT
+ ,UZA,NEXA
+ 14,WTC,
+ 13,VTM,-NTR
+ ,UJ,/XTA3
+ /XTA6:NR,XTA,
+ ,AAX,Z15/1
+ ,AOX,*UJ*
+ NR,ATX,
+ ,UJ,KIL/IR
+ /XTA*0:13,UTM,NTR-XTS
+ 13,VZM,/XTA*XTS
+ /XTA*:NR,WTC,
+ 13,VTM,-AEX
+ L,VTM,
+ 13,V1M,CHXA
+ 12,VJM,IR/EQ/NR
+ IR,XTA,
+ ,AAX,B21/20
+ ,UZA,/XTA*1
+ ,XTA,B48
+ IR,ATX,3
+ /XTA*1:,XTA,*XTA0*
+ IR,ATX,
+ ,UJ,KIL/NR
+ CHXA:,RTE,177B
+ ,ATX,REG
+ ,NTR,3
+ 13,VJM,L*NR
+ IR,XTA,
+ ,AAX,B16
+ ,UZA,PUTN3
+ NR,WTC,
+ 13,VTM,-STAT
+ 13,VZM,KIL/IR
+ 13,UTM,STAT-CALL
+ 13,V1M,CHX1
+ NR,XTA,1
+ ,AEX,/R*TO*I/
+ ,U1A,PUTN3
+ IR,XTA,1
+ ,CALL,R*TO*I
+ WR/C:IR,ATX,1
+ ,NTR,3
+ NR,WTC,3
+ 13,VTM,-UZA
+ 13,VZM,WR/C1
+ 13,UTM,UZA-U1A
+ 13,V1M,KIL/NR
+ WR/C1:,XTS,B48
+ NR,STX,
+ ,AVX,
+ NR,UTM,3
+ ,UJ,CHU0
+ CHX1:13,UTM,CALL-EPLN
+ 13,V1M,CHX11
+ NR,XTA,
+ ,ASN,64-17
+ IR,XTS,1
+ ,NTR,2
+ 15,E+X,
+ ,UJ,WR/C
+ CHX11:13,UTM,EPLN-DEN
+ IR,XTA,1
+ 13,V1M,CHX12
+ ,NTR,3
+ ,A+X,A/I0
+ ,UJ,WR/C
+ CHX12:,XTR,REG
+ 13,UTM,DEN-AVX
+ 13,V1M,CHX2
+ NR,AVX,1
+ ,UJ,WR/C
+ CHX2:IR,XTA,1
+ 13,VJM,CH/INT
+ ,ATX,WS1
+ NR,XTA,
+ ,AAX,B16
+ ,UZA,CHU
+ L,V1M,CHX21
+ NR,XTA,1
+ 13,VJM,CH/INT
+ 14,VZM,CHX21
+ ,XTA,WS1
+ ,UZA,PUTN3
+ ,NTR,18
+ CHX21:IR,XTA,1
+ NR,WTC,
+ 13,VTM,-APLX
+ 13,V1M,CHX3
+ NR,A+X,1
+ ,UJ,WR/C
+ CHX3:13,UTM,APLX-AMIX
+ 13,V1M,CHX4
+ NR,A-X,1
+ ,UJ,WR/C
+ CHX4:13,UTM,AMIX-XMIA
+ 13,V1M,CHX5
+ NR,X-A,1
+ ,UJ,WR/C
+ CHX5:13,UTM,XMIA-AMX
+ 13,V1M,CHX6
+ NR,AMX,1
+ ,UJ,WR/C
+ CHX6:13,UTM,AMX-A*X
+ 13,V1M,PUTN3
+ ,NTR,18
+ NR,A*X,1
+ ,UJ,WR/C
+ PUTN3:,NTR,3
+ ,UJ,NEXA
+ CH/INT:,AEX,A/I0
+ ,ASN,64+41
+ ,ATI,14
+ 13,UJ,
+ CHU:,NTR,3
+ IR,XTA,1
+ CHU0:NR,WTC,
+ 13,VTM,-UZA
+ 13,V1M,CHU1
+ ,UZA,/XTA6
+ CH/UJ:NR,WTC,3
+ 13,VTM,
+ 13,VZM,K/IR*NR
+ 13,UTM,-UJ
+ 13,VZM,K/IR*NR
+ ,UJ,KIL/NR
+ CHU1:13,UTM,UZA-U1A
+ 13,V1M,CHU2
+ ,U1A,/XTA6
+ ,UJ,CH/UJ
+ CHU2:13,UTM,U1A-ASN
+ 13,V1M,CHU3
+ IR,XTA,1
+ ,ASN,64-7
+ ,U1A,NEXA
+ ,UJ,WR/C
+ CHU3:13,UTM,ASN-ARX
+ 13,V1M,NEXA
+ 13,VJM,L*NR
+ ,XTA,B48
+ NR,ATX,
+ 14,MTJ,NR
+ IR,XTA,1
+ ,ARX,
+ ,UJ,CHU0
+ XTA/A*X:13,VJM,L*NR
+ IR,XTA,
+ ,AAX,B16
+ ,U1A,/A*X2
+ NR,XTA,
+ ,AAX,B16
+ ,UZA,CH/ERR
+ /A*X1:NR,XTA,1
+ 13,VJM,CH/2**N
+ ,XTS,WS1
+ NR,STX,1
+ ,UZA,K/NTR18
+ /A*X3:,AEX,B7
+ ,UZA,KIL/NR
+ ,ASN,64-24
+ ,AEX,EPLUSN64
+ NR,ATX,
+ ,UJ,K/NTR18
+C--------
+ CH/AVXM:NR,XTA,
+ ,AEX,EPLUSN64
+ ,UZA,KIL/NR
+ NR,XTA,
+ ,AEX,*AVXM*
+ L,U1A,
+ IR,XTA,
+ ,AAX,B16
+ L,UZA,
+ IR,XTA,1
+ ,NTR,18
+ ,AVX,A/MINUS
+ IR,ATX,1
+ ,NTR,3
+ ,UJ,KIL/NR
+C========
+ /A*X:IR,MTJ,NR
+ NR,XTA,
+ ,AAX,B16
+ ,U1A,/A*X1
+C........
+ K/NTR18:13,VJM,L*NR
+ ,AEX,*NTR18*
+ 14,MTJ,NR
+ ,UZA,KIL/NR
+ ,UJ,NEXA
+ /A*X2:NR,XTA,
+ ,AAX,B16
+ ,UZA,pEP/A*X
+ ,NTR,18
+ IR,XTA,1
+ NR,A*X,1
+ IR,ATX,1
+ ,NTR,3
+ ,UJ,KIL/NR
+C========
+ /ARX:,BSS,
+ 13,VZM,KIL/IR
+ 13,UTM,UJ-STAT
+ 13,VZM,KIL/IR
+ ,UJ,NEXA
+C========
+ /ADIX:IR,XTA,1
+ 13,VJM,CH/2**N
+ ,UZA,K/NTR18
+ IR,MTJ,NR
+ ,X-A,B8
+ ,UJ,/A*X3
+ CH/ERR:IR,XTA,1
+ ,AEX,*ERR
+ ,ASN,64+16
+ ,UZA,NEXA
+ NR,XTA,1
+ ,AEX,*ERR
+ ,ASN,64+16
+ ,U1A,NEXA
+ pEP/A*X:IR,XTA,
+ ,AEX,XTA*X
+ IR,ATX,
+ ,AAX,B21/20
+ ,UZA,/XTA1
+ ,XTA,XTA*X
+ IR,AEX,3
+ IR,ATX,3
+ /XTA1:NR,XTA,
+ ,AEX,XTA*X
+ NR,ATX,
+ ,AAX,B21/20
+ ,UZA,pEPECT
+ NR,XTA,3
+ ,AEX,XTA*X
+ NR,ATX,3
+ ,UJ,pEPECT
+ CH/2**N:,NTR,2
+ ,A+X,B48
+ ,NTR,3
+ ,ATX,WS1
+ ,AAX,B41/1
+ ,AEX,B40
+ ,U1A,NO/2**N
+ ,XTA,WS1
+ ,ASN,64+41
+ ,A-X,B1
+ ,NTR,7
+ 13,UJ,
+ NO/2**N:,ITA,
+ 13,UJ,
+C========
+ /VJM:IR,XTA,1
+ ,AEX,/STOP*/
+ ,UZA,/VJM0
+ IR,XTA,1
+ ,AEX,/EXIT/
+ ,U1A,CH/VJMUJ
+ /VJM0:,XTA,*UJ*
+ IR,ATX,
+ ,UJ,AN2/0
+ CH/VJMUJ:NR,MTJ,14
+ 13,UTM,APLX-UJ
+ 13,VZM,VJM/UJ
+ 13,UTM,UJ-STAT
+ 13,V1M,NEXA
+ 13,VJM,LIMIT
+ 14,WTC,
+ 13,VTM,-UJ
+ 13,V1M,NEXA
+ VJM/UJ:14,XTA,
+ IR,AOX,
+ ,AAX,B21/20
+ ,U1A,NEXA
+ 14,XTA,1
+ 13,VJM,CH*L
+ ,UZA,NEXA
+ 14,XTA,
+ ,AAX,B46/43
+ ,U1A,VJM/UJ1
+ IR,XTA,1
+ 14,XTS,1
+ IR,STX,1
+ 14,ATX,1
+ ,XTA,VJM*VTM
+ IR,AEX,
+ IR,ATX,
+ ,UJ,NEXA
+ VJM/UJ1:IR,XTS,
+ ,AAX,B46/43
+ ,ASN,64+18
+ 15,AOX,
+ ,AOX,*MTJ*
+ IR,ATX,
+ IR,XTA,1
+ 14,ATX,1
+ ,XTA,*UJ*
+ 14,ATX,
+ ,UJ,NEXA
+C========
+C********
+ KIL*TP:,XTA,Z47
+ 14,AAX,
+ 14,ATX,
+ ,AAX,B21/20
+ 13,UZA,
+ ,XTA,Z47
+ 14,AAX,1
+ 14,ATX,1
+ 13,UJ,
+C********
+ KIL/NR:NR,MTJ,IR
+ ,UJ,KIL/IR
+ /VJM*UJ:,XTA,*UJ*
+ NR,ATX,
+C********
+ KIL/IR:IR,MTJ,13
+ L,VTM,
+ KIL1:13,UTM,3
+ L,UTM,3
+ 13,XTA,-3
+ ,AAX,B21/20
+ ,U1A,KIL1
+ KIL:,ITA,13
+ ,AEX,XIW
+ ,UZA,KIL2
+ 13,XTA,
+ IR,ATX,
+ IR,UTM,1
+ 13,VLM,KIL
+ KIL2:,ITA,L
+ ,ATX,XL
+ ,XTA,XIW
+ ,NTR,3
+ ,A-X,XL
+ ,ATX,XIW
+ ,XTA,MAXIR
+ ,A-X,XL
+ ,ATX,MAXIR
+ ,UJ,AN2/0
+C********
+ pEPECT:14,VTM,-8
+ 12,VTM,
+ pEP1:14,UTC,8
+ IR,XTA,
+ 14,ATX,XIR+8
+ 14,VLM,pEP1
+ pEP2:12,UTM,3
+ 12,UTC,-3
+ NR,XTA,
+ ,AAX,B21/20
+ ,U1A,pEP2
+ IR,MTJ,11
+ pEP3:NR,XTA,
+ IR,ATX,
+ NR,UTM,1
+ IR,UTM,1
+ 12,UTM,-1
+ 12,V1M,pEP3
+ 11,MTJ,14
+ 13,VJM,LIMIT
+ 12,VTM,
+ 13,VTM,
+ pEP4:13,UTM,3
+ 13,XTA,XIR-3
+ ,AAX,B21/20
+ ,U1A,pEP4
+ pEP5:13,VZM,AN2/0
+ 12,XTA,XIR
+ 14,ATX,
+ 12,UTM,1
+ 13,UTM,-1
+ 14,VLM,pEP5
+C********
+ IW/MAX:,,
+ ,Z00,BUF+LB
+ SC/NTR:,BSS,
+ ,GOST,6H'100'00'100'00
+ ,LOG,
+ ,GOST,6H - '374'
+ ,GOST,6H0000
+ ,BSS,
+C((((((((
+ *BEGIN:,ISO,6H*BEGIN
+ *END  :,ISO,6H*END
+ T*P:,ISO,6H*P''''''''
+ T*U:,ISO,6H*U''''''''
+ *RELCN:,ISO,6H*RELCN
+ ERASER:,ISO,6HERASER
+ CERASE:,ISO,6HCERASE
+ *ERR:,ISO,6H*ERR00
+ *CER:,ISO,6H*CER00
+ *L*B:,LOG,16
+ /R*ST*I/:,ISO,6HR*ST*I
+ /R*TO*I/:,ISO,6HR*TO*I
+ /I*MUI*/:,ISO,6HI*MUI*
+ /STOP*/:,ISO,6HSTOP*
+ /EXIT/:,ISO,6HEXIT
+ *POWER*:,TEXT,8HPOWER
+ *HOCH*:,TEXT,8HA/RHOCHI
+ ,BSS,
+C))))))))
+ BLAN:,ISO,6H
+ W/CALL:,LOG,200 00010
+ *STAT*:,LOG,72
+ *WTCUJ*:,LOG,000 00000 060 00030
+ *14VTM*:,LOG,161 00000 060 00024
+ MSK2:,LOG,170 00000 000 77777
+ MSK4:,LOG,170 00000 600 00000
+ MSK5:,LOG,000 77777 000 77777
+ MSK6:,LOG,2 77600
+ *APLX*:,LOG,201 00104
+ *XTSC*:,LOG,201 00103
+ *ITS0*:,LOG,143
+ *MTJ*:,LOG,144
+ *XTA0*:,LOG,110
+ *APLX0*:,LOG,104
+ *XTS*:,LOG,103
+ *UJ*:,LOG,000 00000 200 00030
+ *LUJ*:,LOG,200 00000 200 00030
+ *14MTJ10:,LOG,160 00012 000 00144
+ *13MTJ12:,OCT,030 00006
+ *15APLX*:,LOG,170 00000 000 00104
+ *15AEX*:,LOG,170 00000 000 00112
+ *15A/X*:,LOG,170 00000 000 00116
+ *12VJM*:,LOG,140 00000 200 00031
+ *NTR3*:,LOG,03 000 00137
+ *NTR18*:,LOG,22 000 00137
+ EPLUSN64:,LOG,100 000 00134
+ *ASN*:,LOG,100 000 00136
+ *AAXC*:,LOG,301 00111
+ *AVX0*:,LOG,000 00114
+ *AVXM*:,LOG,201 00114
+ *AOXC*:,LOG,201 00115
+ XTA*XTS:,LOG,13
+ XTS*AEX:,LOG,11
+ XTA*AMIX:,BSS,
+ VJM*VTM:,LOG,000 00000 000 00015
+ XTS*APLX:,BSS,
+ XTA*X  :,LOG,000 00000 000 00007
+ XTA*XMIA:,LOG,000 00000 000 00016
+C--------
+ Z15/1:,LOG,777 77777 777 00000
+ Z47:,LOG,577 77777 777 77777
+ Z22/17:,LOG,777 77777 601 77777
+ Z39/25:,LOG,777 00000 777 77777
+ B46/43:,OCT,17
+ B30/7:,LOG,77 7777 7700
+ B21/20:,LOG,60 00000
+ UPM:,LOG,1777 00037
+ UPM1:,LOG,1777 00034
+ MSK1:,GOST,6H0000
+ INTM1:,INT,-1
+ B48:,OCT,4
+ B47:,OCT,2
+ B41/1:,LOG,37 7777 7777 7777
+ B41:,OCT,002
+ B40:,OCT,001
+ B25:,OCT,0000 0001
+ B24/23:,LOG,600 00000
+ B23:,LOG,2000 0000
+ B22:,LOG,100 00000
+ B17:,LOG,2 00000
+ B16/1:,LOG,1 77777
+ B16:,LOG,1 00000
+ C77777:,LOG,77777
+ B8:,LOG,200
+ C177:,LOG,177
+ B7:,LOG,100
+ C31:,LOG,31
+ MIN*MIN:,BSS,
+ C3:,LOG,3
+ PL*MI:,BSS,
+ B2:,LOG,2
+ C1:,BSS,
+ B1:,LOG,1
+ ,END,
+      OUTSTR     :,NAME,
+      STRING     :,LC,  7
+      ENDGLIN*   :,SUBP,
+      SAVE***    :,SUBP,
+      MADLEN**   :,SUBP,
+      PRIMADL*   :,SUBP,
+      MADLEN     :,SUBP,
+ *00000    :14 ,  VTM,  77764B
+                 ,NTR,  2
+ *00001    :14 ,  ITS,  13
+            14 ,  UTC,   *00047
+                 ,XTS,
+            14 ,  STI,  13
+            14 ,  UTC,   *00047
+                 ,STX,
+            14 ,  VLM,   *00001
+            14 ,  VTM,   *00050
+            14 ,  ATX,  1
+            14 ,  XTA,
+            14 ,  XTS,  1
+            14 ,  STX,
+            14 ,  XTS,  2
+                 ,UIA,   *00016
+             1 ,  VTM,   *00025
+             2 ,  VTM,  SAVE***
+             3 ,  VTM,  MADLEN**
+ ,UTC,VOLK
+ ,XTA,
+ 3,CTX,1762B
+ ,XTA,
+ 3,CTX,333B.PRINT8//+1
+             4 ,  VTM,  10000B
+             5 ,  VTM,  2000B
+            13 ,  VTM,  PRIMADL*
+            13 ,  XTA,  8
+            13 ,   *75, 10
+ ,UTC,VOLK1
+ ,XTA,
+ 13,CTX,1332B.DATAPR*
+ 13,VTM,ENDGLIN*
+ ,UJ,MADLEN
+ VOLK:12,VTM,50B.|KCTPAKOd 50
+ ,UJ,MADLEN**+1350B
+ VOLK1:,U1A,PRIMADL*+1333B
+ 13,VJM,HEAD
+ M/HPR:,LC,1
+ HEAD:,XTA,M/HPR
+ ,ITS,13
+ ,CALL,FORHEAD*
+ ,STI,13
+ 13,UZA,
+ FULISFL*:,LC,1
+ ,XTA,FULISFL*
+ 13,UZA,
+ PRINT8//:,SUBP,
+ ,UJ,PRINT8//+2
+ *00016    :14 ,  VTM,  77772B
+                 ,WTC,   *00032
+            12 ,  VTM,
+                 ,UTC,
+L*00020    :14 ,  UTC,   STRING    +6
+                 ,XTA,
+            12 ,  ATX,
+                 ,XTA,
+L           14 ,  UTC,   STRING    +6
+                 ,ATX,
+            12 ,  UTM,  1
+            14 ,  VLM,   *00020
+                 ,STX,
+            13 ,   UJ,
+ *00025    :     ,UTC,   *00032
+                 ,STX,
+            14 ,  VTM,   *00050
+            14 ,  XTA,  2
+                 ,UIA,   *00000
+                 ,UTC,   *00054
+                 ,XTA,
+            14 ,  ATX,  2
+                 , UJ,   *00016
+                 ,UTC,
+ *00032    :,     LOG,  00000000 00000000.
+            ,     LOG,  00000000 00000000.
+            ,     LOG,  00000000 00000000.
+            ,     LOG,  00000000 00000000.
+            ,     LOG,  00000000 00000000.
+            ,     LOG,  00000000 00000000.
+            ,     LOG,  00000000 00000000.
+            ,     LOG,  00000000 00000000.
+            ,     LOG,  00000000 00000000.
+            ,     LOG,  00000000 00000000.
+            ,     LOG,  00000000 00000000.
+            ,     LOG,  00000000 00000000.
+            ,     LOG,  00000000 00000000.
+      IIII13    :,ENTRY,
+ *00047    :,     LOG,  00000000 00000000.
+ *00050    :,     LOG,  00000000 00000000.
+            ,     LOG,  00000000 00000000.
+            ,     LOG,  00000000 00000000.
+            ,     LOG,  00000000 00000000.
+ *00054    :,     LOG,  00000000 00000001.
+ BSS       :     ,BSS,
+      ,END,
