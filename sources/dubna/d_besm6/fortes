@@ -1,0 +1,17 @@
+*NAME FORTES
+*     *no list
+      PROGRAMMA
+      COMMON/PROTO/PROTO(100)
+      COMMON/CARD/К(14,50)
+      EXTERNAL ЕХР
+      N=0
+ 100  N=N+1 $ READ 101,(К(I,N),I=1,14)
+ 101  FORMAT(13А6,А2)
+      IF(К(1,N).NЕ.'END') GОТО 100
+      DО 1 I=1,10
+  1   CALL PR64
+      CALL ELFUN
+      CALL Т200(0)
+      CALL TSCAN
+      END
+*END FILE

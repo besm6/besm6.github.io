@@ -1,0 +1,3168 @@
+*NАМЕ N
+*TIME:24.00
+*EXPRESS
+*PAGE:999,LIST
+*LIBRA:23
+*disc:664/system,microb
+*file:lib,67,w
+*file:arc,30,r
+*
+*          *DISC:705/SYSTEM,WORKIN
+*          *FILE:MICROB
+*            1 - ОПИСАНИЕ КРОСС-СИСТЕМЫ
+*           10 - ТЕКСТЫ ЕЕ (14 ЗОН)
+*
+*CALL ficMEMOR
+*perso:67
+*no list
+*FTN
+      SUBROUTINE MICINS
+С*
+С***    ТРАНСЛЯЦИЯ МИКРОИНСТРУКЦИЙ
+С*
+      COMMON /BINARY/ BIN(10) /LЕХЕМ/LЕХ(14),IР
+      COMMON /REKV/ NАМЕ,IТУР,KL,KR,IVAL
+      COMMON /FIELD/ NFIL,LFIL(4,100),NVF(100)
+      COMMON /MEMOR/ КЕУ,LW,LW4
+      COMMON /ASSEM/ NSTEP,MER(3),NРС,NAMERR,
+     *               КТУР,LABEL,КОР
+      COMMON /LETTER/ LЕТ,КТР,KSEM,КСОММА,
+     *               KPL,KMIN,KSTAR,KSL,KEQ
+      COMMON /SEMA/ jfm
+      INTEGER fready(100),bready(256)
+C>>        dimension bin2(10),binf(10)
+С--------------------------------------
+      MER=0 $ IF(LABEL.NЕ.' ') CALL MICLAB
+      IF(NSTEP.EQ.1.OR.MER.GТ.1) RETURN
+C>>      CALL MBWSTA(BIN) $ CALL MBWSTA(BIN2)
+C>>      CALL MBWSTA(BINF)
+      call preset(0,fready,nfil)
+      call preset(0,bready,lw)
+      MER=15 $ IF(LЕТ.EQ.KEQ) RETURN
+      NAMERR=КОР $ NАМЕ=КОР $ IТУР=2
+      JF=1 $ CALL MICGID(IREZ)
+      MER=18 $ IF(IREZ.NЕ.0) RETURN
+      MER=6  $ IF(KR.NЕ.0) RETURN
+      IF(LЕТ.EQ.32) LЕТ=КСОММА $ GОТО 4
+С---   ВЫБОРКА ПАРЫ: <ПОЛЕ>=<ЗНАЧЕНИЕ>
+  1   CALL SCANER(0,LЕХ,2,IТ,LЕТ,IР)
+      MER=16 $ IF(IТ.NЕ.4) RETURN
+      NAMERR=LЕХ $ NАМЕ=LЕХ $ IVAL=1
+C>>      DО 2 I=1,NFIL $ JF=I
+C>>      IF(LFIL(1,I).EQ.NАМЕ) GОТО 3
+C>>  2   CONTINUE
+C>>      JF=0 $  MER=17 $ RETURN
+      jf=micsfn(name) $ mer=17 $ if(jf.eq.0) return
+   3  KL=0 $ KR=0 $ MER=0 $ jfm=jf
+      IF(LЕТ.EQ.KEQ) CALL MICVAL(2)
+      jfm=0 $ IF(MER.GТ.1) RETURN
+      IF(KR.EQ.0) GОТО 4
+С---   ПОСТУПИЛ НЕАБСОЛЮТНЫЙ АДРЕС
+      MER=19 $ IF(JF.NЕ.2) RETURN
+      IF(KR.EQ.' *RОМ ') GОТО 4
+      NАМЕ=NРС.AND.7777 7777В.OR.2000 0000В
+      IТУР=1 $ CALL MICPID(IREZ)
+      N=KR.SHIFT.42 $ NАМЕ=KL
+      IF(N.EQ.64В) IVAL=IVAL+KR-1
+  4   KL=LFIL(2,JF) $ KR=LFIL(3,JF)
+С---    ПОЛЕ ЗАПОЛНЕНО. ОТМЕТИМ ЭТО.
+C>>      MER=11 $ CALL MBWLDA(BIN2)
+C>>      IF(MICFRG(0,KL,KR).NЕ.0) RETURN
+C>>      MER=10 $ N=47-KL+KR
+C>>      N = 7777 7777 7777 7777В.SHIFT.N.OR.0
+C>>      IF(MICSET(N,KL,KR).NЕ.0) RETURN
+C>>      CALL MBWSTA(BIN2) $ CALL MBWLDA(BIN)
+      do 102 i=kr,kl
+      if(bready(i).eq.0) goto 102
+      MER=11 $ goto 103
+  102 bready(i)=1
+      IF(MICSET(IVAL,KL,KR).eq.0) goto 104
+  105 MER=10
+  103 NAMERR=LFIL(1,JF) $ return
+  104 fready(jf)=1
+C>>      CALL MBWSTA(BIN) $ CALL MBWLDA(BINF)
+C>>      CALL MBWPUT(JF)  $ CALL MBWSTA(BINF)
+      IF(LЕТ.NЕ.0.AND.LЕТ.NЕ.10) GОТО 1
+С
+С---   ЗАПОЛНЕНИЕ ПОЛЕЙ, О КОИХ УМОЛЧАЛИ
+С
+C>>      CALL MBWLDA(BIN2)
+      DО 10 JF=1,NFIL
+      IVAL=NVF(JF).or.0
+      if(ival.eq.0 .or. fready(jf).ne.0) goto 10
+      KL=LFIL(2,JF) $ KR=LFIL(3,JF)
+C>>      IF(MICFRG(0,KL,KR).NЕ.0) GОТО 10
+      do 110 i=kr,kl
+      if(bready(i).ne.0) goto 10
+  110 continue
+C>>      CALL MBWLDA(BIN)
+      IF(MICSET(IVAL,KL,KR).NЕ.0) goto 105
+C>>      CALL MBWSTA(BIN)
+C>>      CALL MBWLDA(BIN2)
+  10  CONTINUE
+C>>>> 200  CALL MBWLDA(BINF)
+C>>>>      MER=0 $ CALL MICSEM(2)
+C>> 200  IF(КСНЕСК.EQ.0) goto 210
+C>>      DО 201 I=1,КСНЕСК $ LАВ=МСНЕСК(I)
+C>>      DО 202 J=1,6 $ jf=LАВ.SHIFT.40.OR.0
+C>>      KOD=jf.AND.128 $ jf=jf.AND.127
+C>>      IF(jf.EQ.0) GОТО 211
+C>>      IР = fready(jf)
+C>>      IF(IР.EQ.0.AND.KOD.EQ.0) GОТО 201
+C>>      IF(IР.NЕ.0.AND.KOD.NЕ.0) GОТО 201
+C>> 202  LАВ=LАВ.SHIFT.-8
+      i=konsem(fready) $ if(i.eq.0) goto 210
+ 211  CALL PUTH(NЕ,'СНК',0,2,0,IР)
+      CALL PUTG(0,I,0,3,0,IР)
+      MER=14 $ RETURN
+C>> 201  CONTINUE
+ 210  mer = 0
+      CALL MBWSTA(BIN)
+      CALL MICBIN
+      RETURN
+      END
+*ТО PERSO:67000,60, КОНТРОЛЬНАЯ СУММА МИКРОПРОГРАММЫ
+*SYSTEM
+*CALL MICLOA
+*END F
+      SUBROUTINE MICFAT(JOB)
+      COMMON /diagno/ ertext(5,6)
+      INTEGER ERTEXT
+      DАТА ERTEXT/'НЕ ОПРЕДЕЛЕН МАКРОС      ИМЯ ',
+     1     'ПЕРЕПОЛНЕН КАТАЛОГ АРХИВА.   ',
+     2     'АРХИВ ПЕРЕПОЛНЕН !!!         ',
+     3     'БЫЛИ ОШИБКИ ПРИ ТРАНСЛЯЦИИ ! ',
+     4     'А ГДЕ ЖЕ ВАШ "DEFINE" ???    ',
+     5     'Превышен предел транслятора !'/
+С---
+      CALL DIALOG(ERTEXT(1,JОВ+1),30,-1)
+      CALL DIALOP(0)
+      SТОР
+      END
+      FUNCTION MICLOA(STR)
+С*
+С***   СВЯЗЫВАЮЩИЙ ЗАГРУЗЧИК МИКРОПРОГРАММ
+С*    *CALL MICLOA:<ИМЯ ГОЛОВНОЙ ПР-МЫ> [=А]
+С*
+С*   ЗАГРУЗКА НАЧИНАЕТСЯ С ЗАДАННОГО ШЕСТН.
+С*   АДРЕСА А (ПРИ НЕУКАЗАНИИ А=0).
+С*   АРХИВ МИКРОАССЕМБЛЕРА, ГДЕ НАХОДЯТСЯ
+С*   МОДУЛИ ЗАГРУЗКИ ПРОГРАММ, ЗАКАЗЫВАЕТСЯ
+С*   ПОД ЛОГИЧЕСКИМ НОМЕРОМ  30.
+С*
+С*   ПРОЦЕДУРА MICGID ВЫДАЕТ СЛЕДУЮЩУЮ
+С*   ИНФОРМАЦИЮ О ПРОГРАММЕ :
+С*    NАМЕ   - ИМЯ ПРОГРАММЫ
+С*    IТУР   - 4 ДЛЯ П/П, 5 ДЛЯ ВХОДА
+С*    LENPRO - ДЛИНА П/П В ПАМЯТИ (МИКРОСЛОВ)
+С*    LENLIB - ДЛИНА П/П В АРХИВЕ (СЛОВ Б-6)
+С*    LADR   - НАЧАЛЬНЫЙ АДРЕС В АРХИВЕ
+С*
+С*        СТРУКТУРА МОДУЛЯ ЗАГРУЗКИ :
+С*
+С*   I. ТЕЛО ПРОГРАММЫ (LENPRO МИКРОСЛОВ)
+С*
+С*  II. СВЕДЕНИЯ О ДОПОЛНИТЕЛЬНОЙ ИНФОРМАЦИИ
+С*     1. ЧИСЛО ВХОДОВ, ВКЛЮЧАЯ ГОЛОВНОЙ (1:9)
+С*        ЧИСЛО EXTERNAL-ПРОГРАММ (10:18)
+С*     2. ОБЩЕЕ ЧИСЛО ОПИСАНИЙ
+С*     3. ЧИСЛО АДРЕСНЫХ ССЫЛОК
+С*
+С* III. ТАБЛИЦА АДРЕСНЫХ ССЫЛОК (ЭЛ.=3 СЛОВА)
+С*     1.  1:18 - ОТНОСИТЕЛЬНЫЙ АДРЕС
+С*        19:27 - ПРАВАЯ ГРАНИЦА АДР.ПОЛЯ
+С*        28:36 - ЛЕВАЯ  ---"---  ---"---
+С*     2. ИМЯ ВНЕШНЕГО ОБЬЕКТА ИЛИ
+С*        ОТНОСИТЕЛЬНЫЙ АДРЕС + 1
+С*     3. АБСОЛЮТНОЕ СМЕЩЕНИЕ
+С*
+С*  IV. ТАБЛИЦА ЛОКАЛЬНЫХ ИМЕН ПРОГРАММЫ
+С*     1. ЛОКАЛЬНОЕ ИМЯ
+С*     2-3. ТА ЖЕ ИНФОРМАЦИЯ, ЧТО И В III.
+С*
+С*   V. ТАБЛИЦА ВХОДОВ (ЭЛЕМЕНТ=2 СЛОВА)
+С*     1. ИМЯ ВХОДА
+С*     2. ОТНОСИТЕЛЬНЫЙ АДРЕС ВХОДА (1:15)
+С*        И ХАРАКТЕРИСТИКА ВХОДА    (25:48)
+С*
+С*  VI. СПИСОК ИМЕН EXTERNAL-ПРОГРАММ
+С*
+C*     ********************************************
+C*               июль 1992
+C*     загрузка всегда с адреса 0.  После загрузки
+C*     всегда делается комплект HEX-файлов в директории
+C*     D:\BESM6\DIS667      Имя комплекта = имя головной пр-мы
+C*     Файлы в комплекте различаются расширением имени :
+C*       <Имя>.MP1   - микропрограмма (адреса 0-7FF)
+C*            .MP2   -    ---"---           800-FFF
+C*      .PP0 : .PPD  - "разрезанное на байты" MP1 (только для макета)
+C*      .AH0 : .AH7  - старшие байты ПНА-0,...,ПНА-7
+C*      .AL0 : .AL7  - младшие   ---"---
+C*      .PC0 : .PC7  - "разрезанное на байты" ПЗУ констант
+С*     **********************************************
+      DIMENSION STR(2),MSTR(22),LIND(5),MNOH(4)
+      DАТА LIND/1,6,12,17/
+      DАТА MNOH/'ВХОД  ENTRY  БЕЗ ГОЛОВЫ'/
+      COMMON /PROTO/PROTO(5),KAP(27)
+      COMMON /LЕХЕМ/ LЕХ(14)
+      COMMON /АСС/ АСС(10)  /BINARY/ BIN(10)
+      COMMON /ASSEM/ NSTEP,MER(3),NРС,NAMERR(4)
+      COMMON /MEMOR/ КЕУ,LW,LW4,LBIN,LROM,LFREE,IТАВ,LТАВ,IROM,JSTOP
+      COMMON /REKV/ NАМЕ,IТУР,LENPRO,LENLIB,LADR
+      COMMON /FIELD/ NFIL,LFIL(4,100),NVF(100)
+      COMMON /ENTRY/ KENT,MENT(2,200)
+      COMMON /EXTERN/ КЕХТ,МЕХТ(400)
+      COMMON /MPADR/ MPADR,MPMOD
+      COMMON /CATMEM/ mem(3,4096)
+      DIMENSION nhome(5),m(2),ispna(10)
+      EQUIVALENCE (m,mem)
+      INTEGER S,Т,Н1,Н2,SERNUM
+      COMMON /LINF1/ LL,LР,ML,MF,IABIN,LBEG1,
+     *               MREF(3),LIST(3,1000)
+      INTEGER ЕМР(4),INF(3),BIN
+      DАТА ЕМР/0В,0В,0В,0В/, ispna/10(0)/, sernum/1/
+      DATA nhome/'D667/system,______,ext,C(0) '/
+С-------------------
+      LL=0 $ LР=0 $ MF=0 $ ML=0
+      MICLOA=0 $ NSTEP=3 $ MER=0
+      CALL DIALOP(1)
+      CALL VMEMOR(30 0000В)
+      CALL VMREAD(КЕУ,0,10)
+      IF(КЕУ.EQ.'MICROB') GОТО 1
+      CALL DIALOG('АРХИВ ПРОГРАММ ПУСТ.',24,-1)
+      MICLOA=1 $ STOP
+   1  NАМЕ='MAIN' $ LBEG1=1
+      MPADR = LFREE $ IABIN = MPADR + 16400
+      MPMOD = IABIN $ CALL VMSET(0В,MPADR,16400+4096*lbin)
+      MPNA=MPADR
+      MBIN=IABIN
+      IF(JSTOP.NЕ.0) CALL DIALOG(
+     *  ' *** ВНИМАНИЕ! В ПРОШЛЫЙ РАЗ БЫЛИ ОШИБКИ ТРАНСЛЯЦИИ!',53,-1)
+      ASSIGN 10 ТО MADD
+      CALL MBWDEF(АСС,LW4)
+      CALL SCANER(STR(2),LЕХ,2,IТ,KOD,IР)
+      IF(KOD.NЕ.58) GОТО 2002
+      CALL SCANER(0,NАМЕ,2,IТ,KOD,IР)
+C>>>        загрузка с 0 !!!
+      kod=0
+      IF(IТ.EQ.4) GОТО 2222
+      CALL DIALOG('НЕВЕРНО ЗАДАНО ИМЯ.',-20,-1)
+      MICLOA=2 $ STOP
+ 2222 ML=0 $ IF(KOD.NЕ.61) GОТО 2002
+ 2223 CALL SCANER(0,LЕХ,13В,IТ,KOD,IР)
+      IF(KOD.EQ.64) GОТО 2223
+      LЕХ=KOD-48 $ IF(LЕХ.GЕ.0.AND.LЕХ.LЕ.9) GОТО 2224
+      LЕХ=LЕХ-7 $ IF(KOD.GЕ.65.AND.KOD.LЕ.70) GОТО 2224
+      IF(KOD.LТ.64) MF=ML
+      LBEG1=MF+1 $ GОТО 2002
+ 2224 ML=ML.SHIFT.-4.OR.LЕХ $ GОТО 2223
+C
+ 2002 CONTINUE
+      DO 300 i=1,6
+      let=igets(name,i-1) $ if(let.le.32) goto 2
+  300 CALL IPUTS(LET,nhome,i+11)
+С
+С---   БЛОК НАРАЩИВАНИЯ СПИСКА ЗАГРУЗКИ
+С      LР - ДЛИНА СПИСКА
+С      LL - ТЕКУЩИЙ ИНДЕКС ПО СПИСКУ
+С      MF - АДРЕС "СВОБОДНО"
+С      НА ВХОДЕ NАМЕ=<ИМЯ П/П ИЛИ ВХОДА>
+С      НА ВЫХОДЕ IADR=<АДРЕС ПО ЗАГРУЗКЕ>
+С
+   2  MNOH(2)=NАМЕ $ IТУР=4 $ IADR=0
+      IF(LР.EQ.0) GОТО 4
+С     М.Б. УЖЕ ЕСТЬ В СПИСКЕ ?
+      DО 3 I=1,LР $ LL1=I
+      IF(LIST(1,I).EQ.NАМЕ) GОТО 9
+   3  CONTINUE
+С
+С     ЕСЛИ ENTRY - НАЙДЕМ ГОЛОВУ
+С
+   4  CALL MICGID(IREZ) $ IF(IТУР.NЕ.5) GОТО 5
+      NАМЕ=LENLIB
+      CALL MICGID(IREZ) $ IF(IТУР.EQ.4) GОТО 5
+      CALL DIALOG(MNOH,24,-1)
+      MICLOA=2 $ STOP
+   5  LР=LР+1 $ LIST(1,LР)=NАМЕ $ LL1=LР
+      LIST(2,LР)='  -НЕТ' $ LIST(3,LР)=MF
+      IF(IREZ.NЕ.0) MER=4
+      IF(IREZ.NЕ.0) GОТО 9
+      IREF=LADR+LBIN*LENPRO
+      CALL VMREAD(INF,IREF,3)
+      KENT=INF.AND.377В.OR.0
+      IENT=IREF+3*(1+INF(2))
+      CALL VMREAD(MENT,IENT,2*KENT)
+С
+С...   УТОЧНЕНИЕ АДРЕСА ЗАГРУЗКИ, ЕСЛИ НАДО.
+С
+      KCHAR=MENT(2,1).SHIFT.24.AND.17В.OR.0
+      IF(KCHAR.EQ.0) GОТО 59
+      MASK=0В $ DО 51 I=1,KCHAR
+  51  MASK=1В.SHIFT.(1-I).OR.MASK
+      KCHAR=0
+  52  I=MF.AND.MASK
+С     IF(I.EQ.MASK) GОТО 59
+      IF(I.EQ.0В) GОТО 59
+      KCHAR=KCHAR+1 $ MF=MF+1 $ GОТО 52
+С
+С     ВХОДЫ (ВКЛЮЧАЯ ГОЛОВНОЙ) - В ЛИСТ ЗАГРУЗКИ
+С
+  59  LР=LР-1
+      DО 6 I=1,KENT $ LР=LР+1
+      IF(LР.EQ.999) GОТО 100
+      LIST(1,LР)=MENT(1,I)
+      IF(LIST(1,LР).EQ.MNOH(2)) LL1=LР
+С
+      IRELA=MENT(2,I).AND.77777В.OR.0
+      IТЕМР=MENT(2,I).SHIFT.-4 $ LEFT=32
+      LIST(2,LР)=' ' $ DО 7 J=1,4
+      IТЕМР=IТЕМР.SHIFT.-4
+      IС=IТЕМР.SHIFT.44.OR.0 $ IF(IС.GТ.9) IС=IС+7
+      IF(LEFT.NЕ.32.OR.IС.NЕ.0) LEFT=IС+48
+   7  CALL IPUTS(LEFT,LIST(2,LР),J)
+      IF(I.NЕ.1) CALL IPUTS(105В,LIST(2,LР),4)
+С
+      LIST(3,LР)=MF+IRELA
+      IF(I.EQ.1) LIST(3,LР)=KCHAR.SHIFT.-27.OR.LIST(3,LР)
+   6  CONTINUE
+      MF=MF+LENPRO
+С
+   9  IADR=LIST(3,LL1).AND.77777В.OR.0
+      GОТО MADD, ( 10,12,16 )
+С
+С---   ОСН.ЦИКЛ: ШАГ ПО СПИСКУ ЗАГРУЗКИ
+С      ML   - АДРЕС НАЧАЛА ЗАГРУЗКИ П/П
+С
+  10  LL=LL+1 $ IF(LL.GТ.LР) GОТО 100
+      NАМЕ=LIST(1,LL) $ IС=LIST(2,LL)
+      IF(IС.EQ.'  -НЕТ') MER=4
+      IТЕМР=IС.SHIFT.8.AND.377В
+      IF(IТЕМР.EQ.105В) GОТО 10
+      IТЕМР=NАМЕ.SHIFT.40.OR.0
+      IF(IТЕМР.EQ.32) GОТО 10
+      IABINT=LIST(3,LL).SHIFT.27.AND.77777В.OR.0
+      ML = LIST(3,LL).AND.777777В.OR.0
+      LIST(3,LL)=ML
+      IТУР=4 $ CALL MICGID(IREZ)
+      LENP1=LENPRO $ LADR1=LADR
+      IREF=LADR1+LBIN*LENP1
+С
+С...   ВСТАВКА ПУСТЫШЕК ПРИ ВЫРАВНИВАНИИ
+С
+      IF(IABINT.LЕ.0) GОТО 15
+      DО 14 I=1,IABINT
+      CALL VMWRIT(ЕМР,IABIN,LBIN)
+  14  IABIN=IABIN+LBIN
+С
+С...   ВНЕШНИЕ ОБЬЕКТЫ - В ЛИСТ ЗАГРУЗКИ
+С
+  15  CALL VMREAD(INF,IREF,3)
+      КЕХТ = INF.SHIFT.9.AND.777В.OR.0
+      KENT = INF.AND.777В.OR.0
+      IF(КЕХТ.EQ.0) GОТО 13
+      LISEXT=IREF+3*(INF(2)+1)+2*KENT
+      CALL VMREAD(МЕХТ,LISEXT,КЕХТ)
+      DО 12 LISEXT=1,КЕХТ
+      NАМЕ=МЕХТ(LISEXT)
+      ASSIGN 12 ТО MADD $ GОТО 2
+  12  CONTINUE
+  13  IF(LENP1.LЕ.0) GОТО 10
+      MRS=1 $ IREF=LADR1+LBIN*LENP1
+С
+С---   ЦИКЛ ЗАГРУЗКИ МИКРОСЛОВ ПРОГРАММЫ
+С
+      DО 19 IР=1,LENP1
+      CALL VMREAD(АСС,LADR1,LBIN)
+      IF(MRS.EQ.0) GОТО 11
+С---   ОЧЕРЕДНАЯ АДРЕСНАЯ ССЫЛКА
+      IREF=IREF+3 $ CALL VMREAD(MREF,IREF,3)
+      MRS=0 $ IREL=MREF.AND.777777В.OR.0
+      KL=MREF.SHIFT.27.AND.777В.OR.0
+      KR=MREF.SHIFT.18.AND.777В.OR.0
+  11  IF(IREL.NЕ.IР-1) GОТО 18
+      MRS=1
+      J=MREF(2).SHIFT.42 $ IF(J.EQ.64В) GОТО 17
+С---   ССЫЛКА НА ВНЕШНЮЮ П/П
+      NАМЕ=MREF(2)
+      ASSIGN 16 ТО MADD $ GОТО 2
+  16  MREF(2)=IADR-ML+1
+С---   ОТНОСИТЕЛЬНЫЙ АДРЕС
+  17  IVAL=ML+MREF(2)-1+MREF(3)
+      IF(MICSET(IVAL,KL,KR).EQ.0) GОТО 18
+      MER=5 $ LР=LР+1 $ LIST(3,LР)=ML+IР-1
+      LIST(1,LР)=' ВЕЛИК' $ LIST(2,LР)=' АДРЕС'
+      IF(LР.EQ.999) GОТО 100
+  18  CALL VMWRIT(АСС,IABIN,LBIN)
+      IABIN=IABIN+LBIN $ GОТО 19
+  19  LADR1=LADR1+LBIN
+С
+С---   ЗАХВАТ СТРОК  П Н А
+С    (АДРЕСНЫЕ ССЫЛКИ, СОДЕРЖАЩИЕ ДИАПАЗОНЫ
+С     ПНА-АДРЕСОВ, ПОМЕЧЕНЫ 18 БИТОМ).
+С
+      IF(MRS.NЕ.0) GОТО 113
+ 111  J=MREF.AND.7777 0000 0040 0000В
+      IF(J.NЕ.400000В) GОТО 10
+      IREL=MREF.AND.7777В.OR.0
+      N1=MREF(2).AND.37777В.OR.0 $ N2=MREF(3).AND.37777В.OR.0
+      LОСОМ = ML + IREL
+      DО 112 I=N1,N2 $ ispna=i.shift.11.and.7.or.0
+      ispna=ispna+2 $ ispna(ispna)=1
+      IF(MEMVRD( I+MPADR ).EQ.0В) GОТО 112
+      MER=-1 $ LР=LР+1 $ LIST(3,LР)=ML+IREL
+      LIST(1,LР)=' - ПНА' $ LIST(2,LР)='К !!! '
+      LР=LР+1 $ LIST(3,LР)=MEMVRD(I+MPADR)
+      LIST(1,LР)=' - ПНА' $ LIST(2,LР)='К !!! '
+      IF(LР.EQ.999) GОТО 100
+ 112  CALL WRVMEM( LОСОМ, I+MPADR)
+ 113  IREF=IREF+3 $ CALL VMREAD(MREF,IREF,3)
+      GОТО 111
+С
+С---   ПЕЧАТЬ СПИСКА ЗАГРУЗКИ
+С
+ 100  LIST(3,LР+1)=MF $ LL=0
+      LIST(1,LР+1)='СВОБОД' $ LIST(2,LР+1)='НО'
+      IF(LР.LТ.999) GОТО 101
+      LIST(1,LР+1)='ПЕРЕПО' $ LIST(2,LР+1)='ЛНЕНИЕ'
+      MER=1000
+ 101  DО 102 I=1,21
+ 102  MSTR(I)=6Н
+      DО 103 I=1,4 $ NРС=LIST(3,LL+1)
+      LL=LL+1 $ IF(LL.GТ.LР+1) GОТО 104
+      MSTR(2+LIND(I)) = LIST(1,LL)
+      MSTR(3+LIND(I)) = LIST(2,LL)
+ 103  CALL MICHEX(MSTR(1+LIND(I)))
+ 104  CALL DIALOG(MSTR,-126,-1)
+      IF(LL.LЕ.LР) GОТО 101
+      IF(MER.GТ.0) GОТО 999
+С
+С---    ПЕЧАТЬ ЗАГРУЖЕННОГО РАЗДЕЛА
+С       ПРИ *NО LIST - НЕТ ПЕЧАТИ
+С       ПРИ *STAND   - КОМПАКТНАЯ ПЕЧАТЬ
+С       ПРИ *FULL    - РАЗВЕРТКА ПО ПОЛЯМ
+С
+      NFIL=0 $ IREZ='SCAN'
+ 200  CALL MICSEQ(IREZ)
+      IF(IREZ.NЕ.0) GОТО 201
+      IF(IТУР.NЕ.3) GОТО 200
+      NFIL=NFIL+1 $ LFIL(1,NFIL)=LENPRO
+      LFIL(2,NFIL)=LENLIB $ LFIL(3,NFIL)=NАМЕ
+      LFIL(4,NFIL)=LADR $ GОТО 200
+ 201  CALL SHSORT(LFIL,NFIL,4,3)
+      CALL VMSET(0В,IABIN,5*LBIN)
+      IF(LREGIM(0)-2) 999,109,202
+С---
+ 109  LROMC=LROM $ LROM=LW4 $ CALL DIALOP(2)
+      NSTEP=2 $ IА=MPMOD $ LL=4+LW4/2
+      DО 110 I=LBEG1,MF $ NРС=I-1
+      CALL VMREAD(BIN,IА,LBIN) $ IА=IА+LBIN
+      CALL MICHE1(LЕХ)
+ 110  CALL DIALOG(LЕХ,-LL,-1)
+      LROM=LROMC $ CALL DIALOP(1)
+      GОТО 999
+С---
+ 202  NVF(1)=20 $ DО 214 I=2,NFIL
+      J=LFIL(1,I-1)-LFIL(2,I-1)+1
+      LL=J/4 $ IF(4*LL.NЕ.J) LL=LL+1
+ 214  NVF(I)=NVF(I-1)+LL+1
+      DО 205 I=1,22
+ 205  MSTR(I)=' '
+С---     ЗАГОЛОВОК
+      LL=100 $ IF(LFIL(1,1).LТ.LL) LL=10
+      ILL=9 $ IF(LL.EQ.10) ILL=8
+      DО 206 I=1,ILL
+      DО 207 J=1,NFIL
+      IF(I.EQ.1) LFIL(4,J)=LFIL(1,J)
+      IF(I.LЕ.6) LЕТ=IGETS(LFIL(3,J),I-1)
+      IF(I.LЕ.6) GОТО 207
+      LЕТ=LFIL(4,J)/LL
+      LFIL(4,J)=LFIL(4,J)-LЕТ*LL
+      LЕТ=LЕТ+48
+ 207  CALL IPUTS(LЕТ,MSTR,NVF(J))
+      IF(I.GТ.6) LL=LL/10
+ 206  CALL DIALOG(MSTR,-127,-1)
+      ILL=NVF(NFIL)+2 $ MSTR(1)='ИМЯ'
+      MSTR(2)=' ХАР.' $ MSTR(3)=' АДР:-'
+      DО 208 I=18,ILL
+ 208  CALL IPUTS('------',MSTR,I)
+      CALL DIALOG(MSTR,-ILL,-1)
+С---
+      IABIN=MPMOD $ ILL=1
+      DО 220 IА=LBEG1,MF
+      CALL VMREAD(АСС,IABIN,LBIN)
+      IABIN=IABIN+LBIN $ NРС=IА-1
+      DО 221 I=1,22
+ 221  MSTR(I)=' '
+      DО 222 J=1,NFIL
+      KOD=MICFRG(0,LFIL(1,J),LFIL(2,J))
+      LЕТ=LFIL(1,J)-LFIL(2,J)+1
+      LL=LЕТ/4 $ IF(4*LL.NЕ.LЕТ) LL=LL+1
+      DО 223 NS=1,LL
+      LЕТ=KOD.SHIFT.(4*(LL-NS)).AND.17В.OR.0
+      IF(LЕТ.GТ.9) LЕТ=LЕТ+7
+ 223  CALL IPUTS(LЕТ+48,MSTR,NVF(J)+NS-1)
+ 222  CONTINUE
+      IF(NРС.NЕ.LIST(3,ILL)) GОТО 226
+      MSTR(1)=LIST(1,ILL)
+      MSTR(2)=LIST(2,ILL)
+      ILL=ILL+1
+ 226  CALL MICHEX(MSTR(3))
+ 220  CALL DIALOG(MSTR,-127,-1)
+С---
+ 999  CALL DIALOP(0)
+      MICLOA=MER $ IF(MER.NЕ.0) SТОР
+С*
+С***      ПОДГОТОВКА МИКРОПРОГРАММЫ К ПРОЖИГУ
+С*
+С*          СЛОВО FFB СОДЕРЖИТ ДАТУ И ИМЯ ФАЙЛА
+С*          СЛОВО FFC СОДЕРЖИТ КОНТР.СУММУ ОЗУ
+С*          СЛОВО FFD СОДЕРЖИТ КОНТР.СУММУ ПЗУ
+С*
+С------------------------
+      CALL QOUT('Загрузка окончена. Начинаем сборку.',36)
+      CALL VMREAD(mem,mbin,4096*lbin)
+      LOOP=LW4 / 8
+      KROM=LROM.SHIFT.9.AND.77777В.OR.0
+С
+С      1:Д, 2:М, 3:Г, 4:Ч,  7-12: ИМЯ ФАЙЛА
+С
+      CALL DАТЕ(kap)
+      Н1=LРАСК(kap(1),0360 7400 0360 7400В)
+      Н2=LРАСК(kap(2),0360 7400 0000 7417В)
+      mem(1,4092)=Н2.SHIFT.16.OR.Н1
+      mem(2,4092)=nhome(3)
+С
+С---    0.  КОНТРОЛЬНОЕ СУММИРОВАНИЕ
+С
+      call qout('Контрольное суммирование...',30)
+C>>      N=2 $ DО 302 I=1,4096
+C>>      DО 314 J=1,LOOP
+C>>      LЕТ=IGETS( МEM(1,I), LOOP-J )
+C>>      К=KS(N,J)
+C>>      S=К+К   $ Т=S.SHIFT.8.AND.1.OR.0
+C>>      S=S+Т   $ S=S.AND.377В.OR.0
+C>>      S=S+К   $ Т=S.SHIFT.8.AND.1.OR.0
+C>>      S=S+Т   $ S=S.AND.377В.OR.0
+C>>      S=S+LЕТ $ Т=S.SHIFT.8.AND.1.OR.0
+C>>      S=S+Т   $ KS(N,J)=S.AND.377В.OR.0
+C>>  314 CONTINUE
+C>>      IF(I.EQ.2048) N=1
+C>> 302  CONTINUE
+C>>      do 303 i=1,2 $ do 303 j=1,16 $ if(j.gt.loop) ks(i,j)=255
+C>> 303  call iputs(ks(i,j),mem(1,i+4092),16-j)
+      CALL kscalc(mem(1,2049),mem(1,4093))
+      CALL kscalc(mem(1,   1),mem(1,4094))
+      lex=' ' $ N='.MP1' $ ASSIGN 710 ТО MRET77
+C
+C---     БЛОК ЗАПИСИ ФАЙЛА :  N=<расширение имени>
+C
+  77  if(lex.eq.' ') goto 776
+      lex(4)='-готов' $ call taktap((jsave(0).shift.12).and.77b)
+      call qout(lex,24) $ lex=' ' $ if(n.eq.' ') goto 779
+ 776  lex(1)='Файл' $ lex(2)=nhome(3) $ lex(3)=n $ lex(4)=' ...  '
+      do 777 i777=1,3
+ 777  call iputs(igets(n,i777),nhome(4),i777)
+C        call qout(lex,24)
+      jpoin=INITCH(nhome)
+ 779  GОТО MRET77,(710,711)
+C
+C---    1. ФОРМИРОВАНИЕ   MP1,MP2   (делаем ротацию байтов !!!)
+C
+ 710  N1=2048 $ N2=4096
+      DО 711 I=1,N2
+      DО 714 J=1,LOOP
+      LЕТ=IGETS( МEM(1,i), LOOP-J )
+      Н1=LЕТ.SHIFT.4.AND.17В.OR.0
+      Н2=LЕТ.AND.17В.OR.0
+      IF(Н1.GТ.9) Н1=Н1+7
+      IF(Н2.GТ.9) Н2=Н2+7
+      JР = JPUT(Н2+48)
+ 714  JР = JPUT(Н1+48)
+      DО 715 J=LOOP,15
+      JP = JPUT('     F')
+ 715  JР = JPUT('     F')
+      if(i.ne.N1) goto 711
+      JP = JPUT(13) $ JP = JPUT('$$$$$$')
+      n='.MP2' $ ASSIGN 711 TO mret77 $ goto 77
+ 711  CONTINUE
+      JP = JPUT(13) $ JP = JPUT('$$$$$$')
+C
+C---    2. ФОРМИРОВАНИЕ  ПЗУ-ЧАСТИ  для макета
+C
+      if(lw4.gt.112) goto 820
+      if(ispna.eq.0) goto 820
+      DО 814 J=1,LOOP  $ i=J-1
+      n=i.shift.-16.or.'.PP0'
+      if(i.gt.9) call iputs(65+i-10,n,3)
+      ASSIGN 821 ТО MRET77 $ GОТО 77
+  821 n = loop-j
+      DО 810 I=1,2048,2
+       h1 = IGETS( МEM(1,I  ), n )
+       h2 = IGETS( МEM(1,I+1), n )
+      jp = jput(h2)
+  810 JР = JPUT(h1)
+  814 CONTINUE
+  820 n=' ' $ ASSIGN 822 TO mret77 $ GOTO 77
+C
+  822 CONTINUE
+C      CALL DIALOQ('Делать  П Н А  (Y/N) ? ',24,kap)
+C      let=kap.shift.40.or.0
+C      if(let.eq.78.OR.let.eq.110) goto 850
+С
+С---    3.  ФОРМИРОВАНИЕ  ПНА-ФАЙЛОВ
+С
+      DО 830 J=1,8 $ if(ispna(j+1).eq.0) goto 830
+      idext='.AL0' $ DО 832 IВ=1,2
+      CALL VMREAD(mem,mpna,2048)
+      n=j-1 $ if(n.gt.9) n=n+7
+      n=n+48 $ n=n.shift.-16.or.idext
+      ASSIGN 831 ТО MRET77 $ GОТО 77
+ 831  DО 833 I=1,2048,2 $ h1=М(I).OR.0 $ h2=M(i+1).or.0
+С
+С   ***  ВРЕМЕННО: АДРЕСА  4000В<= А < 7776В
+С        В   П Н А - 0,1  НЕ РЕГИСТРИРУЮТСЯ !!!
+С
+      IF(J.LЕ.2.AND.h1.GЕ.2048.AND.h1.LТ.4094) h1=0
+      IF(J.LЕ.2.AND.h2.GЕ.2048.AND.h2.LТ.4094) h2=0
+С
+        IF(IВ.EQ.2) h1=h1.SHIFT.8.AND.17В.OR.0
+        IF(IВ.EQ.2) h2=h2.SHIFT.8.AND.17В.OR.0
+       JP = JPUT(H2)
+  833  JР = JPUT(H1)
+  832  idext='.AH0'
+  830  mpna=mpna+2048
+       n=' ' $ ASSIGN 850 TO mret77 $ GOTO 77
+C
+ 850  CONTINUE
+      if(ispna.eq.0) goto 860
+C      CALL DIALOQ('Нужны ли константы  П З У  (Y/N)  ?',36,kap)
+C      let=kap.shift.40.or.0
+C      if(let.eq.78.OR.let.eq.110) goto 860
+С
+С---    4. ФОРМИРОВАНИЕ 64-БИТНЫХ  ПЗУ-КОНСТАНТ
+С          СЕРИЙНЫЙ НОМЕР МАШИНЫ - ЭТО ПЕРВАЯ ИЗ НИХ !
+C          если число констант нечетно - пишется лишний байт !!!
+С
+      CALL VMREAD(М,irom,2*KROM)
+      IF(SERNUM.NЕ.0) М(1)=SERNUM.SHIFT.16.AND.77777777В
+      IF(SERNUM.NЕ.0) М(2)=SERNUM.SHIFT.-32
+      m(2*krom+1) = 0 $ m(2*krom+2) = 0
+      DО 851 I=1,8 $ N=I-1 $ n=n.shift.-16.or.'.PC0'
+      ASSIGN 853 ТО MRET77 $ GОТО 77
+ 853  DО 852 J=1,KROM,2
+      h1 = igets(m(2*j-1),8-i)
+      h2 = igets(m(2*j+1),8-i)
+      jp = jput(h2)
+ 852  JР = JPUT(h1)
+ 851  CONTINUE
+      n=' ' $ ASSIGN 860 TO mret77 $ GOTO 77
+С---
+ 860  CALL QOUT('ВСЕ !',5)
+      CALL DIALOP(0)
+      stop
+      END
+*assem
+  kscalc:,name,. m,s
+  ,sti,8
+  ,sti,11
+  12,vtm,ks
+  ,xta,
+  12,atx,
+  12,atx,1
+  12,atx,2
+  14,base,*
+  9,vtm,-2047
+  LOOP3:10,vtm,-2
+  LOOP1:12,xta,
+    ,aax,mask3
+    ,atx,ws.k
+    ,arx,ws.k+k
+    15,atx,
+    ,aax,mask1
+    ,asn,64+8
+    15,arx,
+    ,aax,mask3
+    ,arx,ws.k+k+k
+    15,atx,
+    ,aax,mask1
+    ,asn,64+8
+    15,arx,
+    ,aax,mask3
+    11,xts,
+    ,aax,mask3
+    15,arx,
+    15,atx,
+    ,aax,mask1
+    ,asn,64+8
+    15,arx,
+    ,aax,mask3
+C
+  12,xts,
+    ,asn,64+8
+    ,aax,mask3
+    ,atx,ws.k
+    ,arx,ws.k+k
+    15,atx,
+    ,aax,mask1
+    ,asn,64+8
+    15,arx,
+    ,aax,mask3
+    ,arx,ws.k+k+k
+    15,atx,
+    ,aax,mask1
+    ,asn,64+8
+    15,arx,
+    ,aax,mask3
+    11,xts,
+    ,asn,64+8
+    ,aax,mask3
+    15,arx,
+    15,atx,
+    ,aax,mask1
+    ,asn,64+8
+    15,arx,
+    ,aax,mask3
+    ,asn,64-8
+    15,aox,
+    12,atx,
+    11,utm,1
+    12,utm,1
+    10,vlm,loop1
+    12,utm,-3
+    9,vlm,loop3
+    ,xta,ks
+    8,atx,
+    ,xta,ks+1
+    8,atx,1
+    ,xta,ks+2
+    8,atx,2
+    13,uj,
+    mask1:,iso,6h'1''''1''''1'''
+    mask3:,iso,6h'''377''''377''''377'
+    ks:,bss,4
+    ws:,bss,1
+  ,end,
+*FTN
+      FUNCTION MICCAT(STR)
+С*
+С***   ПЕЧАТЬ КАТАЛОГА АРХИВА КРОСС-СИСТЕМЫ
+С*        *CALL MICCAT [ :RОМ ]
+С***   ИСКЛЮЧЕНИЕ ПРОГРАММЫ (ВХОДА) ИЗ АРХИВА
+С*        *CALL DELETE:<ИМЯ ПРОГРАММЫ>
+С*
+      COMMON /PROTO/ PROTO(30)
+      COMMON /REKV/ NАМЕ,IТУР,KL,KR,IVAL
+      COMMON /MEMOR/ КЕУ(2),LW4(2),LROM,LFREE,itab,LТАВ,IROM
+      COMMON /ASSEM/ NSTEP(4),NРС(4),КОР
+      COMMON /BINARY/ BIN(4)
+      COMMON /CATMEM/ LС(20001)
+      DIMENSION MCN(5),LЕХ(14),STR(4),АСС(4),
+     *          МС(5,4000),NС(2,2000)
+      EQUIVALENCE (МС,NС),(МС,LС(2))
+      DАТА МС/20000(' ')/, К/0/, LЕХ/14(' ')/
+      DАТА MCN/' VAR*  GLOB  FLD   PROG  ENTR'/
+С-------------------------------------------
+      J=1 $ GОТО 1111
+      ENTRY DELETE
+      J=2
+ 1111 CALL SCANER(STR(2),LЕХ,0,IТУР,KOD,IР)
+      CALL SCANER(0,LЕХ,3,IТУР,KOD,IР)
+      CALL DIALOP(1) $ IREZ=0
+      CALL VMEMOR(300000В) $ MICCAT=0
+      CALL VMREAD(КЕУ,0,9) $ MROM=LЕХ
+      NSTEP=3 $ IF(КЕУ.EQ.'MICROB') GОТО (9,8),J
+      CALL DIALOG('АРХИВ ПРОГРАММ ПУСТ.',-24,-1)
+      GОТО 999
+  8   IТУР=4 $ NАМЕ=MROM $ CALL MICDEL(IREZ)
+      LЕХ='ГОТОВО' $ IF(IREZ.NЕ.0) LЕХ='НЕБЫЛО'
+      CALL DIALOG(LЕХ,-6,-1) $ GОТО 999
+  9   if(irez.ge.ltab) goto 10
+C       CALL MICSEQ(IREZ) $ IF(IREZ.NЕ.0) GОТО 10
+      call vmread(name,itab+5*irez,5) $ irez=irez+1
+      if(name.eq.0b.or.name.eq.7777 7777b) goto 9
+      i=name.shift.24
+      if(i.ne.0b) name=name.and.3767 7577 3767 7577b
+      К=К+1 $ МС(1,К)=NАМЕ $ МС(2,К)=MCN(IТУР)
+      GОТО (1,2,3,4,5), IТУР
+  2   IF(KR.NЕ.' *RОМ') GОТО 1
+      NРС=IVAL $ CALL MICHEX(МС(3,К))
+      МС(4,К)=' ' $ МС(2,К)=KR $ GОТО 9
+  1   IТЕМР=KR.SHIFT.47 $ LЕХ=' '
+      IF(IТЕМР.NЕ.0В) CALL PUTG(LЕХ,KR,0,6,0,IР)
+      IF(IТЕМР.NЕ.0В) KR=LЕХ
+  5   CALL PUTG(МС(4,К),IVAL,1,6,0,IР)
+      IF(KR.EQ.0В) KR=' '
+      МС(3,К)=KR $ GОТО 9
+  4   KL=IVAL
+  3   CALL PUTG(МС(3,К),KL,0,6,0,IР)
+      CALL PUTG(МС(4,К),KR,1,6,0,IР) $ GОТО 9
+С---
+ 10   CALL SHSORT(МС,К,5,1) $ N=1
+      МС(1,К+1)='СВОБОД' $ МС(2,К+1)='НО - '
+      CALL PUTG(МС(3,К+1),LFREE,1,6,0,IР)
+      МС(1,К+2)='ВСЕГО ' $ МС(2,К+2)='ИМЕН :'
+      CALL PUTG(МС(3,К+2),К,1,6,0,IР) $ JLC=1
+      IF(К.GТ.0.8*LТАВ) МС(4,К+2)='МНОГО!'
+      МС(1,К+3)='РАЗМЕР' $ МС(2,К+3)=' ТАБЛ:'
+      CALL PUTG(МС(3,К+3),LТАВ,1,6,0,IР) $ К=К+3
+      CALL DIALOG(' КАТАЛОГ АРХИВА:',-18,-1)
+ 11   LС(JLC)=' ' $ CALL DIALOG(LС(JLC),-126,-1)
+      JLC=JLC+20 $ N=N+4 $ IF(N.LЕ.К) GОТО 11
+      IF(MROM.NЕ.'RОМ') GОТО 999
+С---
+      NSTEP=0 $ КОР='CONST'
+      N=0 $ DО 12 I=1,К
+      IF(МС(2,I).NЕ.' *RОМ') GОТО 12
+      N=N+1 $ NС(2,N)=МС(1,I) $ IТЕМР=МС(3,I)
+      NС(1,N)=0 $ DО 13 J=1,4
+      LЕТ=IТЕМР.SHIFT.40.OR.0 $ IТЕМР=IТЕМР.SHIFT.-8
+      LЕТ=LЕТ-48 $ IF(LЕТ.GТ.9) LЕТ=LЕТ-7
+  13  NС(1,N)=NС(1,N).SHIFT.-4.OR.LЕТ
+  12  CONTINUE
+      CALL SHSORT(NС,N,2,2)
+      CALL DIALOP(2) $ CALL MBWDEF(АСС,96)
+      CALL DIALOG('  П З У :',-10,-1)
+      DО 14 I=1,N $ NРС=NС(1,I)
+      LЕХ(1)=NС(2,I) $ LЕХ(2)='     :'
+      CALL VMREAD(BIN,IROM+2*NРС,2)
+      CALL MICHE1(LЕХ(3))
+  14  CALL DIALOG(LЕХ,-60,-1)
+      CALL DIALOP(1)
+ 999  RETURN
+      END
+      SUBROUTINE MICSEQ(IREZ)
+С*
+С***         РАБОТА С ТАБЛИЦЕЙ ИМЕН
+С*     КАЖДЫЙ ОБЬЕКТ ЗАНИМАЕТ В ТАБЛИЦЕ 5 СЛОВ.
+С*  1.NАМЕ = ИМЯ ПОЛЯ, ПЕРЕМЕННОЙ (ЛОКАЛЬНОЙ
+С*        ИЛИ ГЛОБАЛЬНОЙ), ПРОГРАММЫ (ВХОДА).
+С*  2.IТУР = ТИП ИМЕНИ :
+С*
+С*    2.1. IТУР=1(2) - ЛОКАЛЬНАЯ (ГЛОБАЛЬНАЯ)
+С*         ПЕРЕМЕННАЯ. ОСТАЛЬНЫЕ СЛОВА :
+С*      3: СЧЕТЧИК ПОВТОРНЫХ ОПИСАНИЙ
+С*      4: ИМЯ ВНЕШНЕГО ОБЬЕКТА ИЛИ 5Н *RОМ
+С*         ИЛИ ОТНОСИТЕЛЬНЫЙ АДРЕС+1  ИЛИ 0.
+С*      5: АБСОЛЮТНАЯ КОМПОНЕНТА ЗНАЧЕНИЯ
+С*
+С*    2.3. IТУР=3 - ПОЛЕ.  ОСТАЛЬНЫЕ СЛОВА:
+С*      3: ЛЕВАЯ ГРАНИЦА ПОЛЯ
+С*      4: ПРАВАЯ ГРАНИЦА ПОЛЯ
+С*      5: ЗНАЧЕНИЕ ПОЛЯ ПО УМОЛЧАНИЮ
+С*
+С*    2.4. IТУР=4 - ПОДПРОГРАММА :
+С*      3: ДЛИНА ПОДПРОГРАММЫ В ПАМЯТИ
+С*      4: ДЛИНА ПОДПРОГРАММЫ В БИБЛИОТЕКЕ
+С*      5: НАЧАЛЬНЫЙ АДРЕС В БИБЛИОТЕКЕ
+С*
+С*    2.5. IТУР=5 - ВХОД (ENTRY) :
+С*      3: ПУСТО
+С*      4: ИМЯ ГОЛОВНОЙ ПРОГРАММЫ
+С*      5: ОТНОСИТЕЛЬНЫЙ АДРЕС ВХОДА
+С*
+С*     НАБОР ЭЛЕМЕНТАРНЫХ ОПЕРАЦИЙ С ТАБЛИЦЕЙ:
+С*      MICGID - ПОИСК,     MICDEL - ИЗЬЯТИЕ
+С*      MICPID - ЗАНЕСЕНИЕ ИМЕНИ В ТАБЛИЦУ
+С*      MICCLE - ИЗЬЯТИЕ ЛОКАЛЬНЫХ ИМЕН
+С*      MICSEQ - ПОСЛЕДОВАТЕЛЬНОЕ СКАНИРОВАНИЕ
+С*      IREZ = 0, ЕСЛИ ИМЯ НАЙДЕНО В ТАБЛИЦЕ.
+      COMMON/REKV/ NАМЕ,IТУР(4)
+      COMMON/MEMOR/ КЕУР,LW(5),IТАВ,LТАВ
+      DIMENSION KVANT(5),МАРК(5)
+      DАТА NORM/0/, MABS/1/, MDEL/77777777В/
+      DАТА МАРК/ 200В,200В,100000В,0В,0В /
+С----------------------------------
+      IF(IREZ.EQ.'SCAN') IА2=-1
+      IREZ=MABS $ IТУР=1
+ 100  IА2=IА2+1 $ IF(IА2.GЕ.LТАВ) RETURN
+      CALL VMREAD(KVANT,IТАВ+5*IА2,5)
+      IF(KVANT.EQ.0В.OR.KVANT.EQ.MDEL) GОТО 100
+  30  IREZ=NORM $ DО 31 I=1,4
+  31  IТУР(I)=KVANT(I+1)
+      NАМЕ=KVANT $ I=NАМЕ.SHIFT.24
+      IF(I.NЕ.0В) NАМЕ=KVANT.AND.3767 7577 3767 7577В
+  10  RETURN
+С---
+      ENTRY MICGID
+      JОВ=1 $ GОТО 1
+      ENTRY MICPID
+      JОВ=2 $ GОТО 1
+      ENTRY MICDEL
+      JОВ=3
+С---   "РАЗМАЗЫВАНИЕ" ТИПА ПО ПОЛЮ ИМЕНИ
+  1   I=NАМЕ.SHIFT.24 $IF(I.NЕ.0В) I=МАРК(IТУР)
+      NАМ=NАМЕ.OR.I   $ IREZ=MABS
+      КЕУ=LEXOR(NАМ,LSHIFT(NАМ,25))
+      КЕУ=КЕУ.AND.177777777В.OR.0
+С---   ПОЛУЧЕНИЕ НАЧ.АДРЕСА = 0,1,...,LТАВ-1
+      IА=КЕУ/LТАВ $ IА=КЕУ-IА*LТАВ $ IА1=IА
+С---   ХЕШИРОВАНИЕ
+  2   CALL VMREAD(KVANT,IТАВ+5*IА,5)
+      IF(KVANT.EQ.0В)  GОТО (10,20,3), JОВ
+      IF(KVANT.EQ.MDEL) GОТО (3,20,3), JОВ
+      IF(KVANT.EQ.NАМ) GОТО (30,22,40), JОВ
+  3   IА=IА+1 $ IF(IА.GЕ.LТАВ) IА=0
+      IF(IА.NЕ.IА1) GОТО 2
+      IF(JОВ.NЕ.3) CALL MICFAT(1)  $ RETURN
+С---   ВЫШЛИ НА ПУСТОЙ КВАНТ ИЛИ НАШЛИ ИМЯ
+ 40   NАМ=MDEL
+ 22   IREZ=NORM
+ 20   KVANT = NАМ  $ DО 21 I=1,4
+ 21   KVANT(I+1)=IТУР(I)
+      CALL VMWRIT(KVANT,IТАВ+5*IА,5)
+      RETURN
+С---
+      ENTRY MICCLE
+      IА=IТАВ $ IREZ=NORM
+      DО 90 I=1,LТАВ $ CALL VMREAD(KVANT,IА,5)
+      J=KVANT(2).OR.0 $ IF(J.LТ.3) CALL WRVMEM(0,IА+2)
+      IF(J.LЕ.IТУР) CALL VMSET(0В,IА,5)
+ 90   IА=IА+5
+      RETURN
+      END
+      FUNCTION MICROB(STR)
+С*
+С***   ГОЛОВНАЯ ПРОГРАММА МИКРОАССЕМБЛЕРА
+С*
+С*    *CALL MICROB [:<УК.МЛ>,<СПИСОК ИМЕН>]
+С*    *CALL MICINI [:<УК.МЛ>,<СПИСОК ИМЕН>]
+С*
+С*    MICINI - ВХОД ДЛЯ НАСТРОЙКИ АССЕМБЛЕРА
+С*    MICROB - ВХОД ДЛЯ ТРАНСЛЯЦИИ ПРОГРАММ.
+С*
+С*    НАСТРОЙКА СВОДИТСЯ К ТРАНСЛЯЦИИ
+С*    "ПРОГРАММЫ" С ИМЕНЕМ DEFINE, ОПИСЫВАЮ-
+С*    ЩЕЙ ФОРМАТ МИКРОКОМАНДЫ, А ТАКЖЕ ГЛО-
+С*    БАЛЬНЫЕ ПЕРЕМЕННЫЕ ВСЕХ МИКРОПРОГРАММ.
+С*
+С*    <УК.МЛ> ЗАДАЕТ ФАЙЛ С ТЕКСТОМ, ПОДЛЕЖА-
+С*    ЩИМ ТРАНСЛЯЦИИ. ПРИЗНАК КОНЦА ТЕКСТА -
+С*    СТРОКА "*END".  ПРИ НЕУКАЗАНИИ ФАЙЛА
+С*    ТЕКСТ ЧИТАЕТСЯ С ПЕРФОКАРТ.
+С*
+С*    ПЕРЕД ОБРАЩЕНИЕМ К АССЕМБЛЕРУ СЛЕДУЕТ
+С*    ЗАКАЗАТЬ ПОД НОМЕРОМ 30 ФАЙЛ ДЛЯ АРХИВА.
+С*    АРХИВ СОДЕРЖИТ :
+С*     1. ОПРЕДЕЛЕНИЯ ГЛОБ.ПЕРЕМЕННЫХ И ПОЛЕЙ
+С*     2. БИБЛИОТЕКА МОДУЛЕЙ ЗАГРУЗКИ
+С*     3. РАБОЧИЕ ОБЛАСТИ ПАМЯТИ ТРАНСЛЯТОРА.
+С*
+      DIMENSION STR(2)
+      COMMON /PROTO/ PROTO(30) /NMLST/ NML(50)
+      COMMON /ASSEM/ NSTEP(2),NER(3),NAMERR(4)
+      COMMON /CARD/ К(200) /LЕХЕМ/ LЕХ(14),IPOZ
+      COMMON /MEMOR/ КЕУ,LW,LW4,LВ,LROM,LFREE,
+     *               IТАВ,LТАВ,IROM,JSTOP
+      COMMON /REKV/ NАМЕ,IТУР,KL,KR,IVAL
+      COMMON /АСС/ АСС(10)  /BINARY/ BIN(10)
+      COMMON /FIELD/ NFIL,LFIL(4,100),NVF(100)
+      COMMON /ENTRY/ KENT,MENT(2,200)
+      COMMON /EXTERN/ КЕХТ,МЕХТ(400)
+      COMMON /SЕМА/ SЕМА(303),SЕМТХТ(500)
+      COMMON /MACRO/ MACRO(202),МАСТХТ(1000)
+      COMMON /CATMEM/ CATMEM(3,3001)
+      COMMON /LETTER/ LЕТ,КТР,KSEM,КСОММА,KPL,
+     *     KMIN,KSTAR,KSL,КЕ,КНЕХ,KCONT
+      EXTERNAL MICFAT,MICASS,MICAS1,MICTAB,MICHEX,MICINS,MICEXT
+      DАТА NFIL/0/,LROM/0/,MAXZON/127/
+      DАТА IТАВ/421/, LТАВ/3001/, К/200(' ')/
+      DАТА КТР/58/,KSEM/59/,КСОММА/44/,КЕ/61/,
+     *     KPL/43/,KMIN/45/,KSTAR/42/,KSL/47/,
+     *     КНЕХ/36/,KCONT/62/
+С----------------------------
+      JОВ=1 $ GОТО 1
+      ENTRY MICINI
+      JОВ=2 $ MICROB=0
+С---    ВЫБОРКА <УК.МЛ> И СПИСКА ИМЕН
+  1   МТ='CARD' $ NML(1)=0 $ NML(2)=1
+      CALL SCANER(STR(2),LЕХ,0,IТ,KOD,IPOZ)
+      IF(KOD.NЕ.КТР) GОТО 2
+      CALL SCANER(0,LЕХ,7,IТ,KOD,IPOZ)
+      IF(IТ.EQ.4) GОТО 12
+      МТ=LЕХ $ NZ=МТ.AND.777В
+      NU1=МТ.SHIFT.9 $ NU=МТ.SHIFT.12
+      J=NU.SHIFT.3 $ IF(J.EQ.0В) NU=NU1
+      МТ=(NU.SHIFT.-12).OR.NZ
+      IF(МТ.EQ.1В) МТ=03 0000В
+      IF(МТ.EQ.2В) МТ=05 0000В
+  11  IF(KOD.NЕ.КСОММА) GОТО 2
+      CALL SCANER(0,LЕХ,3,IТ,KOD,IPOZ)
+  12  NML(2)=2 $ NML(1)=NML(1)+1
+      NML(NML+2)=LЕХ $ GОТО 11
+С---    ИНИЦИАЛИЗАЦИЯ ЧИТАЛКИ И АРХИВА
+  2   CALL RCINIT(МТ)
+      CALL VMEMOR(30 0000В)
+      CALL VMREAD(КЕУ,0,6)
+      IPOZ=-1 $ NER=0 $ NFIL=0 $ NAMERR=6Н
+      IF(JОВ.EQ.2.OR.КЕУ.NЕ.'MICROB')CALL MICGEN
+      CALL VMREAD(КЕУ,0,9)
+      IF(LFREE.GТ.1024*MAXZON) CALL MICFAT(2)
+      LВ=LW4/48 $ IF(48*LВ.NЕ.LW4) LВ=LВ+1
+С---    СОБСТВЕННО ТРАНСЛЯЦИЯ И ЗАКРЫТИЕ АРХИВА
+      IТУР=1 $ IREZ=0 $ CALL MICCLE(IREZ)
+      IPOZ=-1 $ JSTOP=NER $ CALL MICASS
+      CALL MICWRC $ CALL VMWRIT(КЕУ,0,20) $ CALL VMCLOS
+      IF(JSTOP.NЕ.0) CALL MICFAT(3)
+      RETURN
+      END
+      FUNCTION MICSET(KOD,KL,KR)
+С*
+С***   ЗАГРУЗКА ПОЛЯ [KL:KR] МИКРОСЛОВА
+С*     СОДЕРЖИМЫМ МЛАДШИХ РАЗРЯДОВ KOD.
+С*     ЕСЛИ ИНФОРМАЦИЯ "НЕ ВЛЕЗАЕТ" В
+С*     ПОЛЕ, РЕЗУЛЬТАТ НЕ РАВЕН 0.
+С*
+      COMMON /MEMOR/ КЕУ(2),LW4
+С---
+      MICSET=0
+      КК = KOD.AND.7777 7777В
+      N = LW4+1-KR
+      LООР = 1+KL-KR
+      DО 1 I=1,LООР
+      КВ=КК.AND.1В
+      IF(КВ.EQ.0В) CALL MBWCLE(N)
+      IF(КВ.EQ.1В) CALL MBWPUT(N)
+      КК=КК.SHIFT.1
+   1  N=N-1
+      MICSET=КК.OR.0
+      RETURN
+С
+С---
+С
+      ENTRY MICFRG
+С*
+С***   ОБРАТНАЯ ПРОЦЕДУРА: ВЫДАЧА
+С*     СОДЕРЖИМОГО ПОЛЯ [KL:KR] .
+С*     ПОРЯДОК РЕЗУЛЬТАТА СОВПАДАЕТ
+С*     С ПОРЯДКОМ СЛОВА  KOD.
+С*
+      КК=0В
+      LООР=1+KL-KR
+      N=LW4+1-KL
+      DО 2 I=1,LООР
+      КК=КК.SHIFT.-1
+      IF(MBWCHK(N).NЕ.0) КК=КК.OR.1В
+   2  N=N+1
+      MICSET=KOD.AND.7740 0000 0000 0000В.OR.КК
+      RETURN
+      END
+      SUBROUTINE MICAN1
+С***   ПЕРВИЧНОЕ РАСПОЗНАВАНИЕ КАРТЫ.
+С*    ФОРМИРУЮТСЯ ПЕРЕМЕННЫЕ: КТУР,LABEL,КОР
+С*          КТУР - ТИП КАРТЫ :
+С*  1 - УПРАВЛЕНИЕ ТРАНСЛЯЦИЕЙ, 2 - КОММЕНТ.
+С*  3 - ИНСТРУКЦИЯ АССЕМБЛЕРА,  4 - НЕОПОЗНАНА
+С*  5 - КОНЕЦ ФАЙЛА ЧТЕНИЯ
+С*        LABEL = <МЕТКА> ИЛИ 6Н
+С*         КОР  = <КОД ОПЕРАЦИИ> ИЛИ 6Н
+      COMMON /CARD/ К(14)
+      COMMON /REKV/ NАМЕ(5)
+      COMMON /LЕХЕМ/ LЕХ(14),IР
+      COMMON /LETTER/ LЕТ,КТР,KSEM,КСОММА,KPL,KMIN,KSTAR
+      COMMON /ASSEM/ NSTEP,MER(5),КТУР,LABEL,КОР
+      COMMON /ENTRY/ KENT,MENT(2,200)
+      EQUIVALENCE (NРС,MER(4))
+      DАТА NORD/2048/
+С-------------------------
+      КТУР=4 $ КОР=' ' $ LABEL=' '
+      CALL SCANER(К,LЕХ,2,IТ,LЕТ,IР)
+      IF( IТ-4 ) 10,4,1
+С---     ИДЕНТИФИКАТОР
+  4   LABEL=LЕХ $ IF(LЕТ.EQ.КТР) GОТО 2
+      КТУР=1 $ LABEL=' '
+      IF(LЕХ.EQ.'*NО'.OR.LЕХ.EQ.'*FULL') GОТО 10
+      КТУР=5 $ IF(IGETS(LЕХ,0).EQ.KSTAR) GОТО 10
+      GОТО 5
+С---     ПУСТОЙ ФРАГМЕНТ
+  1   IF(LЕТ.EQ.KSEM) GОТО 6
+      IF(LЕТ.NЕ.КТР) GОТО 10
+С---     ВЫБОРКА  К О П
+  2   CALL SCANER(0,LЕХ,0,IТ,LЕТ,IР)
+      IF(IТ.NЕ.4) GОТО 10
+  5   КОР=LЕХ $ КТУР=3
+  10  RETURN
+С---    КОММЕНТАРИЙ
+  6   КТУР=2
+      IF(NSTEP.NЕ.2.OR.К.NЕ.';PROM:') RETURN
+С---     ;PROM:А1,А2-А3,А4, ...
+      NАМЕ(2)=1 $ NАМЕ(3)=0 $ NS=6
+  28  NАМЕ(4)=-10 $ NАМЕ(5)=-10
+  29  ASSIGN 30 ТО LНЕХ $ ASSIGN 33 ТО LTAR
+С---     ВЫБОРКА ШЕСТНАДЦАТИРИЧНОГО ЧИСЛА
+  50  NNN=0
+  51  LЕТ=IGETS(К,NS) $ NS=NS+1
+      IF(LЕТ.GЕ.48.AND.LЕТ.LЕ.57) GОТО 52
+      IF(LЕТ.LТ.65) GОТО 54
+      LЕТ=LЕТ-7
+  52  LЕТ=LЕТ-48 $ NNN=NNN.SHIFT.-4.OR.LЕТ
+      IF(LЕТ.LТ.16) GОТО 51
+  53  КТУР=4 $ RETURN
+  54  IF(LЕТ.NЕ.КСОММА.AND.LЕТ.NЕ.KMIN.AND.LЕТ.GТ.32) GОТО 53
+      NNN=NNN+1 $ GОТО LНЕХ,(30,31)
+С---  ЗАПИСЬ В ТАБЛИЦУ АДРЕСНЫХ ССЫЛОК
+  60  NАМЕ(1)=NРС.AND.7777В.OR.(NORD.SHIFT.-12)
+      NORD=NORD+1 $ CALL MICPID(IREZ)
+      GОТО LTAR,(32,33,41,10)
+С---    ПРОБА НА ДИАПАЗОН
+  30  IF(LЕТ.NЕ.KMIN) GОТО 40
+      IF(NАМЕ(5).GТ.0) GОТО 60
+  33  NАМЕ(4)=NNN $ ASSIGN 31 ТО LНЕХ $ GОТО 50
+  31  IF(NNN.LТ.NАМЕ(4).OR.LЕТ.EQ.KMIN) GОТО 53
+      NАМЕ(5)=NNN $ ASSIGN 32 ТО LTAR $ GОТО 60
+  32  IF(LЕТ.EQ.КСОММА) GОТО 28
+      RETURN
+С---    СПИСОК.  КОПИМ ДИАПАЗОН.
+  40  IF(NАМЕ(4).LТ.0) GОТО 41
+      ASSIGN 41 ТО LTAR
+      IF(NNN.NЕ.NАМЕ(5)+1) GОТО 60
+  41  IF(NNN.NЕ.NАМЕ(5)+1) NАМЕ(4)=NNN
+      NАМЕ(5)=NNN $ IF(LЕТ.EQ.КСОММА) GОТО 29
+      ASSIGN 10 ТО LTAR $ GОТО 60
+С*
+С***  ВЫБОРКА ШЕСТНАДЦАТИРИЧНОЙ ХАРАКТЕРИСТИКИ
+С*    ФОРМИРУЕТСЯ MENT. ЕСЛИ НЕТ ОШИБКИ, MER=1
+      ENTRY MICHCH
+      NНЕХ=0 $ IТЕМР=0В
+      IF(LЕТ.LТ.32.OR.LЕТ.EQ.KSEM) GОТО 20
+  21  CALL SCANER(0,NНЕХ,13В,IТ,LЕТ,IР)
+      IF(LЕТ.LТ.32.OR.LЕТ.EQ.KSEM) GОТО 20
+      NНЕХ=LЕТ-48 $ IF(NНЕХ.GТ.9) NНЕХ=NНЕХ-7
+      IF(NНЕХ.LТ.0.OR.NНЕХ.GТ.15) RETURN
+      IТЕМР=IТЕМР.SHIFT.-4.OR.NНЕХ $ GОТО 21
+  20  MER=1 $ MENT(2,KENT)=IТЕМР.SHIFT.-24
+      RETURN
+      END
+      SUBROUTINE MICGEN
+С*
+С***   ТРАНСЛЯЦИЯ ГЛОБАЛЬНОГО КОНТЕКСТА.
+С*      (ПРОИЗВОДИТСЯ ЗА ОДИН ПРОХОД).
+С*
+С*    ГЛОБАЛЬНЫЙ КОНТЕКСТ ОПИСЫВАЕТСЯ
+С*    ПСЕВДОПРОГРАММОЙ С ИМЕНЕМ  DEFINE:
+С*       DEFINE:PROG <ЧИСЛО>,<ЧИСЛО1>;
+С*    ЗДЕСЬ <ЧИСЛО> ЗАДАЕТ РАЗРЯДНОСТЬ
+С*    МИКРОСЛОВА  N.  БИТЫ В МИКРОСЛОВЕ
+С*    НУМЕРУЮТСЯ СПРАВА НАЛЕВО: N,N-1,...,2,1
+С*    <ЧИСЛО1> - РАЗРЯДНОСТЬ ПЗУ КОНСТАНТ
+С*    ПРИ УМОЛЧАНИИ = 64.
+С*
+С*    КОНЕЦ ПРОГРАММЫ - КОНСТРУКЦИЯ   "END;"
+С*    СИМВОЛ ";" - ПРИЗНАК КОНЦА ЛЮБОЙ СТРОКИ.
+С*    ПОСЛЕ НЕГО МОЖЕТ СЛЕДОВАТЬ ПРОИЗВОЛЬНЫЙ
+С*    КОММЕНТАРИЙ. ВНУТРИ ПРОГРАММЫ  DEFINE
+С*    ДОПУСТИМЫ  СЛЕДУЮЩИЕ КОНСТРУКЦИИ :
+С*
+С*     1. ОПРЕДЕЛЕНИЕ ГЛОБАЛЬНОЙ ПЕРЕМЕННОЙ.
+С*      <МЕТКА>:EQU <ВЫРАЖЕНИЕ>;
+С*      В <ВЫРАЖЕНИЕ> МОГУТ ВХОДИТЬ СО ЗНАКОМ
+С*      "+" ИЛИ "-" ЧИСЛА, А ТАКЖЕ ПЕРЕМЕННЫЕ,
+С*      ЗНАЧЕНИЯ КОТОРЫХ К ЭТОМУ МОМЕНТУ УЖЕ
+С*      ОПРЕДЕЛЕНЫ.
+С*
+С*     2. ГРУППОВОЕ ОПРЕДЕЛЕНИЕ ИМЕН.
+С*      А:BLOCK В,С(5),D;      - ЭКВИВАЛЕНТНО
+С*      В:EQU А;  С:EQU В+1;  D:EQU С+5;
+С*
+С*     3. ОПРЕДЕЛЕНИЕ ПОЛЯ.
+С*      <МЕТКА>:FIELD <N1>,<N2>[,<VALUE>];
+С*      ЗДЕСЬ МАХ(N1,N2) ЗАДАЕТ ЛЕВУЮ,  А
+С*      MIN(N1,N2) - ПРАВУЮ ГРАНИЦЫ ПОЛЯ.
+С*      НЕОБЯЗАТЕЛЬНОЕ <VALUE> (ПРИ НЕУКА-
+С*      ЗАНИИ ПОЛАГАЕТСЯ РАВНЫМ НУЛЮ)
+С*      ЗАДАЕТ КОД, КОТОРЫМ ЗАПОЛНЯЕТСЯ ПОЛЕ
+С*      ПРИ НЕУКАЗАНИИ ЕГО В МИКРОКОМАНДЕ.
+С*
+С*     4. ОПРЕДЕЛЕНИЕ КОНСТАНТЫ ИЗ  П З У.
+С*      <МЕТКА>:CONST <ШЕСТН.КОНСТАНТА>;
+С*      ЛЕВЫЕ НУЛИ В КОНСТАНТАХ МОЖНО ОПУСКАТЬ.
+С*      КОНСТАНТЫ АДРЕСУЮТСЯ В  П З У  НАЧИНАЯ
+С*      С АДРЕСА 0 В ПОРЯДКЕ ИХ ЗАВЕДЕНИЯ.
+С*
+      COMMON /CARD/ К(14)  /LЕХЕМ/ LЕХ(14),IР
+      COMMON /LETTER/ LЕТ,КТР,KSEM,КСОММА(7),KCONT
+      COMMON /MEMOR/ КЕУ,LW,LW4,LBIN,LROM,
+     *               LFREE,IТАВ,LТАВ,IROM
+      COMMON /REKV/ NАМЕ,IТУР,KL,KR,IVAL
+      COMMON /АСС/ АСС(10)
+      COMMON /BINARY/ BIN(10)
+      COMMON /FIELD/ NFIL,LFIL(4,100)
+      COMMON /ASSEM/ NS,MER,NER,LFAT,NРС,
+     *        NAMERR,КТУР,LABEL,КОР
+      INTEGER АСС
+С----------------------------------
+С
+С       ОСНОВНЫЕ ПАРАМЕТРЫ ТРАНСЛЯТОРА :
+С       ================================
+С
+С   КЕУ   - КОД НАЛИЧИЯ АРХИВА
+С   LW    - РАЗРЯДНОСТЬ МИКРОСЛОВА
+С   LW4   -  ---"---, ОКРУГЛЕННАЯ ДО 4
+С   LBIN  - ДЛИНА МИКРОСЛОВА В СЛОВАХ Б-6
+С   LROM  - РАЗРЯДНОСТЬ ПЗУ (1:9) И
+С           КОЛИЧЕСТВО КОНСТАНТ (10:24)
+С   LFREE - СВОБОДНОЕ МЕСТО В АРХИВЕ
+С   IТАВ  - НАЧАЛО ТАБЛИЦЫ ИМЕН В АРХИВЕ
+С   LТАВ  - РАЗМЕР ТАБЛИЦЫ ИМЕН
+С   IROM  - НАЧАЛО СПИСКА  ПЗУ-КОНСТАНТ
+C      Определения полей хранятся в адресах 20:ITAB-1
+С
+      КЕУ='MICROB'
+      LFREE=IТАВ+5*LТАВ+1
+      CALL VMSET(0В,IТАВ,5*LТАВ)
+      NFIL=0 $ LW=0 $ NS=2 $ NAMERR=6Н
+      MER=2 $ LFAT=1 $ NER=0 $ NРС=-1
+      CALL READER(К) $ KROM=0 $ LROM=64
+      CALL MICAN1 $ IROM=LFREE
+      IF(LABEL.NЕ.'DEFINE') GОТО 1
+      IF(КОР.NЕ.'PROG') GОТО 1
+      MER=3
+      CALL SCANER(0,LW,0,IТ,LЕТ,IР)
+      IF(IТ.NЕ.2.OR.LW.LТ.10) GОТО 1
+      IF(LЕТ.EQ.КСОММА) CALL SCANER(0,LROM,0,IТ,LЕТ,IР)
+      IF(IТ.NЕ.2.OR.LROM.GТ.96) GОТО 1
+      N1=LROM/4 $ IF(LROM.NЕ.4*N1) GОТО 1
+      MER=1 $ LFAT=0
+      LW4=LW/4
+      IF(4*LW4.NЕ.LW) LW4=LW4+1
+      LW4=4*LW4
+С---     ЦИКЛ ПОСТРОЧНОЙ ТРАНСЛЯЦИИ
+   1  CALL MICPRI
+      CALL READER(К)
+      IF(IGETS(К,0).EQ.KCONT)
+     *            CALL IPUTS(KSEM,К,0)
+      CALL MICAN1
+      CALL MBWDEF(АСС,LW4) $ CALL MBWSTA(BIN)
+      MER=1 $ IF(КТУР.LТ.3) GОТО 1
+      MER=15 $ IF(КТУР.NЕ.3) GОТО 1
+      MER=1 $ IF(КОР.EQ.'END') GОТО 999
+      MER=7 $ IF(LABEL.EQ.' ') GОТО 1
+С---     ПОЛУЧЕНА МЕТКА
+      NАМЕ = LABEL $ IТУР=2
+      IF(КОР.EQ.'EQU') GОТО 10
+      IF(КОР.EQ.'BLOCK') GОТО 100
+      IF(КОР.EQ.'CONST') GОТО 200
+      MER=15 $ IF(КОР.NЕ.'FIELD') GОТО 1
+С---     ЭТО ОПИСАНИЕ ПОЛЯ
+      IТУР=3 $ MER=9
+      CALL SCANER(0,N1,0,IТ,KOD,IР)
+      IF(IТ.NЕ.2.OR.N1.LТ.1.OR.N1.GТ.LW) GОТО 1
+      CALL SCANER(0,N2,0,IТ,KOD,IР)
+      IF(IТ.NЕ.2.OR.N2.LТ.1.OR.N2.GТ.LW) GОТО 1
+      IF(N1.GЕ.N2) GОТО 3
+      J=N1 $ N1=N2 $ N2=J
+   3  IVAL=0В $ IF(KOD.NЕ.КСОММА) GОТО 4
+      CALL MICFIL(1)
+      IF(MER.GТ.1) GОТО 1
+   4  NF1=NFIL $ NFIL=NFIL+1
+      if(ival.eq.'/С/') ival='/C/'
+      if(ival.eq.'/А/') ival='/A/'
+      LFIL(1,NFIL)=NАМЕ
+      LFIL(2,NFIL)=N1
+      LFIL(3,NFIL)=N2
+      LFIL(4,NFIL)=IVAL
+      if(ival.eq.'/C/'.or.ival.eq.'/A/') ival=0
+      KL=N1 $ KR=N2 $ MER=11
+      IF(NF1.EQ.0) GОТО 20
+      DО 5 I=1,NF1
+      NAMERR=LFIL(1,I)
+      KL1=LFIL(2,I) $ KR1=LFIL(3,I)
+      IF(KR1.GЕ.KL) GОТО 5
+      IF(KR1.GТ.KR) GОТО 1
+      IF(KL1.LЕ.KR) GОТО 5
+      IF(KL1.LТ.KL) GОТО 1
+   5  CONTINUE
+      GОТО 20
+С---
+ 100  CALL MICBLO(2) $ GОТО 1
+С
+С---    КОНСТАНТА ИЗ  П З У
+ 200  CALL MBWDEF(АСС,LROM)
+      АСС(2)=0В $ АСС(3)=0В $ MER=7
+ 201  CALL SCANER(0,LЕХ,13В,IТ,LЕТ,IР)
+      IF(LЕТ.EQ.KSEM) GОТО 203
+      IF(IТ.EQ.1) GОТО 202
+      IF(IТ.NЕ.2) GОТО 1
+      IF(LЕТ.GТ.70) GОТО 1
+      LЕТ=LЕТ-7
+ 202  LЕТ=LЕТ-48
+      J=АСС.SHIFT.44 $ IF(J.NЕ.0В) GОТО 1
+      АСС(1)=АСС(1).SHIFT.-4.OR.АСС(2).SHIFT.44
+      АСС(2)=АСС(2).SHIFT.-4
+      N2=LW4 $ LW4=LROM
+      J=MICSET(LЕТ,4,1)
+      LW4=N2 $ GОТО 201
+ 203  KROM=KROM+1 $ J=IROM+2*KROM-2
+      CALL VMWRIT(АСС,J,2)
+      CALL MBWDEF(АСС,LW4)
+      KL=0 $ KR=' *RОМ ' $ IVAL=KROM-1
+      CALL VMREAD(АСС,J,2)
+      GОТО 11
+С---    ОПИСАНИЕ ГЛОБАЛЬНОЙ ПЕРЕМЕННОЙ
+  10  CALL MICVAL(1)
+      IF(MER.GТ.1) GОТО 1
+      KL=0 $ KR=0
+  11  N2=1 $ N1=LW $ IF(N1.GТ.24) N1=24
+С---    РЕГИСТРАЦИЯ В ТАБЛИЦЕ
+  20  CALL MICPID(IREZ)
+      NAMERR=NАМЕ $ MER=6
+      IF(IREZ.EQ.0) GОТО 1
+      MER=10
+      IF(MICSET(IVAL,N1,N2).NЕ.0) GОТО 1
+      CALL MBWSTA(BIN)
+      NAMERR=' ' $ MER=0 $ GОТО 1
+ 999  mer=8 $ namerr=' '
+      if(nfil.eq.0) goto 1000
+      do 900 i=1,nfil
+      n1=lfil(2,i) $ n2=lfil(3,i) $ lfil(2,i)=lfil(1,i) $ j=0
+      if(lfil(4,i).eq.'/C/') j=4096
+      if(lfil(4,i).eq.'/A/') j=2048
+  900 lfil(1,i) = j+n1-n2
+       CALL SHSORT(lfil,nfil,4,3)
+      do 901 i=1,nfil
+      j=lfil(1,i).and.777b.or.0 $ lfil(1,i)=lfil(2,i)
+  901 lfil(2,i)=j+lfil(3,i)
+      mer=13
+      namerr=lfil(1,1) $ if(lfil(4,1).ne.'/C/') goto 1000
+      namerr=lfil(1,2) $ if(lfil(4,2).ne.'/A/') goto 1000
+      mer=1 $ namerr=' '
+ 1000 CALL MICPRI
+      LROM=KROM.SHIFT.-9.OR.LROM
+      LFREE=IТАВ+5*LТАВ+2*KROM+1
+      IF(NER.EQ.0) CALL VMWRIT(КЕУ,0,20)
+      call vmwrit(nfil,20,401)
+      call micwrc
+      RETURN
+      END
+      SUBROUTINE MICCHF
+С*
+С***   ИТОГОВАЯ ПРОВЕРКА ОПИСАНИЙ ПОЛЕЙ
+С*     СОРТИРОВКА ПОЛЕЙ ПО УБЫВАНИЮ РАЗМЕРОВ
+С*
+С*     СРЕДИ ВСЕХ ПОЛЕЙ МИКРОКОМАНДЫ
+С*     ДОЛЖНО БЫТЬ РОВНО ОДНО ПОЛЕ
+С*     КОДА ОПЕРАЦИИ И РОВНО ОДНО
+С*     АДРЕСНОЕ ПОЛЕ.
+С*
+С*     ДЛЯ ЦЕЛЕЙ МАРКИРОВКИ ПОЛЕЙ СЛУЖИТ
+С*     СПЕЦИАЛЬНОЕ ЗНАЧЕНИЕ АТРИБУТА <VALUE>
+С*     (СМ. MICGEN).
+С*     <VALUE> = /С/   - ПОЛЕ КОДА ОПЕРАЦИИ,
+С*     <VALUE> = /А/   - АДРЕСНОЕ ПОЛЕ
+С*
+С*     ПОЛЕ КОП ПОМЕЩАЕТСЯ НА ПЕРВОЕ МЕСТО
+С*     В СПИСКЕ ПОЛЕЙ LFIL, АДРЕСНОЕ ПОЛЕ -
+С*     - НА ВТОРОЕ.
+С*
+      COMMON /FIELD/ NFIL,LFIL(4,100),NVF(100)
+      COMMON /ASSEM/ NSTEP,MER,NER(3),NAMERR
+      COMMON /REKV/ NАМЕ,IТУР,KL,KR,IVAL
+      COMMON /LЕХЕМ/ LЕХ(14),IPOZ
+      COMMON /ENTRY/ KENT,MENT
+      COMMON /ERTEX/ ISP(20),MD(5,20)
+С-------------------------------------
+      IPOZ=-1 $ IF(NER.NЕ.0) GОТО 9
+      CALL VMREAD(nfil,20,401)
+      MER=1 $ NAMERR=6Н
+      IF(NFIL.eq.0) mer=8
+      do 1 i=1,nfil
+  1   NVF(I)=LFIL(4,I)
+      nvf(1)=0 $ nvf(2)=0
+      RETURN
+  9   MER=20 $ CALL PUTG(NAMERR,NER,0,4,0,IР)
+      MD(1,MER)=MENT $ RETURN
+      END
+      SUBROUTINE MICASS
+С*
+С***   ПООЧЕРЕДНАЯ ТРАНСЛЯЦИЯ ВСЕХ (ИЛИ ПО
+С*     СПИСКУ) ПОДПРОГРАММ ИЗ ФАЙЛА ЧТЕНИЯ.
+С*     ЗАПИСЬ ОБЬЕКТНОГО КОДА В БИБЛИОТЕКУ.
+С*
+С*     СХЕМА ТРАНСЛЯЦИИ - ДВУХПРОХОДНАЯ.
+С*     ПЕРВЫЙ ПРОХОД - СОЗДАНИЕ ТАБЛИЦЫ ИМЕН.
+С*     ВТОРОЙ ПРОХОД - ГЕНЕРАЦИЯ ОБЬЕКТНОГО
+С*     КОДА И ПЕЧАТЬ ЛИСТИНГА ПРОГРАММЫ.
+С-----------------------------------------
+      COMMON /ASSEM/ NSTEP,MER,NER,LF,NРС,
+     *               NAMERR,КТУР,LABEL,КОР
+      COMMON /АСС/ АСС(10)  /BINARY/ BIN(10)
+      COMMON /MEMOR/ КЕУ,LW,LW4,LВ,LROM,
+     *               LFREE(4),JSTOP
+      COMMON /ENTRY/ KENT,MENT(2,200)
+      COMMON /EXTERN/ КЕХТ,МЕХТ(400)
+      COMMON /FIELD/ NFIL,LFIL(4,100),NVF(100)
+      COMMON /REKV/ NАМЕ,IТУР,KL,KR,IVAL
+      COMMON /CARD/ К(140),К2(14)
+      COMMON /LETTER/ LETTER(10),KCONT
+      COMMON /NMLST/ LLP,LAN,NML(2)
+С-----------------------------------------
+      CALL DIALOP(1)
+      КТУР=1 $ MER=4 $ КОР='PROG'
+      IF(LW.EQ.0) CALL MICFAT(4)
+      CALL MICCHF $ CALL MICSEM(1)
+      IF(MER.GТ.1) CALL MICPRI
+С---    ДВА ПРОХОДА ТРАНСЛЯТОРА
+   1  CALL CTIME(СТ,RТ) $ JSTOP=JSTOP+NER
+      DО 2 ISTEP=1,2 $ KENT=0 $ КЕХТ=0
+      NSTEP=ISTEP $ MER=1
+      NER=0 $ NAMERR=' ' $ IТУР=1
+      MBIN=LFREE $ МТЕХ=LFREE+4096
+      CALL MICAS1 $ IF(КТУР.EQ.5) RETURN
+   2  CONTINUE
+      CALL CTIME(СТ,RТ1)
+      CALL MICTAB(RТ1-RТ)
+С---    ЗАПИСЬ ВХОДОВ В БИБЛИОТЕКУ
+  14  IТУР=1 $ IREZ=0 $ CALL MICCLE(IREZ)
+      IF(NER.NЕ.0) GОТО 1
+      IТУР=4 $ CALL MICPID(IREZ)
+      LFREE=LFREE+KR $ IF(KENT.EQ.1) GОТО 1
+      IТУР=5 $ KL=0 $ KR=MENT(1,1)
+      DО 20 I=2,KENT
+      NАМЕ=MENT(1,I) $ IVAL=MENT(2,I)
+  20  CALL MICPID(IREZ)
+      GОТО 1
+С*
+С***   ПОДПРОГРАММА ЧТЕНИЯ И РАСПОЗНАВАНИЯ КАРТЫ
+С*
+      ENTRY MICREA
+      JF=0 $ GОТО (101,102), NSTEP
+ 101  JК=JF $ CALL MICMAC(JК)
+      CALL MICAN1 $ JF=1 $ К2=MONCRD(1)
+      IF(КТУР.EQ.5) GОТО 109
+      IF(К2.EQ.'*END F'.OR.К2.EQ.'*CALL') GОТО 109
+      CALL READER(К2)
+      IF(IGETS(К2,0).EQ.KCONT) GОТО 101
+ 109  J=-1 $ GОТО (113,114,115),LAN
+ 114  IF(КОР.NЕ.'PROG') GОТО 100
+      DО 214 I=1,LLP
+      IF(LABEL.EQ.NML(I)) LAN=1
+ 214  CONTINUE
+ 113  J=1+JК/6 $ CALL WRVMEM(J,МТЕХ)
+      CALL VMWRIT(К,МТЕХ+1,J)
+ 115  IF(КОР.EQ.'END'.AND.LLP.NЕ.0) LAN=2
+ 103  МТЕХ=МТЕХ+J+1 $ GОТО 100
+ 102  J=MEMVRD(МТЕХ) $ CALL VMREAD(К,МТЕХ+1,J)
+      CALL MICAN1 $ GОТО 103
+С*
+С***   ПОДПРОГРАММА ЗАПИСИ ОБЬЕКТНОГО КОДА
+С*
+      ENTRY MICBIN
+      IF(NSTEP.EQ.1) GОТО 100
+      CALL VMWRIT(BIN,MBIN,LВ) $ MBIN=MBIN+LВ
+ 100  RETURN
+      END
+      SUBROUTINE MICAS1
+С*
+С***   ТРАНСЛЯЦИЯ ОДНОЙ ПРОГРАММЫ
+С*    ОДНА ИНСТРУКЦИЯ РАЗМЕЩАЕТСЯ НА ОДНОЙ
+С*    ИЛИ НЕСКОЛЬКИХ КАРТАХ. В ПОСЛЕДНЕМ
+С*    СЛУЧАЕ КАЖДАЯ КАРТА-ПРОДОЛЖЕНИЕ ДОЛЖНА
+С*    СОДЕРЖАТЬ СИМВОЛ ">" В ПЕРВОЙ ПОЗИЦИИ.
+С*    ФОРМАТЫ ИНСТРУКЦИЙ АССЕМБЛЕРА:
+С*
+С*   1. ЗАГОЛОВОК ПОДПРОГРАММЫ
+С*        <ИМЯ>:PROG <ХАРАКТЕРИСТИКА>;
+С*    ХАРАКТЕРИСТИКА - ШЕСТНАДЦАТИРИЧНОЕ ЧИСЛО,
+С*    ИНТЕРПРЕТИРУЕМОЕ ТОЛЬКО ЗАГРУЗЧИКОМ.
+С*
+С*   2. КОНЕЦ ПОДПРОГРАММЫ
+С*              END;
+С*
+С*   3. ОПИСАНИЕ ТОЧКИ ВХОДА
+С*        <ИМЯ>:ENTRY;
+С*
+С*   4. ОПИСАНИЕ ВНЕШНИХ ПРОГРАММ
+С*              EXTERN <СПИСОК ИМЕН>;
+С*
+С*   5. ОПИСАНИЕ ЛОКАЛЬНОЙ ПЕРЕМЕННОЙ
+С*      <МЕТКА>:EQU <ВЫРАЖЕНИЕ>;   ИЛИ:
+С*      <МЕТКА>:BLOCK <СПИСОК МЕТОК>;
+С*
+С*   6. КОМАНДЫ
+С*     [<МЕТКА>:] <КОП> <СПИСОК ПОЛЕЙ>;
+С*    В РАЗДЕЛЕ <КОП> УКАЗЫВАЕТСЯ СОДЕРЖИМОЕ
+С*    ПОЛЯ КОДА ОПЕРАЦИИ В МИКРОКОМАНДЕ (ЭТО
+С*    ПОЛЕ ОТМЕЧЕНО МАРКИРОВКОЙ "/С/" ).
+С*    ЭЛЕМЕНТЫ СПИСКА ПОЛЕЙ РАЗДЕЛЕНЫ ЗАПЯТЫМИ.
+С*    ВИД ЭЛЕМЕНТА:  <ИМЯ ПОЛЯ> = <ЗНАЧЕНИЕ>
+С*    ДЛЯ ОДНОБИТОВЫХ ПОЛЕЙ ДОСТАТОЧНО УКАЗАТЬ
+С*    ТОЛЬКО ИМЯ, ПРИ ЭТОМ ПОДРАЗУМЕВАЯ, ЧТО
+С*    <ЗНАЧЕНИЕ>=1.
+С*
+С*   7. ИЗМЕНЕНИЕ ЗНАЧЕНИЯ ПОЛЯ ПО УМОЛЧАНИЮ
+С*     <ИМЯ ПОЛЯ>:VALUE <НОВОЕ ЗНАЧЕНИЕ>
+С*
+С*   8. КОММЕНТАРИЙ.  ВСЕ, ЧТО СЛЕДУЕТ ЗА
+С*    СИМВОЛОМ ";" - ЯВЛЯЕТСЯ КОММЕНТАРИЕМ.
+С*    В ЧАСТНОСТИ, ЕСЛИ ";" СТОИТ В 1 ПОЗИЦИИ,
+С*    ТО ВСЯ СТРОКА - КОММЕНТАРИЙ.
+С*
+С*   9. УПРАВЛЕНИЕ ПЕЧАТЬЮ ЛИСТИНГА.
+С*    КАРТА *NО LIST  ( *FULL LIST ),
+С*    ВСТРЕТИВШАЯСЯ В ЛЮБОМ МЕСТЕ ТЕКСТА
+С*    ПРОГРАММЫ, ВЫКЛЮЧАЕТ (ВКЛЮЧАЕТ) ПЕЧАТЬ
+С*    ЛИСТИНГА.  СТРОКИ, СОДЕРЖАЩИЕ ОШИБКИ,
+С*    А ТАКЖЕ ДИАГНОСТИКА, ПЕЧАТАЮТСЯ ВСЕГДА.
+С*
+      COMMON /CARD/ К(14)  /LЕХЕМ/ LЕХ(14)
+      COMMON /АСС/ АСС(10) /MEMOR/ КЕУ(2),LW4
+      COMMON /ASSEM/ NSTEP,MER,NER,LF,NРС,
+     *               NAMERR,КТУР,LABEL,КОР
+      COMMON /ENTRY/ KENT,MENT(2,200)
+      COMMON /REKV/ NАМЕ,IТУР,KL,KR,IVAL
+      COMMON /LETTER/ LSTLET,КТР,KSEM,КСОММА,
+     *                KPL,KMIN,KSTAR,KSL
+      DIMENSION INSTR(7)
+      DАТА INSTR/ 'PROG','END','EXTERN','ENTRY',
+     *            'EQU','BLOCK','VALUE' /
+С------------------------------------
+      NРС=0 $ КТУР=2 $ IST=1 $ GОТО 9
+   2  CALL MICPRI $ NРС=NРС+NDPC
+   9  CALL MICREA $ NDPC=0
+      MER=1 $ IТ=2*КТУР+IST-2
+      GОТО (2,2,2,2,3,6,4,4,999,999), IТ
+С---    ДОЖИДАЕМСЯ ЗАГОЛОВКА
+   4  MER=15 $ GОТО 2
+   3  MER=2 $ IF(КОР.NЕ.INSTR(1)) GОТО 2
+      IF(LABEL.EQ.' ') GОТО 2
+      IST=2 $ KENT=1 $ MENT(1,1)=LABEL
+      CALL MICHCH $ GОТО 2
+С---    ВНУТРИ ПРОГРАММЫ
+   6  IF(NSTEP.EQ.2) CALL MBWDEF(АСС,LW4)
+      DО 7 I=2,7 $   IF(КОР.EQ.INSTR(I))
+     *    GОТО( 2,990,30,40,50,60,70 ), I
+   7  CONTINUE
+С---    КОД МИКРООПЕРАЦИИ
+      CALL MICINS $ NDPC=1 $ GОТО 2
+С---    ИНСТРУКЦИИ АССЕМБЛЕРА
+  30  CALL MICEXT $ GОТО 2
+  40  CALL MICENT $ GОТО 2
+  50  CALL MICEQU $ GОТО 2
+  60  CALL MICBLO(1) $ GОТО 2
+  70  CALL MICNVF $ GОТО 2
+С---    ИНСТРУКЦИЯ  END
+ 990  IF(NER.NЕ.0) CALL MICCHF
+      CALL MICPRI
+ 999  RETURN
+      END
+      SUBROUTINE MICTAB(TIM)
+С*
+С***    ПЕЧАТЬ ТАБЛИЦЫ ИДЕНТИФИКАТОРОВ
+С*      ДОФОРМИРОВАНИЕ МОДУЛЯ ЗАГРУЗКИ
+С*
+      COMMON /ENTRY/ KENT,MENT(2,200)
+      COMMON /EXTERN/ КЕХТ,МЕХТ(400)
+      COMMON /REKV/ NАМЕ,IТУР,LENP,LENL,LADR
+      COMMON /FIELD/ NFIL,LFIL(4,100),nvf(100)
+      COMMON /MEMOR/ КЕУ,LW,LW4,LBIN,LROM,LFREE,itab,ltab
+      COMMON /CATMEM/ mcat(3,2)
+      COMMON /ASSEM/ NSTEP,MER,NER(2),NРС
+      INTEGER STR(21),WS(3)
+С------------------------------
+      NРС1=NРС $ MBIN=LFREE+NРС1*LBIN
+      N=0 $ NА=0 $ NSTEP=3
+С---   ИЗВЛЕЧЕНИЕ ИЗ ТАБЛИЦЫ ИМЕН ОПИСАНИЙ
+С      МЕТОК И АДРЕСНЫХ ССЫЛОК. Каталог временно прячем
+      call vmwrit(mcat,mbin+3*ltab,3*ltab)
+      do 1 i=1,ltab
+      name=mcat(1,i) $ lenl=mcat(3,i) $ j=mcat(2,i)
+      ladr=j.shift.26.or.0
+      lenp=j.and.1777 7777b.or.0
+      ityp=j.shift.22.and.7.or.0
+      if(name.eq.0b.or.name.eq.7777 7777b) goto 1
+      if(ityp.ne.1.or.lenl.eq.0) goto 1
+      J=NАМЕ.SHIFT.24
+      IF(J.NЕ.0В) name=name.and.3767 7577 3767 7577b
+      if(j.ne.0b) GОТО 2
+      N1=NАМЕ.SHIFT.6.AND.400000В
+      NА=NА+1 $ J=512*LFIL(2,2)+LFIL(3,2)
+      NАМЕ=NАМЕ.AND.7777В.OR.(J.SHIFT.-18).OR.N1
+   2  N=N+1 $ mcat(1,n)=name
+      mcat(2,n)=LENL $ mcat(3,n)=LADR
+   1  continue
+С---   СОРТИРОВКА ПО АДРЕСАМ И ЗАПИСЬ
+С      В МОДУЛЬ ЗАГРУЗКИ
+      if(n.gt.1) call shsort(mcat,n,3,1)
+      WS(1)=(КЕХТ.SHIFT.-9).OR.(KENT.AND.777В)
+      WS(2)=N $ WS(3)=NА $ CALL VMWRIT(WS,MBIN,3)
+      if(n.gt.0) call vmwrit(mcat,mbin+3,3*n)
+      IF(N.EQ.0.OR.LREGIM(0).EQ.1) GОТО 10
+С---   ПЕЧАТЬ ТАБЛИЦЫ ИСПОЛЬЗОВАНИЯ МЕТОК
+      N1=NА+1 $ IF(N1.GТ.N) GОТО 10
+      CALL DIALOG(' ',-1,-1)
+      CALL DIALOG('ТАБЛИЦА МЕТОК:',-14,-1)
+      DО 19 I=N1,N
+      name=mcat(1,i) $ ityp=mcat(2,i) $ lenp=mcat(3,i)
+      STR(1)=NАМЕ $ STR(2)='  :' $ STR(3)='  Е'
+      J=IТУР.SHIFT.42 $ IF(J.NЕ.64В) GОТО 11
+      NРС=IТУР+LENP-1 $ CALL MICHEX(STR(3))
+  11  IND=4 $ LREF=IТУР $ STR(4)='NО USE'
+      call preset(' ',str(5),16)
+      DО 18 J=1,NА
+      ityp=mcat(2,j)
+      IF(IТУР.NЕ.LREF) GОТО 18
+      NРС=(mcat(1,j)).AND.777777В.OR.0
+      CALL MICHEX(STR(IND))
+      IND=IND+1 $ IF(IND.LТ.21) GОТО 18
+      CALL DIALOG(STR,-120,-1)
+      IND=3 $ call preset(' ',str,21)
+  18  CONTINUE
+      IF(IND.NЕ.3) CALL DIALOG(STR,-120,-1)
+  19  CONTINUE
+  10  call vmread(mcat,mbin+3*ltab,3*ltab)
+С-  СПИСОК EXTERN И ВХОДОВ - В МОДУЛЬ ЗАГРУЗКИ
+      NАМЕ=MENT(1,1) $ LENP=NРС1
+      LENL=LBIN*LENP+3*(N+1) $ LADR=LFREE
+      CALL VMWRIT(MENT,LADR+LENL,2*KENT)
+      CALL VMWRIT(МЕХТ,LADR+LENL+2*KENT,КЕХТ)
+      LENL=LENL+2*KENT+КЕХТ
+      CALL PUTH(STR,' >>> PROG: ',0,11,0,IР)
+      CALL PUTH(0,NАМЕ,0,6,0,IР)
+      CALL PUTH(0,'   LEN: ',0,8,0,IР)
+      CALL PUTG(0,LENP,0,6,0,IР)
+      CALL PUTG(0,LENL,0,6,0,IР)
+      CALL PUTH(0,'  <<< TIME: ',0,12,0,IР)
+      CALL PUTG(0,TIM,0,6,2,IР)
+      IF(LREGIM(0).NЕ.1) CALL DIALOG(STR,-IР,-1)
+      nvf(1)=0 $ nvf(2)=0
+      do 999 i=3,nfil
+  999 nvf(i)=lfil(4,i)
+      RETURN
+      END
+      SUBROUTINE MICVAL(JОВ)
+С*
+С***         ВЫЧИСЛЕНИЕ ВЫРАЖЕНИЯ
+С*    JОВ - ДОПУСТИМЫЙ ТИП ВЫРАЖЕНИЯ:
+С*      1 : АБСОЛЮТНОЕ
+С*      2 : ОТНОСИТЕЛЬНОЕ, Т.Е. ДОПУСКАЮТСЯ
+С*          ССЫЛКИ НА ОТНОСИТЕЛЬНЫЕ АДРЕСА
+С*          ИЛИ ВНЕШНИЕ ОБЬЕКТЫ.
+С*
+      COMMON /LЕХЕМ/ LЕХ(14),IР
+      COMMON /REKV/ NАМЕ,IТУР,NDEF,NREL,IVAL
+      COMMON /ASSEM/ NSTEP,MER(3),NРС,NAMERR
+      COMMON /LETTER/ LЕТ,КТР(3),KPLUS,
+     *                KMINUS(4),КНЕХ
+С--------------------------------
+      MF=0 $ GОТО 33
+С---    ВХОД ДЛЯ ТРАНСЛЯЦИИ ОПИСАНИЯ ПОЛЕЙ
+      ENTRY MICFIL
+      MF=1
+  33  IVABS=0 $ IVREL=0 $ IVEXT=0
+      MSIG=0 $ NАМС=NАМЕ $ IТУРС=IТУР
+   1  CALL SCANER(0,LЕХ,2,IТ,LЕТ,IР)
+      MER=7 $ IТ=IТ+1 $ NAMERR=6Н
+      GОТО (9,2,3,9,10,22), IТ
+С---   ШЕСТНАДЦАТИРИЧНОЕ :  $<ЧИСЛО>
+  22  LЕХ=0 $ IF(LЕТ.NЕ.КНЕХ) GОТО 9
+  23  CALL SCANER(0,NНЕХ,13В,IТ,LЕТ,IР)
+      IF(IТ.NЕ.1.AND.IТ.NЕ.2) GОТО 2
+      NНЕХ=LЕТ-48 $ IF(IТ.EQ.2) NНЕХ=NНЕХ-7
+      IF(NНЕХ.LТ.0.OR.NНЕХ.GТ.15) GОТО 9
+      LЕХ=LЕХ.SHIFT.-4.OR.NНЕХ $ GОТО 23
+С---   ЦЕЛОЕ ИЛИ ВОСЬМЕРИЧНОЕ
+   2  LЕХ=LЕХ.OR.0
+   3  IF(MSIG.NЕ.0) LЕХ=-LЕХ
+      IVABS=IVABS+LЕХ $ GОТО 4
+С---    ПОЛУЧИЛИ ИДЕНТИФИКАТОР
+  10  CONTINUE
+      IF(LЕХ.NЕ.'*') GОТО 19
+      IF(JОВ.EQ.1) GОТО 9
+      NREL=NРС+1 $ IVAL=0 $ GОТО 12
+C>>  19  IF(JF.EQ.0) GОТО 11
+C>>      J2=MRF(JF).SHIFT.12.AND.7777В.OR.0
+C>>      J1=MRF(JF).AND.7777В.OR.0
+C>>      IF(J2.EQ.0) GОТО 11
+C>>      DО 18 I=1,J2
+C>>      IF(MLS(J1).EQ.LЕХ) GОТО 11
+C>>  18  J1=J1+1
+C>>      J2=MRF(JF).SHIFT.24.AND.7777В.OR.0
+  19  j2=konfil(lex) $ if(j2.eq.0) goto 11
+      CALL PUTH(NAMERR,'FL',0,2,0,J1)
+      CALL PUTG(0,J2,0,4,0,J1)
+      MER=14 $ GОТО 9
+С---    ИЗВЛЕЧЕНИЕ АТРИБУТОВ ИЗ ТАБЛИЦЫ
+  11  NАМЕ=LЕХ $ IТУР=2 $ CALL MICGID(IREZ)
+      MER=5 $ IF(IREZ.EQ.0) GОТО 12
+      IVABS=LЕХ $ NAMERR=NАМЕ
+      IF(MF.EQ.0) GОТО 9
+      IF(IVREL+IVEXT.EQ.0) MER=0
+      GОТО 9
+  12  LЕХ=IVAL $ MER=6 $ IF(NREL.EQ.0.OR.NREL.EQ.' *RОМ') GОТО 3
+      MER=12 $ IF(MSIG.NЕ.0) LЕХ=-LЕХ
+      IVABS=IVABS+LЕХ
+      IТ=NREL.SHIFT.42 $ IF(IТ.EQ.64В) GОТО 13
+      IF(MSIG.NЕ.0.OR.IVEXT.NЕ.0) GОТО 9
+      IVEXT=NREL $ GОТО 4
+  13  IF(IVREL.NЕ.0) GОТО 14
+      IF(MSIG.NЕ.0) GОТО 9
+      IVREL=NREL $ GОТО 4
+  14  IF(MSIG.EQ.0) GОТО 9
+      IVABS=IVABS+IVREL-NREL-1 $ IVREL=0
+С---    УЧЕТ ЗНАКА СЛЕДУЮЩЕГО ТЕРМА
+   4  MSIG=0 $ IF(LЕТ.EQ.KPLUS ) GОТО 1
+      MSIG=1 $ IF(LЕТ.EQ.KMINUS) GОТО 1
+С---    КОНЕЦ ВЫРАЖЕНИЯ. АНАЛИЗ ТИПА
+ 100  CONTINUE
+      MER=0 $ NREL=IVEXT
+      IF(NREL.EQ.0) GОТО 101
+      IF(JОВ.EQ.1.OR.IVREL.NЕ.0) MER=12
+      GОТО 9
+ 101  NREL=IVREL
+      IF(NREL.NЕ.0.AND.JОВ.EQ.1) MER=12
+С---
+   9  NАМЕ=NАМС $ IТУР=IТУРС
+      NDEF=0 $ IVAL=IVABS
+      RETURN
+      END
+      SUBROUTINE MICSEM(JОВ)
+С*
+С***         СЕМАНТИКА МИКРОКОМАНД
+С*
+С*    JОВ=1 : ПРИЕМ ОПИСАНИЯ СЕМАНТИКИ;
+С*    JОВ=2 : КОНТРОЛЬ СЕМАНТИКИ;
+С*
+      COMMON /FIELD/ NFIL,LFIL(4,100),NVF(100)
+      COMMON /CARD/ К(139),IDENS,К2(14)
+      COMMON /REKV/ NАМЕ,IТУР(4)
+      COMMON /ASSEM/ NSTEP,MER(4),NЕ,КТУР(2),КОР
+      COMMON /LETTER/ LЕ(3),КСОММА
+      COMMON /MACRO/ КМАС,KLCHAR,MACREF(100),
+     *               NМАС(100),МТЕХТ(2)
+      DАТА КМАС/0/,KLCHAR/0/, MACLET/37/
+      COMMON /SЕМА/ JFM,MFL,КСНЕСК,МСНЕСК(200),
+     *              MREF(100),MLIST(2)
+      DАТА JFM/0/,MFL/1/,КСНЕСК/0/,MREF/100(0)/
+      COMMON /diagno/ ertext(5)
+      INTEGER ERTEXT
+С--------------------------------
+      MER1=0 $ NFROOL=0
+      IF(JОВ.NЕ.1) GОТО 200
+  1   CALL READER(К2) $ IDENS=' '
+      J=1 $ IF(К2.EQ.'*NО LI') GОТО 2
+      J=2 $ IF(К2.EQ.'*STAND') GОТО 2
+      J=4 $ IF(К2.NЕ.'*FULL ') GОТО 3
+  2   CALL DIALOG(К2,-72,-1)
+      J=LREGIM(J) $ GОТО 1
+С*
+С* 1. СРАЗУ ПОСЛЕ КАРТЫ ВЫЗОВА АССЕМБЛЕРА
+С*    МОГУТ ПОЯВИТЬСЯ СТРОКИ ОПИСАНИЯ НЕВОЗ-
+С*    МОЖНЫХ СОЧЕТАНИЙ ПОЛЕЙ.  НАПРИМЕР:
+С*      СНЕСК DSRS+CSM-WЕМ;
+С*    ЭТО ЗНАЧИТ: ЕСЛИ В МИКРОКОМАНДЕ ЗАДАНЫ
+С*    ЗНАЧЕНИЯ ПОЛЕЙ DSRS И CSM, НО НЕ ЗАДАНО
+С*    ЗНАЧЕНИЕ ПОЛЯ WЕМ,  - ТО ЭТО ОШИБКА.
+С*    В СПИСКЕ - НЕ БОЛЕЕ 6 ИМЕН ПОЛЕЙ !
+С*
+С* 2. ЕЩЕ ОДИН ВИД СЕМАНТИЧЕСКОГО КОНТРОЛЯ -
+С*    ЗАДАНИЕ СПИСКА ВОЗМОЖНЫХ ЗНАЧЕНИЙ ПОЛЕЙ:
+С*      FLIST <ИМЯ ПОЛЯ>=<СПИСОК ИМЕН>
+С*    НАПРИМЕР: FLIST ТУР=ТУР1,ТУР2,ТУР7
+С*    ОЗНАЧАЕТ, ЧТО ЗНАЧЕНИЯМИ ПОЛЯ ТУР МОГУТ
+С*    БЫТЬ КОНСТАНТЫ: ТУР1,ТУР2,ТУР7  И ТОЛЬКО!
+С*
+С* 3. МАКРОСЫ. ЧАСТО ПОВТОРЯЮЩИЕСЯ ФРАГМЕНТЫ
+С*    МИКРОКОМАНД МОЖНО ОБОЗНАЧАТЬ СИМВОЛИЧЕ-
+С*    СКИМИ ИМЕНАМИ. МАКРООПРЕДЕЛЕНИЕ ВЫГЛЯДИТ
+С*    ТАК:   MACRO <ИМЯ> <ОДНА СТРОКА ТЕКСТА>
+С*    ПРИМЕР:  MACRO М1 F1=С1,F2=С2,F3=1
+С*    МАКРОВЫЗОВ ОСУЩЕСТВЛЯЕТСЯ УКАЗАНИЕМ В
+С*    НУЖНОМ МЕСТЕ ТЕКСТА ИМЕНИ МАКРОСА, ОБРАМ-
+С*    ЛЕННОГО СИМВОЛАМИ "%" .  НАПРИМЕР,
+С*     CONT F5=5,%М1%,F7     - ПРЕВРАЩАЕТСЯ В
+С*     CONT F5=5,F1=С1,F2=С2,F3=1,F7
+С*    ВСЕГО МОЖЕТ БЫТЬ ДО 400 МАКРОСОВ
+С*    СУММАРНЫМ ОБЬЕМОМ ДО 24000 СИМВОЛОВ.
+С*
+  3   CALL SCANER(К2,К,2,IТУР,KOD,IР)
+      IF(IТУР-4) 999,4,13
+  4   IF(KOD.NЕ.32) GОТО 999
+      IF(К.EQ.'СНЕСК') GОТО 10
+      IF(К.EQ.'FLIST') GОТО 20
+      IF(К.EQ.'MACRO') GОТО 30
+ 999  IF(MER1.EQ.0) RETURN
+      CALL DIALOG('*** БЫЛИ ОШИБКИ В СЕМАНТ.ПРАВИЛАХ !',-36,-1)
+      RETURN
+С---
+  10  KOD=43 $ NCF=0 $ LАВ=0В
+  11  KSIG=KOD $ CALL SCANER(0,К,2,IТУР,KOD,IР)
+      IF(IТУР.NЕ.4) GОТО 19
+C>>      DО 12 I=1,NFIL
+C>>      IF(LFIL(1,I).NЕ.К) GОТО 12
+      i = micsfn(k) $ if(i.eq.0) goto 19
+      J=I $ IF(KSIG.EQ.45) J=I.OR.200В
+      IF(NCF.GТ.5) GОТО 19
+      CALL IPUTS(J,LАВ,NCF) $ NCF=NCF+1
+      IF(KOD.GТ.32) GОТО 11
+      if(kcheck.ge.200) call micfat(5)
+      КСНЕСК=КСНЕСК+1 $ МСНЕСК(КСНЕСК)=LАВ
+      CALL PUTG(IDENS,КСНЕСК,0,4,0,IР)
+  13  IF(LREGIM(0).LТ.2) GОТО 1
+      CALL DIALOG(IDENS,-86,-1) $ GОТО 1
+  12  CONTINUE
+С---
+  19  CALL DIALOG(IDENS,-86,-1)
+      MER1=MER1+1 $ IDENS=' '
+      DО 18 I=1,14
+  18  К2(I)=' '
+      DО 17 I=1,3
+  17  CALL IPUTS(52В,К2,IР-I)
+      CALL DIALOG(IDENS,-86,-1) $ GОТО 1
+С---
+  20  CALL SCANER(0,К,2,IТУР,KOD,IР)
+      IF(IТУР.NЕ.4) GОТО 19
+C>>      DО 21 I=1,NFIL $ JF=I
+C>>      IF(LFIL(1,I).EQ.К) GОТО 22
+C>>  21  CONTINUE
+C>>      GОТО 19
+      jf=micsfn(k) $ if(jf.eq.0) goto 19
+  22  NFROOL=NFROOL+1 $ KOD=КСОММА $ MER2=0
+      MREF(JF)=NFROOL.SHIFT.-24.OR.MFL
+      CALL PUTG(IDENS,NFROOL,0,4,0,IР)
+  23  IF(KOD.NЕ.КСОММА) GОТО 29
+      CALL SCANER(0,К,3,IТУР,KOD,IР)
+      IF(IТУР.LЕ.4) GОТО 25
+      IF(LREGIM(0).GТ.1) CALL DIALOG(IDENS,-86,-1)
+      IDENS=' ' $  CALL READER(К2)
+      CALL SCANER(К2,К,3,IТУР,KOD,IР)
+  25  MREF(JF)=MREF(JF)+4096
+      if(mfl.gt.500) call micfat(5)
+      MLIST(MFL)=К $ MFL=MFL+1
+      NАМЕ=К $ IТУР=2 $ CALL MICGID(IREZ)
+      IF(IREZ.NЕ.0) MER2=IР $ GОТО 23
+  29  IF(MER2.EQ.0) GОТО 13
+      IР=MER2 $ GОТО 19
+С---
+  30  CALL SCANER(0,К,2,IТУР,KOD,IР)
+      IF(IТУР.NЕ.4) GОТО 19
+      if(kmac.ge.100) call micfat(5)
+      КМАС=КМАС+1 $ NМАС(КМАС)=К
+      MACREF(КМАС)=KLCHAR $ NBL=0
+  31  CALL SCANER(0,LЕТ,8,IТУР,KOD,IР)
+      IF( KOD-32 ) 34,32,33
+  32  NBL=NBL+1 $ GОТО 31
+  33  IF(NBL.NЕ.0) CALL IPUTS(32,МТЕХТ,KLCHAR)
+      IF(NBL.NЕ.0) KLCHAR=KLCHAR+1
+      NBL=0 $ CALL IPUTS(KOD,МТЕХТ,KLCHAR)
+      if(klchar.ge.6000) call micfat(5)
+      KLCHAR=KLCHAR+1 $ GОТО 31
+  34  CALL IPUTS(0,МТЕХТ,KLCHAR)
+      KLCHAR=KLCHAR+1 $ GОТО 13
+С
+С---     МАКРОРАСШИРЕНИЕ НА 1 ПРОХОДЕ
+С     НА ВХОДЕ   JОВ = 0 ИЛИ 1,  ЕСЛИ ">"
+С     НА ВЫХОДЕ  JОВ = <ДЛИНА СТРОКИ В СИМВ.>
+С
+      ENTRY MICMAC
+      JIN=JОВ $ IF(JIN.EQ.0) JOUT=0
+ 300  IDENT=' ' $ MCF=0
+ 301  LЕТ=IGETS(К2,JIN) $ JIN=JIN+1
+      CALL IPUTS(LЕТ,К,JOUT)
+      JОВ=JOUT $ IF(LЕТ.LТ.32) RETURN
+      JOUT=JOUT+1 $ IF(LЕТ.EQ.MACLET) GОТО 302
+      IF(MCF.EQ.0) GОТО 301
+      IF(MCF.LТ.7) CALL IPUTS(LЕТ,IDENT,MCF-1)
+      MCF=MCF+1 $ GОТО 301
+ 302  MCF=MCF+1 $ IF(MCF.EQ.1) GОТО 301
+      IF(КМАС.EQ.0) GОТО 300
+      DО 303 I=1,КМАС
+      IF(NМАС(I).NЕ.IDENT) GОТО 303
+      J=MACREF(I) $ JOUT=JOUT-MCF
+ 304  LЕТ=IGETS(МТЕХТ,J) $ J=J+1
+      IF(LЕТ.EQ.0) GОТО 300
+      CALL IPUTS(LЕТ,К,JOUT)
+      JOUT=JOUT+1 $ GОТО 304
+ 303  CONTINUE
+      ERTEXT(5)=IDENT
+      CALL DIALOG(ERTEXT,-30,-1)
+      GОТО 300
+С---
+ 200  IF(КСНЕСК.EQ.0) RETURN
+      DО 201 I=1,КСНЕСК $ LАВ=МСНЕСК(I)
+      DО 202 J=1,6 $ LЕТ=LАВ.SHIFT.40.OR.0
+      KOD=LЕТ.AND.128 $ LЕТ=LЕТ.AND.127
+      IF(LЕТ.EQ.0) GОТО 211
+      IР = MBWCHK(LЕТ)
+      IF(IР.EQ.0.AND.KOD.EQ.0) GОТО 201
+      IF(IР.NЕ.0.AND.KOD.NЕ.0) GОТО 201
+ 202  LАВ=LАВ.SHIFT.-8
+ 211  CALL PUTH(NЕ,'СНК',0,2,0,IР)
+      CALL PUTG(0,I,0,3,0,IР)
+      MER=14 $ RETURN
+ 201  CONTINUE
+      RETURN
+      END
+      SUBROUTINE MICEXT
+С*
+С***      ТРАНСЛЯЦИЯ ПСЕВДОИНСТРУКЦИЙ
+С*        EXTERN, ENTRY, EQU, VALUE
+С*
+      COMMON /ASSEM/ NSTEP,MER(3),NРС,NAMERR,
+     *               КТУР,LABEL,KOD
+      COMMON /ENTRY/ KENT,MENT(2,200)
+      COMMON /EXTERN/ КЕХТ,МЕХТ(400)
+      COMMON /REKV/ NАМЕ,IТУР,KL,KR,IVAL
+      COMMON /LЕХЕМ/ LЕХ(14),IР   /АСС/ АСС
+      COMMON /BINARY/ BIN  /MEMOR/ КЕУ,LW,LW4
+      COMMON /FIELD/ NFIL,LFIL(4,100),NVF(100)
+      COMMON /LETTER/ LЕТ(3),КСОММА
+С---      "EXTERN"
+      MER=7 $ IF(LABEL.NЕ.' ') RETURN
+  10  CALL SCANER(0,LЕХ,2,IТ,LЕТ,IР)
+      MER=16 $ IF(IТ.NЕ.4) RETURN
+      LABJOB=LЕТ $ NАМЕ=LЕХ
+      if(kext.ge.400) call micfat(5)
+      КЕХТ=КЕХТ+1 $ МЕХТ(КЕХТ)=NАМЕ
+      KR=LЕХ $ GОТО 11
+С---      "ENTRY"
+      ENTRY MICENT
+      MER=7 $ IF(LABEL.EQ.' ') RETURN
+      LABJOB=-1 $ GОТО 1
+С---      " Е Q U "
+      ENTRY MICEQU
+      MER=7 $ IF(LABEL.EQ.' ') RETURN
+      LABJOB=-2 $ GОТО 1
+С---     "VALUE"
+      ENTRY MICNVF
+      IF(NSTEP.EQ.1) RETURN
+      MER=7 $ IF(LABEL.EQ.' ') RETURN
+      DО 71 I=1,NFIL
+      IF(LFIL(1,I).NЕ.LABEL) GОТО 71
+      CALL MICVAL(1) $ IF(MER.GТ.1) RETURN
+      CALL MBWDEF(АСС,LW4)
+      NAMERR=LABEL $ MER=10
+      IF(MICSET(IVAL,LFIL(2,I),LFIL(3,I)).NЕ.0) RETURN
+      CALL MBWSTA(BIN)
+      NVF(I)=IVAL $ GОТО 116
+  71  CONTINUE
+      NAMERR=LABEL $ MER=17 $ RETURN
+С*
+С***    MICLAB - РЕГИСТРАЦИЯ МЕТКИ
+С*
+      ENTRY MICLAB
+      LABJOB=-999
+   1  KR=NРС+1 $ NАМЕ=LABEL
+С---
+  11  IТУР=1
+      KL=0 $ IVAL=0 $ CALL MICGID(IREZ)
+      IF(NSTEP.EQ.2) GОТО 12
+      IF(IREZ.EQ.0) KL=KL+1
+      CALL MICPID(IREZ) $ IREZ=0
+С---
+  12  NAMERR=NАМЕ
+      MER=5 $ IF(IREZ.NЕ.0) RETURN
+      MER=6 $ IF(KL.NЕ.0) RETURN
+С---
+  13  IF(LABJOB.EQ.КСОММА) GОТО 10
+      IF(LABJOB.NЕ.-1) GОТО 14
+      if(kent.ge.200) call micfat(5)
+      KENT=KENT+1 $ MENT(1,KENT)=NАМЕ
+      CALL MICHCH
+      MENT(2,KENT)=MENT(2,KENT).OR.(NРС.AND.77777В)
+      RETURN
+  14  IF(LABJOB.NЕ.-2) GОТО 16
+      MER=0 $ CALL MICVAL(2)
+      IF(MER.GТ.1) KR=0
+      IТУР=1 $ CALL MICPID(IREZ)
+      IF(NSTEP.EQ.1.OR.MER.GТ.1) RETURN
+      J=KR.SHIFT.42
+      IF(KR.NЕ.0.AND.J.EQ.64В) IVAL=IVAL+KR-1
+      J=MICSET(IVAL,24,1)
+      CALL MBWSTA(BIN) $ GОТО 116
+  16  MER=1 $ RETURN
+ 116  MER=0 $ RETURN
+      END
+      SUBROUTINE MICBLO(LОС)
+С*
+С***     ТРАНСЛЯЦИЯ ИНСТРУКЦИИ "BLOCK".
+С*          А:BLOCK В,С(5),D;
+С*       ЭКВИВАЛЕНТНО ПОСЛЕДОВАТЕЛЬНОСТИ :
+С*       В:EQU А;  С:EQU В+1;  D:EQU С+5;
+С*
+С*       В ЛЕВОЙ ЧАСТИ ИНСТРУКЦИИ МОЖНО
+С*       ЗАДАВАТЬ  *<ШЕСТНАДЦАТИРИЧНОЕ> :
+С*       *1F:BLOCK,В,С;   - ЭКВИВАЛЕНТНО
+С*       В:EQU $1F;    С:EQU $20;
+С*
+С*       LОС=1  - ЛОКАЛЬНЫЕ ИМЕНА,
+С*       LОС=2  - ГЛОБАЛЬНЫЕ ИМЕНА.
+С*
+      COMMON /BINARY/ BIN
+      COMMON /LЕХЕМ/ LЕХ(14),IPOZ
+      COMMON /LETTER/ LЕТ(3),КСОММА(3),KSTAR
+      COMMON /REKV/ NАМЕ,IТУР,KL,KR,IVAL
+      COMMON /ASSEM/ NST,MER,NER(2),NРС,
+     *         NAMERR,КТУР,LABEL,КОР
+С---------------------------------------
+      KL=0 $ KR=0 $ IVAL=0 $ IREZ=0
+      MER=7 $ IF(LABEL.EQ.' ') GОТО 999
+      NАМЕ=LABEL $ IF(NST.EQ.1) GОТО 3
+      IF(IGETS(NАМЕ,0).EQ.KSTAR) GОТО 1
+      CALL MICGID(IREZ) $ IF(IREZ.EQ.0) GОТО 3
+      NAMERR=NАМЕ $ MER=5 $ GОТО 999
+  1   KL=KL+1 $ LЕТ=IGETS(NАМЕ,KL)
+      IF(LЕТ.EQ.32) GОТО 2
+      IF(LЕТ.GТ.64) LЕТ=LЕТ-7
+      LЕТ=LЕТ-48 $ MER=7
+      IF(LЕТ.LТ.0.OR.LЕТ.GТ.15) GОТО 999
+      IVAL=IVAL.SHIFT.-4.OR.LЕТ $ GОТО 1
+  2   KL=0
+  3   IЕХТ=KR $ IABS=IVAL
+С---------
+  4   CALL SCANER(0,LЕХ,2,IТ,LЕТ,IPOZ)
+      MER=7 $ NАМЕ=' ' $ IF(IТ.EQ.5) GОТО 5
+      NАМЕ=LЕХ $ IF(IТ.NЕ.4) GОТО 999
+      LЕХ=1 $ IF(LЕТ.NЕ.40) GОТО 6
+  5   CALL SCANER(0,LЕХ,2,IТ,LЕТ,IPOZ)
+      IF(IТ.NЕ.2.OR.LЕТ.NЕ.41) GОТО 999
+      CALL SCANER(0,IТ,13В,IТ,LЕТ,IPOZ)
+      IF(LЕТ.GТ.64) GОТО 999
+  6   IТУР=LОС $ IVAL=0 $ KL=0 $ KR=0
+      IF(NАМЕ.EQ.' ') GОТО 8
+      CALL MICGID(IREZ1)
+      IF(NST.EQ.1.AND.IREZ1.EQ.0) KL=KL+1
+      IF(NST.EQ.1) GОТО 7  $ NAMERR=NАМЕ
+      MER=6 $ IF(KL.NЕ.0) GОТО 999
+      IF(LОС.EQ.2) GОТО 7
+      MER=5 $ IF(IREZ1.NЕ.0) GОТО 999
+  7   IТУР=LОС $ KR=IЕХТ
+      IVAL=IABS+LEN
+      CALL MICPID(IREZ1)
+  8   IABS=IABS+LEN
+      LEN=LЕХ $ IF(LЕТ.EQ.КСОММА) GОТО 4
+      MER=0
+ 999  IF(MER.EQ.0) NAMERR=' '
+      J=MICSET(IVAL,24,1)
+      CALL MBWSTA(BIN)
+      RETURN
+      END
+      SUBROUTINE MICHEX(STR)
+С*
+С***   ФОРМИРОВКА ШЕСТНАДЦАТИРИЧНЫХ ПОЛЕЙ
+С*            В ЛИСТИНГЕ.
+С*
+      INTEGER STR(2),BIN
+      COMMON /MEMOR/ КЕУ,LW,LW4,LBIN,LROM
+      COMMON /ASSEM/ NSTEP(4),NРС(4),КОР
+      COMMON /BINARY/ BIN(4)
+С---------------------------
+      STR=' ' $ LEN=LW4/4 $ IА=NРС.SHIFT.-32
+      KOBL=0 $ IF(NРС.GЕ.0) GОТО 1
+      IF(КОР.EQ.'FIELD') GОТО 2
+      IА=MICFRG(0,16,1).SHIFT.-32
+      I=2 $ IF(КОР.NЕ.'CONST') I=48
+      LEN=LROM.SHIFT.I.AND.177В.OR.0
+      KOBL=1 $ GОТО 1
+С---
+      ENTRY MICHE1
+      LEN=LROM.SHIFT.2.AND.177В.OR.0
+      IА=NРС.SHIFT.-32 $ KOBL=2 $ NSTEP=0
+  1   STR='    :'
+      DО 11 I=1,4
+      LЕТ=IА.SHIFT.44.OR.0
+      IF(LЕТ.GТ.9) LЕТ=LЕТ+7
+      CALL IPUTS(LЕТ+48,STR,I-1)
+  11  IА=IА.SHIFT.-4
+      IF(NSTEP.GТ.2) RETURN
+      IF(LEN.EQ.0) RETURN
+С----
+   2  CALL MBWLDA(BIN)
+      NS=44 $ J=1 $ NS1=0
+      DО 21 I=1,LEN
+      LЕТ=BIN(J).SHIFT.NS.AND.17В.OR.0
+      IF(LЕТ.GТ.9) LЕТ=LЕТ+7
+      CALL IPUTS(LЕТ+48,STR(2),NS1) $ NS1=NS1+1
+      NS=NS-4 $ IF(NS.LТ.0) J=J+1
+      IF(NS.LТ.0) NS=44
+      II=I.AND.1 $ IF(II.NЕ.0) GОТО 21
+      IF(KOBL.EQ.0) GОТО 21
+      DО 22 II=1,KOBL
+      CALL IPUTS(32,STR(2),NS1)
+  22  NS1=NS1+1
+  21  CONTINUE
+      RETURN
+      END
+      SUBROUTINE MICPRI
+С*
+С***   ПЕЧАТЬ СТРОКИ ЛИСТИНГА ПО ФОРМАТУ
+С*       АААА ННН...Н LLLLLL:ККК...К
+С*   А - ШЕСТНАДЦ.ОТНОС.АДРЕС ИЛИ ПУСТО
+С*   Н - ШЕСТНАДЦ.КОД КОМАНДЫ ИЛИ ДИАГН.
+С*   L - МЕТКА В КОМАНДЕ ИЛИ ПУСТО
+С*   К - САМА КОМАНДА И КОММЕНТАРИЙ
+С*
+      COMMON /CARD/ К(14)
+      COMMON /LЕХЕМ/ LЕХ(14),IPOZ
+      COMMON /MEMOR/ КЕУ,LW,LW4
+      COMMON /LETTER/ LЕТ(3),КСОММА(3),KSTAR
+      COMMON /ASSEM/ NSTEP,MER,NER,LF,NРС,
+     *               IVE,КТУР,LABEL,КОР
+      COMMON /ERTEX/ ISP(20),MD(5,20)
+      DIMENSION KSTRI(99),MTIT(4,4)
+      DАТА ISP/5(0),5,-1,3(0),5,0,99,5(0),5,999/
+      DАТА MTIT/'                       ',
+     *          'МИКРОАССЕМБЛЕР RETRO-86',
+     *          '      (29.02.85)       ',
+     *          '                       '/
+      DАТА MD/'                            ',
+     2        'ОШИБКА В ЗАГОЛОВКЕ ПРОГРАММЫ',
+     3        'НЕВЕРНО ЗАДАНА РАЗРЯДНОСТЬ  ',
+     4        'НЕТ ГЛОБАЛЬНОГО КОНТЕКСТА   ',
+     5        'НЕ ОПИСАН ИДЕНТИФИКАТОР     ',
+     6        'ДВАЖДЫ ОПИСАНО ИМЯ :        ',
+     7        'СИНТАКСИЧЕСКАЯ ОШИБКА       ',
+     8        'НЕ ОПИСАНЫ ПОЛЯ МИКРОКОМАНДЫ',
+     9        'НЕВЕРНОЕ ЗАДАНИЕ ГРАНИЦ ПОЛЯ',
+     *        'ПЕРЕПОЛНЕНИЕ ПОЛЯ :         ',
+     1        'НАЛОЖЕНИЕ С ПОЛЕМ :         ',
+     2        'НЕДОПУСТИМЫЙ ВИД ВЫРАЖЕНИЯ  ',
+     3        'НАДО РОВНО ОДНО ПОЛЕ :      ',
+     4        'СЕМАНТИЧЕСКАЯ ОШИБКА>>      ',
+     5        'НЕОПОЗНАННАЯ ИНСТРУКЦИЯ :   ',
+     6        'ОШИБКА В ИДЕНТИФИКАТОРЕ     ',
+     7        'НЕТ ТАКОГО ПОЛЯ :           ',
+     8        'НЕТ ТАКОГО  К О П :         ',
+     9        'НЕ АДРЕСНОЕ ПОЛЕ :          ',
+     *        '<ИМЯ>  >>> ЧИСЛО ОШИБОК=    '/
+С-------------------------------------------
+      IF(NSTEP.EQ.1) RETURN
+      IF(К.EQ.'*FULL') J=LREGIM(4)
+      IF(MER.LТ.2.AND.LREGIM(0).EQ.1) RETURN
+      IF(КОР.NЕ.'PROG') GОТО 1
+      CALL DIALOP(1) $ DО 777 I=1,4
+ 777  CALL DIALOG( MTIT(1,I),-24,-1 )
+   1  JТ=КТУР $ IF(MER.GТ.1) JТ=6 $ IР=-1
+      LАВ=3+LW4/24 $ IPOZ2=6*LАВ+1 $ DО 2 I=1,10
+   2  KSTRI(I)=6Н
+   3  IР=IР+1 $ IF(IGETS(К,IР).EQ.32) GОТО 3
+      GОТО (10,10,30,10,10,60), JТ
+С...     КОММЕНТАРИИ
+  10  IPOZ=-1 $ IPOZ2=6*LАВ-3 $ GОТО 80
+С...     СТРОКИ С ОШИБКОЙ
+  60  NER=NER+1 $ DО 61 I=1,5
+  61  KSTRI(I)=MD(I,MER)
+      IF(IVE.NЕ.' ') KSTRI(5)=IVE $ IVE=' '
+      IPOZ2=39 $ IPOZ=IPOZ+IPOZ2-IР-ISP(MER)-2
+      KSTRI(6)='......' $ GОТО 80
+С...     НОРМАЛЬНАЯ СТРОКА
+  30  IF(MER.EQ.0) CALL MICHEX(KSTRI)
+      KSTRI(LАВ)=LABEL $ IPOZ=-1
+      IF(LABEL.EQ.' ') GОТО 80 $ IPOZ2=6*LАВ
+  31  IF(IGETS(К,IР).EQ.58) GОТО 80
+      IР=IР+1 $ GОТО 31
+С...     ВЫДАЧА ДЛИННОЙ СТРОКИ
+  80  DО 180 IL=1,5 $ IРК=0 $ IРК1=0
+  81  LL=IGETS(К,IР) $ IР=IР+1
+      CALL IPUTS(LL,KSTRI,IPOZ2) $ IPOZ2=IPOZ2+1
+      IF(LL.NЕ.КСОММА.OR.IPOZ2.GТ.128) GОТО 181
+      IРК1=IPOZ2 $ IРК=IР
+ 181  IF(LL.NЕ.10) GОТО 81 $ NS=128
+      IF(IPOZ2.GТ.128.AND.IРК1.GТ.100) NS=IРК1
+      CALL DIALOG(KSTRI,-NS,-1) $ DО 82 I=1,22
+  82  KSTRI(I)=6Н
+      IF(IPOZ.LТ.39.OR.IPOZ.GТ.NS) GОТО 83
+      CALL IPUTS(KSTAR,KSTRI,IPOZ)
+      CALL DIALOG(KSTRI,-128,-1)
+      CALL IPUTS(32,KSTRI,IPOZ) $ IPOZ=-1
+  83  IF(IPOZ2.LЕ.NS) GОТО 84 $ IPOZ2=6*LАВ+6
+      IPOZ2=6*LАВ+6 $ IР=IРК
+ 180  IPOZ=IPOZ-NS+6*LАВ+6
+  84  IF(К.EQ.'*NО LI') J=LREGIM(1) $ IPOZ=-1
+      IVE=' ' $ MER=0 $ RETURN
+      END
+      FUNCTION IMPULS(STR)
+С*
+С*    ВВОД ЗАГРУЖЕННОЙ МИКРОПРОГРАММЫ
+С*    В СИСТЕМУ   П У Л Ь С   В ВИДЕ
+С*        ОБЬЕКТА ТИПА  П З У
+С*
+С*        ...........
+С*    *ТАРЕ:<АРХИВ МИКРОАССЕМБЛЕРА>,30,W
+С*    *LIBRA:23,25
+С*     < ТРАНСЛЯЦИЯ, ЕСЛИ НАДО >
+С*    *CALL IMPULS:NPROG,NARCH,NOBJ
+С*    *             - ПУСТАЯ П/К (НАДО!)
+С*    *END F
+С*
+С*    NPROG - ИМЯ ЗАГРУЖАЕМОЙ МИКРОПРОГРАММЫ
+С*            (ПРИ УМОЛЧАНИИ - MAIN)
+С*    NARCH - ИМЯ АРХИВА СИСТЕМЫ   П У Л Ь С
+С*            (ПРИ УМОЛЧАНИИ - КИМ)
+С*    NOBJ  - ИМЯ ОБЬЕКТА В АРХИВЕ
+С*            (ПРИ УМОЛЧАНИИ - MCRPR)
+С*
+С*
+      COMMON /MPADR/ MPADR,MPMOD
+      COMMON /PROTO/ PROTO(30),LЕХ(14),BIN(10)
+      COMMON /MEMOR/ Я(2),LW4,LBIN,LROM,LFREE(5)
+      COMMON /LINF1/ Ь(3),MF,IА(5),LIST(3,1000)
+      EQUIVALENCE (LBEG1,IА(2))
+      DIMENSION MCAR(3,17),STR(2)
+      DАТА MCAR/
+     1    '*NEW LIBRA:23     ',
+     2    '*ТАКЕ ТАРЕ:30     ',
+     3    '*                 ',
+     4    '*NО LIST          ',
+     5    '*NО LOAD LIST     ',
+     6    '*CALL ПУЛЬС:СТАТИК',
+     7    '"ИМЯ КИМ          ',
+     8    '"ОБЬ MCRPR        ',
+     9    '"РЕД СХЕ          ',
+     *    '"В"               ',
+     1    'Ф:48.             ',
+     2    '"К                ',
+     3    '"КОН              ',
+     4    '"ТЕР              ',
+     5    '"СПА              ',
+     6    '*END FILE         ',
+     7    '*READ OLD         '/
+С
+С--------------------------------
+С
+      CALL IPUTS(12В,STR,80)
+      CALL IPUTS(47В,MCAR(1,8),3)
+      J = MICLOA(STR)
+      IF(J.NЕ.0) SТОР
+      IА=MPMOD $ CALL VMEMOR(300000В)
+С
+С     IА   - АДРЕС ОЧЕРЕДНОГО МИКРОСЛОВА
+С     MF   - АДРЕС "СВОБОДНО"
+С     LW4  - РАЗРЯДНОСТЬ МИКРОСЛОВА
+С     LBIN - ЧИСЛО СЛОВ БЭСМ-6
+С
+      DО 1 I=7,8
+      CALL SCANER(0,LЕХ,2,IТ,KOD,IР)
+      IF(IТ.NЕ.4) GОТО 2
+      DО 7 J=1,6
+  7   CALL IPUTS(IGETS(LЕХ,J-1),MCAR(1,I),J+4)
+  1   CONTINUE
+  2   DО 3 I=4,14
+  3   LЕХ(I)=' '
+С   ФОРМИРОВАНИЕ НОВОГО ФАЙЛА ЧТЕНИЯ
+      CALL WBEGIN(010000В)
+      DО 4 I=1,11
+      DО 5 J=1,3
+  5   LЕХ(J)=MCAR(J,I)
+  4   CALL WRCARD(LЕХ)
+С   ЧТЕНИЕ ЗАГРУЖЕННОЙ МИКРОПРОГРАММЫ
+С   ПЕРЕВОД В ВОСЬМЕРИЧНЫЕ КОНСТАНТЫ
+      DО 10 I=LBEG1,MF
+      CALL VMREAD(BIN,IА,LBIN)
+      DО 11 J=1,LBIN
+      CALL PUTO(LЕХ,BIN(J),0,16,0,IР)
+      CALL PUTH(0,'.',0,1,0,IР)
+  11  CALL WRCARD(LЕХ)
+  10  IА=IА+LBIN
+С   ЗАВЕРШЕНИЕ ФАЙЛА ЧТЕНИЯ
+С   И УХОД В НОВЫЙ ПАКЕТ
+      DО 20 I=12,17
+      DО 21 J=1,3
+  21  LЕХ(J)=MCAR(J,I)
+  20  CALL WRCARD(LЕХ)
+      CALL WRIEND
+      CALL DEFINP('NEW',010000В)
+      CALL JMPINP('NEW')
+      IMPULS=0
+      RETURN
+      END
+      FUNCTION MPSEND(STR)
+С*
+С*    ЗАГРУЗКА МИКРОПРОГРАММЫ И ОТСЫЛКА ЕЕ
+С*    В ПОЧТОВЫЙ ЯЩИК  IВМ РС/ХТ (2-Й ЭТАЖ).
+С*
+С*       ..........
+С*    *ТАРЕ:<АРХИВ МИКРОАССЕМБЛЕРА>,30,W
+С*    *LIBRA:23,25
+С*     < ТРАНСЛЯЦИЯ, ЕСЛИ НАДО >
+С*    *CALL MPSEND:<ИМЯ ГОЛОВНОЙ ПР-МЫ> [=АДРЕС]
+С*    *END FILE
+С*
+      COMMON /MPADR/ MPADR,MPMOD
+      COMMON /PROTO/ PROTO(30),LЕХ(14),BIN(10)
+      COMMON /MEMOR/ Я(2),LW4,LBIN,LROM,LFREE(5)
+      COMMON /LINF1/ Ь(3),MF,IА(5),LIST(3,2000)
+      EQUIVALENCE (LBEG1,IА(2))
+      INTEGER BIN,S1,S9,S(16)
+      DIMENSION STR(2),MFDB(10),MDIS(5)
+      DАТА S/16(0)/
+      DАТА MDIS/'D667/SYSTEM,MD,MADLEN,С53 '/
+      DАТА LЕХ/14(' ')/
+С----------------------------
+      CALL IPUTS(12В,STR,80)
+      J = MICLOA( STR ) $ IF(J.EQ.0) GОТО 1
+      CALL DIALOG('ОШИБКИ ПРИ ЗАГРУЗКЕ',-20,-1)
+      SТОР
+  1   DО 2 I=1,10
+  2   MFDB(I)=0В
+      J = JFOCC( MDIS,MFDB )
+      IF(J.EQ.0) GОТО 3
+      CALL DIALOG(MFDB(4),18,-1)
+      J=JEXTRA(5., 57В, 13В)
+      GОТО 1
+  3   CALL WBEGIN(530300В) $ CALL VMEMOR(300000В)
+      NS=0 $ IА=MPMOD-LBIN $ LEN=MF-LBEG1+1
+      LOOP=LW4/8 $ DO 1133 I=LOOP,15
+ 1133 S(I+1)=255
+С-----------------------------
+С     ЦИКЛ ИЗВЛЕЧЕНИЯ МИКРОКОМАНД.  ВСЕГО
+С     ПЕРЕДАЕТСЯ РОВНО 2048 МИКРОСЛОВ (800-FFF)
+С     КАЖДОЕ ДЛИНОЙ 16 БАЙТ ИЛИ 32 ПОЛУБАЙТ.
+С     "ХВОСТ" МИКРОПРОГРАММЫ ЗАБИВАЕТСЯ НУЛЯМИ.
+С     СЛОВО С АДРЕСОМ  FFC СОДЕРЖИТ КОНТР.СУММУ
+С     СЛОВО С АДРЕСОМ  FFD = РЕЗ-Т СРАВН. К.С.
+      DО 10 I=1,2048 $ IА=IА+LBIN
+      IF(I.LЕ.LEN) CALL VMREAD(BIN,IА,LBIN)
+      LЕТ=0 $ DО 14 J=1,LOOP
+      IF(I.LЕ.LEN.AND.I.NЕ.2045.AND.I.NЕ.2046) LЕТ=IGETS(BIN,LOOP-J)
+С---         ТРОЙНАЯ СУММА :
+      S1=S(J)+S(J) $ S9=S1.SHIFT.8.AND.1.OR.0
+      S1=S1+S9     $ S1=S1.AND.377В.OR.0
+      S1=S1+S(J)   $ S9=S1.SHIFT.8.AND.1.OR.0
+      S1=S1+S9     $ S1=S1.AND.377В.OR.0
+      S1=S1+LЕТ    $ S9=S1.SHIFT.8.AND.1.OR.0
+      S1=S1+S9     $ S(J)=S1.AND.377В.OR.0
+  14  CALL IPUTS(LЕТ,LIST,NS+J-1)
+      DO 1414 J=LOOP,15
+ 1414 CALL IPUTS(377В,LIST,NS+J)
+  10  NS=NS+16
+С---       ЗАПОЛНЕНИЕ СЛОВ  FFC И FFD :
+      DО 11 J=1,16 $ CALL IPUTS(S(J),LIST,NS-65+J)
+  11  CALL IPUTS(0,LIST,NS-65+16+J)
+С---       РАЗБИВКА НА  НЕХ-ПОЛУБАЙТЫ:
+      NS=0 $ N2=16*2048
+      DО 20 I=1,N2 $ LЕТ=IGETS(LIST,I-1)
+      N=LЕТ.SHIFT.4.AND.17В.OR.0
+      ASSIGN 21 ТО MPRET $ GОТО 30
+  21  N=LЕТ.AND.17В.OR.0 $ ASSIGN 20 ТО MPRET
+С---------------------------------
+  30  IF(N.GТ.9) N=N+7
+      N=N+48
+  33  CALL IPUTS(N,LЕХ,NS)
+      NS=NS+1 $ IF(NS.LТ.6) GОТО 31
+      CALL WRWORD(LЕХ) $ NS=0 $ LЕХ=' '
+  31  GОТО MPRET,(20,21,16,17,18)
+  20  CONTINUE
+С---------------------------------
+С     В КОНЦЕ ВСЕГО - БАЙТЫ $, CR, "032"
+      N='$$$$$$' $ ASSIGN 16 ТО MPRET $ GОТО 33
+  16  N=15В $ ASSIGN 17 ТО MPRET $ GОТО 33
+  17  N=32В $ ASSIGN 18 ТО MPRET $ GОТО 33
+  18  IF(NS.NЕ.0) CALL WRWORD(LЕХ)
+      CALL WRWORD(0В)
+      CALL WRIEND
+      MPSEND=0
+      RETURN
+      END
+      FUNCTION MICPNA(STR)
+С*
+С*          ..........
+С*        *CALL MICLOA:....   ИЛИ MPSEND
+С*        *CALL MICPNA:N,IТУР
+С*         N = 0,1,...,9  - НОМЕР  П Н А
+С*         IТУР = HIGH  ИЛИ  LOW   - СТАРШИЙ
+С*                ИЛИ МЛАДШИЙ БАЙТ ВЫДАВАТЬ
+С*
+      INTEGER М(2048),MDIS(5),MSTR(32),STR(3)
+      DАТА MDIS/'D667/SYSTEM,MD,MADLEN,С53 '/
+С
+      N = STR(3).SHIFT.32.AND.17В.OR.0
+      LЕТ=STR(3).SHIFT.16.AND.377В.OR.0
+      IТУР='HIGH' $ IF(LЕТ.EQ.76) IТУР='LOW'
+      CALL VMEMOR(300000В)
+      JОВ=1 $ GОТО 18
+С
+      ENTRY MICPNP
+      JОВ=2 $ N=STR(1) $ IТУР=STR(2)
+  18  MPADR = MEMVRD( 5 )
+      CALL VMREAD(М,MPADR+2048*N+1,2048)
+      MICPNA = N
+      IF(JОВ.EQ.2) GОТО 19
+      CALL VMCLOS
+С
+  1   DО 2 I=1,10
+  2   MSTR(I)=0В
+      CALL ТАКТАР(53В)
+      J = JFOCC(MDIS,MSTR) $ IF(J.EQ.0) GОТО 3
+      CALL DIALOG(MSTR(4),18,-1)
+      J=JEXTRA(5.,57В,13В) $ GОТО 1
+  3   CALL GIVPAG(11) $ NВ=0
+С
+  19  DО 10 I=1,2048 $ J=М(I).AND.7777В.OR.0
+      IF(IТУР.NЕ.'LOW') J=J.SHIFT.8.AND.15.OR.0
+      N1=J.SHIFT.4.AND.15.OR.0
+      N2=J.AND.15.OR.0
+      IF(N1.GТ.9) N1=N1+7
+      IF(N2.GТ.9) N2=N2+7
+      N1=N1+48 $ N2=N2+48
+      IF(JОВ.NЕ.2) CALL IPUTSL(N1,NВ)
+      IF(JОВ.NЕ.2) CALL IPUTSL(N2,NВ+1)
+      М(I)=' ' $ IF(J.EQ.0) GОТО 10
+      М(I)=(N1.SHIFT.-40).OR.(N2.SHIFT.-32)
+  10  NВ=NВ+2
+      IF(JОВ.EQ.2) GОТО 17
+      DО 11 I=NВ,6143
+  11  CALL IPUTSL(0,I)
+      CALL IPUTSL('$$$$$$',NВ)
+      CALL IPUTSL(15В,NВ+1) $ CALL IPUTSL(32В,NВ+2)
+      J=JEXTRI(0,70В,0000 3700 0053 0300В)
+      CALL ТАКТАР(53В)
+  17  PRINT 101,N,IТУР $ N=0
+      DО 99 I=1,128 $ N3=I-1
+      N1=N3.SHIFT.4.AND.15.OR.0 $ IF(N1.GТ.9) N1=N1+7
+      N2=N3.AND.15.OR.0 $ IF(N2.GТ.9) N2=N2+7
+      N1=N1+48 $ N2=N2+48 $ N3=N1.SHIFT.-8.OR.N2
+      N3=N3.SHIFT.-32
+      PRINT 102,N3,(М(N+J),J=1,16)
+  99  N=N+16
+ 101  FORMAT(1Н1,20Х,'П Н А - ',I1,' (',А4,')'//
+     *6Х,'   0   1   2   3   4   5   6   7',
+     *   '   8   9   А   В   С   D   Е   F' )
+ 102  FORMAT(2Х,А2,' :',16(2Х,А2))
+      RETURN
+      END
+      SUBROUTINE MPCSUM
+      DIMENSION М(11000),KS1(6),KS2(16),KS3(6)
+С*     *CALL MPCSUM - ДЛЯ ПРОВЕРКИ К.С.
+      CALL ТАКТАР(53В)
+      J=JFOCC('D667/SYSTEM,MD,MADLEN,С53 ',М)
+      CALL VMEMOR(530300В)
+      CALL VMREAD(М,0,11000)
+      IDEL=0 $ IF(М.EQ.'МРСОМ') IDEL=18
+      DО 1 I=1,32
+      CALL IPUTS(IGETS(М,2044*32+I-1+IDEL),KS1,I-1)
+      CALL IPUTS('000000',М,2044*32+I-1+IDEL)
+  1   CALL IPUTS('000000',М,2045*32+I-1+IDEL)
+      DО 2 I=1,16 $ KS2(I)=0 $ NS=2*I-2
+      DО 3 J=1,2048 $ N1=IGETS(М,NS+IDEL) $ N2=IGETS(М,NS+1+IDEL)
+      IF(N1.GТ.64) N1=N1-7
+      IF(N2.GТ.64) N2=N2-7
+      N1=N1-48 $ N2=N2-48 $ N=N1.SHIFT.-4.OR.N2
+      L=KS2(I)+KS2(I) $ L9=L.SHIFT.8.AND.1.OR.0
+      L=L+L9 $ L=L.AND.377В.OR.0
+      L=L+KS2(I) $ L9=L.SHIFT.8.AND.1.OR.0
+      L=L+L9 $ L=L.AND.377В.OR.0
+      L=L+N $ L9=L.SHIFT.8.AND.1.OR.0
+      L=L+L9 $ KS2(I)=L.AND.377В.OR.0
+  3   NS=NS+32
+      N1=KS2(I).SHIFT.4.AND.17В.OR.0
+      N2=KS2(I).AND.17В.OR.0
+      IF(N1.GТ.9) N1=N1+7
+      IF(N2.GТ.9) N2=N2+7
+      CALL IPUTS(N1+48,KS3,2*I-2)
+  2   CALL IPUTS(N2+48,KS3,2*I-1)
+      DО 4 I=1,32 $ MER=' '
+      N1=IGETS(KS1,I-1) $ N2=IGETS(KS3,I-1)
+      IF(N1.NЕ.N2) MER=52В
+  4   CALL IPUTS(MER,KS2,I-1)
+      ID=' OLD:' $ PRINT 100,ID,KS1
+      ID=' NEW:' $ PRINT 100,ID,KS3
+      ID=' ERR:' $ PRINT 100,ID,(KS2(I),I=1,6)
+ 100  FORMAT(6А6,А2)
+      RETURN
+      END
+      FUNCTION INITCH(STR)
+С*
+С***  ПОСЛЕДОВАТЕЛЬНАЯ РАБОТА С СИМВОЛАМИ
+С*    ВО ВНЕШНЕМ ФАЙЛЕ. БУФЕРИЗАЦИЯ ВЕДЕТСЯ
+С*    НА ОБМЕННОМ ЛИСТЕ.
+С*
+С*    JР=INITCH('D664/SYSTEM,BOSS,F1,R(200) ')
+С*    ОТКРЫТИЕ ФАЙЛА, УКАЗАНИЕ НАЧАЛЬНОЙ ЗОНЫ.
+С*    РЕЗУЛЬТАТ - НАЧ.ЗНАЧЕНИЕ УКАЗАТЕЛЯ
+С*    ИЛИ 0, ЕСЛИ ФАЙЛ НЕ ОТКРЫЛСЯ. В ПОСЛЕДНЕМ
+С*    СЛУЧАЕ 4-6 СЛОВА  COMMON /MFDB/ MFDB(10)
+С*    СОДЕРЖАТ ТЕКСТ СООБЩЕНИЯ ОБ ОШИБКЕ.
+С*
+С*    JР=JPUT(CHAR) - ЗАПИСЬ СИМВОЛА В ФАЙЛ
+С*    JР=JGET(CHAR) - ЧТЕНИЕ СИМВОЛА ИЗ ФАЙЛА
+С*    ТЕКУЩИЙ УКАЗАТЕЛЬ ПРОДВИГАЕТСЯ НА 1 И
+С*    ВОЗВРАЩАЕТСЯ В КАЧЕСТВЕ ЗНАЧЕНИЯ ФУНКЦИИ.
+С*
+С*    JР=JBLAN(N) - ЗАПИСЬ N ПРОБЕЛОВ
+С*    JР=JZERO(N) - ЗАПИСЬ N НУЛЕЙ
+С*    JР=JSAVE(0) - ДОСБРОС БУФЕРА
+С*    J = JREST(JР) - УСТАНОВКА УКАЗАТЕЛЯ
+С*    В ПОЗИЦИЮ  JР.
+С*
+С*        СТРУКТУРА УКАЗАТЕЛЯ :
+С*              32        18       12     1
+С*   :---------:---------:--------:--------:
+С*   :           N БАЙТА : N УСТР : N ЗОНЫ :
+С*   :---------:---------:--------:--------:
+      COMMON /MFDB/ MFDB(10)
+      INTEGER STR
+С------
+      DО 1 I=1,10
+   1  MFDB(I)=0В
+      J = JFOCC(STR,MFDB)
+      JPOIN=MFDB(2).SHIFT.-12.OR.MFDB(3)
+      JPOIN=JPOIN.AND.77 7777В
+      INITCH=0 $ IF(J.NЕ.0) RETURN
+      GОТО 899
+С---
+      ENTRY JSAVE
+      IW=JPOIN.OR.0000 3700 0000 0000В
+      CALL JSWOP(JPOIN)
+      GОТО 999
+С---
+      ENTRY JREST
+      JPOIN=STR.AND.7777 7777 7777В
+  899 IW=JPOIN.OR.0010 3700 0000 0000В
+      GОТО 991
+С---
+      ENTRY JBLAN
+      LЕТ=32 $ GОТО 32
+      ENTRY JZERO
+      LЕТ=0
+  32  IF(STR.LЕ.0) GОТО 999
+      DО 2 I=1,STR
+      J=JPOIN.SHIFT.18.OR.0
+      CALL IPUTSL(LЕТ,J)
+      JPOIN=JPOIN+100 0000В
+      IF(J.LТ.6*1024-1) GОТО 2
+      IW=JPOIN.OR.0000 3700 0000 0000В
+      J=JEXTRI(0,70В,IW)
+      JPOIN=JPOIN+1В
+      JPOIN=JPOIN.AND.777777В
+   2  CONTINUE
+      GОТО 999
+С---
+      ENTRY JGET
+      I=JPOIN.SHIFT.18.OR.0
+      STR=IGETSL(I)
+      JPOIN=JPOIN+100 0000В
+      IF(I.LТ.6*1024-1) GОТО 999
+      JPOIN=JPOIN+1В
+      IW=JPOIN.OR.0010 3700 0000 0000В
+      GОТО 990
+С---
+      ENTRY JPUT
+      I=JPOIN.SHIFT.18.OR.0
+      CALL IPUTSL(STR,I)
+      JPOIN=JPOIN+100 0000В
+      IF(I.LТ.6*1024-1) GОТО 999
+      IW=JPOIN.OR.0000 3700 0000 0000В
+      JPOIN=JPOIN+1В
+  990 JPOIN=JPOIN.AND.77 7777В
+  991 J=JEXTRI(0,70В,IW)
+  999 INITCH=JPOIN.OR.0
+      RETURN
+      END
+      FUNCTION MPROM(STR)
+С*
+С***      ПОДГОТОВКА МИКРОПРОГРАММЫ К ПРОЖИГУ
+С*
+С*       ...........
+С*     *CALL MICLOA:MAIN
+С*     *CALL MPROM:<СЕРИЙНЫЙ НОМЕР МАШИНЫ>
+С*     *END F
+С*
+С*        ЗАГРУЗКА ДОЛЖНА БЫТЬ ПРОИЗВЕДЕНА
+С*        С АДРЕСА 0.  ПОСЛЕДОВАТЕЛЬНО
+С*        ФОРМИРУЮТСЯ ФАЙЛЫ:
+С*
+С*   1 - МРСОМ        ОЗУ-ЧАСТЬ МИКРОПРОГРАММЫ
+С*                    (АДРЕСА:  800-FFF )
+С*          СЛОВО FFB СОДЕРЖИТ ДАТУ И ИМЯ ФАЙЛА
+С*          СЛОВО FFC СОДЕРЖИТ КОНТР.СУММУ ОЗУ
+С*          СЛОВО FFD СОДЕРЖИТ КОНТР.СУММУ ПЗУ
+С*   2 - MPROM0.BIN   МЛ. (14-Е) БАЙТЫ ПЗУ-ЧАСТИ
+С*   3 - MPROM1.BIN        13-Е  БАЙТЫ ПЗУ-ЧАСТИ
+С*        ............................
+С*  15 - MPROMD.BIN   СТ. (1-Е)  БАЙТЫ ПЗУ-ЧАСТИ
+С*
+С*     ПЗУ-ЧАСТЬ МИКРОПРОГРАММЫ В АДРЕСАХ 0-7FF
+С*
+С*  16 - LPADR0.BIN    МЛАДШИЕ БАЙТЫ  ПНА-0
+С*  17 - HPADR0.BIN    СТАРШИЕ БАЙТЫ  ПНА-0
+С*        ............................
+С*  30 - LPADR7.BIN    МЛАДШИЕ БАЙТЫ  ПНА-7
+С*  31 - HPADR7.BIN    СТАРШИЕ БАЙТЫ  ПНА-7
+С*
+С*  32 - CONST0.BIN  МЛ.(8-Е) БАЙТЫ ПЗУ КОНСТАНТ
+С*        ............................
+С*  39 - CONST7.BIN  СТ.(1-Е) БАЙТЫ ПЗУ КОНСТАНТ
+С*
+С*     ПОСЛЕ ФОРМИРОВАНИЯ КАЖДОГО ФАЙЛА ВЫДАЕТСЯ
+С*     СООБЩЕНИЕ И ПРОИСХОДИТ ОЖИДАНИЕ ПРИЕМА
+С*     ФАЙЛА НА IВМ/РС.
+С*
+      COMMON/PROTO/PROTO(5),КАР(27),МС(16),М(4096)
+      DIMENSION IDENT(8),KS(2,16),LIN(14),STR(14)
+      DАТА IDENT/'ФАЙЛ              СФОРМИРОВАН. ПРИНЯЛИ ЕГО ? '/
+      DАТА KS/32(0)/
+      DАТА LIN/14(' ')/
+      INTEGER S,Т,Н1,Н2,SERNUM
+С------------------------
+      CALL GIVPAG(51В)
+      CALL SCANER(STR(3),МС,0,IТУР,KOD,IР)
+      IF(IТУР.NЕ.2) МС=0
+      SERNUM=МС
+      CALL DIALOP(2)
+      JPOIN=INITCH('D667/SYSTEM,MD,MADLEN,С51(300) ')
+      CALL VMEMOR(300000В)
+      KROM=MEMVRD(4)
+      LCONST=MEMVRD(8)
+      LOOP=MEMVRD(2) / 8
+      KROM=KROM.SHIFT.9.AND.77777В.OR.0
+      MPNA=MEMVRD(5)
+      LBIN=MEMVRD(3)
+      MBIN=MPNA+16400
+С
+С      1:Д, 2:М, 3:Г, 4:Ч,  5-14: ИМЯ ФАЙЛА
+С
+      CALL DIALOQ('ЗАДАЙТЕ ИМЯ РС-ФАЙЛА > ',24,1)
+      CALL DАТЕ(МС)
+      Н1=LРАСК(МС(1),0360 7400 0360 7400В)
+      Н2=LРАСК(МС(2),0360 7400 0000 7417В)
+      МС(1)=Н2.SHIFT.16.OR.Н1
+      LЕТ=100 $ DО 1301 I=1,12 $ МС(I+1)=0В
+      IF(LЕТ.GТ.32) LЕТ=IGETS(КАР,I-1)
+      IF(LЕТ.LТ.32) LЕТ=32
+      IF(I.LТ.11) CALL IPUTS(LЕТ,МС,I+3)
+ 1301 CALL IPUTS(LЕТ,IDENT(2),I-1)
+      CALL VMWRIT(МС,MBIN+4091*LBIN,3*LBIN)
+С
+С---    0.  КОНТРОЛЬНОЕ СУММИРОВАНИЕ
+С
+      N=2 $ IА=MBIN $ DО 2 I=1,4096
+      CALL VMREAD(МС,IА,LBIN)
+      DО 14 J=1,LOOP
+      LЕТ=IGETS( МС, LOOP-J )
+      К=KS(N,J)
+      S=К+К   $ Т=S.SHIFT.8.AND.1.OR.0
+      S=S+Т   $ S=S.AND.377В.OR.0
+      S=S+К   $ Т=S.SHIFT.8.AND.1.OR.0
+      S=S+Т   $ S=S.AND.377В.OR.0
+      S=S+LЕТ $ Т=S.SHIFT.8.AND.1.OR.0
+      S=S+Т   $ KS(N,J)=S.AND.377В.OR.0
+  14  CONTINUE
+      DO 1414 J=LOOP,15
+ 1414 KS(N,J+1)=255
+      IF(I.EQ.2048) N=1
+   2  IА=IА+LBIN
+      N=32-48 $ LEN=2048*16*2+2
+      ASSIGN 110 ТО MRET77 $ GОТО 777
+С
+С---     БЛОК ЗАПИСИ ЗАГОЛОВКА ФАЙЛА :
+С      ИМЯ ФАЙЛА (12 БАЙТ) + ДЛИНА (4БАЙТА)
+С      + СМЕЩЕНИЕ=18 (2 БАЙТА)
+С
+  77  IF(N.GТ.9) N=N+7
+      CALL IPUTS(N+48,IDENT(2),5)
+ 777  DО 177 II=1,12
+ 177  JР = JPUT(IGETS(IDENT(2),II-1))
+      DО 178 II=2,5
+ 178  JР = JPUT(IGETS(LEN,II))
+      JР = JPUT(0)
+      JР = JPUT(18)
+      GОТО MRET77,(110)
+С
+С---    1. ФОРМИРОВАНИЕ ОЗУ-ЧАСТИ
+С
+ 110  IА=MBIN+2048*LBIN
+      DО 10 I=2049,4096
+      CALL VMREAD(МС,IА,LBIN)
+      DО 114 J=1,LOOP
+      LЕТ=IGETS( МС, LOOP-J )
+      IF(I.EQ.4093.OR.I.EQ.4094) LЕТ=KS(I-4092,J)
+      Н1=LЕТ.SHIFT.4.AND.17В.OR.0
+      Н2=LЕТ.AND.17В.OR.0
+      IF(Н1.GТ.9) Н1=Н1+7
+      IF(Н2.GТ.9) Н2=Н2+7
+      JР = JPUT(Н1+48)
+ 114  JР = JPUT(Н2+48)
+      DО 115 J=LOOP,15
+      JP = JPUT('     F')
+ 115  JР = JPUT('     F')
+  10  IА=IА+LBIN
+      ASSIGN 20 ТО М99
+С
+С---   БЛОК ДОСБРОСА ФАЙЛА
+С
+  99  JР = JPUT('     $')
+      JР = JPUT(15В)
+      JР = JPUT(32В)
+      JР = JZERO(100)
+      JР = JSAVE(0)
+      CALL DIALOQ(IDENT,47,1)
+      JР = JREST(JPOIN)
+      КАР=КАР.AND.7777 7777 0000 0000В.OR.1002 0040В
+      IF(КАР.EQ.'END') GОТО 999
+      IF(КАР.NЕ.'PRI') GОТО 199
+      DО 333 II=1,18
+ 333  JР=JGET(LЕТ)
+      DО 300 IPRIN=1,30
+      DО 301 JPRIN=1,16
+      JР=JGET(LЕТ)
+      Н1=LЕТ.SHIFT.4.AND.17В.OR.0
+      Н2=LЕТ.AND.17В.OR.0
+      IF(Н1.GТ.9) Н1=Н1+7
+      IF(Н2.GТ.9) Н2=Н2+7
+      IF(IDENT(3).EQ.' ') Н1=LЕТ-48
+      CALL IPUTS(Н1+48,LIN,2*JPRIN-1)
+      IF(IDENT(3).NЕ.' ') GОТО 301
+      JР=JGET(LЕТ) $ Н2=LЕТ-48
+ 301  CALL IPUTS(Н2+48,LIN,2*JPRIN)
+ 300  CALL DIALOG(LIN,40,-1)
+      JР = JREST(JPOIN)
+ 199  GОТО М99,(20)
+С
+С---    2. ФОРМИРОВАНИЕ  ПЗУ-ЧАСТИ
+С
+  20  IDENT(2)='MPROM' $ IDENT(3)='.BIN'
+      DО 214 J=1,LOOP $ IА=MBIN $ N=J-1
+      ASSIGN 21 ТО MRET77 $ LEN=2048 $ GОТО 77
+  21  DО 210 I=1,2048
+      CALL VMREAD(МС,IА,LBIN)
+      LЕТ=IGETS( МС, LOOP-J )
+      JР = JPUT(LЕТ)
+ 210  IА=IА+LBIN
+      ASSIGN 214 ТО М99 $ GОТО 99
+ 214  CONTINUE
+С
+С---    3.  ФОРМИРОВАНИЕ  ПНА-ФАЙЛОВ
+С
+      DО 30 J=1,8 $ N=J-1 $ LEN=2048
+      IDENT(2)='LPADR' $ DО 32 IВ=1,2
+      CALL VMREAD(М,MPNA+2048*N+1,2048)
+      ASSIGN 132 ТО MRET77 $ GОТО 77
+ 132    DО 31 I=1,2048 $ LЕТ=М(I).OR.0
+С
+С   ***  ВРЕМЕННО: АДРЕСА  4000В<= А < 7776В
+С        В   П Н А - 0,1  НЕ РЕГИСТРИРУЮТСЯ !!!
+С
+      IF(N.LЕ.1.AND.LЕТ.GЕ.2048.AND.LЕТ.LТ.4094) LЕТ=0
+С
+        IF(IВ.EQ.2) LЕТ=LЕТ.SHIFT.8.AND.17В.OR.0
+        Н1=LЕТ.SHIFT.4.AND.17В.OR.0
+        Н2=LЕТ.AND.17В.OR.0
+        IF(Н1.GТ.9) Н1=Н1+7
+        IF(Н2.GТ.9) Н2=Н2+7
+        Н1=Н1+48 $ Н2=Н2+48
+        М(I)=(Н1.SHIFT.-40).OR.(Н2.SHIFT.-32)
+        IF(LЕТ.EQ.0) М(I)=' '
+  31    JР = JPUT(LЕТ)
+      PRINT 101,IDENT(2),IDENT(3) $ JР=0
+      DО 109 I=1,128 $ I3=I-1
+      I1=I3.SHIFT.4.AND.15.OR.0
+      IF(I1.GТ.9) I1=I1+7
+      I2=I3.AND.15.OR.0 $ IF(I2.GТ.9) I2=I2+7
+      I3=256*(I1+48)+I2+48
+      I3=I3.SHIFT.-32
+      PRINT 102,I3,(М(JР+I1),I1=1,16)
+ 109  JР=JР+16
+ 101  FORMAT(1Н1,20Х,2А6,':'//
+     *6Х,'    0   1   2   3   4   5   6   7',
+     *6Х,'    8   9   А   В   С   D   Е   F' )
+ 102  FORMAT(2Х,А2,' :',16(2Х,А2))
+      ASSIGN 32 ТО М99 $ GОТО 99
+  32  IDENT(2)='HPADR'
+  30  CONTINUE
+С
+С---    4. ФОРМИРОВАНИЕ 64-БИТНЫХ  ПЗУ-КОНСТАНТ
+С          СЕРИЙНЫЙ НОМЕР МАШИНЫ - ЭТО ПЕРВАЯ ИЗ НИХ !
+С
+      PRINT 103,KROM
+ 103  FORMAT(///' КОЛИЧЕСТВО 64-РАЗРЯДНЫХ КОНСТАНТ В  П З У :',I6)
+      LEN=KROM $ IDENT(2)='CONST'
+      CALL VMREAD(М,LCONST,4*KROM)
+      IF(SERNUM.NЕ.0) М(1)=SERNUM.SHIFT.16.AND.77777777В
+      IF(SERNUM.NЕ.0) М(2)=SERNUM.SHIFT.-32
+      DО 40 I=1,8 $ N=I-1
+      ASSIGN 41 ТО MRET77 $ GОТО 77
+  41  DО 42 J=1,KROM
+  42  JР = JPUT(IGETS(М(2*J-1),8-I))
+      ASSIGN 40 ТО М99 $ GОТО 99
+  40  CONTINUE
+С---
+ 999  CALL DIALOG('ВСЕ !',5,-1)
+      CALL DIALOP(0)
+      MPROM=0
+      RETURN
+      END
+*ASSEM
+  JSWOP:,name,
+  12,base,*
+  ,sti,14
+  14,xta,
+  ,aax,=77 7777
+  ,aox,=0000 3707 1700 0000
+  14,xts,
+  ,asn,64+18
+  ,aax,=77 7777
+  ,uza,ret
+  ,aox,=:7070 7070 0000 0000
+  ,aex,
+  15,*70,-1
+  ret:15,xta,
+  13,uj,
+  ,end,
+  MICCLE:,name,
+  *REKV*:lc,block,name(5)
+  *MEMOR*:lc,block,(6),itab,ltab
+  *FIELD*:lc,block,nfld,dfld
+  *CATMEM*:lc,block,cat
+  ,utc,1
+  MICSEQ:,entry,
+  ,utc,1
+  MICDEL:,entry,
+  ,utc,1
+  MICPID:,entry,
+  ,utc,1
+  MICGID:,entry,
+  9,vtm,.job
+  ,sti,10.irez
+  b:8,base,b
+  ,xta,len
+  ,uia,nofirst
+  14,vtm,-12
+  :14,its,13
+  14,vlm,*
+  14,vtm,ltab
+  14,xts,
+  ,ntr,2
+  ,a+x,
+  ,atx,len
+  14,xta,
+  ,ati,1
+  ,ntr,3
+  ,e+n,64-40
+  ,atx,len+1
+  12,vtm,cat
+  1,j+m,12
+  1,j+m,12
+  1,j+m,12
+  ,ita,12
+  ,atx,tend
+  14,xta,itab-ltab
+  ,atx,nam
+  2,vtm,ws
+  3,vtm,cat
+  rd1:,its,2
+  14,vtm,nam
+  ,its,14
+  14,vtm,=i5
+  ,its,14
+  ,call,vmread
+  8,vtm,b
+  2,xta,
+  2,mtj,11
+  3,mtj,12
+  14,vjm,press
+  3,utm,3
+  ,xta,nam
+  ,arx,=5
+  ,atx,nam
+  1,utm,-1
+  1,vim,rd1
+  15,xta,
+  14,vtm,13
+  :14,sti,
+  14,utm,-1
+  14,vim,*-1
+  nofirst:11,vtm,name
+  12,vtm,cat
+  ,ntr,3
+  9,uj,*+1
+  :,uj,s
+  :,uj,s
+  :,uj,s
+  :,uj,sequ
+  cle:12,xta,1
+  ,asn,64+22
+  ,aax,=7
+  ,ati,14.ityp
+  ,a-x,=3
+  :,uza,*+2
+  12,xta,1
+  ,aax,=7777 7777 6000 0000
+  12,atx,1.сч-к описаний=0
+  :,ita,14
+  ,aox,=i0
+  11,x-a,1
+  ,uia,cle1
+  ,xta,
+  12,atx,
+  12,atx,1
+  12,atx,2
+  cle1:12,utm,3
+  ,ita,12
+  ,a-x,tend
+  ,uia,cle
+  ,xta,=i0
+  10,atx,
+  ret:,ntr,2
+  13,uj,
+  sequ:10,xta,
+  ,aex,=6hscan
+  :12,vtm,cat-3
+  ,uza,*100
+  ,wtc,ia2
+  12,vtm,
+  *100:12,utm,3
+  ,ita,12
+  ,atx,ia2
+  ,a-x,tend
+  ,uia,*101
+  ,xta,=i1
+  10,atx,
+  11,atx,1
+  ,uj,ret
+  *101:12,xta,
+  ,uza,*100
+  ,aex,mdel
+  ,uza,*100
+  *30:,xta,=i0
+  10,atx,
+  ,xta,=:7777 7777
+  14,vtm,ret
+  DPRESS:12,xts,
+  11,atx,
+  15,aax,
+  ,uza,dpr1
+  11,xta,
+  ,aax,=3767 7577 3767 7577
+  11,atx,.гашение MARK
+  dpr1:12,xta,2
+  11,atx,3
+  12,xta,1
+  ,asn,64+26
+  ,aox,=i0
+  11,atx,4
+  12,xta,1
+  ,aax,=1777 7777
+  ,aox,=i0
+  11,atx,2
+  12,xta,1
+  ,asn,64+22
+  ,aax,=7
+  ,aox,=i0
+  11,atx,1
+  14,uj,
+  sw0:,uj,ret
+  :,uj,*20
+  :,uj,*3
+  swdel:,uj,*3
+  :,uj,*20
+  :,uj,*3
+  swnam:,uj,*30
+  :,uj,*22
+  :,uj,*40
+  s:,xta,=i1
+  10,atx,."MABS"
+  11,xta,
+  ,asn,64+25
+  15,atx,
+  ,uza,s1
+  11,wtc,1
+  ,xta,mark-1
+  s1:11,aox,
+  ,atx,nam
+  15,aex,
+  ,aax,=1 7777 7777
+  ,aox,=i0
+  ,ntr,2
+  ,a+x,
+  15,atx,
+  ,a/x,len
+  ,ntr,3
+  ,a+x,=i0
+  ,a*x,len+1
+  ,yta,64
+  15,x-a,
+  ,ati,14
+  14,j+m,12
+  14,j+m,12
+  14,j+m,12
+  ,ita,12
+  ,atx,ws
+  s2:12,xta,
+  9,uza,sw0
+  ,aex,mdel
+  9,uza,swdel
+  12,xta,
+  ,aex,nam
+  9,uza,swnam
+  *3:12,utm,3
+  ,ita,12
+  :,a-x,tend
+  ,uia,*+2
+  12,vtm,cat
+  :,ita,12
+  ,aex,ws
+  ,uia,s2
+  9,utm,-2
+  9,vzm,ret
+  14,vtm,=i1
+  ,its,14
+  ,call,micfat
+  *40:,xta,mdel
+  ,atx,nam
+  *22:,xta,=i0
+  10,atx,
+  *20:,xta,nam
+  14,vtm,ret
+  press:12,atx,
+  11,xta,3
+  12,atx,2
+  11,xta,4
+  ,asn,64-26
+  11,xts,1
+  ,asn,64-22
+  15,aox,
+  11,xts,2
+  ,aax,=1777 7777
+  15,aox,
+  12,atx,1
+  ,aax,=:4000 0000 1
+  14,uza,
+  14,vtm,=i5
+  ,its,14
+  ,call,micfat
+  MICWRC:,entry,
+  8,base,b
+  14,vtm,-12
+  :14,its,13
+  14,vlm,*
+  14,vtm,itab
+  14,xts,
+  ,atx,nam
+  14,xta,ltab-itab
+  ,ati,1
+  2,vtm,cat
+  wr1:2,mtj,12
+  11,vtm,ws
+  ,xta,
+  14,vjm,dpress
+  ,its,11
+  14,vtm,nam
+  ,its,14
+  14,vtm,=i5
+  ,its,14
+  ,call,vmwrit
+  8,vtm,b
+  ,xta,nam
+  ,arx,=5
+  ,atx,nam
+  2,utm,3
+  1,utm,-1
+  1,vim,wr1
+  15,xta,
+  14,vtm,13
+  :14,sti,
+  14,utm,-1
+  14,vim,*-1
+  13,uj,
+  MICSFN:,entry,. i=micsfn(name)
+  8,base,b
+  ,ati,14
+  ,wtc,nfld
+  9,vtm,
+  10,vtm,1
+  11,vtm,dfld
+  :11,xta,
+  14,aex,
+  ,uza,posret
+  11,utm,4
+  10,utm,1
+  9,utm,-1
+  9,vim,*-3
+  10,vtm,
+  posret:,ita,10
+  ,aox,=i0
+  13,uj,
+  mdel:,log,7777 7777
+  mark:,log,200
+  :,log,200
+  :,log,100 000
+  :,log,
+  :,log,
+  len:,log,
+  :,log,
+  tend:,log,
+  ia2:,log,
+  nam:,bss,1
+  ws:,bss,6
+  ,end,
+  konsem:,name,
+  *sema*:lc,block,jfm,mfl,kcheck,mcheck(200),mref(100),mlist
+  b:8,base,b
+  9,vtm,mcheck
+  9,xts,kcheck-mcheck
+  ,ati,10
+  loop:10,vzm,poz
+  10,utm,-1
+  9,xta,
+  9,utm,1
+  loop1:,asn,64-8
+  15,atx,
+  ,yta,
+  ,ati,12
+  ,aax,=177
+  ,ati,14.JF
+  ,uza,neg
+  15,wtc,-2
+  14,xta,-1
+  ,ati,14.FREADY(JF)
+  ,ita,12
+  ,aax,=200
+  :,sti,12.KOD
+  14,vim,*+2
+  12,vzm,loop
+  ,uj,loop1
+  :12,vim,loop
+  ,uj,loop1
+  neg:15,utm,-2
+  9,utm,-mcheck
+  ,ita,9
+  ,aox,=i0
+  13,uj,
+  poz:15,utm,-1
+  :,xta,=i0
+  13,uj,
+  konfil:,entry,
+  8,base,b
+  ,ati,9
+  ,wtc,jfm
+  14,vtm,
+  14,vzm,poz+1
+  ,utc,mref
+  14,xta,-1
+  15,atx,
+  ,aax,=7777
+  ,sti,11.J1
+  ,asn,64+12
+  ,aax,=7777
+  ,uza,poz+1
+  ,ati,12.J2
+  11,utm,mlist-1
+  :11,xta,
+  11,utm,1
+  9,aex,
+  ,uza,poz+1
+  12,utm,-1
+  12,vim,*-2
+  ,utc,mref
+  14,xta,-1
+  ,asn,64+24
+  ,aax,=7777
+  ,aox,=i0
+  13,uj,
+  ,end,
+  preset:,name,
+  ,ati,14
+  14,xta,
+  ,sti,14
+  ,sti,12
+  ,sti,11
+  11,xta,
+  :12,atx,
+  12,utm,1
+  14,utm,-1
+  14,vim,*-1
+  13,uj,
+  ,end,
+*ТО PERSO:67000,60, КОНТРОЛЬНАЯ СУММА МИКРОПРОГРАММЫ
+*SYSTEM
+*CALL MICROB
+*END F

@@ -1,0 +1,35 @@
+*name n
+*libra:23
+*disc:705/system,lcross
+*file:lib,67,r
+*file:scratch,30,w
+*perso:67
+*take tape:67
+*call ficmemor
+*call libinit:30,40
+*main mkb/ass
+*execute
+main_sw:name qf
+;
+;******  first mkb-program for own compiler
+;
+b:equ @fff8 0800 ; init adress
+f:pccb (0) ; free c-area
+1:block m1(9),ma,mb,mc,md,me,mf
+;
+const
+ful:hex ffff ffff ffff ffff
+cmd
+;
+begin:m1 vtm b
+jmp start
+;
+:xta ful
+aau @fff
+ati mc
+start:ma vtmb f
+ma bta 3
+jmp begin
+end
+*call dispload
+*end f

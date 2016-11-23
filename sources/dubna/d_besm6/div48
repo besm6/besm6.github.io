@@ -1,0 +1,34 @@
+*NАМЕ N
+*TIME:24.00
+*FTN
+      PROGRAMMA
+      DО 1 I=1,120
+      N1=I/48 $ N2=I-48*N1
+      CALL DIV48(I,К1,К2)
+      IF(К1.NЕ.N1.OR.К2.NЕ.N2) PRINT 8,I,N1,N2,К1,К2
+  8   FORMAT(I4,'/48    FOR:',2I4,'   ASS:',2I4)
+  1   CONTINUE
+      END
+*ASSEM
+  DIV48:,NАМЕ,
+  8,BASE,*
+  ,STI,14
+  ,STI,12
+  ,STI,9
+  9,ХТА,
+  ,NTR,2
+  ,А/Х,=R48.
+  ,NTR,3
+  ,А+Х,=I0
+  12,АТХ,
+  ,NTR,2
+  ,А*Х,=R48.
+  ,NTR,3
+   9,Х-А,
+   14,АТХ,
+  ,NTR,2
+  13,UJ,
+  ,END,
+*NО LOAD
+*EXECUTE
+*END F

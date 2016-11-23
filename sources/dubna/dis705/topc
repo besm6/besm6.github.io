@@ -1,0 +1,181 @@
+*NAME TOPC
+*TIME:24.00
+*EXPRESS
+*LIBRA:23
+*TAPE:1/ROLLIB,67,W
+*PAGE:999,LIST
+*PERSO:67600
+*NO LOAD
+*ASSEM
+  TOPC:,NAME,
+  *BUF*:,PC,1024
+  TOPC1:,SUBP,
+  ,UJ,TOPC1
+  ,END,
+*FTN
+      SUBROUTINE TOPC1
+      COMMON/BUF/MBUF(1024)
+      COMMON/PROTO/AP(5),KAP(40),LEX(14)
+      COMMON/CHARM/MCHAR
+      DIMENSION MFDB(10),ID(2),MESS(5)
+      DATA MESS/'BLOAD:  ПEPEДAЛИ ФAЙЛ HA PC > '/
+C---
+      CALL DIALOP(2)
+  1   CALL DIALOQ('ФAЙЛ БЭCM-6 > ',14,1)
+      J=JEXTRA(7777 7777 7777 7777B,57B,4000B)
+      DO 2 I=1,10
+  2   MFDB(I)=0B
+      MFDB(2)=67B
+      J=JFOCC(KAP,MFDB)
+      IF(J.NE.0) CALL DIALOG(MFDB(4),18,-1)
+      IF(J.NE.0) GOTO 1
+      N1=MFDB(3).OR.0 $ MFDB(3)=2000
+      CALL SCANER(0,LEX,4,ITYP,KOD,IPOZ)
+      IF(ITYP.EQ.4.AND.LEX.EQ.'BIN') GOTO 3
+      LCLET=LEX
+      J=JFEX1(MFDB,MBUF,N1,'R')
+      ITYP=INFTYP(MBUF)
+      IF(ITYP.EQ.0) GOTO 10
+      IF(ITYP.NE.1) GOTO 3
+      KZON=MCHAR+1
+      CALL PUTH(KAP,'LIBRARY ',0,8,0,IPOZ)
+      CALL PUTO(0,KZON,0,3,0,IPOZ)
+      CALL PUTH(0,' ЗOH.',0,5,0,IPOZ)
+      CALL DIALOG(KAP,IPOZ,-1)
+      GOTO 30
+  3   CALL DIALOQ('ЧИCЛO ЗOH > ',12,1)
+      CALL SCANER(KAP,LEX,4,ITYP,KOD,IPOZ)
+      IF(ITYP.NE.1) GOTO 3
+      KZON=LEX.OR.0
+      IF(KZON.EQ.0) GOTO 3
+C---
+  30  CALL DIALOQ('"NAME.EXT" ДЛЯ PC > ',20,1)
+      JPOIN=INITCH('D667/SYSTEM,MD,MADLEN,C(300) ')
+      ID(1)=' ' $ ID(2)=' '
+      DO 11 I=1,12
+      LET=IGETS(KAP,I-1)
+      IF(LET.EQ.0) GOTO 12
+  11  CALL IPUTS(LET,ID,I-1)
+  12  DO 13 I=1,12
+  13  JP=JPUT(IGETS(ID,I-1))
+      LEN=6*1024*KZON
+      DO 14 I=2,5
+  14  JP=JPUT(IGETS(LEN,I))
+      JP=JPUT(0) $ JP=JPUT(18)
+      CALL DIALOQ('ПEPECTABЛЯTЬ БAЙTЫ > ',21,1)
+      CALL SCANER(KAP,LEX,0,ITYP,KOD,IPOZ)
+      JC=0
+      IF(LEX.EQ.'YES') JC=1
+      IF(LEX.EQ.'Y') JC=1
+      IF(LEX.EQ.'ДA') JC=1
+      IF(LEX.EQ.'Д') JC=1
+      DO 20 JZ=1,KZON
+      J=JFEX1(MFDB,MBUF,N1,'R')
+      IF(J.NE.0) CALL DIALOG(MFDB(4),18,-1)
+      DO 21 I=1,6144,2
+      L1=IGETS(MBUF,I-1) $ L2=IGETS(MBUF,I)
+      IF(JC.EQ.0) GOTO 22
+      JP=JPUT(L2) $ JP=JPUT(L1) $ GOTO 21
+  22  JP=JPUT(L1) $ JP=JPUT(L2)
+  21  CONTINUE
+  20  N1=N1+1
+      MESS='BLOAD:' $ GOTO 6
+C---
+  10  CALL DIALOG('ФAЙЛ TEKCTOBЫЙ.',15,-1)
+      CALL DIALOQ('ПEPEKOДИPOBATЬ > ',17,1)
+      CALL SCANER(KAP,LEX,0,ITYP,KOD,IPOZ)
+      ICOD=0
+      IF(LEX.EQ.'Д'.OR.LEX.EQ.'ДA') ICOD=1
+      IF(LEX.EQ.'Y'.OR.LEX.EQ.'YES') ICOD=1
+      IF(LEX.EQ.'RUS'.OR.LEX.EQ.'PYC') ICOD=2
+      J=PCBEG('WRIT')
+      CALL RBEGIN(N1.AND.7777B.OR.6400 0000 0067 0000B)
+      NK=0 $ MESS='TYPE:'
+      IF(LCLET.EQ.'CLENUM') CALL DIALOG('HOMEPA KAPT ГACИM.',18,-1)
+  4   CALL RECARD(LEX) $ NK=NK+1
+      IF(NK.EQ.1) NAME=LEX
+      IF(LCLET.EQ.'CLENUM') LEX(13)=' '
+      IF(LCLET.EQ.'CLENUM') LEX(14)=' '
+      IF(LEX.EQ.'*READ'.AND.LEX(2).EQ.'OLD') GOTO 5
+      IF(ICOD.EQ.1) CALL ASCII(LEX)
+      IF(ICOD.EQ.2) CALL ALTER(LEX)
+      J=PCWRIT(LEX) $ GOTO 4
+  5   J=PCEND(0)
+      IF(NAME.EQ.'*NAME') CALL DIALOG('ЭTO BATCH-ФAЙЛ !',18,-1)
+  6   CALL DIALOQ(MESS,30,1)
+      CALL SCANER(KAP,LEX,0,ITYP,KOD,IPOZ)
+      IF(LEX.NE.'END'.AND.LEX.NE.'BCE'.AND.LEX.NE.'KOHEЦ') GOTO 1
+      CALL DIALOG('BCE !',6,-1)
+      CALL DIALOP(0)
+      STOP
+      END
+      SUBROUTINE ALTER(K)
+C*   "ЛATИHИЗИPOBAHHЫЙ" ПEPEBOД B AЛЬTEPH.ASCII
+C*    MEHЯETCЯ KOДИPOBKA TOЛЬKO Y CИMBOЛOB 140:176
+C*    ПPИЧEM PYCCKИE БYKBЫ, COBПAДAЮЩИE ПO HAЧEP-
+C*    TAHИЮ C ЛATИHCKИMИ, ПEPEBOДЯTCЯ B COOTB.
+C*    БOЛЬШИE ЛATИHCKИE.  CYГYБO PYCCKИE - B @80:9F
+C--------------------------------------------------
+      INTEGER K(14),T(32)
+C  140-147:    Ю    A    Б    Ц    Д    E    Ф    Г
+C  150-157:    X    И    Й    K    Л    M    H    O
+C  160-167     П    Я    P    C    T    Y    Ж    B
+C  170-177     Ь    Ы    З    Ш    Э    Щ    Ч
+      DATA T/236B,101B,201B,226B,204B,105B,224B,203B,
+     *       130B,210B,211B,113B,213B,115B,110B,117B,
+     *       217B,237B,120B,103B,124B,131B,206B,102B,
+     *       234B,233B,207B,230B,235B,231B,227B,177B/
+C---------------------------------------------------
+      DO 1 I=1,80
+      LET=IGETS(K,I-1)
+      IF(LET.LT.96) GOTO 1
+      CALL IPUTS(T(LET-95),K,I-1)
+  1   CONTINUE
+      RETURN
+      END
+      SUBROUTINE ASCII(K)
+      INTEGER T(64),LAT(128)
+      DATA T/200B,202B,221B, 41B,205B, 41B, 41B,215B,
+     *   41B, 41B,212B, 41B,214B, 41B,216B,220B,
+     *   41B, 41B, 41B,222B, 41B, 41B, 41B,225B,
+     *  223B, 41B,133B,134B,135B,136B,137B,236B,
+     *  200B,201B,226B,204B,205B,224B,203B,225B,
+     *  210B,211B,212B,213B,214B,215B,216B,217B,
+     *  237B,220B,221B,222B,223B,206B,202B,234B,
+     *  233B,207B,230B,235B,231B,227B, 41B, 41B /
+      DATA LAT/64(0),0,0,0,0,1,0,1,1,0,1,1,0,
+     *  1,0,1,0,0,1,1,1,0,1,1,1,0,0,1,37(0)/
+C------------------------------------------------
+      J=-1
+C     ПOИCK HAЧAЛA CЛOBA :
+  1   J=J+1 $ IF(J.GT.80) GOTO 9
+      LET=IGETS(K,J)
+      IF(LET.LT.48) GOTO 1
+      IF(LET.GT.57.AND.LET.LT.64) GOTO 1
+      IF(LET.GT.90.AND.LET.LT.96) GOTO 1
+      N1=J $ LATIN=0
+C     ПOИCK KOHЦA CЛOBA :
+  2   J=J+1 $ IF(J.GT.80) GOTO 3
+      LET=IGETS(K,J)
+      IF(LET.LT.48) GOTO 3
+      IF(LET.GT.57.AND.LET.LT.64) GOTO 3
+      IF(LET.GT.90.AND.LET.LT.96) GOTO 3
+      LATIN=LATIN+LAT(LET+1)
+      GOTO 2
+C     ПEPEBOД ПO-PYCCKИ, ECЛИ HE БЫЛO ЛAT.CИMB.
+  3   N2=J $ DO 4 I=N1,N2
+      LET=IGETS(K,I)
+      IF(LAT(LET+1).NE.0) GOTO 4
+      IF(LET.LT.65) GOTO 4
+      IF(LET.LT.96.AND.LATIN.NE.0) GOTO 4
+      LET=T(LET-64)
+      CALL IPUTS(LET,K,I)
+  4   CONTINUE
+      GOTO 1
+  9   RETURN
+      END
+*TO PERSO:67600,60,MИKPOACCEMБЛEP И TOPC
+*TAKE TAPE:67
+*SYSTEM
+*CALL TOPC
+*END F

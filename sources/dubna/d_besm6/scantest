@@ -1,0 +1,246 @@
+*NАМЕ N
+*TIME:24.00
+*LIBRA:23
+*EXPRESS
+*DISC:705/SYSTEM,extold
+*FILE:bin,55
+*PERSO:55004
+*          FILE:EXTOLD
+*          0 - ЗАГРУЖЕННЫЕ ЭКСТРАКОДЫ
+*          2 - ТЕСТ АУ/УУ
+*          4 - PERSO
+*         16 - TEST
+*         20 - ТЕКСТЫ СТАРЫХ ЭКСТРАКОДОВ
+*         50 - ДУБЛЬ
+*NО LOAD
+*no list
+      PROGRAMMA
+      COMMON/PROTO/PROTO(100)
+      COMMON/CARD/К(14,50)
+      EXTERNAL ЕХР
+      N=0
+ 100  N=N+1 $ READ 101,(К(I,N),I=1,14)
+ 101  FORMAT(13А6,А2)
+      IF(К(1,N).NЕ.'END') GОТО 100
+      DО 1 I=1,10
+  1   CALL PR64
+      CALL ELFUN
+      CALL Т200(0)
+      CALL TSCAN
+c      CALL МАТЕХ
+c      DО 2 I=1,10
+c      CALL PR64
+c  2   CALL PRBUF
+c      CALL PRBLAN
+c      CALL ELFUN
+c      CALL Т200(1)
+c      CALL TSCAN
+      CALL TOCCUP
+      END
+      SUBROUTINE ELFUN
+      DО 1 I=1,20
+      Х=0.314159*(I-10)
+      S=SIN(Х) $ С=COS(Х)
+      Z=S**2+С**2
+  1   PRINT 8,I,Х,S,С,Z
+  8   FORMAT(I3,' : Х=',F8.5,'  SIN=',F8.5,'  COS=',F8.5,'  Z=',F8.5)
+      RETURN
+      END
+*FTN
+      SUBROUTINE TOCCUP
+      DIMENSION MD(5,5),М(10,5)
+      DАТА MD/'D667/SYSTEM,BESM6,DISP78,R63  ',
+     2        'D664/SYSTEM,WORKIN,DD,W       ',
+     3        'D667/SYSTEM,MD,MADLEN,С       ',
+     4        'D1/SYSTEM,А,В                 ',
+     5        'Т9/MONSYS                     '/
+      DО 1 I=1,5
+      J=JFOCC(MD(1,I),М(1,I))
+  1   PRINT 8,J,(М(К,I),К=1,3)
+  8   FORMAT(' JFOCC=',I2,'   D: ',3О20)
+c      CALL PRFATA
+c      CALL PRTUN
+      RETURN
+      END
+      SUBROUTINE TSCAN
+      DIMENSION КАР(14),LЕХ(10),MOUT(20),MREG(5)
+      DАТА MREG/8,0,1,2,4/
+      COMMON/CARD/М(14,50)
+С--------------------------
+      CALL DIALOP(1) $ N=0
+ 200  N=N+1 $ DО 201 I=1,14
+ 201  КАР(I)=М(I,N)
+      I=14 $ IС=84
+ 202  IF(КАР(I).NЕ.' ') GОТО 203
+      IС=IС-6
+      КАР(I)=0В $ I=I-1 $ IF(I.GТ.1) GОТО 202
+ 203  CALL DIALOG(КАР,-IС,-1)
+      DО 105 JR=1,5 $ IREG=MREG(JR)
+      IF(JR.EQ.1.AND.N.NЕ.1) GОТО 105
+      CALL PUTH(MOUT,' IREG:',0,6,0,IС)
+      CALL PUTG(0,IREG,0,1,0,IС)
+      CALL DIALOG(MOUT,-IС,-1)
+      IPOZ1=0
+  1   CALL PUTH(MOUT,'  IТУР=',0,7,0,IС)
+      IF(IPOZ1.EQ.0) CALL SCANER(КАР,LЕХ,IREG,IТУР,KOD,IPOZ)
+      IF(IPOZ1.NЕ.0) CALL SCANER(0,LЕХ,IREG,IТУР,KOD,IPOZ)
+      LEN=IPOZ-IPOZ1 $ IPOZ1=IPOZ
+      CALL PUTG(0,IТУР,0,1,0,IС)
+      CALL PUTH(0,'  KOD=',0,6,0,IС)
+      CALL PUTO(0,KOD,0,3,0,IС)
+      CALL PUTH(0,'  IPOZ=',0,7,0,IС)
+      CALL PUTG(0,IPOZ,0,3,0,IС)
+      CALL PUTH(0,'  LЕХ:',0,6,0,IС)
+      IТ=IТУР+1 $ GОТО (10,11,12,13,14,15),IТ
+  10  CALL PUTH(0,'ERROR',0,5,0,IС) $ GОТО 20
+  11  CALL PUTO(0,LЕХ,0,20,4,IС) $ GОТО 20
+  12  CALL PUTG(0,LЕХ,1,10,0,IС) $ GОТО 20
+  13  CALL PUTG(0,LЕХ,1,12,4,IС) $ GОТО 20
+  14  CALL PUTH(0,LЕХ,0,LEN,0,IС) $ GОТО 20
+  15  CALL PUTH(0,'ЕМРТУ',0,5,0,IС)
+  20  CALL DIALOG(MOUT,-IС,-1)
+      IF(KOD.NЕ.0) GОТО 1
+ 105  CONTINUE
+      IF(КАР.NЕ.'END') GОТО 200
+      RETURN
+      END
+*ASSEM
+  МАТЕХ:,NАМЕ,
+  ЕХР:,SUBP,
+  SCANER:,SUBP,
+  В:8,BASE,В
+  ,*72,=:11360077
+  ,*70,=0010 3600 0055 0000
+  ,*70,=0010 3700 0055 0001
+  ,ХТА,MATJ
+  ,СТХ,ЕХР+2
+  ,ХТА,MATJ+1
+  ,СТХ,ЕХР+3
+  ,ХТА,MATJ+2
+  ,СТХ,74010В
+  ,ХТА,М64
+  ,СТХ,СР
+  12,VТМ,SCANER
+  ,ХТА,VJM74000
+  12,СТХ,24В
+  12,СТХ,37В
+  12,СТХ,44В
+  12,СТХ,46В
+  13,UJ,
+  MATJ:12,MTJ,14
+  ,NTR,18
+  ,UJ,74000В
+  :13,UJ,
+  VJM74000:13,VJM,74000В
+С---------------
+  М64:14,VТМ,INF64
+  ,UJ,74014В
+С--------------
+  PR12:12,Z00,
+  12,Z00,31
+  2,001,16
+  8,024,5
+С----------------
+  PRBUF:,ENTRY,
+  8,BASE,В
+  ,WТС,74000В
+  11,VТМ,.ИПЗ
+  11,WТС,126В
+  10,VТМ,.БУФ.ВЫВОДА
+  10,ХТА,
+  CPR:10,АТХ,
+  ,*64,COSY
+  NЕХТ:10,ХТА,
+  10,UТМ,1
+  ,АЕХ,=176
+  ,ААХ,=377
+  ,U1А,NЕХТ
+  ,NTR,3
+  ,IТА,10
+  11,А-Х,130В."ТЕ"
+  ,UZA,RETPR
+  10,ХТА,
+  ,UJ,CPR
+  RETPR:,NTR,6
+  13,UJ,
+  COSY:10,Z10,
+  ,Z00,
+  PRBLAN:,ENTRY,
+  8,BASE,В
+  ,WТС,74000В
+  11,VТМ,
+  11,WТС,130В."ТЕ"
+  10,VТМ,
+  10,ХТА,
+  ,АОХ,=6Н'''176''''''''176'
+  ,UJ,CPR
+С--------------
+  PR64:,ENTRY,
+  8,BASE,В
+  ,ХТА,СР
+  ,АТХ,STR+2
+  9,VТМ,STR+1
+  СР:,UТС,INF64
+  ,*64,
+  13,UJ,
+  INF64:9,Z00,-1
+  ,Z00,ESTR
+  :0,002,
+  ,,
+  1,017,
+  ,030,
+  :0,052,
+  ,,
+  :3,062,9
+  ,017,3
+  :0,170,
+  ,,
+  :2,027,16
+  9,024,3
+  STR:,GOST,18HCOMMAND:'231'
+  ,GOST,6HDEC: '231'
+  ,REAL,0.0
+  ,REAL,3.14
+  ,REAL,-314159.001
+  ,REAL,314159000.001
+  ,GOST,12Н>'175'    ОСТ:'231'
+  ,LOG,1234 5670 1234 5670
+  ,LOG,
+  ,LOG,7777 7777 7777 7777
+  ESTR:,LOG,5
+  ,END,
+  Т200:,NАМЕ,
+  8,BASE,*
+  ,STI,14
+  14,ХТА,
+  ,ATI,10.0,1
+  13,MTJ,9
+  ,IТА,9
+  14,VТМ,200В
+  13,VJM,FUN
+  ,CALL,ОКНО
+  ,ХТА,=I666
+  14,VТМ,201В
+  13,VJM,FUN
+  ,CALL,ОКНО
+  14,VТМ,202В
+  13,VJM,FUN
+  ,CALL,ОКНО
+  ,ХТА,=6Н'''''''''11''11'
+  14,VТМ,203В
+  13,VJM,FUN
+  ,CALL,ОКНО
+  9,UJ,
+  FUN:10,V1М,74000В
+  14,*50,
+  13,UJ,
+  ,END,
+*EXECUTE
+1234567В,;1 3.14
+А+1 '1234У+;' 3.14Е5,     777777777777В   А+ВУУУУУ  6+4=10
+*1+А/W  3.14У5  1285В  3У2  ;;;
+   D76/SYSTEM,WORKIN,TEST,R(700)  BOSS
+ А=1,В=12В,С=3.14159,D='ABCDE',_Е=+?
+А0123456789  'А1234567890123456' А012345678901234567890
+END
+*END F

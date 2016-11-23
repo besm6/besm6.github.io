@@ -1,0 +1,9 @@
+*name n
+*disc:664/system,microb
+*file:arc,30,w
+*file:lib,67,r
+*libra:23
+*perso
+*call ficmemor
+*call mprom
+*end f

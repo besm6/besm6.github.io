@@ -1,0 +1,35 @@
+*NAME SILIN
+*EXPRESS
+      PROGRAM TESTD
+      DOUBLE PRECISION X,Y
+      X=DLOG(1.1D0)
+      Y=DEXP(X)
+      PRINT 1,Y
+    1 FORMAT(2XD32.24)
+      END
+      DOUBLE PRECISION FUNCTION DLOG(X)
+      DOUBLE PRECISION Y,X
+      Y=1-X
+      DLOG=0.D0
+      R=1.D0
+      DO 1,I=1,1000
+      R=R*Y/I
+      DEXP=DEXP-R
+      IF(DABS(R).LT.1.D-25)RETURN
+    1 CONTINUE
+      RETURN
+      END
+      FUNCTION DEXP(X)
+      DOUBLE PRECISION DEXP,X,R
+      DEXP=1.D0
+      N=1
+      DO 1,I=1,100
+      N=N*I
+      R=R*X/N
+      DEXP=DEXP+R
+      IF(DABS(R).LT.1.D-25)RETURN
+    1 CONTINUE
+      RETURN
+      END
+*EXECUTE
+*END FILE

@@ -1,0 +1,12 @@
+*name n
+*disc:705/system,fumili
+*file:lib,67,r
+*no load
+*perso
+*      function sign(a,b)
+*      sign = abs(a)
+*      if(b .lt. 0.) sign = - sign
+*      return
+*      end
+*execute
+*end f

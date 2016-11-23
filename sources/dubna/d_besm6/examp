@@ -1,0 +1,14 @@
+*NAME N
+*ASSEM
+  PROGRAM:,NAME,
+  1,VTM,-50
+  L:2,VTM,1
+  l2:,aox,=1
+  ,aex,=1
+  ,aax,=7777777777777777
+  2,VLM,L2
+  1,VLM,L
+  ,SJ,
+  ,END,
+*EXECUTE
+*END F

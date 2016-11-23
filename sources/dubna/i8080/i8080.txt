@@ -1,0 +1,3893 @@
+*NAME N
+*TIME:24.00
+*DISC:76/SYSTEM,WORKIN
+*FILE:I8080,55,W
+*FILE:SCRATCH,67,W,40
+*LIBRA:23
+*EXPRESS
+*PAGE:999,LIST
+*TAPE:1/ROLLIB,30
+*COPY:4,30,67300
+*TAKE TAPE:30
+*CALL ALLMEMOR
+*
+*        ФAЙЛ I8080 :
+*       000 : PERSO KPOCC-ACCEMБЛEPA 8080
+*       030 : БИБЛИOTEKA ПPOГPAMM ДЛЯ 8080
+*       100 : TEKCTЫ ACCEMБЛEPA (HE BCE)
+*       124 : SMALL TEST  +  BIG TEST
+*       130 : БYФEP ДЛЯ TPAHCЛЯЦИИ
+*       140 : CKЛAД ДЛЯ ГOTOBЫX ПPOГPAMM
+*       170 : ДYБHEHCKИE ДOБABKИ B PERSO  +TECTИK
+*
+*PERSO:55
+*NO LIST
+*FTN
+      SUBROUTINE INTEL
+      COMMON /EMHEAD/ MHD(10)
+      COMMON /INCOP/ INC(768)
+      COMMON /MEMORY/ MEM(22014)
+      DATA MHD/
+     *' *** INTEL-8080  EMULATOR.  PROGRAM AUTOR: CROSS          '/
+C
+      CALL LOADGO('INTEL0')
+      CALL LOADGO('INTEL8')
+      STOP
+      END
+      SUBROUTINE IHEX( INT, K, MHEX, N )
+C
+C    ПEPEBOД K-PAЗPЯДHOГO ЦEЛOГO INT
+C    B ШECTHAДЦATИPИЧHOE ПPEДCTABЛEHИE
+C    И ЗAПИCЬ B MHEX, HAЧИHAЯ C N БAЙTA
+C
+      LETSM=0 $ GOTO 40
+      ENTRY IHEX1
+      LETSM=32
+  40  J=K/4 $ NN=N
+      IW=INT.SHIFT.(K-48)
+      DO 1 I=1,J
+      LET=IW.SHIFT.44.OR.0
+      IF(LET.GT.9) LET=LET+7+LETSM
+      CALL IPUTS(LET+48,MHEX,NN) $ NN=NN+1
+  1   IW=IW.SHIFT.-4
+      RETURN
+C
+C    OБPATHЫЙ ПEPEBOД
+C
+      ENTRY HEXI
+      J=K/4 $ NN=N $ INT=0
+      DO 2 I=1,J
+      LET=IGETS(MHEX,NN)-48
+      IF(LET.GT.9) LET=LET-7
+      IF(LET.LT.0.OR.LET.GT.15) GOTO 3
+      INT=INT.SHIFT.-4.OR.LET
+  2   NN=NN+1
+      RETURN
+  3   INT=-1-IGETS(MHEX,NN)
+      RETURN
+      END
+      FUNCTION MHADR ( IA, IC )
+C     BЫБOPKA ИЗ CTPOKИ ПAPAMETPOB B IA
+C     ШECTH.AДPECA.  IC=<PAЗДEЛИTEЛЬ>
+C     PEЗYЛЬTAT HE 0, ECЛИ OШИБKA.
+      IA=0B $ LTAG=0
+  16  CALL SCANER(0,LET,8,ITYP,IC,IPOZ)
+      IF(ITYP.NE.1.AND.ITYP.NE.2) GOTO 9
+      IF(ITYP.EQ.2) IC=IC-7
+      LET=IC-48 $ IA=IA.SHIFT.-4.OR.LET
+      IF(LET.GE.0.AND.LET.LE.15) GOTO 16
+  99  LTAG=1 $ GOTO 9
+C---
+      ENTRY M1B
+C     BЫБOPKA OДHOГO БAЙTA, ЗAДAHHOГO
+C     B ШECTH.BИДE
+      IA=0B $ DO 202 I=1,2
+      CALL SCANER(0,LET,8,ITYP,IC,IPOZ)
+      IF(ITYP.NE.1.AND.ITYP.NE.2) GOTO 100
+      IF(ITYP.EQ.2) IC=IC-7
+      LET=IC-48 $ IA=IA.SHIFT.-4.OR.LET
+      IF(LET.LT.0.OR.LET.GT.15) GOTO 99
+ 202  CONTINUE
+ 100  LTAG=0 $ GOTO 9
+C---
+      ENTRY MNREG
+C     BЫБOPKA B IA AДPECA PEГИCTPA
+      CALL SCANER(0,LET,0,ITYP,IC,IPOZ)
+      IF(ITYP.NE.4) GOTO 99
+      IF(LET.EQ.'PSW') LET='W'
+      LET=LET.SHIFT.40.OR.0
+      DO 8 I=1,9 $ IA=I-10
+      IF(LET.EQ.IGETS(' SBCDEHLWA',I)) GOTO 100
+   8  CONTINUE
+      GOTO 99
+   9  MHADR=LTAG
+      RETURN
+      END
+      SUBROUTINE INTEL0
+      COMMON /EMHEAD/ MHD(10)
+      COMMON /INCOP/ KOP(256),KTYP(256),LEN(256)
+      COMMON /MEMORY/ P,S(11),MEM(11000),MTEG(11000)
+      INTEGER P,S, FDB(10), INTEG(5)
+      DATA INTEG/4,5,5,5,1/
+      DIMENSION KOPN(8),IFN(8),INDATA(3,256)
+      DATA KOPN/'ADD   ADC   SUB   SBB   ANA   XRA   ORA   CMP'/
+      DATA IFN /'JNZ   JZ    JNC   JC    JPO   JPE   JP    JM '/
+      DATA INDATA/
+     * 'RST  0 1 1 307,N  ',
+     * 'CMC    1 1 077    ',
+     * 'STC    1 1 067    ',
+     * 'INR    2 1 004,R  ',
+     * 'DCR    2 1 005,R  ',
+     * 'CMA    1 1 057    ',
+     * 'DAA    1 1 047    ',
+     * 'STAX B 5 1 002    ',
+     * 'STAX D 5 1 022    ',
+     * 'LDAX B 5 1 012    ',
+     * 'LDAX D 5 1 032    ',
+     * 'RLC    1 1 007    ',
+     * 'RRC    1 1 017    ',
+     * 'RAL    1 1 027    ',
+     * 'RAR    1 1 037    ',
+     * 'PUSH B 5 1 305,PW ',
+     * 'POP  B 5 1 301,PW ',
+     * 'DAD  B 5 1 011,P  ',
+     * 'INX  B 5 1 003,P  ',
+     * 'DCX  B 5 1 013,P  ',
+     * 'XCHG   1 1 353    ',
+     * 'XTHL   1 1 343    ',
+     * 'SPHL   1 1 371    ',
+     * 'LXI  B 5 3 001,P  ',
+     * 'MVI    2 2 006,R  ',
+     * 'ADI    1 2 306    ',
+     * 'ACI    1 2 316    ',
+     * 'SUI    1 2 326    ',
+     * 'SBI    1 2 336    ',
+     * 'ANI    1 2 346    ',
+     * 'XRI    1 2 356    ',
+     * 'ORI    1 2 366    ',
+     * 'CPI    1 2 376    ',
+     * 'SHLD   1 3 042    ',
+     * 'LHLD   1 3 052    ',
+     * 'STA    1 3 062    ',
+     * 'LDA    1 3 072    ',
+     * 'PCHL   1 1 351    ',
+     * 'JMP    1 3 303    ',
+     * 'J???   1 3 302,I  ',
+     * 'CALL   1 3 315    ',
+     * 'C???   1 3 304,I  ',
+     * 'RET    1 1 311    ',
+     * 'R???   1 1 300,I  ',
+     * 'EI     1 1 373    ',
+     * 'DI     1 1 363    ',
+     * 'IN     1 2 333    ',
+     * 'OUT    1 2 323    ',
+     * 'NOP    1 1 000 ' /
+C            /   :   \
+C           /    :    \
+C         TИП  ДЛИHA  KOД KOMAHДЫ
+C    TИП=1: HET PEГИCTPOB
+C    TИП=2: HOMEP PEГИCTPA B 4-6 P.
+C    TИП=3: PEГИCTPЫ B 4-6 И 1-3 P. ( MOV )
+C    TИП=4: PEГИCTPЫ B 1-3
+C    TИП=5: ПAPA PEГИCTPOB B 5-6 P.
+C---------------------
+C         Б И T Ы   T E Г A :
+C    1 - OCTAHOB ПPИ BЫБOPKE KOMAHДЫ;
+C    2 - OCTAHOB ПPИ ЧTEHИИ ИЗ ПAMЯTИ
+C    3 - OCTAHOB ПPИ ЗAПИCИ B ПAMЯTЬ
+C=====================================
+C
+      DO 470 I=1,256 $ KOP(I)=' ??? ' $ LEN(I)=1
+ 470  KTYP(I)=1
+      DO 471 I=1,11000
+ 471  MTEG(I)= 0020 0401 0020 0401B
+C
+      DO 1 I=1,64
+      I1=I-1 $ J=I1.SHIFT.3.AND.7.OR.0
+      KOP(I+64)='MV B,C'
+      LET=IGETS('BCDEHLMA',J)
+      CALL IPUTS(LET,KOP(I+64),3)
+      KOP(I+128)=KOPN(J+1)
+      LET=IGETS('BCDEHLMA', I1.AND.7.OR.0)
+      CALL IPUTS(LET,KOP(I+64),5)
+      CALL IPUTS(LET,KOP(I+128),5)
+      KTYP(I+64)=3
+  1   KTYP(I+128)=4
+      NJOB=0 $ ID=0
+C---
+C 10  READ 11,JOB,NT,LL,JOBOCT,MARK
+C 11  FORMAT(A6,I2,I2,1X,O3,A6)
+  10  ID=ID+1 $ JOB=INDATA(1,ID)
+      IF(JOB.EQ.0B) GOTO 300
+      CALL SCANER(INDATA(2,ID),NT,0,ITTYP,KKOD,IPOZ)
+      CALL SCANER(0,LL,0,ITTYP,KKOD,IPOZ)
+      CALL SCANER(0,JOBOCT,4,ITTYP,KKOD,IPOZ)
+      MARK=' ' $ IF(KKOD.EQ.44) CALL SCANER(0,MARK,0,ITTYP,KKOD,IPOZ)
+      LISP=' BDHS ' $ IF(MARK.EQ.'PW') LISP=' BDHW '
+      IF(MARK.EQ.'PW') MARK='P'
+      J=JOBOCT.OR.0 $ J=J+1
+      DO 12 I=1,8
+  12  CALL IPUTS(JOB.SHIFT.40, IFN(I),0)
+      N=1 $ IF(MARK.NE.' ') N=8
+      IF(MARK.EQ.'P') N=4
+      DO 13 I=1,N $ MER=' '
+      IF(MARK.EQ.'I') JOB=IFN(I)
+      IF(MARK.EQ.'R') CALL IPUTS(IGETS(' BCDEHLMA',I),JOB,5)
+      IF(MARK.EQ.'P') CALL IPUTS(IGETS(LISP,I),JOB,5)
+      IF(MARK.EQ.'N') CALL IPUTS(I+47,JOB,5)
+      IF(KOP(J).NE.' ??? ') MER='-ЗAHЯT'
+      IF(KOP(J).NE.' ??? ') JOB=' BUZY '
+      KOP(J)=JOB
+      KTYP(J)=NT $ LEN(J)=LL
+      NJOB=NJOB+1 $ LLL=J-1
+C     PRINT 111,NJOB,KOP(J),LLL,KTYP(J),LEN(J),MER
+ 111  FORMAT(I5,' : KOP=',A6,'(',O3,')     TИП=',I2,'    L=',I1,2X,A6)
+  13  J=J+64/N
+      IF(JOB.NE.'NOP') GOTO 10
+C
+ 300  J=JFOCC('D667/SYSTEM,MD,MADLEN,C67 ',FDB)
+      CALL VMEMOR(670300B)
+C
+C---   ПOИCK KOHЦA ЗAГPYЖEHHOЙ ПPOГPAMMЫ
+C      TAM XPAHЯTCЯ ЗHAЧEHИЯ LCOM,LCONST,LWS
+C
+      CALL VMREAD(MEM,0,11000)
+      LCOM=0 $ LCONST=99999 $ LWS=99999
+      DO 49 I=1,66000 $ J=I
+      IF(IGETS(MEM,I).EQ.36) GOTO 48
+  49  CONTINUE
+  48  IF(IGETS(MEM,J+1).NE.13) GOTO 47
+      IF(IGETS(MEM,J+2).NE.26) GOTO 47
+      IF(IGETS(MEM,J+3).NE.0) GOTO 47
+      CALL HEXI(LCOM,16,MEM,J+4)
+      CALL HEXI(LCONST,16,MEM,J+8)
+      CALL HEXI(LWS,16,MEM,J+12)
+C
+  47  NS=6 $ IV=-1 $ DO 46 I=1,11000
+  46  MEM(I)=0B
+      P=LCOM $ ASSIGN 60 TO MRET
+C---
+  50  IF(NS.LT.6) GOTO 51
+      NS=0 $ IV=IV+1 $ NEXTV=MEMVRD(IV)
+  51  CALL HEXI(LET,8,NEXTV,NS)
+      IF(LET.LT.0) GOTO 69
+      NS=NS+2 $ GOTO MRET,(60,61)
+C---
+  60  LL=LEN(LET+1) $ DO 61 I=1,LL
+      CALL IPUTS(LET,MEM,LCOM)
+      LET=4 $ IF(LCOM.GE.LWS) LET=5
+      IF(LCOM.LT.LCONST) LET=I
+      CALL IPUTS(INTEG(LET),MTEG,LCOM)
+      ASSIGN 61 TO MRET $ GOTO 50
+  61  LCOM=LCOM+1
+      GOTO 60
+C
+C        ФAЙЛ HAЧИHAETCЯ HE C ШECTH. ЦИФP.
+C        M.Б. ЭTO  C-ПPOГPAMMA  CИЛИHA ?
+C
+  70  IV=2048 $ NS=6*IV $ P=99999999
+      CALL VMREAD(MEM(IV),0,10999-IV)
+      IMAGE=34
+  71  NS=NS+1 $ LET=IGETS(MEM,NS)
+      IF(LET.EQ.0) GOTO 79
+      IF(LET.NE.47) GOTO 74
+      IF(IGETS(MEM,NS-1).EQ.42) IMAGE=34
+      IF(IGETS(MEM,NS+1).EQ.42) IMAGE=0
+  74  IF(LET.NE.IMAGE) GOTO 71
+C
+C       ПOИCK ФPAГMEHTA:  "IHHHH\R <CTPOKA>$"
+C
+      IF(IGETS(MEM,NS+1).NE.73) GOTO 71
+      CALL HEXI(LET,16,MEM,NS+2)
+      IF(LET.LT.0) GOTO 71
+      IF(IGETS(MEM,NS+6).NE.92) GOTO 71
+      LCOM=LET $ IF(P.GT.LCOM) P=LCOM
+      NS=NS+8 $ MHD(8)=' CИЛИH'
+  72  CALL HEXI(LET,8,MEM,NS) $ NS=NS+2
+      IF(LET.LT.0) GOTO 71
+      CALL IPUTS(4,MTEG,LCOM)
+      CALL IPUTS(LET,MEM,LCOM)
+      LCOM=LCOM+1 $ GOTO 72
+C---
+  79  DO 78 I=IV,11000
+  78  MEM(I)=0B
+  69  IF(IV.EQ.0) GOTO 70
+      CALL VMCLOS
+      RETURN
+      END
+      SUBROUTINE INTEL8
+      COMMON /EMHEAD/ MHD(10)
+      COMMON /INCOP/ INC(256),INCTYP(256),INCLEN(256)
+      COMMON /PROTO/ IAPROT(5),KAP(20)
+      COMMON /MEMORY/ MP,MS,MB(4),MH,ML,MW,MA,
+     *    MASTEG,MSTEP,MEM(11000),MT(11000)
+      COMMON /MAXCYC/ MAXCYC,NCOUT,LOUT(45)
+      DATA MAXCYC/10/, NCOUT/0/
+      DIMENSION LINE(10), JSTYP(7),MHEAD(10),
+     *    JOBIN(11),LEX(20),LTIRE(10),MCHEAD(10)
+      DIMENSION INVAL(6)
+      DATA INVAL/'XCHG   (FF) - KOMAHДA HE CДEЛAHA !'/
+      DATA JOBIN /'END', 'STEP', 'GO', 'MEMORY',
+     5  'WMEMOR', 'WREGIS', 'CMEMOR', '?', '?', 'HELP', 'PRICOP'/
+      DATA MHEAD/
+     *' PC : KOП  R ADR   B  C  D  E  H  L  W  A  M  SP   OCT. '/
+C      0123456789012345678901234567890123456789012345678901234567890
+C                1         2         3         4         5         6
+      DATA MCHEAD/
+     *' PC : KOMAHДA        HEX       TEXT                     '/
+      DATA LTIRE/10('------')/
+      DATA JSTYP/'   BЫП   ЧT    ШAГ   ЗAП   OБP   OБP   OБP'/
+      DATA LEN/0/, NSCNT/0/, KINSTR/0/
+      DATA LASJOB/2/, MSTEPC/1/, IA/0/, ID/0/
+      DIMENSION NUMBIT(8),KODBIT(8)
+      DATA NUMBIT/6,6,0,0,2,2,7,7/
+      DATA KODBIT/0,1,0,1,0,1,0,1/
+      DATA MAXNSC/13/
+C
+C---   AДPECAЦИЯ PEГИCTPOB:
+C     0-B   1-C   2-D   3-E   4-H   5-L
+C     6-PSW (HA ЭKPAHE-W)     7-A
+C---       PEГИCTP "PSW" :
+C     7 - SIGN BIT (S) : ЗHAK PEЗYЛЬTATA
+C     6 - ZERO BIT (Z) : "0" PEЗYЛЬTATA
+C     4 - PACШИPEHИE C-БИTA
+C     2 - PARITY BIT (P) : ЧETHOCTЬ PEЗYЛЬTATA
+C     0 - CARRY BIT (C) : ПEPEHOC
+C
+C
+      CALL DIALOP(2)
+      CALL DIALOG(MHD,60,-1)
+      GOTO 1000
+C
+C      ФOPMИPOBAHИE БИTOB YCЛOBИЙ
+C      ПOCЛE OЧEPEДHOЙ KOMAHДЫ.
+C      ID - БAЙT PEЗYЛЬTATA.
+C
+ 5000 ID=MA $ MA=MA.AND.377B.OR.0
+ 5001 MW=ID.AND.128.OR.(ID.SHIFT.8.AND.1)
+      J=ID.AND.377B $ NJ=LCNT(J).AND.1
+      IF(J.EQ.0B) MW=MW.OR.100B
+      IF(NJ.EQ.0) MW=MW.OR.2
+C
+C      1. BЫБOPKA KOMAHДЫ (1-3 БAЙT)
+C
+ 6000 MP=MP+LEN
+ 1000 MSTEP=MSTEPC $ IA=MP $ ASSIGN 1111 TO MEMRET
+C
+C   401 - BЫБOPKA KOMAHДЫ ИЗ ПAMЯTИ
+C   402 - ЧTEHИE БAЙTA ИЗ ПAMЯTИ
+C   404 - ЗAПИCЬ БAЙTA B ПAMЯTЬ
+C      IA   - AДPEC БAЙTA B ПAMЯTИ=0,1,...
+C   702 - ЧTEHИE БAЙTA ИЗ PEГИCTPA
+C   704 - ЗAПИCЬ БAЙTA B PEГИCTP
+C   802 - ЧTEHИE 2-X БAЙT ИЗ CTEKA B ID
+C   804 - ЗAПИCЬ 2-X БAЙT ИЗ ID B CTEK
+C      IA   - HOMEP PEГИCTPA=0,1,...,7
+C      ID   - БAЙT ДAHHЫX (ИЛИ 2 БAЙTA!)
+C      JOB  - KOД KOMAHДЫ
+C      IDAT - EE AДPECHAЯ ЧACTЬ
+C
+ 401  JOB=IGETS(MEM,IA) $ LTAG=3
+      LEN =INCLEN(JOB+1)
+      JTYP=INCTYP(JOB+1)
+      IDAT=-1 $ IF(LEN.EQ.1) GOTO 403
+      IDAT=0 $ IF(LEN.EQ.3) IDAT=IGETS(MEM,IA+2)
+      IDAT=IDAT.SHIFT.-8.OR.IGETS(MEM,IA+1)
+ 403  IF(MSTEP.EQ.0) LTAG=IGETS(MT,IA).AND.1
+      MASTEG=6 $ GOTO 407
+C
+ 802  LTAG=IGETS(MT,MS).OR.IGETS(MT,MS+1)
+      LTAG=LTAG.AND.MASTEG.AND.2.OR.0
+      IF(LTAG.NE.0) GOTO 407
+      ID=IGETS(MEM,MS+1).SHIFT.-8.OR.IGETS(MEM,MS)
+      MS=MS+2 $ GOTO 407
+ 702  LTAG=0 $ID=MB(IA+1) $ IF(IA.NE.6) GOTO 407
+      IA=MH.SHIFT.-8.OR.ML
+ 402  LTAG=IGETS(MT,IA).AND.MASTEG.AND.2.OR.0
+      ID=IGETS(MEM,IA) $ GOTO 407
+C
+ 804  LTAG=IGETS(MT,MS-1).OR.IGETS(MT,MS-2)
+      LTAG=LTAG.AND.MASTEG.AND.4.OR.0
+      IF(LTAG.NE.0) GOTO 407
+      CALL IPUTS(ID.SHIFT.8,MEM,MS-1)
+      CALL IPUTS(ID,MEM,MS-2)
+      MS=MS-2 $ GOTO 407
+ 704  IF(IA.NE.6) MB(IA+1)=ID
+      LTAG=0 $ IF(IA.NE.6) GOTO 407
+      IA=MH.SHIFT.-8.OR.ML
+ 404  LTAG=IGETS(MT,IA).AND.MASTEG.AND.4.OR.0
+      IF(LTAG.EQ.0) CALL IPUTS(ID,MEM,IA)
+ 407  IF(LTAG.EQ.0) GOTO MEMRET,(1111,5000,6000)
+C
+C---     2. OCTAHOB (ДO ИCПOЛHEHИЯ KOMAHДЫ)
+C
+ 1100 JOBT=INC(JOB+1)
+      DO 1101 I=2,8
+ 1101 LINE(I)=' '
+      LINE(9)=JSTYP(LTAG)
+      LINE(1)='    :'  $ LINE(2)=JOBT
+      CALL IHEX(MP,16,LINE,0)
+      IF(LEN.NE.1) CALL IHEX(IDAT,8*(LEN-1),LINE,13)
+      J=LINE(2).AND.377B.OR.0
+      IF(J.NE.32.AND.LEN.NE.1) CALL IPUTS(54B,LINE,12)
+      DO 1108 I=1,8
+ 1108 CALL IHEX(MB(I),8,LINE,3*I+16)
+      IF(LEN.EQ.3) CALL IHEX(IGETS(MEM,IDAT),8,LINE,43)
+      CALL IHEX(MS,16,LINE,46)
+      NSCNT=NSCNT+1 $ IF(NSCNT.GT.MAXNSC) NSCNT=0
+      IF(NSCNT.NE.1) GOTO 1102
+      CALL DIALOG(LTIRE,56,-1)
+      CALL DIALOG(MHEAD,60,-1)
+      CALL DIALOG(LTIRE,56,-1)
+ 1102 LINE(10)='>' $ KINSTR=0
+      CALL DIALOQ(LINE,55,1) $ GOTO 1110
+ 1109 CALL DIALOQ('HEПOHЯTHO, ПOBTOPИTE:  > ',26,1)
+      LASJOB=9 $ IA=0
+C
+C---    ИCПOЛHEHИE  BBEДEHHOЙ KOMAHДЫ.
+C
+ 1110 CALL SCANER(KAP,LEX,0,ITYP,KOD,IPOZ)
+      IF(ITYP.EQ.5) GOTO (9999,2002,2001,3004,
+     *   1109,1109,3078,3078,1109,1109,1109,1109) LASJOB
+      CALL SCANER(KAP,LEX,0,ITYP,KOD,IPOZ)
+      J=JSEART(JOBIN,1,11,LEX)
+      IF(J.EQ.0.OR.ITYP.NE.4) GOTO 1109
+      LASJOB=J
+      GOTO (9999,2002,2003,2004,2005,2006,2007,1109,1109,2010,2011) J
+C
+C
+C       MEMORY:<AДP>  - BЫДAЧA 16 БAЙT ДAHHЫX
+C       MEMORY:<ADR>,COM    - ИЛИ OДHOЙ KOMAHДЫ.
+C
+ 2004 IF(MHADR(IA,KOD).NE.0) GOTO 1109
+      MJTYP=1 $ IF(KOD.NE.44) GOTO 3004
+      CALL SCANER(0,LEX,0,ITYP,KOD,IPOZ)
+      MJTYP=LEXOR(LEX,'COMMAND').SHIFT.40.OR.0
+ 3004 DO 3104 I=2,9
+ 3104 LINE(I)=' '
+      NS=3 $ CALL IHEX(IA,16,LINE,0)
+      IF(MJTYP.EQ.0) GOTO 3304
+      DO 3204 I=1,16 $ NS=NS+3
+      LET=IGETS(MEM,IA) $ IA=IA+1
+ 3204 CALL IHEX(LET,8,LINE,NS)
+      GOTO 1102
+ 3304 KOD=IGETS(MEM,IA)
+      JH=IA.AND.63.OR.0
+      IPOZ=INCLEN(KOD+1)
+      LINE(2)=INC(KOD+1)
+      GOTO (3314,3324,3334) IPOZ
+ 3334 CALL IHEX(IGETS(MEM,IA+2),8,LINE,13)
+      CALL IHEX(IGETS(MEM,IA+1),8,LINE,15)
+      GOTO 3314
+ 3324 CALL IHEX(IGETS(MEM,IA+1),8,LINE,13)
+ 3314 J=LINE(2).AND.377B.OR.0
+      IF(J.NE.32.AND.IPOZ.NE.1) CALL IPUTS(54B,LINE,12)
+      DO 3344 I=1,IPOZ
+      LET=IGETS(MEM,IA)
+      CALL IHEX(LET,8,LINE,2*I+18)
+      IF(LET.LT.32.OR.LET.GE.127) LET='??????'
+      CALL IPUTS(LET,LINE,I+30)
+ 3344 IA=IA+1
+      IF(JH.EQ.0) CALL DIALOG(LTIRE,42,-1)
+      IF(JH.EQ.0) CALL DIALOG(MCHEAD,60,-1)
+      IF(JH.EQ.0) CALL DIALOG(LTIRE,42,-1)
+      GOTO 1102
+C
+C      WMEMOR:<ADR>,<KOДЫ>   - ЗAПИCЬ
+C      WREGIS:<PEГ>,<KOДЫ>
+C
+ 2005  J=MHADR(IA,KOD) $ GOTO 2056
+ 2006  J=MNREG(IA,KOD)
+ 2056  IF(J.NE.0) GOTO 1109
+       IF(IA.NE.-9) GOTO 2156
+      IF(MHADR(LET,KOD).NE.0) GOTO 1109
+      MS=LET.OR.0 $ GOTO 2256
+ 2156 IF(M1B(LET,KOD).NE.0) GOTO 1109
+      IF(LET.EQ.0B) GOTO 2256
+      IF(IA.LT.0) MB(IA+9)=LET
+      IF(IA.GE.0) CALL IPUTS(LET,MEM,IA)
+      IA=IA+1 $ IF(IA.NE.0.AND.KOD.GE.32) GOTO 2156
+ 2256 IA=0 $ GOTO 1100
+C
+C       CMEMOR:<ADR>,<TYP>    - ЗAПИCЬ TEГA
+C
+ 2007 J=MHADR(IA,KOD)
+      CALL SCANER(0,LEX,0,ITYP,KOD,IPOZ)
+      IF(J.NE.0.OR.ITYP.NE.4) GOTO 1109
+      N=JSEART('EXECUTRDMEM NO    WRMEM',1,4,LEX)
+      IF(N.EQ.0) GOTO 1109
+ 3078 LET=IGETS(MT,IA).OR.N $ IF(N.EQ.3) LET=0
+      CALL IPUTS(LET,MT,IA)
+      IA=IA+1 $ GOTO 1100
+C
+C       GO:<ADR>    - "ИДИ HA..."
+C
+ 2003 IF(MHADR(IA,KOD).NE.0) GOTO 1109
+      MSTEP=0 $ IF(IA.EQ.0B) GOTO 2001
+      MSTEPC=0 $ MP=IA $ GOTO 1000
+C
+C       STEP        - ШAГOBЫЙ PEЖИM
+C             ЗДECЬ ЖE ПPOTAЛKИBAHИE
+ 2002 MSTEPC=1
+      IF(MHADR(IA,KOD).NE.0) GOTO 1109
+      IF(IA.NE.0B) MP=IA
+      IF(IA.NE.0B) GOTO 1000
+      MSTEP=1
+ 2001 MSTEPC=MSTEP.AND.1 $ MSTEP=0
+      MASTEG = 0
+C
+C       3. ПEPEKЛЮЧATEЛЬ KOMAHД
+C
+ 1111 KINSTR=KINSTR+1
+      IF(KINSTR.LT.MAXCYC) GOTO 1010
+      ITEMP=KEY(1) $ MSTEP=MSTEP.OR.ITEMP
+      LTAG=3 $ IF(ITEMP.NE.0) GOTO 1100
+ 1010 IF(JOB.NE.0) GOTO (
+     * 1,2,3,4,5,6,7,10,11, 2,13, 4, 5, 6,17,
+     * 20, 1, 2, 3, 4, 5, 6,27,30,11, 2,13, 4, 5, 6,37,
+     * 40, 1,42, 3, 4, 5, 6,47,50,11,52,13, 4, 5, 6,57,
+     * 60, 1,62, 3, 4, 5, 6,67,70,11,72,13, 4, 5, 6,77,
+     * 100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,
+     * 100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,
+     * 100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,
+     * 100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,
+     * 200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,
+     * 200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,
+     * 200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,
+     * 200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,
+     * 300,301,302,303,304,305,306,307,300,311,302,313,304,315,306,307,
+     * 300,301,302,323,304,305,306,307,300,311,302,333,304,335,306,307,
+     * 300,301,302,343,304,305,306,307,300,351,302,353,304,355,306,307,
+     * 300,301,302,363,304,305,306,307,300,371,302,373,304,375,306,307,
+     * 6000 ) JOB
+      GOTO 6000
+ 313  CONTINUE
+ 375  CONTINUE
+ 355  CONTINUE
+ 335  CONTINUE
+  70  CONTINUE
+  63  CONTINUE
+  50  CONTINUE
+  47  CONTINUE
+  43  CONTINUE
+  30  CONTINUE
+  10  CONTINUE
+  20  CONTINUE
+  40  CONTINUE
+  60  CONTINUE
+   9  INVAL(1)=INC(JOB+1)
+      CALL IHEX(JOB,8,INVAL(2),2)
+      CALL DIALOG(INVAL,36,-1)
+      GOTO 6000
+C
+C---     CARRY BIT INSTRUCTION (1 BYT)
+C        =============================
+C           CMC, STC :
+  67  MW=MW.OR.1 $ GOTO 6000
+  77  MW=LEXOR(MW,1) $ GOTO 6000
+C
+C---     SINGLE REGISTER INSTRUCTION (1 BYT)
+C        ===================================
+C          INR, DCR, CMA, DAA :
+   4  NEW=1 $ GOTO 4500
+   5  NEW=-1
+ 4500 IA=JOB.SHIFT.3.AND.7.OR.0
+      ASSIGN 4501 TO MEMRET $ GOTO 702
+ 4501 ID=ID+NEW
+      ASSIGN 5001 TO MEMRET $ GOTO 704
+  57  MA=LEXOR(MA,377B) $ GOTO 6000
+C
+C---     DATA TRANSFER INSTRUCTION (1 BYT)
+C        =================================
+C           MV R2,R1 :
+ 100  IA=JOB.AND.7.OR.0
+      ASSIGN 4101 TO MEMRET $ GOTO 702
+ 4101 IA=JOB.SHIFT.3.AND.7.OR.0
+      ASSIGN 6000 TO MEMRET $ GOTO 704
+C           STAX, LDAX :
+   2  I=JOB.SHIFT.3.AND.2.OR.0
+      IA=MB(I+1).SHIFT.-8.OR.MB(I+2)
+      ASSIGN 6000 TO MEMRET $ ID=MA
+      I=JOB.AND.8.OR.0 $ IF(I.EQ.0) GOTO 704
+      ASSIGN 12 TO MEMRET $ GOTO 702
+  12  MA=ID $ GOTO 6000
+C
+C---       ACCUMULATOR INSTRUCTION (1 BYT)
+C          ===============================
+C        ADD, ADC, SUB, SBB, ANA, XRA, ORA, CMP :
+  200 IA=JOB.AND.7.OR.0
+      ASSIGN 209 TO MEMRET $ GOTO 702
+  209 J=JOB.SHIFT.3.AND.7.OR.0 $ J=J+1
+      MA=MA.AND.377B.OR.0 $ ID=ID.AND.377B.OR.0
+      GOTO (201,202,203,204,205,206,207,208) J
+  202 I=MW.AND.1.OR.0 $ ID=ID+I
+  201 MA=MA+ID $ GOTO 5000
+  204 I=MW.AND.1.OR.0 $ ID=ID+I
+  203 MA=MA-ID $ GOTO 5000
+  205 MA=MA.AND.ID.OR.0 $ GOTO 5000
+  206 MA=LEXOR(MA,ID).OR.0 $ GOTO 5000
+  207 MA=MA.OR.ID $ GOTO 5000
+  208 ID=MA-ID $ GOTO 5001
+C
+C---     ROTATE ACCUMULATOR INSTRUCTION (1 BYT)
+C        ======================================
+    7 ITEMP=MA.SHIFT.7.AND.1.OR.0
+      MA=MA.SHIFT.-1.AND.377B.OR.ITEMP
+      GOTO 707
+   17 ITEMP=MA.AND.1.OR.0 $ MA=MA.SHIFT.1.AND.177B.OR.(ITEMP.SHIFT.-7).
+     *         OR.0 $ GOTO 707
+   27 ITEMP=MA.SHIFT.7.AND.1.OR.0 $ MA=MA.SHIFT.-1.AND.377B.OR.
+     *      (MW.AND.1).OR.0 $ GOTO 707
+   37 ITEMP=MA.AND.1.OR.0 $ MA=MA.SHIFT.1.AND.177B.OR.
+     *      (MW.SHIFT.-7.AND.200B).OR.0
+  707 MW=MW.AND.376B.OR.ITEMP $ GOTO 6000
+C
+C       REGISTER PAIR INSTRUCTION (1 BYT)
+C       =================================
+C     PUSH, POP, DAD, INX, DCX, XCHG, XTHL, SPHL
+C
+  305 J=JOB.SHIFT.3.AND.6.OR.0
+      ID=MB(J+1).SHIFT.-8.OR.MB(J+2)
+      ASSIGN 6000 TO MEMRET $ GOTO 804
+C
+  301 ASSIGN 1301 TO MEMRET $ GOTO 802
+ 1301 J=JOB.SHIFT.3.AND.6.OR.0
+      MB(J+1)=ID.SHIFT.8.AND.377B.OR.0
+      MB(J+2)=ID.AND.377B.OR.0 $ GOTO 6000
+C
+   11 IA=JOB.SHIFT.3.AND.6.OR.0
+      ID=MB(IA+1).SHIFT.-8.OR.MB(IA+2)
+      IF(IA.EQ.6) ID=MS
+      ITEMP=MH.SHIFT.-8.OR.ML
+      ITEMP=ITEMP+ID
+      ML=ITEMP.AND.377B.OR.0
+      MH=ITEMP.SHIFT.8.AND.377B.OR.0
+      MW=MW.AND.376B.OR.(ITEMP.SHIFT.16.AND.1.OR.0)
+      GOTO 6000
+C
+    3 NEW=1 $ GOTO 1003
+   13 NEW=-1
+ 1003 IA=JOB.SHIFT.3.AND.6.OR.0
+      IF(IA.EQ.6) MS=MS+NEW
+      IF(IA.EQ.6) GOTO 6000
+      MB(IA+2)=MB(IA+2)+NEW
+      IF(MB(IA+2).LT.256.AND.MB(IA+2).GE.0) GOTO 6000
+      MB(IA+1)=MB(IA+1)+NEW
+      MB(IA+1)=MB(IA+1).AND.377B.OR.0
+      MB(IA+2)=0 $ IF(NEW.LT.0) MB(IA+2)=255
+      GOTO 6000
+C
+  343 ASSIGN 1343 TO MEMRET $ GOTO 802
+ 1343 ITEMP=MH.SHIFT.-8.OR.ML
+      MH=ID.SHIFT.8.AND.377B.OR.0
+      ML=ID.AND.377B.OR.0 $ ID=ITEMP
+      ASSIGN 6000 TO MEMRET $ GOTO 804
+C
+  353 ITEMP=MB(3) $ MB(3)=MH $ MH=ITEMP
+      ITEMP=MB(4) $ MB(4)=ML $ ML=ITEMP
+      GOTO 6000
+  371 MS=MH.SHIFT.-8.OR.ML $ GOTO 6000
+C
+C---     IMMEDIATE INSTRUCTION (2 OR 3 BYT)
+C        ==================================
+C    LXI, MVI, ADI, ACI, SUI, SBI, ANI, XRI, ORI, CPI
+    1 IA=JOB.SHIFT.3.AND.6.OR.0
+      IF(IA.EQ.6) MS=IDAT
+      IF(IA.EQ.6) GOTO 6000
+      MB(IA+1)=IDAT.SHIFT.8.AND.377B.OR.0
+      MB(IA+2)=IDAT.AND.377B.OR.0 $ GOTO 6000
+C
+    6 ID=IDAT $ GOTO 4101
+  306 ID=IDAT $ GOTO 209
+C
+C---     DIRECT ADRESSING INSTRUCTION (3 BYT)
+C        ====================================
+C          SHLD,  LHLD,  STA,  LDA
+C
+  42  DO 1042 I=1,2 $ ASSIGN 1042 TO MEMRET
+      IA=IDAT+I-1 $ ID=MB(7-I) $ GOTO 404
+ 1042 CONTINUE
+      GOTO 6000
+C
+  52  ASSIGN 1052 TO MEMRET
+      DO 1052 I=1,2 $ IA=IDAT+I-1 $ GOTO 402
+ 1052 MB(7-I)=ID
+      GOTO 6000
+C
+  62  IA=IDAT $ ID=MA $ ASSIGN 6000 TO MEMRET $ GOTO 404
+  72  IA=IDAT $ ASSIGN 1072 TO MEMRET $ GOTO 402
+ 1072 MA=ID $ GOTO 6000
+C
+C---  CALL/JUMP/RET  INSTRUCTION (1 OR 3 BYT)
+C     =======================================
+  351 MP=MH.SHIFT.-8.OR.ML $ GOTO 1000
+  300 ASSIGN 311 TO ICHECK $ GOTO 3000
+  302 ASSIGN 303 TO ICHECK $ GOTO 3000
+  304 ASSIGN 315 TO ICHECK $ GOTO 3000
+  307 IDAT=JOB.AND.70B.OR.0
+  315 ID=MP+LEN $ ASSIGN 303 TO MEMRET $ GOTO 804
+  311 ASSIGN 1311 TO MEMRET $ GOTO 802
+ 1311 IDAT=ID
+  303 MP=IDAT $ GOTO 1000
+C
+C
+C        NZ   Z    NC   C    PO   PE    P   M
+C           6         0         2         7
+ 3000 J=JOB.SHIFT.3.AND.7.OR.0 $ J=J+1
+      LTAG=MW.SHIFT.NUMBIT(J).AND.1.OR.0
+      IF(LTAG.NE.KODBIT(J)) GOTO 6000
+      GOTO ICHECK,(303)
+C
+C---     INTERRUPT INSTRUCTION (1 BYT)
+C        =============================
+  363 CONTINUE
+  373 INBIT=JOB.AND.10B.OR.0 $ GOTO 6000
+C
+C---        INPUT/OUTPUT (2 BYT)
+C           ====================
+ 323  LEX(1)='OUT(FF' $ LEX(2)=') = '
+      CALL IHEX(IDAT,8,LEX,4)
+      CALL IHEX(MA,8,LEX,10)
+      IF(IFPULT(2).EQ.0) CALL DIALOG(LEX,13,-1)
+      CALL IPUTS(MA,LOUT,NCOUT)
+      NCOUT=NCOUT+1 $ NCOUT=NCOUT.AND.377B.OR.0
+      MA=MA.AND.377B.OR.0
+      IF(MA.GT.31.AND.MA.LT.128) GOTO 6000
+      CALL IPUTS(42B,LOUT,NCOUT-1)
+      CALL IHEX(MA,8,LOUT,NCOUT)
+      CALL IPUTS(42B,LOUT,NCOUT+2)
+      NCOUT=NCOUT+3 $ IF(MA.NE.10) GOTO 6000
+      CALL DIALOG(LOUT,NCOUT,-1)
+      NCOUT=0 $ GOTO 6000
+C      IN(FB) BCEГДA ПOЛAГAEM = FF !!!
+ 333  LEX(1)='IN(FF)' $ LEX(2)=' = '
+      CALL IHEX(IDAT,8,LEX,3)
+      MA=255 $ IF(IDAT.EQ.251) GOTO 5000
+      CALL DIALOQ(LEX,9,1)
+      CALL HEXI(MA,8,KAP,0)
+      IF(MA.LT.0) MA=KAP.SHIFT.40.OR.0
+      GOTO 5000
+C--------------------------------------
+C
+ 2011 LET=0 $ DO 2111 I=1,64
+      CALL PUTO(LEX,LET,0,3,0,IPOZ)
+      CALL PUTH(0,':',0,4,0,IPOZ)
+      DO 2211 J=1,4 $ LET=LET+1
+      CALL PUTH(0,INC(LET),0,6,0,IPOZ)
+      CALL PUTH(0,'(',0,1,0,IPOZ)
+      CALL PUTO(0,INCTYP(LET).SHIFT.-3.OR.INCLEN(LET),0,2,0,IPOZ)
+ 2211 CALL PUTH(0,')',0,4,0,IPOZ)
+ 2111 CALL DIALOG(LEX,IPOZ,-1)
+      LASJOB=9 $ GOTO 1100
+C---        H E L P
+ 2010 CALL DIALOG('END       STEP        GO',24,-1)
+      CALL DIALOG('GO:AAAA   MEMORY:AAAA   ',24,-1)
+      CALL DIALOG('WMEMOR:AAAA,<CTPOKA>    ',24,-1)
+      CALL DIALOG('WREGIS:<PEГ>,<CTPOKA>   ',24,-1)
+      CALL DIALOG('CMEMOR:AAAA,<E,R ИЛИ W> ',24,-1)
+      LASJOB=9 $ GOTO 1100
+C---         E N D
+ 9999 CALL DIALOG('ДO CBИДAHИЯ.',12,-1)
+      CALL DIALOP(0)
+      CALL EXIT
+      END
+      SUBROUTINE OUTPUT(LUN)
+      COMMON /OUTBUF/ MOUT(132),LMOUT
+      COMMON /PORTA/ IOTRAN(84)
+      COMMON /CSET/ KBLAN
+C---
+      COMMON /PARAM/ MPAR,MLOAD
+      COMMON /WORK/ BUF(8000)
+      INTEGER BUF,CS
+      INTEGER LCONST(3),FDB(10),MLENP(6),LINE(30)
+      DATA MLENP/' ДЛИHA ПPOГPAMMЫ  100000 ПOЛYБAЙT.'/
+      DATA LCF/0/, CS/0B/
+      DATA MORG/-1/, MAX/-1/
+      DATA MER/1/, LCONST/3(64000000 00177777B)/
+C---
+      IF(LUN) 21,20,22
+  22  N=1 $ IF(LMOUT.LT.1) GOTO 10
+      N=LMOUT $ DO 1 I=1,N
+   1  MOUT(I)=IOTRAN(1+MOUT(I))
+      IF(LUN.EQ.2) GOTO 2
+      IF(LUN.EQ.3) GOTO 3
+      GOTO 10
+C---    BЫBOД OБЬEKTHOГO KOДA
+  2   IF(N-12) 10,10,30
+ 100  CALL BILIST('  *** HEBEPHЫЙ  "ORG" ',4)
+ 111  CALL CONBIL(1) $ CALL EXIT
+C---
+  30  NORG=0 $ DO 31 I=1,4
+      LET=MOUT(I+4).SHIFT.40.OR.0
+      IF(LET.GT.63) LET=LET-7
+      LET=LET-48
+  31  NORG=NORG.SHIFT.-4.OR.LET
+      IF(MORG.LT.0) MORG=NORG
+      NORG=2*(NORG-MORG) $ IF(NORG.LT.MAX) GOTO 100
+      N2=N-2
+      DO 32 I=11,N2 $ J=I.AND.1
+      CALL IPUTS(MOUT(I).SHIFT.40,BUF,NORG)
+      IF(J.NE.0) GOTO 32
+      IF(NORG.GT.2*(LCONST(3)-MORG)) GOTO 32
+      CALL HEXI(J,8,BUF,NORG-1)
+      CS=LEXOR(CS,J)
+  32  NORG=NORG+1
+      MAX=NORG $  GOTO 10
+C---
+C       OUTPUT(-1) : HAЧAЛЬHЫE YCTAHOBKИ
+C
+  21  CALL CONBIL(4)
+      DO 5000 I=1,5000
+ 5000 BUF(I)='000000'
+      LET20=-1 $ IF(MPAR.EQ.'80:LON') LET20=73B
+      NLIN=0 $ RETURN
+C---    Д O C Б P O C Ы :
+  20  J=MORG.SHIFT.-16.OR.LCONST(1)
+      IF(LCONST(2).LT.LCONST(1)) LCONST(2)=177777B
+      J=J.SHIFT.-16.OR.(LCONST(2).AND.177777B)
+      CALL IPUTS(44B,BUF,MAX)
+      CALL IPUTS(15B,BUF,MAX+1)
+      CALL IPUTS(32B,BUF,MAX+2)
+      CALL IPUTS(0B,BUF,MAX+3)
+      CALL IHEX(J, 48,BUF,MAX+4)
+      CALL IHEX(LCONST(3),16,BUF,MAX+16)
+      J=LCONST(3) $ IF(J.LT.30000) CALL IHEX(CS,8,BUF,2*(J-MORG))
+      CALL VMWRIT(BUF,0,5+MAX/6)
+      IF(MER.NE.0) GOTO 111
+      IF(MLOAD.EQ.0B) GOTO 220
+      J=JFOCC('D667/SYSTEM,MD,MADLEN,C67 ',FDB)
+      CALL VMCOPY(670300B,1+(MAX+6)/6144, 0)
+      CALL PUTG(MLENP(4),MAX,0,6,0,IPOZ)
+      CALL BILIST(MLENP,6)
+ 220  CALL CONBIL(1)
+      RETURN
+C---    BЫBOД ЛИCTИHГA
+C    ПPИ BЫЗOBE  *CALL CROSS*80:LONG
+C    KOMMEHTAPИЙ CДBИГAEM BЛEBO
+   3  DO 330 I=1,11
+ 330  LINE(I)=' '
+      NS=-1 $ I=MOUT(20).SHIFT.40
+      N2=2 $ IF(I.EQ.LET20) N2=20
+      DO 331 I=N2,LMOUT $ NS=NS+1
+ 331  CALL IPUTS(MOUT(I).SHIFT.40, LINE,NS)
+      IF(LINE.NE.'8080 M'.OR.NLIN.EQ.0) GOTO 332
+      CALL CONBIL(2)
+ 332  CALL BILIST(LINE,11)
+      IF(LINE.EQ.'8080 M') CALL BILIST(-1)
+      IF(LINE.EQ.'NO PRO') MER=0
+      IF(LINE.EQ.';<C>'.OR.LINE(4).EQ.';<C>') LCF=1
+      IF(LINE.EQ.';<W>'.OR.LINE(4).EQ.';<W>') LCF=2
+      IF(LINE.EQ.';CSUM:'.OR.LINE(4).EQ.';CSUM:') LCF=3
+      NLIN=NLIN+1 $ IF(LCF.EQ.0) GOTO 10
+      CALL HEXI(I,16,LINE,2) $ IF(I.LE.0) GOTO 10
+      LCONST(LCF)=I $ LCF=0
+C---
+  10  LMOUT=0 $ DO 555 I=1,N
+ 555  MOUT(I)=KBLAN
+      RETURN
+      END
+      SUBROUTINE PUTSTR(LIN,L,LSMALL)
+      COMMON /WORK/ M1(4000),M2(4000)
+      COMMON /WORK1/ NS
+      DO 1 I=1,L
+      LET=IGETS(LIN,I-1)
+      IF(I.LE.LSMALL) LET=LET.OR.40B
+      CALL IPUTS(LET,M2,NS)
+  1   NS=NS+1
+      CALL IPUTS(15B,M2,NS)
+      CALL IPUTS(12B,M2,NS+1)
+      NS=NS+2
+      CALL IPUTS(32B,M2,NS)
+      CALL IPUTS(0,M2,NS+1)
+      RETURN
+      END
+      SUBROUTINE SILIN
+C*
+C***    ПPEOБPAЗOBAHИE ЗAГPYЖEHHOЙ ПPOГPAMMЫ
+C*             ДЛЯ И.H.CИЛИHA
+C*
+      COMMON /WORK/ M1(4000),M2(4000)
+      COMMON /WORK1/ NS
+      DIMENSION LIN(14)
+      DATA LIN/'PS="I1234\R',10(' '),'   $";   '/
+      DATA LEN/64/,IM1/0/
+C---
+      LIN(2)=LIN(2).OR.20040B
+      DO 1 I=1,24000 $ N=I
+      IF(IGETS(M1,I).EQ.36) GOTO 2
+  1   CONTINUE
+  2   CALL HEXI(LCOM,16,M1,N+4)
+      DO 64 I=1,64
+  64  CALL IPUTS('000000',M1,N+I)
+      NPS=N/LEN $ LAST=N-LEN*NPS
+      IF(LAST.NE.0) NPS=NPS+1
+      NS=0
+      CALL PUTSTR('SPROG80()Ш',10,5)
+      CALL PUTSTR('     CHAR *PS;',14,14)
+      DO 4 IPS=1,NPS
+      CALL IHEX(LCOM,16,LIN,5)
+      DO 5 I=1,LEN
+      LET=IGETS(M1,IM1) $ IM1=IM1+1
+  5   CALL IPUTS(LET,LIN,I+10)
+      CALL PUTSTR(LIN,78,2)
+      CALL PUTSTR('      TRANS(P,P0,PS);',21,21)
+  4   LCOM=LCOM+LEN/2
+      CALL PUTSTR('RETURN;',7,6)
+      CALL PUTSTR('Щ',1,0)
+      CALL VMEMOR(670300B)
+      CALL VMWRIT(M2,0,5+NS/6)
+      CALL VMCLOS
+      CALL DIALOG(' ПEPEДAЧA HA IBM/PC ПO ПPИKAЗY :',32,-1)
+      CALL DIALOG(' TYPE E:GATE.DAT > SPROG80.C ',30,-1)
+      RETURN
+      END
+*ASSEM
+  CROSS*80:,NAME,
+  *PARAM*:,LC,2
+  EXIT:,SUBP,
+  PRINT8//:,SUBP,
+  //**:,LC,200. ДЫPA
+  PROGRAM:,SUBP,
+  OUTPUT:,SUBP,
+  WRVMEM:,SUBP,
+  SILIN:,SUBP,
+C----
+C         CROSS*80 - C ЗAГPYЗKOЙ
+C         CROSSL80 - TOЛЬKO TPAHCЛЯЦИЯ
+C     *CALL CROSS*80:LONG,SSSSS  - ДЛЯ
+C     *CALL CROSS*80:SSSSSSSSSS    CИЛИHA
+  ,UTC,=1
+  CROSSL80:,ENTRY,
+  ,XTS,
+  ,STX,*PARAM*+1
+  ,ATI,13
+  13,XTA,2
+  ,ATX,*PARAM* .*CALL CROSS*80:LONG
+  13,XTA,3
+  ,AEX,=6HSSSSSS
+  ,AAX,=377
+  ,ATX,S/FL
+  ,CALL,KILNUMPG
+  ,XTA,EXIT
+  ,ATX,OLDEXIT
+  ,XTA,JEND
+  ,CTX,EXIT
+  13,VTM,PROGRAM
+  14,VTM,=I-1
+  ,ITS,14
+  ,UJ,OUTPUT
+C---
+  ANDF:,ENTRY,
+  ,STI,14
+  ,ATI,12
+  12,XTA,
+  14,AAX,
+  RETFUN:,AAX,=77 7777 7777
+  ,AOX,=I0
+  13,UJ,
+C---
+  ORF:,ENTRY,
+  ,STI,14
+  ,ATI,12
+  12,XTA,
+  14,AOX,
+  ,UJ,RETFUN
+C---
+  XORF:,ENTRY,
+  ,STI,14
+  ,ATI,12
+  12,XTA,
+  14,AEX,
+  ,UJ,RETFUN
+C---
+  NOTF:,ENTRY,
+  ,ATI,14
+  14,XTA,
+  ,AEX,=77 7777 7777
+  ,UJ,RETFUN
+C---
+  SHR:,ENTRY,
+  ,ATI,14
+  14,XTA,
+  ,STI,14
+  ,UJ,SHIFT
+C---
+  SHL:,ENTRY,
+  ,ATI,14
+  14,XTA,
+  ,AEX,=77 7777 7777
+  ,ARX,=1
+  ,STI,14
+  SHIFT:,ATI,12
+  12,XTA,
+  ,AAX,=77 7777 7777
+  14,ASN,64
+  ,UJ,RETFUN
+C---
+  FMRTAPE:,ENTRY,
+  :,ARX,
+  ,U1A,EXCH
+  ,AAX,=:2
+  ,UZA,FRET
+  ,ATX,LABEL
+  ,XTA,=I0
+  ,ATX,VADR
+  ,UJ,FRET
+  EXCH:,ATI,14
+  14,VZM,FRET
+  ,ITS,6
+  ,ITS,7
+  ,ITS,8
+  ,ITS,9
+  ,ITS,10
+  ,ITS,11
+  ,ITS,12
+  ,ITS,13
+  ,ITS,
+  14,MTJ,6
+  7,VTM,VADR
+  ,WTC,LABEL
+  ,UJ,READ
+  WRITE:,ITS,6
+  ,ITS,7
+  13,VTM,CORAD
+  ,UJ,WRVMEM
+  READ:,ITA,7
+  ,CALL,MEMVRD
+  6,ATX,
+  CORAD:,XTA,=1
+  ,ARX,VADR
+  ,ATX,VADR
+  6,UTM,1
+  6,XTA,-1
+  ,AEX,=12
+  ,AAX,=377
+  ,WTC,LABEL
+  ,U1A,READ
+  ,STI,
+  ,STI,13
+  ,STI,12
+  ,STI,11
+  ,STI,10
+  ,STI,9
+  ,STI,8
+  ,STI,7
+  ,STI,6
+  FRET:,STI,
+  13,UJ,
+  LABEL:,,
+  ,Z00,WRITE-READ
+  VADR:,INT,0
+C---
+  OLDEXIT:,LOG,
+  JEND:14,VTM,=I0
+  ,UJ,*+1
+  :,ITS,14
+  ,CALL,OUTPUT
+  ,XTA,OLDEXIT
+  ,CTX,EXIT
+  13,VTM,EXIT
+  ,XTA,S/FL
+  ,UZA,SILIN
+  ,UJ,EXIT
+  S/FL:,LOG,
+  ,END,
+*TO PERSO:55,30, KPOCC CИCTEMA I8080
+*CALL ALLMEMOR
+*CALL INTEL
+*END F
+*NAME N
+*TIME:24.00
+*PAGE:999,LIST
+*EXPRESS
+*LIBRA:23
+*DISC:76/SYSTEM,WORKIN
+*FILE:I8080,55
+*FILE:SCRATCH,67,W
+*CALL ALLMEMOR
+*NO LIST
+*NO LOAD
+*PERSO:55
+*CALL CROSS*80:LONG
+;***************************************************
+;*                                                 *
+;*        ПPOBEPKA  KOHTPOЛЬHOЙ  CYMMЫ  MИKPO-     *
+;*        ПPOГPAMMЫ, ПOДГOTOBЛEHHOЙ HA БЭCM-6.     *
+;*        A TAKЖE EЩE MHOГOE ДЛЯ OБЩEHИЯ C ЦП.     *
+;*                                                 *
+;***************************************************
+;
+;      P A C П P E Д E Л E H И E   П A M Я T И :
+;
+;        /-------------------------------------\
+;   0000-:        MOHИTOP  MCS-80  KIT         :
+;        :-------------------------------------:-03FF
+;   0400-:XXXXXXXX OTCYTCTBYЮЩAЯ ПAMЯTЬ XXXXXXX:
+;        :-------------------------------------:-0FFF
+;   1000-:  O З Y  ДЛЯ ПPOГPAMM И ДAHHЫX I8080 :
+;        :-------------------------------------:-17FF
+;   1800-:XXXXXXXX OTCYTCTBYЮЩAЯ ПAMЯTЬ XXXXXXX:
+;   3000-:       - TPИГГEP "JMP SQ" -          :-3000
+;        :XXXXXXXX OTCYTCTBYЮЩAЯ ПAMЯTЬ XXXXXXX:-37FF
+;        :-------------------------------------:
+;   3800-:         PEГИCTPЫ OБMEHA C ЦП        :
+;        :-------------------------------------:-380F
+;   3810-:XXXXXXXX OTCYTCTBYЮЩAЯ ПAMЯTЬ XXXXXXX:
+;        :-------------------------------------:-7FFF
+;   8000-:  O З Y  И  П З Y  MИKPOПPOГPAMM ЦП  :
+;        :  OДHO MИKPOCЛOBO = 14 БAЙT + 2 FF   :
+;   8000-:    1. ПEPEKЛЮЧATEЛЬ KOMAHД (ПHA)    :
+;        :    2. KOMAHДЫ MKБ-8601              :
+;        :    3. ИHИЦИAЛИЗAЦИЯ                 :
+;   D000-:    4. KOMAHДA ЧT/ЗП PEГИCTPOB ЦП    :
+;   E000-:    5. KOMAHДЫ, ЗABИCЯЩИE OT "W"     :
+;   F000-:    6. ПPEPЫBAHИЯ                    :
+;   FFC0-:  KOHTPOЛЬHЫE CYMMЫ БAЙTOB 8000-FFFF :-FFCF
+;   FFD0-:  PEЗYЛЬTATЫ CPABHEHИЯ KOHTP.CYMM    :-FFDF
+;   FFE0-:  BXOД B ПPOГPAMMY MOДИФИKAЦИИ AИCП. :
+;   FFF0-:   B X O Д   B   П P E P Ы B A H И Я :
+;        \-------------------------------------/-FFFF
+;
+;
+START   EQU     1000H   ; HAЧAЛO ПPOГPAMMЫ
+CONST   EQU     0FBH    ; CTATYC KOHCOЛИ
+CNIN    EQU     0FAH    ; BBOД C KOHCOЛИ
+CNOUT   EQU     0FAH    ; BЫBOД HA KOHCOЛЬ
+CPUST   EQU     0F7H    ; CTAT.PEГИCTP ЦП
+;
+CR      EQU     0DH     ; BOЗBPAT KAPETKИ
+LF      EQU     0AH     ; ПEPEBOД CTPOKИ
+;
+TOMON   EQU     02BH    ; BOЗBPAT B "MCS-80"
+MSTAK   EQU     013EDH  ; HAЧ.CTEKA B "MSC-80"
+;
+;
+;                 1000 - ПYCK ЦП
+;                 ===============
+;
+        ORG     START
+STAR:   DI
+        MVI     A,5     ; ЗAПИCЬ B
+        OUT     CPUST   ; CTATYCHЫЙ
+        STA     03000H  ; PEГИCTP ЦП
+        STA     08000H
+        JMP     TOMON   ; BOЗBPAT B MOH.
+;
+;
+;
+;
+;
+;                 1010 - OCTAHOB ЦП
+;                ===================
+;
+        ORG     START+010H
+STOP:   DI
+        MVI     A,2
+        OUT     CPUST
+        JMP     TOMON
+;
+;                /=========================\
+;               : 1020 - MOHИTOP  MKБ-8601  :
+;                \=========================/
+;
+        ORG     START+020H
+BEGIN:  DI
+        MVI     A,2     ; CTOП ЦП И
+        OUT     CPUST   ; BKЛЮЧEHИE OЗY
+        LXI     SP,MSTAK
+        LXI     H,HEAD
+        CALL    MESS
+;
+;            BBOДИM BTEMHYЮ 1-Й CИMBOЛ ДИPEKTИBЫ
+;
+        CALL    CIN
+ANAL:   MOV     C,A
+        LXI     H,LIST  ; HAЧ.CПИCKA
+ANAL1:  MOV     A,M     ; BЫXOД HA
+        ORA     A       ; HAЧAЛO TEKCTA
+        INX     H       ; OЧEPEДHOЙ
+        JNZ     ANAL1   ; ДИPEKTИBЫ
+        MOV     E,M
+        INX     H       ; (D,E) =
+        MOV     D,M     ; <AДPEC BXOДA>
+        INX     H
+        MOV     A,M
+        CPI     'G'
+        JZ      GO
+        CMP     C       ; ЭTY EЩE HE
+        JNZ     ANAL1   ; OПOЗHAЛИ
+;
+;          ДИPEKTИBA OПOЗHAHA. BЫBOДИM EE ПOЛHOCTЬЮ.
+;          ЗATEM BBOДИTCЯ ПOДTBEPЖДEHИE (CИMBOЛ <CR>)
+;          ИЛИ ПEPBЫЙ CИMBOЛ ДPYГOЙ ДИPEKTИBЫ.
+;
+        CALL    MESS
+        CALL    INOUT
+        JP      ANAL
+        XCHG
+        PCHL
+;
+;          ECЛИ ДИPEKTИBA HE OПOЗHAHA, BЫПOЛHЯEM
+;          EE KAK  GO:<AДPEC>
+;
+GO:     CALL    MESS
+        CALL    INADR
+        JP      ERROR
+        LHLD    ACC
+        PCHL
+;
+;
+;            ************************
+;            *    CHECK MP-CSUMM    *
+;            ************************
+;
+CHCS:   MVI     A,32    ; ПPOБEЛ B
+        STA     ANSW    ; HAЧ.TEKCTA
+;
+;             BЫЧИCЛEHИE 14 CYMM ПO 2048 БAЙT:
+;              0 = 8000+8010+ ... +FFE0+FFF0
+;              1 = 8001+8011+ ... +FFE1+FFF1
+;                      ...............
+;              D = 800D+801D+ ... +FFED+FFFD
+;             (ПOCЛEДHИX 2 БAЙT ПAMЯTИ ПPOCTO HET!)
+;
+        LXI     H,0FFD0H
+        LXI     D,08000H
+        LXI     B,0FFC0H
+LOOP:   PUSH    D       ; HAЧ.CYMMИP.
+        PUSH    H       ; PEЗ.CPABHEHИЯ
+        PUSH    B       ; ЭTAЛOH
+        XRA     A
+        MOV     M,A     ; PEЗ-T = 0
+        MOV     L,C
+        MOV     C,M     ; C=<OLD SUMM>
+        MOV     M,A     ; SET 0 TEMPORARY
+        XCHG            ; (D,E)==>(H,L)
+        LXI     D,16    ; ИHKPEMEHT
+LSUM:   MOV     B,A
+        ADD     B       ; HAKOПЛEHИE
+        ACI     0
+        ADD     B       ; TPOЙHOЙ
+        ACI     0
+        ADD     M       ; ЦИKЛ.CYMMЫ
+        ACI     0
+        DAD     D       ; M=M+16
+        JNC     LSUM
+        POP     H
+        MOV     M,C     ; REST  OLD SUMM
+        MOV     D,C     ; ЭTAЛOH
+        MOV     E,A     ; NEW SUMM
+        MOV     B,H
+        MOV     C,L
+        POP     H
+        XRA     D
+        MOV     M,A     ; PEЗ-T CPABHEHИЯ
+        JZ      NORM
+        PUSH    H
+        PUSH    B
+        XRA     A       ; ГЛYШИM ФИH.
+        STA     ANSW    ; COOБЩEHИE
+;
+;      BЫДAEM COOБЩEHИE O HECOBПAДEHИИ :
+;
+        MOV     A,L
+        CALL    HOUT
+        LXI     H,TERS1
+        CALL    MESS
+        MOV     C,D
+        CALL    HOUT2
+        INX     H
+        CALL    MESS
+        MOV     C,E
+        CALL    HOUT2
+        MVI     C,CR
+        CALL    COUT1
+        POP     B
+        POP     H
+NORM:   POP     D
+        INX     D
+        INX     B
+        INX     H
+        MOV     A,E
+        CPI     14      ; БEЗ 2 ПOCЛEДHИX!
+        JNZ     LOOP
+        LXI     H,ANSW
+        ORA     M
+        JNZ     FINAL
+;
+ERROR:  LXI     H,TERR
+FINAL:  CALL    MESS
+        JMP     BEGIN
+;
+;
+;             *******************************
+;             *      TEST  MP-MEMORY        *
+;             *******************************
+;
+TESTM:  LXI     H,QUEST
+        CALL    QTER
+        MOV     D,A     ; D=<CODE>
+        INX     H
+        CALL    QTER
+        MOV     E,A     ; E=<SHIFT>
+        INX     H
+        CALL    QTER    ; ACC=<ADRES>
+;
+;             POCПИCЬ ПAMЯTИ OT ЗAД.AДPECA ДO FFFF :
+;
+MWRIT:  LHLD    ACC
+        MOV     C,D     ; ПOCT.KOД
+MW16:   PUSH    H
+MW1:    CALL    MAKEC
+MW2:    MOV     M,C
+        PUSH    D
+        LXI     D,16
+        DAD     D
+        POP     D
+        JNC     MW1     ; B OДHOM ЧИПE
+        POP     H
+        INX     H
+        MOV     A,L
+        ANI     0FH
+        JNZ     MW16    ; CЛEД.ЧИП
+;
+;             ЧTEHИE ПAMЯTИ :
+;
+MREAD:  LHLD    ACC
+        MOV     C,D
+MR14:   CALL    BREAK
+        JZ      MR2
+;
+;           ПEPEБИBKA (ЛЮБЫM CИMBOЛOM).
+;           BЫBOДИM "?", ЖДEM BBOДA CИMBOЛA :
+;       N - HAЧAЛO TECTA, ЗAПPOC HOBЫX ПAPAMETPOB
+;       W - ПPOДOЛЖAEM TECT  C POCПИCИ ПAMЯTИ
+;       R - ПPOДOЛЖAEM TECT  C ЧTEHИЯ ПAMЯTИ
+;           ИHAЧE - KOHEЦ TECTA ПAMЯTИ
+;
+        MVI     C,63    ; <?>
+        CALL    COUT
+        CALL    INOUT
+        CPI     'R'
+        JZ      MREAD
+        CPI     'W'
+        JZ      MWRIT
+        CPI     'N'
+        JZ      TESTM
+        CPI     'M'
+        JZ      MW2
+        JMP     BEGIN
+MR2:    PUSH    H
+MR1:    CALL    MAKEC
+        MOV     A,M
+        CMP     C
+        JZ      MR3
+;            COOБЩEHИE O HECOBПAДEHИИ
+        SHLD    HSAV
+        MOV     B,C     ; SAVE: H,L,C
+        MOV     C,A
+        CALL    HOUT2   ; XX - READ,
+        LXI     H,TMMES
+        CALL    MESS
+        MOV     C,B
+        CALL    HOUT2   ; XX - WRIT.  ADR:
+        INX     H
+        CALL    MESS
+        CALL    HOUT4   ; XXXX
+        MVI     C,CR
+        CALL    COUT1
+        MOV     C,B
+        LHLD    HSAV    ; REST: H,L,C
+;
+MR3:    PUSH    D
+        LXI     D,16
+        DAD     D
+        POP     D
+        JNC     MR1     ; B OДHOM ЧИПE
+        POP     H
+        INX     H
+        MOV     A,L
+        ANI     0FH
+        CPI     14
+        JM      MR14    ; CЛEД.ЧИП
+        JMP     MREAD
+;
+MAKEC:  MOV     A,E
+        CPI     1
+        RM              ; 0 - ПOCT.KOД
+        JZ      SFTC    ; 1 - C ЦИKЛ.CДBИГOM
+        MOV     C,L     ; 2 - HOME ADRESS
+        RET
+SFTC:   MOV     A,C
+        RRC
+        MOV     C,A
+        RET
+;
+;             *******************************
+;             *        Y T И Л И T Ы        *
+;             *******************************
+;
+;   1.  CALL CIN  - BBOД CИMBOЛA HA PEГИCTP A
+;
+CIN:
+        IN      CONST
+        ANI     2
+        JZ      CIN     ; ЖДEM
+CIN1:   IN      CNIN    ; ECTЬ
+        ANI     07FH    ; ГACИM 8 БИT
+        RET
+;
+;   2.  CALL BREAK  - ПPOBEPKA, ECTЬ ЛИ BBOД
+;            HA PEГИCTPE A BBEДEHHЫЙ CИMBOЛ
+;            ИЛИ 0, ECЛИ BBOДA HE БЫЛO.
+;
+BREAK:  IN      CONST
+        ANI     2
+        RZ
+        JMP     CIN1
+;
+;   3.  CALL INOUT  - BBOД C PEГEHEPAЦИEЙ CИMBOЛA
+;           BBEДEHHЫЙ CИMBOЛ HA PEГ. A И C.
+;           ЗHAKOBЫЙ БИT ФЛAГA = 1, ECЛИ  C < 40(8)
+;
+INOUT:  CALL    CIN
+        MOV     C,A
+        CALL    COUT1
+        CPI     020H
+        RET
+;
+;   4.  CALL INSTR  - BBOД TEKCTOBOЙ CTPOKИ.
+;            AДPEC ЗAДAETCЯ B (H,L). HYЛEBOЙ БAЙT
+;            B MACCИBE OГPAHИЧИBAET BBOД TYДA.
+;            ПOPTЯTCЯ: H,L,A,C.
+;
+INSTR:  CALL    INOUT
+        JP      CEND1
+        DCX     H
+        CPI     8
+        JZ      INSTR   ; BACKSPACE
+        INX     H
+        CPI     24
+        RNZ             ; HE "-->"
+        MOV     C,M
+CEND1:  MOV     A,M
+        ORA     A
+        RZ              ; OГP-ЛЬ
+        MOV     M,C     ; CИMBOЛ B
+        INX     H       ; CTPOKY И ЗA
+        JMP     INSTR   ; CЛEДYЮЩИM.
+;
+;   5.  CALL INADR  - BBOД HE БOЛEE 4-X ШECTH.ЦИФP
+;            ЗHAKOBЫЙ БИT = 0,  ECЛИ БЫЛA OШИБKA.
+;            ПOPTЯTCЯ: A,B,C.
+;
+INADR:  CALL    ZACC
+INA1:   MOV     C,A
+        CALL    SACC
+        CALL    INOUT
+        RM
+        CALL    CHEK
+        JP      INA1
+        XRA     A
+        RET
+;
+;
+;       PAБOTA C 16-PAЗPЯДHЫM CYMMATOPOM ACC
+;       ACC : MЛAДШИE PAЗPAДЫ,   ACC+1 : CTAPШИE.
+;       ПOPTЯTCЯ: A,B.
+;    6.  ZACC - OБHYЛEHИE CYMMATOPA
+;    7.  SACC - CДBИГ BЛEBO HA 4 C ДOБABЛEHИEM
+;               B XBOCT HOBOЙ ШECTH.ЦИФPЫ ИЗ PEГ.C
+;
+ZACC:   XRA     A
+        STA     ACC+1
+        JMP     RETAC
+SACC:   LDA     ACC+1
+        MOV     B,A
+        LDA     ACC
+        XRA     B
+        ANI     0F0H
+        XRA     B
+        RLC
+        RLC
+        RLC
+        RLC
+        STA     ACC+1
+        LDA     ACC
+        RLC
+        RLC
+        RLC
+        RLC
+        XRA     C
+        ANI     0F0H
+        XRA     C
+RETAC:  STA     ACC
+        RET
+;
+;   10. CALL CHEK  - ПPOBEPKA CИMBOЛA B PEГ. A
+;            HA ДИAПAЗOH: 0-9, A-F (ЦИФPЫ)
+;            PEЗYЛЬTAT:  A=0:15  ИЛИ < 0
+;
+CHEK:
+        CPI     '0'
+        JM      NEG     ; HE ЦИФPA
+        CPI     '9'+1
+        JP      CHAF
+        SUI     '0'     ; 0-9
+        RET
+CHAF:   CPI     'A'
+        JM      NEG
+        CPI     'F'+1
+        JP      NEG
+        SUI     'A'-10
+        RET             ; A-F
+NEG:    ORI     0FFH
+        RET
+;
+;   11. CALL HOUT4  - BЫBOД 4-X ШECTH.ЦИФP ИЗ ACC.
+;   12. CALL HOUT2  - BЫBOД 2-X ШECTH.ЦИФP (PEГ.C)
+;            ПOPTЯTCЯ: A,C.
+;
+HOUT4:  LDA     ACC+1
+        MOV     C,A
+        CALL    HOUT2
+        LDA     ACC
+        MOV     C,A
+HOUT2:  MOV     A,C
+        PUSH    B       ; SAVE C
+        RRC
+        RRC
+        RRC
+        RRC
+        CALL    HOUT
+        POP     PSW     ; A <== C
+;
+;   13. CALL HOUT  - BЫBOД ШECTH.ЦИФPЫ ИЗ PEГИCTPA A
+;            ПOPTЯTCЯ: A,C.
+;
+HOUT:   ANI     0FH
+        ORI     '0'
+        CPI     '9'+1
+        JM      HOUT1
+        ADI     7
+HOUT1:  MOV     C,A
+;
+;   14. CALL COUT1  - BЫBOД OДHOГO CИMBOЛA
+;            ЗAДAHHOГO B PEГИCTPE C  И ДOБABЛEHИE
+;            <LF> ПOCЛE <CR>.   ПOPTИTCЯ:  A.
+;
+COUT1:
+        CALL    COUT
+        CPI     CR
+        RNZ             ; OБЫЧHЫЙ
+        MVI     C,LF    ; <CR>
+;
+;   15. CALL COUT  - BЫBOД CИMBOЛA ИЗ PEГИCTPA C.
+;
+COUT:
+        IN      CONST
+        ANI     1
+        JZ      COUT    ; ЖДEM
+        MOV     A,C
+        OUT     CNOUT   ; BЫДAEM
+        ORA     A
+        RET
+;
+;
+;   16. CALL MESS  - BЫДAЧA TEKCTOBOЙ CTPOKИ.
+;            HAЧAЛO CTPOKИ ЗAДAETCЯ B <H,L>
+;            KOHEЦ CTPOKИ - HYЛEBOЙ БAЙT.
+;            ПOPTЯTCЯ: A,H,L,C.
+;
+MESS:
+        MOV     C,M     ; OЧEP.БAЙT
+        MOV     A,C
+        ORA     A
+        RZ              ; KOHEЦ
+        CALL    COUT1   ; BЫДAЧA
+        INX     H       ; CЛEД.БAЙT
+        JMP     MESS
+;
+;    17.  CALL QTER  - BBOД ШECTHAДЦATИPИЧHЫЙ B  ACC
+;              (H,L) - AДPEC TEKCTA ПOДCKAЗKИ
+;              ПOPTЯTCЯ: A,B,C,H,L.
+;
+QTER1:  LXI     H,TERR
+        CALL    MESS
+        LHLD    HSAV
+QTER:   SHLD    HSAV
+        CALL    MESS
+        CALL    INADR
+        JP      QTER1
+        LDA     ACC
+        RET
+;
+;
+;<C>           K O H C T A H T Ы :
+;
+HEAD:   DB      CR,'RETRO-80 MONITOR.',CR,0
+TERR:   DB      '<=ERROR.',CR
+LIST:   DB      0
+;
+        DW      CHCS
+        DB      'CHECK MP-CSUMM',0
+        DW      TESTM
+        DB      'TEST MP-MEMORY',0
+        DW      GO
+        DB      'GO:',0
+;
+TERS1:  DB      ' - SUMM IN MEM: ',0
+TERS2:  DB      ', CALC: ',0
+QUEST:  DB      'CODE:',0,'SHIFT:',0
+        DB      'ADRESS:',0
+TMMES:  DB      ' - READ,  ',0
+        DB      ' - WRIT.  ADR: ',0
+;
+;<W>                P A Б O Ч A Я   П A M Я T Ь :
+;
+ANSW:   DB      ' CHECK SUM IN ORDER.',CR,0
+ACC:    DB      0,0     ; 16-BIT SUMM
+HSAV:   DB      0,0
+;
+        END
+*CALL ALLMEMOR
+*CALL INTEL
+*END F
+;
+*NAME N
+*TIME:24.00
+*PAGE:999,LIST
+*EXPRESS
+*LIBRA:23
+*DISC:76/SYSTEM,WORKIN
+*FILE:I8080,55
+*CALL ALLMEMOR
+*NO LIST
+*NO LOAD
+*PERSO:55
+*CALL CROSS*80:LONG,SSSSSSSSSSSSSSS
+;***************************************************
+;*                                                 *
+;*        ПPOBEPKA  KOHTPOЛЬHOЙ  CYMMЫ  MИKPO-     *
+;*        ПPOГPAMMЫ, ПOДГOTOBЛEHHOЙ HA БЭCM-6.     *
+;*        A TAKЖE EЩE MHOГOE ДЛЯ OБЩEHИЯ C ЦП.     *
+;*                                                 *
+;***************************************************
+;
+;      P A C П P E Д E Л E H И E   П A M Я T И :
+;
+;        /-------------------------------------\
+;   0000-:        MOHИTOP  MCS-80  KIT         :
+;        :-------------------------------------:-03FF
+;   0400-:XXXXXXXX OTCYTCTBYЮЩAЯ ПAMЯTЬ XXXXXXX:
+;        :-------------------------------------:-0FFF
+;   1000-:  O З Y  ДЛЯ ПPOГPAMM И ДAHHЫX I8080 :
+;        :-------------------------------------:-1BFF
+;   1C00-:XXXXXXXX OTCYTCTBYЮЩAЯ ПAMЯTЬ XXXXXXX:
+;   3000-:       - TPИГГEP "JMP SQ" -          :-3000
+;        :XXXXXXXX OTCYTCTBYЮЩAЯ ПAMЯTЬ XXXXXXX:-37FF
+;        :-------------------------------------:
+;   3800-:         PEГИCTPЫ OБMEHA C ЦП        :
+;        :-------------------------------------:-380F
+;   3810-:XXXXXXXX OTCYTCTBYЮЩAЯ ПAMЯTЬ XXXXXXX:
+;        :-------------------------------------:-7FFF
+;   8000-:  O З Y  И  П З Y  MИKPOПPOГPAMM ЦП  :
+;        :  OДHO MИKPOCЛOBO = 14 БAЙT + 2 FF   :
+;   8000-:    1. ПEPEKЛЮЧATEЛЬ KOMAHД (ПHA)    :
+;        :    2. KOMAHДЫ MKБ-8601              :
+;        :    3. ИHИЦИAЛИЗAЦИЯ                 :
+;   D000-:    4. KOMAHДA ЧT/ЗП PEГИCTPOB ЦП    :
+;   E000-:    5. KOMAHДЫ, ЗABИCЯЩИE OT "W"     :
+;   F000-:    6. ПPEPЫBAHИЯ                    :
+;   FFC0-:  KOHTPOЛЬHЫE CYMMЫ БAЙTOB 8000-FFFF :-FFCF
+;   FFD0-:  PEЗYЛЬTATЫ CPABHEHИЯ KOHTP.CYMM    :-FFDF
+;   FFE0-:  BXOД B ПPOГPAMMY MOДИФИKAЦИИ AИCП. :
+;   FFF0-:   B X O Д   B   П P E P Ы B A H И Я :
+;        \-------------------------------------/-FFFF
+;
+;
+START   EQU     1000H   ; HAЧAЛO ПPOГPAMMЫ
+CONST   EQU     0FBH    ; CTATYC KOHCOЛИ
+CNIN    EQU     0FAH    ; BBOД C KOHCOЛИ
+CNOUT   EQU     0FAH    ; BЫBOД HA KOHCOЛЬ
+;
+CR      EQU     0DH     ; BOЗBPAT KAPETKИ
+LF      EQU     0AH     ; ПEPEBOД CTPOKИ
+;
+;          БЛOKИ  "MCS-80" :
+;
+TOMON   EQU     02BH    ; BOЗBPAT B "MCS-80"
+MSTAK   EQU     013EDH  ; HAЧ.CTEKA "MSC-80"
+;
+;          "ПOPTЫ ЦП" :
+;
+STAT    EQU     0F7H    ; PEГИCTP CTATYCA ЦП
+INTER   EQU     0DFH    ; ПPEPЫBAHИE "INT28"
+TGPUS   EQU     0EFH    ; TPИГГEP "ПYCK"
+;
+;           PEГИCTPЫ OБMEHA  ЦП <===> ПП :
+;
+INFB1   EQU     03800H  ; ИHФOPM.
+INFB2   EQU     03801H  ; БAЙTЫ ЦП
+FCP     EQU     03802H  ; ФЛAГИ OT ЦП K ПП
+FMP     EQU     03803H  ; ФЛAГИ OT ПП K ЦП
+ADR0    EQU     03804H  ; 0-ЛEB.БAЙT AДPECA
+ADR1    EQU     03805H  ;  1-Й БAЙT AДPECA
+ADR2    EQU     03806H  ;  2-Й БAЙT AДPECA
+ADR3    EQU     03807H  ; 3-ПPAB.БAЙT AДPECA
+DAT0    EQU     03808H  ; 0-ЛEB.БAЙT ДAHHЫX
+DAT1    EQU     03809H  ;  1
+DAT2    EQU     0380AH  ;  2
+DAT3    EQU     0380BH  ;  3
+DAT4    EQU     0380CH  ;  4
+DAT5    EQU     0380DH  ;  5
+DAT6    EQU     0380EH  ;  6
+DAT7    EQU     0380FH  ; 7-ПPAB.БAЙT ДAHHЫX
+;
+;                   PEГИCTPЫ  Ц П :  (ЧИCЛO БAЙT)
+;
+ACC     EQU     01800H  ; CYMMATOP       (8)
+PMP     EQU     01801H  ; MЛ.PAЗPЯДЫ     (8)
+MIR     EQU     01802H  ;  Г P П         (8)
+PC      EQU     01803H  ;  C Ч A C       (4)
+PCC     EQU     01804H  ; POП            (4)
+OPADR   EQU     01805H  ; ИAOП           (4)
+RCOM    EQU     01811H  ; PEГИCTP KOMAHД (8)
+CMTEG   EQU     01814H  ; TEГ KOMAHДЫ    (1)
+OPTEG   EQU     01815H  ; TEГ OПEPAHДA   (1)
+RZTEG   EQU     01816H  ; TEГ PEЗYЛЬTATA (1)
+NG      EQU     01818H  ; HOMEP ГPYППЫ   (2)
+NP      EQU     01819H  ; HOMEP ПPOЦECCA (1)
+RR      EQU     0181BH  ; PEГИCTP PEЖИMA (4)
+MCYCC   EQU     0181FH  ; M-PEГ. CYCC    (1)
+;
+;                    PEГИCTPЫ ИЗ ГPYППЫ :
+;
+RRG     EQU    011H     ; PEЖИM (OCH.ЧACTЬ)
+SVFA    EQU    01DH     ; P A П Y
+;
+;
+;               PAБOЧAЯ ПAMЯTЬ :
+;
+CPUST   EQU     01700H  ; XPAHИT CTATYC ЦП
+GRAD    EQU     CPUST+2 ; AДPEC ГPYППЫ
+REGIM   EQU     GRAD+2  ; ПOЛHЫЙ PEГ.PEЖИMA
+BUF     EQU     REGIM+5 ; BЫДABAEMAЯ CTPOKA
+;
+;
+;                 1000 - ПYCK ЦП
+;                 ===============
+;
+        ORG     START
+STAR:   DI
+        MVI     A,045H  ; ЗAПИCЬ B
+TOST:   OUT     STAT    ; CTATYCHЫЙ
+        STA     03000H  ; PEГИCTP ЦП
+        STA     08010H
+        JMP     TOMON   ; BOЗBPAT B MOH.
+;
+;
+;                 1010 - OCTAHOB ЦП
+;                ===================
+;
+        ORG     START+010H
+STOP:   DI
+        MVI     A,2
+        OUT     STAT
+        JMP     TOMON
+;
+;                 101A - ПYCK ЦП + "HLT"
+;                 ======================
+;
+        ORG     START+01AH
+STARH:  DI
+        MVI     A,0C5H
+        JMP     TOST
+;
+;
+;                 1020 - ПPOBEPKA KC И ПYCK
+;                 ==========================
+;
+        ORG     START+020H
+CHKS:   DI
+        MVI     A,2
+        OUT     STAT
+        LXI     H,MSTAK
+        SPHL            ; YCT.CTEKA
+        JMP     CSUM
+;
+;
+;
+;
+;
+;             1030 - BXOДЫ ДЛЯ OБЩEHИЯ C ЦП :
+;             ===============================
+;
+        ORG     START+030H
+SWJOB:  DI
+        JMP     JOB1    ; 30
+        DI
+        JMP     JOB2    ; 34
+        DI
+        JMP     JOB3    ; 38
+        DI
+        JMP     JOB4    ; 3C
+        DI
+        JMP     JOB5    ; 40
+        DI
+        JMP     JOB6    ; 44
+        DI
+        JMP     JOB7    ; 48
+        DI
+        JMP     JOB8    ; 4C
+        DI
+        JMP     JOB9    ; 50
+        DI
+        JMP     JOB10   ; 54
+        DI
+        JMP     JOB11   ; 58
+        DI
+        JMP     JOB12   ; 5C
+;
+;
+;     1,2 - ЧTEHИE/ЗAПИCЬ OДHOГO PEГИCTPA ЦП
+;           AДPEC И ДAHHЫE YЖE YCTAHOBЛEHЫ.
+;              (БЫBШ. 1403 И 1406)
+;
+JOB1:   CALL    SHLT    ; ЧTEHИE
+        CALL    SINT
+        JMP     RET12
+;
+JOB2:   CALL    SHLT    ; ЗAПИCЬ
+        XRA     A       ; A=0
+        CALL    SINTA
+RET12:  CALL    REST
+        JMP     TOMON
+;
+;     3 - BЫДAЧA CTATYCHOГO PEГИCTPA
+;           (БЫBШ. 1409)
+;
+JOB3:   IN      STAT
+        JMP     RBOUT
+;
+;     4 - BЫДAЧA ИHФOPMAЦИOHHOГO БAЙTA ЦП
+;           (БЫBШ. 1418)
+;
+JOB4:   LDA     INFB1
+        JMP     RBOUT
+;
+;     5 - BЫДAЧA ФЛAГOBOГO БAЙTA ЦП
+;           (БЫBШ. 1415)
+;
+JOB5:   LDA     FCP
+RBOUT:  CALL    BOUT
+        JMP     TOMON
+;
+;     6 - ШAГ ИЛИ OCTAHOB ЦП
+;           (БЫBШ. 140F)
+;
+JOB6:   XRA     A       ; A=0
+        CALL    SHLT2
+        JMP     RET67
+;
+;     7 - KOMAHДA "ИДИ"
+;          (БЫBШ. 1412)
+;
+JOB7:   MVI     A,01
+        CALL    SHLT1
+RET67:  OUT     TGPUS
+        JMP     TOMON
+;
+;     8 - YCTAHOBKA ДBYX "HLT"
+;           (БЫBШ. 1421)
+;
+JOB8:   XRA     A       ; A=0
+        CALL    SHLT2
+        JMP     TOMON
+;
+;     9 - CHЯTИE  "HLT-ЦП"
+;           (БЫBШ. 1424)
+;
+JOB9:   MVI     A,00
+        CALL    SHLT1
+        JMP     TOMON
+;
+;    10 - ГPYППOBOE ЧTEHИE PEГИCTPOB
+;            (БЫBШ. 141B)
+;
+JOB10:  CALL    MAIN
+        LXI     D,BUF-1 ; BЫX.CTPOKA
+        LHLD    GRAD    ; ПOЛH.AДP.ГPYППЫ
+        MVI     C,017H  ; CЧ-K ЦИKЛA
+;
+RGRUP:  INX     H       ; OЧEP.PEГИCTP
+        MVI     B,04
+        PUSH    H
+        CALL    GETR
+        POP     H
+        DCR     C
+        JNZ     RGRUP
+;
+        MOV     A,L
+        ADI     SVFA-017H
+        MOV     L,A
+        MVI     B,04
+        CALL    GETR    ; PAПY
+;
+        MVI     B,120   ; = 24*5
+OUTBF:  CALL    CBOUT
+        JMP     TOMON
+;
+;            BЫДAЧA ДЛЯ ШAГOBOГO PEЖИMA
+;              (БЫBШ.141E)
+;
+JOB11:  CALL    MAIN
+        LXI     H,RCOM
+        CALL    SETA1   ; PEГИCTP KOMAHДЫ
+        LXI     H,DAT0
+        LDA     REGIM
+        STA     BUF+5   ; БAЙT, ГДE ППK
+        ANI     010H    ; П П K
+        RRC
+        RRC
+        ADD     L
+        MOV     L,A     ; DAT0 ИЛИ DAT4
+        MVI     B,01
+        CALL    TRAN
+        DCX     H
+        MVI     B,01
+        CALL    TRAN
+        DCX     H
+        MVI     B,02
+        CALL    TRAN
+        DCX     H
+        DCX     H
+        DCX     H
+        MVI     B,02
+        CALL    TRAN
+;
+        LXI     H,ACC
+        MVI     B,08
+        CALL    GETR    ; CYMMATOP
+        LXI     H,PMP
+        MVI     B,08
+        CALL    GETR
+        LXI     H,OPADR
+        MVI     B,04
+        CALL    GETR    ; ИAOП
+        MVI     B,39
+        JMP     OUTBF
+;
+;               (БЫBШ.1500)
+;
+JOB12:  CALL    MAIN
+        LXI     H,PCC
+        MVI     B,03
+        CALL    GETR    ; P O П
+        LXI     H,REGIM
+        MVI     B,04
+        CALL    TRAN    ; ПOЛHЫЙ PP
+        MVI     C,03    ; CЧ. ЦИKЛA
+        LXI     H,CMTEG
+;
+TTEG:   MVI     B,01
+        PUSH    H
+        CALL    GETR    ; BCE 3 TEГA
+        POP     H
+        INX     H
+        DCR     C
+        JNZ     TTEG
+;
+        LXI     H,MIR
+        MVI     B,08
+        CALL    GETR    ; Г P П
+        MVI     B,33
+        JMP     OUTBF
+;
+;
+;                    ПOДПPOГPAMMЫ OБЩEHИЯ C ЦП :
+;                    ===========================
+;
+;    SHLT - YCTAHOBKA "HLT-ЦП" И ЧTEHИE B A-PEГИCTP
+;           ФЛAГOBOГO БAЙTA ЦП.  ПOPTЯTCЯ: A
+;           CTAPOE COCTOЯHИE CTATYCA ПPЯЧEM B  CPUST.
+;                (БЫBШ. 14D0)
+SHLT:   IN      STAT
+        ANI     0BFH    ; ПPOЧИCTKA MYCOPA
+        STA     CPUST   ; ЗAПOMHИM CTATYC
+        ORI     080H    ; ДOБABKA "HLT"
+        OUT     STAT
+WAIT1:  LDA     FCP     ; ЖДEM ПOЯBЛEHИЯ
+        ORA     A       ; ФЛAГOB
+        JZ      WAIT1
+        RET
+;
+;     REST - BOCCTAHOBЛEHИE CTATYCHOГO PEГИCTPA
+;            И ПYCK ЦП, ECЛИ HE БЫЛ CBOЙ "HLT"
+;            ПOPTЯTCЯ: A.
+;                (БЫBШ. 1440)
+REST:   LDA     CPUST
+        ANI     0A0H
+        RNZ
+        STA     FCP
+        LDA     CPUST
+        OUT     STAT
+        OUT     TGPUS
+        RET
+;
+;     SETA - YCTAHOBKA "HLT-ЦП". OЧИCTKA AДPECHOГO БЛOKA
+;            BЫДAЧA B ЦП ЗAПPOCA HA ЧTEHИE PEГИCTPA, HOMEP
+;            KOTOPOГO ЗAДAH ПAPOЙ (H,L).  ПOPTИTCЯ: A.
+;     SETA1- TOЛЬKO ЗAПPOC HA ЧTEHИE (BЫДAETCЯ B ЦИKЛE).
+;            ПOPTИTCЯ A.
+;
+SETA:   CALL    SHLT
+        XRA     A       ; A=0
+        STA     ADR0
+        STA     ADR1
+SETA1:  MOV     A,H
+        STA     ADR2
+        MOV     A,L
+        STA     ADR3
+;
+;     SINT - ПOCЫЛKA B ЦП ПPEPЫBAHИЯ "INT28" C
+;            YCTAHOBKOЙ ФЛAГA ПП = 4
+;     SINTA- TO ЖE, HO ФЛAГ HA PEГИCTPE A.
+;            ДOЖИДAEMCЯ OTBETA OT ЦП.
+;              (БЫBШ. 14E4)
+;
+SINT:   MVI     A,04
+SINTA:  STA     FMP
+        OUT     INTER
+WAIT2:  LDA     FMP
+        ANI     03
+        JZ      WAIT2
+        RET
+;
+;    SHLT2 - YCTAHOBKA "HLT-ЦП" И "HLT-ПП"
+;            ДЛЯ ШAГOBOГO PEЖИMA.
+;            COДEPЖИMOE PEГИCTPA A ЗACЫЛAETCЯ B FCP
+;            ПOPTЯTCЯ: A
+;              (БЫBШ. 1478)
+SHLT2:  STA     FCP
+        IN      STAT
+        ORI     0C0H
+        OUT     STAT
+        RET
+;
+;    SHLT1 - CHЯTИE "HLT-ЦП",  YCTAHOBKA "HLT-ПП"
+;                 (БЫBШ. 1498)
+SHLT1:  STA     FCP
+        IN      STAT
+        ANI     07FH
+        ORI     040H
+        OUT     STAT
+        RET
+;
+;    CBOUT - BЫДAЧA B БAЙTOB ИЗ БYФEPA HA "KOHCOЛЬ"
+;            HA ФOHE PAБOTЫ ЦП.  ПOPTЯTCЯ: A,B,H,L.
+;                (БЫBШ. 1C16)
+;
+CBOUT:  CALL    REST
+        LXI     H,BUF
+CB1:    MOV     A,M
+        PUSH    B
+        CALL    BOUT
+        POP     B
+        INX     H
+        DCR     B
+        JNZ     CB1
+        RET
+;
+;    MAIN - PAБOTA, HAЧИHAЮЩAЯ BCE  JOB-Ы, CBЯЗAHHЫE
+;           C ЧTEHИEM PEГИCTPOB ЦП.  YCTAHOBKA "HLT".
+;           ПOЛYЧEHИE B GRAD ПOЛHOГO AДPECA ГPYППЫ.
+;           ПOЛYЧEHИE B REGIM ПOЛHOГO PEГИCTPA PEЖИMA.
+;           ПEPEПИCЬ B БYФEP HOMEPA ПPOЦECCA И CЧAC.
+;
+MAIN:   LXI     H,NG
+        CALL    SETA    ; P H Г :
+        LDA     DAT6
+        ANI     03
+        MOV     H,A     ; 10-9 P.
+        LDA     DAT7
+        ANI     0E0H
+        MOV     L,A     ; 8-6 P.
+        SHLD    GRAD    ; ПOЛHЫЙ AДPEC
+        ADI     RRG     ; PEГ.PEЖИMA
+        MOV     L,A     ; B ГPYППE
+        LXI     D,REGIM-1
+        MVI     B,04
+        CALL    GETR    ; PP (ПOCT.ЧACTЬ)
+        XCHG
+        DCX     H       ; ПPABЫЙ БAЙT
+        MOV     A,M     ; ПPOЧИCTKA
+        ANI     023H    ; PAЗPЯДOB,
+        MOV     M,A     ; KOTOPЫE
+        DCX     H       ; БEPYTCЯ
+        MOV     A,M     ; ИЗ
+        ANI     0FCH    ; ДPYГИX
+        MOV     M,A     ; MECT
+        DCX     H
+        DCX     H
+        MOV     A,M
+        ANI     0C7H
+        MOV     M,A
+        LXI     D,RR
+        XCHG            ; (D,E)==> REGIM(0)
+        CALL    SETA1   ; PP (ИCПOЛH.ЧACTЬ)
+        MVI     B,04
+        LXI     H,DAT4
+JOIN1:  MOV     A,M
+        INX     H
+        XCHG
+        ORA     M
+        MOV     M,A
+        INX     H
+        XCHG
+        DCR     B
+        JNZ     JOIN1
+        LXI     H,MCYCC
+        CALL    SETA1
+        XCHG            ; (H,L)==> REGIM(4)
+        DCX     H
+        LDA     DAT7
+        ANI     0C0H
+        ORA     M
+        MOV     M,A
+        DCX     H
+        LDA     DAT6
+        ANI     03
+        ORA     M
+        MOV     M,A
+;
+        LXI     H,NP
+        LXI     D,BUF-1
+        MVI     B,01
+        CALL    GETR    ; HOM.ПPOЦECCA
+        LXI     H,PC    ; И CЧAC - B БYФEP
+        MVI     B,03
+;
+;    GETR - ЧTEHИE PEГИCTPA ЦП, ЗAДAHHOГO ПAPOЙ (H,L).
+;           ПEPEПИCЬ  B  БAЙT PEГИCTPA B CTPOЧHЫЙ БYФEP.
+;           ПOPTЯTCЯ: A,B,H,L.
+;
+GETR:   CALL    SETA1   ; ЗAПPOC
+        MVI     A,8
+        SUB     B       ; B <= 8 !!!
+        LXI     H,DAT0
+        ADD     L
+        MOV     L,A     ; (H,L)=DAT0+8-<B>
+;
+;    TRAN - ПEPEПИCЬ  B  БAЙT ИЗ ПAMЯTИ (H,L)
+;           B ПAMЯTЬ (D,E)+1.  ПOPTЯTCЯ: A,B,H,L
+;           ПEPEПИCЫBAETCЯ 1 ЛИШHИЙ БAЙT ДЛЯ COЗДAHИЯ
+;           "ДЫP" MEЖДY ПOPЦИЯMИ. (D,E) YBEЛИЧИBAETCЯ.
+;              (БЫBШ. 1520)
+;
+TRAN:   INR     B       ; ДЛЯ "ДЫP"
+LTRAN:  MOV     A,M     ; (H,L)
+        XCHG
+        INX     H       ; (D,E)+1
+        MOV     M,A
+        XCHG
+        INX     H       ; (H,L)+1
+        DCR     B
+        JNZ     LTRAN
+        RET
+;
+;
+;
+;          БЛOK ПPOBEPKИ KOHTP.CYMMЫ MИKPOПPOГPAMMЫ
+;
+CSUM:   MVI     A,32    ; ПPOБEЛ B
+        STA     ANSW    ; HAЧ.TEKCTA
+        CALL    CSOWN   ; ПPOBEPИM CEБЯ
+;
+;             BЫЧИCЛEHИE 14 CYMM ПO 2048 БAЙT:
+;              0 = 8000+8010+ ... +FFE0+FFF0
+;              1 = 8001+8011+ ... +FFE1+FFF1
+;                      ...............
+;              D = 800D+801D+ ... +FFED+FFFD
+;             (ПOCЛEДHИX 2 БAЙT ПAMЯTИ ПPOCTO HET!)
+;
+        LXI     H,0FFD0H
+        LXI     D,08000H
+        LXI     B,0FFC0H
+LOOP:   PUSH    D       ; HAЧ.CYMMИP.
+        PUSH    H       ; PEЗ.CPABHEHИЯ
+        PUSH    B       ; ЭTAЛOH
+        XRA     A
+        MOV     M,A     ; PEЗ-T = 0
+        MOV     L,C
+        MOV     C,M     ; C=<OLD SUMM>
+        MOV     M,A     ; SET 0 TEMPORARY
+        XCHG            ; (D,E)==>(H,L)
+        LXI     D,16    ; ИHKPEMEHT
+LSUM:   MOV     B,A
+        ADD     B       ; HAKOПЛEHИE
+        ACI     0
+        ADD     B       ; TPOЙHOЙ
+        ACI     0
+        ADD     M       ; ЦИKЛ.CYMMЫ
+        ACI     0
+        DAD     D       ; M=M+16
+        JNC     LSUM
+        POP     H
+        MOV     M,C     ; REST  OLD SUMM
+        MOV     D,C     ; ЭTAЛOH
+        MOV     E,A     ; NEW SUMM
+        MOV     B,H
+        MOV     C,L
+        POP     H
+        XRA     D
+        MOV     M,A     ; PEЗ-T CPABHEHИЯ
+        JZ      NORM
+        PUSH    H
+        PUSH    B
+        XRA     A       ; ГЛYШИM ФИH.
+        STA     ANSW    ; COOБЩEHИE
+;
+;      BЫДAEM COOБЩEHИE O HECOBПAДEHИИ :
+;
+        MOV     A,L
+        CALL    HOUT
+        LXI     H,TERS1
+        CALL    MESS
+        MOV     B,D
+        CALL    HOUT2
+        LXI     H,TERS2
+        CALL    MESS
+        MOV     B,E
+        CALL    HOUT2
+        MVI     C,CR
+        CALL    COUT1
+        POP     B
+        POP     H
+NORM:   POP     D
+        INX     D
+        INX     B
+        INX     H
+        MOV     A,E
+        CPI     14      ; БEЗ 2 ПOCЛEДHИX!
+        JNZ     LOOP
+        LXI     H,ANSW
+        CALL    MESS
+        JMP     STARH   ; HA ЗAПYCK ЦП
+;
+;       CALL CIN  - BBOД CИMBOЛA HA PEГИCTP A
+;
+CIN:
+        IN      CONST
+        ANI     2
+        JZ      CIN     ; ЖДEM
+        IN      CNIN    ; ECTЬ
+        RET
+;
+;       CALL CHEK  - ПPOBEPKA CИMBOЛA B PEГ. A
+;            HA ДИAПAЗOH: 0-9, A-F (ЦИФPЫ)
+;            PEЗYЛЬTAT:  A=0:15  ИЛИ < 0
+;
+CHEK:
+        CPI     '0'
+        JM      NEG     ; HE ЦИФPA
+        CPI     '9'+1
+        JP      CHAF
+        SUI     '0'     ; 0-9
+        RET
+CHAF:   CPI     'A'
+        JM      NEG
+        CPI     'F'+1
+        JP      NEG
+        SUI     'A'-10
+        RET             ; A-F
+NEG:    ORI     0FFH
+        RET
+;
+;       CALL HOUT2  - BЫBOД ДBYX ШECTH.ЦИФP (PEГ.B)
+;       CALL BOUT   - TO ЖE, HO ИЗ PEГИCTPA A.
+;                     ПOPTЯTCЯ: A,C.
+;
+BOUT:   MOV     B,A
+HOUT2:  MOV     A,B
+        RRC
+        RRC
+        RRC
+        RRC
+        CALL    HOUT
+        MOV     A,B
+;
+;       CALL HOUT  - BЫBOД ШECTH.ЦИФPЫ ИЗ PEГИCTPA A
+;            ПOPTЯTCЯ: A,C.
+;
+HOUT:   ANI     0FH
+        ORI     '0'
+        CPI     '9'+1
+        JM      HOUT1
+        ADI     7
+HOUT1:  MOV     C,A
+;
+;       CALL COUT1  - BЫBOД OДHOГO CИMBOЛA
+;            ЗAДAHHOГO B PEГИCTPE C  И ДOБABЛEHИE
+;            <LF> ПOCЛE <CR>.   ПOPTИTCЯ:  A.
+;
+COUT1:
+        CALL    COUT
+        CPI     CR
+        RNZ             ; OБЫЧHЫЙ
+        MVI     C,LF    ; <CR>
+;
+;       CALL COUT  - BЫBOД CИMBOЛA ИЗ PEГИCTPA C.
+;
+COUT:
+        IN      CONST
+        ANI     1
+        JZ      COUT    ; ЖДEM
+        MOV     A,C
+        OUT     CNOUT   ; BЫДAEM
+        RET
+;
+;       ПOДCЧET COБCTBEHHOЙ KOHTPOЛЬHOЙ CYMMЫ
+;
+CSOWN:  LXI     H,STAR
+        LXI     D,SIGMA+1
+        MVI     C,00
+S80P:   MOV     A,M
+        XRA     C
+        MOV     C,A
+        INX     H
+        MOV     A,H
+        XRA     D
+        MOV     B,A
+        MOV     A,L
+        XRA     E
+        ORA     B
+        JNZ     S80P
+        ORA     C
+        RZ
+        LXI     H,TOWNS
+;
+;
+;       CALL MESS  - BЫДAЧA TEKCTOBOЙ CTPOKИ.
+;            HAЧAЛO CTPOKИ ЗAДAETCЯ B <H,L>
+;            KOHEЦ CTPOKИ - HYЛEBOЙ БAЙT.
+;            ПOPTЯTCЯ: A,H,L,C.
+;
+MESS:
+        MOV     C,M     ; OЧEP.БAЙT
+        MOV     A,C
+        ORA     A
+        RZ              ; KOHEЦ
+        CALL    COUT1   ; BЫДAЧA
+        INX     H       ; CЛEД.БAЙT
+        JMP     MESS
+;
+;CSUM:
+SIGMA:  DB      0       ; KOHTP.CYMMA
+;
+;<C>                  K O H C T A H T Ы :
+;
+TOWNS:  DB      'OWN SUM IS WRONG',CR,0
+ANSW:   DB      ' CHECK SUM IN ORDER.',CR,0
+TERS1:  DB      ' - SUMM IN MEM: ',0
+TERS2:  DB      ', CALC: ',0
+;
+;
+        ORG     01400H
+        JMP     CHKS
+        JMP     JOB1
+        JMP     JOB2
+        JMP     JOB3
+        JMP     CHKS
+        JMP     JOB6
+        JMP     JOB7
+        JMP     JOB5
+        JMP     JOB4
+        JMP     JOB10
+        JMP     JOB11
+        JMP     JOB8
+        JMP     JOB9
+        ORG     01500H
+        JMP     JOB12
+;
+        END
+*CALL ALLMEMOR
+*CALL INTEL
+*END F
+*NAME EM
+*TIME:24.00
+*PAGE:999,LIST
+*EXPRESS
+*LIBRA:23
+*DISC:76/SYSTEM,WORKIN
+*FILE:I8080,55
+*FILE:SCRATCH,67,W
+*TAPE:1/ROLLIB,56
+*COPY:10,56010,670300
+*CALL ALLMEMOR
+*NO LIST
+*NO LOAD
+*PERSO:55
+*CALL INTEL
+*END F
+*NAME N
+*TIME:24.00
+*PAGE:999,LIST
+*EXPRESS
+*LIBRA:23
+*DISC:76/SYSTEM,WORKIN
+*FILE:I8080,67
+*CALL ALLMEMOR
+*NO LIST
+*NO LOAD
+*PERSO:67
+*CALL CROSS*80:LONG
+;************************************************************
+;
+;            M O H I T O P               BEPCИЯ OT 13/04/89
+;           З A Г P Y З Ч И K
+;
+;************************************************************
+;
+START     EQU   00H
+CMD       EQU   07AH  ; COMMAND FOR USART INITIALIZATION
+CNIN      EQU   0FEH  ; CONSOLE INPUT PORT
+CNOUT     EQU   0FEH  ;CONSOLE OUTPUT PORT
+CNCTL     EQU   0FFH  ;CONSOLE (580BB55) CONTROL PORT
+AUXD      EQU   0FCH  ;AUX. PORT DATA
+AUXCT     EQU   0FDH  ;AUX. PORT CONTROL
+AUXDZ     EQU   0FAH
+AUXCZ     EQU   0FBH
+;------------------------------------------
+RBO       EQU   01H    ;MASK TO TEST OUTPUT STATUS
+RBR       EQU   02H    ;MASK TO TEST RECEIVER STATUS
+;------------------------------------------
+FLGEI     EQU   0FFFFH ; INTERUPTION FLAG
+DATA      EQU   0FF00H  ;START OF MONITOR RAM USAGE/PO ZAKAZY/
+;-------------------------------------------
+CR        EQU   0DH
+ESC       EQU   3FH    ; ESCAPE CODE
+HCHAR     EQU   0FH    ;MASK TO SELEKT FROM BYTE
+INVRT     EQU   0FFH   ;MASK TO INVERT HALF BYTE FLAG
+LF        EQU   0AH
+MODE      EQU   0BCH   ;MODE SET FOR K580BB55 INIT.
+NEWLN     EQU   0FH    ;MASK FOR CHECKING MEMORY ADDR DISPLAY
+PRTY0     EQU  07FH    ;MASK TO CLEAR PARITY BIT FROM CONSOLE CHAR
+REGS      EQU  DATA+64-18 ;START OF REGISTER SAVE AREA
+;----------------------------
+MSTAC     EQU    REGS  ;START OF STAC MONITOR
+ESAVE     EQU    MSTAC ;E REG.SAVE
+DSAVE     EQU    ESAVE+1
+CSAVE     EQU    DSAVE+1
+BSAVE     EQU    CSAVE+1
+FSAVE     EQU    BSAVE+1
+ASAVE     EQU    FSAVE+1
+LSAVE     EQU    ASAVE+1
+HSAVE     EQU    LSAVE+1
+PSAVE     EQU    HSAVE+1
+SSAVE     EQU    PSAVE+2
+TEMP      EQU    SSAVE+2
+CMHLT     EQU    TEMP+1
+PHALT     EQU    CMHLT+1
+CMH10     EQU    PHALT+2
+PHLT1     EQU    CMH10+1
+STEPN     EQU    PHLT1+2
+NLENG     EQU    STEPN+1
+COMND     EQU    NLENG+1
+CPORT     EQU    COMND+1
+RETRN     EQU    CPORT+1
+TXXXX     EQU    RETRN+2
+TYYYY     EQU    TXXXX+2
+TZZ       EQU    TYYYY+2
+TFLAG     EQU    TZZ+1
+;----------------------
+;RTABS EQU ---         ; SIZE OF ENTRY IN RTAB TABLE
+TERM      EQU  3FH    ;CODE FOR ICMD TERMINATING CHARACTER (ESCAPE)
+TRDY      EQU  2      ;MASK TO TEST TRANSMITTER STATUS
+UPPER     EQU  0FFH   ;DENOTES UPPER HALF OF BYTE IN ICMD
+TTADV     EQU  1H     ; TTY READER ADVANCE
+;
+;-----------------------
+RST7      EQU   0FFH    ; KOD KOMAHD RST-7
+RST6      EQU   0FFH
+;
+IN0       EQU 0F000H
+IN1       EQU 0F008H
+IN2       EQU 0F010H
+IN3       EQU 0F018H
+IN4       EQU 0F020H
+IN5       EQU 0F028H
+IN6       EQU 0F030H
+IN7       EQU 0F038H
+IN55      EQU 0F040H
+IN65      EQU 0F048H
+IN75      EQU 0F050H
+ITRAP     EQU 0F058H
+;*******************************************************
+;
+;           START OF PROGRAM
+;
+      ORG   START
+;
+      DI
+      JMP   INUST  ; RST-0
+      NOP
+      NOP
+      NOP
+      NOP
+      DI
+      JMP IN1      ;RST1
+      NOP
+      NOP
+      NOP
+      NOP
+      DI
+      JMP IN2             ; RST-2
+      NOP
+      NOP
+      NOP
+      NOP
+      DI
+      JMP IN3            ; RST-3
+      NOP
+      NOP
+      NOP
+      NOP
+      DI               ; RST-4
+      JMP IN4
+      DI
+      JMP ITRAP
+      DI                ; RST-5
+      JMP IN5
+      DI
+      JMP IN55
+      DI                ; RST-6
+      JMP IN6
+      DI
+      JMP IN65
+      NOP
+      JMP IN7           ; RST-7  BREAKPOINT
+      DI
+      JMP IN75
+;
+ERRO: DB   'ERROR'
+;
+      DB 0FFH,0FFH,0FFH,0FFH,0FFH,0FFH,0FFH,0FFH,0FFH,0FFH
+      DB 0FFH,0FFH,0FFH,0FFH,0FFH,0FFH,0FFH,0FFH,0FFH,0FFH
+      DB 0FFH,0FFH,0FFH,0FFH,0FFH,0FFH,0FFH,0FFH,0FFH,0FFH
+      DB 0FFH,0FFH,0FFH
+      JMP  ITRAP
+;****************************************************
+;  FUNCTION OUTXT  /INPUT-HL ADDRES OF TEXTS,B-LENGTH /
+;                  /OUTPUT-OUT TEXTS TO DISPLAY/
+;*****************************************************
+OUTXT:MOV   C,M
+      CALL  CO
+      INX   H
+      DCR   B
+      JNZ   OUTXT
+      RET
+;
+;*********************************************
+;
+;        COMMAND RECOGNIZING ROUTINE
+;
+;*********************************************
+;
+GETCM:
+    LXI   SP,MSTAC ; RESET STACK PTR TO MONITOR
+    MVI   C,'>'      ;PROMT CHAR
+    CALL  ECHO
+    CALL  GETCH    ; CET COMMAND CHAR TO A
+    CALL  ECHO
+    MOV   A,C      ; PUT COMMAND CHAR INT ACCUM.
+    LXI   B,NCMDS  ; C CONTAINS LOOP AND INDEX COUNT
+    LXI   H,CTAB   ; HL POINTS INTO COMMAND TABLE
+GTC05:
+    CMP   M        ; COMPARE TABLE ENTRY AND CHAR
+    JZ    GTC10    ; BRANCH IF EQUAL - COMMAND RECOGNIZED
+    INX   H        ;ELSE, INCREM TABLE POINTER
+    DCR   C        ; DECR LOOP COUNT
+    JNZ   GTC05    ; BRANCH IF NOT TABLE END
+    JMP   ERROR    ;ELSE, COMM CHAR IS LEGAL
+GTC10:
+    LXI   H,CADR   ; IF GOOD COMMAND. LOAD ADDR OF TABLE
+                   ; /OF COMMAND ROUTINE ADDRESSES
+    DAD   B        ; ADD WHAT IS LEFT OF LOOP COUNT
+    DAD   B        ; ADD AGAIN - EACH ENTRY IN CADR IS 2 BYTES LONG
+    MOV   A,M      ; GET LSP OF ADDRESS OF TABLE ENTRY TO A
+    INX   H        ; POINT TO NEXT BYTE IN TABLE
+    MOV   H,M      ; GET MSP OF ADDRESS OF TABLE ENTRY TO H
+    MOV   L,A      ; PUT LSP OF ADDRESS OF TABLE ENTRY INTO L
+    PCHL           ;NEXT INSTRUCTION COMES FROM COMMAND ROUTINE
+;
+;*************************************************
+;
+;    COMMAND   INPLEMENATING   ROUTINES
+;
+;**************************************************
+;
+;      DCMD - IMPLEMENTS THE DISPLAY MEMORY (D) COMMAND
+;--------------------------------------------------
+DCMD:
+    MVI   C,2      ; GET TWO NUMBERS FROM INPUT STREAM
+    CALL  GETNM
+    POP   D        ; ENDING ADDRESS TO DE
+    POP   H        ; STARTING ADDRESS TO HL
+DCM05:
+    CALL  CROUT
+    CALL  ADRD     ; DISPLAY ADDRESS
+DCM10:
+    MVI   C,' '
+    CALL  ECHO     ; USE BLANK AS SEPARATOR
+    MOV   A,M      ; GET CONTENTS OF NEXT MEMORY LOCATION
+    CALL  NMOUT    ; DISPLPY CONTENTS
+    CALL  BREAK    ; SEE IF USER WANTS OUT
+    JC    EXIT
+   CALL  HILO     ; SEE IF ADDRESS OF DISPLAYD LOCATION
+                  ; IS /GREATER THAN OR EQUAL TO END ADDR
+   JC    EXIT     ; EXIT IF NO MORE TO DISPLAY
+    INX   H        ; IF MORE TO GO, POINT TO NEXT LOC TO DISPLAY
+    MOV   A,L      ; GET LOW ORDER BITS OF NEW ADDRESS
+    ANI   NEWLN   ; SEE IF LAST HEX DIGIT OF ADDR DENOTES
+;              / START OF NEW LINE
+    JNZ   DCM10    ; NO - NOT END OF LINE
+    JMP   DCM05    ; YES - START NEW LINE WITH ADDRESS
+;
+;****************************************************
+;
+;    FUNCTION: GCMD - IMPLEMENTS THE BEGIN EXECUTION
+;              (G) COMMAND
+;****************************************************
+;
+GCMD:
+   CALL   GETHX    ; GET ADDRESS FROM INPUT STREAM (IF PRESENT)
+    JNC   GCM05    ; BRANCH IF NO NUMBER PRESENT
+    MOV   A,D      ; ELSE, GET TERMINATOR
+    CPI   CR
+    JNZ   ERROR    ; IF NOT PROPERLY TERMINATED
+    LXI   H,PSAVE  ; WANT NUMBER TO REPLACE SAVE PGM COUNTER
+    MOV   M,C
+    INX   H
+    MOV   M,B
+    JMP   GCM10
+GCM05:
+    MOV   A,D      ; IF NO STARTING ADDRESS, MAKE SURE THAT
+    CPI   CR
+    JNZ   ERROR
+GCM10:
+    JMP   RSTTF    ; RESTORE REGISTERS AND BEGIN EXECUTION
+;
+;*******************************************"
+;
+;    FUNCTION  HCMD  -  HALT ON ADDRESS
+;
+;******************************************
+HCMD:
+     CALL    GETHX
+     JNC     HC05    ; NO ADDRESS
+     PUSH    B
+     POP     H
+     MOV     A,M     ; CODE OF BREAKPOINT COMMAND
+     STA     CMHLT   ; STORE OF CODE
+     MVI     M,RST6  ; SET RST6 ON PLACE BREAK
+     SHLD    PHALT   ; STORE ADDRESS OF BREAKPOINT
+     JMP     GETCM   ; NEW COMMAND
+HC05:
+     LDA    CMHLT    ; CODE INTERRUPTED COMMAND
+     ORA    A
+     JZ     ERROR    ; NO PREVIOUS HALT
+     LHLD   PHALT
+     MVI    M,RST6
+     JMP    GETCM
+;
+;******************************************************
+;
+;   FUNCTION   NCMD  -  STEPING REGIM
+;                       (N) COMMAND
+;******************************************************
+NCMD:
+      CALL GETHX
+      JNC  NCM05  ;NO NUMBERS
+      MOV  A,D
+      CPI  CR
+      JNZ  ERROR  ;INPUT NEW COMMAND
+      LXI  H,PSAVE
+      MOV  M,C
+      INX  H
+      MOV  M,B    ;ADDRESS FOR G ->PSAVE
+      JMP  NCM10
+NCM05:
+      MOV  A,D
+      CPI  CR
+      JNZ  ERROR
+NCM10:
+      LHLD PSAVE
+      MOV  A,M
+      SUI  40H
+      JC   NCM1
+      MOV  A,M
+      SUI  0C0H
+      JNC  NN1
+      MVI  A,01
+      JMP  NN2
+NN1:
+      MOV  A,M
+      SUI  80H
+      MOV  C,A
+      JMP  NCM2
+NCM1: MOV  C,M
+NCM2: MVI  B,0
+      LXI  H,NTABL
+      DAD  B
+      MOV  A,M
+NN2:  MOV  B,A    ;BYTE FROM NTABL,EQU. (REG.C)
+      CPI  09H    ;PCHL  ?
+      JNZ  NORMA
+      MVI  A,1
+      STA  STEPN
+      LHLD LSAVE  ;BOCCT. HL
+      JMP  NPCHL  ;HA OBP.PCHL
+NORMA:
+      ANI  03
+      JNZ  NONE
+      STA  STEPN
+      JMP  ERROR  ;HADO DOB.BYCBE^KY
+NONE:
+      STA  NLENG  ;LENGTH OF COMMAND
+      MOV  A,B
+      ANI  10H
+      JZ   N1OCT  ;1 BREAKPOINT
+      MVI  A,02
+      STA  STEPN  ;2 BREAKPOINT
+      MOV  A,B
+      ANI  20H
+      JZ   NADDR  ;II BREAKPOINT FROM ADDR.
+      LHLD SSAVE
+      SPHL
+      POP  D
+      PUSH D      ;II B-P FROM SP
+      JMP  NHALT
+NADDR:
+      LHLD PSAVE
+      INX  H      ;NL-ADPEC ADPECA OCT.
+      MOV  E,M
+      INX  H
+      MOV  D,M
+NHALT:
+      XCHG
+      MOV  A,M
+      STA  CMH10  ;BYTE FROM II B-P
+      MVI  M,RST6
+      SHLD PHLT1
+      JMP  NAFTN
+N1OCT:
+      MVI  A,1
+      STA  STEPN
+NAFTN:
+      LHLD PSAVE
+      MVI  D,0
+      LDA  NLENG
+      MOV  E,A
+      DAD  D      ;ADDR.NEXT COMMAND
+NPCHL:
+      MOV  A,M
+      STA  CMHLT
+      MVI  M,RST6
+      SHLD PHALT
+      JMP  RSTTF
+;****************************************************
+;     FUNCTION: TCMD - TEST FOR MEMORY
+;                     T XXXX YYYY /ZZ/
+;**********************************************
+TCMD:
+     XRA  A
+     STA  TZZ
+     STA  TFLAG
+     MVI  L,2
+TCM05:CALL  GETHX
+      JNC  ERROR
+      PUSH B
+      DCR  L
+      JZ   TCM01
+      JM   TCM03
+      MOV  A,D
+      CPI  CR
+      JZ   ERROR
+      JMP  TCM05
+TCM01:MOV   A,D
+      CPI   CR
+      JZ    TCM07
+      JMP   TCM05
+TCM03:
+      MOV   A,D
+      CPI   CR
+      JNZ    ERROR
+      POP   B       ;ZZ
+      MOV   A,C
+      STA   TZZ
+      JMP   TCM77
+TCM07:MVI   A,3
+      STA   TFLAG
+TCM77:
+      POP   D
+      POP   H
+      SHLD  TXXXX
+      XCHG
+      SHLD  TYYYY
+      CALL  HILO
+      JNC   ERROR
+      LDA  TFLAG
+      ORA  A
+      JNZ  TPER    ;HA^ALO TECTA C PEP.KODOM
+; TECT C POCT.KODOM TZZ
+      MVI  C,0
+      CALL T01
+TKON:
+      LDA  TFLAG
+      CPI  0FFH
+      JZ   ERROR
+      MVI  B,07
+      LXI  H,TTEXT
+      CALL OUTXT
+      JMP  EXIT
+TPER:
+      MVI  C,1
+      CALL T01
+TNEXT:
+      LDA  TZZ
+      MOV  B,A
+      LHLD TXXXX
+      XCHG
+      LHLD TYYYY
+TCM12:
+      MOV  M,B
+      DCX  H
+      DCR  B
+      CALL HILO
+      JC   TCM12
+      INR  B
+      LHLD TYYYY
+      XCHG
+      CALL TCM11
+TNEW:
+      CALL BREAK
+      JC   EXIT
+      LDA  TZZ
+      CPI  0FFH
+      JZ   TKON
+      INR  A
+      STA  TZZ
+      JMP  TPER
+T01:
+      LDA  TZZ
+      MOV  B,A
+      LHLD TYYYY
+      XCHG
+      LHLD TXXXX
+TCM20:
+      MOV  M,B
+      CALL HILO
+      JC   TCM10
+      INX  H
+      MOV  A,C
+      ADD  B
+      MOV  B,A
+      JMP  TCM20
+TCM10:
+      LDA  TZZ
+      MOV  B,A
+      LHLD TXXXX
+TCM11:
+      MOV  A,M
+      CMP  B
+      CNZ  TMIS
+      CALL HILO
+      RC
+      INX  H
+      MOV  A,C
+      ADD  B
+      MOV  B,A
+      JMP  TCM11
+TMIS:
+     PUSH B
+     PUSH D
+     MOV  D,B
+     MOV  E,A
+     MVI  A,0FFH
+     STA  TFLAG
+     MVI  B,0BH
+     PUSH H
+     LXI  H,TTE
+     CALL OUTXT
+     POP  H
+     PUSH H
+     CALL ADRD
+     MVI  B,03
+     LXI  H,TW
+     CALL OUTXT
+     MOV  A,D
+     CALL NMOUT
+     MVI  B,03
+     LXI  H,TR
+     CALL OUTXT
+     MOV  A,E
+     CALL NMOUT
+     POP  H
+     POP  D
+     POP  B
+     CALL BREAK
+     JC   EXIT
+     RET
+ 
+TTEXT:DB   CR,LF,'O-KEY'
+TTE:  DB   CR,LF,'ERROR IN '
+TW:   DB   '/W-'
+TR:   DB   ',R-'
+;
+;***********************************************
+;
+;     FUNCTION: ICMD - INPUT A FROM PORT XX
+;                      I XX<CR>  OR   IXX<CR>
+;************************************************
+ICMD:
+      MVI   C,1
+      CALL  GETNM
+      POP   B
+      MVI   A,0DBH
+      STA   COMND
+      MOV   A,C
+      STA   CPORT
+      CALL  COMND
+      STA   COMND
+      LXI   H,CTEXT
+      MVI   B,CTXT1
+      CALL  OUTXT
+      LDA   CPORT
+      CALL  NMOUT
+      LXI   H,CTKON
+      MVI   B,CTXT2
+      CALL  OUTXT
+      LDA   COMND
+      CALL  NMOUT
+      JMP   EXIT
+CTEXT:DB    CR,LF,'*PORT-'
+CTXT1 EQU $-CTEXT
+CTKON:DB    '/INPUT BYTE='
+CTXT2 EQU   $-CTKON
+;
+;********************************************
+;   FUNCTION OCMD - O XX YY
+;                  OUTPUT TO PORT XX BYTE-YY
+;********************************************
+OCMD:
+      CALL  GETHX
+      JNC   ERROR
+      MOV   H,C
+      MOV   A,D
+      CPI   CR
+      JZ    ERROR
+      CALL  GETHX
+      JNC   ERROR
+      MOV   L,C
+      MOV   A,D
+      CPI   CR
+      JNZ   ERROR
+      MVI   A,0D3H ;COMMAND OUT
+      STA   COMND
+      MOV   A,H
+      STA   CPORT
+      MOV   A,L
+      CALL  COMND  ;OUT XX (A=YY) /RET
+      STA   COMND
+      LXI   H,CTEXT
+      MVI   B,CTXT1
+      CALL  OUTXT
+      LDA   CPORT
+      CALL  NMOUT
+      LXI   H,OUTPT
+      MVI   B,OUTLN
+      CALL  OUTXT
+      LDA   COMND
+      CALL  NMOUT
+      JMP   EXIT
+OUTPT:DB    '/OUTPUT BYTE='
+OUTLN EQU   $-OUTPT
+;************************************************
+;
+; FUNCTION: CCMD - INSERT CODE INTO MEMORY (C) COMMAND
+;
+;*************************************************
+CCMD:
+    MVI   C,1
+    CALL  GETNM    ;GET SINGLE NUMBER FROM INPUT STREAM
+    MVI   A,UPPER
+    STA   TEMP     ;TEMP WILL HOLD THE UPPER/LOWER HALF BYTE FLAG
+    POP   D        ; ADDRESS OF START TO DE
+ICM05:
+    CALL  GETCH    ; GET CHAR FROM INPUT STREAM
+    CALL  ECHO
+    MOV   A,C      ; PUT CHAR BACK INTO A
+    CPI   TERM     ; SEE IF TERMINATING CHAR
+    JZ    ICM25    ; IF SO, ALL DONE ENTERING CHARACTERS
+    CALL  VALDL    ; ELSE, SEE IF VALID DELIMITER
+;    TRUE ICM05    ; IF SO SIMPLY IGNORE THIS CHAR
+    JC    ICM05
+    CALL  VALDG    ; ELSE, CHECK TO SEE IF VALID HEX DIGIT
+; FALSE ICM20
+    JNC   ICM20    ; IF NOT, BRANCH TO HANDLE ERROR CONDITION
+    CALL  CNVBN    ; COVERT DIGIT TO BINARY
+    MOV   C,A      ; MOVE RESULT TO C
+    CALL  STHLF    ; STORE IN APPROPRIATE HALF WORD
+    LDA   TEMP     ;GET HALF BYTE FLAG
+    ORA   A        ; SET F/F'S
+    JNZ   ICM10    ; BRANCH IF FLAG SET FOR UPPER
+    INX   D        ; IF LOWER, INC ADDRESS OF BYTE TO STORE IN
+ICM10:
+    XRI   INVRT    ; TOGGLE STATE OF FLAG
+    STA   TEMP     ; PUT NEW VALUE OF FLAG BACK
+    JMP   ICM05    ; PROCESS NEXT DIGIT
+ICM20:
+    CALL  STHF0    ; ILLEGAL CHARACTER
+    JMP   ERROR    ; MAKE SURE ENTIRE BYTE FILLED THEN ERROR
+ICM25:
+    CALL  STHF0    ; HERE FOR ESCAPE CHAR - INPUT IS DONE
+    JMP   EXIT
+; ***************************************************
+;
+;     FUNCTION: MCMD
+; MCMD IMPLEMENTS THE MOVE DATA IN MEM (M) COMMAND
+;
+; ****************************************************
+MCMD:
+      MVI   C,3
+      CALL  GETNM  ; GET 3 NUMBERS FROM INPUT STREAM
+      POP   B      ; DESTINATION ADDRESS TO BC
+      POP   H      ; ENDING ADDRESS TO HL
+      POP   D      ; STARTING ADDRESS TO DE
+MCM05:
+      PUSH  H      ; SAVE END. ADDRESS
+      MOV   H,D
+      MOV   L,E    ; SOURCE ADDRESS TO HL
+      MOV   A,M    ; GET SOURCE BYTE
+      MOV   H,B
+      MOV   L,C    ; DESTINATION ADDRESS TO HL
+      MOV   M,A    ; MOVE BYTE TO DESTINATION
+      INX   B      ; INCR DEST. ADDRESS
+      MOV   A,B
+      ORA   C      ; TEST FOR DEST. ADDR. OVERFLOW
+      JZ    GETCM  ; IF SO, TERMINATE COMMAND
+      INX   D      ;INCR SOURCE ADDPESS
+      POP   H      ; ELSE, GET BACK ENDING ADDRESS
+      CALL  HILO   ; SEE IF ENDING ADDR>=SOURCE ADDR
+      JNC   GETCM  ; IF NOT, COMMAND IS DONE
+      JMP   MCM05  ; MOVE ANOTHER BYTE
+;
+; *************************************************
+;
+;  FUNCTION: SCMD
+;   SCMD IMPLEMENTS THE SUBSTITUTE INTO MEM (S) COMMAND
+; **************************************************
+;
+SCMD:
+      CALL  GETHX  ; GET A NUMBER, IF PRESENT, FROM INPUT
+      PUSH  B
+      POP   H      ; GET NUMBER TO HL-(DENOTES MEM  LOC)
+SCM05:
+      MOV   A,D    ; GET TERMINATOR
+      CPI   ' '    ;SEE IF SPACE
+      JZ    SCM10  ; YES - CONTINUE
+      CPI   ','    ; ELSE, SEE IF COMMA
+      JNZ   GETCM  ;NO - TERMINATE COMMAND
+SCM10:
+      MOV   A,M    ; GET CONTENTS OF LOCATION TO A
+      CALL  NMOUT  ; DISPLAY CONTENTS ON CONSOLE
+      MVI   C,'-'
+      CALL  ECHO   ; USE DASH FOR SEPARATOR
+      CALL  GETHX  ; GET NEW VALUE FOR MEM LOC, IF ANY
+      JNC   SCM15  ; IF NO VALUE PRESENT, BRANCH
+      MOV   M,C    ; ELSE, STORE LOWER 8 BITS OF NUMBER ENTERED
+SCM15:
+      INX   H      ;INCR. ADDR OF MEM LOC TO VIEW
+      JMP   SCM05
+;
+;****************************************************
+;
+; FUNCTION XCMD : IMPLEMENTS THE REGISTER EXAMINE AND
+;                 CHANGE (X) COMMAND.
+;****************************************************
+;
+XCMD:
+      CALL  GETCH  ; GET REGISTER IDENTIFIER
+      CALL  ECHO
+      MOV   A,C
+      CPI   CR
+      JNZ   XCM05  ;BRANCH IF NOT CR
+      CALL  REGDS  ;ELSE, DISPLAY REG CONTENTS
+      JMP   GETCM
+XCM05:
+      MOV   C,A    ; GET REG IDENT. TO C
+      CALL  RGADR  ; CONVERT IDENT. INTO RTAB TABLE ADDR
+      PUSH  B
+      POP   H      ; PUT POINTER TO REG ENTRY INTO HL
+      MVI   C,' '
+      CALL  ECHO
+      MOV    A,C
+      STA   TEMP   ; PUT SPACE INTO AS DELIMITER
+XCM10:
+      LDA   TEMP   ; GET TERMINATOR
+      CPI   ' '    ; SEE IF A BLANK
+      JZ    XCM15  ; YES - GO CHECK POINTER INTO TABLE
+      CPI   ','    ; NO SEE IF COMMA
+      JNZ   GETCM  ; NO - MUST BE CR TO END COMMAND
+XCM15:
+      MOV   A,M
+      ORA   A      ; SET F/F'S
+      JZ    EXIT   ; BRANCH IF END OF TABLE
+      PUSH  H      ; PUT POINTER ON STACK
+      MOV   E,M
+      MVI   D,DATA SHR 8   ; FETCH ADDRESS OF SAVE LOC FROM
+      INX   H      ; /TABLE
+      MOV   B,M    ; FETCH LENGTH FLAG FROM TABLE
+      PUSH  D      ; SAVE ADDRESS OF SAVE LOCATION
+      PUSH  D
+      POP   H      ;MOVE ADDRESS TO HL
+      PUSH  B      ; SAVE LENGTH FLAG
+      MOV   A,M    ; GET 8 BITS OF REG. FROM SAVE LOCATION
+      CALL  NMOUT  ;DISPLAY IT
+      POP   PSW    ; GET BACK LENGTH FLAG
+      PUSH  PSW    ; SAVE IT AGAIN
+      ORA   A      ; SET F/F'S
+      JZ    XCM20  ; IF 8 BIT REG, NOTHING MORE TO DISPLAY
+      DCX    H     ; ELSE, FOR 16 BIT REGISTER, GET LOWER 8 BITS
+      MOV   A,M
+      CALL  NMOUT  ;DISPLAY THEM
+XCM20:
+      MVI   C,'-'
+      CALL  ECHO
+      CALL  GETHX  ; SEE IF THERE IS A VALUE TO PUT INTO REG.
+      JNC   XCM30  ; NO - GO CHECK FOR NEXT REGISTER
+     MOV   A,D
+      STA   TEMP   ; ELSE, SAVE THE TERMINATOR FOR NOW
+      POP   PSW    ; GET BACK LENGTH FLAG
+      POP   H      ; PUT ADDRESS OF SAVE LOC INTO HL
+      ORA   A      ; SET F/F'S
+      JZ    XCM25  ; IF 8 BIT REG, BRANCH
+      MOV   M,B    ; SAVE UPPER 8 BITS
+      DCX   H      ; POINT TO SAVE LOCATION FOR LOWER 8 BITS
+XCM25:
+      MOV   M,C    ; STORE ALL 8 BITS OR LOWER 1/2 OF 16 BIT REG
+XCM27:
+      LXI   D,RTABS; SIZE OF ENTRY IN RTAB TABLE
+      POP   H      ; POINTER INTO REGISTER TABLE RTAB
+      DAD   D      ; ADD ENTRY SIZE TO POINTER
+      JMP   XCM10  ; DO NEXT REGISTER
+XCM30:
+      MOV   A,D    ; GET TERMINATOR
+      STA   TEMP   ; SAVE IN MEMORY
+      POP   D      ; CLEAR STACK OF LENGTH FLAG AND ADDRESS
+      POP   D      ; /OF SAVE LOCATION
+      JMP   XCM27  ; GO INCR REGISTER TABLE POINTER
+;
+;****************************************************
+;       UTILITY   ROUTINES
+;****************************************************
+;
+;    FUNCTION ADRD: OUTPUTS TO THE CONSOLE THE ADDRESS
+;                   CONTAIND IN THE H,L REGISTERS
+;*****************************************************
+ADRD:
+      MOV   A,H    ;DISPLAY FIRST HALF OF ADDRESS
+      CALL  NMOUT
+      MOV   A,L    ; DISPLAY SECOND HALF OF ADDRESS
+      CALL  NMOUT
+      RET
+;
+;*******************************************************:
+;  FUNCTION BREAK
+;DESCRIPTION: BREAK IS USED TO SENSE AN ESCAPE CHARACTER FROM
+;             THE USER. IF NO CHARACTER IS PENDING, OR IF THE
+;             RENDING CHARACTER IS NOT THE ESCAPE,THEN A FAILURE
+;             RETURN (CARRY=0) IS TAKEN. IN THIS CASE,THE
+;             PENDING CHARACTER (IF ANY)  IS LOST.IF THE PENDING
+;             CHARACTER IS AN ESCAPE CHARACTER, BREAK TAKES A SUCCESS
+;             RETURN (CARRY=1).
+;
+BREAK:
+      IN    CNCTL  ; GET CONSOLE STATUS
+      ANI   RBR    ; SEE IF CHARACTER PENDING
+      JZ    FRET   ; NO TAKE FAILURE RETURN
+      JMP   SRET
+;
+; ****************************************************************
+;
+;FUNCTION:CI
+;DESCRIPTION: CI WAITS UNTIL A CHARACTER HAS BEEN ENTERED AT THE
+;             CONSOLE AND THEN RETURNS THE CHARACTER, VIA THE A
+;             REGISTER,TO THE CALLING ROUTINE
+;             THIS ROUTINE IS CALLED BY THE USER VIA A JUMP TABLE
+;             IN RAM.
+;
+CI:
+      IN    CNCTL  ; GET STATUS OF CONSOLE
+      ANI   RBR    ;  CHECK FOR RECEIVER BUFFER READY
+      JZ    CI     ;    NOT-YET -WAIT
+      IN    CNIN   ;  READY SO GET CHARACTER
+      RET
+;
+;*****************************************************************
+;
+;FUNCTION:  CNVBN
+;DISCRIPTION:  CNVBN CONVERTS THE ASC11  REPRESENTATION OF A HEX
+;              CHARACTER INTO ITS CORRESPONDING BINARY VALUE. CNVBN
+;              DOES NOT CHECK THE VALIDITY OF ITS INPUT.
+;
+CNVBN:
+      MOV   A,C
+      SUI   '0'    ;  SUBTRACT CODE FOR '0' FROM ARGUMENT
+      CPI   10     ;   WANT TO TEST FOR RESULT OF 0 TO 9
+      RM           ;     IF SO, THEN ALL DONE
+      SUI   7      ;    ELSE,RESULT BETWIN 17 AND 23 DECIMAL
+      RET          ;    SO RETURN AFTER SUBSTRACTING BIAS OF 7
+;
+;*******************************************************************
+;
+;FUNCTION:CO
+;DESCRIPTION: CO WAITS UNTIL THE CONSOLE IS READY TO ACCEPT A CHARACTER
+;             AND THEN SENDS THE INPUT ARGUMENT TO THE CONSOLE.
+;
+CO:
+        IN    CNCTL
+        ANI   RBO
+        JZ    CO
+        MOV   A,C    ;     ELSE, MOVE CHARACTER TO A REGISTER FOR OUTPUT
+        OUT   CNOUT  ;   SEND TO CONSOLE
+        RET
+;
+;********************************************************************
+;
+;FUNCTION CROUT
+;DESCRIPTION: CROUT SENDS ACARRIAGE RETURN (AND HENCE A LINE
+;              FEED) TO CONSOLE.
+;
+CROUT:
+      MVI   C,CR
+      CALL  ECHO   ;   OUTPUT CARRIAGE RETURN TO USER TERMINAL
+      RET
+;
+;*******************************************************************
+;
+;FUNCTION:ECHO
+;DESCRIPTION: ECHO TAKES A SINGLE CHARACTER AS INPUT AND, VIA
+;             THE MONITOR, SENDS THAT CHARACTERS TO THE USER
+;             TERMINAL. A CARRIAGE RETURN IS ECHOED AS A CARRIAGE
+;             RETURN LINE FEED, AND AN ESCAPE CHARACTER IS ECHOED AS $.
+;
+ECHO:
+      MOV   B,C    ;   SAVE ARGUMENT
+      MVI   A,ESC
+      CMP   B      ;     SEE IF ECHOING AN ESCAPE CHARACTER
+      JNZ   ECH05  ; NO-BRANCH
+      MVI   C,'$'  ; YES-ECHO AS $
+ECH05:
+      CALL  CO     ;   DO OUTPUT THROUGH MONITOR
+      MVI   A,CR
+      CMP   B      ;     SEE IF CHARACTER ECHOED WAS A CARRIAGE RETURN
+      JNZ   ECH10  ; NO NO NEED TO TAKE SPECIAL ACTION
+      MVI   C,LF   ;  YES -WANT TO ECHO LINE FEED, TOO
+      CALL  CO
+ECH10:
+      MOV   C,B    ;   RESTORE ARGUMENT
+      RET
+;
+;*****************************************************************
+;
+;*****************************************************************
+;
+;FUNCTION: ERROR
+;DISCRIPTION: ERROR PRINTS THE ERROR CHARACTER (CURRENTLY AN ASTERISC)
+;             ON THE CONSOLE , FOLLOWED BY A CARRIAGE RETURN-LINE FEED,
+;             AND THEN RETURNS CONTROL TO THE SOMMAND RECOGNIZER.
+;
+ERROR:
+      CALL  CROUT
+      MVI   B,05
+      LXI   H,ERRO
+      CALL  OUTXT   ;.   SEND $ TO CONSOLE
+EXIT:
+      CALL  CROUT  ;.  SKIP TO BEGINNING OF NEXT LINE
+      JMP   GETCM  ;.   TRY AGAIN FOR ANOTHER COMMAND
+;
+;******************************************************************
+;
+;FUNCTION: FRET
+;DESCRIPTION:FRET IS JUMPED TO BY ANY ROUTINE THAT WISHES TO
+;            INDICATE FAILURE ON RETURN.  FRET SETS THE CARRY
+;            FALSE,DENOTING FAILURE, AND THEN RETURNS TO THE
+;            CALLER OF THE ROUTINE INVOKING FRET.
+;
+FRET:
+      STC          ;.     FIRST SET CARRY TRUE
+      CMC          ;       THEN COMPLEMENT IT TO MAKE IT FALSE
+      RET
+;
+;*****************************************************************
+;
+;FUNCTION: GETCH
+;DESCRIPTION: GETCH RETURNS THE NEXT CHARACTER IN THE INPUT STREAM
+;             TO THE CALLING  PROGRAM
+;
+GETCH:
+      CALL  CI     ;   GET CHARACTER FROM TERMINAL
+      ANI   PRTY0  ; TURN OFF PARITY BIT IN CASE SET BY CONSOLE
+      MOV   C,A    ;   PUT VALUE IN C REGISTER FOR RETURN
+      RET
+;
+;*******************************************************************
+;
+;FUNCTION: GETHX
+;DESCRIPTION: GETHX ACCEPTS A STRING OF HEX DIGITS FROM THE INPUT
+;             STREAM AND RETURNS THEIR VALUE AS A 16 BIT BINARY
+;             INTEGER.IF MORE THAN 4 HEX DIGITS ARE ENTERED,
+;             ONLY THE LAST 4 ARE USED. THE NUMBER TERMINATES WHEN
+;             A VALID DELIMITER IS ENCOUNTERED. THE DELIMITER IS
+;             ALSO RETURNED AS AN OUTPUT OF THE FUNCTION. ILLEGAL
+;             CHARACTERS (NOT HEX DIGITS OR DELIMITERS) CAUSE AN
+;             ERROR INDICATION. IF THE FIRST (VALID) CHARACTER
+;             ENCOUNTERED IN THE INPUT STREAM IS NOT A DELIMITER,
+;             GETHX WILL RETURN WITH THE CARRY BIT SET TO 1;
+;             OTHERWISE, THE CARRY BIT IS TO 0 AND THE CONTENTS
+;             OF BC ARE UNDEFINED.
+;
+GETHX:
+      PUSH  H      ;     SAVE HL
+      LXI   H,0    ;    INITIALIZE RESULT
+      MVI   E,0    ;    INITIALIZE DIGIT FLAG TO FALSE
+GHX05:
+      CALL  GETCH  ; GET A CHARACTER
+      CALL  ECHO   ;  ECHO THE CHARACTER
+      CALL  VALDL  ; SEE IF DELIMITER
+      JNC   GHX10  ;
+      MOV   D,C    ;    YES-ALL DONE, BUT WANT TO RETURN DELIMITER
+      PUSH  H
+      POP   B      ;      MOVE RESULT TO BC
+      POP   H      ;      RESTORE HL
+      MOV   A,E    ;    GET FLAG
+      ORA   A      ;      SET F/F'S
+      JNZ   SRET   ;    IF FLAG NON-0, ANUMBER HAS BEEN  FOUND
+      JZ    FRET   ;     ELSE, DELIMITER WAS FIRST CHARACTER
+GHX10:
+      CALL  VALDG  ;    IF NOT DELIMITER, SEE IF DIGIT
+      JNC   ERROR
+      CALL  CNVBN  ;    CONVERT DIGIT TO ITS BINARI VALUE
+      MVI   E,0FFH ;    SET DIGIT FLAG NON-0
+      DAD   H      ;         *2
+      DAD   H      ;         *4
+      DAD   H      ;         *8
+      DAD   H      ;         *16
+      MVI   B,0    ;       CLEAR UPPER 8 BITS OF BC PAIR
+      MOV   C,A    ;       BINARI VALUE OF CHARACTER INTO C
+      DAD   B      ;         ADD THIS VALUE TO PARTIAL RESULT
+      JMP   GHX05  ;     GET NEXT CHARACTER
+;
+;****************************************************************
+;
+;FUNCTION:GETNM
+;DESCRIPTION: GETNM FINDS A SPECIFIED COUNT OF NUMBERS, BETWEEN 1
+;             AND 3 , INCLUSIVE, IN THE INPUT
+;             STREAM AND RETURNS THEIR VALUES ON THE STACK.
+;             IF 2 OR MORE NUMBERS ARE REQUESTED, THEN THE FIRST MUST BE
+;             LESS THAN OR EQUAL TO THE SECOND, OR THE FIRST AND
+;             SECOND NUMBERS WILL BE SET EQUAL. THE LAST NUMBER
+;             REQUESTED MUST BE TERMINATED BY ACARRIAGE RETURN
+;             OR AN ERROR INDICATION WILL RESULT.
+;
+GETNM:
+      MVI   L,3    ;    PUT MAXIMUM ARGUMENT COUNT INTO L
+      MOV   A,C    ;    GET THE ACTUAL ARGUMENT COUNT
+      ANI   3      ;      FORCE TO MAXIMUM OF 3
+      RZ           ;        IF 0, DON'T BOTHER TO DO ANYTHIING
+      MOV   H,A    ;    ELSE, PUT ACTUAL COUNT INTO H
+GNM05:
+      CALL  GETHX  ; GET A NUMBER FROM INPUT STREAM
+      JNC   ERROR  ;ERROR IF NOT THERE-TOO FEW NUMBERS
+      PUSH  B      ;ELSE, SAVE NUMBER ON STACK
+      DCR   L      ;DECREMENT MAXIMUM ARGUMENT COUNT
+      DCR   H      ;DECREMENT ACTUAL ARGUMENT COUNT
+      JZ    GNM10  ;BRANCH IF MORE NUMBERS WANTED
+      MOV   A,D    ;ELSE,GET NUMBER TERMINATOR TO A
+      CPI   CR     ;SEE IF CARRIAGE RETURN
+      JZ    ERROR  ;ERROR IF SO-TOO FEW NUMBERS
+      JMP   GNM05  ;ELSE,PROCESS NEXT NUMBER
+GNM10:
+      MOV   A,D     ;WHEN COUNT 0, CHECK LAST TERMINATOR
+      CPI   CR
+      JNZ   ERROR  ;ERROR IF NOT CARRIAGE RETURN
+      LXI   B,0FFFFH ; HL GETS LARGEST NUMBER
+      MOV   A,L    ;GET WHAT'S LEFT OF MAXIMUM ARG COUNT
+      ORA   A      ;CHECK FOR 0
+      JZ    GNM20  ;IF YES ,3 NUMBERS WERE INPUT
+GNM15:
+      PUSH  B      ;IF NOT ,FILL REMAINING ARGUMENTS WITH 0FFFFH
+      DCR   L
+      JNZ   GNM15
+GNM20:
+      POP   B      ;GET THE 3 ARGUMENT OUT
+      POP   D
+      POP   H
+      CALL  HILO   ;SEE IF FIRST>= SECOND
+      JNC   GNM25
+      MOV   D,H
+      MOV   E,L    ;YES- MAKE SECOND EQUAL TO THE FIRST
+GNM25:
+      XTHL         ;PUT FIRST ON STACK- GET RETURN ADDR
+      PUSH  D      ;PUT SECOND ON STACK
+      PUSH  B      ;PUT THIRD ON STACK
+      PUSH  H      ;PUT RETURN ADDRESS ON STACK
+GNM30:
+      DCR   A      ;     DECREMENT RESIDUAL COUNT
+      RM           ;       IF NEGATIVE, PROPER RESULTS ON STACK
+      POP   H      ;     ELSE,GET RETURN ADDR
+      XTHL         ;     REPLACE TOP RESULT WITH RETURN ADDR
+      JMP   GNM30  ; TRY AGAINST
+;
+;*******************************************************************
+;
+;FUNCTION:  HILO
+;
+;DESCRIPTION: HILO COMPARES THE 2 16 BIT INTEGER IN HL AND DE. THE
+;             INTEGER ARE TREATED AS UNSIGNED NUMBERS. THE CARRY
+;             BIT IS SET ACCORDING TO THE RESULT OF THE COMPARITION
+;
+HILO:
+      PUSH  B      ;   SAVE BC
+      MOV   B,A    ;  SAVE AREGISTER
+      INX   H      ;    INCREMENT HL BY 1
+      MOV   A,H    ;  WANT TO TEST FOR 0 RESULT AFTER
+      ORA   L      ;    /INCREMENTTING
+      DCX   H      ;    RESTORE HL
+      STC          ;     SET CARRY
+      JZ    HIL05  ; IF SO ,CARRY IS SET PROPERLY
+      MOV   A,L    ;  IF NOT, MOVE L TO A
+      SUB   E      ;    SUBTRACT E
+      MOV   A,H    ;  MOVE H TO A
+      SBB   D      ;    SUBTRACT D WITH BORROW
+      CMC          ;     COMPLIMENT CARRY FOR CORRECT CARRY BIT VALUE
+HIL05:
+      MOV   A,B    ;  RESTORE A
+      POP   B      ;    RESTORE BC
+      RET          ;     EXIT
+;
+;********************************************************************
+;
+; FUNCTION: INUST
+;
+;DESCRIPTION: INUST OUTPUTS TO THE USART THE COMMAND WORD
+;                AND INITIALIZES THE STACK POINTER
+INUST:
+      XRA A
+      STA STEPN   ;0 - NO STEP REGIM
+      STA FLGEI
+;-------------------------
+      LXI H,CPORT+1
+      MVI   A,0C9H      ;RETURN
+      MVI   M,A
+      STA   IN1
+      STA   IN2
+      STA   IN3
+      STA   IN4
+      STA   ITRAP
+      STA   IN5
+      STA   IN55
+      STA   IN6
+      STA   IN65
+      STA   IN75
+;--------------------
+      MVI   A,28H       ;FOR TIMER
+      OUT   2CH
+      MVI   A,40H
+      OUT   2DH
+      MVI   A,0C0H
+      OUT   28H
+;-----------------------
+      MVI   A,7AH
+      OUT   CNCTL
+      MVI   A,7EH
+      OUT   AUXCT
+      MVI   A,07H
+      OUT   CNCTL
+      OUT   AUXCT
+;********************************************
+      LXI   H,MSTAC-44 ; LOAD POINTER TO STACK
+      SHLD  SSAVE      ; INIT. USER STACK POINTER
+      LXI   SP,MSTAC   ; INIT. MONITOR STACK
+      LXI   H,SGNON
+      MVI   B,LSGN
+      CALL  OUTXT
+      JMP   EXIT
+;
+;**********************************************************
+; FUNCTION NMOUT: CONVERTS THE 8 BIT, UNSIGNED INTEGER IN
+;          THE A REGISTER INTO 2 ASCII CHAR. THESE TWO CHAR-S
+;          ARE SENT TO THE CONSOLE.
+;**********************************************************
+NMOUT:
+      PUSH  PSW    ; SAVE ARGUMENT
+      RRC
+      RRC
+      RRC
+      RRC          ; GET UPPER 4 BITS TO LOW 4 BIT POSITIONS
+      CALL  PRVAL  ; CONVERT LOWER 4 BITS TO ASCII
+      CALL  ECHO
+      POP   PSW
+      CALL  PRVAL
+      CALL  ECHO
+      RET
+;
+;***************************************************
+; FUNCTION PRVAL : COVERTS A NUMBER (0-F) TO ASCII
+;               NOT CHECK THE VALIDITY.
+;***************************************************
+PRVAL:
+      ANI   HCHAR  ; MASK OUT UPPER 4 BITS - WANT 1 HEX CHAR
+      ADI   90H    ; SET UP A SO THAT A-F CAUSE A CARRY
+      DAA          ; ADJUST CONTENTS OF A REGISTER
+      ACI   40H    ; ADD IN CARRY AND ADJUST UPPER 4 BITS
+      DAA          ; ADJUST CONTENTS OF A REGISTER AGAIN
+      MOV   C,A    ; MOVE ASCII CHAR TO C
+      RET
+;
+;****************************************************:
+; FUNCTION REGDS: DISPLAYS THE CONTENTS OF THE REGISTER
+;          SAVE LOCATIONS, IN FORMATED FORM, ON CONSOLE.
+;          THE DISPLAY IS DRIVEN FROM A TABLE, RTAB, WHICH
+;          CONTAINS THE REGISTER'S PRINT SYMBOL, SAVE
+;          LOCATIONS ADDRESS, AND LENGTH (8 OR 16 BITS).
+;******************************************************
+REGDS:
+      LXI   H,RTAB ; LOAD HL WITH ADDRESS OF START TABLE
+REG05:
+      MOV   C,M    ; GET PRINT SYMBOL OF REG.
+      MOV   A,C
+      ORA   A      ; TEST FOR 0 - END TABLE
+      JNZ   REG10  ; IF NOT END, BRANCH
+      CALL  CROUT  ; CR/LF
+      RET
+REG10:
+      CALL  ECHO
+      MVI   C,'='
+      CALL  ECHO
+      INX   H      ; POINT TO START OF SAVE LOC ADDRESS
+      MOV   E,M    ; GET LSP OF SAVE LOC ADDRESS TO E
+      MVI   D,DATA SHR 8    ; PUT MSP OF SAVE LOC ADDR. INTO D
+      INX   H      ; POINT TO LENGTH FLAG
+      LDAX  D      ; GET CONTENTS OF SAVE ADDRESS
+      CALL  NMOUT  ; DISPLAY ON CONSOLE
+      MOV   A,M    ; GET LENGTH FLAG
+      ORA   A      ; SET SIGN F/F
+      JZ    REG15  ; IF 0, REGISTER IS 8 BITS
+      DCX   D      ; ELSE, 16 BIT REG SO MORE TO DISPLAY
+      LDAX  D      ; GET LOWER 8 BITS
+      CALL  NMOUT
+REG15:
+      MVI   C,' '
+      CALL  ECHO   ; OUTPUT BLANK CHAR
+      INX   H      ; POINT TO START OF NEXT TABLE ENTRY
+      JMP   REG05  ; DO NEXT REGISTER
+;
+;******************************************************
+; FUNCTION RGADR : TAKES A SINGLE CHAR AS INPUT. IT DENOTES A REG.
+;          RGADR SEARCHES THE TABLE RTAB FOR A MATCH ON INP ARG.
+;          IF ONE OCCURS, RGADR RETURNS THE ADDRESS OF THE ADDRESS
+;          OF THE SAVE LOCATION CORRESPONDING TO THE REGISTER.
+;          THIS ADDRESS POINTS INTO RTAB. IF NO MATCH OCCURS, THEN
+;          THE REGISTER IDENTIFIER IS ILLEGAL AND CONTROL IS
+;          PASSED TO THE ERROR ROUTINE.
+;*******************************************************
+RGADR:
+      LXI   H,RTAB ; HL GETS ADDRESS OF TABLE START
+      LXI   D,RTABS ; DE GET SIZE OF A TABLE ENTRY
+RGA05:
+      MOV   A,M    ; GET REGISTER IDENTIFIER
+      ORA   A      ; CHECK FOR TABLE END (0)
+      JZ    ERROR
+      CMP   C
+      JZ    RGA10  ; IF EQUAL, WE'VE FOUND WE'RE LOOKING FOR
+      DAD   D      ; ELSE, INCREMENT TABLE POINTER TO NEXT ENTRY
+      JMP   RGA05  ; TRY AGAIN
+RGA10:
+      INX   H      ; IF A MATCH, INCREMENT TABLE POINTER TO
+      MOV   B,H    ; /SAVE LOCATION ADDRESS
+      MOV   C,L    ; RETURN THIS VALUE
+      RET
+;
+;*****************************************
+;
+;    FUNCTION    RST7
+;    AFTER BREAKPOINT - FOR HALT ON ADDRESS
+;
+;***********************"******************
+RSTH:
+       SHLD LSAVE
+       POP     H
+       DCX     H
+      SHLD    PSAVE
+      PUSH    PSW
+      MVI A,1
+      STA FLGEI
+      LDA  STEPN
+      CPI  02
+      JNZ  NP1
+      LDA  CMH10
+      LHLD PHLT1
+      MOV  M,A
+NP1:
+      MVI  A,0
+      STA  STEPN
+      LDA     CMHLT
+      LHLD PHALT
+      MOV     M,A
+      LXI     H,2
+      DAD     SP
+      SHLD    SSAVE
+      POP     PSW
+      LXI     SP,ASAVE+1
+      PUSH    PSW
+      PUSH    B  ;  BC
+      PUSH    D
+   MVI   C,'*'
+   CALL  ECHO
+   LHLD  PSAVE   ; INTERRUPT ADDRESS
+   CALL  ADRD    ; DISPLAY THAT ADDRESS
+   MVI C,' '
+   CALL ECHO
+   CALL  REGDS   ; DISPLAY ALL REGISTER'S CONTENTS
+   JMP   GETCM   ; TO GET NEW COMMAND
+;
+;******************************************
+;
+;
+;****************************************************************
+; FUNCTION RSTTF - RESTORES ALL CPU REGISTER, FLIP/FLOPS, STACK
+;          POINTER AND PROGRAM COUNTER FROM THEIR RESPECTIVE SAVE
+;          LOCATIONS IN MEMORY. THE ROUTINE THEN TRANSFERS CONTROL
+;          TO THE LOCATION SPECIFIED BY THE PROGRAM COUNTER
+;          ( I     E. THE RESTORED VALUE). THE ROUTINE EXITS WITH
+;          INTERRUPTS ENABLED.
+RSTTF:
+      DI           ; DISABLE INTERRUPTS WHILE RESTORING THINGS
+      LXI   SP,MSTAC ; SET MONITOR STACK POINTER TO START/OF STACK
+      POP   D      ; START ALSO END OF REGISTER SAVE AREA
+      POP   B
+      POP   PSW
+      LHLD  SSAVE  ; RESTORE USER STACK POINTER
+      SPHL
+      LHLD  PSAVE
+      PUSH  H      ; PUT USER RETURN ADDRESS ON USER STACK.
+      LHLD  LSAVE  ; RESTORE HL REGISTERS
+      PUSH PSW
+      LDA FLGEI
+      ORA A
+      JZ EIRET
+      POP PSW
+      RET
+EIRET: POP PSW
+      EI
+      RET
+;
+;****************************************************
+; FUNCTION SRET: JUMPED TO BY ROUTINES WISHING TO RETURN
+;                SUCCES. SRET SETS THE CARRY TRUE AND RETURNES
+;                TO THE CALLER OF THE ROUTINE INVOKING SRET.
+;*****************************************************
+;
+SRET:
+      STC          ; SET CARRY TRUE
+      RET
+;
+;*******************************************************
+; FUNCTION STHF0: CHECKS THE HALF BYTE FLAG IN TEMP TO SEE
+;          IF IT IS SET TO LOWER. IF SO, STHF0 STORES A 0 TO
+;          PAD OUT THE LOWER HALF OF THE ADDRESSED BYTE;
+;          OTHERWISE, THE ROUTINE TAKES NO ACTIONS.
+;*******************************************************
+STHF0:
+      LDA   TEMP   ; GET HALF BYTE FLAG
+      ORA   A      ; SET F/F'S
+      RNZ          ; IF SET TO UPPER, DON'T DO ANYTHING
+      MVI   C,0    ; ELSE, WANT TO STORE THE VALUE 0
+      CALL  STHLF  ; DO IT
+      RET
+;
+;*********************************************************
+; FUNCTION STHLF: TAKES THE 4 BIT VALUE IN C AND STORES IT IN
+;                HALF OF THE BYTE ADDRESSED BY REGISTERS DE.
+;                THE HALF BYTE USED (EITHER UPPER OR LOWER) IS
+;                DENOTOD BY THE VALUE OF THE FLAG IN TEMP.
+;                STHLF ASSUMES THAT THIS FLAG HAS BEEN PREVI-
+;                OUSLY SET (NOMINALLY BY ICMD).
+;*************************************************************
+STHLF:
+      PUSH  D
+      POP   H      ; MOVE ADDRESS OF BYTE INTO HL
+      MOV   A,C    ; GET VALUE
+      ANI   0FH    ; FORCE TO 4 BIT LENGTH
+      MOV   C,A    ; PUT VALUE BACK
+      LDA   TEMP   ; GET HALF BYTE FLAG
+      ORA   A      ; CHECK FOR LOWER HALF
+      JNZ   STH05  ; BRANCH IF NOT
+      MOV   A,M    ; ELSE, GET BYTE
+      ANI   0F0H   ; CLEAR LOWER 4 BITS
+      ORA   C      ; OR IN VALUE
+      MOV   M,A    ; PUT BYTE BACK
+      RET
+STH05:
+      MOV   A,M    ; IF UPPER HALF, GET BYTE
+      ANI   0FH    ; CLEAR UPPER 4 BITS
+      MOV   B,A    ; SAVE BYTE IN B
+      MOV A,C      ; GET VALUE
+      RRC
+      RRC
+      RRC
+      RRC          ; ALIGN TO UPPER 4 BITS
+      ORA   B      ; OR IN ORIGINAL LOWER 4 BITS
+      MOV   M,A    ; PUT NEW CONFIGURATION BACK
+       RET
+;
+;***********************************************:
+;      FUNCTION VALDG : RETURNS SUCCESS IF ITS INPUT ARGUMENT IS
+;                AN ASCII CHAR REPRESENTING A VALID HEX DIGIT
+;                (0-9,A-F), AND FAILURE OTHERWISE.
+;INPUT: C - ASCII CHARACTER,
+;OUTPUT: CARRY -1, IF CHAR - VALID HEX DIGIT
+;**************************************************
+VALDG:
+      MOV   A,C
+      CPI   '0'    ; TEST CHAR AGAINST '0'
+      JM    FRET   ; IF ASCII CODE LESS
+      CPI   '9'    ; ELSE, SEE IF IN RANGE (0-9)
+      JM    SRET   ; CODE BETWEEN (0-9)
+      JZ    SRET   ; CODE EQUAL '9'
+      CPI   'A'
+      JM    FRET
+      CPI   'G'
+      JP    FRET   ; NO - CODE GREATER THAN 'F'
+      JMP   SRET   ; OKAY - CADE IS 'A' TO 'F', INCLUSIVE
+;
+;***************************************************
+;FUNCTION VALDL : RETURNS SUCCESS IF ITS INPUT ARGUMENT
+;               IS A VALID DELIMITER CHAR (SPACE,COMMA,CR)
+;               AND FAILUIRE OTHERWISE.
+;INPUT:  C - CHARACTER,
+;OUTPUT: CARRY=1, IF INPUT ARG IS DELIMITER
+;*********************************************************
+VALDL:
+      MOV   A,C
+      CPI   ','
+      JZ    SRET
+      CPI   CR
+      JZ    SRET
+      CPI   ' '
+      JZ    SRET
+      JMP   FRET   ; ERROR IF NONE OF THE ABOVE
+;
+;
+;*****************************************************
+;
+SGNON: DB    CR,LF,'MONITOR FOR SILIN & CO'
+LSGN EQU  $-SGNON ; LENGTH OF MESSAGE
+;
+;**********************************
+;----------------------------------------------------
+;
+;        TABLE OF ADDRESSES OF COMMAND ROUTINES
+CADR: DW 0      ;DUMMY
+      DW    XCMD
+      DW    SCMD
+      DW    NCMD
+      DW   TCMD
+      DW   MCMD
+      DW   ICMD
+      DW   CCMD
+      DW   OCMD
+      DW   GCMD
+      DW   DCMD
+      DW   RCMD
+      DW   HCMD
+;  TABLE OF VALID COMMAND CHARACTERS
+;
+CTAB:
+      DB  'H'
+      DB  'L'
+      DB  'D'
+      DB  'G'
+      DB  'O'
+      DB  'C'
+      DB  'I'
+      DB  'M'
+      DB  'T'
+      DB  'N'
+      DB  'S'
+      DB  'X'
+NCMDS EQU  $-CTAB
+;  TABLICA DLQ AHALIZA KOMAHD PPI [AGOBOM PEVIME
+NTABL:
+     DB   01,03,01,01,01,01,02,01
+     DB   00,01,01,01,01,01,02,01
+     DB   00,03,01,01,01,01,02,01
+     DB   00,01,01,01,01,01,02,01
+     DB   00,03,03,01,01,01,02,01
+     DB   00,01,03,01,01,01,02,01
+     DB   00,03,03,01,01,01,02,01
+     DB   00,01,03,01,01,01,02,01
+     DB   31H,01H,13H,13H,13H,01H,02H,01
+     DB   31H,31H,13H,00H,13H,13H,02H,01
+      DB   31H,01,13H,02,13H,01,02,01
+      DB   31H,00,13H,02,13H,00,02,01
+      DB   31H,01,13H,01,13H,01,02,01
+      DB   31H,09H,13H,01,13H,00,02,01
+      DB   31H,01,13H,01,13H,01,02,01
+      DB   31H,01,13H,01,13H,00,02,01
+;
+;          TABLE OF REGISTER INFORMATION
+RTAB:
+      DB    'A'    ; REGIST. IDENTIFIER
+      DB    ASAVE AND 0FFH ; ADDRESS OF REGISTER SAVE LOCATION
+      DB    0      ; LENGTH FLAG - 0=8 BITS, 1=16 BITS
+RTABS EQU   $-RTAB ; SIZE OF AN ENTRY IN THIS TABLE
+      DB    'B'
+      DB    BSAVE AND 0FFH
+      DB    0
+      DB    'C'
+      DB    CSAVE AND 0FFH
+      DB    0
+      DB    'D'
+      DB    DSAVE AND 0FFH
+      DB    0
+      DB    'E'
+      DB    ESAVE AND 0FFH
+      DB    0
+      DB    'F'
+      DB    FSAVE AND 0FFH
+      DB    0
+      DB    'H'
+      DB    HSAVE AND 0FFH
+      DB    0
+      DB    'L'
+      DB    LSAVE AND 0FFH
+      DB    0
+      DB    'M'
+      DB    HSAVE AND 0FFH
+      DB    1
+      DB    'P'
+      DB    PSAVE+1 AND 0FFH
+      DB    1
+      DB    'S'
+      DB    SSAVE+1 AND 0FFH
+      DB    1
+      DB    0      ; END OF TABLE MARKERS
+      DB    0
+;
+;
+;******************************************************
+; FUNCTION: RCMD    LOADEAD HEXADECIMAL PROGRAM
+;                   ADRESS 1000H (L) COMMAND.
+;******************************************************
+;
+RCMD:
+        MVI     A,7EH
+        OUT     AUXCZ
+        MVI     A,7
+        OUT     AUXCZ
+        CALL GETHX
+        JNC  ERROR
+RCM01:
+     IN   AUXCZ
+     ANI  RBR
+     JZ   RCM01
+     IN   AUXDZ
+     STAX B
+     INX  B
+     JMP  RCM01
+      END
+*END F

@@ -1,0 +1,24 @@
+*name example
+*ftn
+      programma
+      dimension k(14)
+      read 2,k $ print 1
+  1   format(' privet !!!')
+  2   format(13a6,a2)
+  4   print 3,k
+      READ 2,K
+      GOTO 4
+  3   format( 'INPUT:',13a6,a2)
+      end
+*            no load
+*execute
+A.DOROKHIN - SUPER PRIVET !!!
+~!@#$%^&*()_+|
+`1234567890-=\
+QWERTYUIOP{}
+qwertyuiop[]
+ASDFGHJKL:"
+asdfghjkl;'
+ZXCVBNM<>?
+zxcvbnm,./
+*end f
