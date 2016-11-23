@@ -1637,25 +1637,25 @@ C*
 C***    SUBROUTINE RZ( MTZZZZ, M )
 C*      SUBROUTINE WZ( MTZZZZ, M )
 C*
-C*      ~TEHiE/zApiCx OdHOj zOHy Ml/Md
-C*      zdECx MTZZZZ - BOCxMEPi~Hyj HOMEP
-C*      YCTPOjCTBA i zOHy (HApPiMEP: 670011B)
-C*      M - MACCiB dliHOj 1024 ClOBA.
+C*      ЧTEHИE/ЗAПИCЬ OДHOЙ ЗOHЫ MЛ/MД
+C*      ЗДECЬ MTZZZZ - BOCЬMEPИЧHЫЙ HOMEP
+C*      YCTPOЙCTBA И ЗOHЫ (HAПPИMEP: 670011B)
+C*      M - MACCИB ДЛИHOЙ 1024 CЛOBA.
 C*
   :,UTC,=:0010
   WZ:,ENTRY,
   9,VTM,
   8,BASE,*
-   ,STI,10.MACCiB
-  ,STI,11.AdPEC
+   ,STI,10.MACCИB
+  ,STI,11.AДPEC
 C---
   12,VTM,-1023
   10,UTM,-1024
-  TR1:12,XTA,-1.zAMEHA
-  10,XTS,1024.COdEPviMOgO
-  12,STX,-1.ObMEHHOgO liCTA
-  10,ATX,1024.i MACCiBA
-  10,UTM,1. `zEPA
+  TR1:12,XTA,-1.ЗAMEHA
+  10,XTS,1024.COДEPЖИMOГO
+  12,STX,-1.OБMEHHOГO ЛИCTA
+  10,ATX,1024.И MACCИBA
+  10,UTM,1. ЮЗEPA
   12,VLM,TR1
 C---
   11,XTA,
@@ -1663,12 +1663,12 @@ C---
   ,AOX,=:0000 3700
   9,AOX,
   15,ATX,1
-  15,*70,1. ObMEH
+  15,*70,1. OБMEH
 C---
   12,VTM,-1023
   TR2:12,XTA,-1
-  10,XTS,.ObPATHAq
-  12,STX,-1.zAMEHA
+  10,XTS,.OБPATHAЯ
+  12,STX,-1.ЗAMEHA
   10,ATX,
   10,UTM,1
   12,VLM,TR2
@@ -2425,29 +2425,29 @@ ZONTIPAS = ARRAY [1..1024] OF ALFA;
    VAR        I, J :INTEGER;
  (*=F+*) PROCEDURE LOADGO (VAR I : INTEGER); FORTRAN;
  BEGIN        (* IVKLAI *)
-   WRITE (' ***** O{ibKA BBOdA', KLNR : 4);
+   WRITE (' ***** OШИБKA BBOДA', KLNR : 4);
    CASE KLNR OF
-     1 : WRITE ('  BCTPETilCq KOHEc fAjlA');
-     2 : WRITE ('  HET iCTO~HiKA');
-     4 : WRITE ('  HEdOpYCTiMyj pAPAMETP pPi OpPEdElEHii',
-                 ' iCTO~HiKA HA Ml/Md');
-     5 : WRITE ('  HEdOpYCTiMyj PEviM -MAKET CTPOKi-');
-     6 : WRITE ('  HEdOpYCTiMyj PEviM -ObPAbOTKA pPObElOB-');
-     7 : WRITE ('  HEdOpYCTiMyj -iCTO~HiK-');
-     8 : WRITE ('  pEPEpOlHEH CTEK iCTO~HiKOB');
-     9 : WRITE ('  HET CTEKA iCTO~HiKOB');
-    20 : WRITE ('  dliHHOE ~iClO');
-    21 : WRITE ('  HET cifP');
-    22 : WRITE ('  ~iClO MEHx{E dAHHOgO');
-    23 : WRITE ('  ~iClO bOlx{E dAHHOgO');
-    24 : WRITE ('  HET OTdEliTElq');
-    25 : WRITE ('  HET COCTABHOj ~ACTi dATy');
-    26 : WRITE ('  HET dATy');
-    27 : WRITE ('  TAKAq dATA HE CY}ECTBYET');
-    28 : WRITE ('  plOXOE BOCMEPi~HOE ~iClO');
-    31 : WRITE ('  dliHHAq cElAq ~ACTx');
-    32 : WRITE ('  HET B ~iClE TO~Ki');
-    33 : WRITE ('  dliHHAq dPObHAq ~ACTx')
+     1 : WRITE ('  BCTPETИЛCЯ KOHEЦ ФAЙЛA');
+     2 : WRITE ('  HET ИCTOЧHИKA');
+     4 : WRITE ('  HEДOПYCTИMЫЙ ПAPAMETP ПPИ OПPEДEЛEHИИ',
+                 ' ИCTOЧHИKA HA MЛ/MД');
+     5 : WRITE ('  HEДOПYCTИMЫЙ PEЖИM -MAKET CTPOKИ-');
+     6 : WRITE ('  HEДOПYCTИMЫЙ PEЖИM -OБPAБOTKA ПPOБEЛOB-');
+     7 : WRITE ('  HEДOПYCTИMЫЙ -ИCTOЧHИK-');
+     8 : WRITE ('  ПEPEПOЛHEH CTEK ИCTOЧHИKOB');
+     9 : WRITE ('  HET CTEKA ИCTOЧHИKOB');
+    20 : WRITE ('  ДЛИHHOE ЧИCЛO');
+    21 : WRITE ('  HET ЦИФP');
+    22 : WRITE ('  ЧИCЛO MEHЬШE ДAHHOГO');
+    23 : WRITE ('  ЧИCЛO БOЛЬШE ДAHHOГO');
+    24 : WRITE ('  HET OTДEЛИTEЛЯ');
+    25 : WRITE ('  HET COCTABHOЙ ЧACTИ ДATЫ');
+    26 : WRITE ('  HET ДATЫ');
+    27 : WRITE ('  TAKAЯ ДATA HE CYЩECTBYET');
+    28 : WRITE ('  ПЛOXOE BOCMEPИЧHOE ЧИCЛO');
+    31 : WRITE ('  ДЛИHHAЯ ЦEЛAЯ ЧACTЬ');
+    32 : WRITE ('  HET B ЧИCЛE TOЧKИ');
+    33 : WRITE ('  ДЛИHHAЯ ДPOБHAЯ ЧACTЬ')
    END;
    WRITELN
  END;  (* IVKLAI *)

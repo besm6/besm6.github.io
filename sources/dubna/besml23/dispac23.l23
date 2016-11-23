@@ -1,31 +1,31 @@
  INTER:,NAME,
 C
-C**************** E.d.fEd`HxKiH 20/06/84
+C**************** E.Д.ФEДЮHЬKИH 20/06/84
 C*
 C*   FUNCTION   INTER(L)
 C*
-C*   zHA~EHiE fYHKcii i L = 0, ECli
-C*   zAdA~A HE qBlqETCq TEPMiHAlxHOj.
-C*   B pPOTiBHOM ClY~AE: L = dliHE CTPO-
-C*   Ki TEPMiHAlA; INTER = +L, ECli TEP-
-C*   MiHAl - diCplEj, INTER = -L, ECli
-C*   TEPMiHAl HE diCplEj. B COMMON-blOK
-C*   *INTER* zACylAETCq:
-C*   *INTER*  = iHfOPMAciOHHOE ClOBO dlq
-C*              OpPOCA COCTOqHiq TEPMi-
-C*              HAlA ili HYlx, ECli TEP-
-C*              MiHAl HE pOdKl`~EH.
-C*   *INTER*+1= PEzYlxTAT OpPOCA COCTOq-
-C*              Hiq.
-C*   *INTER*+2= B PAzPqdAX 13-18 - lOgi-
-C*              ~ECKij HOMEP TEPMiHAlA,
-C*              OCTAlxHyE PAzPqdy HYlE-
-C*              ByE.
+C*   ЗHAЧEHИE ФYHKЦИИ И L = 0, ECЛИ
+C*   ЗAДAЧA HE ЯBЛЯETCЯ TEPMИHAЛЬHOЙ.
+C*   B ПPOTИBHOM CЛYЧAE: L = ДЛИHE CTPO-
+C*   KИ TEPMИHAЛA; INTER = +L, ECЛИ TEP-
+C*   MИHAЛ - ДИCПЛEЙ, INTER = -L, ECЛИ
+C*   TEPMИHAЛ HE ДИCПЛEЙ. B COMMON-БЛOK
+C*   *INTER* ЗACЫЛAETCЯ:
+C*   *INTER*  = ИHФOPMAЦИOHHOE CЛOBO ДЛЯ
+C*              OПPOCA COCTOЯHИЯ TEPMИ-
+C*              HAЛA ИЛИ HYЛЬ, ECЛИ TEP-
+C*              MИHAЛ HE ПOДKЛЮЧEH.
+C*   *INTER*+1= PEЗYЛЬTAT OПPOCA COCTOЯ-
+C*              HИЯ.
+C*   *INTER*+2= B PAЗPЯДAX 13-18 - ЛOГИ-
+C*              ЧECKИЙ HOMEP TEPMИHAЛA,
+C*              OCTAЛЬHЫE PAЗPЯДЫ HYЛE-
+C*              BЫE.
 C*   *INTER*+3= 0B.
 C*
-C*   OpEPAciOHHAq CiCTEMA - diCpAK.
+C*   OПEPAЦИOHHAЯ CИCTEMA - ДИCПAK.
 C*
-C*   ObPA}EHiE - CTAHdAPTHOE.
+C*   OБPAЩEHИE - CTAHДAPTHOE.
 C*
 C
  *INFTER*:,LC,5
@@ -99,35 +99,35 @@ C
  ,END,
  QIN:,NAME,
 C
-C**************** E.d.fEd`HxKiH 15/06/84
+C**************** E.Д.ФEДЮHЬKИH 15/06/84
 C*
 C*   SUBROUTINE QIN(TEXT,L)
 C*
-C*   BBOdiT B MACCiB TEXT CTPOKY C |KPA-
-C*   HA diCplEq. B L zACylAETCq ~iClO
-C*   BBEdEHHyX CiMBOlOB. CTPOKA B MACCi-
-C*   BE TEXT dOpOlHqETCq pPObElAMi dO
-C*   cElOgO ~iClA ClOB. L < 79.
-C*   BBEdEHHyj TEKCT - B KOdE ISO.
+C*   BBOДИT B MACCИB TEXT CTPOKY C ЭKPA-
+C*   HA ДИCПЛEЯ. B L ЗACЫЛAETCЯ ЧИCЛO
+C*   BBEДEHHЫX CИMBOЛOB. CTPOKA B MACCИ-
+C*   BE TEXT ДOПOЛHЯETCЯ ПPOБEЛAMИ ДO
+C*   ЦEЛOГO ЧИCЛA CЛOB. L < 79.
+C*   BBEДEHHЫЙ TEKCT - B KOДE ISO.
 C*
 C*   SUBROUTINE STER(H,NH,TEXT,L,IT)
 C*
-C*   BBOd C pOdCKAzKOj. pOdCKAzKA H
-C*   dliHOj NH CiMBOlOB. TEXT i L iME-
-C*   `T TOT vE CMyCl, ~TO i B QIN.
-C*   IT=0 - BBOd C zACEKPE~iBAHiEM,
-C*   IT=1 - BBOd bEz zACEKPE~iBAHiq.
+C*   BBOД C ПOДCKAЗKOЙ. ПOДCKAЗKA H
+C*   ДЛИHOЙ NH CИMBOЛOB. TEXT И L ИME-
+C*   ЮT TOT ЖE CMЫCЛ, ЧTO И B QIN.
+C*   IT=0 - BBOД C ЗACEKPEЧИBAHИEM,
+C*   IT=1 - BBOД БEЗ ЗACEKPEЧИBAHИЯ.
 C*
-C*   OpEPAciOHHAq CiCTEMA - diCpAK.
+C*   OПEPAЦИOHHAЯ CИCTEMA - ДИCПAK.
 C*
-C*   ObPA}EHiE CTAHdAPTHOE. iCpOlxzY`T-
-C*   Cq bEz BOCCTAHOBlEHiq PEgiCTPy 8-12
-C*   i 14. PEviM HOPMAlizAcii i OKPYglE-
-C*   Hiq HE MEHqETCq. HA ByXOdE - lOgi-
-C*   ~ECKAq gPYppA.
+C*   OБPAЩEHИE CTAHДAPTHOE. ИCПOЛЬЗYЮT-
+C*   CЯ БEЗ BOCCTAHOBЛEHИЯ PEГИCTPЫ 8-12
+C*   И 14. PEЖИM HOPMAЛИЗAЦИИ И OKPYГЛE-
+C*   HИЯ HE MEHЯETCЯ. HA BЫXOДE - ЛOГИ-
+C*   ЧECKAЯ ГPYППA.
 C*
-C*   iCpOlxzY`TCq pOdpPOgPAMMy TABLE2*
-C*   i ISTG.
+C*   ИCПOЛЬЗYЮTCЯ ПOДПPOГPAMMЫ TABLE2*
+C*   И ISTG.
 C*
 C
  *INFTER*:,LC,5
@@ -244,50 +244,50 @@ C
  ,END,
  QOUT:,NAME,
 C
-C**************** E.d.fEd`HxKiH 05/06/84
+C**************** E.Д.ФEДЮHЬKИH 05/06/84
 C*
 C*   SUBROUTINE QOUT(TEXT,L)
 C*
-C*   ByBOdiT HA diCplEj L CiMBOlOB MAC-
-C*   CiBA TEXT. XBOCTOByE pPObEly igHO-
-C*   PiPY`TCq. pOClE BydA~i TEKCTA
-C*   KYPCOP pEPEBOdiTCq HA HOBY` CTPOKY
-C*   ECli B TEKCTE ECTx HYlEBOj bAjT,
-C*   BydA~A pPOiCXOdiT TOlxKO dO |TOgO
-C*   bAjTA.
+C*   BЫBOДИT HA ДИCПЛEЙ L CИMBOЛOB MAC-
+C*   CИBA TEXT. XBOCTOBЫE ПPOБEЛЫ ИГHO-
+C*   PИPYЮTCЯ. ПOCЛE BЫДAЧИ TEKCTA
+C*   KYPCOP ПEPEBOДИTCЯ HA HOBYЮ CTPOKY
+C*   ECЛИ B TEKCTE ECTЬ HYЛEBOЙ БAЙT,
+C*   BЫДAЧA ПPOИCXOДИT TOЛЬKO ДO ЭTOГO
+C*   БAЙTA.
 C*
 C*   SUBROUTINE SOUT(TEXT)
 C*
-C*   ByBOdiT HA diCplEj CiMBOly MACCi-
-C*   BA TEXT dO HYlEBOgO bAjTA, pOClE
-C*   BydA~i KYPCOP pEPEBOdiTCq HA HO-
-C*   BY` CTPOKY.
+C*   BЫBOДИT HA ДИCПЛEЙ CИMBOЛЫ MACCИ-
+C*   BA TEXT ДO HYЛEBOГO БAЙTA, ПOCЛE
+C*   BЫДAЧИ KYPCOP ПEPEBOДИTCЯ HA HO-
+C*   BYЮ CTPOKY.
 C*
-C*   ObPA}EHiE CTAHdAPTHOE. iCpOlxzY`T-
-C*   Cq bEz BOCCTAHOBlEHiq 8-12 i 14
-C*   PEgiCTPy. HA ByXOdE - lOgi~ECKAq
-C*   gPYppA. TEKCT - B KOdE ISO.
+C*   OБPAЩEHИE CTAHДAPTHOE. ИCПOЛЬЗYЮT-
+C*   CЯ БEЗ BOCCTAHOBЛEHИЯ 8-12 И 14
+C*   PEГИCTPЫ. HA BЫXOДE - ЛOГИЧECKAЯ
+C*   ГPYППA. TEKCT - B KOДE ISO.
 C*
-C*   ByBOdiTCq MAKCiMYM 80 CiMBOlOB, KOd
-C*   "12B" (pEPEXOd HA HOBY` CTPOKY) dO-
-C*   bABlqETCq K ByBOdY, ECli dliHA  By-
-C*   BOdA < 80 CiMBOlOB. pOClEdHEE COOT-
-C*   BETCTBYET OCObEHHOCTqM diCplEq "VI-
+C*   BЫBOДИTCЯ MAKCИMYM 80 CИMBOЛOB, KOД
+C*   "12B" (ПEPEXOД HA HOBYЮ CTPOKY) ДO-
+C*   БABЛЯETCЯ K BЫBOДY, ECЛИ ДЛИHA  BЫ-
+C*   BOДA < 80 CИMBOЛOB. ПOCЛEДHEE COOT-
+C*   BETCTBYET OCOБEHHOCTЯM ДИCПЛEЯ "VI-
 C*   DEOTON-340".
 C*
-C*   pPi pEPEbiBKE ByBOdA QOUT pEPEXOdiT
-C*   HA BBOd. ECli BBOdiTCq "ETX" - bEz
-C*   pOClEdCTBij. ECli BBOdiTCq A"ETX"
-C*   ili ABORT"ETX" - pEPEdA~A YpPABlEHiq
-C*   pO AdPECY 20B. B dPYgiX ClY~AqX:
-C*   ECli 5 ClOBO COMMON-blOKA *INFTER*
-C*   PABHO 0B, TO pEPByE {ECTx CiMBOlOB
-C*   BBOdA zAHOCqTCq B 4 ClOBO COMMON-
-C*   blOKA; iHA~E YpPABlEHiE pEPEdAETCq
-C*   pPOcEdYPE, AdPEC KOTOPOj B 5 ClOBE
-C*   <CALL PROC(AdPEC pPiHqTOj CTPOKi)>.
+C*   ПPИ ПEPEБИBKE BЫBOДA QOUT ПEPEXOДИT
+C*   HA BBOД. ECЛИ BBOДИTCЯ "ETX" - БEЗ
+C*   ПOCЛEДCTBИЙ. ECЛИ BBOДИTCЯ A"ETX"
+C*   ИЛИ ABORT"ETX" - ПEPEДAЧA YПPABЛEHИЯ
+C*   ПO AДPECY 20B. B ДPYГИX CЛYЧAЯX:
+C*   ECЛИ 5 CЛOBO COMMON-БЛOKA *INFTER*
+C*   PABHO 0B, TO ПEPBЫE ШECTЬ CИMBOЛOB
+C*   BBOДA ЗAHOCЯTCЯ B 4 CЛOBO COMMON-
+C*   БЛOKA; ИHAЧE YПPABЛEHИE ПEPEДAETCЯ
+C*   ПPOЦEДYPE, AДPEC KOTOPOЙ B 5 CЛOBE
+C*   <CALL PROC(AДPEC ПPИHЯTOЙ CTPOKИ)>.
 C*
-C*   OpEPAciOHHAq CiCTEMA - diCpAK.
+C*   OПEPAЦИOHHAЯ CИCTEMA - ДИCПAK.
 C*
  *INFTER*:,LC,5
  *OUTBUF*:,LC,15
@@ -416,31 +416,31 @@ C*
  ,END,
  QTER:,NAME,
 C
-C**************** E.d.fEd`HxKiH 17/01/79
+C**************** E.Д.ФEДЮHЬKИH 17/01/79
 C*
 C*   SUBROUTINE QTER(H,NH,TEXT,L)
 C*
-C*   BBOd iHfOPMAcii C |KPAHA diCplEq C
-C*   pOdCKAzKOj. pOdCKAzKA H COdEPviT NH
-C*   CiMBOlOB. iHfOPMAciq (BMECTE C pOd-
-C*   CKAzKOj) BBOdiTCq B MACCiB TEXT. B
-C*   L zACylAETCq ~iClO BBEdEHHyX CiMBO-
-C*   lOB. CTPOKA B MACCiBE TEXT dOpOlHq-
-C*   ETCq pPObElAMi dO cElOgO ~iClA ClOB
+C*   BBOД ИHФOPMAЦИИ C ЭKPAHA ДИCПЛEЯ C
+C*   ПOДCKAЗKOЙ. ПOДCKAЗKA H COДEPЖИT NH
+C*   CИMBOЛOB. ИHФOPMAЦИЯ (BMECTE C ПOД-
+C*   CKAЗKOЙ) BBOДИTCЯ B MACCИB TEXT. B
+C*   L ЗACЫЛAETCЯ ЧИCЛO BBEДEHHЫX CИMBO-
+C*   ЛOB. CTPOKA B MACCИBE TEXT ДOПOЛHЯ-
+C*   ETCЯ ПPOБEЛAMИ ДO ЦEЛOГO ЧИCЛA CЛOB
 C*
-C*   ObPA}EHiE CTAHdAPTHOE. iCpOlxzY`TCq
-C*   bEz BOCCTAHOBlEHiq 8-12 i 14 PEgiC-
-C*   TPy. PEviM HOPMAlizAcii i OKPYglE-
-C*   Hiq HE MEHqETCq. HA ByXOdE - lOgi-
-C*   ~ECKAq gPYppA.
+C*   OБPAЩEHИE CTAHДAPTHOE. ИCПOЛЬЗYЮTCЯ
+C*   БEЗ BOCCTAHOBЛEHИЯ 8-12 И 14 PEГИC-
+C*   TPЫ. PEЖИM HOPMAЛИЗAЦИИ И OKPYГЛE-
+C*   HИЯ HE MEHЯETCЯ. HA BЫXOДE - ЛOГИ-
+C*   ЧECKAЯ ГPYППA.
 C*
 C*   SUBROUTINE QCIA(H,NH,TEXT,L)
 C*
-C*   BBOd iHfOPMAcii C pOdCKAzKOj i zA-
-C*   CEKPE~iBAHiEM. B OCTAlxHOM AHAlO-
-C*   gi~HA QTER.
+C*   BBOД ИHФOPMAЦИИ C ПOДCKAЗKOЙ И ЗA-
+C*   CEKPEЧИBAHИEM. B OCTAЛЬHOM AHAЛO-
+C*   ГИЧHA QTER.
 C*
-C*   iCpOlxzYET QIN.
+C*   ИCПOЛЬЗYET QIN.
 C*
  *OUTBUF*:,LC,15
  S:,UTC,1
@@ -539,11 +539,11 @@ C*
  ,END,
  QERASE:,NAME,
 C
-C**************** E.d.fEd`HxKiH 05/07/84
+C**************** E.Д.ФEДЮHЬKИH 05/07/84
 C*
-C*   |lEMEHTAPHyE fYHKcii dlq PAbOTy C
-C*   diCplEEM. OpEPAciOHHAq CiCTEMA -
-C*   diCpAK
+C*   ЭЛEMEHTAPHЫE ФYHKЦИИ ДЛЯ PAБOTЫ C
+C*   ДИCПЛEEM. OПEPAЦИOHHAЯ CИCTEMA -
+C*   ДИCПAK
 C*
  *INFTER*:,LC,5
  12,VTM,INF+1
@@ -600,21 +600,21 @@ C*
  ,END,
  QMOVE:,NAME,
 C
-C**************** E.d.fEd`HxKiH 06/06/84
+C**************** E.Д.ФEДЮHЬKИH 06/06/84
 C*
 C*   SUBROUTINE QMOVE(N)
 C*
-C*   CdBigAET CTPOKY diCplEq, pPEd{ECT-
-C*   BY`}Y` TEKY}Ej BpPABO(+) ili BlEBO
-C*   (-) HA N pOzicij.
+C*   CДBИГAET CTPOKY ДИCПЛEЯ, ПPEДШECT-
+C*   BYЮЩYЮ TEKYЩEЙ BПPABO(+) ИЛИ BЛEBO
+C*   (-) HA N ПOЗИЦИЙ.
 C*
-C*   ObPA}EHiE CTAHdAPTHOE. iCpOlxzY`TCq
-C*   bEz BOCCTAHOBlEHiq 9-12 i 14 PE-
-C*   giCTPy.
-C*   PEviM HA BXOdE - HECY}ECTBEHEH,
-C*   PEviM HA ByXOdE = 6.
+C*   OБPAЩEHИE CTAHДAPTHOE. ИCПOЛЬЗYЮTCЯ
+C*   БEЗ BOCCTAHOBЛEHИЯ 9-12 И 14 PE-
+C*   ГИCTPЫ.
+C*   PEЖИM HA BXOДE - HECYЩECTBEHEH,
+C*   PEЖИM HA BЫXOДE = 6.
 C*
-C*   OpEPAciOHHAq CiCTEMA - diCpAK.
+C*   OПEPAЦИOHHAЯ CИCTEMA - ДИCПAK.
 C*
  *INFTER*:,LC,5
  *OUTBUF*:,LC,15
@@ -732,14 +732,14 @@ C*
  ,GOST,4HWVUT
  ,GOST,4H'027'ZYX
  ,GOST,4H'132''130''030''115'
- ,GOST,4HcbA`
- ,GOST,4HgfEd
- ,GOST,4HKjiX
- ,GOST,4HOHMl
- ,GOST,4HCPqp
- ,GOST,4HBvYT
- ,GOST,4H{zyx
- ,GOST,4H'133'~}|
+ ,GOST,4HЦБAЮ
+ ,GOST,4HГФEД
+ ,GOST,4HKЙИX
+ ,GOST,4HOHMЛ
+ ,GOST,4HCPЯП
+ ,GOST,4HBЖYT
+ ,GOST,4HШЗЫЬ
+ ,GOST,4H'133'ЧЩЭ
  ,END,
  WAIT:,NAME,
  SOUT:,SUBP,
@@ -1133,7 +1133,7 @@ C
  *4:,XTA,BL
  ,ATX,REZAC
  10,ATX,
- 10,ATX,1.dlq A.p.
+ 10,ATX,1.ДЛЯ A.П.
  ,XTA,=:1
  ,ATX,CHAR
  14,MTJ,5
@@ -1563,81 +1563,81 @@ C*
 C*     SUBROUTINE  DIALOG ( OUT,N,IN )
 C*     SUBROUTINE  DIALOQ ( OUT,N,IN )
 C*
-C*   YHiBEPCAlxHAq pPOgPAMMA BBOdA/ByBOdA
-C*            TEKCTOByX CTPOK.
+C*   YHИBEPCAЛЬHAЯ ПPOГPAMMA BBOДA/BЫBOДA
+C*            TEKCTOBЫX CTPOK.
 C*
-C*        BAPiAHT dlq OC "diCpAK"
+C*        BAPИAHT ДЛЯ OC "ДИCПAK"
 C*
-C*   B ByzyBA`}Ej pPOgPAMME OpiCyBAETCq
+C*   B BЫЗЫBAЮЩEЙ ПPOГPAMME OПИCЫBAETCЯ
 C*   COMMON/PROTO/ AP,NUNIT,NL,NF,INT,KAP(15)
-C*   HA~AlxHyE zHA~EHiq |TiX pEPEMEHHyX
-C*   OpPEdElq`TCq ABTOMATi~ECKi.
+C*   HAЧAЛЬHЫE ЗHAЧEHИЯ ЭTИX ПEPEMEHHЫX
+C*   OПPEДEЛЯЮTCЯ ABTOMATИЧECKИ.
 C*
-C*   B KA~ECTBE YCTPOjCTBA BBOdA/ByBOdA
-C*   iCpOlxzYETCq :
-C*   NUNIT=2 - TEPMiHAl pOlxzOBATElq
-C*   NUNIT=4 - CARD READER i PRINTER
+C*   B KAЧECTBE YCTPOЙCTBA BBOДA/BЫBOДA
+C*   ИCПOЛЬЗYETCЯ :
+C*   NUNIT=2 - TEPMИHAЛ ПOЛЬЗOBATEЛЯ
+C*   NUNIT=4 - CARD READER И PRINTER
 C*
-C*   AP - PEviM pPOTOKOliPOBAHiq ( YCTAHAB-
-C*   liBAETCq pPOgPAMMOj DIALOP (CM.HivE)).
-C*   B HA~AlE PAbOTy pPOTOKOl MOHOliCTOM
-C*   dlq NUNIT=4, B OCTAlxHyX ClY~AqX
-C*   pPOTOKOl blOKiPOBAH.
+C*   AP - PEЖИM ПPOTOKOЛИPOBAHИЯ ( YCTAHAB-
+C*   ЛИBAETCЯ ПPOГPAMMOЙ DIALOP (CM.HИЖE)).
+C*   B HAЧAЛE PAБOTЫ ПPOTOKOЛ MOHOЛИCTOM
+C*   ДЛЯ NUNIT=4, B OCTAЛЬHЫX CЛYЧAЯX
+C*   ПPOTOKOЛ БЛOKИPOBAH.
 C*
-C*   OUT - TEKCTOBAq CTPOKA B KOdE ISO,
-C*   pOdlEvA}Aq ByBOdY.
-C*   N - PEviM ByBOdA ( cElOE ~iClO )
-C*   pPi  N<0  ByBOd idET TOlxKO B pPOTOKOl,
-C*   MiHYq |KPAH TEPMiHAlA. dAlEE, pYCTx
-C*   K=ABS(N). pPi K=0 ByBOdA HET, TOlxKO
-C*   BBOd.  pPi K<128 ByBOdqTCq pEPByE  K
-C*   CiMBOlOB CTPOKi  OUT.  pPi K>127
-C*   ByBOd idET dO CiMBOlA C KOdOM  (K-128)
-C*   BKl`~iTElxHO.
-C*   CiMBOly "000" i "012" qBlq`TCq bEz-
-C*   YClOBHyMi pPizHAKAMi KOHcA ByBOdA.
+C*   OUT - TEKCTOBAЯ CTPOKA B KOДE ISO,
+C*   ПOДЛEЖAЩAЯ BЫBOДY.
+C*   N - PEЖИM BЫBOДA ( ЦEЛOE ЧИCЛO )
+C*   ПPИ  N<0  BЫBOД ИДET TOЛЬKO B ПPOTOKOЛ,
+C*   MИHYЯ ЭKPAH TEPMИHAЛA. ДAЛEE, ПYCTЬ
+C*   K=ABS(N). ПPИ K=0 BЫBOДA HET, TOЛЬKO
+C*   BBOД.  ПPИ K<128 BЫBOДЯTCЯ ПEPBЫE  K
+C*   CИMBOЛOB CTPOKИ  OUT.  ПPИ K>127
+C*   BЫBOД ИДET ДO CИMBOЛA C KOДOM  (K-128)
+C*   BKЛЮЧИTEЛЬHO.
+C*   CИMBOЛЫ "000" И "012" ЯBЛЯЮTCЯ БEЗ-
+C*   YCЛOBHЫMИ ПPИЗHAKAMИ KOHЦA BЫBOДA.
 C*
-C*   IN = -1, ECli BBOd HE TPEbYETCq
-C*   (TOlxKO ByBOd). B pPOTiBHOM ClY~AE
-C*   BBOd pPOiCXOdiT B  KAP  i zAKAH~i-
-C*   BAETCq pYCTyM bAjTOM.
+C*   IN = -1, ECЛИ BBOД HE TPEБYETCЯ
+C*   (TOЛЬKO BЫBOД). B ПPOTИBHOM CЛYЧAE
+C*   BBOД ПPOИCXOДИT B  KAP  И ЗAKAHЧИ-
+C*   BAETCЯ ПYCTЫM БAЙTOM.
 C*
-C*   ByBOd HA |KPAHE i B pPOTOKOlE CdBiHYT
-C*   OTHOCiTElxHO BBOdA HA 6 pOzicij BpPABO
-C*   (pPi YClOBii, ~TO dliHA ByBOdA<48 CiMB)
+C*   BЫBOД HA ЭKPAHE И B ПPOTOKOЛE CДBИHYT
+C*   OTHOCИTEЛЬHO BBOДA HA 6 ПOЗИЦИЙ BПPABO
+C*   (ПPИ YCЛOBИИ, ЧTO ДЛИHA BЫBOДA<48 CИMB)
 C*
-C*   DIALOQ - MOdifiKAciq OCHOBHOgO BXOdA
-C*   dlq COBME}EHiq BBOdA B OdHOj CTPOKE
-C*   C ByBOdOM ( BBOd C pOdCKAzKOj ).
-C*   iMEET CMyCl TOlxKO dlq NUNIT=2,
-C*   B pPO~iX ClY~AqX PAbOTAET KAK DIALOG.
+C*   DIALOQ - MOДИФИKAЦИЯ OCHOBHOГO BXOДA
+C*   ДЛЯ COBMEЩEHИЯ BBOДA B OДHOЙ CTPOKE
+C*   C BЫBOДOM ( BBOД C ПOДCKAЗKOЙ ).
+C*   ИMEET CMЫCЛ TOЛЬKO ДЛЯ NUNIT=2,
+C*   B ПPOЧИX CЛYЧAЯX PAБOTAET KAK DIALOG.
 C*
-C*   NL - PAzMEP |KPAHA TEPMiHAlA B CTPOKAX
-C*   (zAdAETCq izBHE). NL=0 : "bECKOHE~Hyj" |KPAH
-C*   NF - ~iClO CTPOK, OCTAB{iXCq dO KOHcA
-C*   |KPAHA. pPi ByBOdE HA TEPMiHAl bOlx{OgO
-C*   KOli~ECTBA TEKCTA pOClE KAvdyX  NL
-C*   CTPOK dElAETCq BBOd.
-C*   ECli BBOd pYCTOj, INT pOlAgAETCq
-C*   PABHyM 0 . ECli BBOd HE pYCTOj, OH
-C*   pOME}AETCq B KAP C HYlEByM bAjTOM B
-C*   KA~ECTBE pPizHAKA KOHcA.  KPOME TOgO,
-C*   B  INT  zACylAETCq 1.
+C*   NL - PAЗMEP ЭKPAHA TEPMИHAЛA B CTPOKAX
+C*   (ЗAДAETCЯ ИЗBHE). NL=0 : "БECKOHEЧHЫЙ" ЭKPAH
+C*   NF - ЧИCЛO CTPOK, OCTABШИXCЯ ДO KOHЦA
+C*   ЭKPAHA. ПPИ BЫBOДE HA TEPMИHAЛ БOЛЬШOГO
+C*   KOЛИЧECTBA TEKCTA ПOCЛE KAЖДЫX  NL
+C*   CTPOK ДEЛAETCЯ BBOД.
+C*   ECЛИ BBOД ПYCTOЙ, INT ПOЛAГAETCЯ
+C*   PABHЫM 0 . ECЛИ BBOД HE ПYCTOЙ, OH
+C*   ПOMEЩAETCЯ B KAP C HYЛEBЫM БAЙTOM B
+C*   KAЧECTBE ПPИЗHAKA KOHЦA.  KPOME TOГO,
+C*   B  INT  ЗACЫЛAETCЯ 1.
 C*
-C*   dlq ByzyBA`}Ej pPOgPAMMy  NF=0
-C*   qBlqETCq pPizHAKOM, ~TO O~EPEdHOj
-C*   |KPAH zApOlHilCq i pOlxzOBATElx
-C*   TOlxKO ~TO BBEl pPiKAz.
-C*   KPOME TOgO, MOvHO AHAliziPOBATx
-C*   INT, pPiHiMA`}ij zHA~EHiq :
-C*   0 - BBOdA BOOb}E HE bylO.
-C*   1 - BBOd HEpYCT.
+C*   ДЛЯ BЫЗЫBAЮЩEЙ ПPOГPAMMЫ  NF=0
+C*   ЯBЛЯETCЯ ПPИЗHAKOM, ЧTO OЧEPEДHOЙ
+C*   ЭKPAH ЗAПOЛHИЛCЯ И ПOЛЬЗOBATEЛЬ
+C*   TOЛЬKO ЧTO BBEЛ ПPИKAЗ.
+C*   KPOME TOГO, MOЖHO AHAЛИЗИPOBATЬ
+C*   INT, ПPИHИMAЮЩИЙ ЗHAЧEHИЯ :
+C*   0 - BBOДA BOOБЩE HE БЫЛO.
+C*   1 - BBOД HEПYCT.
 C*
-C*   pPi PAbOTE OT  DIALOQ :
-C*   pOdC~ET CTPOK |KPAHA HE BEdETCq
+C*   ПPИ PAБOTE OT  DIALOQ :
+C*   ПOДCЧET CTPOK ЭKPAHA HE BEДETCЯ
 C*
-C*   pPOgPAMMA pOPTiT 14 PEgiCTP, YCTAHAB-
-C*   liBAET HA ByXOdE  ,NTR,2
+C*   ПPOГPAMMA ПOPTИT 14 PEГИCTP, YCTAHAB-
+C*   ЛИBAET HA BЫXOДE  ,NTR,2
 C*
 C*
 C
@@ -1669,7 +1669,7 @@ C-----------------------------------
   :,U1A,*+1
   ,UTC,=1
   :,XTA,
-  ,ATX,FLIN.1-HET BBOdA
+  ,ATX,FLIN.1-HET BBOДA
   2,VTM,*PROTO*
   2,WTC,TYP
   3,VTM,
@@ -1677,16 +1677,16 @@ C-----------------------------------
   3,MTJ,14
   14,UTM,-2
   14,V1M,TYPIS
-C...   dOp.pPOBEPKA HA HAli~iE TEPMiHAlA
+C...   ДOП.ПPOBEPKA HA HAЛИЧИE TEPMИHAЛA
   ,UTC,*INFTER*
   ,XTA,
   ,U1A,TYPIS
 C
-C...   OpPEdElEHiE TipA zAdA~i:
-C      TEPMiHAlxHAq ili HET.
+C...   OПPEДEЛEHИE TИПA ЗAДAЧИ:
+C      TEPMИHAЛЬHAЯ ИЛИ HET.
 C
   CHTYP:,XTA,
-  ,CALL,INTER.K fEd`HxKiHY
+  ,CALL,INTER.K ФEДЮHЬKИHY
   3,VTM,2
   ,AEX,A/I0
   ,U1A,ISTYP
@@ -1697,14 +1697,14 @@ C
   ,ITA,14
   2,ATX,PROTOCOL
 C
-C...   Tip OpPEdElEH :
+C...   TИП OПPEДEЛEH :
 C
   ISTYP:,ITA,3
   ,AOX,A/I0
   2,ATX,TYP
   2,XTA,NLIN
   ,U1A,SCR/IS
-C...   dlq TEX, KTO zAbyl CdElATx PACCylKY
+C...   ДЛЯ TEX, KTO ЗAБЫЛ CДEЛATЬ PACCЫЛKY
   ,XTA,=20
   SCR/IS:,AOX,A/I0
   2,ATX,NLIN
@@ -1721,15 +1721,15 @@ C...   dlq TEX, KTO zAbyl CdElATx PACCylKY
   ,WTC,NSYM
   ,XTA,
 C
-C...  HYvEH li ByBOd i KAKOj dliHy:
+C...  HYЖEH ЛИ BЫBOД И KAKOЙ ДЛИHЫ:
 C
   ,UZA,INPUT.-HET
   ,AEX,A/I0
   ,UZA,INPUT
   ,A-X,
   ,UZA,POZ
-  ,X-A,.TOlxKO
-  3,VTM,4.pPOTOKOl
+  ,X-A,.TOЛЬKO
+  3,VTM,4.ПPOTOKOЛ
   POZ:,ATI,10
  ,A-X,=200
   ,U1A,CNT
@@ -1754,7 +1754,7 @@ C...   IF(TYP.NE.2) DIALOQ=DIALOG
   15,ATX,
   5,UTM,1
 C
-C...  pOCiMBOlxHAq pEPEpiCx BydA~i:
+C...  ПOCИMBOЛЬHAЯ ПEPEПИCЬ BЫДAЧИ:
 C
   NO SHIFT:,XTA,
   9,XTS,
@@ -1781,7 +1781,7 @@ C
   6,VIM,LS
   9,VLM,NO SHIFT
 C
-C...   B y d A ~ A :
+C...   B Ы Д A Ч A :
 C
   ETRAN:,XTS,QFL
   ,UZA,QT1.QTER
@@ -1791,7 +1791,7 @@ C
   14,UTM,-4
   14,VZM,CHPROT
 C
-C...   KOPPEKciq C~-KA CBOb.CTPOK:
+C...   KOPPEKЦИЯ CЧ-KA CBOБ.CTPOK:
 C
   ,XTA,FLIN
   ,UZA,SWOUT
@@ -1808,7 +1808,7 @@ C
   ,UZA,QT
   SWOUT:,BSS,
   ,ITS,4
-  ,CALL,SOUT.K fEd`HxKiHY
+  ,CALL,SOUT.K ФEДЮHЬKИHY
   13,VTM,INPUT
   5,VTM,*OUTBUF*
 C---
@@ -1837,7 +1837,7 @@ C---
 C---
   QT1:2,XTA,NLIN
   2,ATX,NFREE
-C...   pOdgOTOBKA pOdCKAzKi
+C...   ПOДГOTOBKA ПOДCKAЗKИ
   QT:,BSS,
   14,VTM,-12
   4,MTJ,12
@@ -1859,18 +1859,18 @@ C...   pOdgOTOBKA pOdCKAzKi
   4,MTJ,15
   5,VTM,*OUTBUF*
   5,ATX,14
-  5,XTA,.pOdCKAzKA
-  ,UZA,INPUT.pYCTAq
+  5,XTA,.ПOДCKAЗKA
+  ,UZA,INPUT.ПYCTAЯ
   ,ITS,5
   14,VTM,=I78
   ,ITS,14
-  ,XTS,IN.AdP.KAP
+  ,XTS,IN.AДP.KAP
   ,ITS,
   14,VTM,=I1
   ,ITS,14
-  ,CALL,STER.K fEd`HxKiHY.
+  ,CALL,STER.K ФEДЮHЬKИHY.
   TINP:,BSS,
-C...   pOiCK pOClEdHEgO ClOBA
+C...   ПOИCK ПOCЛEДHEГO CЛOBA
   12,VTM,*PROTO*+KAP+15
   7,VTM,15
   TI1:12,UTM,-1
@@ -1881,12 +1881,12 @@ C...   pOiCK pOClEdHEgO ClOBA
   12,ATX,
   TI2:7,UTM,-1
   7,V1M,TI1
-C...   pYCTOj BBOd:
+C...   ПYCTOЙ BBOД:
   ,XTA,QFL
-  ,U1A,EXIT.TOlxKO ByBOd
+  ,U1A,EXIT.TOЛЬKO BЫBOД
   13,VTM,EXIT
-  ,UJ,CHPROT.pE~.*OUTBUF*
-C...   YdAlEHiE pOClEdHiX pPObElOB
+  ,UJ,CHPROT.ПEЧ.*OUTBUF*
+C...   YДAЛEHИE ПOCЛEДHИX ПPOБEЛOB
   TI3:,BSS,
   12,XTA,
   ,AEX,=6H
@@ -1898,7 +1898,7 @@ C...   YdAlEHiE pOClEdHiX pPObElOB
   14,ASN,64
   12,AAX,
   12,ATX,
-C...  BBOd HEpYCTOj ili OT DIALOQ
+C...  BBOД HEПYCTOЙ ИЛИ OT DIALOQ
   ,XTA,=I1
   2,ATX,INT
   ,XTA,QFL
@@ -1922,7 +1922,7 @@ C...  BBOd HEpYCTOj ili OT DIALOQ
   15,ATX,
   4,UTC,-*PROTO*-KAP
   PRIN:5,VTM,*PROTO*+KAP
-  13,VJM,CHPROT.i BBOd
+  13,VJM,CHPROT.И BBOД
 C---
   EXIT:4,MTJ,15
   14,VTM,13
@@ -1933,7 +1933,7 @@ C---
   14,VIM,*-1
   13,UJ,
 C
-C---   B B O d :
+C---   B B O Д :
 C
   INPUT:,ITA,3
   2,AEX,TYP
@@ -1958,7 +1958,7 @@ C---
   13,VTM,TINP
   3,VZM,READ*
   ,ITS,
-  ,UJ,QIN.K fEd`HxKiHY.
+  ,UJ,QIN.K ФEДЮHЬKИHY.
 C
 C...
 C
@@ -1972,10 +1972,10 @@ C
   ,END,
   JFOCC:,NAME,
 C
-C    TAPE=<HOMlEH>/<CdBig>,<R/W><MATHOM>(<ObxEM>)
-C    LUN=<MATHOM>(<ObxEM>)
+C    TAPE=<HOMЛEH>/<CДBИГ>,<R/W><MATHOM>(<OБЬEM>)
+C    LUN=<MATHOM>(<OБЬEM>)
 C
-C    pPiMEPy:
+C    ПPИMEPЫ:
 C    TAPE=1024/200,W41(140)
 C    TAPE0258/70,R54
 C    T9/0,W(1000)
@@ -1988,7 +1988,7 @@ C
   SCANER:,SUBP,
 C
 C
-  BAS:,BSS,.bAzA
+  BAS:,BSS,.БAЗA
   ,STI,9.FDB
   ,ATI,8.STRING
   ,ITA,7
@@ -1998,21 +1998,21 @@ C
   7,BASE,BAS
   9,MTJ,6
 C
-C      HA~AlO CKAHiPOBAHiq CTPOKi
+C      HAЧAЛO CKAHИPOBAHИЯ CTPOKИ
 C
   ,XTS,=6H
-  ,ATX,TYP.HEOpPEdElEH
+  ,ATX,TYP.HEOПPEДEЛEH
   5,VTM,-48
   ,XTA,=11
   ,ATX,IREG
-  ,ITS,8.HA~.AdPEC
+  ,ITS,8.HAЧ.AДPEC
   13,VJM,SCANER* + 1
   ,XTA,=10
   ,ATX,IREG
   :13,VTM,*
   ,XTA,ITYP
-  ,AEX,=I2.bYKBA
-  ,U1A,ETYP.YvE HET
+  ,AEX,=I2.БYKBA
+  ,U1A,ETYP.YЖE HET
   5,VZM,SYNTAXER
   ,XTA,SYM
   ,AEX,=6H
@@ -2022,25 +2022,25 @@ C
   5,UTM,8
   ,UJ,SCANER*
 C
-C      ByqCHEHiE TipA zAKAzA
+C      BЫЯCHEHИE TИПA ЗAKAЗA
 C
   ETYP:,BSS,
   ,XTA,TYP
   ,AEX,=6H
-  ,UZA,SYNTAXER.HET TipA
+  ,UZA,SYNTAXER.HET TИПA
   ,ARX,=6H'177''177''177''177''177''177'
   ,AAX,=6H'200''200''200''200''200''200'
   ,AEX,=6H'200''200''200''200''200''200'
   ,ASN,64+7
   ,ARX,=6H'177''177''177''177''177''177'
   ,AAX,=6H'177''177''177''177''177''177'
-  ,ATX,MASK.MACKA zAKAzA
-  ,XTA,ITYP.~TO Bzqli
+  ,ATX,MASK.MACKA ЗAKAЗA
+  ,XTA,ITYP.ЧTO BЗЯЛИ
   ,AEX,=I1
-  ,UZA,CHTYP.cifPY
+  ,UZA,CHTYP.ЦИФPY
   ,XTA,SYM
   ,AEX,=1H=
-  ,U1A,SYNTAXER.dOlvHO byTx =
+  ,U1A,SYNTAXER.ДOЛЖHO БЫTЬ =
   13,VJM,SCANER*
   CHTYP:,BSS,
   ,XTA,TYP
@@ -2054,16 +2054,16 @@ C
   SYNTAXER:12,VTM,1
   ,UJ,RESTORE
 C
-C      "TAPE": zAKAz lEHTy
+C      "TAPE": ЗAKAЗ ЛEHTЫ
 C
   TAPE*:,BSS,
   ,XTA,
   5,VTM,-16
-  ,ATX,NAM.iMq lEHTy
+  ,ATX,NAM.ИMЯ ЛEHTЫ
   SCNAME:,BSS,
   ,XTA,ITYP
   ,AEX,=I1
-  ,U1A,SHIFT.HE cifPA
+  ,U1A,SHIFT.HE ЦИФPA
   ,XTA,SYM
   ,ASN,64+40
   ,AAX,=17
@@ -2078,8 +2078,8 @@ C
   ,AEX,=1H/
   ,U1A,SYNTAXER.HE /
   ,XTA,NAM
-  ,UZA,SYNTAXER.HET iMEHi
-  ,XTA,=5.BOCxM,~iClO
+  ,UZA,SYNTAXER.HET ИMEHИ
+  ,XTA,=5.BOCЬM,ЧИCЛO
   ,ATX,IREG
   13,VJM,SCANER*
   ,XTA,ITYP
@@ -2088,12 +2088,12 @@ C
   ,XTA,SYM
   ,ATX,SHIF
   ,ARX,=3777 7777 7777 5777
-  ,UZA,SYNTAXER.bOlx{Oj CdBig
+  ,UZA,SYNTAXER.БOЛЬШOЙ CДBИГ
   ,XTA,IKOD
   ,AEX,=6H
   ,ASN,64-40
   ,AEX,=6H
-  ,ATX,SYM.PAzdEliTElx
+  ,ATX,SYM.PAЗДEЛИTEЛЬ
   ,AEX,=1H,
   ,U1A,CHSC
   ,XTA,=10
@@ -2101,13 +2101,13 @@ C
   13,VJM,SCANER*
   ,XTA,IKOD
   ,AEX,=I2
-  ,U1A,LUN*.HE bYKBA
+  ,U1A,LUN*.HE БYKBA
   ,XTA,SYM
   ,AEX,=1HW
   ,UZA,ISR
   ,XTA,SYM
   ,AEX,=1HR
-  ISR:,U1A,SYNTAXER.HE "W" i HE "R"
+  ISR:,U1A,SYNTAXER.HE "W" И HE "R"
   ,XTA,SYM
   6,ATX,6
   13,VJM,SCANER*
@@ -2117,7 +2117,7 @@ C
   ,AEX,=I1
   ,U1A,CHEND.HE MAT.HOMEP
 C
-C      "LUN": dOBBOd MAT.HOMEPA
+C      "LUN": ДOBBOД MAT.HOMEPA
 C
   LUN*:,BSS,
   ,XTA,=I0.MAT.HOMEP
@@ -2126,7 +2126,7 @@ C
   5,VTM,-6
   SCLUN:,XTA,ITYP
   ,AEX,=I1
-  ,U1A,SYNTAXER.HE cifPA
+  ,U1A,SYNTAXER.HE ЦИФPA
   ,XTA,SYM
   ,ASN,64+40
   ,AAX,=17
@@ -2143,18 +2143,18 @@ C
   CHEND:,BSS,
   ,XTA,ITYP
   ,AEX,=I0
-  ,UZA,ENDSTR.KOHEc CTPOKi
+  ,UZA,ENDSTR.KOHEЦ CTPOKИ
   ,XTA,ITYP
   ,AEX,=I3
-  ,U1A,SYNTAXER.HE PAzdEliTElx
+  ,U1A,SYNTAXER.HE PAЗДEЛИTEЛЬ
 C
-C      zAKAz ObxEMA
+C      ЗAKAЗ OБЬEMA
 C
   CHSC:,BSS,
   ,XTA,SYM
   ,AEX,=1H(
   ,U1A,ENDSTR
-  ,XTA,=5.BOCxM.~iClO
+  ,XTA,=5.BOCЬM.ЧИCЛO
   ,ATX,IREG
   13,VJM,SCANER*
   ,XTA,ITYP
@@ -2166,7 +2166,7 @@ C
   12,VTM,4
   ,UJ,RESTORE
   ENDSTR:,XTA,
-  ,ATX,SYM.ObxEM TOMA
+  ,ATX,SYM.OБЬEM TOMA
   :,XTA,KYC
   6,ATX,1
   ,ASN,64-12
@@ -2180,48 +2180,48 @@ C
   ,AAX,MASK
   ,UZA,TOTIP
 C
-C      zAKAz TOMA
+C      ЗAKAЗ TOMA
 C
   ,XTA,KYC
   ,ASN,64-30.MAT.HOMEP
-  ,AOX,NAM.HOMEP lEHTy
-  ,AOX,=:00 77.Kl`~
+  ,AOX,NAM.HOMEP ЛEHTЫ
+  ,AOX,=:00 77.KЛЮЧ
   6,XTS,6
   :,U1A,*+1
-  ,XTA,=1HR.~TEHiE
-  :6,ATX,6.pO YMOl~AHi`
+  ,XTA,=1HR.ЧTEHИE
+  :6,ATX,6.ПO YMOЛЧAHИЮ
   ,AEX,=1HW
   :13,VTM,0
   ,UZA,*+2
-  ,XTA,=200000.BIT17=~TEHiE
+  ,XTA,=200000.BIT17=ЧTEHИE
   13,VTM,40000B
   :15,AOX,
-  ,*50,131B.zAKAz TOMA
+  ,*50,131B.ЗAKAЗ TOMA
   ,AEX,
-  ,UZA,BUSY.YCpE{HO
+  ,UZA,BUSY.YCПEШHO
   ,AEX,=1
   12,VTM,6.HET TOMA
   ,UZA,RESTORE
   ,AEX,=2.3
-  ,UZA,ERRNUM.zAHqT MAT.N
+  ,UZA,ERRNUM.ЗAHЯT MAT.N
   ,AEX,=4.7
-  12,VTM,7.MHOgO lEHT
+  12,VTM,7.MHOГO ЛEHT
   ,UZA,RESTORE
   ,AEX,=5.2
-  ,U1A,SYNTAXER.HEpOHqTHO ~TO
-  12,VTM,8.lEHTA zAHqTA
+  ,U1A,SYNTAXER.HEПOHЯTHO ЧTO
+  12,VTM,8.ЛEHTA ЗAHЯTA
   14,VZM,RESTORE
   ,ITA,14
   ,ASN,64-12
   ,AEX,KYC
-  ,UZA,BUSY.YvE zAKAzAHA
+  ,UZA,BUSY.YЖE ЗAKAЗAHA
 C
-C      CMEHA MAT.HOMEPA lEHTy
+C      CMEHA MAT.HOMEPA ЛEHTЫ
 C
   ,AEX,KYC
   ,*50,105B
   ,AAX,=177777
-  ,U1A,ERRNUM.MAT.HOM.zAHqT
+  ,U1A,ERRNUM.MAT.HOM.ЗAHЯT
   ,ITA,13
   ,ASN,64+5.15 -> 10
   ,ITS,14
@@ -2232,13 +2232,13 @@ C
   ,ATX,SYM
   ,*72,SYM
 C
-C      pOdTBEPvdEHiE pAPOlq
+C      ПOДTBEPЖДEHИE ПAPOЛЯ
 C
   BUSY:,BSS,
   ,XTA,NAM
   ,*50,127B
   ,AEX,
-  ,UZA,NOPASS.HET pAPOlEj
+  ,UZA,NOPASS.HET ПAPOЛEЙ
   12,VTM,9
   ,AAX,=1
   ,U1A,RESTORE
@@ -2246,27 +2246,27 @@ C
   NOPASS:,XTA,NAM
   ,*50,121B
 C
-C      zAdAHiE CdBigA pO TOMY
+C      ЗAДAHИE CДBИГA ПO TOMY
 C
   13,VJM,OPROS.TYPA
   ,ASN,64+5
   ,ATI,14
   ,XTA,SHIF
-  14,V1M,*+2.lEHTA
-  :11,VZM,*+1.diCK 7,25Mgb
+  14,V1M,*+2.ЛEHTA
+  :11,VZM,*+1.ДИCK 7,25MГБ
   ,ASN,64+5
   :,AOX,KYC
   ,*50,112B
   ,ITA,11
   ,UJ,TOTIP1
 C
-C      ByqCHEHiE TipA zAKAzyBAEMOgO TOMA
+C      BЫЯCHEHИE TИПA ЗAKAЗЫBAEMOГO TOMA
 C
   OPROS:,BSS,
   ,XTA,KYC
   ,*50,156B
   ,ASN,64+6
-  ,ATI,10.~iClO |KCT-B
+  ,ATI,10.ЧИCЛO ЭKCT-B
   ,YTA,
   ,ASN,64+42
   ,ATI,11.TYP Y-BA
@@ -2275,23 +2275,23 @@ C
   TOTIP:,BSS,
   13,VJM,OPROS
   11,UTM,-77B
-  11,VZM,NOBUSY.HE zAKAzAH
+  11,VZM,NOBUSY.HE ЗAKAЗAH
   11,UTM,77B
   ,XTA,=1HW
-  6,ATX,6.BCEgdA HA zApiCx
+  6,ATX,6.BCEГДA HA ЗAПИCЬ
   TOTIP1:,BSS,
   ,ASN,64+5
-  ,UZA,DIS.TOM HA diCKE
-  ,XTA,=I1.Tip - lEHTA
+  ,UZA,DIS.TOM HA ДИCKE
+  ,XTA,=I1.TИП - ЛEHTA
   6,ATX,7
   11,UTM,-42B
-  11,V1M,TT1.lEHTA b|CM
-  ,XTA,=I4.lEHTA EC
+  11,V1M,TT1.ЛEHTA БЭCM
+  ,XTA,=I4.ЛEHTA EC
   ,UJ,TT2
   DIS:,XTA,=I0
   6,ATX,7
   TT1:,XTA,=I1
-  TT2:6,ATX,.pOd MAT.HOM.
+  TT2:6,ATX,.ПOД MAT.HOM.
   ,ITA,10
   ,ASN,64-5
   ,U1A,ISV1
@@ -2299,10 +2299,10 @@ C
   ,AEX,=1
   ,ASN,64-9
   ,ARX,=1000
-  ISV1:,ATX,SHIF.CTAHdAPT
+  ISV1:,ATX,SHIF.CTAHДAPT
   12,VTM,0
   ,XTA,SYM
-  ,U1A,ISV2.zAdAH ObxEM
+  ,U1A,ISV2.ЗAДAH OБЬEM
   6,XTA,2
   ,AAX,=177777
   ,UZA,ISVOL
@@ -2316,7 +2316,7 @@ C
   6,ATX,2
   ,UJ,RESTORE
 C
-C      BOCCTAHOBlEHiE PEgiCTPOB
+C      BOCCTAHOBЛEHИE PEГИCTPOB
 C
   RESTORE:,BSS,
   6,MTJ,8
@@ -2331,7 +2331,7 @@ C
   ,XTA,
   13,UJ,
 C
-C      pOdgOTOBKA COOb}EHij
+C      ПOДГOTOBKA COOБЩEHИЙ
 C
   ERRNUM:12,VTM,2
   ,UJ,RESTORE
@@ -2354,17 +2354,17 @@ C
   13,UJ,
 C
   DIAGN:,BSS,
-  1,ISO,18HCiHTAKCi~.O{ibKA ''
-  2,ISO,18HO{.HOMEP YCTP-BA ''
-  3,ISO,18HHE bylO zAKAzA   ''
-  4,ISO,18HpPEBy{EH ObxEM   ''
-  5,ISO,18HzApiCx zApPE}EHA ''
-  6,ISO,18HHET lEHTy        ''
-  7,ISO,18HMHOgO lEHT       ''
-  8,ISO,18HzAHqTA lEHTA     ''
-  9,ISO,18HzApPE}EH dOCTYp  ''
+  1,ISO,18HCИHTAKCИЧ.OШИБKA ''
+  2,ISO,18HOШ.HOMEP YCTP-BA ''
+  3,ISO,18HHE БЫЛO ЗAKAЗA   ''
+  4,ISO,18HПPEBЫШEH OБЬEM   ''
+  5,ISO,18HЗAПИCЬ ЗAПPEЩEHA ''
+  6,ISO,18HHET ЛEHTЫ        ''
+  7,ISO,18HMHOГO ЛEHT       ''
+  8,ISO,18HЗAHЯTA ЛEHTA     ''
+  9,ISO,18HЗAПPEЩEH ДOCTYП  ''
 C
-C      ObPA}EHiE K CKAHEPY
+C      OБPAЩEHИE K CKAHEPY
 C
   SCANER*:,BSS,
   14,VTM,=I0
@@ -2380,7 +2380,7 @@ C
   ,ITS,.IPOZ
   ,UJ,SCANER
 C
-C      ObMEH C TOMOM
+C      OБMEH C TOMOM
 C
   JFEX1:,ENTRY,
   ,STI,8.FDB
@@ -2410,7 +2410,7 @@ C
   EXCH:,ATX,KYC
   8,XTA,
   ,AEX,=I1
-  ,U1A,ERRCALL.pOKA TYP=1
+  ,U1A,ERRCALL.ПOKA TYP=1
   8,XTA,1
   ,ASN,64-12
   ,AOX,KYC
@@ -2419,19 +2419,19 @@ C
   8,AEX,6
   ,AEX,=1HR
   12,VTM,5
-  ,UZA,ERROR*.zApP.zApiCx
+  ,UZA,ERROR*.ЗAПP.ЗAПИCЬ
   ,XTA,KYC
   ,AAX,=1777
   ,AEX,=1777
   8,ARX,2
   ,AAX,=2000
   12,VTM,4
-  ,UZA,ERROR*.~YvOj TPEK
+  ,UZA,ERROR*.ЧYЖOЙ TPEK
   ,*70,KYC
   ,XTA,=I0
   13,UJ,
   ERRCALL:12,VTM,3
-  ,UJ,ERROR*.HE YME` pO-dPYgOMY
+  ,UJ,ERROR*.HE YMEЮ ПO-ДPYГOMY
 C
 C
 C
@@ -2445,14 +2445,14 @@ C
   IREG  :,BSS,1
   IKOD  :,BSS,1
   ,END,
-  TASK41:,NAME,.gOlOBA APXiBAPiYCA
+  TASK41:,NAME,.ГOЛOBA APXИBAPИYCA
 C
-C *******  A.p.CApOvHiKOB
-C          E.d.fEd`HxKiH
+C *******  A.П.CAПOЖHИKOB
+C          E.Д.ФEДЮHЬKИH
 C
-C    gOlOBHAq pPOgPAMMA APXiBAPiYCA
-C       ( PACpPEdElEHiE pAMqTi )
-C        YKOPO~EHA dlq diCpAKA.
+C    ГOЛOBHAЯ ПPOГPAMMA APXИBAPИYCA
+C       ( PACПPEДEЛEHИE ПAMЯTИ )
+C        YKOPOЧEHA ДЛЯ ДИCПAKA.
 C
   *PROTO*:LC,BLOCK,AP,NUNIT,NL,NF,KAP(40)
   *CATAR * :,PC,1024
@@ -2493,13 +2493,13 @@ C
   ,UTC,NUNIT
   ,ATX,
   ,UJ,A
-  PROTO:,INT,2.biliCT
+  PROTO:,INT,2.БИЛИCT
    RET:,BSS,2
 C
 C   FUNCTION MAKRIW,MAKWIW(MAC,ZON)
-C   pOlY~EHiE IW70 dlq ~TEHiq, zApiCi
-C   MAC - CTPAHi~Hyj MACCiB
-C   ZON - HOMEP zOHy
+C   ПOЛYЧEHИE IW70 ДЛЯ ЧTEHИЯ, ЗAПИCИ
+C   MAC - CTPAHИЧHЫЙ MACCИB
+C   ZON - HOMEP ЗOHЫ
 C
   MAKRIW:,ENTRY,
   ,UTC,=:001
@@ -2515,8 +2515,8 @@ C
   13,UJ,
 C
 C   FUNCTION KLETKA(LIS,N)
-C   pOlY~EHiE COdEPviMOgO N-j
-C   12-biTHOj KlETKi B MACCiBE LIS
+C   ПOЛYЧEHИE COДEPЖИMOГO N-Й
+C   12-БИTHOЙ KЛETKИ B MACCИBE LIS
 C
   KLETKA:,ENTRY,
   8,BASE,B
@@ -2534,14 +2534,14 @@ C
   ,ASN,64-12
   ,UJ,*-1
   :,ASN,64+36
-  13,UZA,.pYCTO
+  13,UZA,.ПYCTO
   ,AOX,=I0
   13,UJ,
 C
 C    FUNCTION LETBI(STRING)
-C    pOlY~EHiE biTOBOj {KAly iz
-C    TEKCTOBOj CTPOKi STRING :
-C    B47 - "A", B46 - "B"   i T.d.
+C    ПOЛYЧEHИE БИTOBOЙ ШKAЛЫ ИЗ
+C    TEKCTOBOЙ CTPOKИ STRING :
+C    B47 - "A", B46 - "B"   И T.Д.
 C
   LETBI:,ENTRY,
   8,BASE,B
@@ -2571,9 +2571,9 @@ C
   13,UJ,
 C
 C    FUNCTION ICOS ( ISO,COSY )
-C    pEPEBOd TEKCTOBOj CTPOKi
-C    iz  ISO  B  COSY.
-C    PEzYlxTAT - ~iClO ClOB COSY
+C    ПEPEBOД TEKCTOBOЙ CTPOKИ
+C    ИЗ  ISO  B  COSY.
+C    PEЗYЛЬTAT - ЧИCЛO CЛOB COSY
 C
   ICOS:,ENTRY,
   8,BASE,B
@@ -2612,7 +2612,7 @@ C
   9,UJ,
 C
 C     SUBROUTINE ECEXTR(LUN,JOB)
-C     pOziciOHiPOBAHiE lEHTy EC
+C     ПOЗИЦИOHИPOBAHИE ЛEHTЫ EC
 C
   ECEXTR:,ENTRY,
   8,BASE,B
@@ -2626,8 +2626,8 @@ C
   13,UJ,
 C
 C     SUBROUTINE  ADDCS(MAC,ICS)
-C     pOdC~ET KOHTP. CYMMy MACCiBA MAC(1024)
-C     HA~. zHA~EHiE i PEzYlxTAT - B ICS
+C     ПOДCЧET KOHTP. CYMMЫ MACCИBA MAC(1024)
+C     HAЧ. ЗHAЧEHИE И PEЗYЛЬTAT - B ICS
 C
  ADDCS:,ENTRY,
  ,STI,11.ICS

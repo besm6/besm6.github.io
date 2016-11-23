@@ -364,17 +364,17 @@ C
       END
       LOGICAL FUNCTION BUFIN(STRING,LAST)
       IMPLICIT INTEGER(A-Z)
-C     ! FUNCTION : ~TEHiE dAHHyX C zAKAzAHHOgO HOCiTElq
-C     !    B PEviME NATIVE    -  pOCTPO~HO ~EPEz pPOgPAMMY RECARD
-C     !            .NOT.NATIVE-  pOzOHHO ~EPEz pPOgPAMMY JFEX1
-C                                B |TO ClY~AE STRING ObqzATElxHO CTPAHi~
+C     ! FUNCTION : ЧTEHИE ДAHHЫX C ЗAKAЗAHHOГO HOCИTEЛЯ
+C     !    B PEЖИME NATIVE    -  ПOCTPOЧHO ЧEPEЗ ПPOГPAMMY RECARD
+C     !            .NOT.NATIVE-  ПOЗOHHO ЧEPEЗ ПPOГPAMMY JFEX1
+C                                B ЭTO CЛYЧAE STRING OБЯЗATEЛЬHO CTPAHИЧ
 C                                             ------             -------
-C     !      pAPAMETPy:
+C     !      ПAPAMETPЫ:
 C     !      ---------
-C     !      STRING     -  BXOdHOj bYfEP ili O~EPEdHAq CTPOKA TEKCTA
-C     !      LAST       -  pPizHAK pOClEdHEgO ObMEHA
-C     !      BUFIN = .TRUE. HOPMAlxHyj ObMEH
-C     !              .FALSE. byli O{ibKi
+C     !      STRING     -  BXOДHOЙ БYФEP ИЛИ OЧEPEДHAЯ CTPOKA TEKCTA
+C     !      LAST       -  ПPИЗHAK ПOCЛEДHEГO OБMEHA
+C     !      BUFIN = .TRUE. HOPMAЛЬHЫЙ OБMEH
+C     !              .FALSE. БЫЛИ OШИБKИ
 C     !            .
 C     PARAMETER( US = O'0000000000000037' )
       PARAMETER( US =                 31  )
@@ -392,28 +392,28 @@ C                                           SECTOR-SIZED BUFFER
       EQUIVALENCE (FDB,TYPMED)
 C                                           INDEX 1ST WORD OF STRING
 C--
-C--   HA~AlxHyE YCTAHOBKi
+C--   HAЧAЛЬHЫE YCTAHOBKИ
 C
       LAST = .FALSE.
       BPTR = 1
       BUFHOLD= 0
       BUFIN= .TRUE.
 C--
-C--   pOEXAli
+C--   ПOEXAЛИ
 C
       IF (NATIVE) THEN
 C--
-C--   pOCTPO~Hyj BBOd
+C--   ПOCTPOЧHЫЙ BBOД
 C
         CALL RECARD(STRING)
         IF (STRING(1:9) .EQ. '*READ OLD') THEN
 C--
-C--     KOHEc fAjlA
+C--     KOHEЦ ФAЙЛA
 C
           LAST = .TRUE.
         ELSE
 C--
-C--       ObPEvEM XBOCTOByE pPObEly
+C--       OБPEЖEM XBOCTOBЫE ПPOБEЛЫ
 C
           DO 10 I=80,1,-1
            IF (STRING(I:I) .NE. ' ') GO TO 20
@@ -426,18 +426,18 @@ C
         END IF
       ELSE
 C--
-C--   pOzOHHyj BBOd iHfOPMAcii
+C--   ПOЗOHHЫЙ BBOД ИHФOPMAЦИИ
 C
         NZONE = NZONE + 1
         IF (NZONE .GE. MAXZON) THEN
 C--
-C--       pPO~iTAli pOClEdH`` zOHY
+C--       ПPOЧИTAЛИ ПOCЛEДHЮЮ ЗOHY
 C
           LAST = .TRUE.
         ELSE
           IF (JFEX1(FDB,STRING,NZONE,'R') .EQ. 0) THEN
 C--
-C--         HOPMAlxHO pPO~iTAli zOHY
+C--         HOPMAЛЬHO ПPOЧИTAЛИ ЗOHY
 C
              BPTR = 1
              BUFHOLD = BUFLEN
@@ -478,7 +478,7 @@ C
       IF (NATIVE) THEN
         IF (BPTR .GT. 1) THEN
 C--
-C--     dObABiM pPObEly dO KOHcA CTPOKi
+C--     ДOБABИM ПPOБEЛЫ ДO KOHЦA CTPOKИ
 C
           STRING(BPTR:84) = ' '
           CALL WRCARD(STRING)
@@ -493,12 +493,12 @@ C
        BPTR = 1
       ELSE
 C--
-C--   PAbOTAEM C cElOj zOHOj
+C--   PAБOTAEM C ЦEЛOЙ ЗOHOЙ
 C
         NZONE = NZONE + 1
         IF (NZONE .GE. MAXZON) THEN
 C--
-C--   dAlx{E piCATx HEKYdA
+C--   ДAЛЬШE ПИCATЬ HEKYДA
 C
           BUFOUT = .FALSE.
         ELSE IF (JFEX1(FDB,STRING,NZONE,'W') .EQ. 0) THEN
@@ -509,7 +509,7 @@ C
         END IF
       END IF
 C--
-C--   OTlAdKA
+C--   OTЛAДKA
 C
       IF (EOF .AND. DEBUG)  THEN
          IF (NATIVE) NZONE=NZEDIT(0) - 1
@@ -524,17 +524,17 @@ C-CR.KERMAIN-!
 C       PROGRAM KERMIT(INPUT=TTY, OUTPUT=TTY)
 C   KERMIT-B6  -  ALMA-ATA, DUBNA  BESM6 KERMIT
 C
-CAdApTiPOBAHA dlq b|CM-6 i`Hx, CEHTqbPx 1987 g.
-C     pOClEdHqq KOPPEKciq 09 i`Hq 1988 g. (fAjH B.|.)
+CAДAПTИPOBAHA ДЛЯ БЭCM-6 ИЮHЬ, CEHTЯБPЬ 1987 Г.
+C     ПOCЛEДHЯЯ KOPPEKЦИЯ 09 ИЮHЯ 1988 Г. (ФAЙH B.Э.)
 C
-C dEHqKiH p.A.
-C   lBM KAzgY g.AlMA-ATA TEl.:67-78-10, 69-50-21
-C KAdAHcEB.C.g.
-C   lBTA Oiqi g.dYbHA TEl:6-35-36
-C CApOvHiKOB.A.p.
-C   lBTA Oiqi g.dYbHA TEl.:63-429, 62-467
-C fAjH B.|.
-C   lBM KAzgY g.AlMA-ATA TEl.:69-50-21, 67-78-10
+C ДEHЯKИH П.A.
+C   ЛBM KAЗГY Г.AЛMA-ATA TEЛ.:67-78-10, 69-50-21
+C KAДAHЦEB.C.Г.
+C   ЛBTA OИЯИ Г.ДYБHA TEЛ:6-35-36
+C CAПOЖHИKOB.A.П.
+C   ЛBTA OИЯИ Г.ДYБHA TEЛ.:63-429, 62-467
+C ФAЙH B.Э.
+C   ЛBM KAЗГY Г.AЛMA-ATA TEЛ.:69-50-21, 67-78-10
 C-----------------------------------------------
 C
 C     !  AUTHOR :  LEAH MILLER,
@@ -625,7 +625,7 @@ C       PARAMETER (ZERO= Z'00')
 C     ! MAIN PROC. RTNE.
 C
         NTERM = ITCONB(-1)
-      CALL DISPLAY(' DUBNA/ALMA-ATA  KERMIT-B6   BEPCiq 1.4.')
+      CALL DISPLAY(' DUBNA/ALMA-ATA  KERMIT-B6   BEPCИЯ 1.4.')
       CALL DISPLAY('.')
       CALL DISPLAY(' TYPING "?" TO LIST VALID COMMAND NAMES.')
       CALL DISPLAY('.')
@@ -856,7 +856,7 @@ C                                           MY REPEAT COUNT PREFIX
 C     !  USE THIS DEFAULT TILL WE GET HIS PARAMS :
 C                                          STORE THE REAL CHARACTER
       HISPARMS(5:5) = CHAR(CR)
-CD... LUNLOG = 8            ! bylO dlq pPOTOKOlA
+CD... LUNLOG = 8            ! БЫЛO ДЛЯ ПPOTOKOЛA
       LUNLOG = 51
       LOGIOC = 0
 C                              DEFAULT BESM-6 TIMEOUT =  6 SECS.
@@ -922,11 +922,11 @@ C
       NZONE = -1
       IF (NARGS .GT. 1) THEN
 C
-C  !!!!!  BHiMAHi` PAzPAbOT~iKOB !!!!!!
+C  !!!!!  BHИMAHИЮ PAЗPAБOTЧИKOB !!!!!!
 C
-C libO zdECx, libO B 'SENDHDR' ClEdYET AKKYPATHEE PAbOTATx
-C  THISARG  i  ARGS, ECli HAdYMAETCq pEPEdABATx zA OdHY
-C  diPEKTiBY  'SEND' bOlEE OdHOgO fAjlA
+C ЛИБO ЗДECЬ, ЛИБO B 'SENDHDR' CЛEДYET AKKYPATHEE PAБOTATЬ
+C  THISARG  И  ARGS, ECЛИ HAДYMAETCЯ ПEPEДABATЬ ЗA OДHY
+C  ДИPEKTИBY  'SEND' БOЛEE OДHOГO ФAЙЛA
 C
         THISAR = 2
         BUFSTR = CMDSTR(ARGS(2,1):ARGS(2,2))
@@ -1061,7 +1061,7 @@ C     CALL DIALOQ(WRKLINE,K,NL)
           END IF
           IF (DEBUG) CALL TIMPRT('PROMPT',LINP)
 C--
-C--     Y~ET CiBOlA "CTPElKA BlEBO" - CNTRLH
+C--     YЧET CИBOЛA "CTPEЛKA BЛEBO" - CNTRLH
 C
   171     IPOINT = IANY(KAP(1:LINP),CNTRLH)
           KH = 0
@@ -1069,12 +1069,12 @@ C
   172       KH = KH+1
             IF (KAP(IPOINT+KH:IPOINT+KH) .EQ. CNTRLH) GO TO 172
 C--
-C--     HE OpYCTElA li CTPOKA?
+C--     HE OПYCTEЛA ЛИ CTPOKA?
 C
             IF (KH .LT. LINP-1) THEN
               IF (IPOINT-KH .GT. 0) THEN
 C--
-C--     HET, KOE ~TO BCE vE COXPAHilOCx
+C--     HET, KOE ЧTO BCE ЖE COXPAHИЛOCЬ
 C
                 KAP(IPOINT-KH:LINP-2*KH) = KAP(IPOINT+KH:LINP)
                 LINP = LINP - 2*KH
@@ -1094,7 +1094,7 @@ C
 C
           CMDLEN = MIN0( IANY(KAP(1:LINP),LF), IANY(KAP(1:LINP),CR) )
           IF (CMDLEN-1) 19,17,23
-C B CTPOKE HE bylO Hi LF Hi CR
+C B CTPOKE HE БЫЛO HИ LF HИ CR
 C
    19     CMDLEN = LINP + 1
    23     CMDSTR = KAP(1:CMDLEN-1)//' $$'
@@ -1696,9 +1696,9 @@ C                                            GET INITIAL TIMES
 CD    CALL KGETIME(TCPU,TIO)
       CALL CTIME(TKB,TCB)
 C
-C--- pPiBqzKA CETEBOgO TEPMiHAlA
+C--- ПPИBЯЗKA CETEBOГO TEPMИHAЛA
 C
-C pEPEHECli pPiBqzKY B gOlOBY
+C ПEPEHECЛИ ПPИBЯЗKY B ГOЛOBY
 C     NTERM= ITCONB(-1)
 100   IF ( STATE .NE. COMPLETE)  THEN
         IF (STATE .EQ. INIT) THEN
@@ -2032,7 +2032,7 @@ C                                          GET INITIAL TRANS. TIMES
       CALL CTIME(TKB,TCB)
       STATE = INIT
 C---
-C--  pPiBqzKA CETEBOgO KAHAlA
+C--  ПPИBЯЗKA CETEBOГO KAHAЛA
 C
 C     NTERM = ITCONB(-1)
 100   CONTINUE
@@ -2720,7 +2720,7 @@ CD...   ELSE
 CD...     STATUS = .TRUE.
 CD...   END IF
 CD... END IF
-        LOGIT = '*** pPOTOKOl PAbOTy CiCTEMy KERMIT-B6 ***.'
+        LOGIT = '*** ПPOTOKOЛ PAБOTЫ CИCTEMЫ KERMIT-B6 ***.'
         PRINT 1000,LOGIT
  1000 FORMAT(' *** LOG ***  ',7A6)
         STATUS = .TRUE.
@@ -2788,7 +2788,7 @@ CD      WRITE(UNIT=LUNLOG,FMT=*) PACKET(PX)(1:K)
       COMMON /ENVIRON/ DEBUG,NATIVE,QUOTE8,REPEAT,WINDOW,ECHO
      !,                LOGGING
       CHARACTER*80 TEXT
-      TEXT = '**** KOHEc pPOTOKOlA KERMIT-B6 ****'
+      TEXT = '**** KOHEЦ ПPOTOKOЛA KERMIT-B6 ****'
       PRINT 1000,TEXT
  1000 FORMAT(' *** LOG ***  ',6A6)
       LOGGING = .FALSE.
@@ -2803,18 +2803,18 @@ CD      WRITE(UNIT=LUNLOG,FMT=*) PACKET(PX)(1:K)
 *FOREX
       SUBROUTINE TIMPRT(KOD,LSTR)
 C.
-C...   SUBROUTINE TIMPRT (KOD,LSTR) - pE~ATx zACE~EK BPEMEHi HA BBOd/ByB
+C...   SUBROUTINE TIMPRT (KOD,LSTR) - ПEЧATЬ ЗACEЧEK BPEMEHИ HA BBOД/BЫB
 C.
-C.     pAPAMETPy:
+C.     ПAPAMETPЫ:
 C.     ---------
-C.     KOD  -  6-Ti CiMBOlxHAq CTPOKA - iMq zACE~Ki BPEMEHi
-C.     LSTR -  dliHA pOPcii iHfOPMAcii B bAjTAX
+C.     KOD  -  6-TИ CИMBOЛЬHAЯ CTPOKA - ИMЯ ЗACEЧKИ BPEMEHИ
+C.     LSTR -  ДЛИHA ПOPЦИИ ИHФOPMAЦИИ B БAЙTAX
 C.
 C.    ------------------
-C.    pPiME~AHiE: dAHHAq pPOgPAMMA PAbOTAET CO CpEciAlxHOj BEPCiEj
-C.                p/pPOgPAMM BINARY-ObMEHA. CTAHdAPTHAq BEPCiq
-C.                |TiX pPOgPAMM dElATx zACE~Ki BPEMEHi HE YMEET i
-C.                ClEdOBATElxHO,PAbOTA dAHHOj p/pPOgPAMMy bECCMyClEHA
+C.    ПPИMEЧAHИE: ДAHHAЯ ПPOГPAMMA PAБOTAET CO CПEЦИAЛЬHOЙ BEPCИEЙ
+C.                П/ПPOГPAMM BINARY-OБMEHA. CTAHДAPTHAЯ BEPCИЯ
+C.                ЭTИX ПPOГPAMM ДEЛATЬ ЗACEЧKИ BPEMEHИ HE YMEET И
+C.                CЛEДOBATEЛЬHO,PAБOTA ДAHHOЙ П/ПPOГPAMMЫ БECCMЫCЛEHA
 C. -------------------------------------------------------------------
       CHARACTER*6 KOD
       COMMON /MOMENT/ MOM(15)
@@ -2833,11 +2833,11 @@ C. -------------------------------------------------------------------
           PRINT 3000,KOD,TIMINP,BAUNIN,TIMOUT,BAUNOT
         END IF
       END IF
- 1000 FORMAT(' ** TIMPRT ** : ',A6,' BP.BBOdA=',F9.4,' CKOPOCTx BBOdA'
-     *       ,'=',F9.4,' CiMB/C')
+ 1000 FORMAT(' ** TIMPRT ** : ',A6,' BP.BBOДA=',F9.4,' CKOPOCTЬ BBOДA'
+     *       ,'=',F9.4,' CИMB/C')
  2000 FORMAT(' ** TIMPRT ** : ',40X,A6,
-     *       ' -- BP.ByBOdA=',F9.4,' CKOPOCTx ByBOdA=',
-     *        F9.4,' CiMB/C')
+     *       ' -- BP.BЫBOДA=',F9.4,' CKOPOCTЬ BЫBOДA=',
+     *        F9.4,' CИMB/C')
  3000 FORMAT(' ** TIMPRT ** :',A6,'INPUT - TIM/BAUND=',2F9.4,' OUTPUT -'
      *       ,' TIM/BAUND=',2F9.4)
        RETURN

@@ -11,7 +11,7 @@
 *FTN
       FUNCTION MICCAT(STR)
 C*
-C***   pE~ATx KATAlOgA APXiBA KPOCC-CiCTEMy
+C***   ПEЧATЬ KATAЛOГA APXИBA KPOCC-CИCTEMЫ
 C*        *CALL MICCAT [ :ROM ]
 C*
       COMMON /PROTO/ PROTO(30)
@@ -32,7 +32,7 @@ C-------------------------------------------
       CALL VMEMOR(300000B) $ MICCAT=0
       CALL VMREAD(KEY,0,9) $ MROM=LEX
       NSTEP=3 $ IF(KEY.EQ.'MICROB') GOTO 9
-      CALL DIALOG('APXiB pPOgPAMM pYCT.',-24,-1)
+      CALL DIALOG('APXИB ПPOГPAMM ПYCT.',-24,-1)
       GOTO 999
   9   CALL MICSEQ(IREZ) $ IF(IREZ.NE.0) GOTO 10
       K=K+1 $ MC(1,K)=NAME $ MC(2,K)=MCN(ITYP)
@@ -51,13 +51,13 @@ C-------------------------------------------
       CALL PUTG(MC(4,K),KR,1,6,0,IP) $ GOTO 9
 C---
  10   CALL SHSORT(MC,K,5,1) $ N=1
-      MC(1,K+1)='CBObOd' $ MC(2,K+1)='HO - '
+      MC(1,K+1)='CBOБOД' $ MC(2,K+1)='HO - '
       CALL PUTG(MC(3,K+1),LFREE,1,6,0,IP)
-      MC(1,K+2)='BCEgO ' $ MC(2,K+2)='iMEH :'
+      MC(1,K+2)='BCEГO ' $ MC(2,K+2)='ИMEH :'
       CALL PUTG(MC(3,K+2),K,1,6,0,IP) $ JLC=1
-      MC(1,K+3)='PAzMEP' $ MC(2,K+3)=' TAbl:'
+      MC(1,K+3)='PAЗMEP' $ MC(2,K+3)=' TAБЛ:'
       CALL PUTG(MC(3,K+3),LTAB,1,6,0,IP) $ K=K+3
-      CALL DIALOG(' KATAlOg APXiBA:',-18,-1)
+      CALL DIALOG(' KATAЛOГ APXИBA:',-18,-1)
  11   LC(JLC)=' ' $ CALL DIALOG(LC(JLC),-126,-1)
       JLC=JLC+20 $ N=N+4 $ IF(N.LE.K) GOTO 11
       IF(MROM.NE.'ROM') GOTO 999
@@ -73,7 +73,7 @@ C---
   12  CONTINUE
       CALL SHSORT(NC,N,2,2)
       CALL DIALOP(2) $ CALL MBWDEF(ACC,96)
-      CALL DIALOG('  p z Y :',-10,-1)
+      CALL DIALOG('  П З Y :',-10,-1)
       DO 14 I=1,N $ NPC=NC(1,I)
       LEX(1)=NC(2,I) $ LEX(2)='     :'
       CALL VMREAD(BIN,IROM+2*NPC,2)
@@ -84,42 +84,42 @@ C---
       END
       SUBROUTINE MICSEQ(IREZ)
 C*
-C***         PAbOTA C TAblicEj iMEH
-C*     KAvdyj ObxEKT zAHiMAET B TAblicE 5 ClOB.
+C***         PAБOTA C TAБЛИЦEЙ ИMEH
+C*     KAЖДЫЙ OБЬEKT ЗAHИMAET B TAБЛИЦE 5 CЛOB.
 C*
-C*  1.NAME = iMq pOlq, pEPEMEHHOj (lOKAlxHOj
-C*        ili glObAlxHOj), pPOgPAMMy (BXOdA).
+C*  1.NAME = ИMЯ ПOЛЯ, ПEPEMEHHOЙ (ЛOKAЛЬHOЙ
+C*        ИЛИ ГЛOБAЛЬHOЙ), ПPOГPAMMЫ (BXOДA).
 C*
-C*  2.ITYP = Tip iMEHi :
+C*  2.ITYP = TИП ИMEHИ :
 C*
-C*    2.1. ITYP=1(2) - lOKAlxHAq (glObAlxHAq)
-C*         pEPEMEHHAq. OCTAlxHyE ClOBA :
-C*      3: C~ET~iK pOBTOPHyX OpiCAHij
-C*      4: iMq BHE{HEgO ObxEKTA ili
-C*         OTHOCiTElxHyj AdPEC+1  ili 0.
-C*      5: AbCOl`THAq KOMpOHEHTA zHA~EHiq
+C*    2.1. ITYP=1(2) - ЛOKAЛЬHAЯ (ГЛOБAЛЬHAЯ)
+C*         ПEPEMEHHAЯ. OCTAЛЬHЫE CЛOBA :
+C*      3: CЧETЧИK ПOBTOPHЫX OПИCAHИЙ
+C*      4: ИMЯ BHEШHEГO OБЬEKTA ИЛИ
+C*         OTHOCИTEЛЬHЫЙ AДPEC+1  ИЛИ 0.
+C*      5: AБCOЛЮTHAЯ KOMПOHEHTA ЗHAЧEHИЯ
 C*
-C*    2.3. ITYP=3 - pOlE.  OCTAlxHyE ClOBA:
-C*      3: lEBAq gPAHicA pOlq
-C*      4: pPABAq gPAHicA pOlq
-C*      5: zHA~EHiE pOlq pO YMOl~AHi`
+C*    2.3. ITYP=3 - ПOЛE.  OCTAЛЬHЫE CЛOBA:
+C*      3: ЛEBAЯ ГPAHИЦA ПOЛЯ
+C*      4: ПPABAЯ ГPAHИЦA ПOЛЯ
+C*      5: ЗHAЧEHИE ПOЛЯ ПO YMOЛЧAHИЮ
 C*
-C*    2.4. ITYP=4 - pOdpPOgPAMMA :
-C*      3: dliHA pOdpPOgPAMMy B pAMqTi
-C*      4: dliHA pOdpPOgPAMMy B bibliOTEKE
-C*      5: HA~AlxHyj AdPEC B bibliOTEKE
+C*    2.4. ITYP=4 - ПOДПPOГPAMMA :
+C*      3: ДЛИHA ПOДПPOГPAMMЫ B ПAMЯTИ
+C*      4: ДЛИHA ПOДПPOГPAMMЫ B БИБЛИOTEKE
+C*      5: HAЧAЛЬHЫЙ AДPEC B БИБЛИOTEKE
 C*
-C*    2.5. ITYP=5 - BXOd (ENTRY) :
-C*      3: pYCTO
-C*      4: iMq gOlOBHOj pPOgPAMMy
-C*      5: OTHOCiTElxHyj AdPEC BXOdA
+C*    2.5. ITYP=5 - BXOД (ENTRY) :
+C*      3: ПYCTO
+C*      4: ИMЯ ГOЛOBHOЙ ПPOГPAMMЫ
+C*      5: OTHOCИTEЛЬHЫЙ AДPEC BXOДA
 C*
-C*     HAbOP |lEMEHTAPHyX OpEPAcij C TAblicEj:
-C*      MICGID - pOiCK i izBlE~EHiE
-C*      MICPID - zAHECEHiE iMEHi B TAblicY
-C*      MICCLE - izxqTiE lOKAlxHyX iMEH
-C*      MICSEQ - pOClEdOBATElxHOE CKAHiPOBAHiE
-C*      IREZ = 0, ECli iMq HAjdEHO B TAblicE.
+C*     HAБOP ЭЛEMEHTAPHЫX OПEPAЦИЙ C TAБЛИЦEЙ:
+C*      MICGID - ПOИCK И ИЗBЛEЧEHИE
+C*      MICPID - ЗAHECEHИE ИMEHИ B TAБЛИЦY
+C*      MICCLE - ИЗЬЯTИE ЛOKAЛЬHЫX ИMEH
+C*      MICSEQ - ПOCЛEДOBATEЛЬHOE CKAHИPOBAHИE
+C*      IREZ = 0, ECЛИ ИMЯ HAЙДEHO B TAБЛИЦE.
 C*
       COMMON/REKV/ NAME,ITYP(4)
       COMMON/MEMOR/ KEYP,LW(5),ITAB,LTAB
@@ -139,15 +139,15 @@ C---
       JOB=1 $ GOTO 1
       ENTRY MICPID
       JOB=2
-C---   "PAzMAzyBAHiE" TipA pO pOl` iMEHi
+C---   "PAЗMAЗЫBAHИE" TИПA ПO ПOЛЮ ИMEHИ
   1   I=NAME.SHIFT.24 $IF(I.NE.0B) I=MAPK(ITYP)
       NAM=NAME.OR.I
       KEY=LEXOR(NAM,LSHIFT(NAM,25))
       KEY=KEY.AND.177777777B.OR.0
-C---   pOlY~EHiE HA~.AdPECA = 0,1,...,LTAB-1
+C---   ПOЛYЧEHИE HAЧ.AДPECA = 0,1,...,LTAB-1
       IA=KEY/LTAB
       IA=KEY-IA*LTAB $ IA1=IA
-C---   XE{iPOBAHiE
+C---   XEШИPOBAHИE
   2   CALL VMREAD(KVANT,ITAB+5*IA,5)
       IREZ=MABS
       IF(KVANT.EQ.0B)  GOTO (10,20), JOB
@@ -157,12 +157,12 @@ C---   XE{iPOBAHiE
   3   IA=IA+1 $ IF(IA.EQ.IA1) STOP
       IF(IA.GE.LTAB) IA=0
       GOTO 2
-C---   By{li HA pYCTOj KBAHT ili HA{li iMq
+C---   BЫШЛИ HA ПYCTOЙ KBAHT ИЛИ HAШЛИ ИMЯ
  20   KVANT = NAM  $ DO 21 I=1,4
  21   KVANT(I+1)=ITYP(I)
       CALL VMWRIT(KVANT,ITAB+5*IA,5)
       RETURN
-C---   KBAHT COdEPviT iCKOMOE iMq
+C---   KBAHT COДEPЖИT ИCKOMOE ИMЯ
  30   DO 31 I=1,4
  31   ITYP(I)=KVANT(I+1)
       NAME=KVANT $ I=NAME.SHIFT.24
@@ -179,12 +179,12 @@ C---
       END
       SUBROUTINE MICVAL(JOB)
 C*
-C***         By~iClEHiE ByPAvEHiq
-C*    JOB - dOpYCTiMyj Tip ByPAvEHiq:
-C*      1 : AbCOl`THOE
-C*      2 : OTHOCiTElxHOE, T.E. dOpYCKA`TCq
-C*          CCylKi HA OTHOCiTElxHyE AdPECA
-C*          ili BHE{HiE ObxEKTy.
+C***         BЫЧИCЛEHИE BЫPAЖEHИЯ
+C*    JOB - ДOПYCTИMЫЙ TИП BЫPAЖEHИЯ:
+C*      1 : AБCOЛЮTHOE
+C*      2 : OTHOCИTEЛЬHOE, T.E. ДOПYCKAЮTCЯ
+C*          CCЫЛKИ HA OTHOCИTEЛЬHЫE AДPECA
+C*          ИЛИ BHEШHИE OБЬEKTЫ.
 C*
       COMMON /LEXEM/ LEX(14),IP
       COMMON /REKV/ NAME,ITYP,NDEF,NREL,IVAL
@@ -194,7 +194,7 @@ C*
       COMMON /SEMA/ JF(203),MRF(100),MLS(2)
 C--------------------------------
       MF=0 $ GOTO 33
-C---    BXOd dlq TPAHClqcii OpiCAHiq pOlEj
+C---    BXOД ДЛЯ TPAHCЛЯЦИИ OПИCAHИЯ ПOЛEЙ
       ENTRY MICFIL
       MF=1
   33  IVABS=0 $ IVREL=0 $ IVEXT=0
@@ -202,18 +202,18 @@ C---    BXOd dlq TPAHClqcii OpiCAHiq pOlEj
    1  CALL SCANER(0,LEX,2,IT,LET,IP)
       MER=7 $ IT=IT+1 $ NAMERR=6H
       GOTO (9,2,3,9,10,22), IT
-C---   {ECTHAdcATiPi~HOE :  $<~iClO>
+C---   ШECTHAДЦATИPИЧHOE :  $<ЧИCЛO>
   22  LEX=0 $ IF(LET.NE.KHEX) GOTO 9
   23  CALL SCANER(0,NHEX,13B,IT,LET,IP)
       IF(IT.NE.1.AND.IT.NE.2) GOTO 2
       NHEX=LET-48 $ IF(IT.EQ.2) NHEX=NHEX-7
       IF(NHEX.LT.0.OR.NHEX.GT.15) GOTO 9
       LEX=LEX.SHIFT.-4.OR.NHEX $ GOTO 23
-C---   cElOE ili BOCxMEPi~HOE
+C---   ЦEЛOE ИЛИ BOCЬMEPИЧHOE
    2  LEX=LEX.OR.0
    3  IF(MSIG.NE.0) LEX=-LEX
       IVABS=IVABS+LEX $ GOTO 4
-C---    pOlY~ili idEHTifiKATOP
+C---    ПOЛYЧИЛИ ИДEHTИФИKATOP
   10  CONTINUE
       IF(LEX.NE.'*') GOTO 19
       IF(JOB.EQ.1) GOTO 9
@@ -229,7 +229,7 @@ C---    pOlY~ili idEHTifiKATOP
       CALL PUTH(NAMERR,'FL',0,2,0,J1)
       CALL PUTG(0,J2,0,4,0,J1)
       MER=14 $ GOTO 9
-C---    izBlE~EHiE ATPibYTOB iz TAblicy
+C---    ИЗBЛEЧEHИE ATPИБYTOB ИЗ TAБЛИЦЫ
   11  NAME=LEX $ ITYP=2 $ CALL MICGID(IREZ)
       MER=5 $ IF(IREZ.EQ.0) GOTO 12
       IVABS=LEX $ NAMERR=NAME
@@ -247,10 +247,10 @@ C---    izBlE~EHiE ATPibYTOB iz TAblicy
       IVREL=NREL $ GOTO 4
   14  IF(MSIG.EQ.0) GOTO 9
       IVABS=IVABS+IVREL-NREL-1 $ IVREL=0
-C---    Y~ET zHAKA ClEdY`}EgO TEPMA
+C---    YЧET ЗHAKA CЛEДYЮЩEГO TEPMA
    4  MSIG=0 $ IF(LET.EQ.KPLUS ) GOTO 1
       MSIG=1 $ IF(LET.EQ.KMINUS) GOTO 1
-C---    KOHEc ByPAvEHiq. AHAliz TipA
+C---    KOHEЦ BЫPAЖEHИЯ. AHAЛИЗ TИПA
  100  CONTINUE
       MER=0 $ NREL=IVEXT
       IF(NREL.EQ.0) GOTO 101
@@ -265,30 +265,30 @@ C---
       END
       FUNCTION MICROB(STR)
 C*
-C***   gOlOBHAq pPOgPAMMA MiKPOACCEMblEPA
+C***   ГOЛOBHAЯ ПPOГPAMMA MИKPOACCEMБЛEPA
 C*
-C*    *CALL MICROB [:<YK.Ml>,<CpiCOK iMEH>]
-C*    *CALL MICINI [:<YK.Ml>,<CpiCOK iMEH>]
+C*    *CALL MICROB [:<YK.MЛ>,<CПИCOK ИMEH>]
+C*    *CALL MICINI [:<YK.MЛ>,<CПИCOK ИMEH>]
 C*
-C*    MICINI - BXOd dlq HACTPOjKi ACCEMblEPA
-C*    MICROB - BXOd dlq TPAHClqcii pPOgPAMM.
+C*    MICINI - BXOД ДЛЯ HACTPOЙKИ ACCEMБЛEPA
+C*    MICROB - BXOД ДЛЯ TPAHCЛЯЦИИ ПPOГPAMM.
 C*
-C*    HACTPOjKA CBOdiTCq K TPAHClqcii
-C*    "pPOgPAMMy" C iMEHEM DEFINE, OpiCyBA`-
-C*    }Ej fOPMAT MiKPOKOMAHdy, A TAKvE glO-
-C*    bAlxHyE pEPEMEHHyE BCEX MiKPOpPOgPAMM.
+C*    HACTPOЙKA CBOДИTCЯ K TPAHCЛЯЦИИ
+C*    "ПPOГPAMMЫ" C ИMEHEM DEFINE, OПИCЫBAЮ-
+C*    ЩEЙ ФOPMAT MИKPOKOMAHДЫ, A TAKЖE ГЛO-
+C*    БAЛЬHЫE ПEPEMEHHЫE BCEX MИKPOПPOГPAMM.
 C*
-C*    <YK.Ml> zAdAET fAjl C TEKCTOM, pOdlEvA-
-C*    }iM TPAHClqcii. pPizHAK KOHcA TEKCTA -
-C*    CTPOKA "*END".  pPi HEYKAzAHii fAjlA
-C*    TEKCT ~iTAETCq C pEPfOKAPT.
+C*    <YK.MЛ> ЗAДAET ФAЙЛ C TEKCTOM, ПOДЛEЖA-
+C*    ЩИM TPAHCЛЯЦИИ. ПPИЗHAK KOHЦA TEKCTA -
+C*    CTPOKA "*END".  ПPИ HEYKAЗAHИИ ФAЙЛA
+C*    TEKCT ЧИTAETCЯ C ПEPФOKAPT.
 C*
-C*    pEPEd ObPA}EHiEM K ACCEMblEPY ClEdYET
-C*    zAKAzATx pOd HOMEPOM 30 fAjl dlq APXiBA.
-C*    APXiB COdEPviT :
-C*     1. OpPEdElEHiq glOb.pEPEMEHHyX i pOlEj
-C*     2. bibliOTEKA MOdYlEj zAgPYzKi
-C*     3. PAbO~iE OblACTi pAMqTi TPAHClqTOPA.
+C*    ПEPEД OБPAЩEHИEM K ACCEMБЛEPY CЛEДYET
+C*    ЗAKAЗATЬ ПOД HOMEPOM 30 ФAЙЛ ДЛЯ APXИBA.
+C*    APXИB COДEPЖИT :
+C*     1. OПPEДEЛEHИЯ ГЛOБ.ПEPEMEHHЫX И ПOЛEЙ
+C*     2. БИБЛИOTEKA MOДYЛEЙ ЗAГPYЗKИ
+C*     3. PAБOЧИE OБЛACTИ ПAMЯTИ TPAHCЛЯTOPA.
 C*
       DIMENSION STR(2)
       COMMON /PROTO/ PROTO(30) /NMLST/ NML(50)
@@ -313,7 +313,7 @@ C----------------------------
       JOB=1 $ GOTO 1
       ENTRY MICINI
       JOB=2 $ MICROB=0
-C---    BybOPKA <YK.Ml> i CpiCKA iMEH
+C---    BЫБOPKA <YK.MЛ> И CПИCKA ИMEH
   1   MT='CARD' $ NML(1)=0 $ NML(2)=1
       CALL SCANER(STR(2),LEX,0,IT,KOD,IPOZ)
       IF(KOD.NE.KTP) GOTO 2
@@ -329,7 +329,7 @@ C---    BybOPKA <YK.Ml> i CpiCKA iMEH
       CALL SCANER(0,LEX,3,IT,KOD,IPOZ)
   12  NML(2)=2 $ NML(1)=NML(1)+1
       NML(NML+2)=LEX $ GOTO 11
-C---    iHiciAlizAciq ~iTAlKi i APXiBA
+C---    ИHИЦИAЛИЗAЦИЯ ЧИTAЛKИ И APXИBA
   2   CALL RCINIT(MT)
       CALL VMEMOR(30 0000B)
       CALL VMREAD(KEY,0,6)
@@ -337,22 +337,22 @@ C---    iHiciAlizAciq ~iTAlKi i APXiBA
       IF(JOB.EQ.2.OR.KEY.NE.'MICROB')CALL MICGEN
       CALL VMREAD(KEY,0,9)
       IF(LFREE.GT.1024*MAXZON) NER=-1
-      IF(NER.EQ.-1) CALL DIALOG('APXiB pOlOH',-12,-1)
+      IF(NER.EQ.-1) CALL DIALOG('APXИB ПOЛOH',-12,-1)
       IF(NER.NE.0) STOP
       LB=LW4/48 $ IF(48*LB.NE.LW4) LB=LB+1
-C---    CObCTBEHHO TPAHClqciq i zAKPyTiE APXiBA
+C---    COБCTBEHHO TPAHCЛЯЦИЯ И ЗAKPЫTИE APXИBA
       IPOZ=-1 $ JSTOP=0 $ CALL MICASS
       CALL VMWRIT(KEY,0,ITAB) $ CALL VMCLOS
       IF(JSTOP.EQ.0) RETURN
-      CALL DIALOG('byli O{ibKi pPi TPAHClqcii.',-27,-1)
+      CALL DIALOG('БЫЛИ OШИБKИ ПPИ TPAHCЛЯЦИИ.',-27,-1)
       STOP
       END
       FUNCTION MICSET(KOD,KL,KR)
 C*
-C***   zAgPYzKA pOlq [KL:KR] MiKPOClOBA
-C*     COdEPviMyM MlAd{iX PAzPqdOB KOD.
-C*     ECli iHfOPMAciq "HE BlEzAET" B
-C*     pOlE, PEzYlxTAT HE PABEH 0.
+C***   ЗAГPYЗKA ПOЛЯ [KL:KR] MИKPOCЛOBA
+C*     COДEPЖИMЫM MЛAДШИX PAЗPЯДOB KOD.
+C*     ECЛИ ИHФOPMAЦИЯ "HE BЛEЗAET" B
+C*     ПOЛE, PEЗYЛЬTAT HE PABEH 0.
 C*
       COMMON /MEMOR/ KEY(2),LW4
 C---
@@ -374,10 +374,10 @@ C---
 C
       ENTRY MICFRG
 C*
-C***   ObPATHAq pPOcEdYPA: BydA~A
-C*     COdEPviMOgO pOlq [KL:KR] .
-C*     pOPqdOK PEzYlxTATA COBpAdAET
-C*     C pOPqdKOM ClOBA  KOD.
+C***   OБPATHAЯ ПPOЦEДYPA: BЫДAЧA
+C*     COДEPЖИMOГO ПOЛЯ [KL:KR] .
+C*     ПOPЯДOK PEЗYЛЬTATA COBПAДAET
+C*     C ПOPЯДKOM CЛOBA  KOD.
 C*
       KK=0B
       LOOP=1+KL-KR
@@ -391,18 +391,18 @@ C*
       END
       SUBROUTINE MICAN1
 C*
-C***   pEPBi~HOE PACpOzHABAHiE KAPTy.
-C*    fOPMiPY`TCq pEPEMEHHyE: KTYP,LABEL,KOP
+C***   ПEPBИЧHOE PACПOЗHABAHИE KAPTЫ.
+C*    ФOPMИPYЮTCЯ ПEPEMEHHЫE: KTYP,LABEL,KOP
 C*
-C*        KTYP - Tip KAPTy :
-C*    1 - YpPABlEHiE TPAHClqciEj
-C*    2 - KOMMEHTAPij
-C*    3 - iHCTPYKciq ACCEMblEPA
-C*    4 - HEOpOzHAHHAq KAPTA
-C*    5 - KOHEc fAjlA ~TEHiq
+C*        KTYP - TИП KAPTЫ :
+C*    1 - YПPABЛEHИE TPAHCЛЯЦИEЙ
+C*    2 - KOMMEHTAPИЙ
+C*    3 - ИHCTPYKЦИЯ ACCEMБЛEPA
+C*    4 - HEOПOЗHAHHAЯ KAPTA
+C*    5 - KOHEЦ ФAЙЛA ЧTEHИЯ
 C*
-C*        LABEL = <METKA> ili 6H
-C*         KOP  = <KOd OpEPAcii> ili 6H
+C*        LABEL = <METKA> ИЛИ 6H
+C*         KOP  = <KOД OПEPAЦИИ> ИЛИ 6H
 C*
       COMMON /CARD/ K(14)
       COMMON /LEXEM/ LEX(14),IP
@@ -415,7 +415,7 @@ C-------------------------
       KTYP=4
       CALL SCANER(K,LEX,2,IT,LET,IP)
       IF( IT-4 ) 10,4,1
-C---     idEHTifiKATOP
+C---     ИДEHTИФИKATOP
   4   LABEL=LEX
       IF(LET.EQ.KTP) GOTO 2
       LABEL=6H
@@ -424,10 +424,10 @@ C---     idEHTifiKATOP
       KTYP=5
       IF(IGETS(LEX,0).EQ.KSTAR) GOTO 10
       GOTO 5
-C---     pYCTOj fPAgMEHT
+C---     ПYCTOЙ ФPAГMEHT
   1   IF(LET.EQ.KSEM) KTYP=2
       IF(LET.NE.KTP) GOTO 10
-C---     BybOPKA  K O p
+C---     BЫБOPKA  K O П
   2   CALL SCANER(0,LEX,0,IT,LET,IP)
       IF(IT.NE.4) GOTO 10
   5   KOP=LEX
@@ -435,8 +435,8 @@ C---     BybOPKA  K O p
   10  RETURN
 C*
 C*
-C***  BybOPKA {ECTHAdcATiPi~HOj XAPAKTEPiCTiKi
-C*    fOPMiPYETCq MENT. ECli HET O{ibKi, MER=1
+C***  BЫБOPKA ШECTHAДЦATИPИЧHOЙ XAPAKTEPИCTИKИ
+C*    ФOPMИPYETCЯ MENT. ECЛИ HET OШИБKИ, MER=1
 C*
       ENTRY MICHCH
       NHEX=0 $ ITEMP=0B
@@ -451,49 +451,49 @@ C*
       END
       SUBROUTINE MICGEN
 C*
-C***   TPAHClqciq glObAlxHOgO KOHTEKCTA.
-C*      (pPOizBOdiTCq zA OdiH pPOXOd).
+C***   TPAHCЛЯЦИЯ ГЛOБAЛЬHOГO KOHTEKCTA.
+C*      (ПPOИЗBOДИTCЯ ЗA OДИH ПPOXOД).
 C*
-C*    glObAlxHyj KOHTEKCT OpiCyBAETCq
-C*    pCEBdOpPOgPAMMOj C iMEHEM  DEFINE:
-C*       DEFINE:PROG <~iClO>,<~iClO1>;
-C*    zdECx <~iClO> zAdAET PAzPqdHOCTx
-C*    MiKPOClOBA  N.  biTy B MiKPOClOBE
-C*    HYMEPY`TCq CpPABA HAlEBO: N,N-1,...,2,1
-C*    <~iClO1> - PAzPqdHOCTx pzY KOHCTAHT
-C*    pPi YMOl~AHii = 64.
+C*    ГЛOБAЛЬHЫЙ KOHTEKCT OПИCЫBAETCЯ
+C*    ПCEBДOПPOГPAMMOЙ C ИMEHEM  DEFINE:
+C*       DEFINE:PROG <ЧИCЛO>,<ЧИCЛO1>;
+C*    ЗДECЬ <ЧИCЛO> ЗAДAET PAЗPЯДHOCTЬ
+C*    MИKPOCЛOBA  N.  БИTЫ B MИKPOCЛOBE
+C*    HYMEPYЮTCЯ CПPABA HAЛEBO: N,N-1,...,2,1
+C*    <ЧИCЛO1> - PAЗPЯДHOCTЬ ПЗY KOHCTAHT
+C*    ПPИ YMOЛЧAHИИ = 64.
 C*
-C*    KOHEc pPOgPAMMy - KOHCTPYKciq   "END;"
-C*    CiMBOl ";" - pPizHAK KOHcA l`bOj CTPOKi.
-C*    pOClE HEgO MOvET ClEdOBATx pPOizBOlxHyj
-C*    KOMMEHTAPij. BHYTPi pPOgPAMMy  DEFINE
-C*    dOpYCTiMy  ClEdY`}iE KOHCTPYKcii :
+C*    KOHEЦ ПPOГPAMMЫ - KOHCTPYKЦИЯ   "END;"
+C*    CИMBOЛ ";" - ПPИЗHAK KOHЦA ЛЮБOЙ CTPOKИ.
+C*    ПOCЛE HEГO MOЖET CЛEДOBATЬ ПPOИЗBOЛЬHЫЙ
+C*    KOMMEHTAPИЙ. BHYTPИ ПPOГPAMMЫ  DEFINE
+C*    ДOПYCTИMЫ  CЛEДYЮЩИE KOHCTPYKЦИИ :
 C*
-C*     1. OpPEdElEHiE glObAlxHOj pEPEMEHHOj.
-C*      <METKA>:EQU <ByPAvEHiE>;
-C*      B <ByPAvEHiE> MOgYT BXOdiTx CO zHAKOM
-C*      "+" ili "-" ~iClA, A TAKvE pEPEMEHHyE,
-C*      zHA~EHiq KOTOPyX K |TOMY MOMEHTY YvE
-C*      OpPEdElEHy.
+C*     1. OПPEДEЛEHИE ГЛOБAЛЬHOЙ ПEPEMEHHOЙ.
+C*      <METKA>:EQU <BЫPAЖEHИE>;
+C*      B <BЫPAЖEHИE> MOГYT BXOДИTЬ CO ЗHAKOM
+C*      "+" ИЛИ "-" ЧИCЛA, A TAKЖE ПEPEMEHHЫE,
+C*      ЗHAЧEHИЯ KOTOPЫX K ЭTOMY MOMEHTY YЖE
+C*      OПPEДEЛEHЫ.
 C*
-C*     2. gPYppOBOE OpPEdElEHiE iMEH.
-C*      A:BLOCK B,C(5),D;      - |KBiBAlEHTHO
+C*     2. ГPYППOBOE OПPEДEЛEHИE ИMEH.
+C*      A:BLOCK B,C(5),D;      - ЭKBИBAЛEHTHO
 C*      B:EQU A;  C:EQU B+1;  D:EQU C+5;
 C*
-C*     3. OpPEdElEHiE pOlq.
+C*     3. OПPEДEЛEHИE ПOЛЯ.
 C*      <METKA>:FIELD <N1>,<N2>[,<VALUE>];
-C*      zdECx MAX(N1,N2) zAdAET lEBY`,  A
-C*      MIN(N1,N2) - pPABY` gPAHicy pOlq.
-C*      HEObqzATElxHOE <VALUE> (pPi HEYKA-
-C*      zAHii pOlAgAETCq PABHyM HYl`)
-C*      zAdAET KOd, KOTOPyM zApOlHqETCq pOlE
-C*      pPi HEYKAzAHii EgO B MiKPOKOMAHdE.
+C*      ЗДECЬ MAX(N1,N2) ЗAДAET ЛEBYЮ,  A
+C*      MIN(N1,N2) - ПPABYЮ ГPAHИЦЫ ПOЛЯ.
+C*      HEOБЯЗATEЛЬHOE <VALUE> (ПPИ HEYKA-
+C*      ЗAHИИ ПOЛAГAETCЯ PABHЫM HYЛЮ)
+C*      ЗAДAET KOД, KOTOPЫM ЗAПOЛHЯETCЯ ПOЛE
+C*      ПPИ HEYKAЗAHИИ EГO B MИKPOKOMAHДE.
 C*
-C*     4. OpPEdElEHiE KOHCTAHTy iz  p z Y.
-C*      <METKA>:CONST <{ECTH.KOHCTAHTA>;
-C*      lEByE HYli B KOHCTAHTAX MOvHO OpYCKATx.
-C*      KOHCTAHTy AdPECY`TCq B  p z Y  HA~iHAq
-C*      C AdPECA 0 B pOPqdKE iX zABEdEHiq.
+C*     4. OПPEДEЛEHИE KOHCTAHTЫ ИЗ  П З Y.
+C*      <METKA>:CONST <ШECTH.KOHCTAHTA>;
+C*      ЛEBЫE HYЛИ B KOHCTAHTAX MOЖHO OПYCKATЬ.
+C*      KOHCTAHTЫ AДPECYЮTCЯ B  П З Y  HAЧИHAЯ
+C*      C AДPECA 0 B ПOPЯДKE ИX ЗABEДEHИЯ.
 C*
       COMMON /CARD/ K(14)  /LEXEM/ LEX(14),IP
       COMMON /LETTER/ LET,KTP,KSEM,KCOMMA(7),KCONT
@@ -508,19 +508,19 @@ C*
       INTEGER ACC
 C----------------------------------
 C
-C       OCHOBHyE pAPAMETPy TPAHClqTOPA :
+C       OCHOBHЫE ПAPAMETPЫ TPAHCЛЯTOPA :
 C       ================================
 C
-C   KEY   - KOd HAli~iq APXiBA
-C   LW    - PAzPqdHOCTx MiKPOClOBA
-C   LW4   -  ---"---, OKPYglEHHAq dO 4
-C   LBIN  - dliHA MiKPOClOBA B ClOBAX b-6
-C   LROM  - PAzPqdHOCTx pzY (1:9) i
-C           KOli~ECTBO KOHCTAHT (10:24)
-C   LFREE - CBObOdHOE MECTO B APXiBE
-C   ITAB  - HA~AlO TAblicy iMEH B APXiBE
-C   LTAB  - PAzMEP TAblicy iMEH
-C   IROM  - HA~AlO CpiCKA  pzY-KOHCTAHT
+C   KEY   - KOД HAЛИЧИЯ APXИBA
+C   LW    - PAЗPЯДHOCTЬ MИKPOCЛOBA
+C   LW4   -  ---"---, OKPYГЛEHHAЯ ДO 4
+C   LBIN  - ДЛИHA MИKPOCЛOBA B CЛOBAX Б-6
+C   LROM  - PAЗPЯДHOCTЬ ПЗY (1:9) И
+C           KOЛИЧECTBO KOHCTAHT (10:24)
+C   LFREE - CBOБOДHOE MECTO B APXИBE
+C   ITAB  - HAЧAЛO TAБЛИЦЫ ИMEH B APXИBE
+C   LTAB  - PAЗMEP TAБЛИЦЫ ИMEH
+C   IROM  - HAЧAЛO CПИCKA  ПЗY-KOHCTAHT
 C
       KEY='MICROB'
       LFREE=ITAB+5*LTAB+1
@@ -541,7 +541,7 @@ C
       LW4=LW/4
       IF(4*LW4.NE.LW) LW4=LW4+1
       LW4=4*LW4
-C---     ciKl pOCTPO~HOj TPAHClqcii
+C---     ЦИKЛ ПOCTPOЧHOЙ TPAHCЛЯЦИИ
    1  CALL MICPRI
       CALL READER(K)
       IF(IGETS(K,0).EQ.KCONT)
@@ -552,13 +552,13 @@ C---     ciKl pOCTPO~HOj TPAHClqcii
       MER=15 $ IF(KTYP.NE.3) GOTO 1
       MER=1 $ IF(KOP.EQ.'END') GOTO 999
       MER=7 $ IF(LABEL.EQ.' ') GOTO 1
-C---     pOlY~EHA METKA
+C---     ПOЛYЧEHA METKA
       NAME = LABEL $ ITYP=2
       IF(KOP.EQ.'EQU') GOTO 10
       IF(KOP.EQ.'BLOCK') GOTO 100
       IF(KOP.EQ.'CONST') GOTO 200
       MER=15 $ IF(KOP.NE.'FIELD') GOTO 1
-C---     |TO OpiCAHiE pOlq
+C---     ЭTO OПИCAHИE ПOЛЯ
       ITYP=3 $ MER=9
       CALL SCANER(0,N1,0,IT,KOD,IP)
       IF(IT.NE.2.OR.N1.LT.1.OR.N1.GT.LW) GOTO 1
@@ -588,7 +588,7 @@ C---     |TO OpiCAHiE pOlq
 C---
  100  CALL MICBLO(2) $ GOTO 1
 C
-C---    KOHCTAHTA iz  p z Y
+C---    KOHCTAHTA ИЗ  П З Y
  200  CALL MBWDEF(ACC,LROM)
       ACC(2)=0B $ ACC(3)=0B $ MER=7
  201  CALL SCANER(0,LEX,13B,IT,LET,IP)
@@ -610,12 +610,12 @@ C---    KOHCTAHTA iz  p z Y
       KL=0 $ KR=' *ROM ' $ IVAL=KROM-1
       CALL VMREAD(ACC,J,2)
       GOTO 11
-C---    OpiCAHiE glObAlxHOj pEPEMEHHOj
+C---    OПИCAHИE ГЛOБAЛЬHOЙ ПEPEMEHHOЙ
   10  CALL MICVAL(1)
       IF(MER.GT.1) GOTO 1
       KL=0 $ KR=0
   11  N2=1 $ N1=LW $ IF(N1.GT.24) N1=24
-C---    PEgiCTPAciq B TAblicE
+C---    PEГИCTPAЦИЯ B TAБЛИЦE
   20  CALL MICPID(IREZ)
       NAMERR=NAME $ MER=6
       IF(IREZ.EQ.0) GOTO 1
@@ -632,22 +632,22 @@ C---    PEgiCTPAciq B TAblicE
       END
       SUBROUTINE MICCHF
 C*
-C***   iTOgOBAq pPOBEPKA OpiCAHij pOlEj
-C*     COPTiPOBKA pOlEj pO YbyBAHi` PAzMEPOB
+C***   ИTOГOBAЯ ПPOBEPKA OПИCAHИЙ ПOЛEЙ
+C*     COPTИPOBKA ПOЛEЙ ПO YБЫBAHИЮ PAЗMEPOB
 C*
-C*     CPEdi BCEX pOlEj MiKPOKOMAHdy
-C*     dOlvHO byTx POBHO OdHO pOlE
-C*     KOdA OpEPAcii i POBHO OdHO
-C*     AdPECHOE pOlE.
+C*     CPEДИ BCEX ПOЛEЙ MИKPOKOMAHДЫ
+C*     ДOЛЖHO БЫTЬ POBHO OДHO ПOЛE
+C*     KOДA OПEPAЦИИ И POBHO OДHO
+C*     AДPECHOE ПOЛE.
 C*
-C*     dlq cElEj MAPKiPOBKi pOlEj ClYviT
-C*     CpEciAlxHOE zHA~EHiE ATPibYTA <VALUE>
+C*     ДЛЯ ЦEЛEЙ MAPKИPOBKИ ПOЛEЙ CЛYЖИT
+C*     CПEЦИAЛЬHOE ЗHAЧEHИE ATPИБYTA <VALUE>
 C*     (CM. MICGEN).
-C*     <VALUE> = /C/   - pOlE KOdA OpEPAcii,
-C*     <VALUE> = /A/   - AdPECHOE pOlE
+C*     <VALUE> = /C/   - ПOЛE KOДA OПEPAЦИИ,
+C*     <VALUE> = /A/   - AДPECHOE ПOЛE
 C*
-C*     pOlE KOp pOME}AETCq HA pEPBOE MECTO
-C*     B CpiCKE pOlEj LFIL, AdPECHOE pOlE -
+C*     ПOЛE KOП ПOMEЩAETCЯ HA ПEPBOE MECTO
+C*     B CПИCKE ПOЛEЙ LFIL, AДPECHOE ПOЛE -
 C*     - HA BTOPOE.
 C*
       COMMON /FIELD/ NFIL,LFIL(4,100),NVF(100)
@@ -693,14 +693,14 @@ C-------------------------------------
       END
       SUBROUTINE MICASS
 C*
-C***   pOO~EPEdHAq TPAHClqciq BCEX (ili pO
-C*     CpiCKY) pOdpPOgPAMM iz fAjlA ~TEHiq.
-C*     zApiCx ObxEKTHOgO KOdA B bibliOTEKY.
+C***   ПOOЧEPEДHAЯ TPAHCЛЯЦИЯ BCEX (ИЛИ ПO
+C*     CПИCKY) ПOДПPOГPAMM ИЗ ФAЙЛA ЧTEHИЯ.
+C*     ЗAПИCЬ OБЬEKTHOГO KOДA B БИБЛИOTEKY.
 C*
-C*     CXEMA TPAHClqcii - dBYXpPOXOdHAq.
-C*     pEPByj pPOXOd - COzdAHiE TAblicy iMEH.
-C*     BTOPOj pPOXOd - gEHEPAciq ObxEKTHOgO
-C*     KOdA i pE~ATx liCTiHgA pPOgPAMMy.
+C*     CXEMA TPAHCЛЯЦИИ - ДBYXПPOXOДHAЯ.
+C*     ПEPBЫЙ ПPOXOД - COЗДAHИE TAБЛИЦЫ ИMEH.
+C*     BTOPOЙ ПPOXOД - ГEHEPAЦИЯ OБЬEKTHOГO
+C*     KOДA И ПEЧATЬ ЛИCTИHГA ПPOГPAMMЫ.
 C-----------------------------------------
       COMMON /ASSEM/ NSTEP,MER,NER,LF,NPC,
      *               NAMERR,KTYP,LABEL,KOP
@@ -720,7 +720,7 @@ C-----------------------------------------
       IF(LW.EQ.0) CALL MICPRI
       CALL MICCHF $ CALL MICSEM(1)
       IF(MER.GT.1) CALL MICPRI
-C---    dBA pPOXOdA TPAHClqTOPA
+C---    ДBA ПPOXOДA TPAHCЛЯTOPA
    1  CALL CTIME(CT,RT)
       JSTOP=JSTOP+NER
       DO 2 ISTEP=1,2 $ KENT=0 $ KEXT=0
@@ -732,7 +732,7 @@ C---    dBA pPOXOdA TPAHClqTOPA
       DO 13 I=1,NFIL
   13  NVF(I)=LFIL(4,I)
       CALL CTIME(CT,RT1) $ CALL MICTAB(RT1-RT)
-C---    zApiCx BXOdOB B bibliOTEKY
+C---    ЗAПИCЬ BXOДOB B БИБЛИOTEKY
   14  ITYP=1 $ IREZ=0 $ CALL MICCLE(IREZ)
       IF(NER.NE.0) GOTO 1
       ITYP=4 $ CALL MICPID(IREZ)
@@ -743,7 +743,7 @@ C---    zApiCx BXOdOB B bibliOTEKY
   20  CALL MICPID(IREZ)
       GOTO 1
 C*
-C***   pOdpPOgPAMMA ~TEHiq i PACpOzHABAHiq KAPTy
+C***   ПOДПPOГPAMMA ЧTEHИЯ И PACПOЗHABAHИЯ KAPTЫ
 C*
       ENTRY MICREA
       JF=0 $ GOTO (101,102), NSTEP
@@ -765,7 +765,7 @@ C*
  102  J=MEMVRD(MTEX) $ CALL VMREAD(K,MTEX+1,J)
       CALL MICAN1 $ GOTO 103
 C*
-C***   pOdpPOgPAMMA zApiCi ObxEKTHOgO KOdA
+C***   ПOДПPOГPAMMA ЗAПИCИ OБЬEKTHOГO KOДA
 C*
       ENTRY MICBIN
       IF(NSTEP.EQ.1) GOTO 100
@@ -774,8 +774,8 @@ C*
       END
       SUBROUTINE MICTAB(TIM)
 C*
-C***    pE~ATx TAblicy idEHTifiKATOPOB
-C*      dOfOPMiPOBAHiE MOdYlq zAgPYzKi
+C***    ПEЧATЬ TAБЛИЦЫ ИДEHTИФИKATOPOB
+C*      ДOФOPMИPOBAHИE MOДYЛЯ ЗAГPYЗKИ
 C*
       COMMON /ENTRY/ KENT,MENT(2,100)
       COMMON /EXTERN/ KEXT,MEXT(400)
@@ -789,8 +789,8 @@ C------------------------------
       N=0 $ NA=0 $ NSTEP=3 $ IREZ='SCAN'
       CALL VMSET(0B,MBIN,3)
       CALL VMSET(7777 7777 7777 7777B,MBIN+3,3)
-C---   izBlE~EHiE iz TAblicy iMEH OpiCAHij
-C      METOK i AdPECHyX CCylOK.
+C---   ИЗBЛEЧEHИE ИЗ TAБЛИЦЫ ИMEH OПИCAHИЙ
+C      METOK И AДPECHЫX CCЫЛOK.
    1  CALL MICSEQ(IREZ) $ IF(IREZ.NE.0) GOTO 10
       IF(ITYP.NE.1.OR.LENL.EQ.0) GOTO 1
       J=NAME.SHIFT.24 $ IF(J.NE.0B) GOTO 2
@@ -800,8 +800,8 @@ C      METOK i AdPECHyX CCylOK.
       ITYP=LENL $ LENP=LADR
       N1=NAME.SHIFT.12.OR.0
       N2=NAME.AND.7777B.OR.0
-C---   COPTiPOBKA pO AdPECAM i zApiCx
-C      B MOdYlx zAgPYzKi
+C---   COPTИPOBKA ПO AДPECAM И ЗAПИCЬ
+C      B MOДYЛЬ ЗAГPYЗKИ
    3  NEXT=MEMVRD(IA)
       NN1=NEXT.SHIFT.12.OR.0
       NN2=NEXT.AND.7777B.OR.0
@@ -814,9 +814,9 @@ C---
   10  WS(1)=(KEXT.SHIFT.-9).OR.(KENT.AND.777B)
       WS(2)=N$ WS(3)=NA $ CALL VMWRIT(WS,MBIN,3)
       IF(N.EQ.0.OR.LREGIM(0).EQ.1) GOTO 20
-C---   pE~ATx TAblicy iCpOlxzOBAHiq METOK
+C---   ПEЧATЬ TAБЛИЦЫ ИCПOЛЬЗOBAHИЯ METOK
       CALL DIALOG(' ',-1,-1)
-      CALL DIALOG('TAblicA METOK:',-14,-1)
+      CALL DIALOG('TAБЛИЦA METOK:',-14,-1)
       N1=NA+1 $ DO 19 I=N1,N
       CALL VMREAD(NAME,MBIN+3*I,3)
       STR(1)=NAME $ STR(2)='  :' $ STR(3)='  E'
@@ -837,7 +837,7 @@ C---   pE~ATx TAblicy iCpOlxzOBAHiq METOK
   18  CONTINUE
       IF(IND.NE.3) CALL DIALOG(STR,-120,-1)
   19  CONTINUE
-C-  CpiCOK EXTERN i BXOdOB - B MOdYlx zAgPYzKi
+C-  CПИCOK EXTERN И BXOДOB - B MOДYЛЬ ЗAГPYЗKИ
   20  NAME=MENT(1,1) $ LENP=NPC1
       LENL=LBIN*LENP+3*(N+1) $ LADR=LFREE
       CALL VMWRIT(MENT,LADR+LENL,2*KENT)
@@ -855,56 +855,56 @@ C-  CpiCOK EXTERN i BXOdOB - B MOdYlx zAgPYzKi
       END
       SUBROUTINE MICAS1
 C*
-C***   TPAHClqciq OdHOj pPOgPAMMy
-C*    OdHA iHCTPYKciq PAzME}AETCq HA OdHOj
-C*    ili HECKOlxKiX KAPTAX. B pOClEdHEM
-C*    ClY~AE KAvdAq KAPTA-pPOdOlvEHiE dOlvHA
-C*    COdEPvATx CiMBOl ">" B pEPBOj pOzicii.
-C*    fOPMATy iHCTPYKcij ACCEMblEPA:
+C***   TPAHCЛЯЦИЯ OДHOЙ ПPOГPAMMЫ
+C*    OДHA ИHCTPYKЦИЯ PAЗMEЩAETCЯ HA OДHOЙ
+C*    ИЛИ HECKOЛЬKИX KAPTAX. B ПOCЛEДHEM
+C*    CЛYЧAE KAЖДAЯ KAPTA-ПPOДOЛЖEHИE ДOЛЖHA
+C*    COДEPЖATЬ CИMBOЛ ">" B ПEPBOЙ ПOЗИЦИИ.
+C*    ФOPMATЫ ИHCTPYKЦИЙ ACCEMБЛEPA:
 C*
-C*   1. zAgOlOBOK pOdpPOgPAMMy
-C*        <iMq>:PROG <XAPAKTEPiCTiKA>;
-C*    XAPAKTEPiCTiKA - {ECTHAdcATiPi~HOE ~iClO,
-C*    iHTEPpPETiPYEMOE TOlxKO zAgPYz~iKOM.
+C*   1. ЗAГOЛOBOK ПOДПPOГPAMMЫ
+C*        <ИMЯ>:PROG <XAPAKTEPИCTИKA>;
+C*    XAPAKTEPИCTИKA - ШECTHAДЦATИPИЧHOE ЧИCЛO,
+C*    ИHTEPПPETИPYEMOE TOЛЬKO ЗAГPYЗЧИKOM.
 C*
-C*   2. KOHEc pOdpPOgPAMMy
+C*   2. KOHEЦ ПOДПPOГPAMMЫ
 C*              END;
 C*
-C*   3. OpiCAHiE TO~Ki BXOdA
-C*        <iMq>:ENTRY;
+C*   3. OПИCAHИE TOЧKИ BXOДA
+C*        <ИMЯ>:ENTRY;
 C*
-C*   4. OpiCAHiE BHE{HiX pPOgPAMM
-C*              EXTERN <CpiCOK iMEH>;
+C*   4. OПИCAHИE BHEШHИX ПPOГPAMM
+C*              EXTERN <CПИCOK ИMEH>;
 C*
-C*   5. OpiCAHiE lOKAlxHOj pEPEMEHHOj
-C*      <METKA>:EQU <ByPAvEHiE>;   ili:
-C*      <METKA>:BLOCK <CpiCOK METOK>;
+C*   5. OПИCAHИE ЛOKAЛЬHOЙ ПEPEMEHHOЙ
+C*      <METKA>:EQU <BЫPAЖEHИE>;   ИЛИ:
+C*      <METKA>:BLOCK <CПИCOK METOK>;
 C*
-C*   6. KOMAHdy
-C*     [<METKA>:] <KOp> <CpiCOK pOlEj>;
-C*    B PAzdElE <KOp> YKAzyBAETCq COdEPviMOE
-C*    pOlq KOdA OpEPAcii B MiKPOKOMAHdE (|TO
-C*    pOlE OTME~EHO MAPKiPOBKOj "/C/" ).
-C*    |lEMEHTy CpiCKA pOlEj PAzdElEHy zApqTyMi.
-C*    Bid |lEMEHTA:  <iMq pOlq> = <zHA~EHiE>
-C*    dlq OdHObiTOByX pOlEj dOCTATO~HO YKAzATx
-C*    TOlxKO iMq, pPi |TOM pOdPAzYMEBAq, ~TO
-C*    <zHA~EHiE>=1.
+C*   6. KOMAHДЫ
+C*     [<METKA>:] <KOП> <CПИCOK ПOЛEЙ>;
+C*    B PAЗДEЛE <KOП> YKAЗЫBAETCЯ COДEPЖИMOE
+C*    ПOЛЯ KOДA OПEPAЦИИ B MИKPOKOMAHДE (ЭTO
+C*    ПOЛE OTMEЧEHO MAPKИPOBKOЙ "/C/" ).
+C*    ЭЛEMEHTЫ CПИCKA ПOЛEЙ PAЗДEЛEHЫ ЗAПЯTЫMИ.
+C*    BИД ЭЛEMEHTA:  <ИMЯ ПOЛЯ> = <ЗHAЧEHИE>
+C*    ДЛЯ OДHOБИTOBЫX ПOЛEЙ ДOCTATOЧHO YKAЗATЬ
+C*    TOЛЬKO ИMЯ, ПPИ ЭTOM ПOДPAЗYMEBAЯ, ЧTO
+C*    <ЗHAЧEHИE>=1.
 C*
-C*   7. izMEHEHiE zHA~EHiq pOlq pO YMOl~AHi`
-C*     <iMq pOlq>:VALUE <HOBOE zHA~EHiE>
+C*   7. ИЗMEHEHИE ЗHAЧEHИЯ ПOЛЯ ПO YMOЛЧAHИЮ
+C*     <ИMЯ ПOЛЯ>:VALUE <HOBOE ЗHAЧEHИE>
 C*
-C*   8. KOMMEHTAPij.  BCE, ~TO ClEdYET zA
-C*    CiMBOlOM ";" - qBlqETCq KOMMEHTAPiEM.
-C*    B ~ACTHOCTi, ECli ";" CTOiT B 1 pOzicii,
-C*    TO BCq CTPOKA - KOMMEHTAPij.
+C*   8. KOMMEHTAPИЙ.  BCE, ЧTO CЛEДYET ЗA
+C*    CИMBOЛOM ";" - ЯBЛЯETCЯ KOMMEHTAPИEM.
+C*    B ЧACTHOCTИ, ECЛИ ";" CTOИT B 1 ПOЗИЦИИ,
+C*    TO BCЯ CTPOKA - KOMMEHTAPИЙ.
 C*
-C*   9. YpPABlEHiE pE~ATx` liCTiHgA.
+C*   9. YПPABЛEHИE ПEЧATЬЮ ЛИCTИHГA.
 C*    KAPTA *NO LIST  ( *FULL LIST ),
-C*    BCTPETiB{AqCq B l`bOM MECTE TEKCTA
-C*    pPOgPAMMy, ByKl`~AET (BKl`~AET) pE~ATx
-C*    liCTiHgA.  CTPOKi, COdEPvA}iE O{ibKi,
-C*    A TAKvE diAgHOCTiKA, pE~ATA`TCq BCEgdA.
+C*    BCTPETИBШAЯCЯ B ЛЮБOM MECTE TEKCTA
+C*    ПPOГPAMMЫ, BЫKЛЮЧAET (BKЛЮЧAET) ПEЧATЬ
+C*    ЛИCTИHГA.  CTPOKИ, COДEPЖAЩИE OШИБKИ,
+C*    A TAKЖE ДИAГHOCTИKA, ПEЧATAЮTCЯ BCEГДA.
 C*
       COMMON /CARD/ K(14)  /LEXEM/ LEX(14)
       COMMON /ACC/ ACC(10) /MEMOR/ KEY(2),LW4
@@ -923,33 +923,33 @@ C------------------------------------
    9  CALL MICREA $ NDPC=0
       MER=1 $ IT=2*KTYP+IST-2
       GOTO (2,2,2,2,3,6,4,4,999,999), IT
-C---    dOvidAEMCq zAgOlOBKA
+C---    ДOЖИДAEMCЯ ЗAГOЛOBKA
    4  MER=15 $ GOTO 2
    3  MER=2 $ IF(KOP.NE.INSTR(1)) GOTO 2
       IF(LABEL.EQ.' ') GOTO 2
       IST=2 $ KENT=1 $ MENT(1,1)=LABEL
       CALL MICHCH $ GOTO 2
-C---    BHYTPi pPOgPAMMy
+C---    BHYTPИ ПPOГPAMMЫ
    6  IF(NSTEP.EQ.2) CALL MBWDEF(ACC,LW4)
       DO 7 I=2,7 $   IF(KOP.EQ.INSTR(I))
      *    GOTO( 2,990,30,40,50,60,70 ), I
    7  CONTINUE
-C---    KOd MiKPOOpEPAcii
+C---    KOД MИKPOOПEPAЦИИ
       CALL MICINS $ NDPC=1 $ GOTO 2
-C---    iHCTPYKcii ACCEMblEPA
+C---    ИHCTPYKЦИИ ACCEMБЛEPA
   30  CALL MICEXT $ GOTO 2
   40  CALL MICENT $ GOTO 2
   50  CALL MICEQU $ GOTO 2
   60  CALL MICBLO(1) $ GOTO 2
   70  CALL MICNVF $ GOTO 2
-C---    iHCTPYKciq  END
+C---    ИHCTPYKЦИЯ  END
  990  IF(NER.NE.0) CALL MICCHF
       CALL MICPRI
  999  RETURN
       END
       SUBROUTINE MICINS
 C*
-C***    TPAHClqciq MiKPOiHCTPYKcij
+C***    TPAHCЛЯЦИЯ MИKPOИHCTPYKЦИЙ
 C*
       COMMON /BINARY/ BIN(10) /LEXEM/LEX(14),IP
       COMMON /REKV/ NAME,ITYP,KL,KR,IVAL
@@ -972,7 +972,7 @@ C--------------------------------------
       MER=18 $ IF(IREZ.NE.0) RETURN
       MER=6  $ IF(KR.NE.0) RETURN
       IF(LET.EQ.32) LET=KCOMMA $ GOTO 4
-C---   BybOPKA pAPy: <pOlE>=<zHA~EHiE>
+C---   BЫБOPKA ПAPЫ: <ПOЛE>=<ЗHAЧEHИE>
   1   CALL SCANER(0,LEX,2,IT,LET,IP)
       MER=16 $ IF(IT.NE.4) RETURN
       NAMERR=LEX $ NAME=LEX $ IVAL=1
@@ -984,7 +984,7 @@ C---   BybOPKA pAPy: <pOlE>=<zHA~EHiE>
       IF(LET.EQ.KEQ) CALL MICVAL(2)
       JFM=0 $  IF(MER.GT.1) RETURN
       NAMERR=NAME $ IF(KR.EQ.0) GOTO 4
-C---   pOCTYpil HEAbCOl`THyj AdPEC
+C---   ПOCTYПИЛ HEAБCOЛЮTHЫЙ AДPEC
       MER=19 $ IF(JF.NE.2) RETURN
       IF(KR.EQ.' *ROM ') GOTO 4
       KL=NAME $ NAME=NPC.AND.7777 7777B.OR.4000 0000B
@@ -995,7 +995,7 @@ C---   pOCTYpil HEAbCOl`THyj AdPEC
       NAMERR=LFIL(1,JF)
       MER=11 $ CALL MBWLDA(BIN2)
       IF(MICFRG(0,KL,KR).NE.0) RETURN
-C---    pOlE zApOlHEHO. OTMETiM |TO.
+C---    ПOЛE ЗAПOЛHEHO. OTMETИM ЭTO.
       MER=10 $ N=47-KL+KR
       N = 7777 7777 7777 7777B.SHIFT.N.OR.0
       IF(MICSET(N,KL,KR).NE.0) RETURN
@@ -1005,7 +1005,7 @@ C---    pOlE zApOlHEHO. OTMETiM |TO.
       CALL MBWPUT(JF)  $ CALL MBWSTA(BINF)
       IF(LET.NE.0.AND.LET.NE.10) GOTO 1
 C
-C---   zApOlHEHiE pOlEj, O KOiX YMOl~Ali
+C---   ЗAПOЛHEHИE ПOЛEЙ, O KOИX YMOЛЧAЛИ
 C
       CALL MBWLDA(BIN2)
       DO 10 JF=1,NFIL
@@ -1023,10 +1023,10 @@ C
       END
       SUBROUTINE MICSEM(JOB)
 C*
-C***         CEMAHTiKA MiKPOKOMAHd
+C***         CEMAHTИKA MИKPOKOMAHД
 C*
-C*    JOB=1 : pPiEM OpiCAHiq CEMAHTiKi;
-C*    JOB=2 : KOHTPOlx CEMAHTiKi;
+C*    JOB=1 : ПPИEM OПИCAHИЯ CEMAHTИKИ;
+C*    JOB=2 : KOHTPOЛЬ CEMAHTИKИ;
 C*
       COMMON /FIELD/ NFIL,LFIL(4,100),NVF(100)
       COMMON /CARD/ K(139),IDENS,K2(14)
@@ -1049,34 +1049,34 @@ C--------------------------------
   2   CALL DIALOG(K2,-72,-1)
       J=LREGIM(J) $ GOTO 1
 C*
-C* 1. CPAzY pOClE KAPTy ByzOBA ACCEMblEPA
-C*    MOgYT pOqBiTxCq CTPOKi OpiCAHiq HEBOz-
-C*    MOvHyX CO~ETAHij pOlEj.  HApPiMEP:
+C* 1. CPAЗY ПOCЛE KAPTЫ BЫЗOBA ACCEMБЛEPA
+C*    MOГYT ПOЯBИTЬCЯ CTPOKИ OПИCAHИЯ HEBOЗ-
+C*    MOЖHЫX COЧETAHИЙ ПOЛEЙ.  HAПPИMEP:
 C*      CHECK DSRS+CSM-WEM;
-C*    |TO zHA~iT: ECli B MiKPOKOMAHdE zAdAHy
-C*    zHA~EHiq pOlEj DSRS i CSM, HO HE zAdAHO
-C*    zHA~EHiE pOlq WEM,  - TO |TO O{ibKA.
-C*    B CpiCKE - HE bOlEE 6 iMEH pOlEj !
+C*    ЭTO ЗHAЧИT: ECЛИ B MИKPOKOMAHДE ЗAДAHЫ
+C*    ЗHAЧEHИЯ ПOЛEЙ DSRS И CSM, HO HE ЗAДAHO
+C*    ЗHAЧEHИE ПOЛЯ WEM,  - TO ЭTO OШИБKA.
+C*    B CПИCKE - HE БOЛEE 6 ИMEH ПOЛEЙ !
 C*
-C* 2. E}E OdiH Bid CEMAHTi~ECKOgO KOHTPOlq -
-C*    zAdAHiE CpiCKA BOzMOvHyX zHA~EHij pOlEj:
-C*      FLIST <iMq pOlq>=<CpiCOK iMEH>
-C*    HApPiMEP: FLIST TYP=TYP1,TYP2,TYP7
-C*    OzHA~AET, ~TO zHA~EHiqMi pOlq TYP MOgYT
-C*    byTx KOHCTAHTy: TYP1,TYP2,TYP7  i TOlxKO!
+C* 2. EЩE OДИH BИД CEMAHTИЧECKOГO KOHTPOЛЯ -
+C*    ЗAДAHИE CПИCKA BOЗMOЖHЫX ЗHAЧEHИЙ ПOЛEЙ:
+C*      FLIST <ИMЯ ПOЛЯ>=<CПИCOK ИMEH>
+C*    HAПPИMEP: FLIST TYP=TYP1,TYP2,TYP7
+C*    OЗHAЧAET, ЧTO ЗHAЧEHИЯMИ ПOЛЯ TYP MOГYT
+C*    БЫTЬ KOHCTAHTЫ: TYP1,TYP2,TYP7  И TOЛЬKO!
 C*
-C* 3. MAKPOCy. ~ACTO pOBTOPq`}iECq fPAgMEHTy
-C*    MiKPOKOMAHd MOvHO ObOzHA~ATx CiMBOli~E-
-C*    CKiMi iMEHAMi. MAKPOOpPEdElEHiE ByglqdiT
-C*    TAK:   MACRO <iMq> <OdHA CTPOKA TEKCTA>
-C*    pPiMEP:  MACRO M1 F1=C1,F2=C2,F3=1
-C*    MAKPOByzOB OCY}ECTBlqETCq YKAzAHiEM B
-C*    HYvHOM MECTE TEKCTA iMEHi MAKPOCA, ObPAM-
-C*    lEHHOgO CiMBOlAMi "%" .  HApPiMEP,
-C*     CONT F5=5,%M1%,F7     - pPEBPA}AETCq B
+C* 3. MAKPOCЫ. ЧACTO ПOBTOPЯЮЩИECЯ ФPAГMEHTЫ
+C*    MИKPOKOMAHД MOЖHO OБOЗHAЧATЬ CИMBOЛИЧE-
+C*    CKИMИ ИMEHAMИ. MAKPOOПPEДEЛEHИE BЫГЛЯДИT
+C*    TAK:   MACRO <ИMЯ> <OДHA CTPOKA TEKCTA>
+C*    ПPИMEP:  MACRO M1 F1=C1,F2=C2,F3=1
+C*    MAKPOBЫЗOB OCYЩECTBЛЯETCЯ YKAЗAHИEM B
+C*    HYЖHOM MECTE TEKCTA ИMEHИ MAKPOCA, OБPAM-
+C*    ЛEHHOГO CИMBOЛAMИ "%" .  HAПPИMEP,
+C*     CONT F5=5,%M1%,F7     - ПPEBPAЩAETCЯ B
 C*     CONT F5=5,F1=C1,F2=C2,F3=1,F7
-C*    BCEgO MOvET byTx dO 400 MAKPOCOB
-C*    CYMMAPHyM ObxEMOM dO 24000 CiMBOlOB.
+C*    BCEГO MOЖET БЫTЬ ДO 400 MAKPOCOB
+C*    CYMMAPHЫM OБЬEMOM ДO 24000 CИMBOЛOB.
 C*
   3   CALL SCANER(K2,K,2,ITYP,KOD,IP)
       IF(ITYP-4) 999,4,13
@@ -1085,7 +1085,7 @@ C*
       IF(K.EQ.'FLIST') GOTO 20
       IF(K.EQ.'MACRO') GOTO 30
  999  IF(MER1.EQ.0) RETURN
-      CALL DIALOG('*** byli O{ibKi B CEMAHT.pPABilAX !',-36,-1)
+      CALL DIALOG('*** БЫЛИ OШИБKИ B CEMAHT.ПPABИЛAX !',-36,-1)
       RETURN
 C---
   10  KOD=43 $ NCF=0 $ LAB=0B
@@ -1147,9 +1147,9 @@ C---
   34  CALL IPUTS(0,MTEXT,KLCHAR)
       KLCHAR=KLCHAR+1 $ GOTO 13
 C
-C---     MAKPOPAC{iPEHiE HA 1 pPOXOdE
-C     HA BXOdE   JOB = 0 ili 1,  ECli ">"
-C     HA ByXOdE  JOB = <dliHA CTPOKi B CiMB.>
+C---     MAKPOPACШИPEHИE HA 1 ПPOXOДE
+C     HA BXOДE   JOB = 0 ИЛИ 1,  ECЛИ ">"
+C     HA BЫXOДE  JOB = <ДЛИHA CTPOKИ B CИMB.>
 C
       ENTRY MICMAC
       JIN=JOB $ IF(JIN.EQ.0) JOUT=0
@@ -1190,7 +1190,7 @@ C---
       END
       SUBROUTINE MICEXT
 C*
-C***      TPAHClqciq pCEBdOiHCTPYKcij
+C***      TPAHCЛЯЦИЯ ПCEBДOИHCTPYKЦИЙ
 C*        EXTERN, ENTRY, EQU, VALUE
 C*
       COMMON /ASSEM/ NSTEP,MER(3),NPC,NAMERR,
@@ -1232,7 +1232,7 @@ C---     "VALUE"
   71  CONTINUE
       NAMERR=LABEL $ MER=17 $ RETURN
 C*
-C***    MICLAB - PEgiCTPAciq METKi
+C***    MICLAB - PEГИCTPAЦИЯ METKИ
 C*
       ENTRY MICLAB
       LABJOB=-999
@@ -1268,18 +1268,18 @@ C---
       END
       SUBROUTINE MICBLO(LOC)
 C*
-C***     TPAHClqciq iHCTPYKcii "BLOCK".
+C***     TPAHCЛЯЦИЯ ИHCTPYKЦИИ "BLOCK".
 C*          A:BLOCK B,C(5),D;
-C*       |KBiBAlEHTHO pOClEdOBATElxHOCTi :
+C*       ЭKBИBAЛEHTHO ПOCЛEДOBATEЛЬHOCTИ :
 C*       B:EQU A;  C:EQU B+1;  D:EQU C+5;
 C*
-C*       B lEBOj ~ACTi iHCTPYKcii MOvHO
-C*       zAdABATx  *<{ECTHAdcATiPi~HOE> :
-C*       *1F:BLOCK,B,C;   - |KBiBAlEHTHO
+C*       B ЛEBOЙ ЧACTИ ИHCTPYKЦИИ MOЖHO
+C*       ЗAДABATЬ  *<ШECTHAДЦATИPИЧHOE> :
+C*       *1F:BLOCK,B,C;   - ЭKBИBAЛEHTHO
 C*       B:EQU $1F;    C:EQU $20;
 C*
-C*       LOC=1  - lOKAlxHyE iMEHA,
-C*       LOC=2  - glObAlxHyE iMEHA.
+C*       LOC=1  - ЛOKAЛЬHЫE ИMEHA,
+C*       LOC=2  - ГЛOБAЛЬHЫE ИMEHA.
 C*
       COMMON /BINARY/ BIN
       COMMON /LEXEM/ LEX(14),IPOZ
@@ -1332,8 +1332,8 @@ C---------
       END
       SUBROUTINE MICHEX(STR)
 C*
-C***   fOPMiPOBKA {ECTHAdcATiPi~HyX pOlEj
-C*            B liCTiHgE.
+C***   ФOPMИPOBKA ШECTHAДЦATИPИЧHЫX ПOЛEЙ
+C*            B ЛИCTИHГE.
 C*
       INTEGER STR(2),BIN
       COMMON /MEMOR/ KEY,LW,LW4,LBIN,LROM
@@ -1378,12 +1378,12 @@ C----
       END
       SUBROUTINE MICPRI
 C*
-C***   pE~ATx CTPOKi liCTiHgA pO fOPMATY
+C***   ПEЧATЬ CTPOKИ ЛИCTИHГA ПO ФOPMATY
 C*       AAAA HHH...H LLLLLL:KKK...K
-C*   A - {ECTHAdc.OTHOC.AdPEC ili pYCTO
-C*   H - {ECTHAdc.KOd KOMAHdy ili diAgH.
-C*   L - METKA B KOMAHdE ili pYCTO
-C*   K - CAMA KOMAHdA i KOMMEHTAPij
+C*   A - ШECTHAДЦ.OTHOC.AДPEC ИЛИ ПYCTO
+C*   H - ШECTHAДЦ.KOД KOMAHДЫ ИЛИ ДИAГH.
+C*   L - METKA B KOMAHДE ИЛИ ПYCTO
+C*   K - CAMA KOMAHДA И KOMMEHTAPИЙ
 C*
       COMMON /CARD/ K(14)
       COMMON /LEXEM/ LEX(14),IPOZ
@@ -1395,29 +1395,29 @@ C*
       DIMENSION KSTRI(99),MTIT(4,4)
       DATA ISP/5(0),5,-1,3(0),5,0,99,5(0),5,999/
       DATA MTIT/'                       ',
-     *          'MiKPOACCEMblEP RETRO-86',
+     *          'MИKPOACCEMБЛEP RETRO-86',
      *          '      (29.02.85)       ',
      *          '                       '/
       DATA MD/'                            ',
-     2        'O{ibKA B zAgOlOBKE pPOgPAMMy',
-     3        'HEBEPHO zAdAHA PAzPqdHOCTx  ',
-     4        'HET glObAlxHOgO KOHTEKCTA   ',
-     5        'HE OpiCAH idEHTifiKATOP     ',
-     6        'dBAvdy OpiCAHO iMq :        ',
-     7        'CiHTAKCi~ECKAq O{ibKA       ',
-     8        'HE OpiCAHy pOlq MiKPOKOMAHdy',
-     9        'HEBEPHOE zAdAHiE gPAHic pOlq',
-     *        'pEPEpOlHEHiE pOlq :         ',
-     1        'HAlOvEHiE C pOlEM :         ',
-     2        'HEdOpYCTiMyj Bid ByPAvEHiq  ',
-     3        'HAdO POBHO OdHO pOlE :      ',
-     4        'CEMAHTi~ECKAq O{ibKA>>      ',
-     5        'HEOpOzHAHHAq iHCTPYKciq :   ',
-     6        'O{ibKA B idEHTifiKATOPE     ',
-     7        'HET TAKOgO pOlq :           ',
-     8        'HET TAKOgO  K O p :         ',
-     9        'HE AdPECHOE pOlE :          ',
-     *        '<iMq>  >>> ~iClO O{ibOK=    '/
+     2        'OШИБKA B ЗAГOЛOBKE ПPOГPAMMЫ',
+     3        'HEBEPHO ЗAДAHA PAЗPЯДHOCTЬ  ',
+     4        'HET ГЛOБAЛЬHOГO KOHTEKCTA   ',
+     5        'HE OПИCAH ИДEHTИФИKATOP     ',
+     6        'ДBAЖДЫ OПИCAHO ИMЯ :        ',
+     7        'CИHTAKCИЧECKAЯ OШИБKA       ',
+     8        'HE OПИCAHЫ ПOЛЯ MИKPOKOMAHДЫ',
+     9        'HEBEPHOE ЗAДAHИE ГPAHИЦ ПOЛЯ',
+     *        'ПEPEПOЛHEHИE ПOЛЯ :         ',
+     1        'HAЛOЖEHИE C ПOЛEM :         ',
+     2        'HEДOПYCTИMЫЙ BИД BЫPAЖEHИЯ  ',
+     3        'HAДO POBHO OДHO ПOЛE :      ',
+     4        'CEMAHTИЧECKAЯ OШИБKA>>      ',
+     5        'HEOПOЗHAHHAЯ ИHCTPYKЦИЯ :   ',
+     6        'OШИБKA B ИДEHTИФИKATOPE     ',
+     7        'HET TAKOГO ПOЛЯ :           ',
+     8        'HET TAKOГO  K O П :         ',
+     9        'HE AДPECHOE ПOЛE :          ',
+     *        '<ИMЯ>  >>> ЧИCЛO OШИБOK=    '/
 C-------------------------------------------
       IF(NSTEP.EQ.1) RETURN
       IF(K.EQ.'*FULL') J=LREGIM(4)
@@ -1430,21 +1430,21 @@ C-------------------------------------------
    2  KSTRI(I)=6H
    3  IP=IP+1 $ IF(IGETS(K,IP).EQ.32) GOTO 3
       GOTO (10,10,30,10,10,60), JT
-C...     KOMMEHTAPii
+C...     KOMMEHTAPИИ
   10  IPOZ=-1 $ IPOZ2=6*LAB-3 $ GOTO 80
-C...     CTPOKi C O{ibKOj
+C...     CTPOKИ C OШИБKOЙ
   60  NER=NER+1 $ DO 61 I=1,5
   61  KSTRI(I)=MD(I,MER)
       IF(IVE.NE.' ') KSTRI(5)=IVE $ IVE=' '
       IPOZ2=39 $ IPOZ=IPOZ+IPOZ2-IP-ISP(MER)-2
       KSTRI(6)='......' $ GOTO 80
-C...     HOPMAlxHAq CTPOKA
+C...     HOPMAЛЬHAЯ CTPOKA
   30  IF(MER.EQ.0) CALL MICHEX(KSTRI)
       KSTRI(LAB)=LABEL $ IPOZ=-1
       IF(LABEL.EQ.' ') GOTO 80 $ IPOZ2=6*LAB
   31  IF(IGETS(K,IP).EQ.58) GOTO 80
       IP=IP+1 $ GOTO 31
-C...     BydA~A dliHHOj CTPOKi
+C...     BЫДAЧA ДЛИHHOЙ CTPOKИ
   80  DO 180 IL=1,5 $ IPK=0 $ IPK1=0
   81  LL=IGETS(K,IP) $ IP=IP+1
       CALL IPUTS(LL,KSTRI,IPOZ2) $ IPOZ2=IPOZ2+1
@@ -1466,58 +1466,58 @@ C...     BydA~A dliHHOj CTPOKi
       END
       FUNCTION MICLOA(STR)
 C*
-C***   CBqzyBA`}ij zAgPYz~iK MiKPOpPOgPAMM
-C*    *CALL MICLOA:<iMq gOlOBHOj pP-My> [=A]
+C***   CBЯЗЫBAЮЩИЙ ЗAГPYЗЧИK MИKPOПPOГPAMM
+C*    *CALL MICLOA:<ИMЯ ГOЛOBHOЙ ПP-MЫ> [=A]
 C*
-C*   zAgPYzKA HA~iHAETCq C zAdAHHOgO {ECTH.
-C*   AdPECA A (pPi HEYKAzAHii A=0).
-C*   APXiB MiKPOACCEMblEPA, gdE HAXOdqTCq
-C*   MOdYli zAgPYzKi pPOgPAMM, zAKAzyBAETCq
-C*   pOd lOgi~ECKiM HOMEPOM  30.
+C*   ЗAГPYЗKA HAЧИHAETCЯ C ЗAДAHHOГO ШECTH.
+C*   AДPECA A (ПPИ HEYKAЗAHИИ A=0).
+C*   APXИB MИKPOACCEMБЛEPA, ГДE HAXOДЯTCЯ
+C*   MOДYЛИ ЗAГPYЗKИ ПPOГPAMM, ЗAKAЗЫBAETCЯ
+C*   ПOД ЛOГИЧECKИM HOMEPOM  30.
 C*
-C*   MICPNA - TO vE, ~TO i MICLOA, HO C BydA~Ej
-C*   pEPEKl`~ATElq HA~.AdPECOB KOMAHd (p H A K)
+C*   MICPNA - TO ЖE, ЧTO И MICLOA, HO C BЫДAЧEЙ
+C*   ПEPEKЛЮЧATEЛЯ HAЧ.AДPECOB KOMAHД (П H A K)
 C*
-C*   pPOcEdYPA MICGID BydAET ClEdY`}Y`
-C*   iHfOPMAci` O pPOgPAMME :
-C*    NAME   - iMq pPOgPAMMy
-C*    ITYP   - 4 dlq p/p, 5 dlq BXOdA
-C*    LENPRO - dliHA p/p B pAMqTi (MiKPOClOB)
-C*    LENLIB - dliHA p/p B APXiBE (ClOB b-6)
-C*    LADR   - HA~AlxHyj AdPEC B APXiBE
+C*   ПPOЦEДYPA MICGID BЫДAET CЛEДYЮЩYЮ
+C*   ИHФOPMAЦИЮ O ПPOГPAMME :
+C*    NAME   - ИMЯ ПPOГPAMMЫ
+C*    ITYP   - 4 ДЛЯ П/П, 5 ДЛЯ BXOДA
+C*    LENPRO - ДЛИHA П/П B ПAMЯTИ (MИKPOCЛOB)
+C*    LENLIB - ДЛИHA П/П B APXИBE (CЛOB Б-6)
+C*    LADR   - HAЧAЛЬHЫЙ AДPEC B APXИBE
 C*
-C*        CTPYKTYPA MOdYlq zAgPYzKi :
+C*        CTPYKTYPA MOДYЛЯ ЗAГPYЗKИ :
 C*
-C*   I. TElO pPOgPAMMy (LENPRO MiKPOClOB)
+C*   I. TEЛO ПPOГPAMMЫ (LENPRO MИKPOCЛOB)
 C*
-C*  II. CBEdEHiq O dOpOlHiTElxHOj iHfOPMAcii
-C*     1. ~iClO BXOdOB, BKl`~Aq gOlOBHOj (1:9)
-C*        ~iClO EXTERNAL-pPOgPAMM (10:18)
-C*     2. Ob}EE ~iClO OpiCAHij
-C*     3. ~iClO AdPECHyX CCylOK
+C*  II. CBEДEHИЯ O ДOПOЛHИTEЛЬHOЙ ИHФOPMAЦИИ
+C*     1. ЧИCЛO BXOДOB, BKЛЮЧAЯ ГOЛOBHOЙ (1:9)
+C*        ЧИCЛO EXTERNAL-ПPOГPAMM (10:18)
+C*     2. OБЩEE ЧИCЛO OПИCAHИЙ
+C*     3. ЧИCЛO AДPECHЫX CCЫЛOK
 C*
-C* III. TAblicA AdPECHyX CCylOK (|l.=3 ClOBA)
-C*     1.  1:18 - OTHOCiTElxHyj AdPEC
-C*        19:27 - pPABAq gPAHicA AdP.pOlq
-C*        28:36 - lEBAq  ---"---  ---"---
-C*     2. iMq BHE{HEgO ObxEKTA ili
-C*        OTHOCiTElxHyj AdPEC + 1
-C*     3. AbCOl`THOE CME}EHiE
+C* III. TAБЛИЦA AДPECHЫX CCЫЛOK (ЭЛ.=3 CЛOBA)
+C*     1.  1:18 - OTHOCИTEЛЬHЫЙ AДPEC
+C*        19:27 - ПPABAЯ ГPAHИЦA AДP.ПOЛЯ
+C*        28:36 - ЛEBAЯ  ---"---  ---"---
+C*     2. ИMЯ BHEШHEГO OБЬEKTA ИЛИ
+C*        OTHOCИTEЛЬHЫЙ AДPEC + 1
+C*     3. AБCOЛЮTHOE CMEЩEHИE
 C*
-C*  IV. TAblicA lOKAlxHyX iMEH pPOgPAMMy
-C*     1. lOKAlxHOE iMq
-C*     2-3. TA vE iHfOPMAciq, ~TO i B III.
+C*  IV. TAБЛИЦA ЛOKAЛЬHЫX ИMEH ПPOГPAMMЫ
+C*     1. ЛOKAЛЬHOE ИMЯ
+C*     2-3. TA ЖE ИHФOPMAЦИЯ, ЧTO И B III.
 C*
-C*   V. TAblicA BXOdOB (|lEMEHT=2 ClOBA)
-C*     1. iMq BXOdA
-C*     2. OTHOCiTElxHyj AdPEC BXOdA (1:15)
-C*        i XAPAKTEPiCTiKA BXOdA    (25:48)
+C*   V. TAБЛИЦA BXOДOB (ЭЛEMEHT=2 CЛOBA)
+C*     1. ИMЯ BXOДA
+C*     2. OTHOCИTEЛЬHЫЙ AДPEC BXOДA (1:15)
+C*        И XAPAKTEPИCTИKA BXOДA    (25:48)
 C*
-C*  VI. CpiCOK iMEH EXTERNAL-pPOgPAMM
+C*  VI. CПИCOK ИMEH EXTERNAL-ПPOГPAMM
 C*
       DIMENSION STR(2),MSTR(22),LIND(5),MNOH(4)
       DATA LIND/1,6,12,17/
-      DATA MNOH/'BXOd  ENTRY  bEz gOlOBy'/
+      DATA MNOH/'BXOД  ENTRY  БEЗ ГOЛOBЫ'/
       COMMON /PROTO/ PROTO(30)
       COMMON /LEXEM/ LEX(14)
       COMMON /ACC/ ACC(10)  /BINARY/ BIN(10)
@@ -1527,7 +1527,7 @@ C*
       COMMON /FIELD/ NFIL,LFIL(4,100),NVF(100)
       COMMON /ENTRY/ KENT,MENT(2,100)
       COMMON /EXTERN/ KEXT,MEXT(400)
-      COMMON /pHAK/ MPADR(2048)
+      COMMON /ПHAK/ MPADR(2048)
       COMMON /LINF1/ LL,LP,ML,MF,IABIN,LBEG1,
      *               MREF(3),LIST(3,1000)
       INTEGER EMP(4),INF(3)
@@ -1542,18 +1542,18 @@ C-------------------
       CALL VMEMOR(30 0000B)
       CALL VMREAD(KEY,0,10)
       IF(KEY.EQ.'MICROB') GOTO 1
-      CALL DIALOG('APXiB pPOgPAMM pYCT.',-24,-1)
+      CALL DIALOG('APXИB ПPOГPAMM ПYCT.',-24,-1)
       MICLOA=1 $ RETURN
    1  NAME='MAIN' $ IABIN=LFREE $ LBEG1=1
       IF(JSTOP.NE.0) CALL DIALOG(
-     *  ' *** BHiMAHiE! B pPO{lyj PAz byli O{ibKi TPAHClqcii!',-53,-1)
+     *  ' *** BHИMAHИE! B ПPOШЛЫЙ PAЗ БЫЛИ OШИБKИ TPAHCЛЯЦИИ!',-53,-1)
       ASSIGN 10 TO MADD
       CALL MBWDEF(ACC,LW4)
       CALL SCANER(STR(2),LEX,2,IT,KOD,IP)
       IF(KOD.NE.58) GOTO 2
       CALL SCANER(0,NAME,2,IT,KOD,IP)
       IF(IT.EQ.4) GOTO 2222
-      CALL DIALOG('HEBEPHO zAdAHO iMq.',-20,-1)
+      CALL DIALOG('HEBEPHO ЗAДAHO ИMЯ.',-20,-1)
       MICLOA=2 $ RETURN
  2222 ML=0 $ IF(KOD.NE.61) GOTO 2
  2223 CALL SCANER(0,LEX,13B,IT,KOD,IP)
@@ -1564,21 +1564,21 @@ C-------------------
       LBEG1=MF+1 $ GOTO 2
  2224 ML=ML.SHIFT.-4.OR.LEX $ GOTO 2223
 C
-C---   blOK HAPA}iBAHiq CpiCKA zAgPYzKi
-C      LP - dliHA CpiCKA
-C      LL - TEKY}ij iHdEKC pO CpiCKY
-C      MF - AdPEC "CBObOdHO"
-C      HA BXOdE NAME=<iMq p/p ili BXOdA>
-C      HA ByXOdE IADR=<AdPEC pO zAgPYzKE>
+C---   БЛOK HAPAЩИBAHИЯ CПИCKA ЗAГPYЗKИ
+C      LP - ДЛИHA CПИCKA
+C      LL - TEKYЩИЙ ИHДEKC ПO CПИCKY
+C      MF - AДPEC "CBOБOДHO"
+C      HA BXOДE NAME=<ИMЯ П/П ИЛИ BXOДA>
+C      HA BЫXOДE IADR=<AДPEC ПO ЗAГPYЗKE>
 C
    2  MNOH(2)=NAME $ ITYP=4 $ IADR=0
       IF(LP.EQ.0) GOTO 4
-C     M.b. YvE ECTx B CpiCKE ?
+C     M.Б. YЖE ECTЬ B CПИCKE ?
       DO 3 I=1,LP $ LL1=I
       IF(LIST(1,I).EQ.NAME) GOTO 9
    3  CONTINUE
 C
-C     ECli ENTRY - HAjdEM gOlOBY
+C     ECЛИ ENTRY - HAЙДEM ГOЛOBY
 C
    4  CALL MICGID(IREZ) $ IF(ITYP.NE.5) GOTO 5
       NAME=LENLIB
@@ -1595,7 +1595,7 @@ C
       IENT=IREF+3*(1+INF(2))
       CALL VMREAD(MENT,IENT,2*KENT)
 C
-C...   YTO~HEHiE AdPECA zAgPYzKi, ECli HAdO.
+C...   YTOЧHEHИE AДPECA ЗAГPYЗKИ, ECЛИ HAДO.
 C
       KCHAR=MENT(2,1).SHIFT.24.AND.17B.OR.0
       IF(KCHAR.EQ.0) GOTO 59
@@ -1607,7 +1607,7 @@ C     IF(I.EQ.MASK) GOTO 59
       IF(I.EQ.0B) GOTO 59
       KCHAR=KCHAR+1 $ MF=MF+1 $ GOTO 52
 C
-C     BXOdy (BKl`~Aq gOlOBHOj) - B liCT zAgPYzKi
+C     BXOДЫ (BKЛЮЧAЯ ГOЛOBHOЙ) - B ЛИCT ЗAГPYЗKИ
 C
   59  LP=LP-1
       DO 6 I=1,KENT $ LP=LP+1
@@ -1633,8 +1633,8 @@ C
    9  IADR=LIST(3,LL1).AND.77777B.OR.0
       GOTO MADD, ( 10,12,16 )
 C
-C---   OCH.ciKl: {Ag pO CpiCKY zAgPYzKi
-C      ML   - AdPEC HA~AlA zAgPYzKi p/p
+C---   OCH.ЦИKЛ: ШAГ ПO CПИCKY ЗAГPYЗKИ
+C      ML   - AДPEC HAЧAЛA ЗAГPYЗKИ П/П
 C
   10  LL=LL+1 $ IF(LL.GT.LP) GOTO 100
       NAME=LIST(1,LL) $ IC=LIST(2,LL)
@@ -1648,14 +1648,14 @@ C
       LENP1=LENPRO $ LADR1=LADR
       IREF=LADR1+LBIN*LENP1
 C
-C...   BCTABKA pYCTy{EK pPi ByPABHiBAHii
+C...   BCTABKA ПYCTЫШEK ПPИ BЫPABHИBAHИИ
 C
       IF(IABINT.LE.0) GOTO 15
       DO 14 I=1,IABINT
       CALL VMWRIT(EMP,IABIN,LBIN)
   14  IABIN=IABIN+LBIN
 C
-C...   BHE{HiE ObxEKTy - B liCT zAgPYzKi
+C...   BHEШHИE OБЬEKTЫ - B ЛИCT ЗAГPYЗKИ
 C
   15  CALL VMREAD(INF,IREF,3)
       KEXT = INF.SHIFT.9.AND.777B.OR.0
@@ -1670,12 +1670,12 @@ C
   13  IF(LENP1.LE.0) GOTO 10
       MRS=1 $ IREF=LADR1+LBIN*LENP1
 C
-C---   ciKl zAgPYzKi MiKPOClOB pPOgPAMMy
+C---   ЦИKЛ ЗAГPYЗKИ MИKPOCЛOB ПPOГPAMMЫ
 C
       DO 19 IP=1,LENP1
       CALL VMREAD(ACC,LADR1,LBIN)
       IF(MRS.EQ.0) GOTO 11
-C---   O~EPEdHAq AdPECHAq CCylKA
+C---   OЧEPEДHAЯ AДPECHAЯ CCЫЛKA
       IREF=IREF+3 $ CALL VMREAD(MREF,IREF,3)
       MRS=0 $ IREL=MREF.AND.777777B.OR.0
       KL=MREF.SHIFT.27.AND.777B.OR.0
@@ -1683,24 +1683,24 @@ C---   O~EPEdHAq AdPECHAq CCylKA
   11  IF(IREL.NE.IP-1) GOTO 18
       MRS=1 $ J=MREF(2).SHIFT.42
       IF(J.EQ.64B) GOTO 17
-C---   CCylKA HA BHE{H`` p/p
+C---   CCЫЛKA HA BHEШHЮЮ П/П
       NAME=MREF(2)
       ASSIGN 16 TO MADD $ GOTO 2
   16  MREF(2)=IADR-ML+1
-C---   OTHOCiTElxHyj AdPEC
+C---   OTHOCИTEЛЬHЫЙ AДPEC
   17  IVAL=ML+MREF(2)-1+MREF(3)
       IF(MICSET(IVAL,KL,KR).EQ.0) GOTO 18
       MER=5 $ LP=LP+1 $ LIST(3,LP)=ML+IP-1
-      LIST(1,LP)=' BEliK' $ LIST(2,LP)=' AdPEC'
+      LIST(1,LP)=' BEЛИK' $ LIST(2,LP)=' AДPEC'
   18  CALL VMWRIT(ACC,IABIN,LBIN)
       IABIN=IABIN+LBIN
   19  LADR1=LADR1+LBIN
       GOTO 10
 C
-C---   pE~ATx CpiCKA zAgPYzKi
+C---   ПEЧATЬ CПИCKA ЗAГPYЗKИ
 C
  100  LIST(3,LP+1)=MF $ LL=0
-      LIST(1,LP+1)='CBObOd' $ LIST(2,LP+1)='HO'
+      LIST(1,LP+1)='CBOБOД' $ LIST(2,LP+1)='HO'
  101  DO 102 I=1,21
  102  MSTR(I)=6H
       DO 103 I=1,4 $ NPC=LIST(3,LL+1)
@@ -1712,10 +1712,10 @@ C
       IF(LL.LE.LP) GOTO 101
       IF(MER.NE.0) GOTO 999
 C
-C---    pE~ATx zAgPYvEHHOgO PAzdElA
-C       pPi *NO LIST - HET pE~ATi
-C       pPi *STAND   - KOMpAKTHAq pE~ATx
-C       pPi *FULL    - PAzBEPTKA pO pOlqM
+C---    ПEЧATЬ ЗAГPYЖEHHOГO PAЗДEЛA
+C       ПPИ *NO LIST - HET ПEЧATИ
+C       ПPИ *STAND   - KOMПAKTHAЯ ПEЧATЬ
+C       ПPИ *FULL    - PAЗBEPTKA ПO ПOЛЯM
 C
       NFIL=0 $ IREZ='SCAN'
  200  CALL MICSEQ(IREZ)
@@ -1743,7 +1743,7 @@ C---
  214  NVF(I)=NVF(I-1)+LL+1
       DO 205 I=1,22
  205  MSTR(I)=' '
-C---     zAgOlOBOK
+C---     ЗAГOЛOBOK
       LL=100 $ IF(LFIL(1,1).LT.LL) LL=10
       ILL=9 $ IF(LL.EQ.10) ILL=8
       DO 206 I=1,ILL
@@ -1757,8 +1757,8 @@ C---     zAgOlOBOK
  207  CALL IPUTS(LET,MSTR,NVF(J))
       IF(I.GT.6) LL=LL/10
  206  CALL DIALOG(MSTR,-127,-1)
-      ILL=NVF(NFIL)+2 $ MSTR(1)='iMq'
-      MSTR(2)=' XAP.' $ MSTR(3)=' AdP:-'
+      ILL=NVF(NFIL)+2 $ MSTR(1)='ИMЯ'
+      MSTR(2)=' XAP.' $ MSTR(3)=' AДP:-'
       DO 208 I=18,ILL
  208  CALL IPUTS('------',MSTR,I)
       CALL DIALOG(MSTR,-ILL,-1)
@@ -1786,9 +1786,9 @@ C---
  220  CALL DIALOG(MSTR,-127,-1)
  1999 IF(MPNA.EQ.0) GOTO 999
 C
-C---       pE~ATx   p H A K
+C---       ПEЧATЬ   П H A K
 C
-      NS=2 $ MSTR(1)=' p H A' $ MSTR(2)=' K >'
+      NS=2 $ MSTR(1)=' П H A' $ MSTR(2)=' K >'
       DO 300 IPNA=1,2048 $ J=MPADR(IPNA).OR.0
       IF( J.EQ.0) GOTO 300
       MSTR(NS+1)='    :' $ MSTR(NS+2)=' '
@@ -1809,29 +1809,29 @@ C---
       END
       FUNCTION IMPULS(STR)
 C*
-C*    BBOd zAgPYvEHHOj MiKPOpPOgPAMMy
-C*    B CiCTEMY   p Y l x C   B BidE
-C*        ObxEKTA TipA  p z Y
+C*    BBOД ЗAГPYЖEHHOЙ MИKPOПPOГPAMMЫ
+C*    B CИCTEMY   П Y Л Ь C   B BИДE
+C*        OБЬEKTA TИПA  П З Y
 C*
 C*        ...........
-C*    *TAPE:<APXiB MiKPOACCEMblEPA>,30,W
+C*    *TAPE:<APXИB MИKPOACCEMБЛEPA>,30,W
 C*    *LIBRA:23,25
-C*     < TPAHClqciq, ECli HAdO >
+C*     < TPAHCЛЯЦИЯ, ECЛИ HAДO >
 C*    *CALL IMPULS:NPROG,NARCH,NOBJ
-C*    *             - pYCTAq p/K (HAdO!)
+C*    *             - ПYCTAЯ П/K (HAДO!)
 C*    *END F
 C*
-C*    NPROG - iMq zAgPYvAEMOj MiKPOpPOgPAMMy
-C*            (pPi YMOl~AHii - MAIN)
-C*    NARCH - iMq APXiBA CiCTEMy   p Y l x C
-C*            (pPi YMOl~AHii - KiM)
-C*    NOBJ  - iMq ObxEKTA B APXiBE
-C*            (pPi YMOl~AHii - MCRPR)
+C*    NPROG - ИMЯ ЗAГPYЖAEMOЙ MИKPOПPOГPAMMЫ
+C*            (ПPИ YMOЛЧAHИИ - MAIN)
+C*    NARCH - ИMЯ APXИBA CИCTEMЫ   П Y Л Ь C
+C*            (ПPИ YMOЛЧAHИИ - KИM)
+C*    NOBJ  - ИMЯ OБЬEKTA B APXИBE
+C*            (ПPИ YMOЛЧAHИИ - MCRPR)
 C*
 C*
       COMMON /PROTO/ PROTO(30),LEX(14),BIN(10)
-      COMMON /MEMOR/ q(2),LW4,LBIN,LROM,LFREE(5)
-      COMMON /LINF1/ x(3),MF,IA(5),LIST(3,1000)
+      COMMON /MEMOR/ Я(2),LW4,LBIN,LROM,LFREE(5)
+      COMMON /LINF1/ Ь(3),MF,IA(5),LIST(3,1000)
       EQUIVALENCE (LBEG1,IA(2))
       DIMENSION MCAR(3,17),STR(2)
       DATA MCAR/
@@ -1840,16 +1840,16 @@ C*
      3    '*                 ',
      4    '*NO LIST          ',
      5    '*NO LOAD LIST     ',
-     6    '*CALL pYlxC:CTATiK',
-     7    '"iMq KiM          ',
-     8    '"Obx MCRPR        ',
-     9    '"PEd CXE          ',
+     6    '*CALL ПYЛЬC:CTATИK',
+     7    '"ИMЯ KИM          ',
+     8    '"OБЬ MCRPR        ',
+     9    '"PEД CXE          ',
      *    '"B"               ',
-     1    'f:48.             ',
+     1    'Ф:48.             ',
      2    '"K                ',
      3    '"KOH              ',
      4    '"TEP              ',
-     5    '"CpA              ',
+     5    '"CПA              ',
      6    '*END FILE         ',
      7    '*READ OLD         '/
 C
@@ -1861,10 +1861,10 @@ C
       IF(J.NE.0) STOP
       IA=LFREE
 C
-C     IA   - AdPEC O~EPEdHOgO MiKPOClOBA
-C     MF   - AdPEC "CBObOdHO"
-C     LW4  - PAzPqdHOCTx MiKPOClOBA
-C     LBIN - ~iClO ClOB b|CM-6
+C     IA   - AДPEC OЧEPEДHOГO MИKPOCЛOBA
+C     MF   - AДPEC "CBOБOДHO"
+C     LW4  - PAЗPЯДHOCTЬ MИKPOCЛOBA
+C     LBIN - ЧИCЛO CЛOB БЭCM-6
 C
       DO 1 I=7,8
       CALL SCANER(0,LEX,2,IT,KOD,IP)
@@ -1874,14 +1874,14 @@ C
   1   CONTINUE
   2   DO 3 I=4,14
   3   LEX(I)=' '
-C   fOPMiPOBAHiE HOBOgO fAjlA ~TEHiq
+C   ФOPMИPOBAHИE HOBOГO ФAЙЛA ЧTEHИЯ
       CALL WBEGIN(010000B)
       DO 4 I=1,11
       DO 5 J=1,3
   5   LEX(J)=MCAR(J,I)
   4   CALL WRCARD(LEX)
-C   ~TEHiE zAgPYvEHHOj MiKPOpPOgPAMMy
-C   pEPEBOd B BOCxMEPi~HyE KOHCTAHTy
+C   ЧTEHИE ЗAГPYЖEHHOЙ MИKPOПPOГPAMMЫ
+C   ПEPEBOД B BOCЬMEPИЧHЫE KOHCTAHTЫ
       DO 10 I=LBEG1,MF
       CALL VMREAD(BIN,IA,LBIN)
       DO 11 J=1,LBIN
@@ -1889,8 +1889,8 @@ C   pEPEBOd B BOCxMEPi~HyE KOHCTAHTy
       CALL PUTH(0,'.',0,1,0,IP)
   11  CALL WRCARD(LEX)
   10  IA=IA+LBIN
-C   zABEP{EHiE fAjlA ~TEHiq
-C   i YXOd B HOByj pAKET
+C   ЗABEPШEHИE ФAЙЛA ЧTEHИЯ
+C   И YXOД B HOBЫЙ ПAKET
       DO 20 I=12,17
       DO 21 J=1,3
   21  LEX(J)=MCAR(J,I)
@@ -1903,19 +1903,19 @@ C   i YXOd B HOByj pAKET
       END
       FUNCTION MPSEND(STR)
 C*
-C*    zAgPYzKA MiKPOpPOgPAMMy i OTCylKA EE
-C*    B pO~TOByj q}iK  IBM PC/XT (2-j |TAv).
+C*    ЗAГPYЗKA MИKPOПPOГPAMMЫ И OTCЫЛKA EE
+C*    B ПOЧTOBЫЙ ЯЩИK  IBM PC/XT (2-Й ЭTAЖ).
 C*
 C*       ..........
-C*    *TAPE:<APXiB MiKPOACCEMblEPA>,30,W
+C*    *TAPE:<APXИB MИKPOACCEMБЛEPA>,30,W
 C*    *LIBRA:23,25
-C*     < TPAHClqciq, ECli HAdO >
-C*    *CALL MPSEND:<iMq gOlOBHOj pP-My> [=AdPEC]
+C*     < TPAHCЛЯЦИЯ, ECЛИ HAДO >
+C*    *CALL MPSEND:<ИMЯ ГOЛOBHOЙ ПP-MЫ> [=AДPEC]
 C*    *END FILE
 C*
       COMMON /PROTO/ PROTO(30),LEX(14),BIN(10)
-      COMMON /MEMOR/ q(2),LW4,LBIN,LROM,LFREE(5)
-      COMMON /LINF1/ x(3),MF,IA(5),LIST(3,1000)
+      COMMON /MEMOR/ Я(2),LW4,LBIN,LROM,LFREE(5)
+      COMMON /LINF1/ Ь(3),MF,IA(5),LIST(3,1000)
       EQUIVALENCE (LBEG1,IA(2))
       INTEGER BIN
       DIMENSION STR(2),MFDB(10),MDIS(5)
@@ -1924,7 +1924,7 @@ C*
 C----------------------------
       CALL IPUTS(12B,STR,80)
       J = MICLOA( STR ) $ IF(J.EQ.0) GOTO 1
-      CALL DIALOG('O{ibKi pPi zAgPYzKE',-20,-1)
+      CALL DIALOG('OШИБKИ ПPИ ЗAГPYЗKE',-20,-1)
       STOP
   1   DO 2 I=1,10
   2   MFDB(I)=0B
@@ -1936,15 +1936,15 @@ C----------------------------
   3   CALL WBEGIN(530300B)
       IA=LFREE $ NS=0
 C-----------------------------
-C     ciKl izBlE~EHiq MiKPOKOMAHd
+C     ЦИKЛ ИЗBЛEЧEHИЯ MИKPOKOMAHД
       DO 10 I=LBEG1,MF
       CALL VMREAD(BIN,IA,LBIN)
       IA=IA+LBIN $ NB=14
 C-----------------------------
-C     PACpAKOBKA HA {ECTHAdc. cifPy
-C     BydA~A 112/4=28 cifP B XiTPOM
-C     pOPqdKE, dObABKA E}E 4 bAjTOB
-C     (dO 128 biT).  i BCE |TO pOdPqd!
+C     PACПAKOBKA HA ШECTHAДЦ. ЦИФPЫ
+C     BЫДAЧA 112/4=28 ЦИФP B XИTPOM
+C     ПOPЯДKE, ДOБABKA EЩE 4 БAЙTOB
+C     (ДO 128 БИT).  И BCE ЭTO ПOДPЯД!
   11  NB=NB-1 $ LET=IGETS(BIN,NB)
       N=LET.SHIFT.4.AND.17B.OR.0
       ASSIGN 12 TO MPRET $ GOTO 30
@@ -1963,7 +1963,7 @@ C---------------------------------
   14  CONTINUE
   10  CONTINUE
 C---------------------------------
-C     B KOHcE BCEgO - bAjTy $, CR, "032"
+C     B KOHЦE BCEГO - БAЙTЫ $, CR, "032"
       N='$$$$$$' $ ASSIGN 16 TO MPRET $ GOTO 33
   16  N=15B $ ASSIGN 17 TO MPRET $ GOTO 33
   17  N=32B $ ASSIGN 18 TO MPRET $ GOTO 33
@@ -1974,7 +1974,7 @@ C     B KOHcE BCEgO - bAjTy $, CR, "032"
       END
 *NO LIST
 *NO LOAD
-*TO PERSO:67600,44,pPABKA O{ibKi pPi PAbOTE C TAblicEj iMEH
+*TO PERSO:67600,44,ПPABKA OШИБKИ ПPИ PAБOTE C TAБЛИЦEЙ ИMEH
 *MAIN MICROB
 *EXECUTE
 *END F
