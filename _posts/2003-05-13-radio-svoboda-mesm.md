@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title:  "О создании МЭСМ-1"
 date:   2003-05-13
 ---
