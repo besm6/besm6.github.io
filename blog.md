@@ -2,6 +2,7 @@
 layout: page
 title: Новости
 permalink: /blog/
+topmenu: yes
 ---
 
 {% for post in site.posts %}
