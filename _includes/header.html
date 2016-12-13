@@ -1,8 +1,8 @@
 <header class="site-header">
    <nav class="site-nav">
-        <a class="site-title" href="{{ site.baseurl }}/">Start</a>
+        <a class="site-title" href="{{ site.baseurl }}/">Энциклопедия БЭСМ-6</a>
         {% for page in site.pages %}
-            {% if page.title %}<a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>{% endif %}
+            {% if page.layout == 'page' %}<a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>{% endif %}
         {% endfor %}
     </nav>
 </header>
