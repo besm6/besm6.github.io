@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Статьи
+topmenu: yes
 ---
 
 # Архив документации по БЭСМ-6
