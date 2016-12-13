@@ -1,5 +1,4 @@
 ---
-layout: page
 date:   1990-06-13
 ---
 

@@ -1,5 +1,4 @@
 ---
-layout: page
 date:   2003-05-13
 ---
 
