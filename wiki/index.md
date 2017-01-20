@@ -21,3 +21,5 @@ topmenu: yes
 [Описание игры 'калах'](Kalakh-game)
 
 [Редактор системы Пульт](Pult-editor)
+
+[Препринты ОИЯИ](JINR-preprints)
