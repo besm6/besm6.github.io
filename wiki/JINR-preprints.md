@@ -3,7 +3,7 @@
 
 # 1968
 
-В.А.Загинайко, И.Н.Силин [Автокод "Ассебмлер"](https://raw.githubusercontent.com/besm6/besm6.github.io/master/doc/jinr/JINR-B1-11-4514.pdf)
+В.А.Загинайко, И.Н.Силин [Автокод "Ассемблер"](https://raw.githubusercontent.com/besm6/besm6.github.io/master/doc/jinr/JINR-B1-11-4514.pdf)
 
 # 1975
 
