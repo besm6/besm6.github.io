@@ -5,7 +5,19 @@
 
 В.А.Загинайко, И.Н.Силин [Автокод "Ассемблер"](https://raw.githubusercontent.com/besm6/besm6.github.io/master/doc/jinr/JINR-B1-11-4514.pdf)
 
+# 1973
+
+В.Ю.Веретенов, М.И.Гуревич, А.В.Гусев, В.З.Житенёв, Н.С.Заикин, Л.Г.Каминский, О.Н.Ломидзе, И.Н.Силин, В.А.Федосеев, В.П.Шириков [Новый диспетчер для ЭВМ БЭСМ-6](https://raw.githubusercontent.com/besm6/besm6.github.io/master/doc/jinr/JINR-11-7059.pdf)
+
+# 1974
+
+О.Н.Ломидзе, И.Н.Силин [Буферизация перфорации и данных для графопостроителя на ЭВМ БЭСМ-6](https://raw.githubusercontent.com/besm6/besm6.github.io/master/doc/jinr/JINR-11-8082.pdf)
+
 # 1975
+
+В.Ю.Веретенов, А.И.Волков, М.И.Гуревич, В.С.Козик, Е.И.Подъячев, М.Л.Шапиро [Дисковая операционная система](https://raw.githubusercontent.com/besm6/besm6.github.io/master/doc/jinr/KIAE-2486.pdf)
+
+О Ен Ир, В.П.Шириков [Об одном оптимизирующем варианте обработки циклов при трансляции с языка Фортран на ЭВМ БЭСМ-6](https://raw.githubusercontent.com/besm6/besm6.github.io/master/doc/jinr/JINR-11-9219.pdf)
 
 Г.Л.Мазный [Универсальный перекодировщик перфокарт, пробитых поколонно](https://raw.githubusercontent.com/besm6/besm6.github.io/master/doc/jinr/JINR-11-9008.pdf)
 
@@ -27,6 +39,8 @@
 
 И.А.Емелин, Л.Н.Емелина, В.В.Муратова, Г.Л.Семашко [Терминал БЭСМ-6 на базе VT-340](https://raw.githubusercontent.com/besm6/besm6.github.io/master/doc/jinr/JINR-10-10996.pdf)
 
+V.P.Shirikov, D.C.Marinescu [The parameter passing mechanism implementation in different Fortran compilers](https://raw.githubusercontent.com/besm6/besm6.github.io/master/doc/jinr/JINR-E10-10543.pdf)
+
 # 1978
 
 Г.Л.Мазный, А.П.Сапожников [Использование операционной системы "Дубна" для решения класса задач АСУ на ЭВМ БЭСМ-6](https://raw.githubusercontent.com/besm6/besm6.github.io/master/doc/jinr/JINR-18-11851.pdf)
@@ -43,7 +57,13 @@
 
 # 1980
 
+Г.Л.Мазный [Информационно-справочная система АТС предприятия](https://raw.githubusercontent.com/besm6/besm6.github.io/master/doc/jinr/JINR-18-12955.pdf)
+
 А.П.Сапожников [О некоторых проблемах, связанных с увеличением числа счётных каналов в операционной системе "Дубна"](https://raw.githubusercontent.com/besm6/besm6.github.io/master/doc/jinr/JINR-11-80-7.pdf)
+
+# 1982
+
+В.Ю.Веретенов, В.А.Петров [Бесформатный ввод данных по именам в мониторной системе "Дубна"](https://raw.githubusercontent.com/besm6/besm6.github.io/master/doc/jinr/KIAE-3555-16.pdf)
 
 # 1984
 
