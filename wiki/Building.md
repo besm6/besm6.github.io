@@ -63,7 +63,7 @@ cd BESM6
 Здесь неонки буферных регситров записи сообщают нам о причине останова.
 
 ### Скачивание образов дисков ОС ДИСПАК
-В архиве документации БЭСМ-6 на github [образы дисков и лент](https://github.com/besm6/besm6-archive/tree/master/disks) необходимо скачать следующие файлы (по dispak.ini):
+В архиве документации БЭСМ-6 на github [образы дисков и лент](https://github.com/besm6/besm6.github.io/tree/master/disks) необходимо скачать следующие файлы (по dispak.ini):
 ```
 sbor2053.bin
 krab2063.bin

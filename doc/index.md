@@ -28,4 +28,4 @@ topmenu: yes
 [Приложения к Части IX](БЭСМ6-ТО-IX-приложения.pdf)
 
 Другие дополнительные материалы находятся в архиве
-[besm6-archive/doc](https://github.com/besm6/besm6-archive/tree/master/doc)
+[besm6.github.io/doc](https://github.com/besm6/besm6.github.io/tree/master/doc)

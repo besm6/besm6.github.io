@@ -12,7 +12,7 @@
 * длина позиции - 7 растровых точек: 5+2 пробела
 
 ## Шрифт для эмулятора
-Шрифт разработан Леонидом Брухисом и расположен в репозитарии [https://github.com/besm6/besm6-archive/tree/master/fonts/](https://github.com/besm6/besm6-archive/tree/master/fonts)
+Шрифт разработан Леонидом Брухисом и расположен в репозитарии [https://github.com/besm6/besm6.github.io/tree/master/fonts/](https://github.com/besm6/besm6.github.io/tree/master/fonts)
 
 Вариант рендера в браузере:
 ![](images/vt-340-font.png)
@@ -32,4 +32,4 @@
 Hello, World!!!
 </pre>
 ```
-Использование терминала на примере БЭСМ-4 описано в публикации: [ВЫВОД ИНФОРМАЦИИ НА ДИСПЛЕЙ ВТ-340, ПОДКЛЮЧЕННЫЙ К ЭВМ БЭСМ-4](https://github.com/besm6/besm6-archive/blob/master/doc/%D0%92%D1%8B%D0%B2%D0%BE%D0%B4-%D0%BD%D0%B0-%D0%92%D0%A2-340-%D0%91%D0%AD%D0%A1%D0%9C4.pdf)
+Использование терминала на примере БЭСМ-4 описано в публикации: [ВЫВОД ИНФОРМАЦИИ НА ДИСПЛЕЙ ВТ-340, ПОДКЛЮЧЕННЫЙ К ЭВМ БЭСМ-4](https://github.com/besm6/besm6.github.io/blob/master/doc/%D0%92%D1%8B%D0%B2%D0%BE%D0%B4-%D0%BD%D0%B0-%D0%92%D0%A2-340-%D0%91%D0%AD%D0%A1%D0%9C4.pdf)
