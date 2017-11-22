@@ -26,6 +26,10 @@ prog    старт   512^
 кнц$$$^
 ```
 
+Пример трансляции этой программы: [bemsh-auto.b6](https://github.com/besm6/besm6.github.io/blob/master/wiki/examples/bemsh-auto.b6).
+
+Выдача на АЦПУ: [bemsh-auto.txt](https://raw.githubusercontent.com/besm6/besm6.github.io/master/wiki/examples/bemsh-auto.txt).
+
 ## Управляющие карты транслятора
 
 |Команда|Описание|
