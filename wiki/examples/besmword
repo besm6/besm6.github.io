@@ -105,7 +105,7 @@ def besm_float(fval):
 
         if imantissa < (1<<39):
             print "Denormal!"
-            print "%f => 0000 0000 0000 0000" % fval
+            print "%.14g => 0000 0000 0000 0000" % fval
             return
         if exponent > 63:
             print "Exponent overflow!"
@@ -113,7 +113,7 @@ def besm_float(fval):
         if exponent < -64:
             print "Exponent underflow!"
             return
-        print fval, "=", octal48(imantissa | (exponent+64) << 41)
+        print "%.14g" % fval, "=", octal48(imantissa | (exponent+64) << 41)
 
     elif fmantissa < 0:
         #
@@ -124,7 +124,7 @@ def besm_float(fval):
 
         if imantissa < 0:
             print "Negative Denormal!"
-            print "%f => 0000 0000 0000 0000" % fval
+            print "%.14g => 0000 0000 0000 0000" % fval
             return
         if imantissa >= (1<<39):
             # Normalize.
@@ -136,7 +136,7 @@ def besm_float(fval):
         if exponent < -64:
             print "Exponent underflow!"
             return
-        print fval, "=", octal48(imantissa | (1<<40) | (exponent+64) << 41)
+        print "%.14g" % fval, "=", octal48(imantissa | (1<<40) | (exponent+64) << 41)
     else:
         #
         # Zero
@@ -158,7 +158,7 @@ def besm_word(ival):
         fmantissa -= 1.0
 
     fval = math.ldexp(fmantissa, exponent - 64)
-    print octal48(ival), "=", fval
+    print octal48(ival), "=", "%.14g" % fval
 
 input = sys.argv[1]
 
