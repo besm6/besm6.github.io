@@ -1,0 +1,173 @@
+#!/usr/bin/python
+#
+# Convert BESM-6 word values to float and vise versa.
+#
+# Copyright (c) 2019 Serge Vakulenko
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+#
+import sys, math
+
+#
+# Examples:
+#   $ besmword 1.0
+#   1.0 = 4050 0000 0000 0000
+#
+#   $ besmword 2.0
+#   2.0 = 4110 0000 0000 0000
+#
+#   $ besmword 3.0
+#   3.0 = 4114 0000 0000 0000
+#
+#   $ besmword 5.0
+#   5.0 = 4152 0000 0000 0000
+#
+#   $ besmword 7.0
+#   7.0 = 4156 0000 0000 0000
+#
+#   $ besmword -1.0
+#   -1.0 = 4020 0000 0000 0000
+#
+#   $ besmword -2.0
+#   -2.0 = 4060 0000 0000 0000
+#
+#   $ besmword -3.0
+#   -3.0 = 4124 0000 0000 0000
+#
+#   $ besmword -5.0
+#   -5.0 = 4166 0000 0000 0000
+#
+#   $ besmword -7.0
+#   -7.0 = 4162 0000 0000 0000
+#
+#   $ besmword 4354400000000000
+#   4354 4000 0000 0000 = 100.0
+#
+#   $ besmword 4423400000000000
+#   4423 4000 0000 0000 = -200.0
+#
+#   $ besmword 7757777777777777
+#   7757 7777 7777 7777 = 9.22337203685e+18
+#
+#   $ besmword 7760000000000000
+#   7760 0000 0000 0000 = -9.22337203685e+18
+#
+#   $ besmword 0010000000000000
+#   0010 0000 0000 0000 = 2.71050543121e-20
+#
+#   $ besmword 0010000000000000
+#   0010 0000 0000 0000 = 2.71050543121e-20
+#
+#   $ besmword 0027777777777777
+#   0027 7777 7777 7777 = -2.71050543122e-20
+#
+if len(sys.argv) != 2:
+    print "Print a number in BESM-6 format"
+    print "Usage:"
+    print "    besmword 1234567076543210"
+    print "or:"
+    print "    besmword -2.0e6"
+    sys.exit(1)
+
+#
+# Print 48-bit number as octal.
+#
+def octal48(n):
+    return "%04o %04o %04o %04o" %\
+        (n>>36 & 07777, n>>24 & 07777, n>>12 & 07777, n & 07777)
+
+#
+# Print float value as BESM-6 word.
+#
+def besm_float(fval):
+    (fmantissa, exponent) = math.frexp(fval)
+    #print fval, "=", fmantissa, "*2^", exponent
+
+    sign = 0
+    if fmantissa > 0:
+        #
+        # Positive number.
+        #
+        imantissa = int(fmantissa * (1<<40))
+
+        if imantissa < (1<<39):
+            print "Denormal!"
+            print "%f => 0000 0000 0000 0000" % fval
+            return
+        if exponent > 63:
+            print "Exponent overflow!"
+            return
+        if exponent < -64:
+            print "Exponent underflow!"
+            return
+        print fval, "=", octal48(imantissa | (exponent+64) << 41)
+
+    elif fmantissa < 0:
+        #
+        # Negative number.
+        #
+        imantissa = int((fmantissa + 1.0) * (1<<40))
+        #print "imantissa =", octal48(imantissa)
+
+        if imantissa < 0:
+            print "Negative Denormal!"
+            print "%f => 0000 0000 0000 0000" % fval
+            return
+        if imantissa >= (1<<39):
+            # Normalize.
+            imantissa = int((fmantissa*2 + 1.0) * (1<<40))
+            exponent -= 1
+        if exponent > 63:
+            print "Exponent overflow!"
+            return
+        if exponent < -64:
+            print "Exponent underflow!"
+            return
+        print fval, "=", octal48(imantissa | (1<<40) | (exponent+64) << 41)
+    else:
+        #
+        # Zero
+        #
+        print "Zero!"
+        print "0.0 = 0000 0000 0000 0000"
+
+#
+# Print BESM-6 word as float value.
+#
+def besm_word(ival):
+    imantissa = ival & 017777777777777
+    sign = (ival >> 40) & 1
+    exponent = ((ival >> 41) & 0177)
+    #print "%03o %o %014o" % (exponent, sign, imantissa)
+
+    fmantissa = float(imantissa) / (1 << 40)
+    if sign:
+        fmantissa -= 1.0
+
+    fval = math.ldexp(fmantissa, exponent - 64)
+    print octal48(ival), "=", fval
+
+input = sys.argv[1]
+
+if ('.' in input) or ('e' in input) or ('E' in input):
+    # Float -> octal
+    besm_float(float(input))
+else:
+    # Octal -> float
+    besm_word(int(input, 8))
