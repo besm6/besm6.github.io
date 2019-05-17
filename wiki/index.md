@@ -28,4 +28,6 @@ topmenu: yes
 
 [Автокод БЕМШ](Bemsh)
 
+[Описание автокода MADLEN](Madlen)
+
 [Препринты ОИЯИ](JINR-preprints)
