@@ -1,0 +1,586 @@
+﻿                                                      18.05.19 М1
+
+  М О Н И Т О Р-8 0  (3.7)   25.09.84*       (  МС " Д У Б Н А " ИАЭ  )             ШИФР    419999000000
+
+
+
+
+
+
+
+                        Ж  ЖЖЖ   ЖЖЖ   ЖЖЖ         ЖЖЖ  ЖЖЖЖЖ  ЖЖЖ   ЖЖЖ
+                       ЖЖ Ж   Ж Ж   Ж Ж   Ж       Ж   Ж Ж   Ж Ж   Ж Ж   Ж
+                      Ж Ж Ж   Ж Ж   Ж     Ж       Ж   Ж     Ж Ж   Ж     Ж
+                     Ж  Ж Ж   Ж Ж   Ж    Ж   ЖЖЖ  Ж   Ж    Ж  Ж   Ж    Ж
+                    Ж   Ж Ж   Ж Ж   Ж   Ж         Ж   Ж   Ж   Ж   Ж   Ж
+                    ЖЖЖЖЖ Ж   Ж Ж   Ж  Ж          Ж   Ж  Ж    Ж   Ж  Ж
+                        Ж  ЖЖЖ   ЖЖЖ  ЖЖЖЖЖ        ЖЖЖ   Ж     ЖЖЖ  ЖЖЖЖЖ
+
+
+
+
+
+
+
+
+*NАМЕ 4002-0702
+           *РЕRSО: 401350
+ 04.10.84 М1
+           *САLL LIВRЕFЕR:ТАРЕ=410702
+                                                      18.05.19 М1
+                     ССЫЛКИ НА ПОДПРОГРАММЫ                                    GЕТSТR                        SЕКDУD
+                                                                               WRIКОR                        SЕКGIR
+                                           Е I*DI*I                NЕWМАХ                                    SЕКLУG
+   D - РАССЫЛКА ДАННЫХ                     Е I*МU*I                NЕWSТR      ВЕGSТR                        SРАUD
+   Е - ВНЕШНЯЯ П/П                           КLАIDА                            ЕNDSТR                        WТВАСК
+                                             NЕWМАХ                NОТА                          RСIF     (RINТ    )
+   *W24*                                     NUSТА                 NОТFОR      АРNОТF            RЕАDМК      GЕТSТR
+   АDАUGВ   (АIRВ    )                       ТОРАGЕ                            СSТRIN                      Е I*МU*I
+   АDRSЕК    Е I*МU*I                        VIАРUZ                            ЕNDКОR                        КLАIDА
+               RSУМВ             ЕNDSТR      ВЕGРG                             GЕТSТR                        RNSУМВ
+   АILIВ    (АОRВ    )                       ЕNDРG                             GОТОРО                        SСАN
+   АIRВ        КОNSТА                        ТОРАGЕ                            ТАRNУВ            RЕАDNВ      КLАIDА
+   АNАТХТ      RWINF             ЕNDТUR    Е FТ*002                            WНАТУР                        RNSУМВ
+               SСАN                        Е FТ*003                            WRIКОR                        SСАN
+               SУТINТ                      Е FТ*571                NUSТА       ВЕGРG                         SУТINТ
+   АОRВ        КОNSТА                      Е I*DI*I                            FIRСАR            RЕDТХТ      SРАUD
+   АРNОТF      ЕNDКОR                      Е I*МU*I                          Е I*DI*I            RINТ        КОNSТА
+               НОWSМВ            FILL        ВЕGSТR                            RSУМВ                         SУТОВIN
+               NАМЕNF                        ЕNDSТR                ОNЕРLА      ЕNDКОR            RМАКR    DЕ I*МU*I
+               RАSРS                         RSУМВ                             GЕТSТR                        RАSРS1
+               WНАТУР            FILLS       FILL                            Е I*DI*I                        RSУМВ
+               WRIКОR            FIRСАR   D  СНАРАG                            RАSРS             RNSУМВ   (RSУМВ   )
+   АSUВ     (АIRВ    )                       GЕТSТR                            RЕАDNВ            RSУМВ       КОNSТА
+   ВЕGРG       ВЕGSТR                        RNSУМВ                            WRIКОR                        SУТОВIN
+               ЕNDSТR                        SСАN                              WRINUМ            RWВIТ
+             Е FТ*003                        SТААТР                ОNЕSТR      RSУМВ             RWINF       IВIТ
+             Е FТ*571                        SУТINТ                            ТАRРОZ                        RWВIТ
+             Е I*DI*I            GЕТSТR    Е FТ*002                РАРАРR    Е I*МU*I            SСАКОD    Е I*DI*I
+             Е I*МU*I                      Е FТ*003                            РАРRАР                      Е I*МU*I
+               RАSРS                       Е FТ*541                            RМАКR                       Е I*МUI*
+               RNSУМВ                        RSУМВ                 РАРRАР   D  GЕТSТR                      Е I*РО*I
+               RSУМВ             GОSТАS   D                                  Е I*МU*I            SСАN     DЕ I*DI*I
+               WТВАСК            GОТОРО      НОWSМВ                            КLАIDА                      Е I*МU*I
+   ВЕGРUS    Е I*DI*I                        RАSРS                             КОRNЕТ                      Е I*РО*I
+             Е I*МU*I                        WRIКОR                            МАSVАL                        КLАIDА
+               КLАIDА            НЕАDIN      ВЕGРG                             RАSРS1                        RSУМВ
+   ВЕGSТR    Е I*DI*I                        ВЕGSТR                            RМАКR             SСНЕМА   D  ЕNDКОR
+             Е I*МU*I                        DОUВLЕ                            RNSУМВ                        ЕNDРG
+               КLАIDА                        ЕNDРG                             RSУМВ                         GЕТSТR
+               RNSУМВ                        ЕNDSТR                            SСАN                          GОSТАS
+   ВЕGТUR   D  ВЕGРUS                        КLАIDА                            SРАUD                       Е I*DI*I
+             Е I*DI*I                        ТIТLЕ                             SУТINТ                        КLАIDА
+             Е I*МU*I            НОWSМВ      RSУМВ                             ТХТRЕD                      Е LОАDGО
+               RNSУМВ            IВIТ                              РILDУК      RSУМВ                         RЕDТХТ
+   СНАРАG      КLАIDА            IРОNUМ      ЕNDКОR                RАSКОМ   D  ЕNDКОR                        RNSУМВ
+               SСАN                          GОТОРО                            НОWSМВ                        SСАN
+               SУТINТ                        RЕАDNВ                          Е I*DI*I                        SРАUD
+   СОМАNN                                    WRIКОR                          Е I*МU*I                        SТАRТ
+   СОРУВI   (RАSРI   )           КСОUNТ                                        RАSРS                         SУТINТ
+   СSТRIN      ЕNDКОR            КLАIDА    Е FТ*002                            WRIКОR                        ТОРАGЕ
+               НОWSМВ                      Е FТ*003                RАSРI       КОNSТА                        WRIКОR
+               RАSРS                       Е FТ*571                            SУТОВIN           SЕGТАВ      АNАТХТ
+               WRIКОR                      Е SТОР*                 RАSРS    (RАSРI   )                       ВЕGРG
+   DОUВLЕ      ВЕGSТR            КОDКОD      RSУМВ                 RАSРS1   (RАSРI   )                       ВЕGSТR
+               ЕNDSТR                        SСАКОD                RАSТХТ      ВЕGРG                         ЕNDРG
+             Е I*МU*I            КОКSЕК                                        ВЕGSТR                        ЕNDSТR
+               RNSУМВ            КОКSОN    Е I*МU*I                            ЕNDРG                         GЕТSТR
+               RSУМВ                         RSУМВ                             ЕNDSТR                      Е I*DI*I
+               SСАN              КОNSТА                                      Е I*DI*I                      Е I*МU*I
+               ТАМРУК            КОRNЕТ      GЕТSТR                          Е I*МU*I                        КLАIDА
+   ЕNDКОR    Е I*МU*I                        SСАN                              КLАIDА                        LУGРАR
+               КLАIDА            LУGРАR                                        КОКSЕК                        NЕWМАХ
+   ЕNDРG     Е FТ*002            МАSVАL                                        LУGРАR                        RАSТХТ
+             Е FТ*003            NАМЕNF      СSТRIN                            NЕWМАХ                        RSУМВ
+             Е FТ*571                        ЕNDКОR                            RSУМВ                         RWINF
+               SСАN                          НОWSМВ                WRIТЕН      ОNЕРLА
+               SЕКDУD                        RАSРS                             ТWОРLА
+               SЕКGIR                        WНАТУР                            WRIНОR
+               SЕКLУG                        WRIКОR                            WRIКОR
+               SУТINТ            ТАRРОZ      RSУМВ                             WRILIN
+   SЕКDУD    Е I*МU*I            ТIТLЕ       ВЕGРG                             WRIVЕR
+   SЕКGIR      АDRSЕК                        ВЕGSТR                WRIТUR      ВЕGТUR
+             Е I*МU*I                        ЕNDРG                           Е ЕNDРUS
+               КОКSЕК                        ЕNDSТR                          Е I*МU*I
+               КОКSОN                      Е I*DI*I                            RАSРS
+               RWINF                         RNSУМВ                            RNSУМВ
+               SЕКDУD                        RSУМВ                             RSУМВ
+               WRRЕМ             ТОКRЕZ      КLАIDА                WRIVЕR      ЕNDКОR
+   SЕКLУG      ВЕGРG                         RSУМВ                             НОWSМВ
+               КLАIDА                        SСАN                            Е I*DI*I
+               RWINF                         SУТINТ                          Е I*МU*I
+               SЕКGIR            ТОРАGЕ    Е I*МU*I                            RАSРS
+   SКZОNА                                    RNSУМВ                            RNSУМВ
+   SРАUD    D  ВЕGРG                         RSУМВ                             VЕRТIК
+               ВЕGSТR            ТWОРLА      ЕNDКОR                            WRIКОR
+               СОМАNN                        GЕТSТR                WRNGR       КОNSТА
+               DОUВLЕ                      Е I*DI*I                            SУТОВIN
+               ЕNDРG                       Е I*МU*I                WRRЕМ       РILDУК
+               ЕNDSТR                        RАSРS                 WRZОNА   (SКZОNА  )
+               FILL                          RNSУМВ                WТВАСК
+               FILLS                         WRIКОR
+               GЕТSТR                        WRINUМ
+             Е I*DI*I            ТХТRЕD      SРАUD
+             Е I*МU*I            VЕRТIК    Е I*DI*I
+               КLАIDА                      Е I*МU*I
+               NЕWSТR                        RNSУМВ
+               NUSТА             VIАРUZ    Е I*DI*I
+               RЕАDМК                        RNSУМВ
+               RNSУМВ                        ТОРАGЕ
+               RSУМВ             WСРАВН
+               SСАN              WНАТУР   D  RNSУМВ
+               SЕGТАВ                        RSУМВ
+               SТААТР                        SСАN
+               SУТINТ            WRIНОR      НОWSМВ
+               ТIТLЕ                       Е I*DI*I
+               ТОКRЕZ                        RАSРS
+               ТОРАGЕ                        WRIКОR
+               WRIМАК            WRIIРО      ЕNDКОR
+   SТААТР    Е I*МUI*                        GЕТSТR
+               RNSУМВ                        IРОNUМ
+               RSУМВ                         КLАIDА
+               SТАNDА                        RАSКОМ
+   SТАNDА   D  ВЕGРG                         SСАN
+               ЕNDРG                         SУТINТ
+             Е I*DI*I                        WRIКОR
+             Е I*МU*I            WRIКОR      ЕNDКОR
+   SТАRТ                                     RNSУМВ
+   SУТINТ      RINТ              WRILIN      ЕNDКОR
+               RSУМВ                         НОWSМВ
+   SУТОВIN                                 Е I*DI*I
+   ТАМРУК      RSУМВ                         КLАIDА
+               SСАN                          ОNЕSТR
+               ТАМТХТ                        RАSРS
+               ТАRРОZ                        WRIКОR
+   ТАМТХТ    Е I*DI*I            WRIМАК    Е I*МU*I
+             Е I*МU*I                        КLАIDА
+               RNSУМВ                        RNSУМВ
+               RSУМВ             WRINТ    (RINТ    )
+   ТАRNУВ      СSТRIN            WRINUМ      НОWSМВ
+               ЕNDКОR                        RАSРS
+               GОТОРО                        WRIКОR
+                                                      18.05.19 М1
+                     ИСПОЛЬЗОВАНИЕ ПОДПРОГРАММ                                 ТWОРLА                        VЕRТIК
+                                                                               WRIIРО                        WRIМАК
+                                             ТАRNУВ                GОSТАS      SСНЕМА                        WRIТUR
+   Е - ВНЕШНЯЯ П/П               DОUВLЕ      НЕАDIN                GОТОРО      IРОNUМ                        WRIVЕR
+   N - ОПИСАНА, НЕ ИСПОЛЬЗУЕТСЯ              SРАUD                             NОТFОR            I*МUI*   Е  SСАКОD
+   С - ЕСТЬ ОДНОИМЕННЫЙ СОММОN   ЕNDКОR      АРNОТF                            ТАRNУВ                        SТААТР
+                                             СSТRIN                НОWSМВ      АРNОТF            I*РО*I   Е  SСАКОD
+   НЕИСПОЛЬЗУЕМЫЕ ВХОДЫ                      IРОNUМ                            СSТRIN                        SСАN
+                                             NАМЕNF                            GОТОРО            IВIТ        RWINF
+   *W24*    С                                NОТFОR                            RАSКОМ            IРОNUМ      WRIIРО
+   АDАUGВ                                    ОNЕРLА                            ТАRNУВ            КLАIDА      ВЕGРUS
+   АILIВ                                     RАSКОМ                            WRIНОR                        ВЕGSТR
+   АIRВ                                      SСНЕМА                            WRILIN                        СНАРАG
+   АОRВ                                      ТАRNУВ                            WRINUМ                        ЕNDКОR
+   АSUВ                                      ТWОРLА                            WRIVЕR                        ЕNDРG
+   СОРУВI                                    WRIIРО                I*DI*I   Е  ВЕGРG                         НЕАDIN
+   ЕNDТUR                                    WRIКОR                            ВЕGРUS                        РАРRАР
+   НЕАDIN                                    WRILIN                            ВЕGSТR                        RАSТХТ
+   КСОUNТ                                    WRIVЕR                            ВЕGТUR                        RЕАDМК
+   КОDКОD                        ЕNDРG       ЕNDSТR                            ЕNDРG                         RЕАDNВ
+   NОТА                                      НЕАDIN                            ЕNDТUR                        SСАN
+   NОТFОR                                    RАSТХТ                            NUSТА                         SСНЕМА
+   РАРАРR                                    SСНЕМА                            ОNЕРLА                        SЕGТАВ
+   RАSРI                                     SЕGТАВ                            RАSКОМ                        SЕКLУG
+   RСIF                                      SРАUD                             RАSТХТ                        SРАUD
+   SСНЕМА                                    SТАNDА                            SСАКОD                        ТОКRЕZ
+   SКZОNА                                    ТIТLЕ                             SСАN                          WRIIРО
+   WСРАВН                        ЕNDРUS   Е  WRIТUR                            SСНЕМА                        WRILIN
+   WRIIРО                        ЕNDSТR      ВЕGРG                             SЕGТАВ                        WRIМАК
+   WRINТ                                     DОUВLЕ                            SРАUD             КОКSЕК      RАSТХТ
+   WRIТЕН                                    FILL                              SТАNDА                        SЕКGIR
+   WRIТUR                                    НЕАDIN                            ТАМТХТ            КОКSОN      SЕКGIR
+   WRNGR                                     NЕWSТR                            ТIТLЕ             КОNSТА      АIRВ
+   WRZОNА                                    RАSТХТ                            ТWОРLА                        АОRВ
+                                             SЕGТАВ                            VЕRТIК                        RАSРI
+                                             SРАUD                             VIАРUZ                        RINТ
+   ИСПОЛЬЗУЕМЫЕ ВХОДЫ                        ТIТLЕ                             WRIНОR                        RSУМВ
+                                 FILL        FILLS                             WRILIN                        WRNGR
+   АDRSЕК      SЕКGIR                        SРАUD                             WRIVЕR            КОRNЕТ      РАРRАР
+   АNАТХТ      SЕGТАВ            FILLS       SРАUD                 I*МU*I   Е  АDRSЕК            LОАDGО   Е  SСНЕМА
+   АРNОТF      NОТFОR            FIRСАR      NUSТА                             ВЕGРG             LУGРАR      RАSТХТ
+   ВЕGРG       ЕNDSТR            FТ*002   Е  ЕNDРG                             ВЕGРUS                        SЕGТАВ
+               НЕАDIN                        ЕNDТUR                            ВЕGSТR            МАSVАL      РАРRАР
+               NUSТА                         GЕТSТR                            ВЕGТUR            NАМЕNF      АРNОТF
+               RАSТХТ                        КLАIDА                            DОUВLЕ            NЕWМАХ      ЕNDРG
+               SЕGТАВ            FТ*003   Е  ВЕGРG                             ЕNDКОR                        RАSТХТ
+               SЕКLУG                        ЕNDРG                             ЕNDРG                         SЕGТАВ
+               SРАUD                         ЕNDТUR                            ЕNDТUR            NЕWSТR      SРАUD
+               SТАNDА                        GЕТSТR                            КОКSОN            NUSТА       ЕNDРG
+               ТIТLЕ                         КLАIDА                            РАРАРR                        SРАUD
+   ВЕGРUS      ВЕGТUR            FТ*541   Е  GЕТSТR                            РАРRАР            ОNЕРLА      WRIТЕН
+   ВЕGSТR      ВЕGРG             FТ*571   Е  ВЕGРG                             RАSКОМ            ОNЕSТR      WRILIN
+               DОUВLЕ                        ЕNDРG                             RАSТХТ            РАРRАР      РАРАРR
+               FILL                          ЕNDТUR                            RЕАDМК            РILDУК      WRRЕМ
+               НЕАDIN                        КLАIDА                            RМАКR             RАSКОМ      WRIIРО
+               NЕWSТR            GЕТSТR      FIRСАR                            SСАКОD            RАSРS       АРNОТF
+               RАSТХТ                        КОRNЕТ                            SСАN                          ВЕGРG
+               SЕGТАВ                        NАМЕNF                            SЕGТАВ                        СSТRIN
+               SРАUD                         NОТFОR                            SЕКDУD                        GОТОРО
+               ТIТLЕ                         ОNЕРLА                            SЕКGIR                        ОNЕРLА
+   ВЕGТUR      WRIТUR                        РАРRАР                            SРАUD                         RАSКОМ
+   СНАРАG      FIRСАR                        RЕАDМК                            SТАNDА                        ТАRNУВ
+   СОМАNN      SРАUD                         SСНЕМА                            ТАМТХТ                        ТWОРLА
+   СSТRIN      NАМЕNF                        SЕGТАВ                            ТОРАGЕ                        WRIНОR
+               NОТFОR                        SРАUD                             ТWОРLА                        WRILIN
+               WRINUМ                        SЕКLУG                VIАРUZ      ЕNDРG
+               WRIТUR            SСАКОD      КОDКОD                WНАТУР      АРNОТF
+               WRIVЕR            SСАN        АNАТХТ                            NОТFОR
+   RАSРS1      РАРRАР                        СНАРАG                            ТАRNУВ
+               RМАКR                         DОUВLЕ                WRIНОR      WRIТЕН
+   RАSТХТ      SЕGТАВ                        FIRСАR                WRIКОR      АРNОТF
+   RЕАDМК      SРАUD                         КОRNЕТ                            СSТRIN
+   RЕАDNВ      IРОNUМ                        РАРRАР                            GОТОРО
+               ОNЕРLА                        RЕАDМК                            IРОNUМ
+   RЕDТХТ      SСНЕМА                        RЕАDNВ                            NАМЕNF
+   RINТ        SУТINТ                        SСНЕМА                            NОТFОR
+   RМАКR       РАРАРR                        SЕGТАВ                            ОNЕРLА
+               РАРRАР                        SРАUD                             RАSКОМ
+   RNSУМВ      ВЕGРG                         ТАМРУК                            SСНЕМА
+               ВЕGSТR                        ТОКRЕZ                            ТАRNУВ
+               ВЕGТUR                        WНАТУР                            ТWОРLА
+               DОUВLЕ                        WRIIРО                            WRIНОR
+               FIRСАR            SЕGТАВ      SРАUD                             WRIIРО
+               РАРRАР            SЕКDУD      RАSТХТ                            WRILIN
+               RЕАDМК                        SЕGТАВ                            WRINUМ
+               RЕАDNВ                        SЕКGIR                            WRIТЕН
+               SСНЕМА            SЕКGIR      RАSТХТ                            WRIVЕR
+               SРАUD                         SЕGТАВ                WRILIN      WRIТЕН
+               SТААТР                        SЕКLУG                WRIМАК      SРАUD
+               ТАМТХТ            SЕКLУG      RАSТХТ                WRINUМ      ОNЕРLА
+               ТIТLЕ                         SЕGТАВ                            ТWОРLА
+               ТОРАGЕ            SРАUD       РАРRАР                WRIVЕR      WRIТЕН
+               ТWОРLА                        RАSТХТ                WRRЕМ       SЕКGIR
+               VЕRТIК                        RЕDТХТ                WТВАСК      ВЕGРG
+               VIАРUZ                        SСНЕМА                            RАSТХТ
+               WНАТУР                        ТХТRЕD
+               WRIКОR            SТААТР      FIRСАR
+               WRIМАК                        SРАUD
+               WRIТUR            SТАNDА      SТААТР
+               WRIVЕR            SТАRТ       SСНЕМА
+   RSУМВ       АDRSЕК            SТОР*    Е  КLАIDА
+               ВЕGРG             SУТINТ      АNАТХТ
+               DОUВLЕ                        СНАРАG
+               FILL                          FIRСАR
+               GЕТSТR                        РАРRАР
+               НОWSМВ                        RЕАDNВ
+               КОDКОD                        SСНЕМА
+               КОКSОN                        SЕGТАВ
+               NUSТА                         SРАUD
+               ОNЕSТR                        ТОКRЕZ
+               РАРRАР                        WRIIРО
+               РILDУК            SУТОВIN     RАSРI
+               RАSТХТ                        RINТ
+               RМАКR                         RSУМВ
+               SСАN                        N WRNGR
+               SЕGТАВ            ТАМРУК      DОUВLЕ
+               SРАUD             ТАМТХТ      ТАМРУК
+               SТААТР            ТАRNУВ      NОТFОR
+               SУТINТ            ТАRРОZ      ОNЕSТR
+               ТАМРУК                        ТАМРУК
+               ТАМТХТ            ТIТLЕ       НЕАDIN
+               ТАRРОZ                        SРАUD
+               ТIТLЕ             ТОКRЕZ      SРАUD
+               ТОКRЕZ            ТОРАGЕ      ЕNDРG
+               ТОРАGЕ                        ЕNDSТR
+               WНАТУР                        SСНЕМА
+               WRIТUR                        SРАUD
+   RWВIТ       RWINF                         VIАРUZ
+   RWINF       АNАТХТ            ТWОРLА      WRIТЕН
+               SЕGТАВ            ТХТRЕD      РАРRАР
+               SЕКGIR            VЕRТIК      WRIVЕR
+                                                      18.05.19 М1
+                     ССЫЛКИ НА СОММОN′Ы                            КОDКОD    L 00001 *NЕW*                 L 13401 *ЕGО*
+                                                                             L 00024 *NЕWSТ*              NL 00027 *INS*
+                                           L 00003 *SСАNЕR*        КОКSЕК   NL 00006 *LУG*                NL 00010 *NUSТ*
+   D - РАССЫЛКА ДАННЫХ           СОМАNN   NL 00027 *INS*                    NL 00004 *NDАВ*               NL 00001 *RUSIS*
+   N - ОПИСАН, НЕ ИСПОЛЬЗУЕТСЯ             L 00020 *LRЕ*                    NL 00002 *NDАВL*     РАРRАР    L 00021 *СОМСОN*
+   Р - СТРАНИЧНЫЙ СОММОN                   L 00003 *SСАNЕR*                 NL 00010 *NUSТ*                L 13401 *ЕGО*
+   S - СЕКТОРНЫЙ СОММОN          СSТRIN    L 00002 *WНО*                     L 00004 *SЕК*                 L 00027 *INS*
+   L - ПРОСТОЙ СОММОN            DОUВLЕ    L 00001 *DDR*                     L 00002 *SLУ*                 L 00001 *RUSIS*
+   ***** - ДЛИНА ОПИСАНА НЕЯВНО            L 00027 *INS*                     L 00005 *ТАВ*                 L 00003 *SСАNЕR*
+                                           L 00004 *NDАВ*          КОКSОN    L 00004 *АDR*       RАSКОМ    L 00006 *РАGЕ*
+   АDRSЕК    L 00004 *АDR*                 L 00010 *NUSТ*                    L 00020 *LRЕ*                 L 00002 *WНО*
+             L 00006 *LУG*                 L 00016 *RЕGIМ*                   L 00006 *LУG*       RАSТХТ    L 00001 *АРJ*
+             L 00004 *NDАВ*                L 00003 *SСАNЕR*                  L 00006 *РАGЕ*                L 00002 *АТV*
+            NL 00002 *NDАВL*               L 00027 *SТR*                     L 00016 *RЕGIМ*               L 00003 *DУD*
+             L 00025 *NRD*                 L 00005 *ТАВ*                     L 00004 *SЕК*                 L 13401 *ЕGО*
+             L 00006 *РАGЕ*      ЕNDКОR    L 13401 *ЕGО*                     L 00006 *SЕР*                 L 00027 *INS*
+             L 00016 *RЕGIМ*               L 00015 *КОRТ*          КОRNЕТ    L 00027 *INS*                 L 00001 *LNТ*
+             L 00005 *ТАВ*       ЕNDРG     L 00003 *DУD*                     L 00003 *SСАNЕR*              L 00006 *LУG*
+   АNАТХТ    L 00002 *АТV*                 L 13401 *ЕGО*           LУGРАR    L 00006 *LУG*                 L 00004 *NDАВ*
+             L 00003 *INF*                NL 00006 *LУG*                    NL 00004 *NDАВ*                L 00002 *NDАВL*
+             L 00027 *INS*                 L 00004 *NDАВ*                    L 00016 *RЕGIМ*               L 00025 *NRD*
+            NL 00020 *LRЕ*                 L 00010 *NUSТ*                    L 00004 *SЕК*                 L 00010 *NUSТ*
+             L 00003 *SСАNЕR*              L 00006 *РАGЕ*          NАМЕNF    L 00027 *INS*                 L 00006 *РАGЕ*
+            NL 00027 *SТR*                 L 00001 *РLN*                     L 00006 *РАGЕ*                L 00001 *РАР*
+             L 00004 *ТХТ*                 L 00016 *RЕGIМ*                  NL 00003 *SСАNЕR*              L 00001 *РLN*
+   АРNОТF    L 00001 *GОТ*                 L 00001 *RРТ*                    NL 00002 *WНО*                 L 00007 *РUFОR*
+             L 00027 *INS*                 L 00004 *SЕК*           NЕWМАХ    L 00006 *LУG*                 L 00001 *РUS*
+             L 00006 *РАGЕ*                L 00006 *SТАND*                   L 00004 *NDАВ*                L 00002 *RАI*
+             L 00003 *SСАNЕR*              L 00004 *ТХТ*                     L 00016 *RЕGIМ*               L 00016 *RЕGIМ*
+             L 00014 *ТУРЕ*      ЕNDSТR    L 00004 *NDАВ*                    L 00004 *SЕК*                 L 00003 *SСАNЕR*
+             L 00002 *WНО*                 L 00006 *РАGЕ*          NЕWSТR    L 00004 *NDАВ*                L 00004 *SЕК*
+   ВЕGРG     L 00001 *АРJ*                 L 00016 *RЕGIМ*                   L 00027 *SТR*                NL 00002 *SLУ*
+             L 00013 *СОМТIТ*    ЕNDТUR    L 13401 *ЕGО*           NОТFОR    L 00027 *INS*                 L 00002 *SТL*
+             L 00003 *DУD*                 L 00008 *FОR*                     L 00015 *КОRТ*                L 00027 *SТR*
+             L 13401 *ЕGО*                 L 00002 *JАU*                     L 00003 *NОТF*                L 00002 *SUТ*
+            NL 00006 *LУG*       FILL      L 00004 *NDАВ*                    L 00006 *РАGЕ*                L 00005 *ТАВ*
+             L 00004 *NDАВ*                L 00027 *SТR*                     L 00001 *SАL*                 L 00004 *ТХТ*
+             L 00010 *NUSТ*      FILLS     L 00027 *SТR*                     L 00003 *SСАNЕR*    RЕАDМК    L 00027 *INS*
+             L 00006 *РАGЕ*      FIRСАR   NL 00001 *АRРI*                    L 00014 *ТУРЕ*                L 00502 *МКR*
+             L 00007 *РUFОR*               L 00027 *INS*           NUSТА    NL 00001 *АRРI*                L 00001 *NRМ*
+             L 00001 *РUS*                 L 00004 *NDАВ*                   NL 00001 *ВLО*                 L 00250 *RМК*
+             L 00016 *RЕGIМ*               L 00016 *RЕGIМ*                  NL 00001 *FОР*                 L 00003 *SСАNЕR*
+             L 00004 *SЕК*                 L 00003 *SСАNЕR*                  L 00016 *FОRМА*               L 00001 *SТV*
+             L 00006 *SТАND*     GЕТSТR    L 13401 *ЕGО*                    NL 00027 *INS*       RЕАDNВ    L 00027 *INS*
+             L 00027 *SТR*                 L 00027 *INS*                    DL 00016 *LОL*                 L 00001 *NВR*
+   ВЕGРUS    L 13401 *ЕGО*                 L 00001 *NUSТА*                   L 00004 *NDАВ*                L 00004 *NUМ*
+             L 00008 *FОR*                 L 00001 *RUSIS*                   L 00010 *NUSТ*                L 00003 *SСАNЕR*
+             L 00002 *JАU*       GОSТАS    L 00016 *LОL*                     L 00006 *РАGЕ*      RЕDТХТ    L 00001 *FIN*
+   ВЕGSТR    L 00025 *DАR*       GОТОРО    L 00002 *WНО*                     L 00016 *RЕGIМ*              NL 00010 *NUSТ*
+             L 00016 *FОRМА*     НЕАDIN    L 00016 *FОRМА*                  NL 00003 *SСАNЕR*             NL 00016 *RЕGIМ*
+             L 00004 *NDАВ*                L 00002 *НЕD*                     L 00027 *SТR*                 L 00001 *RUSIS*
+             L 00010 *NUSТ*                L 00027 *INS*           ОNЕРLА    L 00027 *INS*       RМАКR     L 00021 *СОМСОN*
+             L 00002 *RАI*                 L 00004 *NDАВ*                    L 00008 *КОМА*                L 13401 *ЕGО*
+             L 00016 *RЕGIМ*               L 00010 *NUSТ*                    L 00015 *КОRТ*                L 00006 *РАGЕ*
+             L 00027 *SТR*                 L 00006 *РАGЕ*                   NL 00004 *NUМ*       RWINF     L 00003 *INF*
+   ВЕGТUR    L 13401 *ЕGО*                 L 00016 *RЕGIМ*                   L 00003 *ОNЕ*       SСАКОD    L 00180 *IМА*
+             L 00008 *FОR*                 L 00003 *SСАNЕR*                  L 00006 *РАGЕ*                L 00001 *NЕW*
+             L 00002 *JАU*                 L 00027 *SТR*                    NL 00003 *SСАNЕR*              L 00001 *RЕG*
+             L 00006 *РАGЕ*      НОWSМВ    L 00002 *WНО*           ОNЕSТR    L 00015 *ВЕN*       SСАN      L 00027 *INS*
+             L 00016 *RЕGIМ*     IРОNUМ    L 00027 *INS*                     L 00027 *INS*                 L 00003 *SСАNЕR*
+             L 00027 *SТR*                 L 00001 *NВR*                     L 00003 *ОNЕ*       SСНЕМА    L 00001 *ВLО*
+   СНАРАG    L 00027 *INS*                 L 00004 *NUМ*                     L 00002 *RАI*                 L 13401 *ЕGО*
+             L 00010 *NUSТ*                L 00006 *РАGЕ*                   NL 00003 *SСАNЕR*              L 00001 *FIN*
+            NL 00006 *РАGЕ*                L 00003 *SСАNЕR*                  L 00027 *SТR*                 L 00001 *FОР*
+             L 00016 *RЕGIМ*     КLАIDА    L 00027 *INS*           РАРАРR   DL 00021 *СОМСОN*              L 00001 *GОТ*
+             L 00027 *INS*                NL 00002 *SТL*                     L 00027 *SТR*                 L 00004 *NDАВ*
+             L 00502 *МКR*                NL 00005 *ТАВ*           ТIТLЕ     L 00027 *INS*                 L 00027 *SТR*
+             L 00004 *NDАВ*                L 00004 *ТХТ*                     L 00001 *МЕDIUМ*    WRIVЕR    L 00001 *СЕN*
+             L 00010 *NUSТ*      SРАUD     L 00001 *АRРI*                    L 00004 *NDАВ*               NL 00008 *КОМА*
+             L 00001 *NUSТА*               L 00013 *СОМТIТ*                  L 00006 *РАGЕ*                L 00004 *NUМ*
+             L 00006 *РАGЕ*                L 00025 *DАR*                     L 00027 *SТR*                 L 00006 *РАGЕ*
+             L 00016 *RЕGIМ*               L 13401 *ЕGО*           ТОКRЕZ    L 00027 *INS*                 L 00005 *VЕR*
+             L 00001 *RРТ*                 L 00001 *FIN*                     L 00003 *SСАNЕR*              L 00002 *WНО*
+             L 00001 *RUSIS*               L 00016 *FОRМА*         ТОРАGЕ    L 13401 *ЕGО*       WRRЕМ     L 13401 *ЕGО*
+             L 00003 *SСАNЕR*              L 00027 *INS*                     L 00004 *NDАВ*                L 00006 *LУG*
+             L 00006 *SТАND*               L 00001 *LNТ*                    NL 00010 *NUSТ*                L 00004 *SЕК*
+             L 00001 *SТАNN*               L 00001 *МЕDIUМ*                  L 00016 *RЕGIМ*               L 00006 *SЕР*
+            NL 00027 *SТR*                 L 00502 *МКR*                     L 00004 *SЕК*       WТВАСК    L 00001 *РUS*
+             L 00001 *SТV*                 L 00004 *NDАВ*                    L 00027 *SТR*                 L 00016 *RЕGIМ*
+             L 00004 *ТХТ*                 L 00025 *NRD*                     L 00004 *ТХТ*                 L 00027 *SТR*
+   SЕGТАВ    L 00002 *АТV*                 L 00001 *NRМ*           ТWОРLА    L 00027 *INS*
+             L 00003 *DУD*                 L 00010 *NUSТ*                    L 00008 *КОМА*
+             L 13401 *ЕGО*                 L 00006 *РАGЕ*                    L 00015 *КОRТ*
+             L 00003 *INF*                 L 00002 *RАI*                     L 00004 *NUМ*
+             L 00027 *INS*                 L 00001 *RАК*                     L 00003 *ОNЕ*
+             L 00001 *LNТ*                 L 00016 *RЕGIМ*                   L 00006 *РАGЕ*
+             L 00020 *LRЕ*                 L 00001 *RUSIS*                   L 00005 *VЕR*
+             L 00006 *LУG*                 L 00003 *SСАNЕR*        ТХТRЕD    L 13401 *ЕGО*
+             L 00004 *NDАВ*                L 00006 *SТАND*                   L 00001 *RРТ*
+             L 00025 *NRD*                 L 00027 *SТR*                     L 00001 *RUSIS*
+             L 00010 *NUSТ*                L 00002 *VIЕ*           VЕRТIК    L 00005 *VЕR*
+             L 00006 *РАGЕ*      SТААТР   NL 00001 *АRРI*          VIАРUZ    L 00004 *NDАВ*
+             L 00016 *RЕGIМ*               L 00027 *INS*                     L 00007 *РUFОR*
+            NL 00001 *RUSIS*              NL 00010 *NUSТ*                    L 00006 *SТАND*
+             L 00003 *SСАNЕR*             NL 00016 *RЕGIМ*                   L 00027 *SТR*
+             L 00004 *SЕК*                 L 00003 *SСАNЕR*                  L 00050 *ТЕКSТ*
+             L 00002 *SLУ*                 L 00006 *SТАND*         WСРАВН    L 00024 *W24*
+             L 00027 *SТR*                 L 00050 *ТЕКSТ*                   L 00003 *WДЛИНА*
+             L 00005 *ТАВ*       SТАNDА    L 00001 *АRРI*          WНАТУР    L 00027 *INS*
+             L 00004 *ТХТ*                 L 00016 *FОRМА*                   L 00001 *SАL*
+   SЕКDУD    L 00003 *DУD*                 L 00016 *LОL*                     L 00003 *SСАNЕR*
+             L 00006 *LУG*                 L 00004 *NDАВ*                    L 00014 *ТУРЕ*
+             L 00016 *RЕGIМ*               L 00010 *NUSТ*          WRIНОR    L 00008 *КОМА*
+             L 00004 *SЕК*                 L 00006 *РАGЕ*                   NL 00004 *NUМ*
+   SЕКGIR    L 00004 *АDR*                 L 00016 *RЕGIМ*                   L 00006 *РАGЕ*
+             L 00003 *DУD*                 L 00006 *SТАND*                   L 00002 *WНО*
+            NL 13401 *ЕGО*       SТАRТ     L 13401 *ЕGО*           WRIIРО    L 00001 *GОТ*
+             L 00003 *INF*                 L 00001 *FОР*                     L 00027 *INS*
+             L 00020 *LRЕ*                DL 00008 *КОМА*                    L 00003 *SСАNЕR*
+             L 00006 *LУG*                 L 00015 *КОRТ*          WRIКОR    L 00015 *КОRТ*
+             L 00025 *NRD*                 L 00001 *NUNU*          WRILIN    L 00001 *СЕN*
+             L 00006 *РАGЕ*      ТАМРУК    L 00015 *ВЕN*                     L 00008 *КОМА*
+             L 00016 *RЕGIМ*               L 00001 *DDR*                    NL 00004 *NUМ*
+             L 00004 *SЕК*                NL 00027 *INS*                     L 00003 *ОNЕ*
+             L 00006 *SЕР*                NL 00016 *RЕGIМ*                   L 00006 *РАGЕ*
+             L 00002 *SLУ*                 L 00003 *SСАNЕR*                  L 00002 *WНО*
+             L 00002 *SUТ*                 L 00027 *SТR*           WRIМАК    L 00502 *МКR*
+             L 00005 *ТАВ*       ТАМТХТ    L 00014 *ВЕN*                     L 00001 *NRМ*
+   SЕКLУG    L 00001 *АРJ*                 L 00025 *DАR*                     L 00250 *RМК*
+             L 00002 *АТV*                 L 00002 *RАI*                     L 00002 *VIЕ*
+             L 00003 *DУD*                 L 00027 *SТR*           WRINUМ    L 00008 *КОМА*
+             L 00003 *INF*       ТАRNУВ    L 00015 *КОRТ*                    L 00004 *NUМ*
+             L 00001 *LNТ*                 L 00003 *NОТF*                    L 00003 *ОNЕ*
+             L 00006 *LУG*                 L 00006 *РАGЕ*                    L 00002 *WНО*
+             L 00004 *NDАВ*                L 00001 *SАL*           WRIТЕН    L 00001 *GОТ*
+             L 00010 *NUSТ*                L 00014 *ТУРЕ*                   NL 00001 *NUNU*
+             L 00006 *РАGЕ*                L 00002 *WНО*                    NL 00010 *NUSТ*
+             L 00001 *РLN*       ТАRРОZ    L 00015 *ВЕN*                    NL 00016 *RЕGIМ*
+             L 00016 *RЕGIМ*               L 00002 *RАI*           WRIТUR    L 13401 *ЕGО*
+             L 00004 *SЕК*                 L 00016 *RЕGIМ*                   L 00008 *FОR*
+             L 00002 *SLУ*                NL 00003 *SСАNЕR*                  L 00002 *JАU*
+                                                      18.05.19 М1
+                     ИСПОЛЬЗОВАНИЕ СОММОN′ОВ                                 L 00027 КLАIDА                L 00006 LУGРАR
+                                                                             L 00027 КОRNЕТ                L 00006 NЕWМАХ
+                                           L 13401 ВЕGРUS                    L 00027 NАМЕNF                L 00006 RАSТХТ
+   Е - ЕСТЬ ОДНОИМЕННАЯ П/П                L 13401 ВЕGТUR                    L 00027 NОТFОR                L 00006 SЕGТАВ
+   D - РАССЫЛКА ДАННЫХ                     L 13401 ЕNDКОR                   NL 00027 NUSТА                 L 00006 SЕКDУD
+   N - ОПИСАН, НЕ ИСПОЛЬЗУЕТСЯ             L 13401 ЕNDРG                     L 00027 ОNЕРLА                L 00006 SЕКGIR
+   Р - СТРАНИЧНЫЙ СОММОN                   L 13401 ЕNDТUR                    L 00027 ОNЕSТR                L 00006 SЕКLУG
+   S - СЕКТОРНЫЙ СОММОN                    L 13401 GЕТSТR                   NL 00027 РАРАРR                L 00006 WRRЕМ
+   L - ПРОСТОЙ СОММОN                      L 13401 РАРАРR                    L 00027 РАРRАР      *МЕDIUМ*    00001
+   ***** - ДЛИНА ОПИСАНА НЕЯВНО            L 13401 РАРRАР                    L 00027 RАSТХТ                L 00001 SРАUD
+                                           L 13401 RАSТХТ                    L 00027 RЕАDМК                L 00001 ТIТLЕ
+   *АDR*       00004                       L 13401 RМАКR                     L 00027 RЕАDNВ      *МКR*       00502
+             L 00004 АDRSЕК                L 13401 SСНЕМА                    L 00027 SСАN                  L 00502 RЕАDМК
+             L 00004 КОКSОN                L 13401 SЕGТАВ                    L 00027 SСНЕМА                L 00502 SСНЕМА
+             L 00004 SЕКGIR               NL 13401 SЕКGIR                    L 00027 SЕGТАВ                L 00502 SРАUD
+   *АРJ*       00001                       L 13401 SРАUD                     L 00027 SРАUD                 L 00502 WRIМАК
+             L 00001 ВЕGРG                 L 13401 SТАRТ                     L 00027 SТААТР      *NВR*       00001
+             L 00001 RАSТХТ                L 13401 ТОРАGЕ                   NL 00027 ТАМРУК                L 00001 IРОNUМ
+             L 00001 SЕКLУG                L 13401 ТХТRЕD                    L 00027 ТIТLЕ                 L 00001 RЕАDNВ
+   *АRРI*      00001                       L 13401 WRIТUR                    L 00027 ТОКRЕZ      *NDАВ*      00004
+            NL 00001 FIRСАR                L 13401 WRRЕМ                     L 00027 ТWОРLА                L 00004 АDRSЕК
+            NL 00001 NUSТА       *FIN*       00001                           L 00027 WНАТУР                L 00004 ВЕGРG
+             L 00001 SРАUD                 L 00001 RЕDТХТ                    L 00027 WRIIРО                L 00004 ВЕGSТR
+            NL 00001 SТААТР                L 00001 SСНЕМА          *JАU*       00002                       L 00004 DОUВLЕ
+             L 00001 SТАNDА                L 00001 SРАUD                     L 00002 ВЕGРUS                L 00004 ЕNDРG
+   *АТV*       00002             *FОР*       00001                           L 00002 ВЕGТUR                L 00004 ЕNDSТR
+             L 00002 АNАТХТ               NL 00001 NUSТА                     L 00002 ЕNDТUR                L 00004 FILL
+             L 00002 RАSТХТ                L 00001 SСНЕМА                    L 00002 WRIТUR                L 00004 FIRСАR
+             L 00002 SЕGТАВ                L 00001 SТАRТ           *КОМА*      00008                       L 00004 НЕАDIN
+             L 00002 SЕКLУG      *FОR*       00008                           L 00008 ОNЕРLА               NL 00004 КОКSЕК
+   *ВЕN*       00015                       L 00008 ВЕGРUS                   DL 00008 SТАRТ                NL 00004 LУGРАR
+             L 00015 ОNЕSТR                L 00008 ВЕGТUR                    L 00008 ТWОРLА                L 00004 NЕWМАХ
+             L 00015 ТАМРУК                L 00008 ЕNDТUR                    L 00008 WRIНОR                L 00004 NЕWSТR
+             L 00014 ТАМТХТ                L 00008 WRIТUR                    L 00008 WRILIN                L 00004 NUSТА
+             L 00015 ТАRРОZ      *FОRМА*     00016                           L 00008 WRINUМ                L 00004 RАSТХТ
+   *ВLО*       00001                       L 00016 ВЕGSТR                   NL 00008 WRIVЕR                L 00004 SСНЕМА
+            NL 00001 NUSТА                 L 00016 НЕАDIN          *КОRТ*      00015                       L 00004 SЕGТАВ
+             L 00001 SСНЕМА                L 00016 NUSТА                     L 00015 ЕNDКОR                L 00004 SЕКLУG
+   *СЕN*       00001                       L 00016 SРАUD                     L 00015 NОТFОR                L 00004 SРАUD
+             L 00001 WRILIN                L 00016 SТАNDА                    L 00015 ОNЕРLА                L 00004 SТАNDА
+             L 00001 WRIVЕR      *GОТ*       00001                           L 00015 SТАRТ                 L 00004 ТIТLЕ
+   *СОМСОN*    00021                       L 00001 АРNОТF                    L 00015 ТАRNУВ                L 00004 ТОРАGЕ
+            DL 00021 РАРАРR                L 00001 SСНЕМА                    L 00015 ТWОРLА                L 00004 VIАРUZ
+             L 00021 РАРRАР                L 00001 WRIIРО                    L 00015 WRIКОR                L 00004 WRIТUR
+             L 00021 RМАКR                 L 00001 WRIТЕН          *LNТ*       00001             *NDАВL*     00002
+   *СОМТIТ*    00013             *НЕD*       00002                           L 00001 RАSТХТ               NL 00002 АDRSЕК
+             L 00013 ВЕGРG                 L 00002 НЕАDIN                    L 00001 SЕGТАВ               NL 00002 КОКSЕК
+             L 00013 SРАUD       *IМА*       00180                           L 00001 SЕКLУG                L 00002 RАSТХТ
+   *DАR*       00025                       L 00180 SСАКОD                    L 00001 SРАUD       *NЕW*       00001
+             L 00025 ВЕGSТR      *INF*       00003                 *LОL*       00016                       L 00001 КОDКОD
+             L 00025 SРАUD                 L 00003 АNАТХТ                    L 00016 GОSТАS                L 00001 SСАКОD
+             L 00025 ТАМТХТ                L 00003 RWINF                    DL 00016 NUSТА       *NЕWSТ*     00024
+   *DDR*       00001                       L 00003 SЕGТАВ                    L 00016 SТАNDА                L 00024 КОDКОD
+             L 00001 DОUВLЕ                L 00003 SЕКGIR          *LRЕ*       00020             *NОТF*      00003
+             L 00001 ТАМРУК                L 00003 SЕКLУG                   NL 00020 АNАТХТ                L 00003 NОТFОR
+   *DУD*       00003             *INS*       00027                           L 00020 СОМАNN                L 00003 ТАRNУВ
+             L 00003 ВЕGРG                 L 00027 АNАТХТ                    L 00020 КОКSОN      *NRD*       00025
+             L 00003 ЕNDРG                 L 00027 АРNОТF                    L 00020 SЕGТАВ                L 00025 АDRSЕК
+             L 00003 RАSТХТ                L 00027 СНАРАG                    L 00020 SЕКGIR                L 00025 RАSТХТ
+             L 00003 SЕGТАВ               NL 00027 СОМАNN          *LУG*       00006                       L 00025 SЕGТАВ
+             L 00003 SЕКDУD                L 00027 DОUВLЕ                    L 00006 АDRSЕК                L 00025 SЕКGIR
+             L 00003 SЕКGIR                L 00027 FIRСАR                   NL 00006 ВЕGРG                 L 00025 SРАUD
+             L 00003 SЕКLУG                L 00027 GЕТSТR                   NL 00006 ЕNDРG       *NRМ*       00001
+   *ЕGО*       13401                       L 00027 НЕАDIN                   NL 00006 КОКSЕК                L 00001 RЕАDМК
+             L 13401 ВЕGРG                 L 00027 IРОNUМ                    L 00006 КОКSОN                L 00001 SРАUD
+             L 00001 WRIМАК                L 00006 ТАRNУВ                    L 00001 SСНЕМА                L 00002 SЕКGIR
+   *NUМ*       00004                       L 00006 ТIТLЕ                     L 00001 ТХТRЕD                L 00002 SЕКLУG
+             L 00004 IРОNUМ                L 00006 ТWОРLА          *RUSIS*     00001             *SТАND*     00006
+            NL 00004 ОNЕРLА                L 00006 WRIНОR                    L 00001 GЕТSТR                L 00006 ВЕGРG
+             L 00004 RЕАDNВ                L 00006 WRILIN                   NL 00001 РАРАРR                L 00006 ЕNDРG
+             L 00004 ТWОРLА                L 00006 WRIVЕR                    L 00001 РАРRАР                L 00006 SСНЕМА
+            NL 00004 WRIНОR      *РАР*       00001                           L 00001 RЕDТХТ                L 00006 SРАUD
+            NL 00004 WRILIN                L 00001 RАSТХТ                    L 00001 SСНЕМА                L 00006 SТААТР
+             L 00004 WRINUМ      *РLN*       00001                          NL 00001 SЕGТАВ                L 00006 SТАNDА
+             L 00004 WRIVЕR                L 00001 ЕNDРG                     L 00001 SРАUD                 L 00006 VIАРUZ
+   *NUNU*      00001                       L 00001 RАSТХТ                    L 00001 ТХТRЕD      *SТАNN*     00001
+             L 00001 SТАRТ                 L 00001 SЕКLУG          *SАL*       00001                       L 00001 SСНЕМА
+            NL 00001 WRIТЕН      *РUFОR*     00007                           L 00001 NОТFОR      *SТL*       00002
+   *NUSТ*      00010                       L 00007 ВЕGРG                     L 00001 ТАRNУВ                L 00002 RАSТХТ
+             L 00010 ВЕGРG                 L 00007 RАSТХТ                    L 00001 WНАТУР               NL 00002 SЕКLУG
+             L 00010 ВЕGSТR                L 00007 VIАРUZ          *SСАNЕR*    00003             *SТR*       00027
+             L 00010 СНАРАG      *РUS*       00001                           L 00003 АNАТХТ               NL 00027 АNАТХТ
+             L 00010 DОUВLЕ                L 00001 ВЕGРG                     L 00003 АРNОТF                L 00027 ВЕGРG
+             L 00010 ЕNDРG                 L 00001 RАSТХТ                    L 00003 СНАРАG                L 00027 ВЕGSТR
+             L 00010 НЕАDIN                L 00001 WТВАСК                    L 00003 СОМАNN                L 00027 ВЕGТUR
+            NL 00010 КОКSЕК      *RАI*       00002                           L 00003 DОUВLЕ                L 00027 DОUВLЕ
+             L 00010 NUSТА                 L 00002 ВЕGSТR                    L 00003 FIRСАR                L 00027 FILL
+            NL 00010 РАРАРR                L 00002 ОNЕSТR                    L 00003 НЕАDIN                L 00027 FILLS
+             L 00010 RАSТХТ                L 00002 RАSТХТ                    L 00003 IРОNUМ                L 00027 НЕАDIN
+            NL 00010 RЕDТХТ                L 00002 SРАUD                     L 00003 КОRNЕТ                L 00027 NЕWSТR
+             L 00010 SСНЕМА                L 00002 ТАМТХТ                   NL 00003 NАМЕNF                L 00027 NUSТА
+             L 00010 SЕGТАВ                L 00002 ТАRРОZ                    L 00003 NОТFОR                L 00027 ОNЕSТR
+             L 00010 SЕКLУG      *RАК*       00001                          NL 00003 NUSТА                 L 00027 RАSТХТ
+             L 00010 SРАUD                 L 00001 SРАUD                    NL 00003 ОNЕРLА               NL 00027 SСНЕМА
+            NL 00010 SТААТР      *RЕG*       00001                          NL 00003 ОNЕSТR                L 00027 SЕGТАВ
+             L 00010 SТАNDА                L 00001 SСАКОD                    L 00003 РАРRАР                L 00027 SРАUD
+            NL 00010 ТОРАGЕ      *RЕGIМ*     00016                           L 00003 RАSТХТ                L 00027 ТАМРУК
+            NL 00010 WRIТЕН                L 00016 АDRSЕК                    L 00003 RЕАDМК                L 00027 ТАМТХТ
+   *NUSТА*     00001                       L 00016 ВЕGРG                     L 00003 RЕАDNВ                L 00027 ТАRРОZ
+             L 00001 GЕТSТR                L 00016 ВЕGSТR                    L 00003 SСАN                  L 00027 ТIТLЕ
+             L 00001 SСНЕМА                L 00016 ВЕGТUR                    L 00003 SСНЕМА                L 00027 ТОРАGЕ
+   *ОNЕ*       00003                       L 00016 СНАРАG                    L 00003 SЕGТАВ                L 00027 VIАРUZ
+             L 00003 ОNЕРLА                L 00016 DОUВLЕ                    L 00003 SРАUD                 L 00027 WRIТUR
+             L 00003 ОNЕSТR                L 00016 ЕNDРG                     L 00003 SТААТР                L 00027 WТВАСК
+             L 00003 ТWОРLА                L 00016 ЕNDSТR                    L 00003 ТАМРУК      *SТV*       00001
+             L 00003 WRILIN                L 00016 FIRСАR                   NL 00003 ТАRРОZ                L 00001 RЕАDМК
+             L 00003 WRINUМ                L 00016 НЕАDIN                    L 00003 ТОКRЕZ                L 00001 SСНЕМА
+   *РАGЕ*      00006                       L 00016 КОКSОN                    L 00003 WНАТУР      *SUТ*       00002
+             L 00006 АDRSЕК                L 00016 LУGРАR                    L 00003 WRIIРО                L 00002 RАSТХТ
+             L 00006 АРNОТF                L 00016 NЕWМАХ          *SЕК*       00004                       L 00002 SЕКGIR
+             L 00006 ВЕGРG                 L 00016 NUSТА                     L 00004 ВЕGРG       *ТАВ*       00005
+             L 00006 ВЕGТUR                L 00016 RАSТХТ                    L 00004 ЕNDРG                 L 00005 АDRSЕК
+            NL 00006 СНАРАG               NL 00016 RЕDТХТ                    L 00004 КОКSЕК                L 00005 DОUВLЕ
+             L 00006 ЕNDРG                 L 00016 SСНЕМА                    L 00004 КОКSОN                L 00005 КОКSЕК
+             L 00006 ЕNDSТR                L 00016 SЕGТАВ                    L 00004 LУGРАR                L 00005 RАSТХТ
+             L 00006 НЕАDIN                L 00016 SЕКDУD                    L 00004 NЕWМАХ                L 00005 SЕGТАВ
+             L 00006 IРОNUМ                L 00016 SЕКGIR                    L 00004 RАSТХТ                L 00005 SЕКGIR
+             L 00006 КОКSОN                L 00016 SЕКLУG                    L 00004 SЕGТАВ               NL 00005 SЕКLУG
+             L 00006 NАМЕNF                L 00016 SРАUD                     L 00004 SЕКDУD      *ТЕКSТ*     00050
+             L 00006 NОТFОR               NL 00016 SТААТР                    L 00004 SЕКGIR                L 00050 SТААТР
+             L 00006 NUSТА                 L 00016 SТАNDА                    L 00004 SЕКLУG                L 00050 VIАРUZ
+             L 00006 ОNЕРLА               NL 00016 ТАМРУК                    L 00004 ТОРАGЕ      *ТХТ*       00004
+             L 00006 RАSКОМ                L 00016 ТАRРОZ                    L 00004 WRRЕМ                 L 00004 АNАТХТ
+             L 00006 RАSТХТ                L 00016 ТОРАGЕ          *SЕР*       00006                       L 00004 ЕNDРG
+             L 00006 RМАКR                NL 00016 WRIТЕН                    L 00006 КОКSОN                L 00004 RАSТХТ
+             L 00006 SСНЕМА                L 00016 WТВАСК                    L 00006 SЕКGIR                L 00004 SСНЕМА
+             L 00006 SЕGТАВ      *RМК*       00250                           L 00006 WRRЕМ                 L 00004 SЕGТАВ
+             L 00006 SЕКGIR                L 00250 RЕАDМК          *SLУ*       00002                       L 00004 SЕКLУG
+             L 00006 SЕКLУG                L 00250 WRIМАК                    L 00002 КОКSЕК                L 00004 ТОРАGЕ
+             L 00006 SРАUD       *RРТ*       00001                          NL 00002 RАSТХТ      *ТУРЕ*      00014
+             L 00006 SТАNDА                L 00001 ЕNDРG                     L 00002 SЕGТАВ                L 00014 АРNОТF
+             L 00014 NОТFОR
+             L 00014 ТАRNУВ
+             L 00014 WНАТУР
+   *VЕR*       00005
+             L 00005 ТWОРLА
+             L 00005 VЕRТIК
+             L 00005 WRIVЕR
+   *VIЕ*       00002
+             L 00002 SРАUD
+             L 00002 WRIМАК
+   *W24*     Е 00024
+             L 00024 WСРАВН
+   *WНО*       00002
+             L 00002 АРNОТF
+             L 00002 СSТRIN
+             L 00002 GОТОРО
+             L 00002 НОWSМВ
+            NL 00002 NАМЕNF
+             L 00002 RАSКОМ
+             L 00002 ТАRNУВ
+             L 00002 WRIНОR
+             L 00002 WRILIN
+             L 00002 WRINUМ
+             L 00002 WRIVЕR
+   *WДЛИНА*    00003
+             L 00003 WСРАВН
+           *ЕND FILЕ
+ КОНЕЦ ЗАДАЧИ
+ 00411: 00 074 0000	*74

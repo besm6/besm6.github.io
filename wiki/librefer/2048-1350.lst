@@ -1,0 +1,803 @@
+﻿                                                      18.05.19 М1
+
+  М О Н И Т О Р-8 0  (3.7)   25.09.84*       (  МС " Д У Б Н А " ИАЭ  )             ШИФР    419999000000
+
+
+
+
+
+
+
+                     ЖЖЖ   ЖЖЖ      Ж  ЖЖЖ           Ж  ЖЖЖЖЖ ЖЖЖЖ   ЖЖЖ
+                    Ж   Ж Ж   Ж    ЖЖ Ж   Ж         ЖЖ     Ж  Ж     Ж   Ж
+                        Ж Ж   Ж   Ж Ж  Ж Ж         Ж Ж    Ж   ЖЖЖЖ  Ж   Ж
+                       Ж  Ж   Ж  Ж  Ж   Ж    ЖЖЖ     Ж     Ж      Ж Ж   Ж
+                      Ж   Ж   Ж Ж   Ж  Ж Ж           Ж      Ж     Ж Ж   Ж
+                     Ж    Ж   Ж ЖЖЖЖЖ Ж   Ж          Ж  Ж   Ж Ж   Ж Ж   Ж
+                    ЖЖЖЖЖ  ЖЖЖ      Ж  ЖЖЖ          ЖЖЖ  ЖЖЖ   ЖЖЖ   ЖЖЖ
+
+
+
+
+
+
+
+
+*NАМЕ 2048-1350
+           *РЕRSО: 401350
+ 04.10.84 М1
+           *САLL LIВRЕFЕR:ТАРЕ=401350
+                                                      18.05.19 М1
+                     ССЫЛКИ НА ПОДПРОГРАММЫ                        FL*SLL                        IRЕТN
+                                                                   FLОDIА                        ISLSН
+                                 СЛУГА3                            FLОWЕR                        ISО
+   D - РАССЫЛКА ДАННЫХ           СЛУГА6                            FNС                           ISО*ТЕХ*
+   Е - ВНЕШНЯЯ П/П               DАТА     (РRIN    )               FОRАSТ   (СЛУГА2  )           ISОDКО
+                                 DАУ      D                        FОRМ1                         ISОIСТТR
+   *GIVСАТ  (FWRIТЕ  )           DЕС                               FОRМАТ                        ISОТЕХТ/
+   *GIVЕNС  (FСNЕW   )           DЕСFОR                            FОRМIR                        ISОТIМ   (INТСОD  )
+   *GОSТ*                        DЕХDIN                            FОRТLIВR                      ISТNВ
+   *GОSТ*Р  (*GОSТ*  )           DGВ                               FRЕАD    (FWRIТЕ  )           IТIТ
+   *RЕСАТА*                      DGI      (DGВ     )               FRЕАD1                        IUСОМР
+   //СDСISО (//GОSISО)           DIАGNО                            FRЕАDI   (FWRIТЕ  )           IWRЕND
+   //GОSISО                      DКОВUF   (GIVISО  )               FWRIТЕ                        IWRIТ3   (IRЕАD3  )
+   //IВМISО (//GОSISО)           DКОISО                            GЕNТАВ                        IWRIТ4   (IRЕАD4  )
+   //ISОGОS (//GОSISО)           DLISТ                             GЕNТАВL* (//GОSISО)           IWRIТ6   (IRЕАD6  )
+   /LSТIМЕ  (LSТIМЕ  )           DОLN                              GIVАRR   (GIVСАТ  )           IWRIТЕ
+   /РUТIМЕ  (РUТIМЕ  )           DОLР                              GIVСАТ                        JОВ
+   /ТЕSТLО/                      DОS/IАЕ                           GIVЕ                          JUМРУ
+   А/LОАDSD                      DRUМ                              GIVЕSТRN                      КЕQUАL
+   А/SD*                         DТRАN     Е ВОКНО                 GIVISО                        КF
+   А/SD                                    Е DRUМТАР*              GIVРАR                        КIМРАК
+   АFRI                                    Е МОNRЕАD*              GIVSУМ                        КОNSТА
+   АFRОМI   D                              Е ОКНО                  GОТО                          LАВSУS
+   АNNUL                                   Е РАRАМТ*               GVНDZN                        LВRВLК   (LВRЕАК  )
+   АRА      D                              Е РRINТ8                НЕАDRW                        LВRСОN   (LВRЕАК  )
+   АRВХ                                    Е SIМFАIL*              НОLСК                         LВRЕАК
+   АRЕАD                                   Е ТАВSIМIS              НОLN                          LВRGЕN   (LВRЕАК  )
+   АRIТН                                   Е ПЕР6В81С              НРRЕАD                        LВRNЕХ   (LВRЕАК  )
+   АSIGN                         DUМРМЕ                            НРWRIТ   (НРRЕАD  )           LВRОLD   (LВRЕАК  )
+   АТАNG                         Е50162                            IDОND                         LDТЕМ
+   АVТОLОАD                      Е50163                            IDSТАТ                        LDТРL    D
+   АWRIТЕ   (АRЕАD   )           ЕС70                              IF1                           LIВRЕFЕR
+   ВАСКSТЕР                      ЕDIТ                              IF2                           LIS      D
+   ВЕGIN    D                    ЕDРRI                             IFАRR                         LISТ2
+   ВIВ                           ЕDРRI1   (ЕDРRI   )               IFС      (РRIN    )           LISТLIВТ
+   ВIОRIТ                        ЕNС                               IFJUМР                        LОАDSD
+   ВКЛСЕК                        ЕQUСС    (ЕQUFS   )               IFLОG                         LОАDТР
+   ВLОСК                         ЕQUСRDL*                          IFРULТ                        LОС
+   ВLОСК1                        ЕQUFS                             IFRОМА   (АFRОМI  )           LSТIМЕ*
+   ВLОСК2                        ЕQUNUМ   (ЗАПАКN  )               IFТIМЕ                        LSТIМЕ
+   ВUFDКО   (РUТDКО  )           ЕRRLОАD*                          IМАХI                         LVЕСТОR/
+   ВЫКСЕК   (ВКЛСЕК  )           ЕRRОRЕ   (FСNЕW   )               IМВDZА                        М220
+   САLSТ                         ЕWRIТЕ   (IWRIТЕ  )               IМРОRТ                        МАКЕSС   (РАСПАК  )
+   СЕNТЕR                        ЕХСНАNGЕ                          INGRТР                        МАКNАМ
+   СGТО1                         ЕХТОIN                            INIFR1   (FRЕАD1  )           МАLIК
+   СGТО2                         F/SD*                             INIТ0                         МАNТО*
+   СНЕСW                         F/SD     (А/SD    )               INIТ2                         МАТIN
+   СНЕКРЕRS                      FСАТАL                            INIТ3                         МАТIN4
+   СНINР                         FССLОS   (FСNЕW   )               INОRDF                        МАХFIХ
+   СНR                           FСDЕL                             INS                           МЕDIТ//
+   СLЕАNR                        FСЕRРRIN                          INТСОD                        МIDАТА   D
+   СLG      (СТLGЕR  )           FСЕRR                             INТОЕХ                        МINСОN
+   СМNТS                         FСNЕW                             IОFРАR   D                    МINRОS
+   СОМТОDRU                      FСОLD    (FСNЕW   )               IОLРDWТ  D                    МINUIТ
+   СОNТ                          FСОNТR   (FСNЕW   )               IОSУS1                        МNРLОUТ  (RЕСАТА* )
+   СОNТRL                        FСРRЕS                            IОSУS2                        МРRЕS
+   СОРУ                          FСРRIN                            IРАUZ                         МРRINТ
+   СРАВН                         FСSТОР   (FСNЕW   )               IQUIQU                        МРUNСН
+   СRЕАТЕ*                       FСТРRIN  (NЕWFСАN )               IRD23                         МRАRЕ    (МРRЕS   )
+   СRRЕАD                        FI                                IRD33                         МRЕАD
+   СТLGЕR                        FIN      (DЕС     )               IRDЕND   (IWRЕND  )           МТ6RD    (МТ6WR   )
+   СWRIТЕ   (IWRIТЕ  )           FINL                              IRЕАD3                        МТ6WR
+   СЛУГА                         FINLОАD* D                        IRЕАD4                        МТ9
+   СЛУГА1   (СЛУГА2  )           FINРАR                            IRЕАD6                        МТ9RD    (МТ9WR   )
+   СЛУГА2                        FINТЕМ                            IRЕЕD                         МТ9WR
+   МТВЕG                         РUТSУМ   (GIVSУМ  )               ТАКЕ
+   МТЕС                          РUТZFL                            ТАКЕR
+   МТЕND    (МТВЕG   )           QQRNDМ                            ТАURОS
+   МТFЕND   (МТВЕG   )           RDIR                              ТЕRIN
+   МТRЕАD                        RЕАD3                             ТЕRОUТ   (ТЕRIN   )
+   МТТУРЕ                        RЕАDР                             ТЕSТLОАD
+   МТWRIТ   (МТRЕАD  )           RЕАRR    D                        ТЕХISО
+   МWRIТЕ   (МRЕАD   )           RЕАRRА   (RЕАRRЕ  )               ТG       (ТIМАGN  )
+   N8Т10S                        RЕАRRD   D                        ТGВ      (ТАКЕR   )
+   NАМ                           RЕАRRЕ                            ТGI      (ТАКЕR   )
+   NАМТОNUМ (RЕСАТА* )           RЕАRRI   (RЕАRRЕ  )               ТIDУ     D
+   NАМWRТ                        RЕСАТА*                           ТIМАGN
+   NСН      (КF      )           RЕDАСТ**                          ТIМЕРR
+   NDFLО                         RЕF                               ТIN
+   NDРG                          RЕFUSЕТР                          ТМINАLG*
+   NЕWFСАN                       RЕGIМS                            ТОМАN*
+   NЕWINF*                       RЕGIМW   (RЕGIМS  )               ТОUТ     (ТIN     )
+   NЕWМDТ                        RЕGISТ   (ТАКЕ    )               ТRАСIN
+   NЕWРLАСЕ                      RЕJUМР   (IFJUМР  )               ТRАМР
+   NЕХТSЕСТ (ЕХСНАNGЕ)           RЕNUМ                             ТRАМР1
+   NG                            RЕNUМВ*                           ТRЕАD
+   NGL      (NG      )           RЕРLАС                            ТТРRINТD
+   NGLD     (NG      )           RЕSIМА   (RЕSIМЕ  )               ТТRЕАD*
+   NОРRО    D                    RЕSIМD                            ТWRIТLIВ
+   NТАРDISС                      RЕSIМЕ                            UВLОW
+   NUМВ                          RЕSIМI   (RЕSIМЕ  )               UNРТIR   (ЕQUFS   )
+   NUМВL                         RINТ                              UРАСК
+   ОСАТАLОG                      RLISТ                             USЕR
+   ОLDRЕТ   (LВRЕАК  )           RNSУМВ   (RSУМВ   )               VЕRТЕХ
+   ОVЕRLАУ                       RSТАТ                             VОМАS    D
+   ОVЕRLАУ*                      RSТIМЕ   (IFТIМЕ  )               VОТАUF   D
+   ОVLТОGР*                      RSУМВ                             VР
+   РАСПАК                        RТОР     (РТОR    )               WINDОW
+   РАЕR                          RТОР1    (РТОR    )               WNG
+   РАЕR6                         RWRМТ                             WRСАТА*  (RЕСАТА* )
+   РАGЕ                          SАVЕМОN/                          WRIТЕ3   (RЕАD3   )
+   РАGЕРR   (РRIN    )           SАVЕТАSК                          WRIТLIВ*
+   РАRОFI   (IОFРАR  )           SDЕС      Е SDЕС*                 WRSЕСТ*  (ЕХСНАNGЕ)
+   РАSS1                         SDRUМ*                            УПАКN    (ЗАПАКN  )
+   РАSS2                         SЕRWISМ                           ZЕRО
+   РАSSFОRМ                      SЕТВL                             ZОNЕ     (КF      )
+   РЕХТF                         SЕТSW                             ZРАСК
+   РINТF                         SЕТSW4                            ZSRW     (SЕRWISМ )
+   РIРЕS                         SЕХСLUDЕ                          ДАЙ*СИ*М
+   РNТ                           SНFТZ1   (SНFТZF  )               ДАЙИСКАН (FСNЕW   )
+   РРWRFD                        SНFТZF                            ЗАПАК    (РАСПАК  )
+   РRIN                          SIМР5                             ЗАПАКN
+   РRINFСАN                      SIМРSI
+   РRINТLIВ                      SКАRD
+   РRIОRIТУ                      SОRТSТL*
+   РRN                           SОVСАТАL (ОСАТАLОG)
+   РRNВ                          SРЕЕD
+   РRТSТТ                        SRWSМ    (SЕRWISМ )
+   РТОРЕN   (РТSУМ   )           SSWТСН
+   РТОR                          SТА/РRI
+   РТОR1    (РТОR    )           SТАRТ5
+   РТSУМ                         SТАТISТ
+   РUТ1FL   (РUТZFL  )           SТАТLIВ*
+   РUТАRR                        SТLОАD**
+   РUТDКО                        SТLОАD*/ (SТLОАD**)
+   РUТЕRR                        SТNО
+   РUТЕRR*  (РUТЕRR  )           SТОРОFF  D
+   РUТIМЕ*                       SТRING   D
+   РUТIМЕ                        SУМОUТ
+   РUТLIМ                        SУТОВIN
+   РUТРUТ   (FWRIТЕ  )           ТАВLЕ
+                                                      18.05.19 М1
+                     ИСПОЛЬЗОВАНИЕ ПОДПРОГРАММ                     FОRМ1                         ISОIСТТR
+                                                                   FОRМАТ                        ISОТЕХТ/
+                                 СЛУГА                             FОRМIR                        ISОТIМ
+   Е - ВНЕШНЯЯ П/П               СЛУГА1                            FОRТLIВR                      ISТNВ
+   N - ОПИСАНА, НЕ ИСПОЛЬЗУЕТСЯ  СЛУГА2                            FRЕАD                         IТIТ
+   С - ЕСТЬ ОДНОИМЕННЫЙ СОММОN   СЛУГА3                            FRЕАD1                        IUСОМР
+                                 СЛУГА6                            FRЕАDI                        IWRЕND
+   НЕИСПОЛЬЗУЕМЫЕ ВХОДЫ          DАТА                              FWRIТЕ                        IWRIТ3
+                                 DАУ                               GЕNТАВ                        IWRIТ4
+   *GIVСАТ                       DЕС                               GЕNТАВL*                      IWRIТ6
+   *GIVЕNС                       DЕСFОR                            GIVАRR                        IWRIТЕ
+   *GОSТ*                        DЕХDIN                            GIVСАТ                        JОВ
+   *GОSТ*Р                       DGВ                               GIVЕ                          JUМРУ
+   *RЕСАТА*                      DGI                               GIVЕSТRN                      КЕQUАL
+   //СDСISО                      DIАGNО                            GIVISО                        КF
+   //GОSISО                      DКОВUF                            GIVРАR                        КIМРАК
+   //IВМISО                      DКОISО                            GIVSУМ                        КОNSТА
+   //ISОGОS                      DLISТ                             GОТО                          LАВSУS
+   /LSТIМЕ                       DОLN                              GVНDZN                        LВRВLК
+   /РUТIМЕ                       DОLР                              НЕАDRW                        LВRСОN
+   /ТЕSТLО/                      DОS/IАЕ                           НОLСК                         LВRЕАК
+   А/LОАDSD                      DRUМ                              НОLN                          LВRGЕN
+   А/SD*                         DТRАN                             НРRЕАD                        LВRNЕХ
+   А/SD                          DUМРМЕ                            НРWRIТ                        LВRОLD
+   АFRI                          Е50162                            IDОND                         LDТЕМ
+   АFRОМI                        Е50163                            IDSТАТ                        LDТРL
+   АNNUL                         ЕС70                              IF1                           LIВRЕFЕR
+   АRА                           ЕDIТ                              IF2                           LIS
+   АRВХ                          ЕDРRI                             IFАRR                         LISТ2
+   АRЕАD                         ЕDРRI1                            IFС                           LISТLIВТ
+   АRIТН                         ЕNС                               IFJUМР                        LОАDSD
+   АSIGN                         ЕQUСС                             IFLОG                         LОАDТР
+   АТАNG                         ЕQUСRDL*                          IFРULТ                        LОС
+   АVТОLОАD                      ЕQUFS                             IFRОМА                        LSТIМЕ*
+   АWRIТЕ                        ЕQUNUМ                            IFТIМЕ                        LSТIМЕ
+   ВАСКSТЕР                      ЕRRLОАD*                          IМАХI                         LVЕСТОR/
+   ВЕGIN                         ЕRRОRЕ                            IМВDZА                        М220
+   ВIВ                           ЕWRIТЕ                            IМРОRТ                        МАКЕSС
+   ВIОRIТ                        ЕХСНАNGЕ                          INGRТР                        МАКNАМ
+   ВКЛСЕК                        ЕХТОIN                            INIFR1                        МАLIК
+   ВLОСК                         F/SD*                             INIТ0                         МАNТО*
+   ВLОСК1                        F/SD                              INIТ2                         МАТIN
+   ВLОСК2                        FСАТАL                            INIТ3                         МАТIN4
+   ВUFDКО                        FССLОS                            INОRDF                        МАХFIХ
+   ВЫКСЕК                        FСDЕL                             INS                           МЕDIТ//
+   САLSТ                         FСЕRРRIN                          INТСОD                        МIDАТА
+   СЕNТЕR                        FСЕRR                             INТОЕХ                        МINСОN
+   СGТО1                         FСNЕW                             IОFРАR                        МINRОS
+   СGТО2                         FСОLD                             IОLРDWТ                       МINUIТ
+   СНЕСW                         FСОNТR                            IОSУS1                        МNРLОUТ
+   СНЕКРЕRS                      FСРRЕS                            IОSУS2                        МРRЕS
+   СНINР                         FСРRIN                            IРАUZ                         МРRINТ
+   СНR                           FСSТОР                            IQUIQU                        МРUNСН
+   СLЕАNR                        FСТРRIN                           IRD23                         МRАRЕ
+   СLG                           FI                                IRD33                         МRЕАD
+   СМNТS                         FIN                               IRDЕND                        МТ6RD
+   СОМТОDRU                      FINL                              IRЕАD3                        МТ6WR
+   СОNТ                          FINLОАD*                          IRЕАD4                        МТ9
+   СОNТRL                        FINРАR                            IRЕАD6                        МТ9RD
+   СОРУ                          FINТЕМ                            IRЕЕD                         МТ9WR
+   СРАВН                         FL*SLL                            IRЕТN                         МТВЕG
+   СRЕАТЕ*                       FLОDIА                            ISLSН                         МТЕС
+   СRRЕАD                        FLОWЕR                            ISО                           МТЕND
+   СТLGЕR                        FNС                               ISО*ТЕХ*                      МТFЕND
+   СWRIТЕ                        FОRАSТ                            ISОDКО                        МТRЕАD
+   МТТУРЕ                        RЕАDР                             ТЕSТLОАD                      ВLЕХРRIN Е
+   МТWRIТ                        RЕАRR                             ТЕХISО                        ВОКНО    Е  DТRАN
+   МWRIТЕ                        RЕАRRА                            ТG                            САRDТО   Е
+   N8Т10S                        RЕАRRD                            ТGВ                           СНКВЕG*  Е
+   NАМ                           RЕАRRЕ                            ТGI                           СНКЕND*  Е
+   NАМТОNUМ                      RЕАRRI                            ТIDУ                          СLЕАRLЕХ Е
+   NАМWRТ                        RЕСАТА*                           ТIМАGN                        СОLРUNВ* Е
+   NСН                           RЕDАСТ**                          ТIМЕРR                        СОLРUNС* Е
+   NDFLО                         RЕF                               ТIN                           СОLРUNЕ* Е
+   NDРG                          RЕFUSЕТР                          ТМINАLG*                      СОS      Е
+   NЕWFСАN                       RЕGIМS                            ТОМАN*                        СОZУТISО Е
+   NЕWINF*                       RЕGIМW                            ТОUТ                          СТIМЕ    Е
+   NЕWМDТ                        RЕGISТ                            ТRАСIN                        D*АD*D   Е
+   NЕWРLАСЕ                      RЕJUМР                            ТRАМР                         D*LО*D   Е
+   NЕХТSЕСТ                      RЕNUМ                             ТRАМР1                        D*МU*D   Е
+   NG                            RЕNUМВ*                           ТRЕАD                         D*SТ*D   Е
+   NGL                           RЕРLАС                            ТТРRINТD                      D*SТ*R   Е
+   NGLD                          RЕSIМА                            ТТRЕАD*                       DАТАРR*  Е
+   NОРRО                         RЕSIМD                            ТWRIТLIВ                      DЕLSQ    Е
+   NТАРDISС                      RЕSIМЕ                            UВLОW                         DЕNОRМ   Е
+   NUМВ                          RЕSIМI                            UNРТIR                        DRUМСАТ  Е
+   NUМВL                         RINТ                              UРАСК                         DRUМТАР* Е  DТRАN
+   ОСАТАLОG                      RLISТ                             USЕR                          DSQRТ    Е
+   ОLDRЕТ                        RNSУМВ                            VЕRТЕХ                        ЕDIТ***  Е
+   ОVЕRLАУ                       RSТАТ                             VОМАS                         ЕRR*     Е
+   ОVЕRLАУ*                      RSТIМЕ                            VОТАUF                        ЕRRСОUD* Е
+   ОVLТОGР*                      RSУМВ                             VР                            ЕХСLUDЕ  Е
+   РАСПАК                        RТОР                              WINDОW                        ЕХIТ     Е
+   РАЕR                          RТОР1                             WNG                           ЕХР      Е
+   РАЕR6                         RWRМТ                             WRСАТА*                       F/FNОSV  Е
+   РАGЕ     С                    SАVЕМОN/                          WRIТЕ3                        F/FRЕТNR Е
+   РАGЕРR                        SАVЕТАSК                          WRIТLIВ*                      F/SАVЕR  Е
+   РАRОFI                        SDЕС                              WRSЕСТ*                       F/SNОSV  Е
+   РАSS1                         SDRUМ*                            УПАКN                         F/SRЕТ   Е
+   РАSS2                         SЕRWISМ                           ZЕRО                          F/SRЕТNR Е
+   РАSSFОRМ                      SЕТВL                             ZОNЕ                          F/SSТАRТ Е
+   РЕХТF                         SЕТSW                             ZРАСК                         FСN      Е
+   РINТF                         SЕТSW4                            ZSRW                          FD*002   Е
+   РIРЕS                         SЕХСLUDЕ                          ДАЙ*СИ*М                      FINТ     Е
+   РNТ                           SНFТZ1                            ДАЙИСКАН                      FLОАТ    Е
+   РРWRFD                        SНFТZF                            ЗАПАК                         FLUСТ    Е
+   РRIN                          SIМР5                             ЗАПАКN                        FМАSS    Е
+   РRINFСАN                      SIМРSI                                                          FОRМСОSУ Е
+   РRINТLIВ                      SКАRD                                                           FТ*002   Е
+   РRIОRIТУ                      SОRТSТL*                          ИСПОЛЬЗУЕМЫЕ ВХОДЫ            FТ*003   Е
+   РRN                           SОVСАТАL                                                        FТ*521   Е
+   РRNВ                          SРЕЕD                             *ЕNDFI   Е                    FТ*531   Е
+   РRТSТТ                        SRWSМ                             *МUI*    Е                    FТ*541   Е
+   РТОРЕN                        SSWТСН                            *RЕWIN   Е                    FТ*561   Е
+   РТОR                          SТА/РRI                           /IР*     Е                    FТ*571   Е
+   РТОR1                         SТАRТ5                            А/LОАDGО Е                    FТ*611   Е
+   РТSУМ                         SТАТISТ                           АВS      Е                    FТ*621   Е
+   РUТ1FL                        SТАТLIВ*                          АНID/*   Е                    FТ*641   Е
+   РUТАRR                        SТLОАD**                          АINТ     Е                    FТ*642   Е
+   РUТDКО                        SТLОАD*/                          АLОG     Е                    FТ*643   Е
+   РUТЕRR                        SТNО                              АLОG10   Е                    FТ*721   Е
+   РUТЕRR*                       SТОРОFF                           АМIN1    Е                    FТ*722   Е
+   РUТIМЕ*                       SТRING                            АМОD     Е                    FТ*723   Е
+   РUТIМЕ                        SУМОUТ                            АТАN     Е                    FUNСТ    Е
+   РUТLIМ                        SУТОВIN                           В/SU/    Е                    GКU      Е
+   РUТРUТ                        ТАВLЕ    С                        ВСDЕNС*  Е                    НID/*    Е
+   РUТSУМ                        ТАКЕ                              ВСDRЕАD* Е                    I*DI*I   Е
+   РUТZFL                        ТАКЕR                             ВСDWRIТ* Е                    I*МU*I   Е
+   QQRNDМ                        ТАURОS                            ВINАRУ   Е                    I*МUI*   Е
+   RDIR                          ТЕRIN                             ВINRЕАD* Е                    I*РО*I   Е
+   RЕАD3                         ТЕRОUТ                            ВINWRIТ* Е                    IАВS     Е
+   IDIV     Е                    WRIЕND   Е
+   INРUТ    Е                    WRIТЕ1   Е
+   INТ      Е                    WRIТLIВR Е
+   IОАС*    Е                    ХСООRD   Е
+   IОСОNТ*  Е                    УСООRD   Е
+   IОЕND*   Е                    ZАРАК12  Е
+   ISIGN    Е                    ZСОNТR   Е
+   ISО/GОSТ Е                    ДАЙISО*  Е
+   ISОТЕХ** Е                    ПЕР6В81С Е  DТRАN
+   IUСНАN   Е
+   IWВ1     Е
+   LОАDАNGО Е
+   LОАDСАLL Е
+   LОАDGО   Е
+   LUN*МОN  Е
+   МАТМР1   Е
+   МАТМР2   Е
+   МАТSМ1   Е
+   МАТSМ2   Е
+   МАХ0     Е
+   МЕDIТ    Е
+   МIN0     Е
+   МОD      Е
+   МОNIТОR* Е
+   МОNRЕАD* Е  DТRАN
+   МХЕQU    Е
+   NЕWSТАR* Е
+   ОСТТDЕС  Е
+   ОКНО     Е  DТRАN
+   РАRАМТ*  Е  DТRАN
+   РLСLО    Е
+   РRINТ8   Е  DТRАN
+   РRINТ8// Е
+   РRINТА   Е
+   РТ6      Е
+   R*SТ*D   Е
+   R*SТ*I   Е
+   R*ТО*I   Е
+   R*ТО*INТ Е
+   RАSРАК12 Е
+   RАSРАК8  Е
+   RВЕGIN   Е
+   RЕАD*    Е
+   RЕАD1    Е
+   RЕСАRD   Е
+   RNDМ     Е
+   SАVЕ*    Е
+   SАVЕ*НID Е
+   SDЕС*    Е  SDЕС
+   SIМFАIL* Е  DТRАN
+   SIN      Е
+   SQRТ     Е
+   SТКТЕХ*  Е
+   SТLОАD*  Е
+   SТОР*    Е
+   ТАВSIМIS ЕN DТRАN
+   ТОСАRD   Е
+   ТRАСЕЕ   Е
+   ТRАNSТ   Е
+   ТRNS10Т8 Е
+   ТRОТ     Е
+   ТТРRINТ  Е
+   ТТRЕАD*D Е
+   WАNDЕR   Е
+   WВЕGIN   Е
+   WRСАRD   Е
+                                                      18.05.19 М1
+                     ССЫЛКИ НА СОММОN′Ы                            СЛУГА3    L 00014 *СЛУГА5*              L 00411 *UТIL*
+                                                                   СЛУГА6    L 00001 *СЛУГА7*    ЕС70      L 00002 *ВLЕRR*
+                                          DL 00720 *КSТ*                     L 00001 NОLISFL*              Р 01024 *ВUFМТ9*
+   D - РАССЫЛКА ДАННЫХ           ВLОСК2   NL 05684 **              DАТА     (РRIN    )                     L 00020 *ЕСТАРЕ*
+   N - ОПИСАН, НЕ ИСПОЛЬЗУЕТСЯ            NL 00048 *АLРНА*         DАУ      DL 00012 *DМОN*      ЕDIТ      L 05684 **
+   Р - СТРАНИЧНЫЙ СОММОN                  NL 00067 *СОNТDУ*        DЕС       L 00022 *WТS*                NL 00048 *АLРНА*
+   S - СЕКТОРНЫЙ СОММОN                    L 00271 *DIОМSG*        DЕСFОR    L 00160 *СRD*                NL 00067 *СОNТDУ*
+   L - ПРОСТОЙ СОММОN                     NL 00005 *НОL2*                    L 00026 *НОLLТ*               L 00271 *DIОМSG*
+   ***** - ДЛИНА ОПИСАНА НЕЯВНО           NL 00003 *INIТ*                    L 00020 *НОLNС*              NL 00005 *НОL2*
+                                          DL 00720 *КSТ*           DЕХDIN    L 00062 *СОRRЕS*             NL 00003 *INIТ*
+   *GIVСАТ  (FWRIТЕ  )                    NL 00004 *LIОS*                    L 00181 *LIМIТS*             NL 00720 *КSТ*
+   *GIVЕNС  (FСNЕW   )           ВUFDКО   (РUТDКО  )                        NL 00180 *РАRЕХТ*             NL 00004 *LIОS*
+   *GОSТ*    L 00001 FILISFL*    САLSТ     L 03000 *САLJ*          DIАGNО    L 05684 **          ЕQUСС    (ЕQUFS   )
+             L 00025 МОNСАRD*              L 00005 *JРR*                    NL 00048 *АLРНА*     ЕQUFS     L 00003 *ОRDЕRS*
+   *GОSТ*Р  (*GОSТ*  )                     L 00150 *РRDОGТ*                 NL 00067 *СОNТDУ*    ЕQUNUМ   (ЗАПАКN  )
+   *RЕСАТА*  Р 02048 *САТ*                 L 01002 *SТАТ*                    L 00271 *DIОМSG*    ЕRRОRЕ   (FСNЕW   )
+             L 00002 DАТА*       СЕNТЕR    L 05684 **                       NL 00005 *НОL2*      ЕХСНАNGЕ  S 00256 ВUF*
+   /ТЕSТLО/  L 00012 *МОNСRD*              L 00048 *АLРНА*                  NL 00003 *INIТ*                L 00001 FLGWR*
+             L 00001 LОАDLIS*             NL 00067 *СОNТDУ*                 NL 00720 *КSТ*       ЕХТОIN    L 00062 *СОRRЕS*
+             L 00014 МОNСАRD/             NL 00271 *DIОМSG*                 NL 00004 *LIОS*                L 00181 *LIМIТS*
+             L 00001 RЕSТОР*              NL 00005 *НОL2*          DКОВUF   (GIVISО  )                    NL 00120 *NАМЕS*
+             L 00013 ТЕSТLО*              NL 00003 *INIТ*          DКОISО    L 00006 *DКОISО*              L 00180 *РАRЕХТ*
+   А/LОАDSD  L 00001 САТLОА**             NL 00720 *КSТ*                     L 00007 *МТR*       F/SD*     L 00001 АСС*
+            NL 00001 ТRNАМЕ*              NL 00004 *LIОS*                    L 00002 *NСАRD*               L ***** САТLОА**
+   А/SD*     L 00001 АСС*        СGТО1     L 02184 **              DLISТ     L 05684 **                   NL 00001 МАIN*
+            NL ***** САТLОА**    СGТО2     L 02184 **                       NL 00048 *АLРНА*              NL 00001 ТRNАМЕ*
+            NL 00001 МАIN*       СНЕСW     L 00020 *ЕСТАРЕ*                 NL 00067 *СОNТDУ*    F/SD     (А/SD    )
+            NL 00001 ТRNАМЕ*     СНЕКРЕRS  L 00014 *МОNСRD*                  L 00271 *DIОМSG*    FСАТАL    L 00010 *РАСАТ*
+   А/SD      L 00001 АСС*                  Р 02048 ВСАТ                     NL 00005 *НОL2*      FССLОS   (FСNЕW   )
+             L 00001 ЕRRОFLG*              Р 01024 ВSUВР                    NL 00003 *INIТ*      FСDЕL     L 00048 *WRLISТ*
+             L 00001 LОАDLIS*    СНINР     L 02184 **                       NL 00720 *КSТ*                 L 00001 RFМRТFLG
+             L 00001 МАIN*                 L 00004 КСОUNТ*                   L 00004 *LIОS*      FСNЕW     L 00048 *WRLISТ*
+             L 00001 RМ*         СLЕАNR    L 00001 **              DОLN      L 02184 **                    L 00002 DАТА*
+             L 00001 ТRNАМЕ*               L 00005 А*              DОLР      L 02184 **                    L 00001 RFМRТFLG
+   АFRI      L 00020 *НОLNС*               S 00256 ВUF*            DОS/IАЕ   L 00012 *МОNСRD*    FСОLD    (FСNЕW   )
+   АNNUL     L 00005 А*                    L 00001 FLGWR*                    L 00001 *RЕGIМ//    FСОNТR   (FСNЕW   )
+   АRА       L 00006 *РАR*       СLG      (СТLGЕR  )                         Р 02048 САТ         FСРRЕS    L 00010 *РАСАТ*
+   АRВХ      L 02184 **          СМNТS     L 02184 **                        Р 02048 САТR        FСРRIN    L 00010 *РАСАТ*
+   АRЕАD     Р 01024 *IА         СОNТ      L 02184 **                        L 00000 КСОUNТ*     FСSТОР   (FСNЕW   )
+             L 00025 ТАРЕLISТ    СОNТRL    L 05689 **                        L 00003 МISТ10*     FIN      (DЕС     )
+   АRIТН     L 02184 **                    L 00048 *АLРНА*                   L 00014 МОNСАRD/    FINL      L 00014 *НЕАDL*
+   АSIGN     L 02184 **                    L 00067 *СОNТDУ*                  L 00001 ОUТ*ОUТ               L 00001 *МАТ*
+   АWRIТЕ   (АRЕАD   )                    NL 00271 *DIОМSG*                  L 00001 SТАRSТА               L 00011 *NLВR*
+   ВАСКSТЕР  L 00004 КСОUNТ*              NL 00005 *НОL2*          DRUМ      Р 01024 ВUF                   L 00001 *NМВR*
+             L 00025 МОNСАRD*             NL 00003 *INIТ*          DТRАN     L 00012 *МОNСRD*              L 00300 *ТАВNАL*
+             L 00001 RFМRТFLG             NL 00720 *КSТ*                     L 00001 СНЕСКFL*              L 00300 *ТАВТАL*
+   ВЕGIN     L 00001 *DDАТА*              NL 00004 *LIОS*                    L 00064 INF/ОР      FINLОАD*  L 00002 *JUМРУ*
+   ВIВ       L 00015 *А*         СОРУ      L 05769 **                        L 00100 LIВРRINТ              L 00001 LОАDLIS*
+   ВIОRIТ    L 00001 *DDАТА*               L 00048 *АLРНА*                   L 00003 МISТ10*               L 00001 RЕSТОР*
+             L 00001 *NУ*                 NL 00067 *СОNТDУ*                  L 00014 МОNСАRD*              L 00013 ТЕSТLО*
+            DL 00006 *ТЕХТ*               NL 00271 *DIОМSG*                  L 00014 МОNСАRD/    FINРАR    L 00014 *КАRD*
+            DL 00001 *УЕАR*                L 00005 *НОL2*                    L 00001 NОLISFL*              L 00101 *SЕС*
+   ВLОСК    NL 05769 **                   NL 00003 *INIТ*                   NL 00001 ОUТ*ОUТ               L 00200 *ТАВNАМ*
+            DL 00048 *АLРНА*              NL 00720 *КSТ*                     Р 08192 РАGЕ                  L 00100 *ТАВТАР*
+            DL 00067 *СОNТDУ*             NL 00004 *LIОS*                   NL 00001 SТАRSТА     FINТЕМ    L 00014 *НЕАDТ*
+            DL 00271 *DIОМSG*    СРАВН     L 02718 *МINF*                    L 02048 ТАВ                   L 00200 *ТАВNАТ*
+            DL 00005 *НОL2*      СRЕАТЕ*   L 00001 ЕNТRУ*                    Р 01024 ТО*DRUМ               L 00100 *ТАВТАТ*
+             L 00003 *INIТ*                L 00025 МОNСАRD*                  L 00004 ХРАRАМТ*    FLОDIА    L 00387 *АDСV*
+            NL 00720 *КSТ*       СRRЕАD    L 02184 **                       NL 00004 ХРАRАМТ/              L 00072 *ВLV*
+            NL 00004 *LIОS*                L 00001 *В*             DUМРМЕ    L 00101 **                    L 03000 *САLJ*
+   ВLОСК1    L 05769 **          СТLGЕR    L 00002 *LIМWR*                   L 00006 *ВЕАМ*                L 00160 *СRD*
+            NL 00048 *АLРНА*     СЛУГА1   (СЛУГА2  )                         L 00007 *СОNТRL*              L 00002 *DОL*
+            NL 00067 *СОNТDУ*    СЛУГА2    Р 01024 *СЛУГ4*                   L 00050 *FDUМР*               L 00026 *НОLLТ*
+            NL 00271 *DIОМSG*              L 00014 *СЛУГА5*                  L 00154 *НISТR*               L 00020 *НОLNС*
+             L 00003 *INIТ*                L 00001 *СЛУГА7*                  L 00005 *ТАРЕS*               L 00003 *JРР*
+             L 00005 *JРR*       IМРОRТ    L 00025 *IМРСОМ*        LОАDТР   DL 00200 *ТАВNАМ*    NGLD     (NG      )
+             L 00150 *РRDОGТ*              L 00001 *NОТРRТ*                 DL 00100 *ТАВТАР*    NОРRО     L 05684 **
+             L 00002 *РRN*       INGRТР    L 02726 **              LОС       L 04098 **                    L 00048 *АLРНА*
+             L 01002 *SТАТ*      INIFR1   (FRЕАD1  )               LSТIМЕ*   L 00012 *МОNСRD*              L 00067 *СОNТDУ*
+   FLОWЕR    L 02184 **          INIТ0     L 02184 **              LVЕСТОR/  L 02048 ТАВLЕ*               NL 00271 *DIОМSG*
+   FNС       L 00001 *IР*        INIТ2     L 02184 **                        Р 01024 ТАВLЕ                NL 00005 *НОL2*
+   FОRАSТ   (СЛУГА2  )                     L 00001 *В*             МАКЕSС   (РАСПАК  )                    NL 00003 *INIТ*
+   FОRМ1     L 02184 **          INIТ3     L 02184 **              МАLIК     L 00310 **                   NL 00720 *КSТ*
+   FRЕАD    (FWRIТЕ  )                     L 03200 *А*             МIDАТА    L 00004 *СОNVЕR*              L 00004 *LIОS*
+   FRЕАD1    Р 01024 RРАGЕ       INТОЕХ    L 00062 *СОRRЕS*                  L 00062 *СОRRЕS*    NТАРDISС  L 00012 *МОNСRD*
+   FRЕАDI   (FWRIТЕ  )                    NL 00181 *LIМIТS*                  L 00181 *LIМIТS*              L 00003 МISТ10*
+   FWRIТЕ    L 00048 *WRLISТ*             NL 00120 *NАМЕS*                   L 00120 *NАМЕS*               L 00001 SТАRSТА
+             L 00002 DАТА*                 L 00180 *РАRЕХТ*                  L 00991 *РАЕRВК*    NUМВ      L 00387 *АDСV*
+             L 00001 RFМRТFLG    IОLРDWТ   L 00001 RЕSТОР*                   L 00180 *РАRЕХТ*              L 00020 *НОLNС*
+   GIVАRR   (GIVСАТ  )           IРАUZ     L 02184 **                        L 00180 *РАRINТ*              L 00003 *JРР*
+   GIVСАТ    L 00010 *РАСАТ*     IRDЕND   (IWRЕND  )                         L 00062 *SЕЕКВК*    NUМВL     L 00014 *ТЕХТ*
+             L 00048 *WRLISТ*    IRЕАD3   NL 00025 ТАРЕLISТ                 DL 00022 *ТIТLЕ*     ОСАТАLОG  Р 01024 /1024/
+            NL 00001 RFМRТFLG    IRЕЕD     L 02184 **              МINUIТ    L 00004 *СОNVЕR*              L 00001 ОUТ*ОUТ
+   GIVЕ      L 00001 **          IRЕТN     L 02184 **                        L 00062 *СОRRЕS*    ОVЕRLАУ   L 00001 ЕRRОFLG*
+             L 00005 А*          ISLSН     L 02184 **                       NL 00241 *FIХ*                 L 00000 КСОUNТ*
+             S 00256 ВUF*        ISО       L 00073 **                        L 00060 *GG*                  L 00025 МОNСАRD*
+             L 00001 С1*         ISО*ТЕХ*  L 00004 АISТ                     NL 00181 *LIМIТS*              L 00005 RМ*
+             L 00004 D*          ISОDКО    L 00006 *ISОDКО*                  L 00003 *МINIМ*               L 02048 ТАВLЕ*
+             L 00001 КСОUNТ*               L 00007 *МТW*                     L 00180 *РАRЕХТ*              Р 01024 ТАВLЕ
+             L 00001 МЮ*         ISТNВ     L 00020 *НОLNС*                   L 00180 *РАRINТ*    ОVЕRLАУ*  L 00001 ЕRRОFLG*
+   GIVЕSТRN  L 00004 А*          IТIТ      L 00002 *РНУS*                    L 00062 *SЕЕКВК*              L 00000 КСОUNТ*
+             S 00256 ВUF*        IWRЕND    L 00002 ХRЕАD/                   NL 00064 *SРЕDВК*              L 00025 МОNСАRD*
+             L 00001 FLGWR*                L 00002 ХWRIТЕ/                   L 00022 *ТIТLЕ*               L 00005 RМ*
+   GIVISО    L 00006 *DКОISО*    IWRIТ3   (IRЕАD3  )               МРRINТ    L 00004 *СОNVЕR*              L 02048 ТАВLЕ*
+   GIVРАR    L 00160 *IF*        JОВ       L 00073 **                        L 00062 *СОRRЕS*              Р 01024 ТАВLЕ
+             L 00007 *МТR*                 L 00006 *РАR*                     L 00181 *LIМIТS*    ОVLТОGР*  Р 01024 ВUF
+             L 00007 *МТW*       JUМРУ     L 00002 *JUМРУ*                   L 00120 *NАМЕS*               L 00002 INFLОАD*
+             L 00008 *РАRАМ*     КF        L 00001 LIМWR*                    L 00180 *РАRЕХТ*    РАСПАК    L 00084 *МINF*
+             L 00014 *ТЕХТ*      КIМРАК    L 05769 **                        L 00180 *РАRINТ*    РАЕR      L 00022 *WТS*
+   GIVSУМ    L 00024 *IМРСОМ*              L 00048 *АLРНА*                   L 00022 *ТIТLЕ*     РАЕR6     L 00004 *СОNVЕR*
+   GОТО      L 02184 **                   NL 00067 *СОNТDУ*        МРUNСН   NL 00004 *СОNVЕR*              L 00062 *СОRRЕS*
+   GVНDZN    L 00048 *WRLISТ*             NL 00271 *DIОМSG*                  L 00062 *СОRRЕS*              L 00060 *GG*
+             L 00001 RFМRТFLG             NL 00005 *НОL2*                    L 00181 *LIМIТS*             NL 00181 *LIМIТS*
+   НЕАDRW   NР 01024 *ВUFМТ9*             NL 00003 *INIТ*                   NL 00003 *МINIМ*               L 00003 *МINIМ*
+   НОLСК     L 05684 **                   NL 00720 *КSТ*                     L 00120 *NАМЕS*               L 00120 *NАМЕS*
+             L 00048 *АLРНА*               L 00004 *LIОS*                    L 00180 *РАRЕХТ*              L 00991 *РАЕRВК*
+            NL 00067 *СОNТDУ*    LАВSУS    L 00006 *ВЕАМ*                   NL 00180 *РАRINТ*              L 00180 *РАRЕХТ*
+            NL 00271 *DIОМSG*              L 00411 *UТIL*                    L 00022 *ТIТLЕ*               L 00180 *РАRINТ*
+             L 00005 *НОL2*      LDТЕМ    DL 00200 *ТАВNАТ*        МТ6RD    (МТ6WR   )                     L 00064 *SРЕDВК*
+            NL 00003 *INIТ*               DL 00100 *ТАВТАТ*        МТ6WR     L 00006 *IСНЕСК*              L 00022 *ТIТLЕ*
+            NL 00720 *КSТ*       LDТРL    NL 00014 *НЕАDL*         МТ9       L 00020 *ЕСТАРЕ*    РАGЕ      L 05684 **
+             L 00004 *LIОS*               DL 00011 *NLВR*                    L 00006 *IСНЕСК*             NL 00048 *АLРНА*
+   IDОND     L 02184 **                   DL 00001 *NМВR*          МТ9RD    (МТ9WR   )                    NL 00067 *СОNТDУ*
+   IDSТАТ    L 00001 ТSТАТЕ*              DL 00300 *ТАВNАL*        МТ9WR     L 01024 *ВUFМТ9*             NL 00271 *DIОМSG*
+   IF1       L 02184 **                   DL 00300 *ТАВТАL*                  L 00020 *ЕСТАРЕ*             NL 00005 *НОL2*
+   IF2       L 02184 **          LIВRЕFЕR  L 00012 *МОNСRD*                  L 00006 *IСНЕСК*              L 00003 *INIТ*
+   IFАRR     L 00048 *WRLISТ*              Р 02048 СТLG            МТВЕG     L 00006 *IСНЕСК*             NL 00720 *КSТ*
+            NL 00001 RFМRТFLG              Р 01024 ОRDЕR           МТЕND    (МТВЕG   )                    NL 00004 *LIОS*
+   IFС      (РRIN    )           LIS       L 04098 **              МТFЕND   (МТВЕG   )           РАGЕРR   (РRIN    )
+   IFJUМР    L 00002 *JUМРУ*               L 00015 *НЕАD*          NСН      (КF      )           РАSS1     L 05769 **
+             L 00012 *МОNСRD*    LISТ2     L 00001 АСС*            NDFLО     L 02184 **                    L 00048 *АLРНА*
+             L 00001 ЕRRОFLG*    LISТLIВТ  L 00012 *МОNСRD*                  L 03200 *А*                  NL 00067 *СОNТDУ*
+   IFLОG     L 02184 **                    L 00001 *ОRDЕR          NDРG      L 02184 **                   NL 00271 *DIОМSG*
+   IМАХI     L 05769 **                    L 00001 *RЕGIМ//        NЕWINF*   L 00012 *МОNСRD*              L 00005 *НОL2*
+            NL 00048 *АLРНА*               Р 02048 САТLG                     Р 01024 LВ                   NL 00003 *INIТ*
+            NL 00067 *СОNТDУ*              L 00002 DАТА*           NЕWРLАСЕ  L 00012 *МОNСRD*              L 00720 *КSТ*
+            NL 00271 *DIОМSG*              Р 02048 NЕWСАТ                    L 00003 МISТ10*               L 00004 *LIОS*
+            NL 00005 *НОL2*                Р 01024 RВUF                      Р 02048 РАGЕ        РАSS2     L 05769 **
+            NL 00003 *INIТ*                Р 01024 WВUF            NЕХТSЕСТ (ЕХСНАNGЕ)                     L 00048 *АLРНА*
+            NL 00720 *КSТ*       LОАDSD    L 00001 САТLОА**        NG        L 00002 *LIМWR*              NL 00067 *СОNТDУ*
+             L 00004 *LIОS*               NL 00001 ТRNАМЕ*         NGL      (NG      )                    NL 00271 *DIОМSG*
+             L 00005 *НОL2*                L 00001 *NОТРRТ*        SОVСАТАL (ОСАТАLОG)
+            NL 00003 *INIТ*      RЕАRRD    L 00025 *IМРСОМ*        SРЕЕD     L 00004 *СОNVЕR*
+            NL 00720 *КSТ*                 L 00001 *NОТРRТ*                 NL 00062 *СОRRЕS*
+             L 00004 *LIОS*      RЕDАСТ**  L 00014 РС                        L 00003 *МINIМ*
+   РАSSFОRМ  L 00014 А                     L 00014 SС                        L 00064 *SРЕDВК*
+             Р 08192 ВUF         RЕGIМS    L 00001 МЮ*             SRWSМ    (SЕRWISМ )
+             L 00001 NОLISFL*    RЕGIМW   (RЕGIМS  )               SТА/РRI   Р 02048 КАТL
+   РЕХТF    NL 00062 *СОRRЕS*    RЕGISТ   (ТАКЕ    )                         Р 01024 LSТА
+             L 00181 *LIМIТS*    RЕJUМР   (IFJUМР  )               SТАТISТ   L 00003 А*
+            NL 00120 *NАМЕS*     RЕNUМ     L 05684 **                        L 00001 С1*
+            NL 00180 *РАRЕХТ*              L 00048 *АLРНА*                   L 00004 D*
+   РINТF    NL 00062 *СОRRЕS*             NL 00067 *СОNТDУ*        SТАТLIВ*  L 00014 *МОNСRD*
+             L 00181 *LIМIТS*             NL 00271 *DIОМSG*                  Р 01024 LОАDLIВR
+            NL 00120 *NАМЕS*              NL 00005 *НОL2*          SТLОАD**  L 00001 LОАDLIS*
+            NL 00180 *РАRЕХТ*             NL 00003 *INIТ*          SТLОАD*/ (SТLОАD**)
+   РIРЕS     L 00972 **                   NL 00720 *КSТ*           SТNО      L 02184 **
+   РNТ       L 02184 **                   NL 00004 *LIОS*                    L 03200 *А*
+   РРWRFD    L 00160 *СRD*       RЕNUМВ*   L 00001 СНКWОRD*        SТОРОFF  DL 00002 *JUМРУ*
+             L 00026 *НОLLТ*               L 00002 LIМWR*                    L 00012 *МОNСRD*
+             L 00020 *НОLNС*               L 00025 МОNСАRD*                  L 00001 ЕRRОFLG*
+             L 00003 *JРР*                 L 00002 NАМЕ*                     L 00003 МISТ10*
+             L 00005 *JРR*                 L 00001 WRIТМАR*                  L 00014 МОNСАRD/
+             L 00150 *РRDОGТ*    RЕРLАС   DL 02750 *МINF*                    L 00001 RЕSТОР*
+             L 00002 *РRN*                DL 00083 *NUМS*          SТRING    L 00012 *DМОN*
+   РRIN      L 00001 DАТА*                 L 00003 *ОRDЕRS*                  L 00001 *NУ*
+   РRINТLIВ  L 00012 *МОNСRD*    RLISТ     L 05684 **              ТАКЕ      L 00005 А*
+             Р 02048 РАGЕ                 NL 00048 *АLРНА*         ТАURОS    L 00004 *СОNVЕR*
+   РRIОRIТУ  L 00004 А*                   NL 00067 *СОNТDУ*                  L 00062 *СОRRЕS*
+             L 00001 С1*                  NL 00271 *DIОМSG*                  L 00060 *GG*
+             L 00004 D*                   NL 00005 *НОL2*                   NL 00181 *LIМIТS*
+   РRN      DL 00015 *НЕАD*               NL 00003 *INIТ*                    L 00003 *МINIМ*
+   РRNВ      L 00072 *ВLV*                NL 00720 *КSТ*                    NL 00120 *NАМЕS*
+             L 00020 *НОLNС*               L 00004 *LIОS*                    L 00180 *РАRЕХТ*
+             L 00005 *JРR*       RSТАТ     L 05684 **                        L 00180 *РАRINТ*
+             L 00150 *РRDОGТ*              L 00048 *АLРНА*                   L 00022 *ТIТLЕ*
+             L 00002 *РRN*                NL 00067 *СОNТDУ*        ТЕSТLОАD  L 00013 ТЕSТLО*
+   РТОРЕN   (РТSУМ   )                    NL 00271 *DIОМSG*        ТIDУ      L 05769 **
+   РТОR      L 02000 *РНУS*                L 00005 *НОL2*                    L 00048 *АLРНА*
+   РТОR1    (РТОR    )                    NL 00003 *INIТ*                   NL 00067 *СОNТDУ*
+   РТSУМ     Р 01024 *РАGЕ                NL 00720 *КSТ*                     L 00271 *DIОМSG*
+   РUТ1FL   (РUТZFL  )                    NL 00004 *LIОS*                   NL 00005 *НОL2*
+   РUТАRR    L 00048 *WRLISТ*    RТОР     (РТОR    )                        NL 00003 *INIТ*
+   РUТDКО    L 00006 *ISОDКО*    RТОР1    (РТОR    )                        NL 00720 *КSТ*
+   РUТIМЕ*   L 00012 *МОNСRD*    RWRМТ     L 00006 *IСНЕСК*                 NL 00004 *LIОS*
+   РUТLIМ    L 00048 *WRLISТ*              L 00160 *IF*            ТRАСIN    L 10386 **
+   РUТРUТ   (FWRIТЕ  )                     L 00007 *МТR*                     L 00001 *ISW*
+   РUТSУМ   (GIVSУМ  )                     L 00007 *МТW*           ТRАМР     L 02265 **
+   РUТZFL    L 00001 ЕRRОFLG*              L 00008 *РАRАМ*         ТRАМР1    L 02265 **
+   QQRNDМ    L 00102 **          SАVЕМОN/  L 00025 *ТIКТАК*        ТRЕАD     Р 01024 ВUF
+             L 00100 *SНUFFL*             NL 00014 МОNСАRD/        ТWRIТLIВ  L 00001 АDRUМINF
+   RDIR      L 05684 **          SЕRWISМ   L 00001 *RЕGIМ//        UNРТIR   (ЕQUFS   )
+            NL 00048 *АLРНА*               L 00025 *ТIКТАК*        UРАСК     L 00001 А/I0
+            NL 00067 *СОNТDУ*    SЕТВL    DL 00002 *ВLЕRR*         USЕR      L 00050 *FDUМР*
+            NL 00271 *DIОМSG*    SЕТSW4    L 00001 *IР*                      L 00411 *UТIL*
+            NL 00005 *НОL2*      SКАRD     L 05769 **              WRIТLIВ*  L 00005 RМ*
+            NL 00003 *INIТ*                L 00048 *АLРНА*         WRSЕСТ*  (ЕХСНАNGЕ)
+            NL 00720 *КSТ*                NL 00067 *СОNТDУ*        УПАКN    (ЗАПАКN  )
+            NL 00004 *LIОS*               NL 00271 *DIОМSG*        ZОNЕ     (КF      )
+   RЕАDР     L 00387 *АDСV*               NL 00005 *НОL2*          ZРАСК     L 05769 **
+             L 00160 *СRD*                 L 00003 *INIТ*          ZSRW     (SЕRWISМ )
+             L 00002 *DОL*                NL 00720 *КSТ*           ДАЙ*СИ*М  L 00025 МОNСАRD*
+             L 00026 *НОLLТ*               L 00004 *LIОS*          ДАЙИСКАН (FСNЕW   )
+             L 00020 *НОLNС*     SОRТSТL*  Р 01024 *ВUF1*          ЗАПАК    (РАСПАК  )
+             L 00005 *JРR*                 Р 01024 *ВUF2*          ЗАПАКN    L 00083 *NUМS*
+             L 01002 *SТАТ*                Р 01024 *ВUFКR*
+   RЕАRR     L 00025 *IМРСОМ*              Р 01024 *ВUFКW*
+                                                      18.05.19 М1
+                     ИСПОЛЬЗОВАНИЕ СОММОN′ОВ                       *ВUFКW*     01024                       L 00014 СЛУГА2
+                                                                             Р 01024 SОRТSТL*              L 00014 СЛУГА3
+                                           L 02184 РNТ             *ВUFМТ9*    01024             *СЛУГА7*    00001
+   Е - ЕСТЬ ОДНОИМЕННАЯ П/П                L 00102 QQRNDМ                    Р 01024 ЕС70                  L 00001 СЛУГА2
+   D - РАССЫЛКА ДАННЫХ                     L 05684 RDIR                     NР 01024 НЕАDRW                L 00001 СЛУГА6
+   N - ОПИСАН, НЕ ИСПОЛЬЗУЕТСЯ             L 05684 RЕNUМ                     L 01024 МТ9WR       *DDАТА*     00001
+   Р - СТРАНИЧНЫЙ СОММОN                   L 05684 RLISТ           *САLJ*      03000                       L 00001 ВЕGIN
+   S - СЕКТОРНЫЙ СОММОN                    L 05684 RSТАТ                     L 03000 САLSТ                 L 00001 ВIОRIТ
+   L - ПРОСТОЙ СОММОN                      L 05769 SКАRD                     L 03000 FLОDIА      *DIОМSG*    00271
+   ***** - ДЛИНА ОПИСАНА НЕЯВНО            L 02184 SТNО            *САТ*       02048                      DL 00271 ВLОСК
+                                           L 05769 ТIDУ                      Р 02048 *RЕСАТА*             NL 00271 ВLОСК1
+   **          10386                       L 10386 ТRАСIN          *СОNТDУ*    00067                       L 00271 ВLОСК2
+             L 02184 АRВХ                  L 02265 ТRАМР                    DL 00067 ВLОСК                NL 00271 СЕNТЕR
+             L 02184 АRIТН                 L 02265 ТRАМР1                   NL 00067 ВLОСК1               NL 00271 СОNТRL
+             L 02184 АSIGN                 L 05769 ZРАСК                    NL 00067 ВLОСК2               NL 00271 СОРУ
+            NL 05769 ВLОСК       *А*         03200                          NL 00067 СЕNТЕR                L 00271 DIАGNО
+             L 05769 ВLОСК1                L 00015 ВIВ                       L 00067 СОNТRL                L 00271 DLISТ
+            NL 05684 ВLОСК2                L 03200 INIТ3                    NL 00067 СОРУ                  L 00271 ЕDIТ
+             L 05684 СЕNТЕR                L 03200 NDFLО                    NL 00067 DIАGNО               NL 00271 НОLСК
+             L 02184 СGТО1                 L 03200 SТNО                     NL 00067 DLISТ                NL 00271 IМАХI
+             L 02184 СGТО2       *АDСV*      00387                          NL 00067 ЕDIТ                 NL 00271 КIМРАК
+             L 02184 СНINР                 L 00387 FLОDIА                   NL 00067 НОLСК                NL 00271 NОРRО
+             L 00001 СLЕАNR                L 00387 NUМВ                     NL 00067 IМАХI                NL 00271 РАGЕ
+             L 02184 СМNТS                 L 00387 RЕАDР                    NL 00067 КIМРАК               NL 00271 РАSS1
+             L 02184 СОNТ        *АLРНА*     00048                           L 00067 NОРRО                NL 00271 РАSS2
+             L 05689 СОNТRL               DL 00048 ВLОСК                    NL 00067 РАGЕ                 NL 00271 RDIR
+             L 05769 СОРУ                 NL 00048 ВLОСК1                   NL 00067 РАSS1                NL 00271 RЕNUМ
+             L 02184 СRRЕАD               NL 00048 ВLОСК2                   NL 00067 РАSS2                NL 00271 RLISТ
+             L 05684 DIАGNО                L 00048 СЕNТЕR                   NL 00067 RDIR                 NL 00271 RSТАТ
+             L 05684 DLISТ                 L 00048 СОNТRL                   NL 00067 RЕNUМ                NL 00271 SКАRD
+             L 02184 DОLN                  L 00048 СОРУ                     NL 00067 RLISТ                 L 00271 ТIDУ
+             L 02184 DОLР                 NL 00048 DIАGNО                   NL 00067 RSТАТ       *DКОISО*    00006
+             L 00101 DUМРМЕ               NL 00048 DLISТ                    NL 00067 SКАRD                 L 00006 DКОISО
+             L 05684 ЕDIТ                 NL 00048 ЕDIТ                     NL 00067 ТIDУ                  L 00006 GIVISО
+             L 02184 FLОWЕR                L 00048 НОLСК           *СОNТRL*    00007             *DМОN*      00012
+             L 02184 FОRМ1                NL 00048 IМАХI                     L 00007 DUМРМЕ               DL 00012 DАУ
+             L 00001 GIVЕ                  L 00048 КIМРАК          *СОNVЕR*    00004                       L 00012 SТRING
+             L 02184 GОТО                  L 00048 NОРRО                     L 00004 МIDАТА      *DОL*       00002
+             L 05684 НОLСК                NL 00048 РАGЕ                      L 00004 МINUIТ                L 00002 FLОDIА
+             L 02184 IDОND                 L 00048 РАSS1                     L 00004 МРRINТ                L 00002 RЕАDР
+             L 02184 IF1                   L 00048 РАSS2                    NL 00004 МРUNСН      *ЕСТАРЕ*    00020
+             L 02184 IF2                  NL 00048 RDIR                      L 00004 РАЕR6                 L 00020 СНЕСW
+             L 02184 IFLОG                 L 00048 RЕNUМ                     L 00004 SРЕЕD                 L 00020 ЕС70
+             L 05769 IМАХI                NL 00048 RLISТ                     L 00004 ТАURОS                L 00020 МТ9
+             L 02726 INGRТР                L 00048 RSТАТ           *СОRRЕS*    00062                       L 00020 МТ9WR
+             L 02184 INIТ0                 L 00048 SКАRD                     L 00062 DЕХDIN      *FDUМР*     00050
+             L 02184 INIТ2                 L 00048 ТIDУ                      L 00062 ЕХТОIN                L 00050 DUМРМЕ
+             L 02184 INIТ3       *В*         00001                           L 00062 INТОЕХ                L 00050 USЕR
+             L 02184 IРАUZ                 L 00001 СRRЕАD                    L 00062 МIDАТА      *FIХ*       00241
+             L 02184 IRЕЕD                 L 00001 INIТ2                     L 00062 МINUIТ               NL 00241 МINUIТ
+             L 02184 IRЕТN       *ВЕАМ*      00006                           L 00062 МРRINТ      *GG*        00060
+             L 02184 ISLSН                 L 00006 DUМРМЕ                    L 00062 МРUNСН                L 00060 МINUIТ
+             L 00073 ISО                   L 00006 LАВSУS                    L 00062 РАЕR6                 L 00060 РАЕR6
+             L 00073 JОВ         *ВLЕRR*     00002                          NL 00062 РЕХТF                 L 00060 ТАURОS
+             L 05769 КIМРАК                L 00002 ЕС70                     NL 00062 РINТF       *НЕАD*      00015
+             L 04098 LIS                  DL 00002 SЕТВL                    NL 00062 SРЕЕD                 L 00015 LIS
+             L 04098 LОС         *ВLV*       00072                           L 00062 ТАURОS               DL 00015 РRN
+             L 00310 МАLIК                 L 00072 FLОDIА          *СRD*       00160             *НЕАDL*     00014
+             L 02184 NDFLО                 L 00072 РRNВ                      L 00160 DЕСFОR                L 00014 FINL
+             L 02184 NDРG        *ВUF1*      01024                           L 00160 FLОDIА               NL 00014 LDТРL
+             L 05684 NОРRО                 Р 01024 SОRТSТL*                  L 00160 РРWRFD      *НЕАDТ*     00014
+             L 05684 РАGЕ        *ВUF2*      01024                           L 00160 RЕАDР                 L 00014 FINТЕМ
+             L 05769 РАSS1                 Р 01024 SОRТSТL*        *СЛУГ4*     01024             *НISТR*     00154
+             L 05769 РАSS2       *ВUFКR*     01024                           Р 01024 СЛУГА2                L 00154 DUМРМЕ
+             L 00972 РIРЕS                 Р 01024 SОRТSТL*        *СЛУГА5*    00014             *НОL2*      00005
+            DL 00005 ВLОСК                NL 00003 РАSS1                     L 00181 РINТF                 L 00120 МIDАТА
+            NL 00005 ВLОСК2               NL 00003 РАSS2                    NL 00181 ТАURОS                L 00120 МРRINТ
+            NL 00005 СЕNТЕR               NL 00003 RDIR            *LIМWR*     00002                       L 00120 МРUNСН
+            NL 00005 СОNТRL               NL 00003 RЕNUМ                     L 00002 СТLGЕR                L 00120 РАЕR6
+             L 00005 СОРУ                 NL 00003 RLISТ                     L 00002 NG                   NL 00120 РЕХТF
+            NL 00005 DIАGNО               NL 00003 RSТАТ           *LIОS*      00004                      NL 00120 РINТF
+            NL 00005 DLISТ                 L 00003 SКАRD                    NL 00004 ВLОСК                NL 00120 ТАURОS
+            NL 00005 ЕDIТ                 NL 00003 ТIDУ                     NL 00004 ВLОСК2      *NСАRD*     00002
+             L 00005 НОLСК       *IР*        00001                          NL 00004 СЕNТЕR                L 00002 DКОISО
+            NL 00005 IМАХI                 L 00001 FNС                      NL 00004 СОNТRL      *NLВR*      00011
+            NL 00005 КIМРАК                L 00001 SЕТSW4                   NL 00004 СОРУ                  L 00011 FINL
+            NL 00005 NОРRО       *ISОDКО*    00006                          NL 00004 DIАGNО               DL 00011 LDТРL
+            NL 00005 РАGЕ                  L 00006 ISОDКО                    L 00004 DLISТ       *NМВR*      00001
+             L 00005 РАSS1                 L 00006 РUТDКО                   NL 00004 ЕDIТ                  L 00001 FINL
+             L 00005 РАSS2       *ISW*       00001                           L 00004 НОLСК                DL 00001 LDТРL
+            NL 00005 RDIR                  L 00001 ТRАСIN                    L 00004 IМАХI       *NОТРRТ*    00001
+            NL 00005 RЕNUМ       *JРР*       00003                           L 00004 КIМРАК                L 00001 IМРОRТ
+            NL 00005 RLISТ                 L 00003 FLОDIА                    L 00004 NОРRО                 L 00001 RЕАRR
+             L 00005 RSТАТ                 L 00003 NUМВ                     NL 00004 РАGЕ                  L 00001 RЕАRRD
+            NL 00005 SКАRD                 L 00003 РРWRFD                    L 00004 РАSS1       *NUМS*      00083
+            NL 00005 ТIDУ        *JРR*       00005                           L 00004 РАSS2                DL 00083 RЕРLАС
+   *НОLLТ*     00026                       L 00005 САLSТ                    NL 00004 RDIR                  L 00083 ЗАПАКN
+             L 00026 DЕСFОR                L 00005 FLОDIА                   NL 00004 RЕNUМ       *NУ*        00001
+             L 00026 FLОDIА                L 00005 РРWRFD                    L 00004 RLISТ                 L 00001 ВIОRIТ
+             L 00026 РРWRFD                L 00005 РRNВ                     NL 00004 RSТАТ                 L 00001 SТRING
+             L 00026 RЕАDР                 L 00005 RЕАDР                     L 00004 SКАRD       *ОRDЕR      00001
+   *НОLNС*     00020             *JUМРУ*     00002                          NL 00004 ТIDУ                  L 00001 LISТLIВТ
+             L 00020 АFRI                  L 00002 FINLОАD*        *МАТ*       00001             *ОRDЕRS*    00003
+             L 00020 DЕСFОR                L 00002 IFJUМР                    L 00001 FINL                  L 00003 ЕQUFS
+             L 00020 FLОDIА                L 00002 JUМРУ           *МINF*      02750                       L 00003 RЕРLАС
+             L 00020 ISТNВ                DL 00002 SТОРОFF                   L 02718 СРАВН       *РАСАТ*     00010
+             L 00020 NUМВ        *КАRD*      00014                           L 00084 РАСПАК                L 00010 FСАТАL
+             L 00020 РРWRFD                L 00014 FINРАR                   DL 02750 RЕРLАС                L 00010 FСРRЕS
+             L 00020 РRNВ        *КSТ*       00720                 *МINIМ*     00003                       L 00010 FСРRIN
+             L 00020 RЕАDР                NL 00720 ВLОСК                     L 00003 МINUIТ                L 00010 GIVСАТ
+   *IА         01024                      DL 00720 ВLОСК1                   NL 00003 МРUNСН      *РАЕRВК*    00991
+             Р 01024 АRЕАD                DL 00720 ВLОСК2                    L 00003 РАЕR6                 L 00991 МIDАТА
+   *IСНЕСК*    00006                      NL 00720 СЕNТЕR                    L 00003 SРЕЕD                 L 00991 РАЕR6
+             L 00006 МТ6WR                NL 00720 СОNТRL                    L 00003 ТАURОS      *РАGЕ       01024
+             L 00006 МТ9                  NL 00720 СОРУ            *МОNСRD*    00014                       Р 01024 РТSУМ
+             L 00006 МТ9WR                NL 00720 DIАGNО                    L 00012 /ТЕSТLО/    *РАR*       00006
+             L 00006 МТВЕG                NL 00720 DLISТ                     L 00014 СНЕКРЕRS              L 00006 АRА
+             L 00006 RWRМТ                NL 00720 ЕDIТ                      L 00012 DОS/IАЕ               L 00006 JОВ
+   *IF*        00160                      NL 00720 НОLСК                     L 00012 DТRАN       *РАRАМ*     00008
+             L 00160 GIVРАR               NL 00720 IМАХI                     L 00012 IFJUМР                L 00008 GIVРАR
+             L 00160 RWRМТ                NL 00720 КIМРАК                    L 00012 LIВRЕFЕR              L 00008 RWRМТ
+   *IМРСОМ*    00025                      NL 00720 NОРRО                     L 00012 LISТLIВТ    *РАRЕХТ*    00180
+             L 00024 GIVSУМ               NL 00720 РАGЕ                      L 00012 LSТIМЕ*              NL 00180 DЕХDIN
+             L 00025 IМРОRТ                L 00720 РАSS1                     L 00012 NЕWINF*               L 00180 ЕХТОIN
+             L 00025 RЕАRR                NL 00720 РАSS2                     L 00012 NЕWРLАСЕ              L 00180 INТОЕХ
+             L 00025 RЕАRRD               NL 00720 RDIR                      L 00012 NТАРDISС              L 00180 МIDАТА
+   *INIТ*      00003                      NL 00720 RЕNUМ                     L 00012 РRINТLIВ              L 00180 МINUIТ
+             L 00003 ВLОСК                NL 00720 RLISТ                     L 00012 РUТIМЕ*               L 00180 МРRINТ
+             L 00003 ВLОСК1               NL 00720 RSТАТ                     L 00014 SТАТLIВ*              L 00180 МРUNСН
+            NL 00003 ВLОСК2               NL 00720 SКАRD                     L 00012 SТОРОFF               L 00180 РАЕR6
+            NL 00003 СЕNТЕR               NL 00720 ТIDУ            *МТR*       00007                      NL 00180 РЕХТF
+            NL 00003 СОNТRL      *LIМIТS*    00181                           L 00007 DКОISО               NL 00180 РINТF
+            NL 00003 СОРУ                  L 00181 DЕХDIN                    L 00007 GIVРАR                L 00180 ТАURОS
+            NL 00003 DIАGNО                L 00181 ЕХТОIN                    L 00007 RWRМТ       *РАRINТ*    00180
+            NL 00003 DLISТ                NL 00181 INТОЕХ          *МТW*       00007                       L 00180 МIDАТА
+            NL 00003 ЕDIТ                  L 00181 МIDАТА                    L 00007 GIVРАR                L 00180 МINUIТ
+            NL 00003 НОLСК                NL 00181 МINUIТ                    L 00007 ISОDКО                L 00180 МРRINТ
+            NL 00003 IМАХI                 L 00181 МРRINТ                    L 00007 RWRМТ                NL 00180 МРUNСН
+            NL 00003 КIМРАК                L 00181 МРUNСН          *NАМЕS*     00120                       L 00180 РАЕR6
+            NL 00003 NОРRО                NL 00181 РАЕR6                    NL 00120 ЕХТОIN                L 00180 ТАURОS
+             L 00003 РАGЕ                  L 00181 РЕХТF                    NL 00120 INТОЕХ      *РНУS*      02000
+             L 00002 IТIТ                  L 00411 LАВSУS          САТR        02048             МISТ10*     00003
+             L 02000 РТОR                  L 00411 USЕR                      Р 02048 DОS/IАЕ               L 00003 DОS/IАЕ
+   *РRDОGТ*    00150             *WRLISТ*    00048                 СНЕСКFL*    00001                       L 00003 DТRАN
+             L 00150 САLSТ                 L 00048 FСDЕL                     L 00001 DТRАN                 L 00003 NЕWРLАСЕ
+             L 00150 FLОDIА                L 00048 FСNЕW           СНКWОRD*    00001                       L 00003 NТАРDISС
+             L 00150 РРWRFD                L 00048 FWRIТЕ                    L 00001 RЕNUМВ*               L 00003 SТОРОFF
+             L 00150 РRNВ                  L 00048 GIVСАТ          СТLG        02048             МОNСАRD*    00025
+   *РRN*       00002                       L 00048 GVНDZN                    Р 02048 LIВRЕFЕR              L 00025 *GОSТ*
+             L 00002 FLОDIА                L 00048 IFАRR           D*          00004                       L 00025 ВАСКSТЕР
+             L 00002 РРWRFD                L 00048 РUТАRR                    L 00004 GIVЕ                  L 00025 СRЕАТЕ*
+             L 00002 РRNВ                  L 00048 РUТLIМ                    L 00004 РRIОRIТУ              L 00014 DТRАN
+   *RЕGIМ//    00001             *WТS*       00022                           L 00004 SТАТISТ               L 00025 ОVЕRLАУ
+             L 00001 DОS/IАЕ               L 00022 DЕС             DАТА*       00002                       L 00025 ОVЕRLАУ*
+             L 00001 LISТLIВТ              L 00022 РАЕR                      L 00002 *RЕСАТА*              L 00025 RЕNUМВ*
+             L 00001 SЕRWISМ     *УЕАR*      00001                           L 00002 FСNЕW                 L 00025 ДАЙ*СИ*М
+   *SЕС*       00101                      DL 00001 ВIОRIТ                    L 00002 FWRIТЕ      МОNСАRD/    00014
+             L 00101 FINРАR      /1024/      01024                           L 00002 LISТLIВТ              L 00014 /ТЕSТLО/
+   *SЕЕКВК*    00062                       Р 01024 ОСАТАLОG                  L 00001 РRIN                  L 00014 DОS/IАЕ
+             L 00062 МIDАТА      А*          00005                 ЕNТRУ*      00001                       L 00014 DТRАN
+             L 00062 МINUIТ                L 00005 АNNUL                     L 00001 СRЕАТЕ*              NL 00014 SАVЕМОN/
+   *SНUFFL*    00100                       L 00005 СLЕАNR          ЕRRОFLG*    00001                       L 00014 SТОРОFF
+             L 00100 QQRNDМ                L 00005 GIVЕ                      L 00001 А/SD        МЮ*         00001
+   *SРЕDВК*    00064                       L 00004 GIVЕSТRN                  L 00001 IFJUМР                L 00001 GIVЕ
+            NL 00064 МINUIТ                L 00004 РRIОRIТУ                  L 00001 ОVЕRLАУ               L 00001 RЕGIМS
+             L 00064 РАЕR6                 L 00003 SТАТISТ                   L 00001 ОVЕRLАУ*    NАМЕ*       00002
+             L 00064 SРЕЕD                 L 00005 ТАКЕ                      L 00001 РUТZFL                L 00002 RЕNUМВ*
+   *SТАТ*      01002             А           00014                           L 00001 SТОРОFF     NЕWСАТ      02048
+             L 01002 САLSТ                 L 00014 РАSSFОRМ        FILISFL*    00001                       Р 02048 LISТLIВТ
+             L 01002 FLОDIА      А/I0        00001                           L 00001 *GОSТ*      NОLISFL*    00001
+             L 01002 RЕАDР                 L 00001 UРАСК           FLGWR*      00001                       L 00001 СЛУГА6
+   *ТАВNАL*    00300             АСС*        00001                           L 00001 СLЕАNR                L 00001 DТRАN
+             L 00300 FINL                  L 00001 А/SD*                     L 00001 ЕХСНАNGЕ              L 00001 РАSSFОRМ
+            DL 00300 LDТРL                 L 00001 А/SD                      L 00001 GIVЕSТRN    ОRDЕR       01024
+   *ТАВNАМ*    00200                       L 00001 F/SD*           INF/ОР      00064                       Р 01024 LIВRЕFЕR
+             L 00200 FINРАR                L 00001 LISТ2                     L 00064 DТRАN       ОUТ*ОUТ     00001
+            DL 00200 LОАDТР      АDRUМINF    00001                 INFLОАD*    00002                       L 00001 DОS/IАЕ
+   *ТАВNАТ*    00200                       L 00001 ТWRIТLIВ                  L 00002 ОVLТОGР*             NL 00001 DТRАN
+             L 00200 FINТЕМ      АISТ        00004                 КАТL        02048                       L 00001 ОСАТАLОG
+            DL 00200 LDТЕМ                 L 00004 ISО*ТЕХ*                  Р 02048 SТА/РRI     РАGЕ      Е 08192
+   *ТАВТАL*    00300             ВСАТ        02048                 КСОUNТ*     00004                       Р 08192 DТRАN
+             L 00300 FINL                  Р 02048 СНЕКРЕRS                  L 00004 ВАСКSТЕР              Р 02048 NЕWРLАСЕ
+            DL 00300 LDТРL       ВSUВР       01024                           L 00004 СНINР                 Р 02048 РRINТLIВ
+   *ТАВТАР*    00100                       Р 01024 СНЕКРЕRS                  L 00000 DОS/IАЕ     РС          00014
+             L 00100 FINРАR      ВUF         08192                           L 00001 GIVЕ                  L 00014 RЕDАСТ**
+            DL 00100 LОАDТР                Р 01024 DRUМ                      L 00000 ОVЕRLАУ     RВUF        01024
+   *ТАВТАТ*    00100                       Р 01024 ОVLТОGР*                  L 00000 ОVЕRLАУ*              Р 01024 LISТLIВТ
+             L 00100 FINТЕМ                Р 08192 РАSSFОRМ        LВ          01024             RЕSТОР*     00001
+            DL 00100 LDТЕМ                 Р 01024 ТRЕАD                     Р 01024 NЕWINF*               L 00001 /ТЕSТLО/
+   *ТАРЕS*     00005             ВUF*        00256                 LIВРRINТ    00100                       L 00001 FINLОАD*
+             L 00005 DUМРМЕ                S 00256 СLЕАNR                    L 00100 DТRАN                 L 00001 IОLРDWТ
+   *ТЕХТ*      00014                       S 00256 ЕХСНАNGЕ        LIМWR*      00002                       L 00001 SТОРОFF
+            DL 00006 ВIОRIТ                S 00256 GIVЕ                      L 00001 КF          RFМRТFLG    00001
+             L 00014 GIVРАR                S 00256 GIVЕSТRN                  L 00002 RЕNUМВ*               L 00001 ВАСКSТЕР
+             L 00014 NUМВL       С1*         00001                 LОАDLIВR    01024                       L 00001 FСDЕL
+   *ТIКТАК*    00025                       L 00001 GIVЕ                      Р 01024 SТАТLIВ*              L 00001 FСNЕW
+             L 00025 SАVЕМОN/              L 00001 РRIОRIТУ        LОАDLIS*    00001                       L 00001 FWRIТЕ
+             L 00025 SЕRWISМ               L 00001 SТАТISТ                   L 00001 /ТЕSТLО/             NL 00001 GIVСАТ
+   *ТIТLЕ*     00022             САТ         02048                           L 00001 А/SD                  L 00001 GVНDZN
+            DL 00022 МIDАТА                Р 02048 DОS/IАЕ                   L 00001 FINLОАD*             NL 00001 IFАRR
+             L 00022 МINUIТ      САТLG       02048                           L 00001 SТLОАD**    RМ*         00005
+             L 00022 МРRINТ                Р 02048 LISТLIВТ        LSТА        01024                       L 00001 А/SD
+             L 00022 МРUNСН      САТLОА**    *****                           Р 01024 SТА/РRI               L 00005 ОVЕRLАУ
+             L 00022 РАЕR6                 L 00001 А/LОАDSD        МАIN*       00001                       L 00005 ОVЕRLАУ*
+             L 00022 ТАURОS               NL ***** А/SD*                    NL 00001 А/SD*                 L 00005 WRIТLIВ*
+   *UТIL*      00411                       L ***** F/SD*                     L 00001 А/SD        RРАGЕ       01024
+             L 00411 DUМРМЕ                L 00001 LОАDSD                   NL 00001 F/SD*                 Р 01024 FRЕАD1
+   SС          00014
+             L 00014 RЕDАСТ**
+   SТАRSТА     00001
+             L 00001 DОS/IАЕ
+            NL 00001 DТRАN
+             L 00001 NТАРDISС
+   ТАВ         02048
+             L 02048 DТRАN
+   ТАВLЕ*      02048
+             L 02048 LVЕСТОR/
+             L 02048 ОVЕRLАУ
+             L 02048 ОVЕRLАУ*
+   ТАВLЕ     Е 01024
+             Р 01024 LVЕСТОR/
+             Р 01024 ОVЕRLАУ
+             Р 01024 ОVЕRLАУ*
+   ТАРЕLISТ    00025
+             L 00025 АRЕАD
+            NL 00025 IRЕАD3
+   ТЕSТLО*     00013
+             L 00013 /ТЕSТLО/
+             L 00013 FINLОАD*
+             L 00013 ТЕSТLОАD
+   ТО*DRUМ     01024
+             Р 01024 DТRАN
+   ТRNАМЕ*     00001
+            NL 00001 А/LОАDSD
+            NL 00001 А/SD*
+             L 00001 А/SD
+            NL 00001 F/SD*
+            NL 00001 LОАDSD
+   ТSТАТЕ*     00001
+             L 00001 IDSТАТ
+   WВUF        01024
+             Р 01024 LISТLIВТ
+   WRIТМАR*    00001
+             L 00001 RЕNUМВ*
+   ХРАRАМТ*    00004
+             L 00004 DТRАN
+   ХРАRАМТ/    00004
+            NL 00004 DТRАN
+   ХRЕАD/      00002
+             L 00002 IWRЕND
+   ХWRIТЕ/     00002
+             L 00002 IWRЕND
+           *ЕND FILЕ
+ КОНЕЦ ЗАДАЧИ
+ 00411: 00 074 0000	*74

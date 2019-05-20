@@ -1,0 +1,289 @@
+﻿                                                      18.05.19 М1
+
+  М О Н И Т О Р-8 0  (3.7)   25.09.84*       (  МС " Д У Б Н А " ИАЭ  )             ШИФР    419999000000
+
+
+
+
+
+
+
+                     ЖЖЖ     Ж      Ж  ЖЖЖ           Ж  ЖЖЖЖ   ЖЖЖ   ЖЖЖ
+                    Ж   Ж   ЖЖ     ЖЖ Ж   Ж         ЖЖ  Ж     Ж   Ж Ж
+                        Ж  Ж Ж    Ж Ж  Ж Ж         Ж Ж  ЖЖЖЖ      Ж ЖЖЖЖ
+                       Ж     Ж   Ж  Ж   Ж    ЖЖЖ     Ж      Ж    Ж  Ж   Ж
+                      Ж      Ж  Ж   Ж  Ж Ж           Ж      Ж   Ж   Ж   Ж
+                     Ж       Ж  ЖЖЖЖЖ Ж   Ж          Ж  Ж   Ж  Ж    Ж   Ж
+                    ЖЖЖЖЖ   ЖЖЖ     Ж  ЖЖЖ          ЖЖЖ  ЖЖЖ  ЖЖЖЖЖ  ЖЖЖ
+
+
+
+
+
+
+
+
+*NАМЕ 2148-1526
+           *РЕRSО: 401350
+ 04.10.84 М1
+           *САLL LIВRЕFЕR:ТАРЕ=411526
+                                                      18.05.19 М1
+                     ССЫЛКИ НА ПОДПРОГРАММЫ
+
+                                 РRINТ0
+   D - РАССЫЛКА ДАННЫХ           РТ6
+   Е - ВНЕШНЯЯ П/П               РТХ/ISО   Е LUN*МОN
+                                 RЕАDК3А2
+   ВЕМSН**   Е МОNIТОR*          RLIВLIS     ЕХСLUD/
+             Е РRINТ8                        Н/NОМЕR
+             Е RЕАD*                       Е LIВLISТ
+   ВЕМSН*      Н/NОМЕR                     Е LUN*МОN
+             Е LОАDАNGО                    Е РАRАМТ*
+   САТАLОG*  Е DАТАРR*                       РТХ/ISО
+               РТ6                           RЕАDК3А2
+               RЕАDК3А2                      WRIТLIВL
+               ТR5UР             SDЕС
+   СWRIТЕ   (IWRIТЕ  )           SТRРRN    Е FТ*002
+   DСАТАLОG (САТАLОG*)                     Е FТ*003
+   DЕТRАNS     DЕТRАNS1                    Е FТ*571
+               Н/NОМЕR           ТАКЕSТАR  Е DRUМТАР*
+   DЕТRАNS1    СWRIТЕ                        Н/NОМЕR
+               ЕWRIТЕ                      Е LIВРRINТ
+             Е ЕХIТ                          РRINТ0
+               ISСАN                       Е РRINТ8
+               IWRIТЕ                        RЕАDК3А2
+             Е LIВРRINТ          ТСАТАLОG (САТАLОG*)
+               ОВОZ              ТСАТDОR  (САТАLОG*)
+               SDЕС              ТR5UР
+               ТАКЕSТАR          ТХТI
+               ТХТI              UЕQUРL      LISТNАМЕ
+             Е WRIТЕ1                      Е LUN*МОN
+   ЕQUМЕМ   (WRIТМЕМ )                     Е РАRАМТ*
+   ЕWRIТЕ   (IWRIТЕ  )                       РТХ/ISО
+   ЕХСLUD/                                   RЕАDК3А2
+   ЕХIТТRАN  Е LОАDАNGО          UЕQUSМ   (UЕQUРL  )
+   FСАТАLОG (САТАLОG*)           UРRINТТ  (URЕТРULS)
+   Н/NОМЕR                       URЕТРULS  Е ЕХIТ
+   ISСАN                                   Е LОАDАNGО
+   IWRIТЕ    Е WRIТЕ1                      Е LUN*МОN
+   LIВDЕLЕТ    ЕХСLUD/                     Е РRINТ8
+             Е ЕХСLUDЕ                     Е SТОР**
+               Н/NОМЕR                     Е ТТРRINТ
+             Е LUN*МОN           WRIТLIВ* (LIВDRUМ )
+               РТХ/ISО           WRIТLIВI  Е DRUМТАР*
+               RЕАDК3А2                      ЕХСLUD/
+   LIВDRUМ   Е DRUМТАР*                      Н/NОМЕR
+               ЕХСLUD/                       RЕАDК3А2
+               Н/NОМЕR           WRIТLIВL (LIВDRUМ )
+             Е LUN*МОN           WRIТLIВR    WRIТLIВI
+             Е РАRАМТ*           WRIТМЕМ   Е LОАDАNGО
+             Е РRINТ8                      Е МОNRЕАD*
+               РТХ/ISО                     Е РRINТ8
+               RЕАDК3А2
+   LIВRАRУ*  Е LIВLISТ
+               РТ6
+               RЕАDК3А2
+   LIВRАRУ   Е LIВLISТ
+               LIВRАRУ*
+   LIВТАРЕ/  Е DRUМТАР*
+             Е LUN*МОN
+             Е РАRАМТ*
+               RЕАDК3А2
+               ТR5UР
+   LISТNАМЕ (UЕQUРL  )
+   ОВОZ
+   РСАТАLОG (САТАLОG*)
+                                                      18.05.19 М1
+                     ИСПОЛЬЗОВАНИЕ ПОДПРОГРАММ
+
+                                           N LIВRАRУ
+   Е - ВНЕШНЯЯ П/П                           RLIВLIS
+   N - ОПИСАНА, НЕ ИСПОЛЬЗУЕТСЯ  LIВРRINТ ЕN DЕТRАNS1
+   С - ЕСТЬ ОДНОИМЕННЫЙ СОММОN               ТАКЕSТАR
+                                 LIВRАRУ*    LIВRАRУ
+   НЕИСПОЛЬЗУЕМЫЕ ВХОДЫ          LISТNАМЕ    UЕQUРL
+                                 LОАDАNGО Е  ВЕМSН*
+   ВЕМSН**                                   ЕХIТТRАN
+   ВЕМSН*                                    URЕТРULS
+   САТАLОG*                                  WRIТМЕМ
+   DСАТАLОG                      LUN*МОN  Е  LIВDЕLЕТ
+   DЕТRАNS                                   LIВDRUМ
+   ЕQUМЕМ                                    LIВТАРЕ/
+   ЕХIТТRАN                                  РТХ/ISО
+   FСАТАLОG                                  RLIВLIS
+   LIВDЕLЕТ                                  UЕQUРL
+   LIВDRUМ                                   URЕТРULS
+   LIВRАRУ                       МОNIТОR* Е  ВЕМSН**
+   LIВТАРЕ/                      МОNRЕАD* Е  WRIТМЕМ
+   РСАТАLОG                      ОВОZ      N DЕТRАNS1
+   RLIВLIS                       РАRАМТ*  Е  LIВDRUМ
+   SТRРRN                                    LIВТАРЕ/
+   ТСАТАLОG                                  RLIВLIS
+   ТСАТDОR                                   UЕQUРL
+   UЕQUРL                        РRINТ0    N ТАКЕSТАR
+   UЕQUSМ                        РRINТ8   Е  ВЕМSН**
+   UРRINТТ                                   LIВDRUМ
+   URЕТРULS                                N ТАКЕSТАR
+   WRIТLIВ*                                  URЕТРULS
+   WRIТLIВR                                  WRIТМЕМ
+   WRIТМЕМ                       РТ6         САТАLОG*
+                                             LIВRАRУ*
+                                 РТХ/ISО     LIВDЕLЕТ
+   ИСПОЛЬЗУЕМЫЕ ВХОДЫ                        LIВDRUМ
+                                             RLIВLIS
+   СWRIТЕ      DЕТRАNS1                      UЕQUРL
+   DАТАРR*  Е  САТАLОG*          RЕАD*    Е  ВЕМSН**
+   DЕТRАNS1    DЕТRАNS           RЕАDК3А2    САТАLОG*
+   DRUМТАР* Е  LIВDRUМ                       LIВDЕLЕТ
+               LIВТАРЕ/                      LIВDRUМ
+               ТАКЕSТАR                      LIВRАRУ*
+               WRIТLIВI                      LIВТАРЕ/
+   ЕWRIТЕ      DЕТRАNS1                      RLIВLIS
+   ЕХСLUD/     LIВDЕLЕТ                      ТАКЕSТАR
+               LIВDRUМ                       UЕQUРL
+               RLIВLIS                       WRIТLIВI
+               WRIТLIВI          SDЕС        DЕТRАNS1
+   ЕХСLUDЕ  Е  LIВDЕLЕТ          SТОР**   Е  URЕТРULS
+   ЕХIТ     Е  DЕТRАNS1          ТАКЕSТАR    DЕТRАNS1
+               URЕТРULS          ТR5UР       САТАLОG*
+   FТ*002   Е  SТRРRN                        LIВТАРЕ/
+   FТ*003   Е  SТRРRN            ТТРRINТ  Е  URЕТРULS
+   FТ*571   Е  SТRРRN            ТХТI        DЕТRАNS1
+   Н/NОМЕR     ВЕМSН*            WRIТЕ1   ЕN DЕТRАNS1
+             N DЕТRАNS                       IWRIТЕ
+               LIВDЕLЕТ          WRIТLIВI    WRIТLIВR
+               LIВDRUМ           WRIТLIВL    RLIВLIS
+               RLIВLIS
+               ТАКЕSТАR
+               WRIТLIВI
+   ISСАN     N DЕТRАNS1
+   IWRIТЕ      DЕТRАNS1
+   LIВLISТ  Е  LIВRАRУ*
+                                                      18.05.19 М1
+                     ССЫЛКИ НА СОММОN′Ы
+
+
+   D - РАССЫЛКА ДАННЫХ
+   N - ОПИСАН, НЕ ИСПОЛЬЗУЕТСЯ
+   Р - СТРАНИЧНЫЙ СОММОN
+   S - СЕКТОРНЫЙ СОММОN
+   L - ПРОСТОЙ СОММОN
+   ***** - ДЛИНА ОПИСАНА НЕЯВНО
+
+   ВЕМSН**   L 00042 ЕNТRУ*
+            NL 00001 FLGЕХ*
+             L 00001 FULISFL*
+             L 00004 КСОUNТ*
+             L 00001 NОLISFL*
+   САТАLОG*  L 07424 УКАЗ
+   DСАТАLОG (САТАLОG*)
+   DЕТRАNS1  L 00001 ВЕGIN
+             L 00042 ЕNТRУ*
+             L 00008 L
+            NР 06144 РАGЕ
+   ЕQUМЕМ   (WRIТМЕМ )
+   ЕХIТТRАN  L 00001 FLАGS
+             L 00004 КСОUNТ*
+             L 00001 МОNСАRD*
+             L 00001 RFМRТFLG
+   FСАТАLОG (САТАLОG*)
+   LIВDRUМ   L 00014 *МОNСRD*
+             L 00001 ЕRRОFLG*
+             L 00002 РАRLIВR*
+   LIВRАRУ*  L 00001 *RЕGIМ//
+   LIВRАRУ  NL 00000 А
+            NL ***** А1
+   LIВТАРЕ/  L 00014 *МОNСRD*
+   LISТNАМЕ (UЕQUРL  )
+   РСАТАLОG (САТАLОG*)
+   RLIВLIS   L 00014 *МОNСRD*
+             Р 02048 САТАLОG
+             L 00002 РАRLIВR*
+   ТАКЕSТАR  L 00001 ВЕGIN
+             L 00001 ЕNТRУ*
+            NL 00002 INFWОRD
+             L 00008 L
+             Р 06144 РАGЕ
+   ТСАТАLОG (САТАLОG*)
+   ТСАТDОR  (САТАLОG*)
+   UЕQUРL    Р 02048 САТ
+             Р 03072 САТN
+             L 00002 РАRLIВR*
+   UЕQUSМ   (UЕQUРL  )
+   UРRINТТ  (URЕТРULS)
+   URЕТРULS  L 00001 ЕRRОFLG*
+             L 00001 RМ*
+   WRIТLIВ* (LIВDRUМ )
+   WRIТLIВI NL 00014 *МОNСRD*
+            NL 00001 ЕRRОFLG*
+   WRIТLIВL (LIВDRUМ )
+   WRIТМЕМ   L 00001 МОNСАRD*
+                                                      18.05.19 М1
+                     ИСПОЛЬЗОВАНИЕ СОММОN′ОВ
+
+                                 RFМRТFLG    00001
+   Е - ЕСТЬ ОДНОИМЕННАЯ П/П                L 00001 ЕХIТТRАN
+   D - РАССЫЛКА ДАННЫХ           RМ*         00001
+   N - ОПИСАН, НЕ ИСПОЛЬЗУЕТСЯ             L 00001 URЕТРULS
+   Р - СТРАНИЧНЫЙ СОММОN         УКАЗ        07424
+   S - СЕКТОРНЫЙ СОММОN                    L 07424 САТАLОG*
+   L - ПРОСТОЙ СОММОN
+   ***** - ДЛИНА ОПИСАНА НЕЯВНО
+
+   *МОNСRD*    00014
+             L 00014 LIВDRUМ
+             L 00014 LIВТАРЕ/
+             L 00014 RLIВLIS
+            NL 00014 WRIТLIВI
+   *RЕGIМ//    00001
+             L 00001 LIВRАRУ*
+   А           00000
+            NL 00000 LIВRАRУ
+   А1          *****
+            NL ***** LIВRАRУ
+   ВЕGIN       00001
+             L 00001 DЕТRАNS1
+             L 00001 ТАКЕSТАR
+   САТ         02048
+             Р 02048 UЕQUРL
+   САТАLОG     02048
+             Р 02048 RLIВLIS
+   САТN        03072
+             Р 03072 UЕQUРL
+   ЕNТRУ*      00042
+             L 00042 ВЕМSН**
+             L 00042 DЕТRАNS1
+             L 00001 ТАКЕSТАR
+   ЕRRОFLG*    00001
+             L 00001 LIВDRUМ
+             L 00001 URЕТРULS
+            NL 00001 WRIТLIВI
+   FLАGS       00001
+             L 00001 ЕХIТТRАN
+   FLGЕХ*      00001
+            NL 00001 ВЕМSН**
+   FULISFL*    00001
+             L 00001 ВЕМSН**
+   INFWОRD     00002
+            NL 00002 ТАКЕSТАR
+   КСОUNТ*     00004
+             L 00004 ВЕМSН**
+             L 00004 ЕХIТТRАN
+   L           00008
+             L 00008 DЕТRАNS1
+             L 00008 ТАКЕSТАR
+   МОNСАRD*    00001
+             L 00001 ЕХIТТRАN
+             L 00001 WRIТМЕМ
+   NОLISFL*    00001
+             L 00001 ВЕМSН**
+   РАGЕ        06144
+            NР 06144 DЕТRАNS1
+             Р 06144 ТАКЕSТАR
+   РАRLIВR*    00002
+             L 00002 LIВDRUМ
+             L 00002 RLIВLIS
+             L 00002 UЕQUРL
+           *ЕND FILЕ
+ КОНЕЦ ЗАДАЧИ
+ 00411: 00 074 0000	*74

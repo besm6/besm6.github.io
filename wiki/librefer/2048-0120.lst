@@ -1,0 +1,296 @@
+﻿                                                      18.05.19 М1
+
+  М О Н И Т О Р-8 0  (3.7)   25.09.84*       (  МС " Д У Б Н А " ИАЭ  )             ШИФР    419999000000
+
+
+
+
+
+
+
+                     ЖЖЖ   ЖЖЖ      Ж  ЖЖЖ         ЖЖЖ     Ж   ЖЖЖ   ЖЖЖ
+                    Ж   Ж Ж   Ж    ЖЖ Ж   Ж       Ж   Ж   ЖЖ  Ж   Ж Ж   Ж
+                        Ж Ж   Ж   Ж Ж  Ж Ж        Ж   Ж  Ж Ж      Ж Ж   Ж
+                       Ж  Ж   Ж  Ж  Ж   Ж    ЖЖЖ  Ж   Ж    Ж     Ж  Ж   Ж
+                      Ж   Ж   Ж Ж   Ж  Ж Ж        Ж   Ж    Ж    Ж   Ж   Ж
+                     Ж    Ж   Ж ЖЖЖЖЖ Ж   Ж       Ж   Ж    Ж   Ж    Ж   Ж
+                    ЖЖЖЖЖ  ЖЖЖ      Ж  ЖЖЖ         ЖЖЖ    ЖЖЖ ЖЖЖЖЖ  ЖЖЖ
+
+
+
+
+
+
+
+
+*NАМЕ 2048-0120
+           *РЕRSО: 401350
+ 04.10.84 М1
+           *САLL LIВRЕFЕR:ТАРЕ=400120
+                                                      18.05.19 М1
+                     ССЫЛКИ НА ПОДПРОГРАММЫ                                  Е F/SSТАRТ
+                                                                   SВRОS/    Е РRINТ8//
+                                           Е F/FRЕТ                SWТАРD    Е ВСDЕNС*
+   D - РАССЫЛКА ДАННЫХ                     Е F/FSТАRТ                        Е F/SRЕТ
+   Е - ВНЕШНЯЯ П/П                           НЕLРWН                          Е F/SSТАRТ
+                                             INТG                            Е IОАС*
+   DUВDМS    Е ВСDЕNС*                     Е IОАС*                           Е IОЕND*
+             Е F/SАVЕR                     Е IОЕND*                            МWRТ
+             Е F/SRЕТ                      Е IRВ1                              ОNLУSW
+             Е IОАС*                       Е IWВ1                              РRISW
+             Е IОЕND*                        КNСS                  WНАТ      Е ВСDЕNС*
+               МWRТ                        Е LАDR                              ЕQSWDТ
+             Е R*ТО*I                        МNINF                             ЕRОVЕR
+   ЕQSWDТ   (SWТАРD  )                       МRD1                              ЕRSUВ
+   ЕRОVЕR   (NRОVЕR  )                       МWRТ                            Е F/SАVЕR
+   ЕRSUВ    (NRDСG   )                       NЕWМDТ                          Е F/SRЕТ
+   НЕАDLТ                                    ОТКАZТ                            НЕАDLТ
+   НЕLРWН    Е ВСDRЕАD*                    Е SТОР*                             INFТУР
+             Е ВСDWRIТ*          МRD1        НЕLРWН                          Е IОАС*
+             Е F/NОSVR                       МWRТ                            Е IОСОNТ*
+             Е F/SRЕТNR                    Е РRINТ8//                        Е IОЕND*
+             Е IОАС*                         SВRОS/                            КЕЕРW
+             Е IОЕND*                      Е ТТRЕАD*D                          КSРLIВ
+   НLFILЕ    Е ВСDЕNС*           МWRТ      Е ВОКНО                             МWRТ
+             Е F/SRЕТ                      Е DАТАРR*                           NЕWDМS
+             Е F/SSТАRТ                      МRD                               NЕWSТR
+               INFТУР                      Е ОКНО                              NЕХТZ
+             Е IОАС*                       Е РRINТ8                            NРОVЕR
+             Е IОСОNТ*                     Е РRINТ8//                          NРRРЕR
+             Е IОЕND*                        RЕСUR                             NRDСG
+               МWRТ                          SВRОS/                            NRОVЕR
+               NZОNR                       Е ТТРRINТ                           NZОNR
+               RР2DМS            NЕWDМS   (NЕWSТR  )                           ОNLУSW
+               WНАТ              NЕWМDТ    Е GОSТ/ISО                          РRINЕW
+   INFILЕ    Е ВСDЕNС*           NЕWSТR      ЕQSWDТ                            РRIОLD
+             Е F/SRЕТ                        NЕХТZ                           Е R*ТО*INТ
+             Е F/SSТАRТ                      NZОNR                           Е SТОР*
+             Е IОСОNТ*                     Е ОСТТDЕС                           SWТАРD
+             Е IОЕND*            NЕХТZ                             WНАТIS   DЕ /IР*
+               МWRТ              NGЕТ                                          WНАТ
+               RР2DМS            NGЕТ0    (NGЕТ    )
+   INFТУР                        NGЕТS    (NGЕТ    )
+   INТG                          NРОVЕR   (NRОVЕR  )
+   JСАТS     Е ВСDЕNС*           NРRРЕR   (NRDСG   )
+             Е F/SАVЕR           NRDСG       INFТУР
+             Е F/SRЕТ                        МWRТ
+               НLFILЕ                        РТ6/
+               INFILЕ                      Е SDЕС*
+             Е IОАС*             NRОVЕR      МWRТ
+             Е IОСОNТ*                       РТ6/
+             Е IОЕND*                      Е SDЕС*
+               МRD               NZОNR       МWRТ
+               МWRТ                        Е ОКНО
+               RЕСUR                         RЕСUR1
+               RР2DМS                        SВRОS/
+               WНАТ              ОNLУSW
+   КЕЕРW       МRD               ОТКАZТ
+   КNСS     (МRD1    )           РRINЕW   (SWТАРD  )
+   КSРLIВ      DUВDМS            РRIОLD   (SWТАРD  )
+               JСАТS             РRISW     Е GОSТ/ISО
+               МWRТ                          МWRТ
+   МNINF    (NЕWМDТ  )           РТ6/
+   МRD       Е ВСDЕNС*           RЕСUR    (КЕЕРW   )
+             Е ВСDRЕАD*          RЕСUR1   (КЕЕРW   )
+             Е ВСDWRIТ*          RР2DМS    Е F/SRЕТ
+                                                      18.05.19 М1
+                     ИСПОЛЬЗОВАНИЕ ПОДПРОГРАММ                     РRINТ8   Е  МWRТ
+                                                                   РRINТ8// Е  МRD1
+                                 IОАС*    Е  DUВDМS                            МWRТ
+   Е - ВНЕШНЯЯ П/П                           НЕLРWН                            SВRОS/
+   N - ОПИСАНА, НЕ ИСПОЛЬЗУЕТСЯ              НLFILЕ                РRIОLD      WНАТ
+   С - ЕСТЬ ОДНОИМЕННЫЙ СОММОN               JСАТS                 РRISW       SWТАРD
+                                             МRD                   РТ6/        NRDСG
+   НЕИСПОЛЬЗУЕМЫЕ ВХОДЫ                      SWТАРD                            NRОVЕR
+                                             WНАТ                  R*ТО*I   Е  DUВDМS
+   NGЕТ                          IОСОNТ*  Е  НLFILЕ                R*ТО*INТ Е  WНАТ
+   NGЕТ0                                     INFILЕ                RЕСUR       JСАТS
+   NGЕТS                                     JСАТS                             МWRТ
+   WНАТIS                                    WНАТ                  RЕСUR1      NZОNR
+                                 IОЕND*   Е  DUВDМS                RР2DМS      НLFILЕ
+                                             НЕLРWН                            INFILЕ
+   ИСПОЛЬЗУЕМЫЕ ВХОДЫ                        НLFILЕ                            JСАТS
+                                             INFILЕ                SВRОS/      МRD1
+   /IР*     Е  WНАТIS                        JСАТS                             МWRТ
+   ВСDЕNС*  Е  DUВDМS                        МRD                               NZОNR
+               НLFILЕ                        SWТАРD                SDЕС*    Е  NRDСG
+               INFILЕ                        WНАТ                              NRОVЕR
+               JСАТS             IRВ1     Е  МRD                   SТОР*    Е  МRD
+               МRD               IWВ1     Е  МRD                               WНАТ
+               SWТАРD            JСАТS       КSРLIВ                SWТАРD      WНАТ
+               WНАТ              КЕЕРW       WНАТ                  ТТРRINТ  Е  МWRТ
+   ВСDRЕАD* Е  НЕLРWН            КNСS        МRD                   ТТRЕАD*D Е  МRD1
+               МRD               КSРLIВ      WНАТ                  WНАТ        НLFILЕ
+   ВСDWRIТ* Е  НЕLРWН            LАDR     Е  МRD                               JСАТS
+               МRD               МNINF       МRD                               WНАТIS
+   ВОКНО    Е  МWRТ              МRD         JСАТS
+   DАТАРR*  Е  МWRТ                          КЕЕРW
+   DUВDМS      КSРLIВ                        МWRТ
+   ЕQSWDТ      NЕWSТR            МRD1        МRD
+               WНАТ              МWRТ        DUВDМS
+   ЕRОVЕR      WНАТ                          НLFILЕ
+   ЕRSUВ       WНАТ                          INFILЕ
+   F/FRЕТ   Е  МRD                           JСАТS
+   F/FSТАRТ Е  МRD                           КSРLIВ
+   F/NОSVR  Е  НЕLРWН                        МRD
+   F/SАVЕR  Е  DUВDМS                        МRD1
+               JСАТS                         NRDСG
+               WНАТ                          NRОVЕR
+   F/SRЕТ   Е  DUВDМS                        NZОNR
+               НLFILЕ                        РRISW
+               INFILЕ                        SWТАРD
+               JСАТS                         WНАТ
+               RР2DМS            NЕWDМS      WНАТ
+               SWТАРD            NЕWМDТ      МRD
+               WНАТ              NЕWSТR      WНАТ
+   F/SRЕТNR Е  НЕLРWН            NЕХТZ       NЕWSТR
+   F/SSТАRТ Е  НLFILЕ                        WНАТ
+               INFILЕ            NРОVЕR      WНАТ
+               RР2DМS            NРRРЕR      WНАТ
+               SWТАРD            NRDСG       WНАТ
+   GОSТ/ISО Е  NЕWМDТ            NRОVЕR      WНАТ
+               РRISW             NZОNR       НLFILЕ
+   НЕАDLТ      WНАТ                          NЕWSТR
+   НЕLРWН      МRD                           WНАТ
+               МRD1              ОСТТDЕС  Е  NЕWSТR
+   НLFILЕ      JСАТS             ОКНО     Е  МWRТ
+   INFILЕ      JСАТS                         NZОNR
+   INFТУР      НLFILЕ            ОNLУSW      SWТАРD
+               NRDСG                         WНАТ
+               WНАТ              ОТКАZТ      МRD
+   INТG        МRD               РRINЕW      WНАТ
+                                                      18.05.19 М1
+                     ССЫЛКИ НА СОММОN′Ы                                      L 00002 *IW*
+                                                                            NL 00003 *LISТIN*
+                                           L 00004 *JСАТ*                    L 00003 *LSУМВ*
+   D - РАССЫЛКА ДАННЫХ                     L 00003 *LISТIN*                  L 00002 *ММNNN*
+   N - ОПИСАН, НЕ ИСПОЛЬЗУЕТСЯ             L 00002 *NОFULL*                  L 00001 *NАVОSТ*
+   Р - СТРАНИЧНЫЙ СОММОN                   L 00003 *РRINТ*                   L 00006 *NDIS*
+   S - СЕКТОРНЫЙ СОММОN                    L 00001 *SУSТЕМ*                  L 00002 *NОFULL*
+   L - ПРОСТОЙ СОММОN            МWRТ     DL 00003 *LISТIN*                  L 00004 *ОLD*
+   ***** - ДЛИНА ОПИСАНА НЕЯВНО            L 00003 *РRINТ*                  NL 00003 *РRINТ*
+                                           L 00001 *RЕGIМ//                  L 00001 *SЕRVIС*
+   DUВDМS    L 03072 *САТ*                 L 00001 *ТТSТАТ*                  L 00001 *SУSТЕМ*
+             L 01024 *САТDМS*              L 00001 ТSТАТЕ*                   L 00001 *ТТSТАТ*
+             L 00064 *СURZОN*    NЕWDМS   (NЕWSТR  )                        DL 00060 *WНТУРЕ*
+             L 00513 *JSРАСЕ*    NЕWМDТ    L 00006 *NDIS*                   NL 00003 *WТD*
+             L 00001 АСС*        NЕWSТR    Р 03072 *САТ*           WНАТIS   NР 03072 *САТ*
+   ЕQSWDТ   (SWТАРD  )                     L 00088 *СLNЕWS*                 NР 01024 *САТDМS*
+   ЕRОVЕR   (NRОVЕR  )                     L 00003 *LISТIN*                 NL 00090 *СLNЕWS*
+   ЕRSUВ    (NRDСG   )                     L 00003 *LSУМВ*                  NL 00003 *СОNТR*
+   НЕАDLТ    L 00001 *СОNТR*     NЕХТZ     Р 01024 *САТDМS*                 NL 00003 *НLDМS*
+   НLFILЕ    L 03072 *САТ*                 L 00002 *НLDМS*                  NL 00002 *IW*
+             L 01024 *САТDМS*              L 00002 *IW*                     NL 00004 *JСАТ*
+             L 00001 *СНАRМ*               L 00513 *JSРАСЕ*                 NL 00003 *LISТIN*
+             L 00090 *СLNЕWS*    NGЕТ      L 00001 *LSIМ*                   NL 00003 *LSУМВ*
+             L 00011 *DМS2*      NGЕТ0    (NGЕТ    )                        NL 00002 *ММNNN*
+             L 00003 *НLDМS*     NGЕТS    (NGЕТ    )                        NL 00006 *NDIS*
+             L 00128 *INDЕХ*     NРОVЕR   (NRОVЕR  )                        DL 00002 *NОFULL*
+             L 00002 *IW*        NРRРЕR   (NRDСG   )                        NL 00004 *ОLD*
+            NL 00001 *JSРАСЕ*    NRDСG     Р 03072 *САТ*                    NL 00003 *РRINТ*
+             L 00060 *WНТУРЕ*              L 00002 *НLDМS*                   L 00001 *SУSТЕМ*
+   INFILЕ    L 01024 *САТDМS*              L 00001 *IW*                     NL 00002 *ТЕКГОД*
+             L 00011 *DМS2*                L 00002 *ММNNN*                  NL 00001 *ТТSТАТ*
+   INFТУР    L 00001 *СНАRМ*               L 00001 *SУSТЕМ*                 NL 00003 *WТD*
+             L 00001 А/I0                  L 00001 ЕRRТЕХТ                   L 00001 ЕRRОFLG*
+   JСАТS     L 01024 *САТDМS*    NRОVЕR    Р 03072 *САТ*                    NL 00001 FULISFL*
+            NL 00090 *СLNЕWS*              L 00002 *НLDМS*                  NL 00001 NОLISFL*
+             L 00011 *DМS2*                L 00001 *IW*
+             L 00001 *НLDМS*               L 00002 *ММNNN*
+             L 00002 *IW*                  L 00001 *SУSТЕМ*
+            DL 00004 *JСАТ*      NZОNR     Р 03072 *САТ*
+             L 00513 *JSРАСЕ*              L 00090 *СLNЕWS*
+             L 00003 *LISТIN*              L 00001 *IW*
+             L 00001 *NDIS*                L 00003 *LISТIN*
+             L 00001 *SУSТЕМ*              L 00002 *ТЕКГОД*
+            NL 00002 *ТЕКГОД*    ОNLУSW    L 00006 *NDIS*
+   КNСS     (МRD1    )                     L 00003 *WТD*
+   КSРLIВ    Р 03072 *САТ*       РRINЕW   (SWТАРD  )
+             Р 01024 *САТDМS*    РRIОLD   (SWТАРD  )
+             L 00090 *СLNЕWS*    РRISW     L 00001 *SЕRVIС*
+             L 00064 *СURZОN*              L 00003 *WТD*
+             L 00002 *IW*        РТ6/      L 00001 ЕRRТЕХТ
+             L 00003 *JСАТ*      RР2DМS    L 00011 *DМS2*
+             L 00513 *JSРАСЕ*              L 00002 *ТЕКГОД*
+             L 00003 *LISТIN*    SВRОS/    L 00001 *LISТIN*
+             L 00001 *NDIS*                L 00003 *РRINТ*
+             L 00002 *NОFULL*    SWТАРD    L 00001 *IW*
+             L 00001 *SУSТЕМ*              L 00006 *NDIS*
+   МNINF    (NЕWМDТ  )                     L 00004 *ОLD*
+   МRD       L 00090 *СLNЕWS*              L 00001 *SЕRVIС*
+             L 00002 *НLDМS*               L 00003 *WТD*
+             L 00003 *JСАТ*      WНАТ      L 03072 *САТ*
+             L 00003 *LISТIN*              L 00001 *СНАRМ*
+            DL 00001 *NАVОSТ*              L 00090 *СLNЕWS*
+             L 00006 *NDIS*               DL 00003 *СОNТR*
+             L 00001 *SЕRVIС*              L 00002 *НLDМS*
+   МRD1      L 00003 *СОNТR*               L 00128 *INDЕХ*
+                                                      18.05.19 М1
+                     ИСПОЛЬЗОВАНИЕ СОММОN′ОВ                                DL 00002 WНАТIS
+                                                                   *ОLD*       00004
+                                           L 00128 НLFILЕ                    L 00004 SWТАРD
+   Е - ЕСТЬ ОДНОИМЕННАЯ П/П                L 00128 WНАТ                      L 00004 WНАТ
+   D - РАССЫЛКА ДАННЫХ           *IW*        00002                          NL 00004 WНАТIS
+   N - ОПИСАН, НЕ ИСПОЛЬЗУЕТСЯ             L 00002 НLFILЕ          *РRINТ*     00003
+   Р - СТРАНИЧНЫЙ СОММОN                   L 00002 JСАТS                     L 00003 МRD1
+   S - СЕКТОРНЫЙ СОММОN                    L 00002 КSРLIВ                    L 00003 МWRТ
+   L - ПРОСТОЙ СОММОN                      L 00002 NЕХТZ                     L 00003 SВRОS/
+   ***** - ДЛИНА ОПИСАНА НЕЯВНО            L 00001 NRDСG                    NL 00003 WНАТ
+                                           L 00001 NRОVЕR                   NL 00003 WНАТIS
+   *САТ*       03072                       L 00001 NZОNR           *RЕGIМ//    00001
+             L 03072 DUВDМS                L 00001 SWТАРD                    L 00001 МWRТ
+             L 03072 НLFILЕ                L 00002 WНАТ            *SЕRVIС*    00001
+             Р 03072 КSРLIВ               NL 00002 WНАТIS                    L 00001 МRD
+             Р 03072 NЕWSТR      *JСАТ*      00004                           L 00001 РRISW
+             Р 03072 NRDСG                DL 00004 JСАТS                     L 00001 SWТАРD
+             Р 03072 NRОVЕR                L 00003 КSРLIВ                    L 00001 WНАТ
+             Р 03072 NZОNR                 L 00003 МRD             *SУSТЕМ*    00001
+             L 03072 WНАТ                  L 00004 МRD1                      L 00001 JСАТS
+            NР 03072 WНАТIS               NL 00004 WНАТIS                    L 00001 КSРLIВ
+   *САТDМS*    01024             *JSРАСЕ*    00513                           L 00001 МRD1
+             L 01024 DUВDМS                L 00513 DUВDМS                    L 00001 NRDСG
+             L 01024 НLFILЕ               NL 00001 НLFILЕ                    L 00001 NRОVЕR
+             L 01024 INFILЕ                L 00513 JСАТS                     L 00001 WНАТ
+             L 01024 JСАТS                 L 00513 КSРLIВ                    L 00001 WНАТIS
+             Р 01024 КSРLIВ                L 00513 NЕХТZ           *ТЕКГОД*    00002
+             Р 01024 NЕХТZ       *LISТIN*    00003                          NL 00002 JСАТS
+            NР 01024 WНАТIS                L 00003 JСАТS                     L 00002 NZОNR
+   *СНАRМ*     00001                       L 00003 КSРLIВ                    L 00002 RР2DМS
+             L 00001 НLFILЕ                L 00003 МRD                      NL 00002 WНАТIS
+             L 00001 INFТУР                L 00003 МRD1            *ТТSТАТ*    00001
+             L 00001 WНАТ                 DL 00003 МWRТ                      L 00001 МWRТ
+   *СLNЕWS*    00090                       L 00003 NЕWSТR                    L 00001 WНАТ
+             L 00090 НLFILЕ                L 00003 NZОNR                    NL 00001 WНАТIS
+            NL 00090 JСАТS                 L 00001 SВRОS/          *WНТУРЕ*    00060
+             L 00090 КSРLIВ               NL 00003 WНАТ                      L 00060 НLFILЕ
+             L 00090 МRD                  NL 00003 WНАТIS                   DL 00060 WНАТ
+             L 00088 NЕWSТR      *LSIМ*      00001                 *WТD*       00003
+             L 00090 NZОNR                 L 00001 NGЕТ                      L 00003 ОNLУSW
+             L 00090 WНАТ        *LSУМВ*     00003                           L 00003 РRISW
+            NL 00090 WНАТIS                L 00003 NЕWSТR                    L 00003 SWТАРD
+   *СОNТR*     00003                       L 00003 WНАТ                     NL 00003 WНАТ
+             L 00001 НЕАDLТ               NL 00003 WНАТIS                   NL 00003 WНАТIS
+             L 00003 МRD1        *ММNNN*     00002                 А/I0        00001
+            DL 00003 WНАТ                  L 00002 NRDСG                     L 00001 INFТУР
+            NL 00003 WНАТIS                L 00002 NRОVЕR          АСС*        00001
+   *СURZОN*    00064                       L 00002 WНАТ                      L 00001 DUВDМS
+             L 00064 DUВDМS               NL 00002 WНАТIS          ЕRRОFLG*    00001
+             L 00064 КSРLIВ      *NАVОSТ*    00001                           L 00001 WНАТIS
+   *DМS2*      00011                      DL 00001 МRD             ЕRRТЕХТ     00001
+             L 00011 НLFILЕ                L 00001 WНАТ                      L 00001 NRDСG
+             L 00011 INFILЕ      *NDIS*      00006                           L 00001 РТ6/
+             L 00011 JСАТS                 L 00001 JСАТS           FULISFL*    00001
+             L 00011 RР2DМS                L 00001 КSРLIВ                   NL 00001 WНАТIS
+   *НLDМS*     00003                       L 00006 МRD             NОLISFL*    00001
+             L 00003 НLFILЕ                L 00006 NЕWМDТ                   NL 00001 WНАТIS
+             L 00001 JСАТS                 L 00006 ОNLУSW          ТSТАТЕ*     00001
+             L 00002 МRD                   L 00006 SWТАРD                    L 00001 МWRТ
+             L 00002 NЕХТZ                 L 00006 WНАТ
+             L 00002 NRDСG                NL 00006 WНАТIS
+             L 00002 NRОVЕR      *NОFULL*    00002
+             L 00002 WНАТ                  L 00002 КSРLIВ
+            NL 00003 WНАТIS                L 00002 МRD1
+   *INDЕХ*     00128                       L 00002 WНАТ
+           *ЕND FILЕ
+ КОНЕЦ ЗАДАЧИ
+ 00411: 00 074 0000	*74

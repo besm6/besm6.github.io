@@ -1,0 +1,810 @@
+﻿                                                      18.05.19 М1
+
+  М О Н И Т О Р-8 0  (3.7)   25.09.84*       (  МС " Д У Б Н А " ИАЭ  )             ШИФР    419999000000
+
+
+
+
+
+
+
+                     ЖЖЖ   ЖЖЖ      Ж  ЖЖЖ           Ж     Ж   ЖЖЖ   ЖЖЖ
+                    Ж   Ж Ж   Ж    ЖЖ Ж   Ж         ЖЖ    ЖЖ  Ж   Ж Ж   Ж
+                        Ж Ж   Ж   Ж Ж  Ж Ж         Ж Ж   Ж Ж  Ж   Ж Ж   Ж
+                       Ж  Ж   Ж  Ж  Ж   Ж    ЖЖЖ     Ж     Ж  Ж   Ж Ж   Ж
+                      Ж   Ж   Ж Ж   Ж  Ж Ж           Ж     Ж  Ж   Ж Ж   Ж
+                     Ж    Ж   Ж ЖЖЖЖЖ Ж   Ж          Ж     Ж  Ж   Ж Ж   Ж
+                    ЖЖЖЖЖ  ЖЖЖ      Ж  ЖЖЖ          ЖЖЖ   ЖЖЖ  ЖЖЖ   ЖЖЖ
+
+
+
+
+
+
+
+
+*NАМЕ 2048-1100
+           *РЕRSО: 401350
+ 04.10.84 М1
+           *САLL LIВRЕFЕR:ТАРЕ=401100
+                                                      18.05.19 М1
+                     ССЫЛКИ НА ПОДПРОГРАММЫ                                  Е SУМВОL                        IVЕSТ
+                                                                   АХISС     Е АВS                         Е R*SТ*I
+                                           Е SIN                             Е АМIN1                       Е SIGN
+   D - РАССЫЛКА ДАННЫХ                     Е SQRТ                            Е I*МU*I                      Е SIN
+   Е - ВНЕШНЯЯ П/П               АRСОLС    Е АВS                             Е IАВS                        Е SQRТ
+                                             АNGLЕR                          Е IRDВ                          SТRМОD
+   *70                                     Е АТАN                            Е МОVЕ              СLЕАZN
+   АВUFF                                     СIRТАС                          Е R*DI*I            СМGRID    Е АТАN2
+   АDDLЕV    Е I*МU*I                      Е СОS                             Е RDВ                         Е СОS
+   АFТZN    (SЕТRЕF  )                       GFFАLS                          Е SУМВОL                      Е FLОАТ
+   АNGLЕR    Е АВS                         Е I*DI*I                АХОNОМ      НСRОТ1                      Е IАВS
+             Е АТАN                          IVЕSТ                 ВАR       Е IRDВ                        Е МОD
+   АРРОLУ    Е FТ*002                      Е МОVЕ                            Е МОVЕ                        Е МОVЕ
+             Е FТ*003                      Е R*SТ*I                          Е R*SТ*I                        NUМВЕR
+             Е FТ*571                      Е SIGN                              ТМF                         Е SIN
+             Е I*МU*I                      Е SIN                   ВАRS        ВАR                           ТМF
+             Е IАВS                        Е SQRТ                  ВСD                                       ХРОL
+               РVАL                          SТRМОD                ВЕGLЕV    Е FТ*003                        УРОL
+             Е SQRТ              АRСОLL    Е АВS                             Е FТ*571            СОМРDТ
+   АRСАNG    Е АВS                           АNGLЕR                          Е SТОР*             СОNDЕК      FNRООТ
+             Е АТАN                        Е СОS                   ВIТА      Е I*МU*I                      Е I*DI*I
+               IVЕSТ                         GFFАLS                          Е I*МUI*                        INSDЕК
+             Е R*DI*I                        IVЕSТ                           Е IАВS                        Е МОD
+             Е SIGN                        Е R*DI*I                ВLАNС       ВLАNСН                      Е R*DI*I
+             Е SQRТ                        Е SIN                               GFFАLS                      Е R*SТ*I
+   АRСС1     Е АТАN              АRЕВ1     Е АТАN                  ВLАNСА   (ВLАNС   )                       ТFМ
+               IVЕSТ                       Е СОS                   ВLАNСН    Е АТАN2                         WНЕRЕ
+             Е R*DI*I                      Е SIN                             Е СОS               СООRD     Е АLОG10
+             Е SQRТ              АRRОW     Е АВS                               МОVВL1                      Е АМIN1
+   АRСЕLА    Е АВS                           АNGLЕR                          Е R*DI*I                      Е RDВ
+               ЕLIРS                         АRСIА                           Е R*SТ*I            СОРDСВ
+               GFFАLS                      Е СОS                             Е SIN               СОRNL     Е I*МUI*
+               IVЕSТ                         GFFАLS                          Е SТОР*                         МАР
+   АRСЕLВ    Е АВS                           IVЕSТ                 ВОХ       Е МОVЕ                        Е МОVЕ
+               АRСАNG                        МОVА                  ВUFL        LININТ                        РАТСН
+               АRСЕLА                      Е МОVЕ                  САВIN       SНЕАR                       Е R*SТ*I
+               АRЕВ1                       Е R*SТ*I                СЕLL      Е I*МUI*                      Е RDВ
+             Е СОS                         Е RDВ                             Е МОD                           ТМF
+             Е R*DI*I                      Е SIN                   СНЕNSР    Е СОS               СRDUМ    (WСАТWО  )
+             Е R*SТ*I                      Е SQRТ                            Е R*DI*I            СRОSS     Е АВS
+             Е SIN                           SТRМОD                СIRС        АRСIА                         АNGLЕR
+   АRСIА     Е АВS               АSТЕР     Е АВS                             Е МОVЕ                        Е АТАN
+             Е СОS                         Е АINТ                  СIRСLЕ    Е АВS                         Е СОS
+               GFFАLS                      Е АМАХ1                           Е СОS                           GFFАLS
+               IVЕSТ                       Е IRDВ                            Е МОVЕ                          IVЕSТ
+             Е МОVЕ                        Е R*РО*I                          Е R*SТ*I                      Е R*DI*I
+             Е R*SТ*I            АТRАN2    Е I*МUI*                          Е RDВ                         Е R*SТ*I
+             Е RDВ                           МТМРL                           Е SIN                         Е SIN
+             Е SIN               АХЕS      Е АВS                   СIRТАС    Е АВS                         Е SQRТ
+   АRСIВ       АRСАNG                      Е АINТ                              АNGLЕR            СUВРОL
+               АRСIА                       Е АМIN1                           Е АТАN              DАSНР       АNGLЕR
+   АRСIС       АRСАNG                      Е АМОD                            Е СОS                           МОVА
+               АRСС1                         АSТЕР                             GFFАLS                      Е МОVЕ
+               АRСIА                         ВСD                               IVЕSТ                       Е RDВ
+   АRСID       АNGLЕR                      Е I*DI*I                          Е R*DI*I                      Е SQRТ
+               АRСIА                       Е IАВS                            Е R*SТ*I            DDISТ
+             Е SQRТ                          IВСD                            Е SIGN              DЕRIV5
+   АRСОСС    Е АВS                         Е IRDВ                            Е SIN               DIМDRО    Е АВS
+               АNGLЕR                      Е МАХ0                            Е SQRТ                          АRСIА
+             Е АТАN                        Е МIN0                              SТRМОD                        АRRОW
+             Е СОS                         Е МОVЕ                  СIRТАL    Е АВS                           GFFАLS
+               GFFАLS                      Е R*DI*I                            АNGLЕR                      Е I*МU*I
+               IVЕSТ                       Е R*РО*I                          Е АТАN                        Е IАВS
+             Е R*DI*I                      Е R*SТ*I                          Е СОS                           МОVА
+             Е SIGN                        Е RDВ                               GFFАLS                      Е МОVЕ
+             Е R*DI*I                      Е RDВ                               ТМF                           IVЕSТ
+             Е R*SТ*I                      Е SQRТ                  IВСD     (ВСD     )                     Е SIN
+               RDАСА             FСАТВD                            INСLIN    Е АВS                         Е SQRТ
+               RDАСВ             FDISС    (GDISС   )                         Е АМАХ1             LIМIТS    Е IWDВ
+             Е RDВ               FNRООТ      IТРLВV                          Е АМIN1                       Е WDВ
+               RDМVА                       Е R*DI*I                          Е IАВS              LINЕС     Е АМАХ1
+               RDSТR             FОРЕN     Е МDВUFF                          Е IRDВ                        Е АМIN1
+             Е SIGN              FОRFIТ    Е АВS                               МАRКЕR                      Е IАВS
+               SТRМОD                      Е СОS                             Е МОVЕ                        Е IRDВ
+               WRАСА                       Е I*МU*I                          Е R*SТ*I                      Е МОVЕ
+               WRМVА                       Е IАВS                            Е RDВ                         Е RDВ
+               WRSТR                       Е IRDВ                              ТМF                           ТМF
+   DIМЕТ       ТDRОТ                       Е МОVЕ                              WНЕRЕ             LINЕМС    Е АМАХ1
+   DISТ      Е АВS                         Е R*DI*I                INIТ        НСUNIТ                      Е АМIN1
+               АNGLЕR                      Е SIN                   INSDЕК    Е АВS                         Е IАВS
+               АRЕВ1                         ТМF                               IТРLВV                      Е IRDВ
+             Е СОS               FОRIF     Е СОS                             Е МОVЕ                          МАRКЕR
+               IVЕSТ                       Е I*МU*I                            NUМВЕR                      Е МОVЕ
+             Е R*DI*I                      Е SIN                               ТМF                         Е RDВ
+             Е R*SТ*I            FОRIТ     Е СОS                   INSIDЕ    Е АВS                           ТМF
+               SЕСАNТ                      Е I*МU*I                            IТРLВV            LINЕМО    Е АВS
+             Е SIN                         Е SIN                             Е МОVЕ                        Е АМАХ1
+             Е SQRТ              GDISС                                         NUМВЕR                      Е АМIN1
+               SТRМОD            GЕТIND   (SЕТIND  )                           ТМF                         Е IАВS
+   DRАСОN      FNRООТ            GЕТХУ    (РUТХУ   )               INТRSС                                  Е IRDВ
+             Е I*DI*I            GFFАLS    Е ЕNDРG                 ISОLIN    Е I*МUI*                        МАRКЕR
+               INSIDЕ                      Е FТ*002                          Е IАВS                        Е МОVЕ
+             Е МОD                         Е FТ*003                            LINЕО                       Е RDВ
+             Е R*SТ*I                      Е FТ*571                            LООК                          ТМF
+             Е SQRТ              GIVЕNZ                                        ХРОL                          WНЕRЕ
+               ТМF               GIVZОN      FDISС                             УРОL              LINЕО     Е АВS
+               WНЕRЕ                         GDISС                 ISОМЕТ      ТDRОТ                       Е АМАХ1
+   DRАLIМ                                    GIVЕNZ                IТРLВV    Е АВS                         Е АМIN1
+   DRFRАМ   DЕ МОVЕ                          RСАТАL                          Е FТ*002                      Е IАВS
+               ТМF                           SЕТRЕF                          Е FТ*003                      Е IRDВ
+   Е70         *70                           WСАТАL                          Е FТ*571                      Е МОVЕ
+               NЕХТZN            GОВSЕК    Е АВS                             Е I*DI*I                      Е RDВ
+   ЕLIРS     Е АВS                         Е FLОАТ                           Е I*МU*I                        ТМF
+             Е СОS                           GFFАLS                IVЕSТ     Е АВS                           WНЕRЕ
+             Е МОVЕ                        Е I*DI*I                КЕУРО     Е I*МUI*            LINFIL
+             Е R*SТ*I                      Е I*МU*I                            МАRКЕR            LININТ
+             Е RDВ                         Е SQRТ                            Е МОVЕ              LINNUМ    Е АВS
+             Е SIN               GRID      Е FLОАТ                           Е NUМВ                        Е АТАN2
+             Е SQRТ                        Е МОVЕ                            Е R*DI*I                      Е ВRLINЕ
+   ЕLРS      Е СОS               НСIND                                         ТМF                         Е СОS
+               ЕLIРS             НСINV     Е I*МUI*                            ХРОL                        Е FLОАТ
+             Е МОVЕ                        Е R*РО*I                            УРОL                          NUМВЕR
+             Е SIN               НСLINЕ      LINЕО                 LЕSQ      Е I*МU*I                      Е R*DI*I
+   ЕNDLЕV    Е FТ*003            НСМULТ    Е I*МUI*                          Е IАВS                        Е SIN
+             Е FТ*571            НСNСRD                                        SМINV                       Е SQRТ
+               МТМРL             НСРRSР      НСМULТ                LЕVFUN    Е I*МU*I                        ТМF
+             Е SТОР*                         НСUNIТ                            МINМАХ            LINТ        ХРОL
+   ЕХТRЕМ      ХРОL              НСRОТ1    Е АВS                   LЕVМАР                                    УРОL
+               УРОL                        Е АТАN2                 LGLINЕ    Е АВS               LIТАN     Е АВS
+   FАТАRС    Е АВS                         Е SQRТ                            Е АМАХ1                         АNGLЕR
+               АRСАNG                        ТDRОТ                           Е IАВS                        Е АТАN
+               АRСIА             НСSURF    Е I*МU*I                          Е IRDВ                        Е СОS
+               МОVА                        Е I*МUI*                            МАRКЕR                        GFFАLS
+             Е МОVЕ                        Е IАВS                            Е МОVЕ                          IVЕSТ
+             Е R*DI*I                      Е ISIGN                             ТМLGF                         RDСRС
+             Е RDВ                           ТDSЕСТ                            WНЕRЕ                       Е SIN
+             Е SIGN              НСUNIТ    Е I*МUI*                LIСОN     Е АВS                         Е SQRТ
+   FАТLIN      АNGLЕR            НISТGМ    Е АВS                               АNGLЕR            LОСЕХТ    Е I*МUI*
+               МОVА                        Е IRDВ                            Е АТАN                          МАRКЕR
+             Е МОVЕ                        Е МОVЕ                            Е СОS                         Е МОVЕ
+             Е R*DI*I                      Е R*SТ*I                            GFFАLS                        NUМВЕR
+             Е R*DI*I            МОVЕ3     Е АМАХ1                           Е МОVЕ              RDСRС     Е АВS
+               ТМF                         Е АМIN1                             ТМF                           GFFАLS
+               ХРОL                          ВLАNСА                РRSР        СОRNL                       Е R*SТ*I
+               УРОL                        Е I*DI*I                          Е RDВ                           SТRМОD
+   LООК        СЕLL                        Е I*МU*I                РSСАLЕ      АТRАN2            RDЕLР     Е АВS
+             Е I*МU*I                      Е INТ                   РUТХУ                                     GFFАLS
+             Е I*МUI*                        NОТСН1                РVАL                                    Е R*SТ*I
+               LINNUМ                      Е РLОТ                  QUАDRА    Е I*МU*I                        SТRМОD
+               LINТ                        Е RDВ                             Е I*МUI*            RDМVА     Е АВS
+             Е МОD               МТМРL                             RАND      Е I*DI*I                        АNGLЕR
+               ZАРIТ             NЕХТZN      FDISС                           Е I*МU*I                        GFFАLS
+   LSСАLЕ    Е АТАN2                         GDISС                 RАХЕS     Е АВS                         Е R*SТ*I
+               АТRАN2            NОТСН       GFFАLS                          Е АМIN1                       Е SQRТ
+               RОТАТЕ                        GОВSЕК                          Е АМОD                          SТRМОD
+   LSFIТ     Е АВS               NОТСН1   (NОТСН   )                           СIRСLЕ            RDМVВ     Е АВS
+             Е АLОG10            NUМВЕR    Е АВS                             Е СОS                           GFFАLS
+             Е FТ*002                      Е АLОG10                          Е IRDВ                        Е R*SТ*I
+             Е FТ*003                      Е FLОАТ                           Е МОVЕ                          SТRМОD
+             Е FТ*571                      Е IАВS                              NUМВЕR            RDМVС     Е АВS
+             Е I*МU*I                        IВСD                            Е R*РО*I                        GFFАLS
+             Е IАВS                        Е INТ                             Е RDВ                         Е R*DI*I
+             Е IRDВ                        Е МIN0                            Е SIGN                        Е R*SТ*I
+             Е ISIGN                       Е МОD                               SIGNА                       Е SQRТ
+               LЕSQ                        Е R*РО*I                          Е SIN                           SТRМОD
+               МINМАХ                      Е R*SТ*I                            ТРF               RDМVЕ     Е АВS
+             Е МОVЕ                        Е SУМВОL                RСАТАL      RZОNЕ                         GFFАLS
+               РVАL              NUМLIN                                        WZОNЕ                       Е R*SТ*I
+               ТМF               ОРЕR      Е FТ*003                RDАСА     Е АВS                           SТRМОD
+   МАР       Е SQRТ                        Е FТ*571                          Е СОS               RDSТR
+   МАRКЕR   DЕ I*DI*I            РАТСН       ВUFL                              GFFАLS            RЕВLАN    Е МОVЕ
+             Е МОD                         Е FLОАТ                           Е R*SТ*I            RЕСТ      Е СОS
+             Е МОVЕ                          LININТ                          Е SIN                         Е МОVЕ
+             Е RDВ                         Е МОVЕ                              SТRМОD                      Е SIN
+   МINМАХ    Е АМАХ1                       Е R*SТ*I                RDАСВ     Е АВS               RЕGIОN    Е АМАХ1
+             Е АМIN1                       Е RDВ                             Е СОS                         Е АМIN1
+   МNМХ      Е I*МUI*                        SЕАRСН                            GFFАLS                        ВОХ
+               LIМIТS            РОLG      Е АВS                             Е R*SТ*I                      Е FLОАТ
+               МАР                           МОVА                            Е SIN                         Е IRDВ
+   МОDGF     Е АВS                         Е R*DI*I                            SТRМОD                      Е IWDВ
+               IVЕSТ                       Е SIN                   RDАСС     Е АВS                         Е RDВ
+             Е R*DI*I            РОLINЕ    Е АВS                             Е СОS                         Е SУМВОL
+             Е R*SТ*I                      Е АМАХ1                             GFFАLS                      Е WDВ
+             Е SIGN                        Е I*МU*I                          Е R*DI*I            RЕNТСН    Е I*DI*I
+               SТRМОD                      Е IАВS                            Е R*SТ*I                      Е I*МU*I
+   МОVА      Е СОS                         Е IRDВ                            Е SIN               RЕNUМ
+             Е МОVЕ                        Е ISIGN                             SТRМОD            RЕSЕТ       АТRАN2
+             Е SIN                           МАRКЕR                RDАСD     Е АВS               RОТАТЕ      АТRАN2
+   МОVВ      Е МОVЕ                        Е МОVЕ                            Е СОS                         Е СОS
+   МОVВL1   (МОVЕ1   )                       ТРF                               GFFАLS                      Е SIN
+   МОVВL3   (МОVЕ3   )                       WНЕRЕ                           Е R*SТ*I            RZОN        *70
+   МОVС      Е МОVЕ              РОLRЕG      СIRСLЕ                          Е SIN                           Е70
+             Е SQRТ                        Е СОS                               SТRМОD            RZОNЕ    (RZОN    )
+   МОVЕ1     Е АМАХ1                       Е IАВS                  RDАЕА     Е АВS               SАVЕТR
+             Е АМIN1                       Е IRDВ                            Е СОS               SDРG      Е АМАХ1
+               ВLАNСА                      Е IWDВ                              GFFАLS                      Е АМIN1
+             Е INТ                         Е МОVЕ                            Е R*SТ*I                      Е СОS
+             Е РLОТ                        Е RDВ                             Е SIN                         Е МОVЕ
+             Е RDВ                         Е SIN                             Е SQRТ                        Е R*SТ*I
+   МОVЕ2     Е АМАХ1                       Е SУМВОL                            SТRМОD                      Е RDВ
+             Е АМIN1                       Е WDВ                   RDАЕВ     Е АВS                         Е SIN
+             Е I*DI*I            РОLУG     Е СОS                             Е СОS               SЕАRСН      ВUFL
+             Е I*МU*I                      Е МОVЕ                              GFFАLS                      Е FLОАТ
+             Е INТ                         Е R*DI*I                          Е R*SТ*I                        INТRSС
+               NОТСН1                      Е SIN                             Е SIN                         Е МОVЕ
+             Е РLОТ              РRJТ      Е I*МUI*                          Е SQRТ                        Е RDВ
+             Е RDВ                           МАР                               SТRМОD            SЕСАNТ    Е АВS
+             Е СОS               SIZNUМ                            ТDSЕСТ    Е АВS                         Е SIN
+               GFFАLS            SМINV     Е I*МU*I                            НСLINЕ                        SТRМОD
+               IVЕSТ             SМТВVF    Е FТ*002                            НСNСRD            WRАСВ       АRСАNG
+               RDМVА                       Е FТ*003                          Е I*МU*I                        WRАСА
+               RDSТR                       Е FТ*571                          Е IАВS              WRАСС       АRСАNG
+             Е SIN                         Е I*МUI*                          Е R*SТ*I                        АRСС1
+               WRМVА                         ОРЕR                              ZINТ                          WRАСА
+               WRSТR             SМТОNЕ    Е FТ*003                ТDТRАN      НСМULТ            WRАСD     Е АВS
+   SЕТЕND    Е РRINТ8                      Е FТ*571                            НСUNIТ                        АNGLЕR
+               RZОNЕ                       Е I*МU*I                ТFМ       Е АВS                         Е R*SТ*I
+   SЕТIND                                  Е I*МUI*                          Е FLОАТ                       Е SQRТ
+   SЕТК        FDISС                       Е R*DI*I                          Е RDВ                           SТRМОD
+               GDISС             SМТSIМ    Е FТ*003                ТНАХЕS    Е АВS               WRАЕА     Е АВS
+               RСАТАL                      Е FТ*571                          Е АМАХ1                       Е СОS
+               SЕТЕND                      Е I*DI*I                          Е АМIN1                         GFFАLS
+               WСАТАL                      Е I*МUI*                          Е АМОD                        Е R*SТ*I
+   SЕТR     (RZОN    )           SРIRАL      СIRСLЕ                            СIRСLЕ                      Е SIN
+   SЕТRЕF                        SРLINЕ    Е FТ*002                          Е IRDВ                        Е SQRТ
+   SЕТТR                                   Е FТ*003                          Е МОVЕ                          SТRМОD
+   SЕТW     (RZОN    )                     Е FТ*571                            NUМВЕR            WRАЕВ     Е АВS
+   SЕТWGR                                    ТDМР                            Е R*DI*I                        АRСАNG
+   SЕТZОN                                    ТRIDIG                          Е R*РО*I                        АRЕВ1
+   SFСFIТ    Е АВS               SРLINТ    Е R*DI*I                          Е RDВ                         Е СОS
+             Е FТ*002            SТАR      Е АВS                               SIGNА                       Е R*DI*I
+             Е FТ*003                      Е СОS                               ТРF                         Е R*SТ*I
+             Е FТ*571                        IVЕSТ                 ТНRЕЕD      НСIND                       Е SIN
+             Е I*МU*I                        МОVА                              НСNСRD                        WRАЕА
+             Е I*МUI*                      Е МОVЕ                              НСSURF            WRСRС     Е АВS
+   SНАDЕ     Е АВS                           РОLG                            Е I*МU*I                      Е R*SТ*I
+             Е СОS                         Е R*DI*I                          Е IАВS                          SТRМОD
+             Е I*DI*I                      Е SIN                             Е ISIGN             WRЕLР     Е АВS
+             Е I*МU*I            SТRМОD    Е АВS                             Е МАХ0                        Е R*SТ*I
+               LINЕО                       Е SIGN                            Е R*SТ*I                        SТRМОD
+             Е R*SТ*I            SUРLIN    Е ВRLINЕ                          Е SIN               WRМVА     Е СОS
+             Е RDВ                           LINЕМС                          Е SQRТ                        Е SIN
+             Е SIN                           LINЕМО                ТМF       Е RDВ                           WRМVЕ
+             Е SQRТ                        Е МОD                   ТМLGF     Е АLОG10            WRМVВ       WRМVЕ
+             Е SТОР*                         ХРОL                            Е АМАХ1             WRМVС     Е SQRТ
+               ТFМ                           УРОL                            Е АМIN1                         WRМVЕ
+   SНЕАR       НСМULТ            SWСАТ    (WСАТWО  )                         Е I*МU*I            WRМVЕ     Е АВS
+               НСUNIТ            SУМТАВ                                      Е I*РО*I                        IVЕSТ
+             Е I*МUI*            ТСАLС     Е SQRТ                            Е RDВ                         Е R*SТ*I
+   SНIFТ       АТRАN2            ТDLIМ     Е АМАХ1                 ТРF       Е АМАХ1                         SТRМОD
+   SIGNА     Е АВS                         Е АМIN1                           Е АМIN1             WRSТR
+             Е АLОG10                        НСNСRD                          Е АМОD              WZОN     (RZОN    )
+             Е АМАХ1                       Е I*МUI*                          Е СОS               WZОNЕ    (RZОN    )
+               АSТЕР                       Е IАВS                            Е IАВS              ХАХIS     Е АВS
+             Е FLОАТ                         LIМIТS                          Е IRDВ                        Е АINТ
+             Е I*МU*I            ТDLIМL    Е АМАХ1                           Е RDВ                         Е АМIN1
+             Е IАВS                        Е АМIN1                           Е SIN                         Е АМОD
+               NUМВЕR                        НСNСRD                ТRIDIG                                    АSТЕР
+             Е R*DI*I                      Е IАВS                  VIЕW        НСINV                         ВСD
+             Е R*РО*I                        LIМIТS                            НСРRSР                      Е I*DI*I
+             Е RDВ               ТDLINЕ      НСNСRD                            НСRОТ1                      Е IАВS
+             Е SIGN                        Е МОVЕ                            Е SQRТ                          IВСD
+             Е SУМВОL                        ТМF                   WСАТАL   (RСАТАL  )                     Е IRDВ
+   SINСL       СUВРОL            ТDМР                              WСАТWО      СLЕАZN                      Е МАХ0
+               DЕRIV5            ТDRОТ     Е СОS                             Е ISО*ТЕХ*                    Е МОVЕ
+             Е IRDВ                          НСМULТ                            RZОNЕ                       Е R*DI*I
+             Е МОVЕ                          НСUNIТ                            WZОN                        Е R*РО*I
+               РVАL                        Е I*МUI*                WНЕRЕ     Е RDВ                         Е R*SТ*I
+             Е R*SТ*I                      Е IАВS                  WНЕRР     Е RDВ                         Е RDВ
+             Е RDВ                         Е SIN                   WRАСА     Е АВS                         Е SУМВОL
+             Е SQRТ              ТDSСАL      НСМULТ                          Е СОS                           ТМF
+               ТМF                           НСUNIТ                            GFFАLS            ХLGАХ     Е АВS
+   SIZLIN                                  Е I*МUI*                          Е R*SТ*I                      Е АLОG10
+             Е АМIN1
+             Е АМОD
+             Е I*МU*I
+             Е I*РО*I
+             Е IАВS
+             Е IRDВ
+             Е МОVЕ
+               NUМВЕR
+             Е R*DI*I
+             Е R*РО*R
+             Е RDВ
+             Е SIGN
+             Е SУМВОL
+               ТМLGF
+   ХРОL      Е СОS
+   УАХIS     Е АВS
+             Е АINТ
+             Е АМIN1
+             Е АМОD
+               АSТЕР
+               ВСD
+             Е I*DI*I
+             Е IАВS
+               IВСD
+             Е IRDВ
+             Е МАХ0
+             Е МОVЕ
+             Е R*DI*I
+             Е R*РО*I
+             Е R*SТ*I
+             Е RDВ
+             Е SУМВОL
+               ТМF
+   УLGАХ     Е АВS
+             Е АLОG10
+             Е АМIN1
+             Е АМОD
+             Е I*МU*I
+             Е I*РО*I
+             Е IАВS
+             Е IRDВ
+             Е МОVЕ
+               NUМВЕR
+             Е R*DI*I
+             Е R*РО*R
+             Е RDВ
+             Е SIGN
+             Е SУМВОL
+               ТМLGF
+   УРОL      Е SIN
+   ZАРIТ     Е I*МUI*
+   ZINТ
+                                                      18.05.19 М1
+                     ИСПОЛЬЗОВАНИЕ ПОДПРОГРАММ                     SМТSIМ                                    IVЕSТ
+                                                                   SРIRАL                                    LGLINЕ
+                                 КЕУРО                             SРLINЕ                                    LIСОN
+   Е - ВНЕШНЯЯ П/П               LЕVFUN                            SРLINТ                                    LINЕМО
+   N - ОПИСАНА, НЕ ИСПОЛЬЗУЕТСЯ  LЕVМАР                            SТАR                                      LINЕО
+   С - ЕСТЬ ОДНОИМЕННЫЙ СОММОN   LGLINЕ                            SUРLIN                                    LINNUМ
+                                 LIСОN                             SWСАТ                                     LIТАN
+   НЕИСПОЛЬЗУЕМЫЕ ВХОДЫ          LINЕС                             SУМТАВ                                    LSFIТ
+                                 LINFIL                            ТСАLС                                     МОDGF
+   АВUFF                         LIТАN                             ТDLIМ                                     NUМВЕR
+   АDDLЕV                        LОСЕХТ                            ТDLIМL                                    РОLG
+   АFТZN                         LSСАLЕ                            ТDLINЕ                                    РОLINЕ
+   АРРОLУ                        LSFIТ                             ТDSСАL                                    RАХЕS
+   АRСЕLВ                        МNМХ                              ТDТRАN                                    RDАСА
+   АRСIВ                         МОDGF                             ТНАХЕS                                    RDАСВ
+   АRСIС                         МОVВ                              ТНRЕЕD                                    RDАСС
+   АRСID                         МОVВL3                            VIЕW                                      RDАСD
+   АRСОСС                        МОVС                              WСАТWО                                    RDАЕА
+   АRСОLС                        МОVЕ1                             WНЕRР                                     RDАЕВ
+   АRСОLL                        МОVЕ2                             WRАСВ                                     RDСRС
+   АХЕS                          МОVЕ3                             WRАСС                                     RDЕLР
+   АХISС                         NОТСН                             WRАСD                                     RDМVА
+   АХОNОМ                        NUМLIN                            WRАЕВ                                     RDМVВ
+   ВАRS                          РОLINЕ                            WRСRС                                     RDМVС
+   ВЕGLЕV                        РОLRЕG                            WRЕLР                                     RDМVЕ
+   ВIТА                          РОLУG                             WRМVВ                                     SЕСАNТ
+   ВLАNС                         РRJТ                              WRМVС                                     SFСFIТ
+   САВIN                         РRSР                              ХАХIS                                     SНАDЕ
+   СНЕNSР                        РSСАLЕ                            ХLGАХ                                     SIGNА
+   СIRС                          РUТХУ                             УАХIS                                     SТАR
+   СIRТАL                        QUАDRА                            УLGАХ                                     SТRМОD
+   СМGRID                        RАND                                                                        ТDSЕСТ
+   СОМРDТ                        RАХЕS                                                                       ТFМ
+   СОNDЕК                        RDАСС                             ИСПОЛЬЗУЕМЫЕ ВХОДЫ                        ТНАХЕS
+   СООRD                         RDАСD                                                                       WRАСА
+   СОРDСВ                        RDАЕА                             *70         Е70                           WRАСD
+   СRDUМ                         RDАЕВ                                         RZОN                          WRАЕА
+   СRОSS                         RDЕLР                             АВS      Е  АNGLЕR                        WRАЕВ
+   DАSНР                         RDМVВ                                         АRСАNG                        WRСRС
+   DDISТ                         RDМVС                                         АRСЕLА                        WRЕLР
+   DIМDRО                        RDМVЕ                                         АRСЕLВ                        WRМVЕ
+   DIМЕТ                         RЕВLАN                                        АRСIА                         ХАХIS
+   DISТ                          RЕСТ                                          АRСОСС                        ХLGАХ
+   DRАСОN                        RЕGIОN                                        АRСОLС                        УАХIS
+   DRАLIМ                        RЕNТСН                                        АRСОLL                        УLGАХ
+   DRFRАМ                        RЕNUМ                                         АRRОW             АINТ     Е  АSТЕР
+   ЕLРS                          RЕSЕТ                                         АSТЕР                         АХЕS
+   ЕNDLЕV                        RZОN                                          АХЕS                          ХАХIS
+   ЕХТRЕМ                        SАVЕТR                                        АХISС                         УАХIS
+   FАТАRС                        SDРG                                          СIRСLЕ            АLОG10   Е  СООRD
+   FАТLIN                        SЕТIND                                        СIRТАС                        LSFIТ
+   FСАТВD                        SЕТК                                          СIRТАL                        NUМВЕR
+   FОРЕN                         SЕТR                                          СRОSS                         SIGNА
+   FОRFIТ                        SЕТТR                                         DIМDRО                        ТМLGF
+   FОRIF                         SЕТW                                          DISТ                          ХLGАХ
+   FОRIТ                         SЕТWGR                                        ЕLIРS                         УLGАХ
+   GЕТIND                        SЕТZОN                                        FАТАRС            АМАХ1    Е  АSТЕР
+   GЕТХУ                         SFСFIТ                                        FОRFIТ                        INСLIN
+   GIVZОN                        SНАDЕ                                         GОВSЕК                        LGLINЕ
+   GRID                          SНIFТ                                         НСRОТ1                        LINЕС
+   НISТGМ                        SINСL                                         НISТGМ                        LINЕМС
+   INСLIN                        SIZLIN                                        INСLIN                        LINЕМО
+   INIТ                          SIZNUМ                                        INSDЕК                        LINЕО
+   ISОLIN                        SМТВVF                                        INSIDЕ                        МINМАХ
+   ISОМЕТ                        SМТОNЕ                                        IТРLВV                        МОVЕ1
+               МОVЕ2                         WRАСС                             СНЕNSР            FТ*003   Е  АРРОLУ
+               МОVЕ3             АRСЕLА      АRСЕLВ                            СIRСLЕ                        ВЕGLЕV
+               РОLINЕ            АRСIА       АRСIВ                             СIRТАС                        ЕNDLЕV
+               RЕGIОN                        АRСIС                             СIRТАL                        GFFАLS
+               SDРG                          АRСID                             СМGRID                        IТРLВV
+               SIGNА                         АRRОW                             СRОSS                         LSFIТ
+               ТDLIМ                         СIRС                              DISТ                          ОРЕR
+               ТDLIМL                        DIМDRО                            ЕLIРS                         SFСFIТ
+               ТНАХЕS                        FАТАRС                            ЕLРS                          SМТВVF
+               ТМLGF             АRЕВ1       АRСЕLВ                            FОRFIТ                        SМТОNЕ
+               ТРF                           DISТ                              FОRIF                         SМТSIМ
+   АМIN1    Е  АХЕS                          WRАЕВ                             FОRIТ                         SРLINЕ
+               АХISС             АRRОW       DIМDRО                            LIСОN             FТ*571   Е  АРРОLУ
+               СООRD             АSТЕР       АХЕS                              LINNUМ                        ВЕGLЕV
+               INСLIN                        SIGNА                             LIТАN                         ЕNDLЕV
+               LINЕС                         ХАХIS                             МОVА                          GFFАLS
+               LINЕМС                        УАХIS                             РОLRЕG                        IТРLВV
+               LINЕМО            АТАN     Е  АNGLЕR                            РОLУG                         LSFIТ
+               LINЕО                         АRСАNG                            RАХЕS                         ОРЕR
+               МINМАХ                        АRСС1                             RDАСА                         SFСFIТ
+               МОVЕ1                         АRСОСС                            RDАСВ                         SМТВVF
+               МОVЕ2                         АRСОLС                            RDАСС                         SМТОNЕ
+               МОVЕ3                         АRЕВ1                             RDАСD                         SМТSIМ
+               RАХЕS                         СIRТАС                            RDАЕА                         SРLINЕ
+               RЕGIОN                        СIRТАL                            RDАЕВ             GDISС       GIVZОN
+               SDРG                          СRОSS                             RЕСТ                          NЕХТZN
+               ТDLIМ                         LIСОN                             RОТАТЕ                        SЕТК
+               ТDLIМL                        LIТАN                             SDРG              GFFАLS      АRСЕLА
+               ТНАХЕS            АТАN2    Е  ВLАNСН                            SЕСАNТ                        АRСIА
+               ТМLGF                         СМGRID                            SНАDЕ                         АRСОСС
+               ТРF                           НСRОТ1                            SТАR                          АRСОLС
+               ХАХIS                         LINNUМ                            ТDRОТ                         АRСОLL
+               ХLGАХ                         LSСАLЕ                            ТРF                           АRRОW
+               УАХIS             АТRАN2      LSСАLЕ                            WRАСА                         ВLАNС
+               УLGАХ                         РSСАLЕ                            WRАЕА                         СIRТАС
+   АМОD     Е  АХЕS                          RЕSЕТ                             WRАЕВ                         СIRТАL
+               RАХЕS                         RОТАТЕ                            WRМVА                         СRОSS
+               ТНАХЕS                        SНIFТ                             ХРОL                          DIМDRО
+               ТРF               ВАR         ВАRS                  СUВРОL      SINСL                         GОВSЕК
+               ХАХIS             ВСD         АХЕS                  DЕRIV5      SINСL                         LIСОN
+               ХLGАХ                         ХАХIS                 Е70         RZОN                          LIТАN
+               УАХIS                         УАХIS                 ЕLIРS       АRСЕLА                        NОТСН
+               УLGАХ             ВLАNСА      МОVЕ1                             ЕLРS                          RDАСА
+   АNGLЕR      АRСID                         МОVЕ3                 ЕNDРG    Е  GFFАLS                        RDАСВ
+               АRСОСС            ВLАNСН      ВLАNС                 FDISС       GIVZОN                        RDАСС
+               АRСОLС            ВОХ         RЕGIОN                            NЕХТZN                        RDАСD
+               АRСОLL            ВRLINЕ   Е  LINNUМ                            SЕТК                          RDАЕА
+               АRRОW                         SUРLIN                FLОАТ    Е  СМGRID                        RDАЕВ
+               СIRТАС            ВUFL        РАТСН                             GОВSЕК                        RDСRС
+               СIRТАL                        SЕАRСН                            GRID                          RDЕLР
+               СRОSS             СЕLL        LООК                              LINNUМ                        RDМVА
+               DАSНР             СIRСLЕ      РОLRЕG                            NUМВЕR                        RDМVВ
+               DISТ                          RАХЕS                             РАТСН                         RDМVС
+               FАТLIN                        SРIRАL                            RЕGIОN                        RDМVЕ
+               LIСОN                         ТНАХЕS                            SЕАRСН                        SЕСАNТ
+               LIТАN             СIRТАС      АRСОLС                            SIGNА                         WRАСА
+               RDМVА             СLЕАZN      WСАТWО                            ТFМ                           WRАЕА
+               WRАСD             СОRNL       РRSР                  FNRООТ      СОNDЕК            GIVЕNZ      GIVZОN
+   АRСАNG      АRСЕLВ            СОS      Е  АRСЕLВ                            DRАСОN            GОВSЕК      NОТСН
+               АRСIВ                         АRСIА                 FТ*002   Е  АРРОLУ            НСIND       ТНRЕЕD
+               АRСIС                         АRСОСС                            GFFАLS            НСINV       VIЕW
+               FАТАRС                        АRСОLС                            IТРLВV            НСLINЕ      ТDSЕСТ
+               WRАСВ                         АRСОLL                            LSFIТ             НСМULТ      НСРRSР
+               WRАСС                         АRЕВ1                             SFСFIТ                        SНЕАR
+               WRАЕВ                         АRRОW                             SМТВVF                        ТDRОТ
+   АRСС1       АRСIС                         ВLАNСН                            SРLINЕ                        ТDSСАL
+               ТDТRАN                        НСINV                             АХЕS              МАР         СОRNL
+   НСNСRD      ТDLIМ                         НСМULТ                            АХISС                         МNМХ
+               ТDLIМL                        НСSURF                            ВАR                           РRJТ
+               ТDLINЕ                        НСUNIТ                            FОRFIТ            МАRКЕR      INСLIN
+               ТDSЕСТ                        ISОLIN                            НISТGМ                        КЕУРО
+               ТНRЕЕD                        КЕУРО                             INСLIN                        LGLINЕ
+   НСРRSР      VIЕW                          LОСЕХТ                            LGLINЕ                        LINЕМС
+   НСRОТ1      АХОNОМ                        LООК                              LINЕС                         LINЕМО
+               VIЕW                          МNМХ                              LINЕМС                        LОСЕХТ
+   НСSURF      ТНRЕЕD                        РRJТ                              LINЕМО                        РОLINЕ
+   НСUNIТ      НСРRSР                        QUАDRА                            LINЕО             МАХ0     Е  АХЕS
+               INIТ                          SFСFIТ                            LSFIТ                         ТНRЕЕD
+               SНЕАR                         SНЕАR                             РОLINЕ                        ХАХIS
+               ТDRОТ                         SМТВVF                            РОLRЕG                        УАХIS
+               ТDSСАL                        SМТОNЕ                            RАХЕS             МDВUFF   Е  FОРЕN
+               ТDТRАN                        SМТSIМ                            RЕGIОN            МIN0     Е  АХЕS
+   I*DI*I   Е  АRСОLС                        ТDLIМ                             SINСL                         NUМВЕR
+               АХЕS                          ТDRОТ                             ТНАХЕS            МINМАХ      LЕVFUN
+               СОNDЕК                        ТDSСАL                            ТРF                           LSFIТ
+               DRАСОN                        ZАРIТ                             ХАХIS             МОD      Е  СЕLL
+               GОВSЕК            I*РО*I   Е  ТМLGF                             ХLGАХ                         СМGRID
+               IТРLВV                        ХLGАХ                             УАХIS                         СОNDЕК
+               МАRКЕR                        УLGАХ                             УLGАХ                         DRАСОN
+               МОVЕ2             IАВS     Е  АРРОLУ                ISIGN    Е  НСSURF                        LООК
+               МОVЕ3                         АХЕS                              LSFIТ                         МАRКЕR
+               RАND                          АХISС                             РОLINЕ                        NUМВЕR
+               RЕNТСН                        ВIТА                              ТНRЕЕD                        SUРLIN
+               SНАDЕ                         СМGRID                ISО*ТЕХ* Е  WСАТWО            МОVА        АRRОW
+               SМТSIМ                        DIМDRО                IТРLВV      FNRООТ                        DАSНР
+               ХАХIS                         FОRFIТ                            INSDЕК                        DIМDRО
+               УАХIS                         НСSURF                            INSIDЕ                        FАТАRС
+   I*МU*I   Е  АDDLЕV                        INСLIN                IVЕSТ       АRСАNG                        FАТLIN
+               АРРОLУ                        ISОLIN                            АRСС1                         РОLG
+               АХISС                         LЕSQ                              АRСЕLА                        SТАR
+               ВIТА                          LGLINЕ                            АRСIА             МОVВL1      ВLАNСН
+               DIМDRО                        LINЕС                             АRСОСС            МОVЕ     Е  АRСIА
+               FОRFIТ                        LINЕМС                            АRСОLС                        АRСОLС
+               FОRIF                         LINЕМО                            АRСОLL                        АRRОW
+               FОRIТ                         LINЕО                             АRRОW                         АХЕS
+               GОВSЕК                        LSFIТ                             СIRТАС                        АХISС
+               НСSURF                        NUМВЕR                            СIRТАL                        ВАR
+               IТРLВV                        РОLINЕ                            СRОSS                         ВОХ
+               LЕSQ                          РОLRЕG                            DISТ                          СIRС
+               LЕVFUN                        SIGNА                             LIСОN                         СIRСLЕ
+               LООК                          ТDLIМ                             LIТАN                         СМGRID
+               LSFIТ                         ТDLIМL                            МОDGF                         СОRNL
+               МОVЕ2                         ТDRОТ                             SЕСАNТ                        DАSНР
+               МОVЕ3                         ТDSЕСТ                            SТАR                          DIМDRО
+               РОLINЕ                        ТНRЕЕD                            WRМVЕ                         DRFRАМ
+               QUАDRА                        ТРF                   IWDВ     Е  LIМIТS                        ЕLIРS
+               RАND                          ХАХIS                             РОLRЕG                        ЕLРS
+               RЕNТСН                        ХLGАХ                             RЕGIОN                        FАТАRС
+               SFСFIТ                        УАХIS                 LЕSQ        LSFIТ                         FАТLIN
+               SНАDЕ                         УLGАХ                 LIМIТS      МNМХ                          FОRFIТ
+               SIGNА             IВСD        АХЕS                              ТDLIМ                         GRID
+               SМINV                         NUМВЕR                            ТDLIМL                        НISТGМ
+               SМТОNЕ                        ХАХIS                 LINЕМС      SUРLIN                        INСLIN
+               ТDSЕСТ                        УАХIS                 LINЕМО      SUРLIN                        INSDЕК
+               ТНRЕЕD            INSDЕК      СОNDЕК                LINЕО       НСLINЕ                        INSIDЕ
+               ТМLGF             INSIDЕ      DRАСОN                            ISОLIN                        КЕУРО
+               ХLGАХ             INТ      Е  МОVЕ1                             SНАDЕ                         LGLINЕ
+               УLGАХ                         МОVЕ2                 LININТ      ВUFL                          LINЕС
+   I*МUI*   Е  АТRАN2                        МОVЕ3                             РАТСН                         LINЕМС
+               ВIТА                          NUМВЕR                LINNUМ      LООК                          LINЕМО
+               СЕLL              INТRSС      SЕАRСН                LINТ        LООК                          LINЕО
+               СОRNL             IRDВ     Е  АSТЕР                 LООК        ISОLIN                        LОСЕХТ
+               LSFIТ                         FОRFIТ                            SINСL                         WСАТWО
+               МАRКЕR                        КЕУРО                             ТDSЕСТ            SЕАRСН      РАТСН
+               МОVА                          LINNUМ                            ТНRЕЕD            SЕСАNТ      DISТ
+               МОVВ                          LОСЕХТ                            WRАСА             SЕТЕND      SЕТК
+               МОVС                          МОDGF                             WRАСD             SЕТRЕF      GIVZОN
+               РАТСН                         РОLG                              WRАЕА             SНЕАR       САВIN
+               РОLINЕ                        РОLУG                             WRАЕВ             SIGN     Е  АRСАNG
+               РОLRЕG                        RDАСС                             WRСRС                         АRСОСС
+               РОLУG                         RDМVС                             WRЕLР                         АRСОLС
+               РRJТ                          SIGNА                             WRМVЕ                         СIRТАС
+               RАХЕS                         SМТОNЕ                            ХАХIS                         СIRТАL
+               RЕВLАN                        SРLINТ                            УАХIS                         DIМDRО
+               RЕСТ                          SТАR                  RСАТАL      GIVZОN                        FАТАRС
+               SDРG                          ТНАХЕS                            SЕТК                          МОDGF
+               SЕАRСН                        WRАЕВ                 RDАСА       DIМDRО                        RАХЕS
+               SINСL                         ХАХIS                 RDАСВ       DIМDRО                        SIGNА
+               SТАR                          ХLGАХ                 RDВ      Е  АRСIА                         SТRМОD
+               ТDLINЕ                        УАХIS                             АRRОW                         ХLGАХ
+               ТНАХЕS                        УLGАХ                             АХЕS                          УLGАХ
+               ХАХIS             R*РО*I   Е  АSТЕР                             АХISС             SIGNА       RАХЕS
+               ХLGАХ                         АХЕS                              СIRСLЕ                        ТНАХЕS
+               УАХIS                         НСINV                             СООRD             SIN      Е  АRСЕLВ
+               УLGАХ                         NUМВЕR                            СОRNL                         АRСIА
+   МТМРL       АТRАN2                        RАХЕS                             DАSНР                         АRСОСС
+               ЕNDLЕV                        SIGNА                             DIМDRО                        АRСОLС
+   NЕХТZN      Е70                           ТНАХЕS                            ЕLIРS                         АRСОLL
+   NОТСН1      МОVЕ2                         ХАХIS                             FАТАRС                        АRЕВ1
+               МОVЕ3                         УАХIS                             FАТLIN                        АRRОW
+   NUМВ     Е  КЕУРО             R*РО*R   Е  ХLGАХ                             INСLIN                        ВLАNСН
+   NUМВЕR      СМGRID                        УLGАХ                             LINЕС                         СIRСLЕ
+               INSDЕК            R*SТ*I   Е  АRСЕLВ                            LINЕМС                        СIRТАС
+               INSIDЕ                        АRСIА                             LINЕМО                        СIRТАL
+               LINNUМ                        АRСОLС                            LINЕО                         СМGRID
+               LОСЕХТ                        АRRОW                             МАRКЕR                        СRОSS
+               RАХЕS                         АХЕS                              МОVЕ1                         DISТ
+               SIGNА                         ВАR                               МОVЕ2                         ЕLIРS
+               ТНАХЕS                        ВLАNСН                            МОVЕ3                         ЕLРS
+               ХLGАХ                         СIRСLЕ                            РАТСН                         FОRFIТ
+               УLGАХ                         СIRТАС                            РОLRЕG                        FОRIF
+   ОРЕR        SМТВVF                        СIRТАL                            РRSР                          FОRIТ
+   РАТСН       СОRNL                         СОNDЕК                            RАХЕS                         LIСОN
+   РLОТ     Е  МОVЕ1                         СОRNL                             RЕGIОN                        LINNUМ
+               МОVЕ2                         СRОSS                             SDРG                          LIТАN
+               МОVЕ3                         DIМDRО                            SЕАRСН                        МОVА
+   РОLG        SТАR                          DISТ                              SНАDЕ                         РОLG
+   РRINТ8   Е  SЕТЕND                        DRАСОN                            SIGNА                         РОLRЕG
+   РVАL        АРРОLУ                        ЕLIРS                             SINСL                         РОLУG
+               LSFIТ                         НISТGМ                            ТFМ                           RАХЕS
+               SINСL                         INСLIN                            ТНАХЕS                        RDАСА
+   R*DI*I   Е  АRСАNG                        МОDGF                             ТМF                           RDАСВ
+               АRСС1                         NUМВЕR                            ТМLGF                         RDАСС
+               АRСЕLВ                        РАТСН                             ТРF                           RDАСD
+               АRСОСС                        RDАСА                             WНЕRЕ                         RDАЕА
+               АRСОLL                        RDАСВ                             WНЕRР                         RDАЕВ
+               АХЕS                          RDАСС                             ХАХIS                         RЕСТ
+               АХISС                         RDАСD                             ХLGАХ                         RОТАТЕ
+               ВLАNСН                        RDАЕА                             УАХIS                         SDРG
+               СНЕNSР                        RDАЕВ                             УLGАХ                         SЕСАNТ
+               СIRТАС                        RDСRС                 RDСRС       LIТАN                         SНАDЕ
+               СОNDЕК                        RDЕLР                 RDМVА       DIМDRО                        SТАR
+               СRОSS                         RDМVА                             SЕСАNТ                        ТDRОТ
+               DIМDRО                        RDМVВ                 RDSТR       DIМDRО                        ТНRЕЕD
+               DISТ                          RDМVС                             SЕСАNТ                        ТРF
+               FАТАRС                        RDМVЕ                 RОТАТЕ      LSСАLЕ                        WRАСА
+               FАТLIN                        SDРG                  RZОNЕ       RСАТАL                        WRАЕА
+               FNRООТ                        SНАDЕ                             SЕТЕND                        WRАЕВ
+               WRМVА             SУМВОL   Е  АХЕS                              WRМVВ
+               УРОL                          АХISС                             WRМVС
+   SМINV       LЕSQ                          NUМВЕR                WRSТR       DIМDRО
+   SQRТ     Е  АРРОLУ                        РОLRЕG                            SЕСАNТ
+               АRСАNG                        RЕGIОN                WZОN        WСАТWО
+               АRСС1                         SIGNА                 WZОNЕ       RСАТАL
+               АRСID                         ХАХIS                 ХРОL        СМGRID
+               АRСОСС                        ХLGАХ                             ЕХТRЕМ
+               АRСОLС                        УАХIS                             ISОLIN
+               АRRОW                         УLGАХ                             КЕУРО
+               СIRТАС            ТDМР        SРLINЕ                            LINТ
+               СIRТАL            ТDRОТ       DIМЕТ                             LОСЕХТ
+               СRОSS                         НСRОТ1                            SUРLIN
+               DАSНР                         ISОМЕТ                УРОL        СМGRID
+               DISТ              ТDSЕСТ      НСSURF                            ЕХТRЕМ
+               DRАСОN            ТFМ         СОNDЕК                            ISОLIN
+               ЕLIРS                         SНАDЕ                             КЕУРО
+               FАТLIN            ТМF         ВАR                               LINТ
+               GОВSЕК                        СМGRID                            LОСЕХТ
+               НСRОТ1                        СОRNL                             SUРLIN
+               LIСОN                         DRАСОN                ZАРIТ       LООК
+               LINNUМ                        DRFRАМ                ZINТ        ТDSЕСТ
+               LIТАN                         FОRFIТ
+               МАР                           НISТGМ
+               МОVС                          INСLIN
+               RDАЕА                         INSDЕК
+               RDАЕВ                         INSIDЕ
+               RDМVА                         КЕУРО
+               RDМVС                         LINЕС
+               SНАDЕ                         LINЕМС
+               SINСL                         LINЕМО
+               ТСАLС                         LINЕО
+               ТНRЕЕD                        LINNUМ
+               VIЕW                          LОСЕХТ
+               WRАСD                         LSFIТ
+               WRАЕА                         РRJТ
+               WRМVС                         SINСL
+   SТОР*    Е  ВЕGLЕV                        ТDLINЕ
+               ВLАNСН                        ХАХIS
+               ЕNDLЕV                        УАХIS
+               SНАDЕ             ТМLGF       LGLINЕ
+   SТRМОD      АRСОLС                        ХLGАХ
+               АRRОW                         УLGАХ
+               СIRТАС            ТРF         РОLINЕ
+               СIRТАL                        RАХЕS
+               DIМDRО                        ТНАХЕS
+               DISТ              ТRIDIG      SРLINЕ
+               МОDGF             WСАТАL      GIVZОN
+               RDАСА                         SЕТК
+               RDАСВ             WDВ      Е  LIМIТS
+               RDАСС                         РОLRЕG
+               RDАСD                         RЕGIОN
+               RDАЕА             WНЕRЕ       СОNDЕК
+               RDАЕВ                         DRАСОN
+               RDСRС                         INСLIN
+               RDЕLР                         LGLINЕ
+               RDМVА                         LINЕМО
+               RDМVВ                         LINЕО
+               RDМVС                         РОLINЕ
+               RDМVЕ             WRАСА       DIМDRО
+               WRАСА                         WRАСВ
+               WRАСD                         WRАСС
+               WRАЕА             WRАЕА       WRАЕВ
+               WRСRС             WRМVА       DIМDRО
+               WRЕLР                         SЕСАNТ
+               WRМVЕ             WRМVЕ       WRМVА
+                                                      18.05.19 М1
+                     ССЫЛКИ НА СОММОN′Ы                                     DL 00011 *GFВLАN*    ТDТRАN    L 00034 *GFМАТR*
+                                                                            DL 00020 *GFGОВS*    ТНRЕЕD    L 00003 *GFСRD*
+                                          DL 00001 *DRIТР*                  DL 00051 *GFNТСН*              L 00004 *GFLIМ*
+   D - РАССЫЛКА ДАННЫХ           DRАLIМ    L 00004 *DRLМ*          NОТСН    NL 00011 *GFВLАN*              L 00034 *GFМАТR*
+   N - ОПИСАН, НЕ ИСПОЛЬЗУЕТСЯ   ЕLРS      L 00002 *GFВFТR*                  L 00020 *GFGОВS*              L 00004 *GFSUR*
+   Р - СТРАНИЧНЫЙ СОММОN         ЕNDLЕV    L 00115 *GFАТRМ*                 NL 00051 *GFNТСН*              L 00023 *GFVIЕW*
+   S - СЕКТОРНЫЙ СОММОN          FАТАRС    L 00002 *GFВFТR*        NОТСН1   (NОТСН   )           VIЕW      L 00034 *GFМАТR*
+   L - ПРОСТОЙ СОММОN            FАТLIN    L 00002 *GFВFТR*        NUМLIN    L 00004 *GFLМN*               L 00023 *GFVIЕW*
+   ***** - ДЛИНА ОПИСАНА НЕЯВНО  FNRООТ    L 00003 *DRFN*          РАТСН     L 00007 *GFВ*       WСАТАL   (RСАТАL  )
+                                           L 00003 *DRINFN*                  L 00008 *GFL*       WНЕRЕ     L 00002 *GFАFТR*
+   АRСС1     L 00002 *GFВFТR*    GFFАLS    L 00020 *GFGОВS*                  L 00005 *GFХУ*      WНЕRР     L 00002 *GFВFТR*
+   АRСЕLА    L 00002 *GFВFТR*    GОВSЕК    L 00020 *GFGОВS*        РRJТ      L 00006 *GFVР*      WRАСА     L 00002 *GFВFТR*
+   АRСЕLВ    L 00002 *GFВFТR*              L 00051 *GFNТСН*        РRSР      L 00002 *GFКJ*                L 00028 *GFGЕL*
+   АRСIА     L 00002 *GFВFТR*    НСINV     L 00034 *GFМАТR*                  L 00006 *GFVР*      WRАСВ     L 00002 *GFВFТR*
+   АRСIВ     L 00002 *GFВFТR*    НСNСRD    L 00003 *GFСRD*                   L 00005 *GFХУ*      WRАСС     L 00002 *GFВFТR*
+   АRСIС     L 00002 *GFВFТR*              L 00034 *GFМАТR*        RСАТАL    Р 01024 *LIСАТ*     WRАСD     L 00002 *GFВFТR*
+   АRСID     L 00002 *GFВFТR*    НСРRSР    L 00034 *GFМАТR*        RDАСА     L 00028 *GFGЕL*               L 00028 *GFGЕL*
+   АRСОСС    L 00028 *GFGЕL*     НСRОТ1   NL 00034 *GFМАТR*        RDАСВ     L 00028 *GFGЕL*     WRАЕА     L 00002 *GFВFТR*
+   АRСОLС    L 00002 *GFВFТR*    НСSURF   NL 00003 *GFСRD*         RDАСС     L 00028 *GFGЕL*               L 00028 *GFGЕL*
+             L 00028 *GFGЕL*              NL 00004 *GFLIМ*         RDАСD     L 00028 *GFGЕL*     WRАЕВ     L 00002 *GFВFТR*
+   АRСОLL    L 00028 *GFGЕL*              NL 00034 *GFМАТR*        RDАЕА     L 00028 *GFGЕL*     WRСRС     L 00002 *GFВFТR*
+   АRRОW     L 00002 *GFВFТR*              L 00004 *GFSUR*         RDАЕВ     L 00028 *GFGЕL*               L 00028 *GFGЕL*
+             L 00028 *GFGЕL*     INIТ      L 00034 *GFМАТR*        RDСRС     L 00028 *GFGЕL*     WRЕLР     L 00002 *GFВFТR*
+   АТRАN2   DL 00115 *GFАТRМ*    INSDЕК    L 00026 *DRIN*          RDЕLР     L 00028 *GFGЕL*               L 00028 *GFGЕL*
+             L 00007 *GFАТRN*              L 00003 *DRINFN*        RDМVА     L 00028 *GFGЕL*     WRМVА     L 00002 *GFВFТR*
+   АХОNОМ    L 00034 *GFМАТR*    INSIDЕ    L 00027 *DRIN*          RDМVВ     L 00028 *GFGЕL*               L 00028 *GFGЕL*
+   ВЕGLЕV    L 00115 *GFАТRМ*              L 00003 *DRINFN*        RDМVС     L 00028 *GFGЕL*     WRМVВ     L 00002 *GFВFТR*
+             L 00007 *GFАТRN*    ISОLIN    L 00009 *GFСЕLL*        RDМVЕ     L 00028 *GFGЕL*     WRМVС     L 00002 *GFВFТR*
+   ВLАNС     L 00006 *GFАТВL*              L 00002 *GFISОL*        RDSТR     L 00028 *GFGЕL*     WRМVЕ     L 00002 *GFВFТR*
+             L 00007 *GFАТRN*    ISОМЕТ    L 00034 *GFМАТR*        RЕВLАN    L 00007 *GFАТRN*              L 00028 *GFGЕL*
+             L 00011 *GFВLАN*    IТРLВV    L 00001 *DRIТР*                   L 00011 *GFВLАN*    WRSТR     L 00028 *GFGЕL*
+   ВLАNСА   (ВLАNС   )           LIСОN     L 00028 *GFGЕL*         RЕNТСН   NL 00007 *GFАТRN*    ZАРIТ     L 00009 *GFСЕLL*
+   ВLАNСН    L 00006 *GFАТВL*    LINNUМ    L 00002 *GFISОL*                 DL 00020 *GFGОВS*
+            NL 00007 *GFАТRN*              L 00004 *GFLМN*         RЕNUМ     L 00004 *GFLМN*
+             L 00011 *GFВLАN*              L 00001 *GFLООК*        RЕSЕТ     L 00115 *GFАТRМ*
+             L 00004 *GFВLАW*              L 00001 *GFLSZ*         SАVЕТR    L 00034 *GFМАТR*
+   ВUFL      L 00008 *GFL*       LINТ      L 00009 *GFСЕLL*                  L 00002 *GFТR*
+   САВIN     L 00034 *GFМАТR*              L 00001 *GFINТ*         SЕАRСН    L 00008 *GFL*
+   СЕLL      L 00009 *GFСЕLL*    LIТАN     L 00002 *GFВFТR*                  L 00005 *GFХУ*
+   СIRС      L 00002 *GFВFТR*    LОСЕХТ    L 00004 *GFLМN*         SЕСАNТ    L 00002 *GFВFТR*
+   СIRТАС    L 00002 *GFВFТR*    LООК      L 00009 *GFСЕLL*                  L 00028 *GFGЕL*
+             L 00028 *GFGЕL*               L 00001 *GFINТ*         SЕТЕND    L 00002 DАТА*
+   СIRТАL    L 00002 *GFВFТR*              L 00001 *GFLООК*        SЕТТR     L 00034 *GFМАТR*
+             L 00028 *GFGЕL*     МАР       L 00006 *GFVР*                    L 00002 *GFТR*
+   СОМРDТ    L 00002 DАТА*       МАRКЕR    L 00002 *GFВFТR*        SНАDЕ     L 01000 *GFSНАD*
+   СОNDЕК   DL 00003 *DRFN*      МNМХ      L 00006 *GFVР*          SНЕАR     L 00034 *GFМАТR*
+             L 00026 *DRIN*      МОDGF     L 00028 *GFGЕL*         SIZLIN    L 00004 *GFLМN*
+             L 00003 *DRINFN*    МОVА      L 00002 *GFВFТR*        SIZNUМ    L 00004 *GFLМN*
+            DL 00001 *DRIТР*     МОVВ      L 00002 *GFВFТR*                  L 00001 *GFLSZ*
+   СОRNL     L 00007 *GFВ*       МОVВL1   (МОVЕ1   )               SРIRАL    L 00002 *GFВFТR*
+             L 00002 *GFКJ*      МОVВL3   (МОVЕ3   )               SТАR      L 00002 *GFВFТR*
+             L 00008 *GFL*       МОVС      L 00002 *GFВFТR*        SТRМОD   DL 00028 *GFGЕL*
+             L 00006 *GFVР*      МОVЕ1     L 00002 *GFАFТR*        ТDLIМ     L 00003 *GFСRD*
+             L 00005 *GFХУ*               DL 00007 *GFАТRN*                  L 00004 *GFLIМ*
+   СRОSS     L 00028 *GFGЕL*               L 00002 *GFВFТR*                 NL 00034 *GFМАТR*
+   DАSНР     L 00002 *GFВFТR*             DL 00011 *GFВLАN*        ТDLIМL    L 00003 *GFСRD*
+   DDISТ     L 00028 *GFGЕL*     МОVЕ2     L 00002 *GFАFТR*                  L 00004 *GFLIМL*
+   DIМDRО    L 00002 *GFВFТR*             DL 00007 *GFАТRN*                 NL 00034 *GFМАТR*
+             L 00028 *GFGЕL*               L 00002 *GFВFТR*        ТDLINЕ    L 00003 *GFСRD*
+   DIМЕТ     L 00034 *GFМАТR*              L 00011 *GFВLАN*        ТDRОТ     L 00034 *GFМАТR*
+   DISТ      L 00002 *GFВFТR*             DL 00020 *GFGОВS*        ТDSСАL    L 00034 *GFМАТR*
+             L 00028 *GFGЕL*              DL 00051 *GFNТСН*        ТDSЕСТ    L 00003 *GFСRD*
+   DRАСОN   DL 00003 *DRFN*      МОVЕ3     L 00002 *GFАFТR*                  L 00004 *GFLIМ*
+             L 00027 *DRIN*               DL 00007 *GFАТRN*                 NL 00034 *GFМАТR*
+             L 00003 *DRINFN*              L 00002 *GFВFТR*                  L 00004 *GFSUR*
+                                                      18.05.19 М1
+                     ИСПОЛЬЗОВАНИЕ СОММОN′ОВ                                 L 00028 АRСОLL                L 00004 RЕNUМ
+                                                                             L 00028 АRRОW                 L 00004 SIZLIN
+                                           L 00002 АRСID                     L 00028 СIRТАС                L 00004 SIZNUМ
+   Е - ЕСТЬ ОДНОИМЕННАЯ П/П                L 00002 АRСОLС                    L 00028 СIRТАL      *GFLООК*    00001
+   D - РАССЫЛКА ДАННЫХ                     L 00002 АRRОW                     L 00028 СRОSS                 L 00001 LINNUМ
+   N - ОПИСАН, НЕ ИСПОЛЬЗУЕТСЯ             L 00002 СIRС                      L 00028 DDISТ                 L 00001 LООК
+   Р - СТРАНИЧНЫЙ СОММОN                   L 00002 СIRТАС                    L 00028 DIМDRО      *GFLSZ*     00001
+   S - СЕКТОРНЫЙ СОММОN                    L 00002 СIRТАL                    L 00028 DISТ                  L 00001 LINNUМ
+   L - ПРОСТОЙ СОММОN                      L 00002 DАSНР                     L 00028 LIСОN                 L 00001 SIZNUМ
+   ***** - ДЛИНА ОПИСАНА НЕЯВНО            L 00002 DIМDRО                    L 00028 МОDGF       *GFМАТR*    00034
+                                           L 00002 DISТ                      L 00028 RDАСА                 L 00034 АХОNОМ
+   *DRFN*      00003                       L 00002 ЕLРS                      L 00028 RDАСВ                 L 00034 САВIN
+            DL 00003 СОNDЕК                L 00002 FАТАRС                    L 00028 RDАСС                 L 00034 DIМЕТ
+            DL 00003 DRАСОN                L 00002 FАТLIN                    L 00028 RDАСD                 L 00034 НСINV
+             L 00003 FNRООТ                L 00002 LIТАN                     L 00028 RDАЕА                 L 00034 НСNСRD
+   *DRIN*      00027                       L 00002 МАRКЕR                    L 00028 RDАЕВ                 L 00034 НСРRSР
+             L 00026 СОNDЕК                L 00002 МОVА                      L 00028 RDСRС                NL 00034 НСRОТ1
+             L 00027 DRАСОN                L 00002 МОVВ                      L 00028 RDЕLР                NL 00034 НСSURF
+             L 00026 INSDЕК                L 00002 МОVС                      L 00028 RDМVА                 L 00034 INIТ
+             L 00027 INSIDЕ                L 00002 МОVЕ1                     L 00028 RDМVВ                 L 00034 ISОМЕТ
+   *DRINFN*    00003                       L 00002 МОVЕ2                     L 00028 RDМVС                 L 00034 SАVЕТR
+             L 00003 СОNDЕК                L 00002 МОVЕ3                     L 00028 RDМVЕ                 L 00034 SЕТТR
+             L 00003 DRАСОN                L 00002 SЕСАNТ                    L 00028 RDSТR                 L 00034 SНЕАR
+             L 00003 FNRООТ                L 00002 SРIRАL                    L 00028 SЕСАNТ               NL 00034 ТDLIМ
+             L 00003 INSDЕК                L 00002 SТАR                     DL 00028 SТRМОD               NL 00034 ТDLIМL
+             L 00003 INSIDЕ                L 00002 WНЕRР                     L 00028 WRАСА                 L 00034 ТDRОТ
+   *DRIТР*     00001                       L 00002 WRАСА                     L 00028 WRАСD                 L 00034 ТDSСАL
+            DL 00001 СОNDЕК                L 00002 WRАСВ                     L 00028 WRАЕА                NL 00034 ТDSЕСТ
+            DL 00001 DRАСОN                L 00002 WRАСС                     L 00028 WRСRС                 L 00034 ТDТRАN
+             L 00001 IТРLВV                L 00002 WRАСD                     L 00028 WRЕLР                 L 00034 ТНRЕЕD
+   *DRLМ*      00004                       L 00002 WRАЕА                     L 00028 WRМVА                 L 00034 VIЕW
+             L 00004 DRАLIМ                L 00002 WRАЕВ                     L 00028 WRМVЕ       *GFNТСН*    00051
+   *GFАFТR*    00002                       L 00002 WRСRС                     L 00028 WRSТR                 L 00051 GОВSЕК
+             L 00002 МОVЕ1                 L 00002 WRЕLР           *GFGОВS*    00020                      DL 00051 МОVЕ2
+             L 00002 МОVЕ2                 L 00002 WRМVА                     L 00020 GFFАLS               DL 00051 МОVЕ3
+             L 00002 МОVЕ3                 L 00002 WRМVВ                     L 00020 GОВSЕК               NL 00051 NОТСН
+             L 00002 WНЕRЕ                 L 00002 WRМVС                    DL 00020 МОVЕ2       *GFSНАD*    01000
+   *GFАТВL*    00006                       L 00002 WRМVЕ                    DL 00020 МОVЕ3                 L 01000 SНАDЕ
+             L 00006 ВLАNС       *GFВLАN*    00011                           L 00020 NОТСН       *GFSUR*     00004
+             L 00006 ВLАNСН                L 00011 ВLАNС                    DL 00020 RЕNТСН                L 00004 НСSURF
+   *GFАТRМ*    00115                       L 00011 ВLАNСН          *GFINТ*     00001                       L 00004 ТDSЕСТ
+            DL 00115 АТRАN2               DL 00011 МОVЕ1                     L 00001 LINТ                  L 00004 ТНRЕЕD
+             L 00115 ВЕGLЕV                L 00011 МОVЕ2                     L 00001 LООК        *GFТR*      00002
+             L 00115 ЕNDLЕV               DL 00011 МОVЕ3           *GFISОL*    00002                       L 00002 SАVЕТR
+             L 00115 RЕSЕТ                NL 00011 NОТСН                     L 00002 ISОLIN                L 00002 SЕТТR
+   *GFАТRN*    00007                       L 00011 RЕВLАN                    L 00002 LINNUМ      *GFVIЕW*    00023
+             L 00007 АТRАN2      *GFВLАW*    00004                 *GFКJ*      00002                       L 00023 ТНRЕЕD
+             L 00007 ВЕGLЕV                L 00004 ВLАNСН                    L 00002 СОRNL                 L 00023 VIЕW
+             L 00007 ВLАNС       *GFСЕLL*    00009                           L 00002 РRSР        *GFVР*      00006
+            NL 00007 ВLАNСН                L 00009 СЕLL            *GFL*       00008                       L 00006 СОRNL
+            DL 00007 МОVЕ1                 L 00009 ISОLIN                    L 00008 ВUFL                  L 00006 МАР
+            DL 00007 МОVЕ2                 L 00009 LINТ                      L 00008 СОRNL                 L 00006 МNМХ
+            DL 00007 МОVЕ3                 L 00009 LООК                      L 00008 РАТСН                 L 00006 РRJТ
+             L 00007 RЕВLАN                L 00009 ZАРIТ                     L 00008 SЕАRСН                L 00006 РRSР
+            NL 00007 RЕNТСН      *GFСRD*     00003                 *GFLIМ*     00004             *GFХУ*      00005
+   *GFВ*       00007                       L 00003 НСNСRD                   NL 00004 НСSURF                L 00005 СОRNL
+             L 00007 СОRNL                NL 00003 НСSURF                    L 00004 ТDLIМ                 L 00005 РАТСН
+             L 00007 РАТСН                 L 00003 ТDLIМ                     L 00004 ТDSЕСТ                L 00005 РRSР
+   *GFВFТR*    00002                       L 00003 ТDLIМL                    L 00004 ТНRЕЕD                L 00005 SЕАRСН
+             L 00002 АRСС1                 L 00003 ТDLINЕ          *GFLIМL*    00004             *LIСАТ*     01024
+             L 00002 АRСЕLА                L 00003 ТDSЕСТ                    L 00004 ТDLIМL                Р 01024 RСАТАL
+             L 00002 АRСЕLВ                L 00003 ТНRЕЕD          *GFLМN*     00004             DАТА*       00002
+             L 00002 АRСIА       *GFGЕL*     00028                           L 00004 LINNUМ                L 00002 СОМРDТ
+             L 00002 АRСIВ                 L 00028 АRСОСС                    L 00004 LОСЕХТ                L 00002 SЕТЕND
+             L 00002 АRСIС                 L 00028 АRСОLС                    L 00004 NUМLIN
+           *ЕND FILЕ
+ КОНЕЦ ЗАДАЧИ
+ 00411: 00 074 0000	*74

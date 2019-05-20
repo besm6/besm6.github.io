@@ -1,0 +1,407 @@
+﻿                                                      18.05.19 М1
+
+  М О Н И Т О Р-8 0  (3.7)   25.09.84*       (  МС " Д У Б Н А " ИАЭ  )             ШИФР    419999000000
+
+
+
+
+
+
+
+                     ЖЖЖ   ЖЖЖ      Ж  ЖЖЖ           Ж   ЖЖЖ      Ж  ЖЖЖ
+                    Ж   Ж Ж   Ж    ЖЖ Ж   Ж         ЖЖ  Ж   Ж    ЖЖ Ж   Ж
+                        Ж Ж   Ж   Ж Ж  Ж Ж         Ж Ж      Ж   Ж Ж     Ж
+                       Ж  Ж   Ж  Ж  Ж   Ж    ЖЖЖ     Ж     Ж   Ж  Ж    Ж
+                      Ж   Ж   Ж Ж   Ж  Ж Ж           Ж    Ж   Ж   Ж   Ж
+                     Ж    Ж   Ж ЖЖЖЖЖ Ж   Ж          Ж   Ж    ЖЖЖЖЖ  Ж
+                    ЖЖЖЖЖ  ЖЖЖ      Ж  ЖЖЖ          ЖЖЖ ЖЖЖЖЖ     Ж ЖЖЖЖЖ
+
+
+
+
+
+
+
+
+*NАМЕ 2048-1242
+           *РЕRSО: 401350
+ 04.10.84 М1
+           *САLL LIВRЕFЕR:ТАРЕ=401242
+                                                      18.05.19 М1
+                     ССЫЛКИ НА ПОДПРОГРАММЫ                        GLВQ1Т   (GLВQRТ  )           РОТSРН    Е АВS
+                                                                   GLВQ2Т   (GLВQRТ  )                       DRТ1Р
+                                             РRТLРА                GLВQ3Т   (GLВQRТ  )                       DRТ1U
+   D - РАССЫЛКА ДАННЫХ           DТSLS       DТSLР                 GLВQRТ   DЕ ЕХР                           DТR1Р
+   Е - ВНЕШНЯЯ П/П                           GLВРSF                          Е I*МUI*                        DТR1U
+                                             GLВQ2Т                GLВQUТ   (GLВQRТ  )                       DТSLР
+   АSТRТ                                     GLВQ3Т                LАМ       Е АВS                           РRТ1СР
+   АSТRТЕ   (АSТRТ   )                       GLВQRТ                          Е РRЕS4S                        РRТ1Р
+   ВЕGR     (RЕАWRI  )                       РRТLРА                          Е R*РО*R                        РRТ1R
+   ВЕGRD                         DТSLU       DТSLР                             ТЕМР4                         РRТ1S
+   ВЕGW     (RЕАWRI  )                       GLВРSF                МU        Е АВS                           РRТ1U
+   ВRЕАD                                     GLВQ2Т                          Е РRЕS4S                        РRТ2СV
+   ВWRIТЕ   (ВRЕАD   )                       GLВQ3Т                          Е R*РО*R                        РRТLТ
+   СНЕFIТ    Е АВS                           GLВQRТ                          Е R*SТ*I                        ТSН2О
+             Е FТ*003                        РRТLРА                            ТЕМР4             РОТSVU   DЕ АВS
+             Е FТ*571            ЕNDWR    (RЕАWRI  )               NВОВ                                      DRТ1Р
+             Е I*МU*I            ЕNТН1    D                        NОSРОТ   (СОРLОТ  )                       DRТ1U
+             Е R*РО*I            ЕNТН1S   (ЕNТН1   )               NОSРТ1   (СОРLОТ  )                       DТR1Р
+             Е R*SТ*I            ЕNТН2     Е АВS                   NUММУ                                     DТSLР
+   СНRТSТ    Е FТ*002                        ТЕМР2S                NUМТАР   (NUММУ   )                       РRТ1СV
+             Е FТ*003                        ТЕМР4S                ОUТ67I                                    РRТ1Р
+             Е FТ*571            ЕNТН2S   (ЕNТН2   )               РОТАLL      СНRТSТ                        РRТ1R
+   СОNТR    (RЕАWRI  )           ЕNТН3     Е АВS                             Е FТ*003                        РRТ1S
+   СОNТW    (RЕАWRI  )                       ТЕМР3S                          Е FТ*571                        РRТ1Т
+   СОРLОТ   DЕ РRINТ8            ЕNТН3S   (ЕNТН3   )                           РОТFVТ                        РRТ1U
+   СОРLТ1   (СОРLОТ  )           ЕNТН4    D                                    РОТGРТ                        РRТ2СV
+   DЕNGА2                        ЕNТН4S   (ЕNТН4   )                           РОТНРS                        РRТLРА
+   DЕNGАМ                        ЕNТН5    D                                    РОТSРН                        РRТLТ
+   DЕNТН    DЕ R*SТ*I            ЕNТН5S   (ЕNТН5   )                           РОТSVU                      Е SIGN
+   DЕNТН4                        ЕNТНD3                                        РОТUVS                        ТSН2О
+   DЕNТН5                        ЕNТНD4                            РОТFVТ      DRТ1Р             РОТUVS    Е АВS
+   DЕNТR    DЕ R*SТ*I            ЕNТНР4   DЕ R*SТ*I                            DRТ1S                         DRТ1S
+   DGАМА4                        ЕNТНР5   DЕ R*SТ*I                            DТR12G                        DТR1S
+   DGАМА5                        ЕNТR2    DЕ I*МUI*                            DТR1GL                        DТSLР
+   DRТ12G   (РRТ1GL  )           ЕNТR2S   (ЕNТR2   )                           DТSLР                         РRТ1СV
+   DRТ1GL   (РRТ1GL  )           ЕNТR3    DЕ АLОG10                            РRТ1GL                        РRТ1Р
+   DRТ1Н       GLВQ2Т                      Е I*МUI*                            РRТ1Р                         РRТ1R
+               GLВQRТ            ЕNТR3S   (ЕNТR3   )                           РRТ1R                         РRТ1S
+   DRТ1Р       GLВQRТ            ЕNТR4    D                                    РRТ1S                         РRТ1SV
+   DRТ1S       GLВQ2Т            ЕNТR4S   (ЕNТR4   )                           РRТ1U                         РRТ1U
+               GLВQRТ            ЕNТR5    D                                    РRТ2СV                        РRТ2СV
+   DRТ1U       GLВQRТ            ЕNТR5S   (ЕNТR5   )                           РRТLР                         РRТLРА
+   DТR12G   (РRТ1GL  )           ЕNТRD3    Е АLОG                              ТSН2О                         РRТLТ
+   DТR1GL   (РRТ1GL  )                     Е АLОG10                РОТGРТ      DRТ1Р                       Е SIGN
+   DТR1Н       GLВРSF            ЕNТRD4    Е АLОG10                            DRТ1S                         ТSН2О
+               GLВQ2Т            ЕNТRР4   DЕ R*SТ*I                            DТR1S             РRЕS4    DЕ ЕХР
+               GLВQ3Т            ЕNТRР5   DЕ R*SТ*I                            РRТ1GВ                      Е R*DI*I
+               GLВQRТ            FIТЕR     Е АВS                               РRТ1R                       Е R*РО*R
+   DТR1Р       GLВQ2Т            FТЕRD3      ЕNТНD3                            РRТ1S             РRЕSD4    Е R*РО*R
+               GLВQRТ            GАМА1    DЕ R*SТ*I                            РRТ1U             РRТ1СР      GLВРSF
+   DТR1S       GLВРSF            GАМА1S   (GАМА1   )                           ТSН2О                         GLВQ2Т
+               GLВQRТ            GАМА2    DЕ I*МUI*                РОТНРS    Е АВS                           GLВQ3Т
+   DТR1SG   (РRТ1GL  )                     Е R*SТ*I                            DRТ1Р                         GLВQRТ
+   DТR1U       GLВРSF            GАМА2S   (GАМА2   )                           DRТ1S             РRТ1СU   (РRТ1СV  )
+               GLВQRТ            GАМА3    DЕ I*МUI*                            DТR1S             РRТ1СV      GLВРSF
+   DТSLН       DТSLР                       Е R*SТ*I                            DТSLР                         GLВQ3Т
+               GLВРSF            GАМА3S   (GАМА3   )                           РRТ1СР                        GLВQRТ
+               GLВQ2Т            GАМА4    DЕ R*SТ*I                            РRТ1Р             РRТ1GВ    Е АLОG
+               GLВQ3Т            GАМА4S   (GАМА4   )                           РRТ1R                         GLВРSI
+               GLВQRТ            GАМА5    DЕ R*SТ*I                            РRТ1S                         GLВQRТ
+               РRТLРА            GАМА5S   (GАМА5   )                           РRТ1SV            РRТ1GL    Е АLОG
+   DТSLР    (РRТLР   )           GАМАD3                                        РRТ1U                         GLВРSF
+   DТSLR       DТSLР             GАМАD4                                        РRТ2СV                        GLВРSI
+               GLВQ2Т            GLВРSF   (GLВРSI  )                           РRТLТ                         GLВQ2Т
+               GLВQRТ            GLВРSI   DЕ АLОG                              ТSН2О                         GLВQRТ
+   РRТ1Н       GLВРSI                      Е FТ*571                VОLМ4S   (GАМА4   )
+               GLВQ2Т                        РRТ1СР                VОLМ5    (GАМА5   )
+               GLВQRТ                        РRТ1СU                VОLМ5S   (GАМА5   )
+   РRТ1LМ   DЕ АВS                           РRТ1СV                VОLМР4   DЕ R*SТ*I
+             Е ЕХР                           РRТ1GВ                VОLМР5   DЕ R*SТ*I
+             Е R*РО*R                        РRТ1GL                VSS      D
+             Е SQRТ                          РRТ1Н                 VWS      D
+   РRТ1МU   DЕ ЕХР                           РRТ1LМ                WАSЕR       ЕNТН1S
+             Е SQRТ                          РRТ1МU                            ЕNТН2S
+   РRТ1Р       GLВQRТ                        РRТ1Р                             ЕNТН3S
+   РRТ1R     Е АВS                           РRТ1R                             ЕNТН5S
+               GLВQRТ                        РRТ1S                             ЕNТR2S
+   РRТ1S     Е АLОG                          РRТ1SV                            ЕNТR3S
+               GLВРSI                        РRТ1Т                             GАМА1S
+               GLВQ2Т                        РRТ1U                             GАМА2S
+               GLВQRТ                        РRТ2СV                            GАМА3S
+   РRТ1SV      GLВРSF                        РRТ2SV                            ТЕМР1S
+               GLВQ2Т                        РRТLР                             ТЕМР2S
+               GLВQ3Т                        РRТLРА                            ТЕМР3S
+               GLВQRТ                        РRТLSG                            ТЕМР4S
+             Е SQRТ                          РRТLТ                             VОLМ1S
+   РRТ1Т     Е АВS               РRТLР    DЕ ЕХР                               VОLМ2S
+               GLВРSF            РRТLРА   (РRТLР   )                           VОLМ3S
+               GLВРSI            РRТLSG    Е R*РО*R                WАSЕRS   (WАSЕR   )
+               GLВQ3Т            РRТLТ    DЕ АВS                   ХLАG
+               GLВQRТ                      Е ЕХР
+               GLВQUТ            РSН2О    (ТSН2О   )
+   РRТ1U       GLВРSI            RЕАDЕХ   (RЕАWRI  )
+               GLВQRТ            RЕАWRI    Е RЕАD*
+   РRТ2СV      DRТ1Р                       Е RЕАD1
+               DТR1Р                       Е WRIТЕ1
+               DТR1U             RUNКUТ
+               DТSLР             SЕWОТА      АSТRТ
+               РRТ1R                       Е GОТIS
+               РRТLРА                        NUМТАР
+               VSS                         Е SWОТ
+               VWS               SWТРR     Е FТ*002
+   РRТ2SV      DRТ1Р                       Е FТ*003
+               DТR1Р                       Е FТ*571
+               DТR1U             ТЕМР1     Е АВS
+               DТSLР                         ЕNТН1S
+               РRТ1R             ТЕМР1S   (ТЕМР1   )
+               РRТLРА            ТЕМР2    DЕ I*МUI*
+             Е SQRТ              ТЕМР2S   (ТЕМР2   )
+               VSS               ТЕМР3    DЕ I*МUI*
+               VWS               ТЕМР3S   (ТЕМР3   )
+   РRТАLL      DRТ12G            ТЕМР4    DЕ АLОG
+               DRТ1GL            ТЕМР4S   (ТЕМР4   )
+               DRТ1Н             ТЕМРD3      FIТЕR
+               DRТ1Р                         FТЕRD3
+               DRТ1S             ТЕМРD4   D  FIТЕR
+               DRТ1U                         РRЕSD4
+               DТR12G            ТSН2О    DЕ АLОG
+               DТR1GL                      Е ЕХР
+               DТR1Н                       Е I*МU*I
+               DТR1Р                       Е I*МUI*
+               DТR1S                       Е R*РО*R
+               DТR1SG            ТSТРRТ   D  РRТАLL
+               DТR1U                       Е SТОР*
+               DТSLН             VОLМ1    (GАМА1   )
+               DТSLР             VОLМ1S   (GАМА1   )
+               DТSLR             VОLМ2    (GАМА2   )
+               DТSLS             VОLМ2S   (GАМА2   )
+               DТSLU             VОLМ3    (GАМА3   )
+             Е FТ*002            VОLМ3S   (GАМА3   )
+             Е FТ*003            VОLМ4    (GАМА4   )
+                                                      18.05.19 М1
+                     ИСПОЛЬЗОВАНИЕ ПОДПРОГРАММ                                 РОТSРН            FТ*002   Е  СНRТSТ
+                                                                               РОТSVU                        РRТАLL
+                                 РОТАLL                                        РRТ2СV                        SWТРR
+   Е - ВНЕШНЯЯ П/П               РRЕS4                                         РRТ2SV            FТ*003   Е  СНЕFIТ
+   N - ОПИСАНА, НЕ ИСПОЛЬЗУЕТСЯ  РSН2О                                         РRТАLL                        СНRТSТ
+   С - ЕСТЬ ОДНОИМЕННЫЙ СОММОN   RЕАDЕХ                            DRТ1S       РОТFVТ                        РОТАLL
+                                 RЕАWRI                                        РОТGРТ                        РRТАLL
+   НЕИСПОЛЬЗУЕМЫЕ ВХОДЫ          RUNКUТ                                        РОТНРS                        SWТРR
+                                 SЕWОТА                                        РОТUVS            FТ*571   Е  СНЕFIТ
+   АSТRТЕ                        SWТРR                                         РRТАLL                        СНRТSТ
+   ВЕGR                          ТЕМР1                             DRТ1U       РОТSРН                        РОТАLL
+   ВЕGRD                         ТЕМР2                                         РОТSVU                        РRТАLL
+   ВЕGW                          ТЕМР3                                         РRТАLL                        SWТРR
+   ВRЕАD                         ТЕМРD3                            DТR12G      РОТFVТ            FТЕRD3      ТЕМРD3
+   ВWRIТЕ                        ТЕМРD4                                        РRТАLL            GАМА1S      WАSЕR
+   СНЕFIТ                        ТSТРRТ                            DТR1GL      РОТFVТ            GАМА2S      WАSЕR
+   СОNТR                         VОLМ1                                         РRТАLL            GАМА3S      WАSЕR
+   СОNТW                         VОLМ2                             DТR1Н       РRТАLL            GLВРSF      DТR1Н
+   СОРLОТ                        VОLМ3                             DТR1Р       РОТSРН                        DТR1S
+   СОРLТ1                        VОLМ4                                         РОТSVU                        DТR1U
+   DЕNGА2                        VОLМ4S                                        РRТ2СV                        DТSLН
+   DЕNGАМ                        VОLМ5                                         РRТ2SV                        DТSLS
+   DЕNТН                         VОLМ5S                                        РRТАLL                        DТSLU
+   DЕNТН4                        VОLМР4                            DТR1S       РОТGРТ                        РRТ1СР
+   DЕNТН5                        VОLМР5                                        РОТНРS                        РRТ1СV
+   DЕNТR                         WАSЕR                                         РОТUVS                        РRТ1GL
+   DGАМА4                        WАSЕRS                                        РRТАLL                        РRТ1SV
+   DGАМА5                        ХLАG                              DТR1SG      РRТАLL                        РRТ1Т
+   ЕNDWR                                                           DТR1U       РОТSРН            GLВРSI      РRТ1GВ
+   ЕNТН1                                                                       РRТ2СV                        РRТ1GL
+   ЕNТН2                         ИСПОЛЬЗУЕМЫЕ ВХОДЫ                            РRТ2SV                        РRТ1Н
+   ЕNТН3                                                                       РRТАLL                        РRТ1S
+   ЕNТН4                         АВS      Е  СНЕFIТ                DТSLН       РRТАLL                        РRТ1Т
+   ЕNТН4S                                    ЕNТН2                 DТSLР       DТSLН                         РRТ1U
+   ЕNТН5                                     ЕNТН3                             DТSLR             GLВQ2Т      DRТ1Н
+   ЕNТНD4                                    FIТЕR                             DТSLS                         DRТ1S
+   ЕNТНР4                                    LАМ                               DТSLU                         DТR1Н
+   ЕNТНР5                                    МU                                РОТFVТ                        DТR1Р
+   ЕNТR2                                     РОТНРS                            РОТНРS                        DТSLН
+   ЕNТR3                                     РОТSРН                            РОТSРН                        DТSLR
+   ЕNТR4                                     РОТSVU                            РОТSVU                        DТSLS
+   ЕNТR4S                                    РОТUVS                            РОТUVS                        DТSLU
+   ЕNТR5                                     РRТ1LМ                            РRТ2СV                        РRТ1СР
+   ЕNТR5S                                    РRТ1R                             РRТ2SV                        РRТ1GL
+   ЕNТRD3                                    РRТ1Т                             РRТАLL                        РRТ1Н
+   ЕNТRD4                                    РRТLТ                 DТSLR       РRТАLL                        РRТ1S
+   ЕNТRР4                                    ТЕМР1                 DТSLS       РRТАLL                        РRТ1SV
+   ЕNТRР5                        АLОG     Е  ЕNТRD3                DТSLU       РRТАLL            GLВQ3Т      DТR1Н
+   GАМА1                                     GLВРSI                ЕNТН1S      ТЕМР1                         DТSLН
+   GАМА2                                     РRТ1GВ                            WАSЕR                         DТSLS
+   GАМА3                                     РRТ1GL                ЕNТН2S      WАSЕR                         DТSLU
+   GАМА4                                     РRТ1S                 ЕNТН3S      WАSЕR                         РRТ1СР
+   GАМА4S                                    ТЕМР4                 ЕNТН5S      WАSЕR                         РRТ1СV
+   GАМА5                                     ТSН2О                 ЕNТНD3      FТЕRD3                        РRТ1SV
+   GАМА5S                        АLОG10   Е  ЕNТR3                 ЕNТR2S      WАSЕR                         РRТ1Т
+   GАМАD3                                    ЕNТRD3                ЕNТR3S      WАSЕR             GLВQRТ      DRТ1Н
+   GАМАD4                                    ЕNТRD4                ЕХР      Е  GLВQRТ                        DRТ1Р
+   GLВQ1Т                        АSТRТ       SЕWОТА                            РRЕS4                         DRТ1S
+   LАМ                           СНRТSТ      РОТАLL                            РRТ1LМ                        DRТ1U
+   МU                            DRТ12G      РRТАLL                            РRТ1МU                        DТR1Н
+   NВОВ                          DRТ1GL      РRТАLL                            РRТLР                         DТR1Р
+   NОSРОТ                        DRТ1Н       РRТАLL                            РRТLТ                         DТR1S
+   NОSРТ1                        DRТ1Р       РОТFVТ                            ТSН2О                         DТR1U
+   NUММУ                                     РОТGРТ                FIТЕR       ТЕМРD3                        DТSLН
+   ОUТ67I                                    РОТНРS                            ТЕМРD4                        DТSLR
+               DТSLS                         РОТGРТ                            VОLМР5
+               DТSLU                         РОТНРS                RЕАD*    Е  RЕАWRI
+               РRТ1СР                        РОТSРН                RЕАD1    Е  RЕАWRI
+               РRТ1СV                        РОТSVU                SIGN     Е  РОТSVU
+               РRТ1GВ                        РОТUVS                            РОТUVS
+               РRТ1GL                        РRТАLL                SQRТ     Е  РRТ1LМ
+               РRТ1Н             РRТ1SV      РОТНРS                            РRТ1МU
+               РRТ1Р                         РОТUVS                            РRТ1SV
+               РRТ1R                         РRТАLL                            РRТ2SV
+               РRТ1S             РRТ1Т       РОТSVU                SТОР*    Е  ТSТРRТ
+               РRТ1SV                        РRТАLL                SWОТ     Е  SЕWОТА
+               РRТ1Т             РRТ1U       РОТFVТ                ТЕМР1S      WАSЕR
+               РRТ1U                         РОТGРТ                ТЕМР2S      ЕNТН2
+   GLВQUТ      РRТ1Т                         РОТНРS                            WАSЕR
+   GОТIS    Е  SЕWОТА                        РОТSРН                ТЕМР3S      ЕNТН3
+   I*МU*I   Е  СНЕFIТ                        РОТSVU                            WАSЕR
+               ТSН2О                         РОТUVS                ТЕМР4       LАМ
+   I*МUI*   Е  ЕNТR2                         РRТАLL                            МU
+               ЕNТR3             РRТ2СV      РОТFVТ                ТЕМР4S      ЕNТН2
+               GАМА2                         РОТНРS                            WАSЕR
+               GАМА3                         РОТSРН                ТSН2О       РОТFVТ
+               GLВQRТ                        РОТSVU                            РОТGРТ
+               ТЕМР2                         РОТUVS                            РОТНРS
+               ТЕМР3                         РRТАLL                            РОТSРН
+               ТSН2О             РRТ2SV      РRТАLL                            РОТSVU
+   NUМТАР      SЕWОТА            РRТАLL      ТSТРRТ                            РОТUVS
+   РОТFVТ      РОТАLL            РRТLР       РОТFVТ                VОLМ1S      WАSЕR
+   РОТGРТ      РОТАLL                        РRТАLL                VОLМ2S      WАSЕR
+   РОТНРS      РОТАLL            РRТLРА      DТSLН                 VОLМ3S      WАSЕR
+   РОТSРН      РОТАLL                        DТSLR                 VSS         РRТ2СV
+   РОТSVU      РОТАLL                        DТSLS                             РRТ2SV
+   РОТUVS      РОТАLL                        DТSLU                 VWS         РRТ2СV
+   РRЕS4S   Е  LАМ                           РОТSVU                            РRТ2SV
+               МU                            РОТUVS                WRIТЕ1   Е  RЕАWRI
+   РRЕSD4      ТЕМРD4                        РRТ2СV
+   РRINТ8   Е  СОРLОТ                        РRТ2SV
+   РRТ1СР      РОТНРS                        РRТАLL
+               РОТSРН            РRТLSG      РRТАLL
+               РRТАLL            РRТLТ       РОТНРS
+   РRТ1СU      РRТАLL                        РОТSРН
+   РRТ1СV      РОТSVU                        РОТSVU
+               РОТUVS                        РОТUVS
+               РRТАLL                        РRТАLL
+   РRТ1GВ      РОТGРТ            R*DI*I   Е  РRЕS4
+               РRТАLL            R*РО*I   Е  СНЕFIТ
+   РRТ1GL      РОТFVТ            R*РО*R   Е  LАМ
+               РRТАLL                        МU
+   РRТ1Н       РRТАLL                        РRЕS4
+   РRТ1LМ      РRТАLL                        РRЕSD4
+   РRТ1МU      РRТАLL                        РRТ1LМ
+   РRТ1Р       РОТFVТ                        РRТLSG
+               РОТНРS                        ТSН2О
+               РОТSРН            R*SТ*I   Е  СНЕFIТ
+               РОТSVU                        DЕNТН
+               РОТUVS                        DЕNТR
+               РRТАLL                        ЕNТНР4
+   РRТ1R       РОТFVТ                        ЕNТНР5
+               РОТGРТ                        ЕNТRР4
+               РОТНРS                        ЕNТRР5
+               РОТSРН                        GАМА1
+               РОТSVU                        GАМА2
+               РОТUVS                        GАМА3
+               РRТ2СV                        GАМА4
+               РRТ2SV                        GАМА5
+               РRТАLL                        МU
+   РRТ1S       РОТFVТ                        VОLМР4
+                                                      18.05.19 М1
+                     ССЫЛКИ НА СОММОN′Ы
+
+
+   D - РАССЫЛКА ДАННЫХ
+   N - ОПИСАН, НЕ ИСПОЛЬЗУЕТСЯ
+   Р - СТРАНИЧНЫЙ СОММОN
+   S - СЕКТОРНЫЙ СОММОN
+   L - ПРОСТОЙ СОММОN
+   ***** - ДЛИНА ОПИСАНА НЕЯВНО
+
+   ВЕGRD     L 00003 *NZВЕ*
+   DЕNТН    DL 00200 *ТЕRМОD*
+   DЕNТR    DL 00200 *ТЕRМОD*
+   DRТ12G   (РRТ1GL  )
+   DRТ1GL   (РRТ1GL  )
+   DRТ1Н     L 00005 *РRОРТУ*
+   DRТ1Р     L 00005 *РRОРТУ*
+   DRТ1S     L 00005 *РRОРТУ*
+   DRТ1U     L 00005 *РRОРТУ*
+   DТR12G   (РRТ1GL  )
+   DТR1GL   (РRТ1GL  )
+   DТR1Н     L 00005 *РRОРТУ*
+   DТR1Р     L 00005 *РRОРТУ*
+   DТR1S     L 00005 *РRОРТУ*
+   DТR1SG   (РRТ1GL  )
+   DТR1U     L 00005 *РRОРТУ*
+   DТSLН     L 00005 *РRОРТУ*
+   DТSLR     L 00005 *РRОРТУ*
+   DТSLS     L 00005 *РRОРТУ*
+   DТSLU     L 00005 *РRОРТУ*
+   ЕNТНР4   DL 00200 *ТЕRМОD*
+   ЕNТRР4   DL 00200 *ТЕRМОD*
+   ЕNТRР5   DL 00200 *ТЕRМОD*
+   FТЕRD3    L 00001 *FТЕRD*
+   GLВРSF   (GLВРSI  )
+   GLВРSI    L 00005 *РRОРТУ*
+   GLВQ1Т   (GLВQRТ  )
+   GLВQ2Т   (GLВQRТ  )
+   GLВQ3Т   (GLВQRТ  )
+   GLВQRТ    L 00005 *РRОРТУ*
+   GLВQUТ   (GLВQRТ  )
+   РRТ1СР    L 00005 *РRОРТУ*
+   РRТ1СU   (РRТ1СV  )
+   РRТ1СV    L 00005 *РRОРТУ*
+   РRТ1GВ    L 00005 *РRОРТУ*
+   РRТ1GL    L 00005 *РRОРТУ*
+   РRТ1Н     L 00005 *РRОРТУ*
+   РRТ1Р     L 00005 *РRОРТУ*
+   РRТ1R     L 00005 *РRОРТУ*
+   РRТ1S     L 00005 *РRОРТУ*
+   РRТ1SV    L 00005 *РRОРТУ*
+   РRТ1Т     L 00005 *РRОРТУ*
+   РRТ1U     L 00005 *РRОРТУ*
+   SЕWОТА    Р 01032 LIСТ
+   ТЕМРD3    L 00001 *FТЕRD*
+   VОLМР4   DL 00200 *ТЕRМОD*
+   VОLМР5   DL 00200 *ТЕRМОD*
+                                                      18.05.19 М1
+                     ИСПОЛЬЗОВАНИЕ СОММОN′ОВ
+
+
+   Е - ЕСТЬ ОДНОИМЕННАЯ П/П
+   D - РАССЫЛКА ДАННЫХ
+   N - ОПИСАН, НЕ ИСПОЛЬЗУЕТСЯ
+   Р - СТРАНИЧНЫЙ СОММОN
+   S - СЕКТОРНЫЙ СОММОN
+   L - ПРОСТОЙ СОММОN
+   ***** - ДЛИНА ОПИСАНА НЕЯВНО
+
+   *FТЕRD*     00001
+             L 00001 FТЕRD3
+             L 00001 ТЕМРD3
+   *NZВЕ*      00003
+             L 00003 ВЕGRD
+   *РRОРТУ*    00005
+             L 00005 DRТ1Н
+             L 00005 DRТ1Р
+             L 00005 DRТ1S
+             L 00005 DRТ1U
+             L 00005 DТR1Н
+             L 00005 DТR1Р
+             L 00005 DТR1S
+             L 00005 DТR1U
+             L 00005 DТSLН
+             L 00005 DТSLR
+             L 00005 DТSLS
+             L 00005 DТSLU
+             L 00005 GLВРSI
+             L 00005 GLВQRТ
+             L 00005 РRТ1СР
+             L 00005 РRТ1СV
+             L 00005 РRТ1GВ
+             L 00005 РRТ1GL
+             L 00005 РRТ1Н
+             L 00005 РRТ1Р
+             L 00005 РRТ1R
+             L 00005 РRТ1S
+             L 00005 РRТ1SV
+             L 00005 РRТ1Т
+             L 00005 РRТ1U
+   *ТЕRМОD*    00200
+            DL 00200 DЕNТН
+            DL 00200 DЕNТR
+            DL 00200 ЕNТНР4
+            DL 00200 ЕNТRР4
+            DL 00200 ЕNТRР5
+            DL 00200 VОLМР4
+            DL 00200 VОLМР5
+   LIСТ        01032
+             Р 01032 SЕWОТА
+           *ЕND FILЕ
+ КОНЕЦ ЗАДАЧИ
+ 00411: 00 074 0000	*74

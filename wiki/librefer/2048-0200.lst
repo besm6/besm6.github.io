@@ -1,0 +1,824 @@
+﻿                                                      18.05.19 М1
+
+  М О Н И Т О Р-8 0  (3.7)   25.09.84*       (  МС " Д У Б Н А " ИАЭ  )             ШИФР    419999000000
+
+
+
+
+
+
+
+                     ЖЖЖ   ЖЖЖ      Ж  ЖЖЖ         ЖЖЖ   ЖЖЖ   ЖЖЖ   ЖЖЖ
+                    Ж   Ж Ж   Ж    ЖЖ Ж   Ж       Ж   Ж Ж   Ж Ж   Ж Ж   Ж
+                        Ж Ж   Ж   Ж Ж  Ж Ж        Ж   Ж     Ж Ж   Ж Ж   Ж
+                       Ж  Ж   Ж  Ж  Ж   Ж    ЖЖЖ  Ж   Ж    Ж  Ж   Ж Ж   Ж
+                      Ж   Ж   Ж Ж   Ж  Ж Ж        Ж   Ж   Ж   Ж   Ж Ж   Ж
+                     Ж    Ж   Ж ЖЖЖЖЖ Ж   Ж       Ж   Ж  Ж    Ж   Ж Ж   Ж
+                    ЖЖЖЖЖ  ЖЖЖ      Ж  ЖЖЖ         ЖЖЖ  ЖЖЖЖЖ  ЖЖЖ   ЖЖЖ
+
+
+
+
+
+
+
+
+*NАМЕ 2048-0200
+           *РЕRSО: 401350
+ 04.10.84 М1
+           *САLL LIВRЕFЕR:ТАРЕ=400200
+                                                      18.05.19 М1
+                     ССЫЛКИ НА ПОДПРОГРАММЫ                        АМОD        РRINТ8            С*МU*I   (С*АD*I  )
+                                                                   АRСТАN*  (SIN*    )           С*МU*R   (С*АD*R  )
+                                 А/РАRSТR (А/САLLР )               АSАVЕ*   (МОN*IТОR)           С*РО*I      С*DI*С
+   D - РАССЫЛКА ДАННЫХ           А/РАRVАL (А/САLLР )               АSIN                                      С*LО*С
+   Е - ВНЕШНЯЯ П/П               А/РАRVАR (А/САLLР )               АSТАМА    Е А/DАТЕ                        С*МU*С
+                                 А/РRОСRТ (А/САLLР )                         Е А/ОСТDЕС                      С*SТ*С
+   *ВАСКS   (*RЕWIN  )           А/РUТАRR (А/GЕТАRR)                         Е А/WРUТR           С*SТ*С   (С*АD*С  )
+   *ЕNDFI      RWТВ/*            А/R*ISО  (А/DRUСК )                         Е АLGОL             С*SТ*I      С*LN*С
+               ТАВЕF/*           А/RАРRI     А/ВРRI                            ЕХIТ                          С*LО*С
+   *FLSУS      LОАDАNGО                      А/IРRI                            LОАDСАLL                      R*SТ*С
+               РАRАМТ*                       А/LРRI                            МОNIТОR*                      R*SТ*I
+   *МISТАКЕ    ОСТТDЕС                       А/RРRI                АТАN     (ЕХР     )           С*SТ*R      С*СОМР
+               РRINТ8                        А/SРRI                АТАN2       АТАN              С*SU*С   (С*АD*С  )
+   *МUI*                         А/RАRЕАD    А/ВRЕАD                           FТ*003            С*SU*I   (С*АD*I  )
+   *РАSСАL     GIVТRАN*                      А/САLLS                           FТ*571            С*SU*R   (С*АD*R  )
+               РRINТ8                        А/IRЕАD                           SIGN              САВS        АВS
+   *RЕWIN      RWТВ/*                        А/LRЕАD               АТОS     (А/SРLUSS)                       АIМАG
+               ТАВRW/*                       А/РRОСRТ              В/SU/    (РТ8RЕАD )                       RЕАL
+   /IР*     (IОХХТТWТ)                       А/RRЕАD               ВСDВЕG*     IОСОNТ*                       SQRТ
+   А/АND     Е А/I0                          А/SRЕАD               ВСDDЕС*  (ВСDRЕАD*)           САТАLОG* (ТСАТАLОG)
+             Е А/МINUS           А/RНОСНI (А/АND   )               ВСDЕNС*  (ВСDWRIТ*)           СВRТ
+   А/АRGSТR (А/SРLUSS)           А/RNLINЕ (А/RRЕАD )               ВСDРUN   (IОХХРКWТ)           ССОS        СЕХР
+   А/АRRD/К    А/ЕRRОR           А/RРRI   (А/DRUСК )               ВСDRЕАD*    ВСDВЕG*           СЕХР     (СSТАNFUN)
+   А/АRRD/V (А/АRRD/К)           А/RRЕАD     А/САLLS                           IОСОNТ*           СНЕСКSUМ
+   А/ВАРRI  (А/RАРRI )                       А/GЕТINС                          КОNV1*            СНКВЕG*     RАSРАК8
+   А/ВАRЕАD (А/RАRЕАD)                       А/РRОСRТ                          SRЕАDТ                        ТАВSIМIS
+   А/ВРRI   (А/DRUСК )                       РRINТ8*               ВСDWRIТ*    ВСDВЕG*                       ZАРАК8
+   А/ВRЕАD  (А/RRЕАD )           А/RТОI   (А/АND   )                           IОСОNТ*           СНКЕND*  (СНКВЕG* )
+   А/САLLР                       А/SАРRI  (А/RАРRI )                           SWRIТТ            СLDЕСО   (СLОРЕN  )
+   А/САLLS  (А/САLLР )           А/SАRЕАD (А/RАRЕАD)               ВЕМSН**     МОNIТОR*          СLЕАRLЕХ
+   А/СОММОN    А/ЕRRОR           А/SЕQS   (LЕNGТН  )                           РRINТ8            СLОG     (СSТАNFUN)
+   А/DRUСК     РRINТ8            А/SGЕS   (LЕNGТН  )                           RЕАD*             СLОРЕN
+               ХХХАРR            А/SGТS   (LЕNGТН  )               ВЕМSН*      LОАDАNGО          СМРLХ
+   А/ЕQUIV  (А/АND   )           А/SIGN   (А/АND   )               ВIGРUNСН    РUNСТАВL          СОLРUN*В
+   А/ЕRRОR     РRINТ8*           А/SLЕS   (LЕNGТН  )               ВIGТIТ   (ВIGТIТLЕ)           СОLРUNВ* (IОХХРКWТ)
+               SТОР*             А/SLIСЕ  (А/SРLUSS)               ВIGТIТLЕ    РRINТ8            СОLРUNС* (IОХХРКWТ)
+   А/GЕТАRR    А/САLLS           А/SLТS   (LЕNGТН  )               ВINАRУ      LUN*МОN           СОLРUNЕ* (IОХХРКWТ)
+               А/РRОСRТ          А/SNЕS   (LЕNGТН  )                           МОNRЕАD*          СОNJG
+               IОАС*             А/SРLUSS    А/ЕRRОR               ВINРUN   (СОLРUN*В)           СОРУСАRD    РRINТ8
+   А/GЕТINС    ХХХАWR                        А/GЕТINС              ВINRЕАD*    IОСОNТ*           СОРУТАDR    СОРУСАRD
+   А/I*ISО  (А/DRUСК )                       А/РRОСRТ                          SRЕАDВ                        РАRАМТ*
+   А/IАРRI  (А/RАРRI )           А/SРRI   (А/DRUСК )                           SWRIТВ                        РRINТ8
+   А/IАRЕАD (А/RАRЕАD)           А/SRЕАD  (А/SРLUSS)               ВINWRIТ* (ВINRЕАD*)           СОS      (ЕХР     )
+   А/IНОСНI (А/АND   )           А/SТАRТ  (А/SТОР  )               ВLЕХРRIN    LUN*МОN           СОS*     (SIN*    )
+   А/IМРL   (А/АND   )           А/SТОР      А/АRRD/К              ВОКНО                         СОSТЕР      ЕХЕСUТ
+   А/IРRI   (А/DRUСК )                       А/DRUСК               С*АD*С                                    ЕХIТ
+   А/IRЕАD  (А/RRЕАD )                       SТОР*                 С*АD*I      С*АD*С            СОSУТАКЕ    РЕRСОSУ2
+   А/LАРRI  (А/RАРRI )                       ХХХАРR                            С*DI*С            СОSУТISО    RЕАD*ЕRR
+   А/LАRЕАD (А/RАRЕАD)                       ХХХАWR                            С*МU*С            СОZУТISО (СОSУТISО)
+   А/LНОСНI (А/LНОСНR)           А/SUВСН     А/ЕRRОR                           С*SU*С            СSIN     (ССОS    )
+   А/LНОСНR  Е А/I0              А/VLМ1                            С*АD*R      С*АD*С            СSQRТ    (СSТАNFUN)
+   А/LОАDGО    ЕRRСОUD*          А/VLМХ                                        С*DI*С            СSТАNFUN
+               LОАDGО            АВS      (ЕХР     )                           С*МU*С            СТIМЕ    (IТIМЕ   )
+               ТRАNS8/6          АНID/*   (НID/*   )                           С*SU*С            D*АD*D   (DUВLРRЕС)
+   А/LРRI   (А/DRUСК )           АIМАG    (RЕАL    )               С*СОМР   (С*АD*С  )           D*АD*I      D*АD*D
+   А/LRЕАD  (А/RRЕАD )           АINТ                              С*DI*С   (С*АD*С  )                       D*DI*D
+   А/NLINЕ  (А/DRUСК )           АLОG     (ЕХР     )               С*DI*I   (С*АD*I  )                       D*МU*D
+   А/NОТ    (А/АND   )           АLОG10   (ЕХР     )               С*DI*R   (С*АD*R  )                       D*SU*D
+   А/NОТL   (А/LНОСНR)           АLРRОС      А/САLLS               С*LN*С   (С*АD*С  )           D*АD*R      D*АD*D
+   А/NРАGЕ  (А/DRUСК )                       РRINТ8                С*LN*I   (С*SТ*I  )                       D*DI*D
+   А/ОРТLIN                                  SТОР*                 С*LN*R   (С*SТ*R  )                       D*МU*D
+   А/РАRСОN (А/САLLР )           АМАХ0       IFIХ                  С*LО*С   (С*АD*С  )                       D*SU*D
+   А/РАRЕХР (А/САLLР )           АМАХ1    (АМАХ0   )               С*LО*I   (С*SТ*I  )           D*СОМР   (DUВLРRЕС)
+   А/РАRLАВ (А/САLLР )           АМIN0    (АМАХ0   )               С*LО*R   (С*SТ*R  )           D*DI*D   (DUВLРRЕС)
+   А/РАRРАR (А/САLLР )           АМIN1    (АМАХ0   )               С*МU*С   (С*АD*С  )           D*DI*I   (D*АD*I  )
+   D*DI*R   (D*АD*R  )                       D*DI*D                            DАВS              F/SТАRТ
+   D*LN*D   (DUВLРRЕС)                       D*LN*D                            FТ*003            FС*002   (IОСОNТ* )
+   D*LN*I   (D*SТ*I  )                       D*LО*D                            FТ*571            FС*642   (IОСОNТ* )
+   D*LN*R   (D*SТ*R  )                       D*МU*D                            I*DI*I            FС*722   (IОСОNТ* )
+   D*LО*D   (DUВLРRЕС)                       D*РО*I                            VDSQRТ            FD*002   (IОСОNТD*)
+   D*LО*I   (D*SТ*I  )                       D*SТ*D                DUВLРRЕС    РRINТ8            FD*642   (IОСОNТ* )
+   D*LО*R   (D*SТ*R  )                       D*SТ*I                ЕDIТ***     СНКВЕG*           FD*722   (IОСОNТ* )
+   D*МU*D   (DUВLРRЕС)                       D*SU*D                            СНКЕND*           FIСМЕМ*     LUN*МОN
+   D*МU*I   (D*АD*I  )                       I*SТ*D                            СОLРUNВ*                      МОNIТОR*
+   D*МU*R   (D*АD*R  )           DIМ                                           СОLРUNС*          FIСМЕМОR    FIСМЕМ*
+   D*РО*D      D*МU*D            DINСОМР* (SТАСОМР*)                           СОLРUNЕ*                      РАRАМТ*
+               D*SТ*D            DINТ        D*АD*D                            СОSУТISО          FLОАТ
+               DЕХР                          D*LN*D                            DАТАРR*           FОLZОN   (RЕСАRD  )
+               DLОG                          D*LО*D                            FОRМКОZА          FОR*АLL  (МОN*IТОR)
+   D*РО*I      D*DI*D                        D*SТ*D                            LОАDАNGО          FОRМКОZА    СОSУТАКЕ
+               D*LО*D                        D*SU*D                            МОNRЕАD*                      РЕRСОSУ1
+               D*МU*D                        DАВS                              ОСТТDЕС                       РЕRСОSУ3
+               D*SТ*D            DLОG     D  D*АD*D                            РАRАМТ*           FТ*002   (IОСОNТ* )
+   D*РО*R   (D*РО*D  )                       D*DI*D                            РRINТ8            FТ*003   (IОСОNТ* )
+   D*SТ*D   (DUВLРRЕС)                       D*LN*D                            РRINТ8//          FТ*521   (ВСDRЕАD*)
+   D*SТ*I      D*LN*D                        D*LО*D                            RВЕGIN            FТ*531   (ВСDRЕАD*)
+               D*LО*D                        D*LО*R                            RЕАD*             FТ*541   (ВСDRЕАD*)
+               D*SТ*R                        D*МU*D                            RЕСАRD            FТ*561   (ВСDWRIТ*)
+               R*SТ*D                        D*SТ*D                            RЕWОRD            FТ*571   (ВСDWRIТ*)
+               R*SТ*I                        D*SU*D                            SIМFАIL*          FТ*611   (ВСDWRIТ*)
+   D*SТ*R      D*СОМР                        I*SТ*D                            ТАВSIМIS          FТ*621   (ВСDWRIТ*)
+               РRINТ8                        R*SТ*D                            WВЕGIN            FТ*641   (ВINRЕАD*)
+   D*SU*D   (DUВLРRЕС)           DLОG10      D*DI*D                            WRСАRD            FТ*642   (FТ*722  )
+   D*SU*I   (D*АD*I  )                       D*LО*D                            WRIЕND            FТ*643   (FТ*722  )
+   D*SU*R   (D*АD*R  )                       D*SТ*D                            WRWОRD            FТ*721   (ВINRЕАD*)
+   D*ТО*I      D*ТО*R                        DLОG                  ЕNСОDО                        FТ*722      IОСОNТ*
+               R*ТО*INТ          DМАХ1       D*LО*D                ЕNТIЕR*  (А/АND   )                       IОЕND*
+   D*ТО*R      *МISТАКЕ                      D*SU*D                ЕОF                                       IОSVFR
+               D*СОМР            DМIN1    (DМАХ1   )               ЕRR*        LUN*МОN           FТ*723   (FТ*722  )
+   DАВS        D*LN*D            DМОD        D*АD*D                            SТОР*             FТ2*     (ВСDВЕG* )
+               D*LО*D                        D*СОМР                ЕRRСОUD*                      FULLМЕМО (FIСМЕМ* )
+   DАТАN       D*АD*D                        D*DI*D                ЕRRIОМ      LUN*МОN           GIVСАLL*    IDЕNТ6
+               D*DI*D                        D*LО*D                            SDЕС*                         LОАDАNGО
+               D*LN*D                        D*МU*D                            SТОР*                         МОNIТОR*
+               D*LО*D                        D*SТ*D                ЕRRLUN   (ЕRRIОМ  )                       МОNRЕАD*
+               D*МU*D                        DINТ                  ЕХЕСUТ      ВLЕХРRIN          GIVЕLЕХХ    СLЕАRLЕХ
+               D*SТ*D            DРАRIТНМ    РRINТ8                            LОАDАNGО                      ЕRRIОМ
+               D*SU*D            DRUМТАР*    РRINТ8                            МОNIТОR*          GIVЕМАSК (IОХGIVЕМ)
+               DАВS                          SТОР*                             SТОР*             GIVLIВR*    LОАDАNGО
+               DSIGN             DSIGN       D*LО*D                ЕХЕСUТЕ     ЕХЕСUТ                        LТАВLЕ*
+   DАТАN2      D*АD*D                        D*SТ*D                            LUN*МОN                       SТАВLЕ*
+               D*СОМР                        D*SU*D                            МОNIТОR*          GIVSЕRV* (GIVLIВR*)
+               D*DI*D            DSIN        D*АD*D                            РАRАМТ*           GIVТRАN*    SТАСОМР*
+               D*LО*D                        D*СОМР                            РТ6                           ТТАВLЕ*
+               D*МU*D                        D*DI*D                            SТLОАD*           GО       (LОАDF   )
+               D*SТ*D                        D*LN*D                ЕХIТ        МОNIТОR*          GОSТ/ISО
+               D*SU*D                        D*LО*D                            SТОР*             Н/NОМЕR
+               DАТАN                         D*МU*D                ЕХР                           НID/*
+               DSIGN                         D*SТ*D                ЕХР*     (SIN*    )           I*DI*I
+               FТ*003                        D*SU*D                ЕХSТЕР   (СОSТЕР  )           I*DI*R
+               FТ*571                        DАВS                  F/FNОSV  (F/SТАRТ )           I*МU*I   (I*DI*I  )
+   DАТАРR      РRINТ8                        DINТ                  F/FRЕТ   (F/SТАRТ )           I*МUI*
+   DАТАРR*  (DАТАРR  )                       DSIGN                 F/FRЕТNR (F/SТАRТ )           I*РО*I      РОWЕR
+   DАТЕ*                         DSQRТ       D*АD*D                F/FSТАRТ (F/SТАRТ )                       R*РО*I
+   DВLЕ     (SNGL    )                       D*DI*D                F/LООР                                    R*SТ*I
+   DСОS     (DSIN    )                       D*LN*D                F/NОSVR  (F/SТАRТ )           I*РО*R   (I*РО*I  )
+   DЕFGЕNХХ  Е IОХХСОNТ                      D*LО*D                F/SАVЕR  (F/SТАRТ )           I*SТ*С   (С*SТ*I  )
+             Е IОХХGЕNМ                      D*МU*D                F/SNОSV  (F/SТАRТ )           I*SТ*D   (D*SТ*I  )
+   DЕLЕТЕ   (LОАDF   )                       D*РО*I                F/SRЕТ   (F/SТАRТ )           I*SТ*L   (I*DI*I  )
+   DЕNОRМ                                    D*SТ*D                F/SRЕТNR (F/SТАRТ )           IАВS
+   DЕХР        D*АD*D                        D*SU*D                F/SSТАRТ (F/SТАRТ )           IВСDСТR* (IОХХРКWТ)
+   IDЕNТ6                        IОХХDR                            LАDR     (IRВ1    )                       RЕSЕТ*
+   IDIМ        РRINТ8            IОХХЕR/М    LUN*МОN               LDIТМ*      FIСМЕМОR                      SТLОАD*
+   IDINТ    (SNGL    )           IОХХЕR/О (IОХХЕR/М)                           LОАD/IТМ                      SТОР*
+   IDIV                          IОХХFМR*    GIVЕLЕХХ                          LUN*МОN           МОNRЕАD*    СLЕАRLЕХ
+   IFIХ        РRINТ8                        RD/ВТ                             МОNIТОR*                      СОZУТISО
+   IFОVFL                                    SАVЕLЕХХ                          РАRАМТ*                       DRUМТАР*
+   INТ                                       SТОР*                             SТАR*                         LUN*МОN
+   IОАС*    (IОСОNТ* )                       WR/ВТ                 LЕNGТН                                    SТОР*
+   IОСОNТ*     LUN*МОN           IОХХFМW* (IОХХFМR*)               LIВDЕLЕТ  Е ЕХСLUDЕ           МОVЕТАРЕ (СОРУТАDR)
+               ОСТТDЕС           IОХХLРWТ    РRINТ80                           РRINТ8            МТSНIFТ* (SНIFТ*  )
+               SТОР*             IОХХРКRТ    LUN*МОN                           РТ6               NЕWСОМР*    DINСОМР*
+               SUВРЕRR*                      МОNRЕАD*              LIВDRUМ     РАRАМТ*                       IDЕNТ6
+   IОСОNТD*    D*АD*D                        RЕАD*ЕRR                          РRINТ8                        LUN*МОN
+               D*DI*D                        SТОР*                             РТ6                           РАRАМТ*
+               D*LN*D            IОХХРКWТ    IВСDСТR*                          SУSLISТ*                      SТАСОМР*
+               D*LО*D            IОХХРТRВ    АSАVЕ*                LIВRАRУ*  Е LIВLISТ           NЕWLIS
+               D*МU*D                        В/SU/                 LIВRАRУ     LIВRАRУ*          NЕWSТАR* (МОNIТОR/)
+               D*SТ*D                        SАVЕ*НID              LIВRРN*   Е LIВРUNСН          NЕWSУSТЕ    РАRАМТ*
+               D*SU*D            IОХХРТRТ (РТ8RЕАD )                           РЕRSТАN1                      РRINТ8
+               FТ2*              IОХХРТWВ (IОХХРТWТ)                           РЕRSТАN2                      RЕSЕТ*
+               IОСОNТ*           IОХХРТWТ    АSАVЕ*                            РЕRSТАN3          NЕХТLЕТ* (ВСDWRIТ*)
+               КОNV1*                        FОR*АLL                           РЕRSТАNЕ          NОТLIS   (NЕWLIS  )
+               NЕХТLЕТ*                      МОN*IТОR                          РRINТ8            ОСТТDЕС
+               RК*                           ОН*                               РТ6               ОН*      (МОN*IТОR)
+               WSУ*                          ОН*1                              RЕАDSТАR          ОН*1     (МОN*IТОR)
+   IОDСАLL*    LОАDАNGО                      SАVЕ*НID              LIВТАРЕ     РАRАМТ*           ОКНО     (ВОКНО   )
+   IОDUММУ                       IОХХRРСК    АНID/*                            РRINТ8            ОUТМL       РАRАМТ*
+   IОЕDRWRТ    F/LООР                        НID/*                             РТ6                           РRINТ8
+               F/SRЕТ            IОХХSFR* (IОХХSFW*)               LN*      (SIN*    )           РАRАМТ*     РRINТ8
+               F/SSТАRТ          IОХХSFW*    GIVЕLЕХХ              LОАD/IТМ    Н/NОМЕR                       SIМFАIL*
+               GIVЕLЕХХ                      SАVЕLЕХХ                          LUN*МОN                       ТАВSIМIS
+               IОМУLISТ                      SЕТWLЕХХ                          РRINТ8            РСАТАLОG (ТСАТАLОG)
+               IWВ1              IОХХSОWТ    LUN*МОN                           RЕАDК3А2          РDUМР       МОNIТОR*
+               LАDR              IОХХSWАР    АНID/*                LОАDАNGО                                  SТОР*
+   IОЕDWТЕF    F/LООР                        СLЕАRLЕХ              LОАDСАLL (LОАDАNGО)           РЕRСОSУ1 (SТАРUNСН)
+               F/SRЕТ                        GIVЕМАSК              LОАDF                         РЕRСОSУ2 (SТАРUNСН)
+               F/SSТАRТ                      НID/*                 LОАDGО   (LОАDАNGО)           РЕRСОSУ3 (SТАРUNСН)
+               IОМУLISТ                      IОХХRРСК              LОАDТ    (LОАDF   )           РЕRSТАN1 (SТАРUNСН)
+               IWВ1                          IОХХUРСК              LТАВLЕ*                       РЕRSТАN2 (SТАРUNСН)
+               LАDR              IОХХТТRТ    /IР*                  LUN*МОN     РRINТ80           РЕRSТАN3 (SТАРUNСН)
+               R*ТО*I                        АSАVЕ*                            ТТРRINТ           РЕRSТАNЕ (SТАРUNСН)
+               SАVЕLЕХХ                      FОR*АLL               LUNМОN      LUN*МОN           РLВЕG    (МОN*IТОR)
+   IОЕND*   (IОСОNТ* )                       GОSТ/ISО              МАХ0     (АМАХ0   )           РLСАТАLО (ТСАТАLОG)
+   IОМУLISТ    F/FNОSV                       МОN*IТОR              МАХ1     (АМАХ0   )           РLСLО    (МОN*IТОR)
+               F/FRЕТNR                      SАVЕ*НID              МDLСАRD*    LUN*МОN           РОWЕR       РRINТ8
+               GIVЕLЕХХ                      ТТРRIКS                           МОNRЕАD*          РОWЕR1      DЕNОRМ
+               SЕТWLЕХХ          IОХХТТWТ    АSАVЕ*                            SТАСОМР*                      РОWЕR
+   IОSТАТ   (ЕОF     )                       FОR*АLL               МIN0     (АМАХ0   )           РRЕРDАТ     DАТАРR*
+   IОSVFR   (IОСОNТ* )                       ISО/GОSТ              МIN1     (АМАХ0   )           РRINТ8*     РRINТ8
+   IОХGIVЕМ                                  МОN*IТОR              МОD         АМОD              РRINТ8      АSАVЕ*
+   IОХNSWАР    АНID/*                        ОН*                               РRINТ8                        FОR*АLL
+               СLЕАRLЕХ                      ОН*1                  МОN*IТОR    РLВЕG                         ISО/GОSТ
+               GIVЕМАSК                      SАVЕ*НID                          РLСLО                         МОN*IТОR
+               НID/*             IОХХUРСК (IОХХRРСК)               МОNIТОR*    LОАDАNGО                      ОН*
+               IОХХRРСК          IRВ      (IRВ1    )                           LОАDСАLL                      РLВЕG
+               IОХХUРСК          IRВ1        RD/ВТ                             SЕТIОDСВ                      РLСLО
+   IОХRСВ      GIVЕМАSК                      WR/ВТ                             SТLОАD*                       SАVЕ*НID
+               IОХХRРСК          ISIGN                             МОNIТОR/    СLЕАRLЕХ          РRINТ8//
+               IОХХUРСК          ISО*ТЕХ*                                      СОSУТISО          РRINТ80  (РRINТ8  )
+               LUN*МОN           ISО/GОSТ                                      DRUМТАР*          РRINТА      РRINТ8
+               SТОР*             ISОТСОS1                                      LОАDАNGО          РRINТАМ     РRINТ8
+   IОХRРТ      GIVЕLЕХХ          ISОТСОSУ                                      LОАDСАLL          РRINТЕ
+               IОХRСВ            IТIМЕ                                         LUN*МОN           РRINТО   (РRINТЕ  )
+               IОХWСВ            IWВ      (IRВ1    )                           МОNRЕАD*          РRINТR      РRINТ8
+   IОХWСВ   (IОХRСВ  )           IWВ1     (IRВ1    )                           РRINТ8            РТ6         Э*64
+   IОХWРТ   (IОХRРТ  )           КОNV1*   (ВСDВЕG* )                           RЕАD*             РТ8ВNР   (IОХХРТWТ)
+   РТ8РUN   (IОХХРТWТ)                       ЕRRIОМ                SТWRIТ*     МОNRЕАD*                      ISОТСОSУ
+   РТ8RЕАD     АSАVЕ*                        ЕRRLUN                            РRINТ8            WRIТLIВR    РRINТ8
+               СLЕАRLЕХ                      GIVЕМАSК                          SТОР*             WRWОRD   (WRСАRD  )
+               LUN*МОN                       НID/*                             WRIТLIВR          WSУ*     (ВСDWRIТ*)
+               МОNIТОR*                      IОХХЕR/М              SUВРЕRR* (IОСОNТ* )           ХХХАРR      SWRIТТ
+               РLВЕG                         IОХХRРСК              SWRIТВ      RWТВ/*                        ХХХАРR
+               РLСLО                         IОХХUРСК                          ТАВWВ/*           ХХХАWR      SRЕАDТ
+               SАVЕ*НID                      SТОР*                 SWRIТТ      RWТВ/*                        ХХХАWR
+               SТОР*             SАVЕ*                                         ТАВWТ/*           УЕSLIS   (NЕWLIS  )
+   РТIМЕ                         SАVЕ*НID (МОN*IТОR)               SУSВАСК*    LОАDСАLL          УЕSМЕМОR (FIСМЕМ* )
+   РUNСНА      СОLРUN*В          SАVЕLЕХХ (GIVЕLЕХХ)               SУSLISТ*                      ZАРАК12
+               СОLРUNВ*          SСНЕОF   (*RЕWIN  )               ТАВЕF/*     IОDUММУ           ZАРАК8
+               СОLРUNС*          SDЕС*                                         IОХХЕR/О          ПЕР6В81С
+               СОLРUNЕ*          SЕNDЕR    Е РUТАWАУ                           IОХХFМW*          Э*64
+               ЕNСОDО            SЕТFТN      РRINТ8                ТАВRВ/*     IОХХЕR/О
+   РUNСНВ   (РUNСНА  )           SЕТIОDСВ                                      IОХХFМR*
+   РUNСНО   (РUNСНА  )           SЕТТRАN* (GIVТRАN*)               ТАВRТ/*     IОХХЕR/О
+   РUNСТАВL                      SЕТWLЕХХ                                      IОХХFМR*
+   РUNОFF   (РUNСНА  )           SНIFТ*                                        IОХХРКRТ
+   РUNОN    (РUNСНА  )           SIGN                                          IОХХТТRТ
+   РUNТЕХ/     РUNСТАВL          SIМFАIL*                          ТАВRW/*     IОDUММУ
+   РUТСDС*  (РUТIВМ* )           SIN      (ЕХР     )                           IОХХЕR/О
+   РUТFLАG*    МОNRЕАD*          SIN*                                          IОХХFМR*
+               РRINТ8            SLIВLISТ  Е LIВLISТ               ТАВSIМIS
+   РUТIВМ*   Е NЕWОLD*                     Е SОRТSТL*              ТАВWВ/*     IОХХЕR/О
+   R*DI*I   (I*DI*R  )           SNGL        D*LО*D                            IОХХFМW*
+   R*РО*D   (D*РО*D  )                       D*LО*I                ТАВWТ/*     IОХХЕR/О
+   R*РО*I                                    D*SТ*R                            IОХХFМW*
+   R*РО*R   (I*РО*I  )                       R*SТ*D                            IОХХLРWТ
+   R*SТ*С   (С*SТ*R  )           SQRТ     (ЕХР     )                           IОХХРКWТ
+   R*SТ*D   (D*SТ*R  )           SQRТ*    (SIN*    )                           IОХХТТWТ
+   R*SТ*I                        SRЕАDВ      RWТВ/*                ТАВУNАМ*    ISО*ТЕХ*
+   R*ТО*I                                    ТАВRВ/*                           МОNIТОR*
+   R*ТО*INТ (R*ТО*I  )           SRЕАDТ      RWТВ/*                            МОNRЕАD*
+   RАSРАК12                                  ТАВRТ/*                           РАRАМТ*
+   RАSРАК8                       SТАВLЕ*  (LТАВLЕ* )                           РRINТ8
+   RВЕGIN   (RЕСАRD  )           SТАСОМР*    LUN*МОN               ТАN         СОS
+   RD/ВТ                                     SТLОАD*                           SIN
+   RЕАD*    (IОХХРКRТ)           SТАN1                             ТАNН
+   RЕАD*ЕRR (МОNRЕАD*)           SТАРUNСН    ВIGРUNСН              ТАРЕS*      LUN*МОN
+   RЕАD1       СОSУТISО                      СНЕСКSUМ                          МТSНIFТ*
+               DRUМТАР*                      RАSРАК12                          РАRАМТ*
+   RЕАD2       СОSУТISО                      RЕVСАRD                           SНIFТ*
+               DRUМТАР*                      ZАРАК12               ТСАТАLОG    DАТАРR*
+   RЕАDК3А2                      SТАR*       /IР*                              РАRАМТ*
+   RЕАDLIВТ                                  ЕХЕСUТ                            РRINТ8//
+   RЕАDSТАR                                  GIVСАLL*              ТСАТDОR  (ТСАТАLОG)
+   RЕАDVОLК    РАRАМТ*                       GIVLIВR*              ТЕМРОLIВ
+   RЕАL                                      GIVSЕRV*              ТRАNS8/6
+   RЕСАР/   (РUNТЕХ/ )                       GIVТRАN*              ТRNS10Т8
+   RЕСАRD      СОSУТISО                      IDЕNТ6                ТТАВLЕ*
+               DRUМТАР*                      LОАDАNGО              ТТРRIКS  (IОХХТТWТ)
+               FОLZОN                        LОАDСАLL              ТТРRINТ  (IОХХТТWТ)
+               RЕWОRD                        LUN*МОN               ТТРRINТD (IОХХТТWТ)
+               SТОР*                         МОNIТОR*              ТТRЕАD*  (IОХХТТRТ)
+   RЕSЕТ*   (МОNIТОR*)                       МОNRЕАD*              ТТRЕАD*D (IОХХТТRТ)
+   RЕVСАRD                                   NЕWLIS                VDSQRТ      D*LО*D
+   RЕWОRD   (RЕСАRD  )                       SЕТТRАN*                          D*МU*D
+   RК*      (ВСDWRIТ*)                       SТОР*                             D*SТ*D
+   RLIВLIS     СОРУСАRD          SТАR*//     LUN*МОN               WВЕGIN   (WRСАRD  )
+             Е LIВLISТ                       РАRАМТ*               WR/ВТ    (RD/ВТ   )
+               РАRАМТ*           SТLОАD*                           WRСАRD      DRUМТАР*
+               РТ6               SТОА     (А/SРLUSS)                           ISОТСОSУ
+               RЕАDLIВТ          SТОР**   (МОNIТОR*)                           WRWОRD
+               WRIТLIВR          SТОР*       LОАDАNGО              WRIЕND   (WRСАRD  )
+   RWТВ/*      АНID/*                        SТОР**                WRIТЕ1      DRUМТАР*
+                                                      18.05.19 М1
+                     ИСПОЛЬЗОВАНИЕ ПОДПРОГРАММ                     D*АD*R                        I*DI*R
+                                                                   D*DI*I                        I*МU*I
+                                 А/SТОР                            D*DI*R                        I*МUI*
+   Е - ВНЕШНЯЯ П/П               А/SUВСН                           D*LN*I                        I*РО*I
+   N - ОПИСАНА, НЕ ИСПОЛЬЗУЕТСЯ  А/VLМ1                            D*LN*R                        I*РО*R
+   С - ЕСТЬ ОДНОИМЕННЫЙ СОММОN   А/VLМХ                            D*МU*I                        I*SТ*С
+                                 АINТ                              D*МU*R                        I*SТ*L
+   НЕИСПОЛЬЗУЕМЫЕ ВХОДЫ          АLОG                              D*РО*D                        IАВS
+                                 АLОG10                            D*РО*R                        IDIМ
+   *ВАСКS                        АLРRОС                            D*SU*I                        IDINТ
+   *ЕNDFI                        АМАХ0                             D*SU*R                        IDIV
+   *FLSУS                        АМАХ1                             D*ТО*I                        IFОVFL
+   *МUI*                         АМIN0                             DАТАN2                        INТ
+   *РАSСАL                       АМIN1                             DАТАРR                        IОСОNТD*
+   *RЕWIN                        АRСТАN*                           DАТЕ*    С                    IОDСАLL*
+   А/АND                         АSIN                              DВLЕ                          IОЕDRWRТ
+   А/АRGSТR                      АSТАМА                            DСОS                          IОЕDWТЕF
+   А/АRRD/V                      АТАN2                             DЕFGЕNХХ                      IОSТАТ
+   А/ВАРRI                       АТОS                              DЕLЕТЕ                        IОХGIVЕМ
+   А/ВАRЕАD                      ВСDDЕС*                           DIМ                           IОХNSWАР
+   А/САLLР                       ВСDЕNС*                           DLОG10                        IОХRРТ
+   А/СОММОN                      ВСDРUN                            DМАХ1                         IОХWРТ
+   А/ЕQUIV                       ВСDRЕАD*                          DМIN1                         IОХХDR
+   А/GЕТАRR                      ВСDWRIТ*                          DМОD                          IОХХРТRВ
+   А/I*ISО                       ВЕМSН**                           DРАRIТНМ                      IОХХРТRТ
+   А/IАРRI                       ВЕМSН*                            DSIN                          IОХХРТWВ
+   А/IАRЕАD                      ВIGТIТ                            DSQRТ                         IОХХРТWТ
+   А/IНОСНI                      ВIGТIТLЕ                          DUВLРRЕС                      IОХХSFR*
+   А/IМРL                        ВINАRУ                            ЕDIТ***                       IОХХSFW*
+   А/LАРRI                       ВINРUN                            ЕNТIЕR*                       IОХХSОWТ
+   А/LАRЕАD                      ВINRЕАD*                          ЕОF                           IОХХSWАР
+   А/LНОСНI                      ВINWRIТ*                          ЕRR*                          IRВ
+   А/LНОСНR                      ВОКНО                             ЕХЕСUТЕ                       IRВ1
+   А/LОАDGО                      С*АD*I                            ЕХР                           ISIGN
+   А/NLINЕ                       С*АD*R                            ЕХР*                          ISОТСОS1
+   А/NОТ                         С*DI*I                            ЕХSТЕР                        IТIМЕ
+   А/NОТL                        С*DI*R                            F/FRЕТ                        IWВ
+   А/NРАGЕ                       С*LN*I                            F/FSТАRТ                      LDIТМ*
+   А/ОРТLIN                      С*LN*R                            F/NОSVR                       LЕNGТН
+   А/РАRСОN                      С*LО*I                            F/SАVЕR                       LIВDЕLЕТ
+   А/РАRЕХР                      С*LО*R                            F/SNОSV                       LIВDRUМ
+   А/РАRLАВ                      С*МU*I                            F/SRЕТNR                      LIВRАRУ
+   А/РАRРАR                      С*МU*R                            F/SТАRТ                       LIВRРN*
+   А/РАRSТR                      С*РО*I                            FС*002                        LIВТАРЕ
+   А/РАRVАL                      С*SТ*I                            FС*642                        LN*
+   А/РАRVАR                      С*SТ*R                            FС*722                        LОАDF
+   А/РUТАRR                      С*SU*I                            FD*002                        LОАDТ
+   А/R*ISО                       С*SU*R                            FD*642                        LUNМОN
+   А/RАРRI                       САВS                              FD*722                        МАХ0
+   А/RАRЕАD                      САТАLОG*                          FLОАТ                         МАХ1
+   А/RНОСНI                      СВRТ                              FТ*002                        МDLСАRD*
+   А/RNLINЕ                      ССОS                              FТ*521                        МIN0
+   А/RТОI                        СLDЕСО                            FТ*531                        МIN1
+   А/SАРRI                       СLОG                              FТ*541                        МОD
+   А/SАRЕАD                      СLОРЕN                            FТ*561                        МОNIТОR/
+   А/SЕQS                        СМРLХ                             FТ*611                        МОVЕТАРЕ
+   А/SGЕS                        СОNJG                             FТ*621                        NЕWСОМР*
+   А/SGТS                        СОРУТАDR                          FТ*641                        NЕWSТАR*
+   А/SIGN                        СОS*                              FТ*642                        NЕWSУSТЕ
+   А/SLЕS                        СОSТЕР                            FТ*643                        NОТLIS
+   А/SLIСЕ                       СSIN                              FТ*721                        ОКНО
+   А/SLТS                        СSQRТ                             FТ*722                        ОUТМL
+   А/SNЕS                        СSТАNFUN                          FТ*723                        РСАТАLОG
+   А/SРLUSS                      СТIМЕ                             FULLМЕМО                      РDUМР
+   А/SТАRТ                       D*АD*I                            GО                            РLСАТАLО
+   РОWЕR1                        А/ВRЕАD     А/RАRЕАD              СНЕСКSUМ    SТАРUNСН                      DАТАN
+   РRЕРDАТ                       А/САLLS     А/GЕТАRR              СНКВЕG*     ЕDIТ***                       DАТАN2
+   РRINТА                                    А/RАRЕАD              СНКЕND*     ЕDIТ***                       DЕХР
+   РRINТАМ                                   А/RRЕАD               СLЕАRLЕХ    GIVЕLЕХХ                      DINТ
+   РRINТЕ                                    АLРRОС                            IОХNSWАР                      DLОG
+   РRINТО                        А/DАТЕ   Е  АSТАМА                            IОХХSWАР                      DLОG10
+   РRINТR                        А/DRUСК   N А/SТОР                          N МОNIТОR/                      DМАХ1
+   РТ8ВNР                        А/ЕRRОR     А/АRRD/К                          МОNRЕАD*                      DМОD
+   РТ8РUN                                    А/СОММОN                          РТ8RЕАD                       DSIGN
+   РТ8RЕАD                                   А/SРLUSS              СОLРUN*В    РUNСНА                        DSIN
+   РТIМЕ                                     А/SUВСН               СОLРUNВ*    ЕDIТ***                       DSQRТ
+   РUNСНА                        А/GЕТINС    А/RRЕАD                           РUNСНА                        IОСОNТD*
+   РUNСНВ                                    А/SРLUSS              СОLРUNС*    ЕDIТ***                       SNGL
+   РUNСНО                        А/I0     С  А/АND                             РUNСНА                        VDSQRТ
+   РUNОFF                                    А/LНОСНR              СОLРUNЕ*    ЕDIТ***           D*LО*I      SNGL
+   РUNОN                         А/IРRI      А/RАРRI                           РUNСНА            D*LО*R      DLОG
+   РUNТЕХ/                       А/IRЕАD     А/RАRЕАD              СОРУСАRD    СОРУТАDR          D*МU*D      D*АD*I
+   РUТСDС*                       А/LРRI      А/RАРRI                           RLIВLIS                       D*АD*R
+   РUТFLАG*                      А/LRЕАD     А/RАRЕАD              СОS         ТАN                           D*РО*D
+   РUТIВМ*                       А/МINUS  С  А/АND                 СОSУТАКЕ    FОRМКОZА                      D*РО*I
+   R*DI*I                        А/ОСТDЕС Е  АSТАМА                СОSУТISО    ЕDIТ***                       DАТАN
+   R*РО*D                        А/РRОСRТ    А/GЕТАRR                        N МОNIТОR/                      DАТАN2
+   R*РО*R                                    А/RАRЕАD                          RЕАD1                         DЕХР
+   RЕАD1                                     А/RRЕАD                           RЕАD2                         DLОG
+   RЕАD2                                     А/SРLUSS                          RЕСАRD                        DМОD
+   RЕАDVОLК                      А/RРRI      А/RАРRI               СОZУТISО    МОNRЕАD*                      DSIN
+   RЕСАР/                        А/RRЕАD     А/RАRЕАD              D*АD*D      D*АD*I                        DSQRТ
+   RLIВLIS                       А/SРRI      А/RАРRI                           D*АD*R                        IОСОNТD*
+   SАVЕ*                         А/SRЕАD     А/RАRЕАD                          DАТАN                         VDSQRТ
+   SСНЕОF                        А/WРUТR  Е  АSТАМА                            DАТАN2            D*РО*I      DЕХР
+   SЕNDЕR                        АВS         САВS                              DЕХР                          DSQRТ
+   SЕТFТN                        АНID/*      IОХNSWАР                          DINТ              D*SТ*D      D*РО*D
+   SIN*                                      IОХХRРСК                          DLОG                          D*РО*I
+   SLIВLISТ                                  IОХХSWАР                          DМОD                          DАТАN
+   SNGL                                      RWТВ/*                            DSIN                          DАТАN2
+   SQRТ*                         АIМАG       САВS                              DSQRТ                         DЕХР
+   SТАN1                         АLGОL    ЕN АSТАМА                            IОСОNТD*                      DINТ
+   SТАРUNСН                      АМОD        МОD                   D*СОМР      D*SТ*R                        DLОG
+   SТАR*//                       АSАVЕ*      IОХХРТRВ                          D*ТО*R                        DLОG10
+   SТОА                                      IОХХРТWТ                          DАТАN2                        DМОD
+   SТWRIТ*                                   IОХХТТRТ                          DМОD                          DSIGN
+   SУSВАСК*                                  IОХХТТWТ                          DSIN                          DSIN
+   ТАВУNАМ*                                N РRINТ8                D*DI*D      D*АD*I                        DSQRТ
+   ТАN                                       РТ8RЕАD                           D*АD*R                        IОСОNТD*
+   ТАNН                          АТАN        АТАN2                             D*РО*I                        VDSQRТ
+   ТАРЕS*                        В/SU/       IОХХРТRВ                          DАТАN             D*SТ*I      DЕХР
+   ТСАТАLОG                      ВСDВЕG*     ВСDRЕАD*                          DАТАN2            D*SТ*R      D*SТ*I
+   ТСАТDОR                                   ВСDWRIТ*                          DЕХР                          SNGL
+   ТЕМРОLIВ                      ВIGРUNСН    SТАРUNСН                          DLОG              D*SU*D      D*АD*I
+   ТRNS10Т8                      ВLЕХРRIN    ЕХЕСUТ                            DLОG10                        D*АD*R
+   ТТРRINТD                      С*АD*С      С*АD*I                            DМОD                          DАТАN
+   ТТRЕАD*                                   С*АD*R                            DSIN                          DАТАN2
+   ТТRЕАD*D                      С*СОМР      С*SТ*R                            DSQRТ                         DЕХР
+   WRIТЕ1                        С*DI*С      С*АD*I                            IОСОNТD*                      DINТ
+   УЕSLIS                                    С*АD*R                D*LN*D      D*SТ*I                        DLОG
+   УЕSМЕМОR                                  С*РО*I                            DАВS                          DМАХ1
+   ПЕР6В81С                      С*LN*С      С*SТ*I                            DАТАN                         DSIGN
+                                 С*LО*С      С*РО*I                            DЕХР                          DSIN
+                                             С*SТ*I                            DINТ                          DSQRТ
+   ИСПОЛЬЗУЕМЫЕ ВХОДЫ            С*МU*С      С*АD*I                            DLОG                          IОСОNТD*
+                                             С*АD*R                            DSIN              D*ТО*R      D*ТО*I
+   *МISТАКЕ    D*ТО*R                        С*РО*I                            DSQRТ             DАВS        DАТАN
+   /IР*        IОХХТТRТ          С*SТ*С      С*РО*I                            IОСОNТD*                      DINТ
+               SТАR*             С*SU*С      С*АD*I                D*LО*D      D*РО*I                        DSIN
+   А/АRRD/К  N А/SТОР                        С*АD*R                            D*SТ*I                        DSQRТ
+   А/ВРRI      А/RАРRI           СЕХР        ССОS                              DАВS              DАТАN       DАТАN2
+   DАТАРR*     ЕDIТ***           GIVТRАN*    *РАSСАL               КОNV1*      ВСDRЕАD*                      ТАВУNАМ*
+               РRЕРDАТ                       SТАR*                             IОСОNТD*          МОNRЕАD*    ВINАRУ
+               ТСАТАLОG          GОSТ/ISО    IОХХТТRТ              LАDR        IОЕDRWRТ                      ЕDIТ***
+   DЕNОRМ      РОWЕR1            Н/NОМЕR     LОАD/IТМ                          IОЕDWТЕF                      GIVСАLL*
+   DЕХР        D*РО*D            НID/*       IОХNSWАР              LIВLISТ  Е  LIВRАRУ*                      IОХХРКRТ
+   DINСОМР*    NЕWСОМР*                      IОХХRРСК                          RLIВLIS                       МDLСАRD*
+   DINТ        DМОD                          IОХХSWАР                          SLIВLISТ                    N МОNIТОR/
+               DSIN                          RWТВ/*                LIВРUNСН Е  LIВRРN*                       РUТFLАG*
+   DLОG        D*РО*D            I*DI*I      DSQRТ                 LIВRАRУ*    LIВRАRУ                       SТАR*
+               DLОG10            I*SТ*D      DЕХР                  LОАD/IТМ    LDIТМ*                        SТWRIТ*
+   DRUМТАР*  N МОNIТОR/                      DLОG                  LОАDАNGО    *FLSУS                        ТАВУNАМ*
+               МОNRЕАD*          IВСDСТR*    IОХХРКWТ                          ВЕМSН*            МТSНIFТ*    ТАРЕS*
+               RЕАD1             IDЕNТ6      GIVСАLL*                          ЕDIТ***           NЕWLIS      SТАR*
+               RЕАD2                         NЕWСОМР*                          ЕХЕСUТ            NЕWОLD*  С  РUТIВМ*
+               RЕСАRD                        SТАR*                             GIVСАLL*          NЕХТLЕТ*    IОСОNТD*
+               WRСАRD            IFIХ        АМАХ0                             GIVLIВR*          ОСТТDЕС     *МISТАКЕ
+               WRIТЕ1            IОАС*       А/GЕТАRR                          IОDСАLL*                      ЕDIТ***
+   DSIGN       DАТАN             IОСОNТ*     ВСDВЕG*                           МОNIТОR*                      IОСОNТ*
+               DАТАN2                        ВСDRЕАD*                          МОNIТОR/          ОН*         IОХХРТWТ
+               DSIN                          ВСDWRIТ*                          SТАR*                         IОХХТТWТ
+   ЕNСОDО      РUNСНА                        ВINRЕАD*                          SТОР*                         РRINТ8
+   ЕRRСОUD*    А/LОАDGО                      FТ*722                LОАDСАLL  N АSТАМА            ОН*1        IОХХРТWТ
+   ЕRRIОМ      GIVЕLЕХХ                      IОСОNТD*                          МОNIТОR*                      IОХХТТWТ
+               RWТВ/*            IОDUММУ     ТАВЕF/*                           МОNIТОR/          РАRАМТ*     *FLSУS
+   ЕRRLUN      RWТВ/*                        ТАВRW/*                           SТАR*                         СОРУТАDR
+   ЕХСLUDЕ  Е  LIВDЕLЕТ          IОЕND*      FТ*722                            SУSВАСК*                      ЕDIТ***
+   ЕХЕСUТ      СОSТЕР            IОМУLISТ    IОЕDRWRТ              LОАDGО      А/LОАDGО                      ЕХЕСUТЕ
+               ЕХЕСUТЕ                       IОЕDWТЕF              LТАВLЕ*     GIVLIВR*                      FIСМЕМОR
+               SТАR*             IОSVFR      FТ*722                LUN*МОN     ВINАRУ                        LDIТМ*
+   ЕХIТ      N АSТАМА            IОХRСВ      IОХRРТ                            ВLЕХРRIN                      LIВDRUМ
+               СОSТЕР            IОХWСВ      IОХRРТ                            ЕRR*                          LIВТАРЕ
+   F/FNОSV     IОМУLISТ          IОХХСОNТ Е  DЕFGЕNХХ                          ЕRRIОМ                        NЕWСОМР*
+   F/FRЕТNR    IОМУLISТ          IОХХЕR/М    RWТВ/*                            ЕХЕСUТЕ                       NЕWSУSТЕ
+   F/LООР      IОЕDRWRТ          IОХХЕR/О    ТАВЕF/*                           FIСМЕМ*                       ОUТМL
+               IОЕDWТЕF                      ТАВRВ/*                           IОСОNТ*                       RЕАDVОLК
+   F/SRЕТ      IОЕDRWRТ                      ТАВRТ/*                           IОХRСВ                        RLIВLIS
+               IОЕDWТЕF                      ТАВRW/*                           IОХХЕR/М                      SТАR*//
+   F/SSТАRТ    IОЕDRWRТ                      ТАВWВ/*                           IОХХРКRТ                      ТАВУNАМ*
+               IОЕDWТЕF                      ТАВWТ/*                           IОХХSОWТ                      ТАРЕS*
+   FIСМЕМ*     FIСМЕМОR          IОХХFМR*    ТАВRВ/*                           LDIТМ*                        ТСАТАLОG
+   FIСМЕМОR    LDIТМ*                        ТАВRТ/*                           LОАD/IТМ          РЕRСОSУ1    FОRМКОZА
+   FОLZОN      RЕСАRD                        ТАВRW/*                           LUNМОN            РЕRСОSУ2    СОSУТАКЕ
+   FОR*АLL     IОХХРТWТ          IОХХFМW*    ТАВЕF/*                           МDLСАRD*          РЕRСОSУ3    FОRМКОZА
+               IОХХТТRТ                      ТАВWВ/*                         N МОNIТОR/          РЕRSТАN1    LIВRРN*
+               IОХХТТWТ                      ТАВWТ/*                           МОNRЕАD*          РЕRSТАN2    LIВRРN*
+               РRINТ8            IОХХGЕNМ Е  DЕFGЕNХХ                          NЕWСОМР*          РЕRSТАN3    LIВRРN*
+   FОRМКОZА    ЕDIТ***           IОХХLРWТ    ТАВWТ/*                           РТ8RЕАD           РЕRSТАNЕ  N LIВRРN*
+   FТ*003      АТАN2             IОХХРКRТ    ТАВRТ/*                           SТАСОМР*          РLВЕG       МОN*IТОR
+               DАТАN2            IОХХРКWТ    ТАВWТ/*                           SТАR*                       N РRINТ8
+               DSQRТ             IОХХRРСК    IОХNSWАР                          SТАR*//                       РТ8RЕАD
+   FТ*571      АТАN2                         IОХRСВ                            ТАРЕS*            РLСLО       МОN*IТОR
+               DАТАN2                        IОХХSWАР              МОN*IТОR    IОХХРТWТ                      РRINТ8
+               DSQRТ                         RWТВ/*                            IОХХТТRТ                      РТ8RЕАD
+   FТ2*        IОСОNТD*          IОХХТТRТ    ТАВRТ/*                           IОХХТТWТ          РОWЕR       I*РО*I
+   GIVСАLL*    SТАR*             IОХХТТWТ    ТАВWТ/*                           РRINТ8                        РОWЕR1
+   GIVЕLЕХХ    IОЕDRWRТ          IОХХUРСК    IОХNSWАР              МОNIТОR*    АSТАМА            РRINТ8*     А/ЕRRОR
+               IОМУLISТ                      IОХRСВ                          N ВЕМSН**                       А/RRЕАD
+               IОХRРТ                        IОХХSWАР                          ЕХЕСUТ            РRINТ8      *МISТАКЕ
+               IОХХFМR*                      RWТВ/*                            ЕХЕСUТЕ                       *РАSСАL
+               IОХХSFW*          ISО*ТЕХ*    ТАВУNАМ*                          ЕХIТ                        N А/DRUСК
+   GIVЕМАSК    IОХNSWАР          ISО/GОSТ    IОХХТТWТ                          FIСМЕМ*                       АLРRОС
+               IОХRСВ                        РRINТ8                            GIVСАLL*                      АМОD
+               IОХХSWАР          ISОТСОSУ    WRСАRD                            LDIТМ*                        ВЕМSН**
+               RWТВ/*                        WRIТЕ1                            РDUМР                         ВIGТIТLЕ
+   GIVLIВR*    SТАR*             IWВ1        IОЕDRWRТ                          РТ8RЕАD                       СОРУСАRD
+   GIVSЕRV*    SТАR*                         IОЕDWТЕF                          SТАR*                         СОРУТАDR
+               D*SТ*R            RЕSЕТ*      МОNIТОR/              SUВРЕRR*    IОСОNТ*
+               DАТАРR                        NЕWSУSТЕ              SWRIТВ      ВINRЕАD*
+               DРАRIТНМ          RЕVСАRD     SТАРUNСН              SWRIТТ      ВСDWRIТ*
+               DRUМТАР*          RЕWОRD    N ЕDIТ***                           ХХХАРR
+               DUВLРRЕС                      RЕСАRD                SУSLISТ*    LIВDRUМ
+             N ЕDIТ***           RК*         IОСОNТD*              ТАВЕF/*     *ЕNDFI
+               IDIМ              RWТВ/*      *ЕNDFI                ТАВRВ/*     SRЕАDВ
+               IFIХ                          *RЕWIN                ТАВRТ/*     SRЕАDТ
+               LIВDЕLЕТ                      SRЕАDВ                ТАВRW/*     *RЕWIN
+               LIВDRUМ                       SRЕАDТ                ТАВSIМIS    СНКВЕG*
+               LIВRРN*                       SWRIТВ                            ЕDIТ***
+               LIВТАРЕ                       SWRIТТ                            РАRАМТ*
+             N LОАD/IТМ          SАVЕ*НID    IОХХРТRВ              ТАВWВ/*     SWRIТВ
+               МОD                           IОХХРТWТ              ТАВWТ/*     SWRIТТ
+             N МОNIТОR/                      IОХХТТRТ              ТRАNS8/6    А/LОАDGО
+               NЕWSУSТЕ                      IОХХТТWТ              ТТАВLЕ*     GIVТRАN*
+               ОUТМL                         РRINТ8                ТТРRIКS     IОХХТТRТ
+               РАRАМТ*                       РТ8RЕАD               ТТРRINТ     LUN*МОN
+               РОWЕR             SАVЕLЕХХ    IОЕDWТЕF              VDSQRТ      DSQRТ
+               РRINТ8*                       IОХХFМR*              WВЕGIN      ЕDIТ***
+               РRINТА                        IОХХSFW*              WR/ВТ       IОХХFМR*
+               РRINТАМ           SDЕС*       ЕRRIОМ                            IRВ1
+               РRINТR            SЕТIОDСВ  N МОNIТОR*              WRСАRD      ЕDIТ***
+               РUТFLАG*          SЕТТRАN*    SТАR*                 WRIЕND      ЕDIТ***
+               SЕТFТN            SЕТWLЕХХ    IОМУLISТ              WRIТLIВR    RLIВLIS
+               SТWRIТ*                       IОХХSFW*                          SТWRIТ*
+               ТАВУNАМ*          SНIFТ*      ТАРЕS*                WRWОRD    N ЕDIТ***
+               WRIТLIВR          SIGN        АТАN2                             WRСАRD
+   РRINТ8//    ЕDIТ***           SIМFАIL*    ЕDIТ***               WSУ*        IОСОNТD*
+               ТСАТАLОG                      РАRАМТ*               ХХХАРR      А/DRUСК
+   РRINТ80     IОХХLРWТ          SIN         ТАN                               А/SТОР
+               LUN*МОN           SОRТSТL* Е  SLIВLISТ                          ХХХАРR
+   РТ6         ЕХЕСUТЕ           SQRТ        САВS                  ХХХАWR      А/GЕТINС
+               LIВDЕLЕТ          SRЕАDВ      ВINRЕАD*                          А/SТОР
+               LIВDRUМ           SRЕАDТ      ВСDRЕАD*                          ХХХАWR
+               LIВRРN*                       ХХХАWR                ZАРАК12     SТАРUNСН
+               LIВТАРЕ           SТАВLЕ*     GIVLIВR*              ZАРАК8      СНКВЕG*
+               RLIВLIS           SТАСОМР*    GIVТRАN*              Э*64        РТ6
+   РUNСТАВL    ВIGРUNСН                      МDLСАRD*
+               РUNТЕХ/                       NЕWСОМР*
+   РUТАWАУ  Е  SЕNDЕR            SТАR*       LDIТМ*
+   R*РО*I      I*РО*I            SТLОАD*     ЕХЕСUТЕ
+   R*SТ*С      С*SТ*I                      N МОNIТОR*
+   R*SТ*D      D*SТ*I                        МОNIТОR/
+               DLОG                          SТАСОМР*
+               SNGL              SТОР**      SТОР*
+   R*SТ*I      С*SТ*I            SТОР*       А/ЕRRОR
+               D*SТ*I                        А/SТОР
+               I*РО*I                        АLРRОС
+   R*ТО*I      IОЕDWТЕF                      DRUМТАР*
+   R*ТО*INТ    D*ТО*I                      N ЕRR*
+   RАSРАК12    SТАРUNСН                      ЕRRIОМ
+   RАSРАК8     СНКВЕG*                       ЕХЕСUТ
+   RВЕGIN      ЕDIТ***                       ЕХIТ
+   RD/ВТ       IОХХFМR*                      IОСОNТ*
+               IRВ1                          IОХRСВ
+   RЕАD*       ВЕМSН**                       IОХХFМR*
+               ЕDIТ***                       IОХХРКRТ
+             N МОNIТОR/                    N МОNIТОR/
+   RЕАD*ЕRR    СОSУТISО                      МОNRЕАD*
+               IОХХРКRТ                      РDUМР
+   RЕАDК3А2    LОАD/IТМ                      РТ8RЕАD
+   RЕАDLIВТ    RLIВLIS                       RЕСАRD
+   RЕАDSТАR    LIВRРN*                     N RWТВ/*
+   RЕАL        САВS                          SТАR*
+   RЕСАRD      ЕDIТ***                       SТWRIТ*
+                                                      18.05.19 М1
+                     ССЫЛКИ НА СОММОN′Ы                            DRUМТАР*  L 00001 СНКWОRD*    IВСDСТR* (IОХХРКWТ)
+                                                                   DUВLРRЕС  L 00001 АСС*        IDINТ    (SNGL    )
+                                          NL 00001 FLGЕХ*          ЕDIТ***   L 00012 *МОNСRD*    IОАС*    (IОСОNТ* )
+   D - РАССЫЛКА ДАННЫХ                     L 00001 FULISFL*                  L 00001 *RЕGIМ//    IОСОNТ*   L 00001 СНЕСКFL*
+   N - ОПИСАН, НЕ ИСПОЛЬЗУЕТСЯ             L 00001 NОLISFL*                  L 00025 *ТIКТАК*              L 00001 LUNМUN
+   Р - СТРАНИЧНЫЙ СОММОN         ВЕМSН*   NL 00000 С                        NР 00811 ВIGВUF      IОDСАLL*  L 00004 INFLОАD*
+   S - СЕКТОРНЫЙ СОММОN                   NL ***** С1                       NР 01010 ВUFFЕR                L 00014 МОNСАRD/
+   L - ПРОСТОЙ СОММОN            ВINАRУ    L 00025 МОNСАRD*                  L 00001 ЕRRОFLG*              L 00025 ТАРЕLISТ
+   ***** - ДЛИНА ОПИСАНА НЕЯВНО  С*АD*С    L 00001 АСС*                      L 00003 МISТ10*     IОЕDRWRТ  L 00006 *IСНЕСК*
+                                 С*СОМР   (С*АD*С  )                         L 00025 МОNСАRD*    IОЕDWТЕF  L 00006 *IСНЕСК*
+   *РАSСАL   L 00001 МОNСАRD*    С*DI*С   (С*АD*С  )                         L 00014 МОNСАRD/    IОЕND*   (IОСОNТ* )
+   /IР*     (IОХХТТWТ)           С*LN*С   (С*АD*С  )                         L 00002 NАМЕ*       IОМУLISТ  L 00006 *IСНЕСК*
+   А/АRGSТR (А/SРLUSS)           С*LN*R   (С*SТ*R  )                         L 00001 NОLISFL*    IОSТАТ   (ЕОF     )
+   А/ВРRI   (А/DRUСК )           С*LО*С   (С*АD*С  )                         L 00001 ОUТ*ОUТ     IОSVFR   (IОСОNТ* )
+   А/ВRЕАD  (А/RRЕАD )           С*LО*R   (С*SТ*R  )                        NР 01024 RЕWОRD/     IОХGIVЕМ DL 00001 *IОХLSW*
+   А/DRUСК  DL 00001 РRАLG       С*МU*С   (С*АD*С  )                         L 00005 RМ*         IОХNSWАР  L 00000 IОDСВ*
+            DL 00001 SТОРFLG*    С*SТ*С   (С*АD*С  )                        NL 00001 SТАRSТА              NL 00001 RFМRТFLG
+   А/GЕТINС  L 00025 А/RЕСОRD    С*SТ*R    L 00001 АСС*                      Р 01024 WRWОRD/               L 00025 ТАРЕLISТ
+            DL 00001 А/SУМВ      С*SU*С   (С*АD*С  )                         L 00002 ХRЕАD/      IОХRСВ    L 00001 *IОХLСВ*
+            DL 00001 RDАLG       САТАLОG* (ТСАТАLОG)                         L 00002 ХWRIТЕ/               L 00000 IОDСВ*
+   А/I*ISО  (А/DRUСК )           ССОS      L 00001 АСС*            ЕОF       L 00001 *IОХLСВ*    IОХRРТ    L 00001 А/I0
+   А/IРRI   (А/DRUСК )           СЕХР     (СSТАNFUN)                         L 00001 А/I0        IОХWСВ   (IОХRСВ  )
+   А/IRЕАD  (А/RRЕАD )           СНКВЕG*   L 00001 ЕNТR*                     L 00000 IОDСВ*      IОХWРТ   (IОХRРТ  )
+   А/LОАDGО  L 00002 INFLОАD*              L 00001 МFОR*           ЕХЕСUТ    L 00001 ЕRRОFLG*    IОХХFМR*  L 00006 *IСНЕСК*
+   А/LРRI   (А/DRUСК )                     L 00002 NАМЕ*                     L 00001 INFLОАD*              L 00001 А/I0
+   А/LRЕАD  (А/RRЕАD )           СНКЕND*  (СНКВЕG* )                         L 00001 LОАDLIS*              L 00001 RFМRТFLG
+   А/NLINЕ  (А/DRUСК )           СLDЕСО   (СLОРЕN  )                         L 00001 МАIN*       IОХХFМW* (IОХХFМR*)
+   А/NРАGЕ  (А/DRUСК )           СLЕАRLЕХ  L 00001 RFМRТFLG                  L 00014 МОNСАRD/    IОХХРКRТ  L 00025 МОNСАRD*
+   А/R*ISО  (А/DRUСК )           СLОG     (СSТАNFUN)                         L 00001 RМ*         IОХХРКWТ  L 00001 NЕWОLD*
+   А/RNLINЕ (А/RRЕАD )           СLОРЕN    L 00001 *АDСВ                     L 00025 ТАРЕLISТ    IОХХРТRВ  L 00001 ЕОF*59
+   А/RРRI   (А/DRUСК )           СМРLХ     L 00001 АСС*            ЕХЕСUТЕ   Р 01024 *САТЕХС*             NL 00001 SТRLК
+   А/RRЕАD   L 00025 А/RЕСОRD    СОLРUNВ* (IОХХРКWТ)                         L 00002 INFLОАD*    IОХХРТRТ (РТ8RЕАD )
+             L 00001 А/SУМВ      СОLРUNС* (IОХХРКWТ)                         L 00001 МАIN*       IОХХRРСК  L 00001 А/I0
+   А/SЕQS   (LЕNGТН  )           СОLРUNЕ* (IОХХРКWТ)                         L 00001 SТСАТ*      IОХХSFR* (IОХХSFW*)
+   А/SGЕS   (LЕNGТН  )           СОNJG     L 00001 АСС*            ЕХIТ      L 00004 INFLОАD*    IОХХSFW*  L 00006 *IСНЕСК*
+   А/SGТS   (LЕNGТН  )           СОРУТАDR  L 00012 *МОNСRD*                  L 00001 RЕSТОР*               L 00001 А/I0
+   А/SLЕS   (LЕNGТН  )                    NL 00014 МОNСАRD/        ЕХSТЕР   (СОSТЕР  )           IОХХSWАР  L 00001 RFМRТFLG
+   А/SLIСЕ  (А/SРLUSS)           СОSТЕР    L 00001 RЕSТОР*         FС*002   (IОСОNТ* )           IОХХТТRТ  L 00001 IОSКIР*
+   А/SLТS   (LЕNGТН  )           СSIN     (ССОS    )               FС*642   (IОСОNТ* )                     L 00001 ТSТАТЕ*
+   А/SNЕS   (LЕNGТН  )           СSQRТ    (СSТАNFUN)               FС*722   (IОСОNТ* )           IОХХТТWТ  L 00001 ТSТАТЕ*
+   А/SРLUSS  L ***** *НЕАР*      СSТАNFUN  L 00001 АСС*            FD*642   (IОСОNТ* )           IОХХUРСК (IОХХRРСК)
+             L 00001 СНЕСКFL*    D*АD*D   (DUВLРRЕС)               FD*722   (IОСОNТ* )           IRВ      (IRВ1    )
+            NL 00001 LНЕАР*      D*СОМР   (DUВLРRЕС)               FIСМЕМ*   L 00004 INFLОАD*    IRВ1      L 00001 А/I0
+   А/SРRI   (А/DRUСК )           D*DI*D   (DUВLРRЕС)                         L 00000 КСОUNТ*     IWВ      (IRВ1    )
+   А/SRЕАD  (А/SРLUSS)           D*LN*D   (DUВLРRЕС)                         L 00000 RМ*         IWВ1     (IRВ1    )
+   А/SТАRТ  (А/SТОР  )           D*LN*R   (D*SТ*R  )                         L 00001 SТСАТ*      КОNV1*   (ВСDВЕG* )
+   А/SТОР   NL 00001 А/I0        D*LО*D   (DUВLРRЕС)               FОLZОN   (RЕСАRD  )           LАDR     (IRВ1    )
+            NL 00001 А/МINUS     D*LО*R   (D*SТ*R  )               FОRМКОZА  L 00016 РRЕDСОSУ    LDIТМ*    L 00014 МОNСАRD/
+             L 00002 INFLОАD*    D*МU*D   (DUВLРRЕС)               FТ*002   (IОСОNТ* )                    NL 00005 RМ*
+            NL 00001 МАIN*       D*SТ*D   (DUВLРRЕС)               FТ*003   (IОСОNТ* )           LЕNGТН    L 00001 А/I0
+            DL 00001 РRАLG       D*SТ*R    L 00001 АСС*            FТ*521   (ВСDRЕАD*)                     L 00001 А/МINUS
+            NL 00001 RDАLG       D*SU*D   (DUВLРRЕС)               FТ*531   (ВСDRЕАD*)           LIВDRUМ  NL 00012 *МОNСRD*
+             L 00001 SТОРFLG*    D*ТО*R    L 00001 АСС*            FТ*541   (ВСDRЕАD*)                     L 00001 *RЕGIМ//
+   А/VLМХ    L 00001 А/I0                  L 00010 SРВLО           FТ2*     (ВСDВЕG* )                     L 00004 INFLОАD*
+   АSТАМА    Р 04096 *LISТS*     DАТАРR    L 00002 DАТА*           FULLМЕМО (FIСМЕМ* )                     Р 02048 NЕWСАТ
+             L 00001 DАТЕ*       DАТАРR*  (DАТАРR  )               GIVСАLL*  L 00025 МОNСАRD*              Р 02048 ОLDСАТ
+             L 00042 ЕNТRУ*      DАТЕ*     L 00001 А/I0            GIVЕLЕХХ  L 00001 RFМRТFLG              Р 02048 ТАВL
+            NL 00001 РUNСНFL*              L 00002 DАТА*                     L 00025 ТАРЕLISТ    LIВRАRУ*  L 00001 *RЕGIМ//
+   АТОS     (А/SРLUSS)           DВLЕ     (SNGL    )               GIVЕМАSК (IОХGIVЕМ)                     L 00001 LОАDLIS*
+   В/SU/    (РТ8RЕАD )           DЕFGЕNХХ  L 00000 IОDСВ*          GIVLIВR*  L 00001 МОNСАRD*    LIВRРN*   L 00002 WВЕGFLАG
+   ВСDВЕG*   L 00001 СНЕСКFL*              L 00000 IОLISТ*                   L 00005 RМ*         LIВТАРЕ   L 00012 *МОNСRD*
+   ВСDDЕС*  (ВСDRЕАD*)           DЕLЕТЕ   (LОАDF   )               GIVSЕRV* (GIVLIВR*)                     L 00001 *ОRDЕR
+   ВСDРUN   (IОХХРКWТ)           DINСОМР* (SТАСОМР*)               GIVТRАN*  L 00004 INFLОАD*              L 00001 *RЕGIМ//
+   ВСDRЕАD*  L 00001 IОSКIР*     DРАRIТНМ  L 00008 /*DРFUN                   L 00001 МОNСАRD*              Р 02048 САТLG
+   ВЕМSН**   L 00042 ЕNТRУ*                L 00001 АСС*            GО       (LОАDF   )                     L 00002 DАТА*
+             Р 02048 NЕWСАТ      МОVЕТАРЕ (СОРУТАDR)               SЕТFТN    L 00001 FLАGS       WRIТЕ1    L 00002 LIМWR*
+             Р 01024 RВUF        NЕWСОМР*  L 00014 *МОNСRD*                  L 00025 МОNСАRD*              L 00001 WRIТМАR*
+             Р 01024 WВUF        NЕWSТАR* (МОNIТОR/)               SЕТIОDСВ DL 00001 IОDСВ*      WRWОRD   (WRСАRD  )
+   LОАD/IТМ  L 00005 RМ*         NЕWSУSТЕ  Р 02048 САТ             SЕТТRАN* (GIVТRАN*)           ХХХАРR   DL 00001 РRАLG
+   LОАDАNGО  L 00002 INFLОАD*              L 00000 INFLОАD*        SЕТWLЕХХ  L 00001 RFМRТFLG    ХХХАWR   DL 00001 RDАLG
+   LОАDСАLL (LОАDАNGО)                     L 00004 КСОUNТ*         SNGL      L 00001 АСС*        УЕSМЕМОR (FIСМЕМ* )
+   LОАDF     L 00002 INFLОАD*              L 00000 RМ*             SТАСОМР*  L 00001 АSТL*
+   LОАDGО   (LОАDАNGО)                     L 00001 WОRINF*                   L 00004 INFLОАD*
+   LОАDТ    (LОАDF   )           РАRАМТ*   L 00012 *МОNСRD*                 NL 00001 SТСАТ*
+   МDLСАRD*  L 00000 АRRЕАD*               L 00003 МISТ10*                   L 00017 ТRСАТ*
+             L 00024 ЕNТRУ*                L 00014 МОNСАRD/                  L 00000 ТRNАМЕ*
+             L 00000 КСОUNТ*               L 00001 ОUТ*ОUТ         SТАN1    DL 00051 *SТАN*
+             L 00025 МОNСАRD*              L 00001 SТАRSТА         SТАРUNСН  Р 00811 ВIGВUF
+             L 00014 МОNСАRD/              L 00004 ХРАRАМТ*        SТАR*     L 00001 *RЕGIМ//
+             L 00005 RМ*                   L 00004 ХРАRАМТ/                  L 00001 СНЕСКFL*
+            DР 06144 SТЕХТВF*    РСАТАLОG (ТСАТАLОG)                         L 00001 FLАGS
+             L 00000 ТRNАМЕ*     РDUМР     L 00001 RЕSТОР*                   L 00001 FULISFL*
+   МОNIТОR* DL 00001 *IОХLСВ*    РЕRСОSУ1 (SТАРUNСН)                        NL 00002 INFLОАD*
+            NL 00001 *RЕGIМ//    РЕRСОSУ2 (SТАРUNСН)                         L 00004 КСОUNТ*
+            DL 00001 А/I0        РЕRСОSУ3 (SТАРUNСН)                         L 00001 LНЕАР*
+            DL 00001 А/МINUS     РЕRSТАN1 (SТАРUNСН)                         L 00001 LОАDLIS*
+            NL 00001 АСС*        РЕRSТАN2 (SТАРUNСН)                         L 00001 МАIN*
+             L 00001 АМОNIТ/     РЕRSТАN3 (SТАРUNСН)                         L 00014 МОNСАRD*
+            NL 00002 АRRЕАD*     РЕRSТАNЕ (SТАРUNСН)                         L 00015 МОNСАRD/
+            NL 00001 АSТL*       РLСАТАLО (ТСАТАLОG)                         L 00001 NОLISFL*
+            NL 00001 СНЕСКFL*    РRЕРDАТ   L 00002 DАТА*                     L 00001 РUNСНFL*
+            NL 00002 DАТА*       РRINТ8//  L 00001 *RЕGIМ//                  L 00005 RМ*
+            DL 00001 FLАGS       РТ8RЕАD  NL 00001 А/I0                      L 00017 ТRСАТ*
+            DL 00004 INFLОАD*              L 00001 ЕОF*59                    L 00001 ТSТАТЕ*
+            NL 00031 IОDСВ*                L 00001 IОSКIР*         SТАR*//   L 00014 МОNСАRD/
+            NL 00005 IОLISТ*               L 00001 RFМRТFLG        SТLОАD*   L 00004 INFLОАD*
+            DL 00004 КСОUNТ*     РUNТЕХ/  DР 00027 ВUFFЕR                    L 00001 SТСАТ*
+            DL 00001 LНЕАР*      РUТFLАG*  L 00001 *RЕGIМ//        SТОА     (А/SРLUSS)
+            NL 00001 LОАDLIS*              L 00025 МОNСАRD*        SТОР**   (МОNIТОR*)
+            DL 00001 МАIN*       R*SТ*С   (С*SТ*R  )               SТОР*     L 00001 INFLОАD*
+            NL 00025 МОNСАRD*    R*SТ*D   (D*SТ*R  )                        NL 00000 IОDСВ*
+            DL 00001 NЕWОLD*     RВЕGIN   (RЕСАRD  )                         L 00001 RЕSТОР*
+            NL 00001 РОINТ/РТ    RЕАD*    (IОХХРКRТ)                         L 00001 RFМRТFLG
+            NL 00001 RЕSТОР*     RЕАD*ЕRR (МОNRЕАD*)                         L 00005 RМ*
+            NL 00001 RFМRТFLG    RЕАD1     Р 01024 ВUFRЕАD1                  L 00025 ТАРЕLISТ
+             L 00005 RМ*                   L 00002 LIМWR*          SТWRIТ*   L 00004 КСОUNТ*
+            NL 00001 SТСАТ*      RЕАD2     L 00001 *RЕGIМ//                  L 00025 МОNСАRD*
+            DL 00025 ТАРЕLISТ              L 00002 LIМWR*                    L 00005 RМ*
+            NL 00001 ТRNАМЕ*     RЕАDLIВТ  L 00001 NТFОRRLS                  Р 01024 SТRВFF*
+            DL 00001 WОRINF*               L 00002 WВЕGFLАG        SUВРЕRR* (IОСОNТ* )
+   МОNIТОR/ NL 00001 *RЕGIМ//    RЕАDSТАR  L 00002 WВЕGFLАG        SУSВАСК*  L 00003 RМ*
+            DL 00001 АМОNIТ/     RЕАDVОLК  L 00000 АRRЕАD*         ТАВУNАМ*  L 00012 *МОNСRD*
+            DL 00001 АSТL*                 L 00000 КСОUNТ*                   Р 01024 А//
+             L 00042 ЕNТRУ*                L 00000 МОNСАRD*                  L 00004 ЕNТRУ*
+             L 00001 ЕRRОFLG*    RЕСАР/   (РUNТЕХ/ )                         L 00003 МISТ10*
+             L 00001 FLGЕХ*      RЕСАRD    L 00001 *RЕGIМ//                  L 00014 МОNСАRD*
+            NL 00001 FULISFL*              Р 01024 RЕWОRD/                   L 00014 МОNСАRD/
+            DL 00004 INFLОАD*              L 00002 ХRЕАD/                    L 00001 ОUТ*ОUТ
+            NL 00001 МАIN*       RЕSЕТ*   (МОNIТОR*)                        NL 00005 RМ*
+             L 00014 МОNСАRD*    RЕWОRD   (RЕСАRD  )               ТСАТАLОG  Р 02048 СТLG
+            NL 00001 NОLISFL*    RLIВLIS   L 00014 МОNСАRD/                  Р 01024 ОRDЕR
+             L 00001 РUNСНFL*              L 00001 NТFОRRLS        ТСАТDОR  (ТСАТАLОG)
+            NL 00001 RFМRТFLG              L 00002 WВЕGFLАG        ТТРRIКS  (IОХХТТWТ)
+             L 00005 RМ*         RWТВ/*   NL 00001 А/I0            ТТРRINТ  (IОХХТТWТ)
+             L 00001 SТСАТ*                L 00001 IОDСВ*          ТТРRINТD (IОХХТТWТ)
+             L 00017 ТRСАТ*                L 00001 IОSКIР*         ТТRЕАD*  (IОХХТТRТ)
+            DL 00001 ТRNАМЕ*     SАVЕ*     L 00004 КСОUNТ*         ТТRЕАD*D (IОХХТТRТ)
+   МОNRЕАD*  L 00000 *RЕGIМ//              L 00025 МОNСАRD*        WВЕGIN   (WRСАRD  )
+             L 00004 КСОUNТ*     SАVЕLЕХХ (GIVЕLЕХХ)               WRСАRD    Р 01024 WRWОRD/
+             L 00025 МОNСАRD*    SЕNDЕR    L 00001 SWIТСН1                   L 00002 ХWRIТЕ/
+             L 00001 RFМRТFLG              L 00001 WРUL            WRIЕND   (WRСАRD  )
+                                                      18.05.19 М1
+                     ИСПОЛЬЗОВАНИЕ СОММОN′ОВ                                 L 00001 ВСDВЕG*               L 00000 IОХRСВ
+                                                                             L 00001 IОСОNТ*              NL 00031 МОNIТОR*
+                                           L 00001 DАТЕ*                    NL 00001 МОNIТОR*              L 00001 RWТВ/*
+   Е - ЕСТЬ ОДНОИМЕННАЯ П/П                L 00001 ЕОF                       L 00001 SТАR*                DL 00001 SЕТIОDСВ
+   D - РАССЫЛКА ДАННЫХ                     L 00001 IОХRРТ          СНКWОRD*    00001                      NL 00000 SТОР*
+   N - ОПИСАН, НЕ ИСПОЛЬЗУЕТСЯ             L 00001 IОХХFМR*                  L 00001 DRUМТАР*    IОLISТ*     00005
+   Р - СТРАНИЧНЫЙ СОММОN                   L 00001 IОХХRРСК        СТLG        02048                       L 00000 DЕFGЕNХХ
+   S - СЕКТОРНЫЙ СОММОN                    L 00001 IОХХSFW*                  Р 02048 ТСАТАLОG             NL 00005 МОNIТОR*
+   L - ПРОСТОЙ СОММОN                      L 00001 IRВ1            DАТА*       00002             IОSКIР*     00001
+   ***** - ДЛИНА ОПИСАНА НЕЯВНО            L 00001 LЕNGТН                    L 00002 DАТАРR                L 00001 ВСDRЕАD*
+                                          DL 00001 МОNIТОR*                  L 00002 DАТЕ*                 L 00001 IОХХТТRТ
+   *АDСВ       00001                      NL 00001 РТ8RЕАD                   L 00002 LIВТАРЕ               L 00001 РТ8RЕАD
+             L 00001 СLОРЕN               NL 00001 RWТВ/*                   NL 00002 МОNIТОR*              L 00001 RWТВ/*
+   *САТЕХС*    01024             А/МINUS     00001                           L 00002 РRЕРDАТ     КСОUNТ*     00004
+             Р 01024 ЕХЕСUТЕ              NL 00001 А/SТОР          DАТЕ*     Е 00001                       L 00000 FIСМЕМ*
+   *НЕАР*      *****                       L 00001 LЕNGТН                    L 00001 АSТАМА                L 00000 МDLСАRD*
+             L ***** А/SРLUSS             DL 00001 МОNIТОR*        ЕNТR*       00001                      DL 00004 МОNIТОR*
+   *IСНЕСК*    00006             А/RЕСОRD    00025                           L 00001 СНКВЕG*               L 00004 МОNRЕАD*
+             L 00006 IОЕDRWRТ              L 00025 А/GЕТINС        ЕNТRУ*      00042                       L 00004 NЕWSУSТЕ
+             L 00006 IОЕDWТЕF              L 00025 А/RRЕАD                   L 00042 АSТАМА                L 00000 RЕАDVОLК
+             L 00006 IОМУLISТ    А/SУМВ      00001                           L 00042 ВЕМSН**               L 00004 SАVЕ*
+             L 00006 IОХХFМR*             DL 00001 А/GЕТINС                  L 00024 МDLСАRD*              L 00004 SТАR*
+             L 00006 IОХХSFW*              L 00001 А/RRЕАD                   L 00042 МОNIТОR/              L 00004 SТWRIТ*
+   *IОХLСВ*    00001             АСС*        00001                           L 00004 ТАВУNАМ*    LНЕАР*      00001
+             L 00001 ЕОF                   L 00001 С*АD*С          ЕОF*59      00001                      NL 00001 А/SРLUSS
+             L 00001 IОХRСВ                L 00001 С*SТ*R                    L 00001 IОХХРТRВ             DL 00001 МОNIТОR*
+            DL 00001 МОNIТОR*              L 00001 ССОS                      L 00001 РТ8RЕАD               L 00001 SТАR*
+   *IОХLSW*    00001                       L 00001 СМРLХ           ЕRRОFLG*    00001             LIМWR*      00002
+            DL 00001 IОХGIVЕМ              L 00001 СОNJG                     L 00001 ЕDIТ***               L 00002 RЕАD1
+   *LISТS*     04096                       L 00001 СSТАNFUN                  L 00001 ЕХЕСUТ                L 00002 RЕАD2
+             Р 04096 АSТАМА                L 00001 D*SТ*R                    L 00001 МОNIТОR/              L 00002 WRIТЕ1
+   *МОNСRD*    00014                       L 00001 D*ТО*R          FLАGS       00001             LОАDLIS*    00001
+             L 00012 СОРУТАDR              L 00001 DРАRIТНМ                 DL 00001 МОNIТОR*              L 00001 ЕХЕСUТ
+             L 00012 ЕDIТ***               L 00001 DUВLРRЕС                  L 00001 SЕТFТN                L 00001 LIВRАRУ*
+            NL 00012 LIВDRUМ              NL 00001 МОNIТОR*                  L 00001 SТАR*                NL 00001 МОNIТОR*
+             L 00012 LIВТАРЕ               L 00001 SNGL            FLGЕХ*      00001                       L 00001 SТАR*
+             L 00014 NЕWСОМР*    АМОNIТ/     00001                          NL 00001 ВЕМSН**     LUNМUN      00001
+             L 00012 РАRАМТ*               L 00001 МОNIТОR*                  L 00001 МОNIТОR/              L 00001 IОСОNТ*
+             L 00012 ТАВУNАМ*             DL 00001 МОNIТОR/        FULISFL*    00001             МАIN*       00001
+   *ОRDЕR      00001             АRRЕАD*     00002                           L 00001 ВЕМSН**              NL 00001 А/SТОР
+             L 00001 LIВТАРЕ               L 00000 МDLСАRD*                 NL 00001 МОNIТОR/              L 00001 ЕХЕСUТ
+   *RЕGIМ//    00001                      NL 00002 МОNIТОR*                  L 00001 SТАR*                 L 00001 ЕХЕСUТЕ
+             L 00001 ЕDIТ***               L 00000 RЕАDVОLК        INFLОАD*    00004                      DL 00001 МОNIТОR*
+             L 00001 LIВDRUМ     АSТL*       00001                           L 00002 А/LОАDGО             NL 00001 МОNIТОR/
+             L 00001 LIВRАRУ*             NL 00001 МОNIТОR*                  L 00002 А/SТОР                L 00001 SТАR*
+             L 00001 LIВТАРЕ              DL 00001 МОNIТОR/                  L 00001 ЕХЕСUТ      МFОR*       00001
+            NL 00001 МОNIТОR*              L 00001 SТАСОМР*                  L 00002 ЕХЕСUТЕ               L 00001 СНКВЕG*
+            NL 00001 МОNIТОR/    ВIGВUF      00811                           L 00004 ЕХIТ        МISТ10*     00003
+             L 00000 МОNRЕАD*             NР 00811 ЕDIТ***                   L 00004 FIСМЕМ*               L 00003 ЕDIТ***
+             L 00001 РRINТ8//              Р 00811 SТАРUNСН                  L 00004 GIVТRАN*              L 00003 РАRАМТ*
+             L 00001 РUТFLАG*    ВUFFЕR      01010                           L 00004 IОDСАLL*              L 00003 ТАВУNАМ*
+             L 00001 RЕАD2                NР 01010 ЕDIТ***                   L 00004 LIВDRUМ     МОNСАRD*    00025
+             L 00001 RЕСАRD               DР 00027 РUNТЕХ/                   L 00002 LОАDАNGО              L 00001 *РАSСАL
+             L 00001 SТАR*       ВUFRЕАD1    01024                           L 00002 LОАDF                 L 00025 ВINАRУ
+   *SТАN*      00051                       Р 01024 RЕАD1                    DL 00004 МОNIТОR*              L 00025 ЕDIТ***
+            DL 00051 SТАN1       С           00000                          DL 00004 МОNIТОR/              L 00025 GIVСАLL*
+   *ТIКТАК*    00025                      NL 00000 ВЕМSН*                    L 00000 NЕWSУSТЕ              L 00001 GIVLIВR*
+             L 00025 ЕDIТ***     С1          *****                           L 00004 SТАСОМР*              L 00001 GIVТRАN*
+   /*DРFUN     00008                      NL ***** ВЕМSН*                   NL 00002 SТАR*                 L 00025 IОХХРКRТ
+             L 00008 DРАRIТНМ    САТ         02048                           L 00004 SТLОАD*               L 00025 МDLСАRD*
+   А//         01024                       Р 02048 NЕWSУSТЕ                  L 00001 SТОР*                NL 00025 МОNIТОR*
+             Р 01024 ТАВУNАМ*    САТLG       02048                 IОDСВ*      00031                       L 00014 МОNIТОR/
+   А/I0        00001                       Р 02048 LIВТАРЕ                   L 00000 DЕFGЕNХХ              L 00025 МОNRЕАD*
+            NL 00001 А/SТОР      СНЕСКFL*    00001                           L 00000 ЕОF                   L 00025 РUТFLАG*
+             L 00001 А/VLМХ                L 00001 А/SРLUSS                  L 00000 IОХNSWАР              L 00000 RЕАDVОLК
+             L 00025 SАVЕ*       RЕWОRD/     01024                           L 00017 SТАR*
+             L 00025 SЕТFТN               NР 01024 ЕDIТ***         ТRNАМЕ*     00001
+             L 00014 SТАR*                 Р 01024 RЕСАRD                    L 00000 МDLСАRD*
+             L 00025 SТWRIТ*     RFМRТFLG    00001                          NL 00001 МОNIТОR*
+             L 00014 ТАВУNАМ*              L 00001 СLЕАRLЕХ                 DL 00001 МОNIТОR/
+   МОNСАRD/    00015                       L 00001 GIVЕLЕХХ                  L 00000 SТАСОМР*
+            NL 00014 СОРУТАDR             NL 00001 IОХNSWАР        ТSТАТЕ*     00001
+             L 00014 ЕDIТ***               L 00001 IОХХFМR*                  L 00001 IОХХТТRТ
+             L 00014 ЕХЕСUТ                L 00001 IОХХSWАР                  L 00001 IОХХТТWТ
+             L 00014 IОDСАLL*             NL 00001 МОNIТОR*                  L 00001 SТАR*
+             L 00014 LDIТМ*               NL 00001 МОNIТОR/        WВЕGFLАG    00002
+             L 00014 МDLСАRD*              L 00001 МОNRЕАD*                  L 00002 LIВRРN*
+             L 00014 РАRАМТ*               L 00001 РТ8RЕАD                   L 00002 RЕАDLIВТ
+             L 00014 RLIВLIS               L 00001 SЕТWLЕХХ                  L 00002 RЕАDSТАR
+             L 00015 SТАR*                 L 00001 SТОР*                     L 00002 RLIВLIS
+             L 00014 SТАR*//     RМ*         00005                 WВUF        01024
+             L 00014 ТАВУNАМ*              L 00005 ЕDIТ***                   Р 01024 LIВТАРЕ
+   NАМЕ*       00002                       L 00001 ЕХЕСUТ          WОRINF*     00001
+             L 00002 СНКВЕG*               L 00000 FIСМЕМ*                  DL 00001 МОNIТОR*
+             L 00002 ЕDIТ***               L 00005 GIVLIВR*                  L 00001 NЕWSУSТЕ
+   NЕWСАТ      02048                      NL 00005 LDIТМ*          WРUL        00001
+             Р 02048 LIВDRUМ               L 00005 LОАD/IТМ                  L 00001 SЕNDЕR
+             Р 02048 LIВТАРЕ               L 00005 МDLСАRD*        WRIТМАR*    00001
+   NЕWОLD*     00001                       L 00005 МОNIТОR*                  L 00001 WRIТЕ1
+             L 00001 IОХХРКWТ              L 00005 МОNIТОR/        WRWОRD/     01024
+            DL 00001 МОNIТОR*              L 00000 NЕWSУSТЕ                  Р 01024 ЕDIТ***
+   NОLISFL*    00001                       L 00005 SТАR*                     Р 01024 WRСАRD
+             L 00001 ВЕМSН**               L 00005 SТОР*           ХРАRАМТ*    00004
+             L 00001 ЕDIТ***               L 00005 SТWRIТ*                   L 00004 РАRАМТ*
+            NL 00001 МОNIТОR/              L 00003 SУSВАСК*        ХРАRАМТ/    00004
+             L 00001 SТАR*                NL 00005 ТАВУNАМ*                  L 00004 РАRАМТ*
+   NТFОRRLS    00001             SРВLО       00010                 ХRЕАD/      00002
+             L 00001 RЕАDLIВТ              L 00010 D*ТО*R                    L 00002 ЕDIТ***
+             L 00001 RLIВLIS     SТАRSТА     00001                           L 00002 RЕСАRD
+   ОLDСАТ      02048                      NL 00001 ЕDIТ***         ХWRIТЕ/     00002
+             Р 02048 LIВDRUМ               L 00001 РАRАМТ*                   L 00002 ЕDIТ***
+   ОRDЕR       01024             SТСАТ*      00001                           L 00002 WRСАRD
+             Р 01024 ТСАТАLОG              L 00001 ЕХЕСUТЕ
+   ОUТ*ОUТ     00001                       L 00001 FIСМЕМ*
+             L 00001 ЕDIТ***              NL 00001 МОNIТОR*
+             L 00001 РАRАМТ*               L 00001 МОNIТОR/
+             L 00001 ТАВУNАМ*             NL 00001 SТАСОМР*
+   РОINТ/РТ    00001                       L 00001 SТLОАD*
+            NL 00001 МОNIТОR*    SТЕХТВF*    06144
+   РRАLG       00001                      DР 06144 МDLСАRD*
+            DL 00001 А/DRUСК     SТОРFLG*    00001
+            DL 00001 А/SТОР               DL 00001 А/DRUСК
+            DL 00001 ХХХАРR                L 00001 А/SТОР
+   РRЕDСОSУ    00016             SТRВFF*     01024
+             L 00016 FОRМКОZА              Р 01024 SТWRIТ*
+   РUNСНFL*    00001             SТRLК       00001
+            NL 00001 АSТАМА               NL 00001 IОХХРТRВ
+             L 00001 МОNIТОR/    SWIТСН1     00001
+             L 00001 SТАR*                 L 00001 SЕNDЕR
+   RВUF        01024             ТАВL        02048
+             Р 01024 LIВТАРЕ               Р 02048 LIВDRUМ
+   RDАLG       00001             ТАРЕLISТ    00025
+            DL 00001 А/GЕТINС              L 00025 ЕХЕСUТ
+            NL 00001 А/SТОР                L 00025 GIVЕLЕХХ
+            DL 00001 ХХХАWR                L 00025 IОDСАLL*
+   RЕSТОР*     00001                       L 00025 IОХNSWАР
+             L 00001 СОSТЕР               DL 00025 МОNIТОR*
+             L 00001 ЕХIТ                  L 00025 SТОР*
+            NL 00001 МОNIТОR*    ТRСАТ*      00017
+             L 00001 РDUМР                 L 00017 МОNIТОR/
+             L 00001 SТОР*                 L 00017 SТАСОМР*
+           *ЕND FILЕ
+ КОНЕЦ ЗАДАЧИ
+ 00411: 00 074 0000	*74

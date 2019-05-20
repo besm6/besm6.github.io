@@ -1,0 +1,575 @@
+﻿                                                      18.05.19 М1
+
+  М О Н И Т О Р-8 0  (3.7)   25.09.84*       (  МС " Д У Б Н А " ИАЭ  )             ШИФР    419999000000
+
+
+
+
+
+
+
+                     ЖЖЖ   ЖЖЖ      Ж  ЖЖЖ           Ж   ЖЖЖ   ЖЖЖ  ЖЖЖЖ
+                    Ж   Ж Ж   Ж    ЖЖ Ж   Ж         ЖЖ  Ж   Ж Ж   Ж Ж
+                        Ж Ж   Ж   Ж Ж  Ж Ж         Ж Ж      Ж Ж   Ж ЖЖЖЖ
+                       Ж  Ж   Ж  Ж  Ж   Ж    ЖЖЖ     Ж     Ж  Ж   Ж     Ж
+                      Ж   Ж   Ж Ж   Ж  Ж Ж           Ж    Ж   Ж   Ж     Ж
+                     Ж    Ж   Ж ЖЖЖЖЖ Ж   Ж          Ж   Ж    Ж   Ж Ж   Ж
+                    ЖЖЖЖЖ  ЖЖЖ      Ж  ЖЖЖ          ЖЖЖ ЖЖЖЖЖ  ЖЖЖ   ЖЖЖ
+
+
+
+
+
+
+
+
+*NАМЕ 2048-1205
+           *РЕRSО: 401350
+ 04.10.84 М1
+           *САLL LIВRЕFЕR:ТАРЕ=401205
+                                                      18.05.19 М1
+                     ССЫЛКИ НА ПОДПРОГРАММЫ                                    NЕWLINЕ*                      NЕWLINЕ*
+                                                                               РRТLINЕ*                      РАSS1
+                                 ВЬNЕ        ВЬСРАВ                ЕОFLIВТ  (SЕТОJТR*)                       РАSS2
+   D - РАССЫЛКА ДАННЫХ           ВЬNО        ВЬОR                  ЕQUIV                                     РАSS3
+   Е - ВНЕШНЯЯ П/П                           ЬСRЬ                  ЕRRDIАG*    INТРRТ3*                      РАSS4
+                                 ВЬNТ        ЬСRЬ                              INТРRТF*                    Е РRINТ8//
+   *LISТ*    Е *ВЕG*                         ЬЗПЬ                              INТРRТV*                      РRТDLISТ
+               РАSS3             ВЬNХ        ВЬХR                              ISОРRТ*                       РRТНЕАD*
+   АDRРRТ*  (FТNРRТ* )                       ЬСRЬ                              NЕWLINЕ*                      РRТLINЕ*
+   АDRРRТ   (FТNРRТ  )           ВЬОR        ЬСRЬ                              РRТ*LINЕ                      РRТSУМВ*
+   АNАLУSЕ     СНЕХРR                        ЬЗПЬ                              РRТ6ТIV*                      RЕWIND
+               СОМРСОN           ВЬVР        ЬСN48Ь                            РRТLINЕ*                      SЕТ*С*
+               СОNЕLIМ           ВЬХR        ЬСRЬ                              РUТВL*                        SЕТОJТR*
+               ЕХРА                          ЬЗПЬ                  ЕRRFАТ*     ЕRRОRF*           FТN/НЕАD (INIТFТN )
+               ЕХРLIN            ВЬZВ        ЬМVЬ                            Е LОАDАNGО          FТNРRТ*     F/РТ6
+               ЕХРNLIN                       ЬZZЬ                  ЕRRFАТ1* (РАSS1   )           FТNРRТ    Е РRINТ8
+             Е F/SАVЕR           СНЕХРR   (СОМРСОN )               ЕRRОRF*     ЕRRFАТ*           GЕNINFW*  Е РRINТ8//
+             Е F/SRЕТ            СНОUТРW     ISОРRТ                            ЕRRFАТ1*                    Е SТОР*
+               GЕТD1WRD                      NЕWLINЕ                           ISОРRТ*           GЕТСОN   (NIW     )
+               GЕТОРТW                       ОСТАLРRТ              ЕХРА     (F/ОРТ   )           GЕТD1WRD (SСАNЕQUV)
+               NIWА              СLЕАRFТN  Е РRINТ8//              ЕХРLIN   (F/ОРТ   )           GЕТОРТW  (SСАNЕQUV)
+               РUТАDR            СLRТRС                            ЕХРNLIN  (F/ОРТ   )           GО410300
+               РUТIRLIN          СОМРАRЕ*                          F/СНGОV  (F/ТRАСЕ )           INIТFТN   Е DАТАРR*
+               SСАNЕQUV          СОМРСОN   Е I*РО*I                F/СНIND* (F/ТRАСЕ )                     Е LОАDАNGО
+               SТАСК                       Е I*РО*R                F/ОРТ       АNАLУSЕ                     Е РRINТ8//
+               ТОНЕАР                      Е R*РО*I                            DЕАDЕLIМ          INТРRТ*  (FТNРRТ* )
+               ТОНЕАР1                     Е R*РО*R                            ЕQUIV             INТРRТ   (FТNРRТ  )
+               ТRIРЕL                      Е R*ТО*I                            ЕRRFАТ*           INТРRТ2*    FТNРRТ*
+               UNSТАСК                     Е R*ТО*INТ                          ЕRRОRF*                       INТРRТ*
+   ВСDАРRТ*    АDRРRТ*           СОNЕLIМ     ТОНЕАР                            IОDRUМ*           INТРRТ3* (INТРRТ2*)
+               DАТЕРR*           СЬСРАВ      ЬСРАВЬ                            LООКАНЕD          INТРRТ5* (INТРRТ2*)
+               INТРRТ2*          СЬGЕ        СЬСРАВ                            NIW*              INТРRТС* (FТNРRТ* )
+               INТРRТ5*          СЬGТ        СЬСРАВ                            NIWА              INТРRТF* (FТNРRТ* )
+               INТРRТF*          СЬIN        ЬINЬ                              ОРТТRF            INТРRТV* (FТNРRТ* )
+               INТРRТV*          СЬLЕ        СЬСРАВ                            ОUТРUТ/           IОDRUМ*   Е RЕАD*
+               IОDRUМ*           СЬLТ        СЬСРАВ                            ОUТРUТS                       RIВUF
+               ISОРRТ*           СЬМV        ЬМV8Ь                             РRЕDЕS                        RОВUF
+             Е LОАDАNGО          СЬNЕ        СЬСРАВ                          Е R*ТО*I            ISОРRТ*  (FТNРRТ* )
+               NЕWLINЕ*          СЬVР        ВЬVР                              SЕТСОNS           ISОРRТ   (FТNРRТ  )
+               NЕWРАGЕ*          СЬZВ        ЬВВЬ                              SТАТМЕNТ          IЬАNУ       ЬАNУЬ
+               ОСТРRТ*                       ЬМV8Ь                 F/РТ6                         IЬВIТ       ВЬМV
+             Е РRINТ8            DАТЕРR*   Е DАТАРR*               F/ТRАСЕ     АDRРRТ*                       ЬЦ0Ь
+               РRТ6ТIС*          DЕАDЕLIМ    NIWА                              F/РТ6             IЬСНАR      ЬLIВСЬ
+               РRТ6ТIV*                      SСАNЕQ14                          INТРRТ5*                      ЬЦ0Ь
+               РRТLINЕ*                      SСАNЕQUV                          INТРRТС*          LАВINОРТ (SСАNЕQUV)
+               РRТРАGЕ*          DIМРRТ   (FТNРRТ  )                           INТРRТV*          LIВТАВL  (SЕТОJТR*)
+               РUТВL*            DLIРRТ      АDRРRТ                            ISОРRТ*           LОСОРТ*     ЕRRОRF*
+               РUТСОМ*                       ВINРRТ                            NЕWLINЕ*          LООКАНD     ВIТ
+               РUТЕWRD*                      ВООLРRТ                           ОСТРRТ*                     Е F/SАVЕR
+               RЕWIND                        DIМРRТ                          Е РRINТ8                      Е F/SRЕТ
+   ВINРRТ   (FТNРRТ  )                       ISОРRТ                            РRТLINЕ/                      GЕТСОN
+   ВIТ      (SСАNЕQUV)                       NЕWLINЕ                           РUТВL*                        GЕТОРТW
+   ВООLРRТ  (FТNРRТ  )                       NЕWРАGЕ                           RЕАLРRТ*                      NЕХТОРТ
+   ВЬАN        ЬСRЬ                          ОСТАLРRТ              F/ТRСL   (F/ТRАСЕ )                       NIW
+               ЬЗПЬ              DUМР        АDRРRТ*               F/ТRСRРL (F/ТRАСЕ )                       РUТВВ
+   ВЬВIТ       ВЬМV                          ISОРRТ*               F/ТRСS   (F/ТRАСЕ )                       SЕQGОLА
+   ВЬСРАВ      ЬСРАВЬ                        NЕWLINЕ*              F/ТRСSR  (F/ТRАСЕ )                       SЕQGОLА1
+   ВЬGЕ        ВЬСРАВ                        ОСТРRТ*               FINDLАВ     ВIТ                           ТОСНVАR
+   ВЬGТ        ВЬСРАВ                        РRТLINЕ*                        Е F/SАVЕR           LООКАНЕD (LООКАНD )
+   ВЬIN        ЬINЬ                          РUТВL*                          Е F/SRЕТ            LЬВIТ       ЬLIВСЬ
+   ВЬLЕ        ВЬСРАВ                        РUТЕWRD*                          LАВINОРТ                      ЬТRUЬ
+   ВЬLТ        ВЬСРАВ            DUМР1       АDRРRТ*               FТN         СLЕАRFТN          МОРIТR   (SЕТОJТR*)
+   ВЬМV        ЬМVЬ                          DUМР                            Е DАТАРR*           МОРNIТI  (SЕТОJТR*)
+   ВЬNА        ВЬАN                          ISОРRТ*                           ЕRRFАТ*           МОРRТI   (SЕТОJТR*)
+               ЬСRЬ                        Е КОМАF                           Е LОАDАNGО          NЕССРRЕD  Е F/SАVЕR
+             Е F/SRЕТ                      Е D*АD*D                            ISОРRТ*                       ОСТРRТ*
+   NЕWLINЕ* (FТNРRТ* )                     Е D*МU*D                            NЕWLINЕ*                      РRТLINЕ*
+   NЕWLINЕ  (FТNРRТ  )                     Е D*РО*I                            РRТ*LINЕ          РRТОРТВ*    АDRРRТ*
+   NЕWРАGЕ* (FТNРRТ* )                     Е D*SТ*D                            РRТ6ТIС*                      ISОРRТ*
+   NЕWРАGЕ  (FТNРRТ  )                       ЕОFLIВТ                           РRТСNАМ*                      NЕWLINЕ*
+   NЕХТОРТ  (F/ОРТ   )                       ЕRRОRF*                           РRТLINЕ*                      ОСТРRТ*
+   NIW         IОDRUМ*                       IОDRUМ*                           РUТВL*                        РRТLINЕ*
+               NЕХТОРТ                       LIВТАВL                           РUТЕWRD*                      РUТВL*
+   NIW*     (NIW     )                     Е LОАDАNGО              РRТНЕАD*    АDRРRТ*           РRТРАGЕ* (FТNРRТ* )
+   NIWА     (NIW     )                       РRТDLISТ                          INТРRТF*          РRТРRЕD     INТРRТ5*
+   NОSЕТFТN  Е РАRАМТ*                       РRТНЕАD*                          ISОРRТ*                       ISОРRТ*
+             Е РRINТ8                        РRТLINЕ                           NЕWLINЕ*                      NЕWLINЕ*
+             Е SIМFАIL*                      РRТSУМВ*                        Е РRINТ8                        ОСТРRТ*
+   NЬАNУ       ЬАNУЬ                         SЕТ*С*                            РRТ6ТIС*                      РRТLINЕ*
+   NЬUN        ЬСRЬ              РАSS2     Е D*LN*D                            РRТLINЕ*                      РUТВL*
+               ЬЦ0Ь                        Е D*SТ*D                            РUТВL*            РRТSУМВ*    АDRРRТ*
+   ОСТАLРRТ (FТNРRТ  )                       ЕRRFАТ*               РRТНЕАР     АDRРRТ*                       INТРRТ5*
+   ОСТРRТ*  (FТNРRТ* )                       ЕRRОRF*                           ISОРRТ*                       ISОРRТ*
+   ОРТТRF   (ТОНЕАР  )                       IОDRUМ*                           NЕWLINЕ*                      РRТ*LINЕ
+   ОUТРR4      АDRРRТ*                       МОРIТR                            ОСТРRТ*                       РRТ6ТIС*
+               INТРRТ5*                      МОРNIТI                           РRТLINЕ*                      РRТСNАМ*
+               IОDRUМ*                       МОРRТI                            РUТВL*                        РRТLINЕ*
+               ISОРRТ*                       ТАВВЕСВ               РRТIRСОN    АDRРRТ*                       РUТВL*
+               NЕWLINЕ*                      ТАВВЕСЕ                           INТРRТ2*          РТG       Е РТG/G
+               NЕWРАGЕ*                      ТАВLЕВ                            INТРRТ5*          РUТАDR      ЕQUIV
+               ОСТРRТ*                       ТАВLЕЕ                            ISОРRТ*                       ТОНЕАР
+               РRТ*LINЕ                      ТАВММSВ                           NЕWLINЕ*          РUТВВ    (NIW     )
+               РRТ6ТIС*                      ТАВММSЕ                           РRТ6ТIС*          РUТВL*   (FТNРRТ* )
+               РRТLINЕ*                      ТАВNОТВ                           РRТLINЕ*          РUТСОМ*  (FТNРRТ* )
+               РRТРАGЕ*                      ТАВNОТЕ                           РUТВL*            РUТЕWRD* (FТNРRТ* )
+               РUТВL*                        ТАВРОWВ               РRТIRLIN    АDRРRТ*           РUТIRLIN (РUТАDR  )
+   ОUТРRТ1     АDRРRТ                        ТАВРОWЕ                           INТРRТ2*          РUТРОSIТ    АDRРRТ*
+               DIМРRТ            РАSS3       ЕRRFАТ*                           INТРRТ5*                      INТРRТF*
+               INТРRТ                        ЕRRОRF*                           ISОРRТ*                       INТРRТV*
+               ISОРRТ                        IОDRUМ*                           NЕWLINЕ*                      ISОРRТ*
+               NЕWLINЕ                       LОСОРТ*                           ОСТРRТ*                       NЕWLINЕ*
+               NЕWРАGЕ           РАSS4       ЕRRFАТ*                           РRТ6ТIС*                      РRТLINЕ*
+               ОСТАLРRТ                      ЕRRОRF*                           РRТLINЕ*                      РUТВL*
+             Е РТ6                           GЕNINFW*                          РUТВL*            RЕАLРRТ* (FТNРRТ* )
+               RЕАLРRТ                       IОDRUМ*               РRТLАВЕL    АDRРRТ*           RЕАLРRТ  (FТNРRТ  )
+               RIВUF                         РUТРОSIТ                          INТРRТ5*          RЕWIND
+   ОUТРRТ2     АDRРRТ            РRЕDЕS    Е F/SАVЕR                           ISОРRТ*           RIВUF       GЕNINFW*
+               DIМРRТ                      Е F/SRЕТ                            NЕWLINЕ*          RОВUF       GЕNINFW*
+               ISОРRТ            РRINТL      РRТLОС                            ОСТРRТ*           SСАNЕQ14 (SСАNЕQUV)
+               NЕWLINЕ           РRТ*LINЕ (СLЕАRFТN)                           РRТLINЕ*          SСАNЕQUV
+               ОСТАLРRТ          РRТ6ТIС* (FТNРRТ* )                           РUТВL*            SЕQGОLА     ВIТ
+             Е РТ6               РRТ6ТIV* (FТNРRТ* )                           РUТЕWRD*                    Е F/SRЕТ
+               RIВUF             РRТАVАR  (РRТНЕАР )               РRТLINЕ*  Е РRINТ8//                    Е F/SSТАRТ
+   ОUТРRТ3     АDRРRТ*           РRТВUFF1 (РRТDЕАD )                           РRТLINЕ/                      FINDLАВ
+               INТРRТ2*          РRТСНVАR    АDRРRТ*               РRТLINЕ     INТРRТ3*                    Е МIN0
+               INТРRТ5*                      INТРRТ2*                          NЕWLINЕ*                      NIW
+               INТРRТF*                      INТРRТ5*                          РRТ*LINЕ                      РUТВВ
+               INТРRТV*                      ISОРRТ*               РRТLINЕ/ (FТNРRТ* )           SЕQGОLА1 (SЕQGОLА )
+               IОDRUМ*                       NЕWLINЕ*              РRТLОС    Е ВСDWRIТ*          SЕТ*С*
+               ISОРRТ*                       ОСТРRТ*                         Е F/SNОSV           SЕТ*LINЕ  Е РRINТ8
+               NЕWLINЕ*                      РRТ6ТIС*                        Е F/SRЕТNR          SЕТСОNS   Е F/NОSVR
+               NЕWРАGЕ*                      РRТLINЕ*                        Е IОСОNТ*                     Е F/SRЕТNR
+               ОСТРRТ*                       РUТВL*                          Е IОЕND*            SЕТОJТR*
+               РRТ6ТIС*          РRТСNАМ* (FТNРRТ* )               РRТLОС*     INТРRТ5*          SЕТОРТZВ (SСАNЕQUV)
+               РRТ6ТIV*          РRТDЕАD     INТРRТ5*                          ISОРRТ*           SЕТТRС
+               РRТLINЕ*                      ISОРRТ*                           NЕWLINЕ*          SРRОТ
+               РUТВL*                        ОСТРRТ*                           ОСТРRТ*           SТАСК    (SСАNЕQUV)
+               РUТЕWRD*                      РRТLINЕ*                          РRТLINЕ*          SТАТМЕNТ    АNАLУSЕ
+   ОUТРUТ/  (NIW     )                       РUТВL*                            РUТВL*                        СОNЕLIМ
+   ОUТРUТS  (NIW     )           РRТDLISТ    АDRРRТ*               РRТМАG      ISОРRТ*                       ЕХРNLIN
+   РАSS1       СLЕАRFТN                      INТРRТ5*                          NЕWLINЕ*                    Е F/NОSVR
+             Е F/SRЕТNR                      ЬGЕЬ
+   SUССРRЕD  Е F/SАVЕR           ЬLIВСЬ
+             Е F/SRЕТ            ЬLТЬ        ЬСМЬ
+   Т*САLL    Е РRINТ8                        ЬСРАВЬ
+   Т*ЕND    (Т*РАRR  )                       ЬGТЬ
+   Т*GОТО    Е FТ*002            ЬМV8Ь       ЬМVЬ
+             Е FТ*003            ЬМVЬ        ЬСRЬ
+             Е FТ*571                        ЬЗПЬ
+   Т*INDХ    Е FТ*002            ЬNЕЬ        ЬСМЬ
+             Е FТ*003                        ЬСРАВЬ
+             Е FТ*571            ЬТRUЬ
+   Т*LАВL   (Т*САLL  )           ЬZZЬ
+   Т*РАRR    Е FТ*002            ЬДИНЬ    (ЬСRЬ    )
+             Е FТ*003            ЬЗПЬ
+             Е FТ*571            ЬЦ0Ь
+             Е РRINТ8
+   Т*RЕТN   (Т*САLL  )
+   Т*RРL     Е FТ*002
+             Е FТ*003
+             Е FТ*571
+   ТАВВЕСВ  (SЕТОJТR*)
+   ТАВВЕСЕ  (SЕТОJТR*)
+   ТАВLЕВ   (SЕТОJТR*)
+   ТАВLЕЕ   (SЕТОJТR*)
+   ТАВММSВ  (SЕТОJТR*)
+   ТАВММSЕ  (SЕТОJТR*)
+   ТАВNОТВ  (SЕТОJТR*)
+   ТАВNОТЕ  (SЕТОJТR*)
+   ТАВРОWВ  (SЕТОJТR*)
+   ТАВРОWЕ  (SЕТОJТR*)
+   ТОСНVАR     ВIТ
+             Е F/SАVЕR
+             Е F/SRЕТ
+               GЕТD1WRD
+               SСАNЕQUV
+   ТОНЕАР      IОDRUМ*
+               NЕХТОРТ
+   ТОНЕАР1  (ТОНЕАР  )
+   ТR*ОFF   (ТR*ОN   )
+   ТR*ОN
+   ТRIРЕL   (SСАNЕQUV)
+   UNSТАСК  (SСАNЕQUV)
+   Ь8Ь
+   ЬАNУЬ
+   ЬВВЬ
+   ЬСМЬ        ЬВВЬ
+               ЬСRЬ
+               ЬТRUЬ
+               ЬZZЬ
+   ЬСN48Ь
+   ЬСРАВЬ      ЬВВЬ
+               ЬСRЬ
+               ЬТRUЬ
+               ЬZZЬ
+   ЬСRЬ        ЬСN48Ь
+   ЬGЕЬ        ЬСМЬ
+               ЬСРАВЬ
+               ЬLЕЬ
+   ЬGТЬ        ЬСМЬ
+               ЬСРАВЬ
+               ЬLТЬ
+   ЬINЬ        ЬСRЬ
+               ЬДИНЬ
+               ЬЦ0Ь
+   ЬLЕЬ        ЬСМЬ
+               ЬСРАВЬ
+                                                      18.05.19 М1
+                     ИСПОЛЬЗОВАНИЕ ПОДПРОГРАММ                     ВЬАN        ВЬNА                          NЕССРRЕD
+                                                                   ВЬСРАВ      ВЬGЕ                          РRЕDЕS
+                                 РRТАVАR                                       ВЬGТ                          SUССРRЕD
+   Е - ВНЕШНЯЯ П/П               РRТВUFF1                                      ВЬLЕ                          ТОСНVАR
+   N - ОПИСАНА, НЕ ИСПОЛЬЗУЕТСЯ  РRТСНVАR                                      ВЬLТ              F/SNОSV  Е  РRТLОС
+   С - ЕСТЬ ОДНОИМЕННЫЙ СОММОN   РRТDЕАD                                       ВЬNЕ              F/SRЕТ   Е  АNАLУSЕ
+                                 РRТНЕАР                           ВЬМV        ВЬВIТ                         FINDLАВ
+   НЕИСПОЛЬЗУЕМЫЕ ВХОДЫ          РRТIRСОN                                      IЬВIТ                         LООКАНD
+                                 РRТIRLIN                          ВЬОR        ВЬNО                          NЕССРRЕD
+   *LISТ*                        РRТLАВЕL                          ВЬVР        СЬVР                          РRЕDЕS
+   ВСDАРRТ*                      РRТLОС*                           ВЬХR        ВЬNХ                          SЕQGОLА
+   ВЬВIТ                         РRТМАG                            СНЕХРR      АNАLУSЕ                       SUССРRЕD
+   ВЬGЕ                          РRТОРТВ*                          СLЕАRFТN    FТN                           ТОСНVАR
+   ВЬGТ                          РRТРRЕD                                       РАSS1             F/SRЕТNR Е  РRТLОС
+   ВЬIN                          РТG                               СОМРСОN     АNАLУSЕ                       SЕТСОNS
+   ВЬLЕ                          SЕТ*LINЕ                          СОNЕLIМ     АNАLУSЕ                       SТАТМЕNТ
+   ВЬLТ                          SЕТОРТZВ                                      SТАТМЕNТ          F/SSТАRТ Е  SЕQGОLА
+   ВЬNА                          SЕТТRС                            СЬСРАВ      СЬGЕ              FINDLАВ     SЕQGОLА
+   ВЬNЕ                          SРRОТ                                         СЬGТ              FТ*002   Е  Т*GОТО
+   ВЬNО                          SUССРRЕD                                      СЬLЕ                          Т*INDХ
+   ВЬNТ                          Т*САLL                                        СЬLТ                          Т*РАRR
+   ВЬNХ                          Т*ЕND                                         СЬNЕ                          Т*RРL
+   ВЬZВ                          Т*GОТО                            D*АD*D   Е  РАSS1             FТ*003   Е  Т*GОТО
+   СНОUТРW                       Т*INDХ                            D*LN*D   Е  РАSS2                         Т*INDХ
+   СLRТRС                        Т*LАВL                            D*МU*D   Е  РАSS1                         Т*РАRR
+   СОМРАRЕ*                      Т*РАRR                            D*РО*I   Е  РАSS1                         Т*RРL
+   СЬGЕ                          Т*RЕТN                            D*SТ*D   Е  РАSS1             FТ*571   Е  Т*GОТО
+   СЬGТ                          Т*RРL                                         РАSS2                         Т*INDХ
+   СЬIN                          ТR*ОFF                            DАТАРR*  Е  DАТЕРR*                       Т*РАRR
+   СЬLЕ                          ТR*ОN                                         FТN                           Т*RРL
+   СЬLТ                          Ь8Ь                                           INIТFТN           FТNРRТ*     INТРRТ2*
+   СЬМV                          ЬNЕЬ                              DАТЕРR*     ВСDАРRТ*          GЕNINFW*    РАSS4
+   СЬNЕ                                                            DЕАDЕLIМ    F/ОРТ                         RIВUF
+   СЬVР                                                            DIМРRТ      DLIРRТ                        RОВUF
+   СЬZВ                          ИСПОЛЬЗУЕМЫЕ ВХОДЫ                            ОUТРRТ1           GЕТСОN      LООКАНD
+   DLIРRТ                                                                      ОUТРRТ2           GЕТD1WRD    АNАLУSЕ
+   DUМР1                         *ВЕG*    Е  *LISТ*                DUМР        DUМР1                         ТОСНVАR
+   ЕRRDIАG*                      АDRРRТ*     ВСDАРRТ*              ЕОFLIВТ     РАSS1             GЕТОРТW     АNАLУSЕ
+   F/СНGОV                                   DUМР                  ЕQUIV       F/ОРТ                         LООКАНD
+   F/СНIND*                                  DUМР1                             РUТАDR            I*РО*I   Е  СОМРСОN
+   F/ОРТ                                     F/ТRАСЕ               ЕRRFАТ*     ЕRRОRF*           I*РО*R   Е  СОМРСОN
+   F/ТRАСЕ                                   ОUТРR4                          N F/ОРТ             INТРRТ*     INТРRТ2*
+   F/ТRСL                                    ОUТРRТ3                           FТN               INТРRТ      ОUТРRТ1
+   F/ТRСRРL                                  РRТСНVАR                          РАSS2             INТРRТ2*    ВСDАРRТ*
+   F/ТRСS                                    РRТDLISТ                          РАSS3                         ОUТРRТ3
+   F/ТRСSR                                   РRТНЕАD*                          РАSS4                         РRТСНVАR
+   FТN                                       РRТНЕАР               ЕRRFАТ1*    ЕRRОRF*                       РRТIRСОN
+   FТN/НЕАD                                  РRТIRСОN              ЕRRОRF*     ЕRRFАТ*                       РRТIRLIN
+   FТNРRТ                                    РRТIRLIN                        N F/ОРТ             INТРRТ3*    ЕRRDIАG*
+   GО410300                                  РRТLАВЕL                          LОСОРТ*                       РRТLINЕ
+   INIТFТN                                   РRТОРТВ*                          РАSS1             INТРRТ5*    ВСDАРRТ*
+   IЬАNУ                                     РRТSУМВ*                          РАSS2                       N F/ТRАСЕ
+   IЬВIТ                                     РUТРОSIТ                          РАSS3                         ОUТРR4
+   IЬСНАR                        АDRРRТ      DLIРRТ                          N РАSS4                         ОUТРRТ3
+   LООКАНD                                   ОUТРRТ1               ЕХРА        АNАLУSЕ                       РRТСНVАR
+   LЬВIТ                                     ОUТРRТ2               ЕХРLIN      АNАLУSЕ                       РRТDЕАD
+   NЕССРRЕD                      АNАLУSЕ     F/ОРТ                 ЕХРNLIN     АNАLУSЕ                       РRТDLISТ
+   NОSЕТFТN                                  SТАТМЕNТ                          SТАТМЕNТ                      РRТIRСОN
+   NЬАNУ                         ВСDWRIТ* Е  РRТLОС                F/NОSVR  Е  SЕТСОNS                       РRТIRLIN
+   NЬUN                          ВINРRТ      DLIРRТ                            SТАТМЕNТ                      РRТLАВЕL
+   ОUТРR4                        ВIТ         FINDLАВ               F/РТ6       F/ТRАСЕ                       РRТLОС*
+   ОUТРRТ1                                   LООКАНD                           FТNРRТ*                       РRТРRЕD
+   ОUТРRТ2                                   SЕQGОLА               F/SАVЕR  Е  АNАLУSЕ                       РRТSУМВ*
+   ОUТРRТ3                                   ТОСНVАR                           FINDLАВ           INТРRТС*  N F/ТRАСЕ
+   РRINТL                        ВООLРRТ     DLIРRТ                            LООКАНD           INТРRТF*    ВСDАРRТ*
+               ЕRRDIАG*                      FТN                             N РRТНЕАD*                      SЕQGОLА
+               ОUТРRТ3                     N ОUТРR4                            SЕТ*LINЕ          РUТВL*      ВСDАРRТ*
+               РRТНЕАD*                    N ОUТРRТ3                           Т*САLL                        DUМР
+               РUТРОSIТ                      РRТСНVАR                          Т*РАRR                        ЕRRDIАG*
+   INТРRТV*    ВСDАРRТ*                      РRТDLISТ              РRINТ8// Е  СLЕАRFТN                      F/ТRАСЕ
+               ЕRRDIАG*                      РRТНЕАD*                          FТN                           ОUТРR4
+               F/ТRАСЕ                       РRТНЕАР                           GЕNINFW*                      ОUТРRТ3
+               ОUТРRТ3                       РRТIRСОN                          INIТFТN                       РRТСНVАR
+             N РUТРОSIТ                      РRТIRLIN                          РRТLINЕ*                      РRТDЕАD
+   IОСОNТ*  Е  РRТLОС                        РRТLАВЕL              РRТ*LINЕ    ЕRRDIАG*                      РRТDLISТ
+   IОDRUМ*     ВСDАРRТ*                      РRТLINЕ                           ОUТРR4                        РRТНЕАD*
+               F/ОРТ                         РRТLОС*                           РRТDLISТ                      РRТНЕАР
+               NIW                           РRТМАG                            РRТLINЕ                       РRТIRСОN
+               ОUТРR4                        РRТОРТВ*                          РRТSУМВ*                      РRТIRLIN
+               ОUТРRТ3                       РRТРRЕD               РRТ6ТIС*    ВСDАРRТ*                      РRТLАВЕL
+               РАSS1                         РUТРОSIТ                          ОUТРR4                        РRТLОС*
+               РАSS2             NЕWLINЕ     СНОUТРW                         N ОUТРRТ3                       РRТОРТВ*
+               РАSS3                         DLIРRТ                            РRТСНVАR                      РRТРRЕD
+               РАSS4                         ОUТРRТ1                           РRТDLISТ                      РRТSУМВ*
+               ТОНЕАР                        ОUТРRТ2                           РRТНЕАD*                      РUТРОSIТ
+   IОЕND*   Е  РRТLОС            NЕWРАGЕ*  N ВСDАРRТ*                          РRТIRСОN          РUТСОМ*     ВСDАРRТ*
+   ISОРRТ*     ВСDАРRТ*                      ОUТРR4                            РRТIRLIN          РUТЕWRD*    ВСDАРRТ*
+               DUМР                          ОUТРRТ3                           РRТSУМВ*                      DUМР
+               DUМР1             NЕWРАGЕ     DLIРRТ                РRТ6ТIV*    ВСDАРRТ*                      ОUТРRТ3
+               ЕRRDIАG*                      ОUТРRТ1                           ЕRRDIАG*                      РRТDLISТ
+               ЕRRОRF*           NЕХТОРТ     LООКАНD                           ОUТРRТ3                       РRТLАВЕL
+               F/ТRАСЕ                       NIW                   РRТСNАМ*    РRТDLISТ          РUТIRLIN    АNАLУSЕ
+               ОUТРR4                        ТОНЕАР                            РRТSУМВ*          РUТРОSIТ    РАSS4
+               ОUТРRТ3           NIW         LООКАНD               РRТDLISТ    FТN               R*РО*I   Е  СОМРСОN
+               РRТСНVАR                      SЕQGОLА                         N РАSS1             R*РО*R   Е  СОМРСОN
+               РRТDЕАD           NIW*        F/ОРТ                 РRТНЕАD*    FТN               R*ТО*I   Е  СОМРСОN
+               РRТDLISТ          NIWА        АNАLУSЕ                           РАSS1                         F/ОРТ
+               РRТНЕАD*                      DЕАDЕLIМ              РRТLINЕ*  N ВСDАРRТ*          R*ТО*INТ Е  СОМРСОN
+               РRТНЕАР                       F/ОРТ                             DUМР              RЕАD*    Е  IОDRUМ*
+               РRТIRСОN          ОСТАLРRТ    СНОUТРW                           DUМР1             RЕАLРRТ*    F/ТRАСЕ
+               РRТIRLIN                      DLIРRТ                            ЕRRDIАG*          RЕАLРRТ     ОUТРRТ1
+               РRТLАВЕL                      ОUТРRТ1                           FТN               RЕWIND      ВСDАРRТ*
+               РRТLОС*                       ОUТРRТ2                           ОUТРR4                        FТN
+               РRТМАG            ОСТРRТ*     ВСDАРRТ*                          ОUТРRТ3           RIВUF       IОDRUМ*
+               РRТОРТВ*                      DUМР                              РRТСНVАR                      ОUТРRТ1
+               РRТРRЕD                       F/ТRАСЕ                           РRТDЕАD                       ОUТРRТ2
+               РRТSУМВ*                      ОUТРR4                            РRТDLISТ          RОВUF       IОDRUМ*
+               РUТРОSIТ                      ОUТРRТ3                           РRТНЕАD*          SСАNЕQ14    DЕАDЕLIМ
+   ISОРRТ      СНОUТРW                       РRТСНVАR                          РRТНЕАР           SСАNЕQUV    АNАLУSЕ
+               DLIРRТ                        РRТDЕАD                           РRТIRСОN                      DЕАDЕLIМ
+               ОUТРRТ1                       РRТНЕАР                           РRТIRLIN                      ТОСНVАR
+               ОUТРRТ2                       РRТIRLIN                          РRТLАВЕL          SЕQGОLА     LООКАНD
+   КОМАF    Е  DUМР1                         РRТLАВЕL                          РRТLОС*           SЕQGОLА1    LООКАНD
+   LАВINОРТ    FINDLАВ                       РRТLОС*                           РRТМАG            SЕТ*С*      FТN
+   LIВТАВL     РАSS1                         РRТМАG                            РRТОРТВ*                      РАSS1
+   LОАDАNGО Е  ВСDАРRТ*                      РRТОРТВ*                          РRТРRЕD           SЕТСОNS     F/ОРТ
+               ЕRRFАТ*                       РRТРRЕD                           РRТSУМВ*          SЕТОJТR*    FТN
+               FТN               ОРТТRF      F/ОРТ                             РUТРОSIТ          SIМFАIL* Е  NОSЕТFТN
+               INIТFТN           ОUТРUТ/     F/ОРТ                 РRТLINЕ     РАSS1             SТАСК       АNАLУSЕ
+               РАSS1             ОUТРUТS     F/ОРТ                 РRТLINЕ/    F/ТRАСЕ           SТАТМЕNТ    F/ОРТ
+   LОСОРТ*     РАSS3             РАRАМТ*  Е  NОSЕТFТN                          РRТLINЕ*          SТОР*    Е  GЕNINFW*
+   LООКАНЕD    F/ОРТ             РАSS1       FТN                   РRТLОС      РRINТL            ТАВВЕСВ     РАSS2
+   МIN0     Е  SЕQGОLА           РАSS2       FТN                   РRТРАGЕ*  N ВСDАРRТ*          ТАВВЕСЕ     РАSS2
+   МОРIТR      РАSS2             РАSS3       *LISТ*                          N ОUТРR4            ТАВLЕВ      РАSS2
+   МОРNIТI     РАSS2                         FТN                   РRТSУМВ*    FТN               ТАВLЕЕ      РАSS2
+   МОРRТI      РАSS2             РАSS4       FТN                             N РАSS1             ТАВММSВ     РАSS2
+   NЕWLINЕ*    ВСDАРRТ*          РRЕDЕS      F/ОРТ                 РТ6      Е  ОUТРRТ1           ТАВММSЕ     РАSS2
+               DUМР              РRINТ8   Е  ВСDАРRТ*                          ОUТРRТ2           ТАВNОТВ     РАSS2
+               DUМР1                         F/ТRАСЕ               РТG/G    Е  РТG               ТАВNОТЕ     РАSS2
+               ЕRRDIАG*                      FТNРRТ                РUТАDR      АNАLУSЕ           ТАВРОWВ     РАSS2
+               F/ТRАСЕ                       NОSЕТFТN              РUТВВ       LООКАНD           ТАВРОWЕ     РАSS2
+   ТОСНVАR     LООКАНD                       ЬINЬ
+   ТОНЕАР      АNАLУSЕ
+               СОNЕLIМ
+               РUТАDR
+   ТОНЕАР1     АNАLУSЕ
+   ТRIРЕL      АNАLУSЕ
+   UNSТАСК     АNАLУSЕ
+   ЬАNУЬ       IЬАNУ
+               NЬАNУ
+   ЬВВЬ        СЬZВ
+               ЬСМЬ
+               ЬСРАВЬ
+   ЬСМЬ        ЬGЕЬ
+               ЬGТЬ
+               ЬLЕЬ
+               ЬLТЬ
+               ЬNЕЬ
+   ЬСN48Ь      ВЬVР
+               ЬСRЬ
+   ЬСРАВЬ      ВЬСРАВ
+               СЬСРАВ
+               ЬGЕЬ
+               ЬGТЬ
+               ЬLЕЬ
+               ЬLТЬ
+               ЬNЕЬ
+   ЬСRЬ        ВЬАN
+               ВЬNА
+               ВЬNО
+               ВЬNТ
+               ВЬNХ
+               ВЬОR
+               ВЬХR
+               NЬUN
+               ЬСМЬ
+               ЬСРАВЬ
+               ЬINЬ
+               ЬМVЬ
+   ЬGЕЬ        ЬLЕЬ
+   ЬGТЬ        ЬLТЬ
+   ЬINЬ        ВЬIN
+               СЬIN
+   ЬLЕЬ        ЬGЕЬ
+   ЬLIВСЬ      IЬСНАR
+               LЬВIТ
+   ЬLТЬ        ЬGТЬ
+   ЬМV8Ь       СЬМV
+               СЬZВ
+   ЬМVЬ        ВЬМV
+               ВЬZВ
+               ЬМV8Ь
+   ЬТRUЬ       LЬВIТ
+               ЬСМЬ
+               ЬСРАВЬ
+   ЬZZЬ        ВЬZВ
+               ЬСМЬ
+               ЬСРАВЬ
+   ЬДИНЬ       ЬINЬ
+   ЬЗПЬ        ВЬАN
+               ВЬNТ
+               ВЬОR
+               ВЬХR
+               ЬМVЬ
+   ЬЦ0Ь        IЬВIТ
+               IЬСНАR
+               NЬUN
+                                                      18.05.19 М1
+                     ССЫЛКИ НА СОММОN′Ы                            NЕХТОРТ  (F/ОРТ   )           РRТIRСОN  L 00001 *IRСОN*
+                                                                   NIW       Р 01024 *ВUFF1*               L 00001 *LISТS*
+                                           L 00100 *IRLIN*                   Р 01024 *ВUFF2*     РRТIRLIN  L 00001 *IRLIN*
+   D - РАССЫЛКА ДАННЫХ                     L 02500 *LISТS*                   L 00001 *LISТS*               L 00001 *LISТS*
+   N - ОПИСАН, НЕ ИСПОЛЬЗУЕТСЯ            NL 00020 *МАSКS*                   L 00001 *ОРТВUF*    РRТLАВЕL  L 00001 *LISТS*
+   Р - СТРАНИЧНЫЙ СОММОN                   L 00512 *ОРТВUF*        NIW*     (NIW     )                     L 00001 *ОРТLSТ*
+   S - СЕКТОРНЫЙ СОММОN                   NL 00010 *ОРТLIМ*        NIWА     (NIW     )           РRТLINЕ*  L 00001 РRТАDR/
+   L - ПРОСТОЙ СОММОN                      L 00300 *ОРТLSТ*        NОSЕТFТN  L 00012 *МОNСRD*    РRТLINЕ   L 00021 *LINЕ
+   ***** - ДЛИНА ОПИСАНА НЕЯВНО           NL 00020 *SУМВLS*                  L 00001 FLАGS                 L 02500 *LISТS*
+                                          NL 00001 FLАGS                     L 00003 МISТ10*     РRТLINЕ/ (FТNРRТ* )
+   АDRРRТ*  (FТNРRТ* )           F/ТRАСЕ   L 00024 *LINЕ           ОСТРRТ*  (FТNРRТ* )           РRТLОС    L 01024 *ВUFF1*
+   АNАLУSЕ   L 00001 *СНVАR*               L 00001 РRТАDR/         ОРТТRF   (ТОНЕАР  )                     L 01024 *ВUFF2*
+             L 00001 *НЕАР*                L 00001 ТRFLG*          ОUТРR4   NР 01024 *ВUFF1*               L 00500 *LISТS*
+             L 00183 *LISТS*     F/ТRСL   (F/ТRАСЕ )                         Р 01024 *ВUFF2*     РRТLОС*   L 00001 *LISТS*
+             L 00009 *МАSКS*     F/ТRСRРL (F/ТRАСЕ )                         L 00023 *LINЕ       РRТОРТВ*  L 00001 *ОРТВUF*
+             L 00001 *ОРТВUF*    F/ТRСS   (F/ТRАСЕ )                         L 02500 *LISТS*     РRТРАGЕ* (FТNРRТ* )
+             L 00145 *ОРТLSТ*    F/ТRСSR  (F/ТRАСЕ )               ОUТРRТ1   Р 01024 *ВUFF1*     РRТРRЕD   L 00001 *LISТS*
+             L 00014 *SУМВLS*    FINDLАВ   L 00174 *LISТS*                   Р 01024 *ВUFF2*               L 00001 *ОРТLSТ*
+   ВСDАРRТ*  Р 01024 *ВUFF1*               L 00002 *МАSКS*                   L 02500 *LISТS*     РRТSУМВ*  Р 01024 *ВUFF1*
+             Р 01024 *ВUFF2*               L 00001 *ОРТLIМ*        ОUТРRТ2   Р 01024 *ВUFF1*               L 00001 *LINЕ
+             L 00021 *LINЕ                 L 00192 *ОРТLSТ*                  Р 01024 *ВUFF2*               L 00001 *LISТS*
+             L 02500 *LISТS*     FТN      NР 01024 *ВUFF1*                   L 02500 *LISТS*     РUТАDR    L 00001 *НЕАР*
+            NL 00001 FLАGS                NР 01024 *ВUFF2*         ОUТРRТ3   Р 01024 *ВUFF1*               L 00001 *IRСОN*
+   ВIТ      (SСАNЕQUV)                    NL 00024 *LINЕ                     L 02500 *LISТS*               L 00001 *IRLIN*
+   СНЕХРR   (СОМРСОN )                     L 03008 *LISТS*         ОUТРUТ/  (NIW     )                     L 00001 *LISТS*
+   СНОUТРW   L 00001 *LISТS*              NL 00001 FLАGS           ОUТРUТS  (NIW     )                     L 00001 *ОРТВUF*
+             L 00005 СНЕСКFТN    FТN/НЕАD (INIТFТN )               РАSS1     Р 01024 *ВUFF1*               L 00001 *ОРТLIМ*
+   СLЕАRFТN NL 00001 *LINЕ       FТNРRТ*  DL 00024 *LINЕ                     L 02500 *LISТS*     РUТВВ    (NIW     )
+             L 02500 *LISТS*               L 00001 *LISТS*                  NL 00001 FLАGS       РUТВL*   (FТNРRТ* )
+   СLRТRС    L 00001 ТRFLG*                L 00001 РRТАDR/         РАSS2     Р 01024 *ВUFF1*     РUТСОМ*  (FТNРRТ* )
+   СОМРАRЕ*  L 00001 *НЕАР*      GЕNINFW*  L 00025 LUNМUN                    Р 01024 *ВUFF2*     РUТЕWRD* (FТNРRТ* )
+   СОМРСОN   L 00001 *НЕАР*      GЕТСОN   (NIW     )                         L 02500 *LISТS*     РUТIRLIN (РUТАDR  )
+             L 00001 *LISТS*     GЕТD1WRD (SСАNЕQUV)                        NL 00001 FLАGS       РUТРОSIТ NL 00021 *LINЕ
+             L 00001 *ОРТВUF*    GЕТОРТW  (SСАNЕQUV)               РАSS3     Р 01024 *ВUFF1*               L 02500 *LISТS*
+   СОNЕLIМ   L 00001 *НЕАР*      INIТFТN  NL 00001 СНЕСКFL*                  Р 01024 *ВUFF2*     RЕАLРRТ* (FТNРRТ* )
+             L 00001 *LISТS*               L 00001 FLАGS                     L 02500 *LISТS*     SСАNЕQ14 (SСАNЕQUV)
+             L 00001 *ОРТВUF*              L 00001 FLGЕХ*                   NL 00001 FLАGS       SСАNЕQUV  L 00001 *LISТS*
+             L 00001 *ОРТLIМ*              L 00001 LОАDLIS*        РАSS4     Р 01024 *ВUFF1*     SЕQGОLА   L 00175 *LISТS*
+             L 00001 *ОРТLSТ*             DL 00025 LUNМUN                    Р 01024 *ВUFF2*               L 00002 *МАSКS*
+   DЕАDЕLIМ  L 00001 *СНVАR*               L 00013 МАСRО*                    L 02500 *LISТS*               L 00001 *ОРТLIМ*
+             L 00001 *НЕАР*                L 00005 RМ*                       L 00042 ЕNТRУ*                L 00192 *ОРТLSТ*
+             L 00001 *LISТS*     INТРRТ*  (FТNРRТ* )                        NL 00001 FLАGS                 L 00009 *SУМВLS*
+             L 00001 *ОРТВUF*    INТРRТС* (FТNРRТ* )               РRЕDЕS    L 00176 *LISТS*     SЕQGОLА1 (SЕQGОLА )
+             L 00001 *ОРТLIМ*    INТРRТF* (FТNРRТ* )                         L 00201 *ОРТLSТ*    SЕТ*С*    L 02500 *LISТS*
+             L 00001 *ОРТLSТ*    INТРRТV* (FТNРRТ* )                         L 00001 АСС*        SЕТ*LINЕ  L 00001 *LINЕ
+   DLIРRТ    L 02500 *LISТS*     IОDRUМ*   Р 01024 *ВUFF1*         РRINТL   NL 00100 *LISТS*               L 02500 *LISТS*
+   ЕОFLIВТ  (SЕТОJТR*)                     Р 01024 *ВUFF2*         РRТ*LINЕ (СLЕАRFТN)           SЕТСОNS  DL 00001 *НЕАР*
+   ЕQUIV     L 00001 *НЕАР*                L 02500 *LISТS*         РRТ6ТIС* (FТNРRТ* )                    DL 00010 *МАSКS*
+             L 00001 *LISТS*     ISОРRТ*  (FТNРRТ* )               РRТ6ТIV* (FТNРRТ* )                    DL 00007 *ОРТLIМ*
+   ЕRRDIАG*  L 00023 *LINЕ       LАВINОРТ (SСАNЕQUV)               РRТАVАR  (РRТНЕАР )                    DL 00014 *SУМВLS*
+             L 02500 *LISТS*     LIВТАВL  (SЕТОJТR*)               РRТВUFF1 (РRТDЕАD )           SЕТОJТR* DL 02500 *LISТS*
+   ЕRRFАТ*   L 02500 *LISТS*     LОСОРТ*   Р 01024 *ВUFF1*         РRТСНVАR  L 00001 *СНVАR*     SЕТОРТZВ (SСАNЕQUV)
+   ЕRRFАТ1* (РАSS1   )                     L 02500 *LISТS*                   L 00001 *LISТS*     SЕТТRС    L 00001 ТRFLG*
+   ЕRRОRF*   L 00021 *LINЕ       LООКАНD   L 00178 *LISТS*         РRТСNАМ* (FТNРRТ* )           SТАСК    (SСАNЕQUV)
+             L 02500 *LISТS*               L 00010 *МАSКS*         РRТDЕАD   Р 01024 *ВUFF1*     SТАТМЕNТ  L 00151 *LISТS*
+            NL 00001 FLАGS                 L 00192 *ОРТLSТ*                 NL 00001 *LISТS*     SUССРRЕD  L 00197 *LISТS*
+   ЕХРА     (F/ОРТ   )                     L 00007 *SУМВLS*                  L 00001 *ОРТLSТ*              L 00145 *ОРТLSТ*
+   ЕХРLIN   (F/ОРТ   )           LООКАНЕD (LООКАНD )               РRТDLISТ  Р 01024 *ВUFF1*               L 00001 АСС*
+   ЕХРNLIN  (F/ОРТ   )           МОРIТR   (SЕТОJТR*)                         Р 01024 *ВUFF2*     ТАВВЕСВ  (SЕТОJТR*)
+   F/СНGОV  (F/ТRАСЕ )           МОРNIТI  (SЕТОJТR*)                         L 00001 *LINЕ       ТАВВЕСЕ  (SЕТОJТR*)
+   F/СНIND* (F/ТRАСЕ )           МОРRТI   (SЕТОJТR*)                         L 00001 *LISТS*     ТАВLЕВ   (SЕТОJТR*)
+   F/ОРТ     L 01024 *ВUFF1*     NЕССРRЕD  L 00197 *LISТS*         РRТНЕАD*  L 00021 *LINЕ       ТАВLЕЕ   (SЕТОJТR*)
+             L 00250 *СНVАR*               L 00145 *ОРТLSТ*                  L 02500 *LISТS*     ТАВММSВ  (SЕТОJТR*)
+             L 00500 *НЕАР*      NЕWLINЕ* (FТNРRТ* )               РRТНЕАР   L 00001 *НЕАР*      ТАВММSЕ  (SЕТОJТR*)
+             L 00050 *IRСОN*     NЕWРАGЕ* (FТNРRТ* )                         L 00001 *ОРТLSТ*    ТАВNОТВ  (SЕТОJТR*)
+   ТАВNОТЕ  (SЕТОJТR*)
+   ТАВРОWВ  (SЕТОJТR*)
+   ТАВРОWЕ  (SЕТОJТR*)
+   ТОСНVАR   L 00001 *СНVАR*
+             L 00176 *LISТS*
+             L 00007 *МАSКS*
+   ТОНЕАР    Р 01024 *ВUFF1*
+             Р 01024 *ВUFF2*
+             L 00001 *НЕАР*
+             L 00001 *LISТS*
+             L 00001 *ОРТВUF*
+             L 00001 *ОРТLIМ*
+   ТОНЕАР1  (ТОНЕАР  )
+   ТRIРЕL   (SСАNЕQUV)
+   UNSТАСК  (SСАNЕQUV)
+                                                      18.05.19 М1
+                     ИСПОЛЬЗОВАНИЕ СОММОN′ОВ                                 L 00001 РRТРRЕD               L 00001 SUССРRЕD
+                                                                             L 00001 РRТSУМВ*    СНЕСКFL*    00001
+                                           L 00001 РRТIRСОN                  L 00001 РUТАDR               NL 00001 INIТFТN
+   Е - ЕСТЬ ОДНОИМЕННАЯ П/П                L 00001 РUТАDR                    L 02500 РUТРОSIТ    СНЕСКFТN    00005
+   D - РАССЫЛКА ДАННЫХ           *IRLIN*     00100                           L 00001 SСАNЕQUV              L 00005 СНОUТРW
+   N - ОПИСАН, НЕ ИСПОЛЬЗУЕТСЯ             L 00100 F/ОРТ                     L 00175 SЕQGОLА     ЕNТRУ*      00042
+   Р - СТРАНИЧНЫЙ СОММОN                   L 00001 РRТIRLIN                  L 02500 SЕТ*С*                L 00042 РАSS4
+   S - СЕКТОРНЫЙ СОММОN                    L 00001 РUТАDR                    L 02500 SЕТ*LINЕ    FLАGS       00001
+   L - ПРОСТОЙ СОММОN            *LINЕ       00024                          DL 02500 SЕТОJТR*             NL 00001 ВСDАРRТ*
+   ***** - ДЛИНА ОПИСАНА НЕЯВНО            L 00021 ВСDАРRТ*                  L 00151 SТАТМЕNТ             NL 00001 ЕRRОRF*
+                                          NL 00001 СLЕАRFТN                  L 00197 SUССРRЕD             NL 00001 F/ОРТ
+   *ВUFF1*     01024                       L 00023 ЕRRDIАG*                  L 00176 ТОСНVАR              NL 00001 FТN
+             Р 01024 ВСDАРRТ*              L 00021 ЕRRОRF*                   L 00001 ТОНЕАР                L 00001 INIТFТN
+             L 01024 F/ОРТ                 L 00024 F/ТRАСЕ         *МАSКS*     00020                       L 00001 NОSЕТFТN
+            NР 01024 FТN                  NL 00024 FТN                       L 00009 АNАLУSЕ              NL 00001 РАSS1
+             Р 01024 IОDRUМ*              DL 00024 FТNРRТ*                  NL 00020 F/ОРТ                NL 00001 РАSS2
+             Р 01024 LОСОРТ*               L 00023 ОUТРR4                    L 00002 FINDLАВ              NL 00001 РАSS3
+             Р 01024 NIW                   L 00001 РRТDLISТ                  L 00010 LООКАНD              NL 00001 РАSS4
+            NР 01024 ОUТРR4                L 00021 РRТНЕАD*                  L 00002 SЕQGОLА     FLGЕХ*      00001
+             Р 01024 ОUТРRТ1               L 00021 РRТLINЕ                  DL 00010 SЕТСОNS               L 00001 INIТFТN
+             Р 01024 ОUТРRТ2               L 00001 РRТSУМВ*                  L 00007 ТОСНVАR     LОАDLIS*    00001
+             Р 01024 ОUТРRТ3              NL 00021 РUТРОSIТ        *МОNСRD*    00012                       L 00001 INIТFТN
+             Р 01024 РАSS1                 L 00001 SЕТ*LINЕ                  L 00012 NОSЕТFТN    LUNМUN      00025
+             Р 01024 РАSS2       *LISТS*     03008                 *ОРТВUF*    00512                       L 00025 GЕNINFW*
+             Р 01024 РАSS3                 L 00183 АNАLУSЕ                   L 00001 АNАLУSЕ              DL 00025 INIТFТN
+             Р 01024 РАSS4                 L 02500 ВСDАРRТ*                  L 00001 СОМРСОN     МАСRО*      00013
+             Р 01024 РRТDЕАD               L 00001 СНОUТРW                   L 00001 СОNЕLIМ               L 00013 INIТFТN
+             Р 01024 РRТDLISТ              L 02500 СLЕАRFТN                  L 00001 DЕАDЕLIМ    МISТ10*     00003
+             L 01024 РRТLОС                L 00001 СОМРСОN                   L 00512 F/ОРТ                 L 00003 NОSЕТFТN
+             Р 01024 РRТSУМВ*              L 00001 СОNЕLIМ                   L 00001 NIW         РRТАDR/     00001
+             Р 01024 ТОНЕАР                L 00001 DЕАDЕLIМ                  L 00001 РRТОРТВ*              L 00001 F/ТRАСЕ
+   *ВUFF2*     01024                       L 02500 DLIРRТ                    L 00001 РUТАDR                L 00001 FТNРRТ*
+             Р 01024 ВСDАРRТ*              L 00001 ЕQUIV                     L 00001 ТОНЕАР                L 00001 РRТLINЕ*
+            NР 01024 FТN                   L 02500 ЕRRDIАG*        *ОРТLIМ*    00010             RМ*         00005
+             Р 01024 IОDRUМ*               L 02500 ЕRRFАТ*                   L 00001 СОNЕLIМ               L 00005 INIТFТN
+             Р 01024 NIW                   L 02500 ЕRRОRF*                   L 00001 DЕАDЕLIМ    ТRFLG*      00001
+             Р 01024 ОUТРR4                L 02500 F/ОРТ                    NL 00010 F/ОРТ                 L 00001 СLRТRС
+             Р 01024 ОUТРRТ1               L 00174 FINDLАВ                   L 00001 FINDLАВ               L 00001 F/ТRАСЕ
+             Р 01024 ОUТРRТ2               L 03008 FТN                       L 00001 РUТАDR                L 00001 SЕТТRС
+             Р 01024 РАSS2                 L 00001 FТNРRТ*                   L 00001 SЕQGОLА
+             Р 01024 РАSS3                 L 02500 IОDRUМ*                  DL 00007 SЕТСОNS
+             Р 01024 РАSS4                 L 02500 LОСОРТ*                   L 00001 ТОНЕАР
+             Р 01024 РRТDLISТ              L 00178 LООКАНD         *ОРТLSТ*    00300
+             L 01024 РRТLОС                L 00197 NЕССРRЕD                  L 00145 АNАLУSЕ
+             Р 01024 ТОНЕАР                L 00001 NIW                       L 00001 СОNЕLIМ
+   *СНVАR*     00250                       L 02500 ОUТРR4                    L 00001 DЕАDЕLIМ
+             L 00001 АNАLУSЕ               L 02500 ОUТРRТ1                   L 00300 F/ОРТ
+             L 00001 DЕАDЕLIМ              L 02500 ОUТРRТ2                   L 00192 FINDLАВ
+             L 00250 F/ОРТ                 L 02500 ОUТРRТ3                   L 00192 LООКАНD
+             L 00001 РRТСНVАR              L 02500 РАSS1                     L 00145 NЕССРRЕD
+             L 00001 ТОСНVАR               L 02500 РАSS2                     L 00201 РRЕDЕS
+   *НЕАР*      00500                       L 02500 РАSS3                     L 00001 РRТDЕАD
+             L 00001 АNАLУSЕ               L 02500 РАSS4                     L 00001 РRТНЕАР
+             L 00001 СОМРАRЕ*              L 00176 РRЕDЕS                    L 00001 РRТLАВЕL
+             L 00001 СОМРСОN              NL 00100 РRINТL                    L 00001 РRТРRЕD
+             L 00001 СОNЕLIМ               L 00001 РRТСНVАR                  L 00192 SЕQGОLА
+             L 00001 DЕАDЕLIМ             NL 00001 РRТDЕАD                   L 00145 SUССРRЕD
+             L 00001 ЕQUIV                 L 00001 РRТDLISТ        *SУМВLS*    00020
+             L 00500 F/ОРТ                 L 02500 РRТНЕАD*                  L 00014 АNАLУSЕ
+             L 00001 РRТНЕАР               L 00001 РRТIRСОN                 NL 00020 F/ОРТ
+             L 00001 РUТАDR                L 00001 РRТIRLIN                  L 00007 LООКАНD
+            DL 00001 SЕТСОNS               L 00001 РRТLАВЕL                  L 00009 SЕQGОLА
+             L 00001 ТОНЕАР                L 02500 РRТLINЕ                  DL 00014 SЕТСОNS
+   *IRСОN*     00050                       L 00500 РRТLОС          АСС*        00001
+             L 00050 F/ОРТ                 L 00001 РRТLОС*                   L 00001 РRЕDЕS
+           *ЕND FILЕ
+ КОНЕЦ ЗАДАЧИ
+ 00411: 00 074 0000	*74

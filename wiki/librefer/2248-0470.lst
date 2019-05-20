@@ -1,0 +1,1148 @@
+﻿                                                      18.05.19 М1
+
+  М О Н И Т О Р-8 0  (3.7)   25.09.84*       (  МС " Д У Б Н А " ИАЭ  )             ШИФР    419999000000
+
+
+
+
+
+
+
+                     ЖЖЖ   ЖЖЖ      Ж  ЖЖЖ         ЖЖЖ      Ж ЖЖЖЖЖ  ЖЖЖ
+                    Ж   Ж Ж   Ж    ЖЖ Ж   Ж       Ж   Ж    ЖЖ Ж   Ж Ж   Ж
+                        Ж     Ж   Ж Ж  Ж Ж        Ж   Ж   Ж Ж     Ж Ж   Ж
+                       Ж     Ж   Ж  Ж   Ж    ЖЖЖ  Ж   Ж  Ж  Ж    Ж  Ж   Ж
+                      Ж     Ж   Ж   Ж  Ж Ж        Ж   Ж Ж   Ж   Ж   Ж   Ж
+                     Ж     Ж    ЖЖЖЖЖ Ж   Ж       Ж   Ж ЖЖЖЖЖ  Ж    Ж   Ж
+                    ЖЖЖЖЖ ЖЖЖЖЖ     Ж  ЖЖЖ         ЖЖЖ      Ж  Ж     ЖЖЖ
+
+
+
+
+
+
+
+
+*NАМЕ 2248-0470
+           *РЕRSО: 401350
+ 04.10.84 М1
+           *САLL LIВRЕFЕR:ТАРЕ=410470
+                                                      18.05.19 М1
+                     ССЫЛКИ НА ПОДПРОГРАММЫ                                  Е РОWЕR                       Е АRСТАN*
+                                                                   ВISЕС     Е А/САLLР           СНЕВFI    Е А/АRRD/V
+                                           Е А/АRRD/V                        Е А/РАRРАR                    Е А/I0
+   D - РАССЫЛКА ДАННЫХ                     Е А/I0                            Е А/РАRVАR                    Е А/МINUS
+   Е - ВНЕШНЯЯ П/П                         Е А/МINUS                         Е А/РRОСRТ                    Е А/РRОСRТ
+                                           Е А/РRОСRТ                        Е А/SIGN                      Е А/RТОI
+   *GОSТ*      ВIВ                         Е А/SIGN                ВISЕСТ    Е А/АRRD/V                    Е А/SIGN
+               N8Т10                       Е А/VLМ1                          Е А/МINUS                     Е А/VLМ1
+               РRINТ8                      Е ЕNТIЕR*                         Е А/РRОСRТ                    Е А/VLМХ
+             Е RЕАD*                       Е SQRТ*                           Е А/VLМ1                      Е ЕNТIЕR*
+   *GОSТ*Р  (*GОSТ*  )           ВАNDSО    Е А/I0                            Е А/VLМХ            СНЕССОD*    РUТАLG*
+   А13SМО    Е А/МINUS                     Е А/ОРТLIN              ВОZР      Е А/РRОСRТ                    Е РUТСDС*
+             Е А/NLINЕ                     Е А/РRОСRТ              ВQR       Е А/АRRD/V                    Е РUТIСТ*
+             Е А/РRОСRТ                    Е А/SIGN                          Е А/I0                        Е RЕVСАRD*
+             Е А/SРRI                      Е А/VLМ1                          Е А/МINUS                     Е ТRNSСDС*
+             Е А/VLМ1                      Е ЕNТIЕR*                         Е А/ОРТLIN                      ТRNSUРР*
+   А35SМО    Е А/МINUS           ВЕGАСН      КVIТ                            Е А/РRОСRТ          СНI2СО    Е А/САLLР
+             Е А/NLINЕ                       SLSСНN                          Е А/VLМ1                      Е А/I0
+             Е А/РRОСRТ          ВЕGСНЕС* (СНЕССОD*)                         Е SQRТ*                       Е А/МINUS
+             Е А/SРRI            ВЕGRND   (RND     )               ВSL       Е А/АND                       Е А/NLINЕ
+             Е А/VLМ1            ВЕGRUС   (RUСОАН  )                         Е А/АRRD/К                    Е А/РАRСОN
+   АВSМАХ    Е А/РRОСRТ          ВЕSSЕL    Е А/АRRD/V                        Е А/САLLР                     Е А/РАRLАВ
+             Е А/VLМ1                      Е А/САLLР                         Е А/I0                        Е А/РАRVАR
+   АВSМIN    Е А/РRОСRТ                    Е А/I0                            Е А/МINUS                     Е А/РRОСRТ
+             Е А/VLМ1                      Е А/МINUS                         Е А/NLINЕ                     Е А/RТОI
+   АIТ       Е А/АND                       Е А/РАRLАВ                        Е А/NОТ                       Е А/SРRI
+             Е А/АRRD/V                    Е А/РАRVАR                        Е А/РАRVАL                    Е А/VLМ1
+             Е А/I0                        Е А/РRОСRТ                        Е А/РRОСRТ                      FСНI2
+             Е А/МINUS                     Е А/RТОI                          Е А/SIGN                      Е LN*
+             Е А/ОРТLIN                    Е ЕХР*                            Е А/SРRI            СНI2FА    Е А/САLLР
+             Е А/РRОСRТ                      G                               Е А/VLМХ                      Е А/I0
+             Е А/VLМ1                      Е LN*                             Е АRСТАN*                     Е А/IРRI
+   АIТ0      Е А/АRRD/V          ВЕSSЕТ    Е А/АRRD/V                        Е СОS*                        Е А/ОРТLIN
+             Е А/РRОСRТ                    Е А/I0                            Е ЕNТIЕR*                     Е А/РАRСОN
+             Е А/VLМ1                      Е А/NОТ                           Е ЕХР*                        Е А/РАRЕХР
+   АIТК      Е А/РRОСRТ                    Е А/РRОСRТ                        Е LN*                         Е А/РАRLАВ
+             Е А/VLМ1                      Е А/SIGN                          Е РОWЕR                       Е А/РАRVАR
+   АLGLIВ    Е А/САLLS                     Е А/VLМ1                          Е SIN*                        Е А/РRОСRТ
+             Е А/NРАGЕ                     Е А/VLМХ                          Е SQRТ*                       Е А/RРRI
+             Е А/SТАRТ                     Е ЕNТIЕR*               ВУЧКОР    Е А/АND                       Е А/RТОI
+             Е А/SТОР                      Е РОWЕR                           Е А/АRRD/V                    Е А/SРRI
+               ТЕХТ1             ВIВ       Е WRIТЕ1                          Е А/САLLS                     Е А/VLМ1
+               ТЕХТ2             ВIНВI     Е А/АND                           Е А/МINUS                       FСНI2
+               ТЕХТ3                       Е А/АRRD/V                        Е А/NLINЕ           СНОIС8
+   АRG       Е А/МINUS                     Е А/I0                            Е А/РRОСRТ          СНОIСЕ
+             Е А/NОТ                       Е А/МINUS                         Е А/RАРRI           СНОIСО
+             Е А/РRОСRТ                    Е А/NОТ                           Е А/SРRI            СОМЕIG    Е А/АND
+             Е А/SIGN                      Е А/ОРТLIN                        Е ВСDWRIТ*                    Е А/АRRD/V
+             Е АRСТАN*                     Е А/РRОСRТ                        Е IОЕND*                      Е А/МINUS
+   АТМ       Е А/МINUS                     Е А/SIGN                          Е РОWЕR                       Е А/ОРТLIN
+             Е А/NОТ                       Е А/VLМ1                ВЧКОР     Е А/АND                       Е А/РRОСRТ
+             Е А/РRОСRТ                    Е ЕNТIЕR*                         Е А/АRRD/V                    Е А/VLМ1
+             Е ЕХР*                        Е LN*                             Е А/САLLS                     Е SQRТ*
+             Е LN*                         Е РОWЕR                           Е А/МINUS           СОМРLЕ    Е А/САLLР
+             Е SQRТ*             ВINVI     Е А/АND                           Е А/NLINЕ                     Е А/МINUS
+   В4ВIТS    Е ВINАRУ                      Е А/АRRD/V                        Е А/РRОСRТ                    Е А/РАRСОN
+               СНОIСО                      Е А/I0                            Е А/RАРRI                     Е А/РАRРАR
+   В4DЕС     Е ВINАRУ                      Е А/МINUS                         Е А/SРRI                      Е А/РАRVАR
+               СНОIСЕ                      Е А/NОТ                           Е ВСDWRIТ*                    Е А/РRОСRТ
+             Е FLОАТ                       Е А/ОРТLIN                        Е IОЕND*                      Е А/RНОСНI
+             Е I*МU*I                      Е А/РRОСRТ                        Е РОWЕR                       Е А/RТОI
+             Е I*РО*I                      Е А/SIGN                С         Е А/I0                        Е А/VLМХ
+   В4ОСТ     Е ВINАRУ                      Е А/VLМ1                          Е А/РRОСRТ                      FFТ2
+               СНОIС8                      Е ЕNТIЕR*                         Е А/RТОI                        RЕОRDЕ
+   ВАIRS     Е А/АND                       Е LN*                   САRСТG    Е А/РRОСRТ                    Е SQRТ*
+   СОNFСО    Е А/САLLР                     Е А/МINUS                         Е А/РАRLАВ                    Е А/РАRЕХР
+             Е А/МINUS                     Е А/NОТ                           Е А/РАRРАR                    Е А/РАRРАR
+             Е А/РАRЕХР                    Е А/ОРТLIN                        Е А/РRОСRТ                    Е А/РRОСRТ
+             Е А/РАRРАR                    Е А/РRОСRТ                        Е А/SРRI                        FGАММА
+             Е А/РRОСRТ                    Е А/VLМ1                            FSТUDЕ            FЕRF      Е А/РRОСRТ
+             Е ЕХР*              DЕТЕRМ    Е А/АRRD/V                        Е SQRТ*             FF        Е А/АRRD/V
+             Е LN*                         Е А/МINUS               ЕRF123    Е А/МINUS                     Е А/МINUS
+               NQUАNТ                      Е А/NОТ                           Е А/РRОСRТ                    Е А/РRОСRТ
+             Е SQRТ*                       Е А/ОРТLIN                        Е А/SIGN                      Е А/VLМ1
+   СОNFR1    Е А/РRОСRТ                    Е А/РRОСRТ                        Е ЕХР*              FFISНЕ    Е А/I0
+             Е А/VLМ1                      Е А/VLМ1                ЕRFС      Е А/АRRD/К                    Е А/МINUS
+   СОNFR2    Е А/АRRD/V          DFL       Е А/АRRD/V                        Е А/МINUS                     Е А/РRОСRТ
+             Е А/I0                        Е А/МINUS                         Е А/РRОСRТ                    Е А/RНОСНI
+             Е А/РRОСRТ                    Е А/NОТ                           Е А/VLМХ                      Е А/SIGN
+             Е А/SIGN                      Е А/РRОСRТ                        Е ЕХР*                        Е АRСТАN*
+             Е А/VLМ1                      Е А/VLМ1                ЕSТFАС    Е А/АRRD/V                    Е ЕNТIЕR*
+             Е ЕNТIЕR*           DIАGМ1    Е А/I0                            Е А/САLLР                     Е SQRТ*
+   СОNGRА    Е А/АRRD/V                    Е А/РRОСRТ                        Е А/NОТ             FFТ2      Е А/АRRD/V
+             Е А/САLLР                     Е А/VLМ1                          Е А/ОРТLIN                    Е А/I0
+             Е А/МINUS           DIАGМ2    Е А/ОРТLIN                        Е А/РАRЕХР                    Е А/NОТ
+             Е А/NОТ                       Е А/РRОСRТ                        Е А/РАRРАR                    Е А/РRОСRТ
+             Е А/ОРТLIN                    Е А/VLМ1                          Е А/РАRVАR                    Е А/SIGN
+             Е А/РАRРАR          DIАGVЕ    Е А/РRОСRТ                        Е А/РRОСRТ                    Е А/VLМХ
+             Е А/РАRVАL                    Е А/VLМ1                          Е А/VLМ1                      Е СОS*
+             Е А/РRОСRТ          DILОG     Е А/МINUS                         Е SQRТ*                       Е ЕNТIЕR*
+             Е А/VLМ1                      Е А/NОТ                             ТRIRЕG                      Е SIN*
+   СОNSUМ                                  Е А/РRОСRТ              ЕULЕR     Е А/АND             FFТ32К    Е С*АD*С
+   СОSI      Е А/МINUS                     Е LN*                             Е А/АRRD/К                    Е С*LО*С
+             Е А/РRОСRТ          DINТ77    Е А/МINUS                         Е А/МINUS                     Е С*МU*С
+             Е СОS*                        Е А/РRОСRТ                        Е А/РАRСОN                    Е С*МU*R
+             Е ЕХР*              DIRЕСТ    Е А/АRRD/V                        Е А/РАRVАR                    Е С*SТ*С
+             Е SIN*                        Е А/САLLS                         Е А/РRОСRТ                    Е С*SU*С
+   СRРАТН    Е А/АRRD/V                    Е А/ЕQUIV                         Е А/VLМ1                      Е СМРLХ
+             Е А/РRОСRТ                    Е А/МINUS               ЕХСLIВ   (INSLIВ  )                     Е СОS
+             Е А/VLМ1                      Е А/РАRРАR              ЕХРINТ    Е А/МINUS                     Е FFТ
+             Е А/VLМХ                      Е А/РRОСRТ                        Е А/РRОСRТ                    Е I*DI*I
+   СUВL      Е А/АRRD/V                    Е А/VLМ1                          Е ЕХР*                        Е I*МU*I
+             Е А/САLLР           DIV       Е А/АND                           Е LN*                         Е I*МUI*
+             Е А/I0                        Е А/NОТ                 ЕХРО      Е А/РRОСRТ                    Е R*DI*I
+             Е А/МINUS                     Е А/РRОСRТ                        Е СОS*                          RЕТАРЕ
+             Е А/NОТ             ЕIGЕN     Е А/I0                            Е ЕХР*                        Е SIN
+             Е А/ОРТLIN                    Е А/ОРТLIN                        Е SIN*                          WRТАРЕ
+             Е А/РАRЕХР                    Е А/РRОСRТ              ЕХТR      Е А/САLLS           FGАММА    Е А/АND
+             Е А/РАRVАL                    Е А/SIGN                          Е А/МINUS                     Е А/САLLР
+             Е А/РАRVАR                    Е А/VLМ1                          Е А/NОТ                       Е А/МINUS
+             Е А/РRОСRТ                    Е SQRТ*                           Е А/РАRЕХР                    Е А/РАRРАR
+             Е А/VLМ1            ЕIGЕNJ    Е А/АND                           Е А/РАRVАR                    Е А/РАRVАR
+             Е SQRТ*                       Е А/МINUS                         Е А/РRОСRТ                    Е А/РRОСRТ
+   DАWSОN    Е А/АRRD/К                    Е А/ОРТLIN              FАСТ      Е А/I0                        Е ЕХР*
+             Е А/МINUS                     Е А/РRОСRТ                        Е А/IРRI                        G
+             Е А/РRОСRТ                    Е А/VLМ1                          Е А/МINUS                     Е LN*
+             Е А/VLМХ                      Е SQRТ*                           Е А/NLINЕ           FILОN     Е А/АND
+   DЕТ       Е А/АND             ЕILЕR1    Е А/АRRD/V                        Е А/РRОСRТ                    Е А/МINUS
+             Е А/САLLР                     Е А/РАRРАR                        Е А/RТОI                      Е А/РАRVАR
+             Е А/МINUS                     Е А/РRОСRТ                        Е А/SIGN                      Е А/РRОСRТ
+             Е А/NLINЕ           ЕКZ       Е А/I0                            Е А/VLМ1                      Е А/SIGN
+             Е А/NОТ                       Е А/РRОСRТ                        Е ЕNТIЕR*                     Е СОS*
+             Е А/ОРТLIN                    Е А/SIGN                FАСТ1     Е А/РRОСRТ                    Е ЕNТIЕR*
+             Е А/РАRVАL                    Е ЕNТIЕR*               FАСТОR    Е А/I0                        Е SIN*
+             Е А/РАRVАR          ЕNDАСН   (ВЕGАСН  )                         Е А/МINUS                     Е SQRТ*
+             Е А/РRОСRТ          ЕNDСНN      РRОРRI                          Е А/РRОСRТ          FILОТН    Е А/АND
+             Е А/VLМ1                        SLSСНN                          Е А/RТОI                      Е А/МINUS
+             Е ВСDWRIТ*          ЕQVМЕА    Е А/САLLР                         Е А/SIGN                      Е А/РАRVАR
+             Е IОАС*                       Е А/IРRI                          Е А/VLМ1                      Е А/РRОСRТ
+             Е IОЕND*                      Е А/NLINЕ                         Е ЕNТIЕR*                     Е А/SIGN
+   DЕТЕR     Е А/АRRD/V                    Е А/РАRЕХР              FСНI2     Е А/САLLР                     Е СОS*
+             Е ЕNТIЕR*                     Е А/SLIСЕ                         Е А/SРRI                        РRINТ8
+             Е SIN*                        Е А/SРLUSS                        Е АТОS                        Е РТ6
+             Е SQRТ*                       Е А/SРRI                          Е ВСDЕNС*                       RDSТАR
+   FRСОS     Е А/I0                        Е АТОS                            Е ВСDWRIТ*          INТ655    Е А/АRRD/К
+             Е А/МINUS                     Е ВСDЕNС*                         Е ЕNТIЕR*                     Е А/МINUS
+             Е А/РRОСRТ                    Е ВСDWRIТ*                        Е IОАС*                       Е А/РАRЕХР
+   FRЕSNЕ    Е А/I0                        Е IОАС*                           Е IОЕND*                      Е А/РАRVАR
+             Е А/МINUS                     Е IОЕND*                            RЕSLIS                      Е А/РRОСRТ
+             Е А/РRОСRТ                      RЕSLIS                            SUРLIS                      Е А/VLМ1
+             Е СОS*                          SUРLIS                GRАF4     Е А/АND                       Е А/VLМХ
+             Е SIN*              GRАF1     Е А/АND                           Е А/АRRD/К          INТЕGR    Е А/АND
+   FRSIN     Е А/I0                        Е А/АRRD/К                        Е А/САLLР                     Е А/САLLР
+             Е А/МINUS                     Е А/САLLР                         Е А/I0                        Е А/САLLS
+             Е А/РRОСRТ                    Е А/МINUS                         Е А/МINUS                     Е А/I0
+   FSТUDЕ    Е А/АND                       Е А/NLINЕ                         Е А/NLINЕ                     Е А/МINUS
+             Е А/САLLР                     Е А/NОТ                           Е А/NОТ                       Е А/NОТ
+             Е А/МINUS                     Е А/РАRЕХР                        Е А/РАRЕХР                    Е А/РАRVАL
+             Е А/NОТ                       Е А/РАRVАR                        Е А/РАRVАR                    Е А/РRОСRТ
+             Е А/РАRЕХР                    Е А/РRОСRТ                        Е А/РRОСRТ                    Е А/VLМ1
+             Е А/РRОСRТ                    Е А/RТОI                          Е А/РUТАRR          INТЕRМ    Е А/РRОСRТ
+             Е АRСТАN*                     Е А/SLIСЕ                         Е А/RТОI                      Е ЕNТIЕR*
+             Е ЕNТIЕR*                     Е А/SРLUSS                        Е А/SLIСЕ           INТGАU    Е А/АRRD/К
+               FЕRF                        Е А/SРRI                          Е А/SРLUSS                    Е А/РАRЕХР
+             Е LN*                         Е АТОS                            Е А/SРRI                      Е А/РRОСRТ
+             Е SQRТ*                       Е ВСDЕNС*                         Е А/VLМ1            INТР      Е А/АRRD/V
+   G         Е А/NОТ                       Е ВСDWRIТ*                        Е АТОS                        Е А/МINUS
+             Е А/РRОСRТ                    Е ЕNТIЕR*                         Е ВСDЕNС*                     Е А/РRОСRТ
+   GАUSS     Е А/ОРТLIN                    Е IОАС*                           Е ВСDWRIТ*                    Е А/VLМ1
+             Е А/РRОСRТ                    Е IОЕND*                          Е IОАС*                       Е А/VLМХ
+             Е А/VLМ1                        RЕSLIS                          Е IОЕND*            INV1      Е А/АRRD/V
+             Е А/VLМХ                        SUРLIS                            RЕSLIS                      Е А/I0
+   GIVЕТIМЕ                      GRАF2     Е А/АND                             SUРLIS                      Е А/NОТ
+   GLIN      Е А/АND                       Е А/АRRD/К              НЕRМIТ    Е А/РRОСRТ                    Е А/ОРТLIN
+             Е А/МINUS                     Е А/САLLР               I0        Е А/РRОСRТ                    Е А/РRОСRТ
+             Е А/NLINЕ                     Е А/МINUS                         Е ЕХР*                        Е А/VLМ1
+             Е А/NОТ                       Е А/NLINЕ                         Е SQRТ*                       Е А/VLМХ
+             Е А/РRОСRТ                    Е А/NОТ                 I1        Е А/МINUS           INV58     Е А/АRRD/V
+             Е А/SРRI                      Е А/РАRЕХР                        Е А/РRОСRТ                    Е А/МINUS
+   GРАD      Е А/I0                        Е А/РАRVАR                        Е А/SIGN                      Е А/ОРТLIN
+             Е А/РRОСRТ                    Е А/РRОСRТ                        Е ЕХР*                        Е А/РRОСRТ
+             Е А/RТОI                      Е А/RТОI                          Е SQRТ*                       Е А/VLМ1
+             Е А/SIGN                      Е А/SLIСЕ               IНТGАУ    Е А/АRRD/К          INV66     Е А/АRRD/V
+             Е А/SРRI                      Е А/SРLUSS                        Е А/РАRЕХР                    Е А/МINUS
+             Е ВСDWRIТ*                    Е А/SРRI                          Е А/РRОСRТ                    Е А/NОТ
+             Е ЕNТIЕR*                     Е А/VLМ1                II        Е А/АND                       Е А/ОРТLIN
+             Е IОАС*                       Е АТОS                            Е А/АRRD/V                    Е А/РRОСRТ
+             Е IОЕND*                      Е ВСDЕNС*                         Е А/I0                        Е А/VLМ1
+   GRАD      Е А/I0                        Е ВСDWRIТ*                        Е А/МINUS           INVЕR     Е А/АRRD/V
+             Е А/РRОСRТ                    Е IОАС*                           Е А/NОТ                       Е А/МINUS
+             Е А/RТОI                      Е IОЕND*                          Е А/ОРТLIN                    Е А/ОРТLIN
+             Е А/SIGN                        RЕSLIS                          Е А/РRОСRТ                    Е А/РRОСRТ
+             Е А/SРRI                        SUРLIS                          Е А/VLМ1                      Е А/VLМ1
+             Е ВСDWRIТ*          GRАF3     Е А/АND                           Е SQRТ*             INVЕR1    Е А/АRRD/V
+             Е ЕNТIЕR*                     Е А/АRRD/К              II1       Е А/АND                       Е А/МINUS
+             Е IОАС*                       Е А/САLLР                         Е А/АRRD/V                    Е А/ОРТLIN
+             Е IОЕND*                      Е А/I0                            Е А/МINUS                     Е А/РRОСRТ
+   GRАF      Е А/АND                       Е А/МINUS                         Е А/NОТ                       Е А/VLМ1
+             Е А/АRRD/К                    Е А/NLINЕ                         Е А/ОРТLIN          INVЕR2    Е А/АND
+             Е А/САLLР                     Е А/NОТ                           Е А/РRОСRТ                    Е А/АRRD/V
+             Е А/МINUS                     Е А/РАRЕХР                        Е А/VLМ1                      Е А/САLLР
+             Е А/NLINЕ                     Е А/РАRVАR                        Е SQRТ*                       Е А/МINUS
+             Е А/NОТ                       Е А/РRОСRТ              INSАLL   (INSLIВ  )                     Е А/ОРТLIN
+             Е А/РАRЕХР                    Е А/РUТАRR              INSLIВ    Е DАТАРR*                     Е А/РАRЕХР
+             Е А/РАRVАR                    Е А/RТОI                            LIВLISТ                     Е А/РАRРАR
+             Е А/РRОСRТ                    Е А/SLIСЕ                         Е МОNRЕАD*                    Е А/РRОСRТ
+             Е А/RТОI                      Е А/SРLUSS                        Е ОСТТDЕС           INVЕRТ    Е А/ОРТLIN
+             Е А/РRОСRТ                    Е А/МINUS                         Е ЕNТIЕR*                     Е ЕNТIЕR*
+             Е А/VLМ1                      Е А/РRОСRТ              КVINТ     Е А/РRОСRТ                    Е SQRТ*
+   ISIМV                                   Е А/SIGN                          Е А/RТОI            МАКС      Е А/МINUS
+   IZОL      Е А/САLLР                     Е А/VLМ1                КVIТ        СОNSUМ                      Е А/РRОСRТ
+             Е А/I0                        Е SQRТ*                             LISТ46            МАКС1     Е А/МINUS
+             Е А/МINUS           КОРРСО    Е А/АRRD/V              LАG       Е А/I0                        Е А/РRОСRТ
+             Е А/NLINЕ                     Е А/МINUS                         Е А/РRОСRТ          МАТR      Е А/АRGSТR
+             Е А/ОРТLIN                    Е А/NLINЕ               LАG1      Е А/I0                        Е А/РRОСRТ
+             Е А/РАRVАL                    Е А/ОРТLIN                        Е А/РRОСRТ                    Е ВСDWRIТ*
+             Е А/РRОСRТ                    Е А/РRОСRТ              LАGРАН    Е А/АND                       Е IОАС*
+             Е А/RРRI                      Е А/RТОI                          Е А/АRRD/К                    Е IОЕND*
+             Е А/RТОI                      Е А/SРRI                          Е А/I0                          RЕSLIS
+             Е А/SLIСЕ                     Е А/VLМ1                          Е А/МINUS                       SUРLIS
+             Е А/SРLUSS                    Е SQRТ*                           Е А/РRОСRТ          МАТSОR    Е А/РАRЕХР
+             Е А/SРRI            КОРРНЕ    Е А/АND                           Е ВСDWRIТ*                    Е А/РRОСRТ
+             Е А/VLМ1                      Е А/I0                            Е IОАС*                       Е А/VLМ1
+             Е ВСDWRIТ*                    Е А/МINUS                         Е IОЕND*                      Е А/VLМХ
+             Е ЕNТIЕR*                     Е А/РRОСRТ              LАGRАN    Е А/АND             МАХIМ     Е А/РRОСRТ
+             Е IОЕND*                      Е А/VLМ1                          Е А/АRRD/К                    Е А/VLМ1
+               RЕSLIS                      Е SQRТ*                           Е А/I0              МАХIМU    Е А/АND
+               SUРLIS            КОЧN      Е А/АRRD/V                        Е А/МINUS                     Е А/АRRD/К
+   J0        Е А/МINUS                     Е А/САLLР                         Е А/РRОСRТ                    Е А/АRRD/V
+             Е А/РRОСRТ                    Е А/САLLS                         Е ВСDWRIТ*                    Е А/САLLР
+             Е СОS*                        Е А/I0                            Е IОАС*                       Е А/САLLS
+             Е SIN*                        Е А/МINUS                         Е IОЕND*                      Е А/I0
+             Е SQRТ*                       Е А/NОТ                 LАGRN     Е А/РRОСRТ                    Е А/МINUS
+   J1        Е А/МINUS                     Е А/РАRLАВ              LЕG       Е А/РRОСRТ                    Е А/NОТ
+             Е А/РRОСRТ                    Е А/РRОСRТ              LЕGЕND    Е А/АRRD/К                    Е А/ОРТLIN
+             Е А/SIGN                      Е А/RНОСНI                        Е А/I0                        Е А/РАRЕХР
+             Е СОS*                        Е А/RТОI                          Е А/МINUS                     Е А/РАRLАВ
+             Е SIN*                        Е СОS*                            Е А/NОТ                       Е А/РАRРАR
+             Е SQRТ*                       Е ЕХР*                            Е А/РRОСRТ                    Е А/РАRVАL
+   JАСОВI    Е А/АND                       Е LN*                             Е А/RНОСНI                    Е А/РRОСRТ
+             Е А/I0                        Е РОWЕR                           Е А/SIGN                      Е А/RТОI
+             Е А/МINUS                     Е SIN*                            Е ЕNТIЕR*                     Е А/SIGN
+             Е А/NОТ             КUВIN     Е А/АRRD/V                        Е SQRТ*                       Е А/VLМ1
+             Е А/ОРТLIN                    Е А/РRОСRТ              LЕТI      Е А/АRRD/V                    Е А/VLМХ
+             Е А/РRОСRТ                    Е А/SРRI                          Е А/NОТ                       Е ЕNТIЕR*
+             Е А/SIGN                      Е А/SТОР                          Е А/ОРТLIN                    Е SQRТ*
+             Е А/VLМ1                      Е А/VLМ1                          Е А/РRОСRТ                      SУSТЕМ
+             Е SQRТ*             КUВZ      Е А/АND                           Е А/RНОСНI          МВVSIМ    Е А/АND
+   К0        Е А/МINUS                     Е А/АRRD/V                        Е А/VLМ1                      Е А/АRRD/V
+             Е А/РRОСRТ                    Е А/САLLР               LIВLISТ                                 Е А/САLLР
+             Е ЕХР*                        Е А/МINUS               LININТ    Е А/МINUS                     Е А/САLLS
+             Е LN*                         Е А/NLINЕ                         Е А/РRОСRТ                    Е А/МINUS
+             Е SQRТ*                       Е А/РАRРАR              LINР      Е А/РRОСRТ                    Е А/NLINЕ
+   К1        Е А/МINUS                     Е А/РАRVАR                        Е ЕNТIЕR*                     Е А/NОТ
+             Е А/РRОСRТ                    Е А/РRОСRТ              LINТ      Е А/РRОСRТ                    Е А/ОРТLIN
+             Е ЕХР*                        Е А/RРRI                          Е А/RТОI                      Е А/РАRРАR
+             Е LN*                         Е А/SРRI                LISТ46   (LISТ64  )                     Е А/РАRVАL
+             Е SQRТ*                       Е А/SТОР                LISТ64                                  Е А/РАRVАR
+   КFL       Е А/АRRD/V                      КUВIN                 LОО3      Е А/РRОСRТ                    Е А/РRОСRТ
+             Е А/I0              КUВZ2     Е А/АND                           Е А/RНОСНI                    Е А/РUТАRR
+             Е А/МINUS                     Е А/МINUS                         Е А/VLМ1                      Е А/SРRI
+             Е А/NОТ                       Е А/NLINЕ               LRСН      Е А/АND                       Е А/VLМ1
+             Е А/РRОСRТ                    Е А/РRОСRТ                        Е А/АRRD/V                    Е ВСDWRIТ*
+             Е А/VLМ1                      Е А/SРRI                          Е А/САLLР                     Е IОАС*
+   КIF       Е А/РRОСRТ          КUТТАМ    Е А/АND                           Е А/САLLS                     Е IОЕND*
+             Е А/RТОI                      Е А/АRRD/V                        Е А/МINUS           МСОМР     Е А/АND
+   КО        Е А/МINUS                     Е А/I0                            Е А/NОТ                       Е А/АRRD/V
+             Е А/NОТ                       Е А/NОТ                           Е А/РАRСОN                    Е А/I0
+             Е А/РRОСRТ                    Е А/РАRЕХР                        Е А/РАRЕХР                    Е А/МINUS
+             Е А/SIGN                      Е А/РАRРАR                        Е А/РАRLАВ                    Е А/NОТ
+             Е SQRТ*                       Е А/РRОСRТ                        Е А/РАRРАR                    Е А/ОРТLIN
+   КОРРВС    Е А/АND                       Е А/SIGN                          Е А/РАRVАR                    Е А/РRОСRТ
+             Е А/I0                        Е А/VLМ1                          Е А/РRОСRТ                    Е А/SIGN
+             Е А/VLМ1                      Е SQRТ*                           Е А/РАRРАR                    Е А/RТОI
+             Е А/VLМХ            ММULТ1    Е А/I0                            Е А/РАRVАL                    Е SQRТ*
+             Е SQRТ*                       Е А/РRОСRТ                        Е А/РАRVАR          РАD       Е А/РRОСRТ
+   МDIАG1    Е А/I0                        Е А/VLМХ                          Е А/РRОСRТ                    Е А/RТОI
+             Е А/РRОСRТ          ММULТ2    Е А/ОРТLIN                        Е А/SIGN                      Е А/SIGN
+             Е А/VLМ1                      Е А/РRОСRТ                        Е А/VLМ1            РАD1      Е А/РRОСRТ
+   МDIАG2    Е А/ОРТLIN                    Е А/VLМХ                          Е ЕХР*                        Е А/RТОI
+             Е А/РRОСRТ          МSIМРL    Е А/АRRD/V                        Е LN*                         Е А/SIGN
+             Е А/VLМ1                      Е А/САLLР               NОLЕQ     Е А/АRRD/V          РАRINТ    Е А/РRОСRТ
+   МF        Е А/АND                       Е А/САLLS                         Е А/САLLР                     Е А/RТОI
+             Е А/МINUS                     Е А/МINUS                         Е А/I0              РАТТ      Е А/АRRD/V
+             Е А/NОТ                       Е А/ОРТLIN                        Е А/NОТ                       Е А/САLLР
+             Е А/РRОСRТ                    Е А/РАRРАR                        Е А/РАRРАR                    Е А/РАRРАR
+             Е АSIN                        Е А/РАRVАL                        Е А/РRОСRТ                    Е А/РАRVАL
+             Е SQRТ*                       Е А/РRОСRТ                        Е ЕNТIЕR*                     Е А/РАRVАR
+   МНК       Е А/АRRD/V                    Е А/РUТАRR                        Е LN*                         Е А/РRОСRТ
+             Е А/САLLР                     Е А/VLМ1                          Е SQRТ*                       Е А/VLМ1
+             Е А/I0                        Е ВСDWRIТ*              NОRМ      Е А/РRОСRТ                      GАUSS
+             Е А/МINUS                     Е IОАС*                           Е А/VLМ1                      Е SQRТ*
+             Е А/NLINЕ                     Е IОЕND*                          Е SQRТ*             РМАТR     Е А/АRGSТR
+             Е А/NОТ             МSQ1      Е А/I0                  NОТLIS   (NЕWLIS  )                     Е А/I0
+             Е А/ОРТLIN                    Е А/РRОСRТ              NQUАNТ    Е А/САLLР                     Е А/РRОСRТ
+             Е А/РАRЕХР                    Е А/VLМХ                          Е А/МINUS                     Е ВСDWRIТ*
+             Е А/РАRLАВ          МSQ2      Е А/ОРТLIN                        Е А/РАRVАR                    Е ЕNТIЕR*
+             Е А/РАRРАR                    Е А/РRОСRТ                        Е А/РRОСRТ                    Е IОАС*
+             Е А/РАRVАL                    Е А/VLМХ                          Е ЕХР*                        Е IОЕND*
+             Е А/РАRVАR          МULLЕR    Е А/АND                             FЕRF                          RЕSLIS
+             Е А/РRОСRТ                    Е А/САLLР                         Е LN*                           SUРLIS
+             Е А/RАРRI                     Е А/МINUS                         Е SQRТ*             РОISКN
+             Е А/RНОСНI                    Е А/NОТ                 NR        Е А/I0              РОLIGR    Е А/АND
+             Е А/RРRI                      Е А/РАRСОN                        Е А/РRОСRТ                    Е А/АRRD/К
+             Е А/RТОI                      Е А/РАRVАL                        Е А/SIGN                      Е А/АRRD/V
+             Е А/SРRI                      Е А/РАRVАR                        Е ЕNТIЕR*                     Е А/САLLР
+             Е А/VLМ1                      Е А/РRОСRТ                        Е SQRТ*                       Е А/I0
+             Е А/VLМХ                      Е А/SIGN                NRООТ     Е А/NОТ                       Е А/LНОСНI
+               GАUSS                       Е А/VLМ1                          Е А/РRОСRТ                    Е А/МINUS
+             Е SQRТ*                       Е ВСDWRIТ*                        Е А/SIGN                      Е А/NLINЕ
+   МIН       Е А/РRОСRТ                    Е IОАС*                           Е АRСТАN*                     Е А/NОТ
+   МIН1      Е А/РRОСRТ                    Е IОЕND*                          Е СОS*                        Е А/NОТL
+   МIN       Е А/РRОСRТ                    Е SQRТ*                           Е РОWЕR                       Е А/РАRЕХР
+   МIN1      Е А/РRОСRТ          МVЕС1     Е А/I0                            Е SIN*                        Е А/РАRVАR
+   МINIМ     Е А/РRОСRТ                    Е А/РRОСRТ              ОРТЕRМ                                  Е А/РRОСRТ
+             Е А/VLМ1                      Е А/VLМ1                ОТКАZ                                   Е А/РUТАRR
+   МINМАХ    Е А/МINUS           МVЕС2     Е А/ОРТLIN              ОZЕNКА    Е А/АRRD/V                    Е А/RТОI
+             Е А/РRОСRТ                    Е А/РRОСRТ                        Е А/МINUS                     Е А/SЕQS
+   МINМFL    Е А/АND                       Е А/VLМ1                          Е А/NLINЕ                     Е А/SLIСЕ
+             Е А/АRRD/V          МVR       Е А/NОТ                           Е А/ОРТLIN                    Е А/SРLUSS
+             Е А/САLLS                     Е А/ОРТLIN                        Е А/РАRРАR                    Е А/SРRI
+             Е А/I0                        Е А/РRОСRТ                        Е А/РАRVАR                    Е А/VLМ1
+             Е А/МINUS                     Е А/VLМ1                          Е А/РRОСRТ                    Е АТОS
+             Е А/NОТ                       Е А/VLМХ                          Е А/RАРRI                     Е ВСDЕNС*
+             Е А/ОРТLIN                    Е SQRТ*                           Е А/RРRI                      Е ВСDWRIТ*
+             Е А/РАRРАR          МХОRD     Е А/РАRРАR                        Е А/SРRI                      Е ЕNТIЕR*
+             Е А/РRОСRТ                    Е А/РАRVАR                        Е А/VLМ1                      Е IОАС*
+             Е А/SIGN                      Е А/РRОСRТ              Р0460                                   Е IОЕND*
+             Е А/VLМ1            N8Т10                             Р0507                                     SUРLIS
+             Е SQRТ*             NАМЕ4                             Р0512                         РОLУFI    Е А/АRRD/К
+   МINОNR    Е А/АRRD/V          NЕWINТ    Е А/АRRD/V              Р0513                                   Е А/АRRD/V
+             Е А/САLLS                     Е А/МINUS               Р0513А                                  Е А/САLLР
+             Е А/МINUS                     Е А/РRОСRТ              Р0513С                                  Е А/ЕQUIV
+             Е А/NОТ                       Е А/VLМ1                Р0513N                                  Е А/МINUS
+             Е А/РАRРАR          NЕWLIВ   (INSLIВ  )               Р137      Е А/АRRD/V                    Е А/NLINЕ
+             Е А/РАRVАR          NЕWLIS                                      Е А/САLLР                     Е А/РАRРАR
+             Е А/РRОСRТ          NЕWТ      Е А/АRRD/V                        Е А/I0                        Е А/РRОСRТ
+             Е А/SIGN                      Е А/САLLР                         Е А/РАRVАL                    Е А/SРRI
+             Е А/VLМ1                      Е А/NОТ                           Е А/РRОСRТ                    Е А/VLМ1
+             Е SQRТ*                       Е А/РRОСRТ                        Е SIN*              SIМ1      Е А/АRRD/К
+   РОLУХ     Е А/АRRD/V                    Е А/SIGN                RGАМ      Е А/АRRD/К                    Е А/I0
+             Е А/РRОСRТ                    Е А/VLМ1                          Е А/МINUS                     Е А/РАRЕХР
+             Е А/VLМ1                      Е А/VLМХ                          Е А/РRОСRТ                    Е А/РАRVАR
+   РОWС      Е А/АND             RDSТАR                                      Е А/VLМХ                      Е А/РRОСRТ
+             Е А/МINUS           RЕ46СН      СОNSUМ                RК1SТЕ    Е А/АRRD/К                    Е А/RНОСНI
+             Е А/NОТ                         LISТ46                          Е А/АRRD/V                    Е А/SIGN
+             Е А/РRОСRТ                      SLSСНN                          Е А/РАRРАR                    Е ЕNТIЕR*
+             Е А/SIGN            RЕАLТR    Е А/I0                            Е А/РRОСRТ          SIМР      Е А/АND
+             Е АRСТАN*                     Е А/МINUS               RND                                     Е А/АRRD/К
+             Е СОS*                        Е А/РRОСRТ              RООТ      Е А/АND                       Е А/I0
+             Е РОWЕR                       Е А/SIGN                          Е А/МINUS                     Е А/МINUS
+             Е SIN*                        Е ЕNТIЕR*                         Е А/NОТ                       Е А/РАRЕХР
+   РRАNАL    Е А/РRОСRТ                    Е SIN*                            Е А/РАRСОN                    Е А/РАRVАR
+             Е ВСDWRIТ*          RЕВАКА    Е А/РRОСRТ                        Е А/РАRРАR                    Е А/РRОСRТ
+             Е IОАС*                       Е А/VLМ1                          Е А/РАRVАR                    Е А/SIGN
+             Е IОЕND*            RЕВАКВ    Е А/ОРТLIN                        Е А/РRОСRТ                    Е ЕNТIЕR*
+   РRINТ8*                                 Е А/РRОСRТ              RОТF      Е А/АRRD/V          SIМР1     Е А/АND
+   РRINТ8   (РRINТ8* )                     Е А/VLМХ                          Е А/МINUS                     Е А/АRRD/К
+   РRINТR    Е А/АRRD/V          RЕСНN    D  ВЕGАСН                          Е А/NLINЕ                     Е А/МINUS
+             Е А/NОТ                         ЕNDАСН                          Е А/ОРТLIN                    Е А/РАRЕХР
+             Е А/РRОСRТ                    Е FТ*002                          Е А/РRОСRТ                    Е А/РАRVАR
+             Е А/РUТАRR                    Е FТ*003                          Е А/RРRI                      Е А/РRОСRТ
+             Е ВСDWRIТ*                    Е FТ*571                          Е А/SРRI            SIМРF     Е А/АND
+             Е IОАС*                       Е I*DI*I                          Е А/VLМ1                      Е А/АRRD/К
+             Е IОЕND*                      Е IFРULТ                          Е АRСТАN*                     Е А/I0
+   РRОВNЕ    Е А/АRRD/V                      NАМЕ4                           Е СОS*                        Е А/МINUS
+             Е А/ОРТLIN                      ОРТЕRМ                          Е SIN*                        Е А/РRОСRТ
+             Е А/РRОСRТ                      РRОРRI                          Е SQRТ*                       Е А/SIGN
+             Е А/VLМ1                      Е R*SТ*I                RR        Е А/I0                        Е ЕNТIЕR*
+   РRОGRАМ  (АLGLIВ  )                       RЕ46СН                          Е А/РRОСRТ          SIМРS1    Е А/РRОСRТ
+   РRОРRI   DЕ FТ*002                      Е SТОР*                           Е А/SIGN            SIМРSА    Е А/РАRРАR
+             Е FТ*003            RЕDUС1    Е А/МINUS                         Е ЕNТIЕR*                     Е А/РАRVАR
+             Е FТ*611                      Е А/ОРТLIN              RТRАNS    Е А/САLLР                     Е А/РRОСRТ
+               ОРТЕRМ                      Е А/РRОСRТ                        Е А/МINUS           SIМUL     Е А/ОРТLIN
+   РRRЕGR    Е А/АRRD/V                    Е А/VLМХ                          Е А/РАRСОN                    Е А/РRОСRТ
+             Е А/NОТ                       Е SQRТ*                           Е А/РАRРАR                    Е А/VLМ1
+             Е А/РRОСRТ          RЕDUС2    Е А/МINUS                         Е А/РАRVАR          SINЕ      Е А/МINUS
+             Е А/РUТАRR                    Е А/ОРТLIN                        Е А/РRОСRТ                    Е А/РRОСRТ
+             Е ВСDWRIТ*                    Е А/РRОСRТ                        Е А/RНОСНI                    Е СОS*
+             Е IОАС*                       Е А/VLМ1                          Е А/RТОI                      Е ЕХР*
+             Е IОЕND*                      Е А/VLМХ                          Е А/VLМХ                      Е SIN*
+   РUТАLG*     ТАВLЕ2*                     Е SQRТ*                             FFТ2              SISТЕМ    Е А/АRRD/V
+               ТАВLЕ3*           RЕМЕZ     Е А/АRRD/V                          RЕАLТR                      Е А/I0
+               ТRNSМ20*                    Е А/МINUS                           RЕОRDЕ                      Е А/РАRРАR
+               ТRNSUРР*                    Е А/РRОСRТ                          RЕVFFТ                      Е А/РАRVАR
+   QUАD      Е А/РАRVАR                    Е А/RНОСНI              RUСОАН                                  Е А/РRОСRТ
+             Е А/РRОСRТ                    Е А/SIGN                RUКUТ     Е А/АND                       Е А/RТОI
+   QUIСКЕ    Е А/АRRD/V                    Е А/VLМ1                          Е А/АRRD/К                    Е А/VLМ1
+             Е А/I0              RЕОRDЕ    Е А/АRRD/V                        Е А/I0              SLSСНN      СОNSUМ
+             Е А/РRОСRТ                    Е А/I0                            Е А/МINUS                       LISТ64
+             Е А/RТОI                      Е А/РRОСRТ                        Е А/РАRVАR          SОRТ      Е А/САLLР
+             Е А/SIGN                      Е А/SIGN                          Е А/РRОСRТ                    Е А/РАRVАL
+             Е ЕNТIЕR*                     Е А/VLМХ                          Е А/VLМ1                      Е А/РRОСRТ
+             Е LN*                         Е ЕNТIЕR*               SСАLАR    Е А/РRОСRТ          SРFАСТ    Е А/АND
+   RАD       Е А/РRОСRТ          RЕSLIS   (SUРLIS  )                         Е А/VLМ1                      Е А/NОТ
+             Е А/RТОI            RЕТАРЕ                            SЕRDIV    Е А/РRОСRТ                    Е А/ОРТLIN
+             Е А/SIGN            RЕТАРЕ                                      Е А/VLМ1                      Е А/РRОСRТ
+   RАD1      Е А/РRОСRТ          RЕVFFТ    Е А/АRRD/V              SFВЕSJ    Е А/МINUS                     Е А/VLМ1
+             Е А/RТОI                      Е А/I0                            Е А/РRОСRТ                    Е SQRТ*
+             Е А/SIGN                      Е А/NОТ                           Е СОS*              SРНВЕN    Е А/I0
+   RАNDОМ    Е А/I0                        Е А/РRОСRТ                        Е ЕNТIЕR*                     Е А/МINUS
+             Е А/РRОСRТ                    Е А/SIGN                          Е SIN*                        Е А/NОТ
+             Е А/SIGN                      Е А/VLМ1                SIМ       Е А/I0                        Е А/РRОСRТ
+             Е ЕNТIЕR*                     Е СОS*                            Е А/РRОСRТ                    Е СОS*
+   RАUSS     Е А/АRRD/V                    Е ЕNТIЕR*                         Е А/VLМХ            SRЕD      Е А/I0
+             Е А/РRОСRТ                    Е ЕNТIЕR*                         Е А/NОТ                       Е ТRNSСDС*
+             Е А/VLМ1                      Е IОАС*                           Е А/РАRЕХР                      ТRNSUРР*
+   SТАND     Е А/АRRD/V                    Е IОЕND*                          Е А/РАRРАR          ТRNSUРР*  Е РRINТЕR*
+             Е А/САLLР                     Е SQRТ*                           Е А/РRОСRТ                      ТАВLЕ2*
+             Е А/I0              SУМRIG    Е А/АRGSТR                        Е СОS*              UNR
+             Е А/РАRРАR                    Е А/САLLР                         Е ЕХР*              UR        Е А/I0
+             Е А/РАRVАR                    Е А/I0                              NQUАNТ                      Е А/РRОСRТ
+             Е А/РRОСRТ                    Е А/NОТ                           Е РОWЕR                       Е ЕNТIЕR*
+             Е А/VLМ1                      Е А/РАRVАR                        Е SIN*              VЕСТМU    Е А/РRОСRТ
+             Е SQRТ*                       Е А/РRОСRТ                        Е SQRТ*                       Е SQRТ*
+               SRЕD                        Е А/RТОI                ТRАNS1    Е А/I0              W         Е А/САLLР
+   SТАТАN    Е А/АND                       Е А/SРLUSS                        Е А/ОРТLIN                    Е А/МINUS
+             Е А/АRRD/V                    Е АТОS                            Е А/РRОСRТ                    Е А/РАRVАR
+             Е А/САLLР                     Е ВСDЕNС*                         Е А/VLМ1                      Е А/РRОСRТ
+             Е А/САLLS                     Е ВСDWRIТ*              ТRАNS2    Е А/ОРТLIN                    Е СОS*
+             Е А/МINUS                     Е ЕNТIЕR*                         Е А/РRОСRТ                      DАWSОN
+             Е А/ОРТLIN                    Е IОАС*                           Е А/VLМ1                      Е ЕХР*
+             Е А/РАRРАR                    Е IОЕND*                ТRАNSF    Е А/АRRD/К                    Е SIN*
+             Е А/РАRVАR                    Е SQRТ*                           Е А/АRRD/V          WR64СН      СОNSUМ
+             Е А/РRОСRТ          SУSТЕМ    Е А/NОТ                           Е А/I0                          КVIТ
+             Е А/VLМ1                      Е А/ОРТLIN                        Е А/МINUS                       LISТ64
+             Е А/VLМХ                      Е А/РRОСRТ                        Е А/ОРТLIN          WRСНN    D  ВЕGАСН
+             Е ВСDWRIТ*                    Е А/VLМ1                          Е А/РАRРАR                      ЕNDАСН
+             Е INРUТ             ТАВLЕ2*                                     Е А/РАRVАR                    Е FТ*002
+             Е IОАС*             ТАВLЕ3*                                     Е А/РRОСRТ                    Е FТ*003
+             Е IОЕND*            ТСНЕВУ    Е А/РRОСRТ                        Е А/VLМ1                      Е FТ*571
+             Е SQRТ*                       Е А/VLМ1                ТRАNSМ    Е А/РRОСRТ                    Е I*DI*I
+   SТЕЕР1    Е А/АND             ТЕLЕ1     Е А/АRRD/V                        Е А/VLМ1                      Е IFРULТ
+             Е А/АRRD/V                    Е А/I0                  ТRЕD1     Е А/МINUS                       ОРТЕRМ
+             Е А/МINUS                     Е А/МINUS                         Е А/ОРТLIN                      РRОРRI
+             Е А/NОТ                       Е А/РRОСRТ                        Е А/РRОСRТ                    Е R*SТ*I
+             Е А/РАRРАR          ТЕLЕ2     Е А/АRRD/V                        Е А/VLМ1                      Е SТОР*
+             Е А/РRОСRТ                    Е А/I0                            Е SQRТ*                         WR64СН
+             Е А/VLМ1                      Е А/МINUS               ТRЕD2     Е А/МINUS           WRТАРЕ   (RЕТАРЕ  )
+             Е SQRТ*                       Е А/РRОСRТ                        Е А/ОРТLIN          У0        Е А/МINUS
+   SUВSRЕ    Е А/АRRD/V                    Е А/SIGN                          Е А/РRОСRТ                    Е А/РRОСRТ
+             Е А/САLLР                     Е ЕNТIЕR*                         Е А/VLМ1                      Е СОS*
+             Е А/САLLS           ТЕХТ1     Е А/NLINЕ                         Е SQRТ*                       Е LN*
+             Е А/МINUS                     Е А/РRОСRТ              ТRIDАG    Е А/РRОСRТ                    Е SIN*
+             Е А/ОРТLIN                    Е А/SРRI                          Е А/VLМ1                      Е SQRТ*
+             Е А/РАRLАВ                    Е ВСDWRIТ*              ТRIDG     Е А/МINUS           У1        Е А/МINUS
+             Е А/РRОСRТ                    Е IОЕND*                          Е А/NОТ                       Е А/РRОСRТ
+             Е А/VLМ1            ТЕХТ2     Е А/NLINЕ                         Е А/ОРТLIN                    Е СОS*
+             Е ВСDWRIТ*                    Е А/РRОСRТ                        Е А/РRОСRТ                    Е LN*
+             Е IОАС*                       Е А/SРRI                          Е А/VLМ1                      Е SIN*
+             Е IОЕND*                      Е ВСDWRIТ*                        Е SQRТ*                       Е SQRТ*
+             Е SQRТ*                       Е IОЕND*                ТRIRЕG    Е А/АRRD/V          УВУВ      Е А/РRОСRТ
+   SUМ       Е А/РRОСRТ          ТЕХТ3     Е А/NLINЕ                         Е А/МINUS           УDМ       Е А/ОРТLIN
+   SUРLIS                                  Е А/РRОСRТ                        Е А/NОТ                       Е А/РRОСRТ
+   SУМIN     Е А/АND                       Е А/SРRI                          Е А/ОРТLIN                    Е А/VLМ1
+             Е А/АRRD/V                    Е ВСDWRIТ*                        Е А/РRОСRТ          УЕSLIS   (NЕWLIS  )
+             Е А/МINUS                     Е IОЕND*                          Е А/VLМ1            УМВ       Е А/ОРТLIN
+             Е А/NОТ             ТGL1      Е А/РRОСRТ                        Е А/VLМХ                      Е А/РRОСRТ
+             Е А/ОРТLIN                    Е А/VLМ1                          Е ВСDWRIТ*                    Е А/VLМ1
+             Е А/РRОСRТ                    Е SQRТ*                           Е IОАС*             УМD       Е А/ОРТLIN
+             Е А/VLМ1            ТGL2      Е А/РRОСRТ                        Е IОЕND*                      Е А/РRОСRТ
+   SУМLЕF    Е А/АRGSТR                    Е А/VLМ1                          Е SQRТ*                       Е А/VLМ1
+             Е А/САLLР                     Е SQRТ*                 ТRIS      Е А/АRRD/V          УММ       Е А/ОРТLIN
+             Е А/I0              ТРАН      Е А/ОРТLIN                        Е А/МINUS                     Е А/РRОСRТ
+             Е А/РАRVАR                    Е А/РRОСRТ                        Е А/РRОСRТ                    Е А/VLМ1
+             Е А/РRОСRТ                    Е А/VLМ1                          Е А/VLМХ            ZЕRОS1    Е А/МINUS
+             Е А/RТОI            ТРАК      Е А/ОРТLIN              ТRISМО    Е А/I0                        Е А/NОТ
+             Е А/SРLUSS                    Е А/РRОСRТ                        Е А/РRОСRТ                    Е А/РАRVАR
+             Е АТОS                        Е А/VLМ1                ТRNSМ20*  Е РRINТЕR*                    Е А/РRОСRТ
+             Е ВСDЕNС*           ТQUАNТ    Е А/САLLР                         Е РRUNТЕR*                    Е SQRТ*
+             Е ВСDWRIТ*                    Е А/МINUS                           ТАВLЕ3*
+                                                      18.05.19 М1
+                     ИСПОЛЬЗОВАНИЕ ПОДПРОГРАММ                     КIF                           Р0507
+                                                                   КО                            Р0512
+                                 DIV                               КОРРВС                        Р0513
+   Е - ВНЕШНЯЯ П/П               ЕIGЕN                             КОРРСО                        Р0513А
+   N - ОПИСАНА, НЕ ИСПОЛЬЗУЕТСЯ  ЕIGЕNJ                            КОРРНЕ                        Р0513С
+   С - ЕСТЬ ОДНОИМЕННЫЙ СОММОN   ЕILЕR1                            КОЧN                          Р0513N
+                                 ЕКZ                               КUВZ                          Р137
+   НЕИСПОЛЬЗУЕМЫЕ ВХОДЫ          ЕNDСНN                            КUВZ2                         РАD
+                                 ЕQVМЕА                            КUТТАМ                        РАD1
+   *GОSТ*                        ЕRF123                            КVINТ                         РАRINТ
+   *GОSТ*Р                       ЕRFС                              LАG                           РАТТ
+   А13SМО                        ЕSТFАС                            LАG1                          РМАТR
+   А35SМО                        ЕULЕR                             LАGРАН                        РОISКN
+   АВSМАХ                        ЕХСLIВ                            LАGRАN                        РОLIGR
+   АВSМIN                        ЕХРINТ                            LАGRN                         РОLУFI
+   АIТ                           ЕХРО                              LЕG                           РОLУХ
+   АIТ0                          ЕХТR                              LЕGЕND                        РОWС
+   АIТК                          FАСТ                              LЕТI                          РRАNАL
+   АLGLIВ                        FАСТ1                             LININТ                        РRINТ8*
+   АRG                           FАСТОR                            LINР                          РRINТR
+   АТМ                           FF                                LINТ                          РRОВNЕ
+   В4ВIТS                        FFISНЕ                            LОО3                          РRОGRАМ
+   В4DЕС                         FFТ32К                            LRСН                          РRRЕGR
+   В4ОСТ                         FILОN                             МАКС                          QUАD
+   ВАIRS                         FILОТН                            МАКС1                         QUIСКЕ
+   ВАNDSО                        FRСОS                             МАТR                          RАD
+   ВЕGСНЕС*                      FRЕSNЕ                            МАТSОR                        RАD1
+   ВЕGRND                        FRSIN                             МАХIМ                         RАNDОМ
+   ВЕGRUС                        GIVЕТIМЕ                          МАХIМU                        RАUSS
+   ВЕSSЕL                        GLIN                              МВVSIМ                        RЕВАКА
+   ВЕSSЕТ                        GРАD                              МСОМР                         RЕВАКВ
+   ВIНВI                         GRАD                              МDIАG1                        RЕСНN
+   ВINVI                         GRАF                              МDIАG2                        RЕDUС1
+   ВISЕС                         GRАF1                             МF                            RЕDUС2
+   ВISЕСТ                        GRАF2                             МНК                           RЕМЕZ
+   ВОZР                          GRАF3                             МIН                           RЕТАРЕ
+   ВQR                           GRАF4                             МIН1                          RGАМ
+   ВSL                           НЕRМIТ                            МIN                           RК1SТЕ
+   ВУЧКОР                        I0                                МIN1                          RND
+   ВЧКОР                         I1                                МINIМ                         RООТ
+   С                             IНТGАУ                            МINМАХ                        RОТF
+   САRСТG                        II                                МINМFL                        RR
+   СНЕВFI                        II1                               МINОNR                        RТRАNS
+   СНЕССОD*                      INSАLL                            ММULТ1                        RUСОАН
+   СНI2СО                        INSLIВ                            ММULТ2                        RUКUТ
+   СНI2FА                        INТ655                            МSIМРL                        SСАLАR
+   СОМЕIG                        INТЕGR                            МSQ1                          SЕRDIV
+   СОМРLЕ                        INТЕRМ                            МSQ2                          SFВЕSJ
+   СОNFСО                        INТGАU                            МULLЕR                        SIМ
+   СОNFR1                        INТР                              МVЕС1                         SIМ1
+   СОNFR2                        INV1                              МVЕС2                         SIМР
+   СОNGRА                        INV58                             МVR                           SIМР1
+   СОSI                          INV66                             МХОRD                         SIМРF
+   СRРАТН                        INVЕR                             NЕWINТ                        SIМРS1
+   СUВL                          INVЕR1                            NЕWLIВ                        SIМРSА
+   DЕТ                           INVЕR2                            NЕWLIS                        SIМUL
+   DЕТЕR                         INVЕRТ                            NЕWТ                          SINЕ
+   DЕТЕRМ                        ISIМV                             NОLЕQ                         SISТЕМ
+   DFL                           IZОL                              NОRМ                          SОRТ
+   DIАGМ1                        J0                                NОТLIS                        SРFАСТ
+   DIАGМ2                        J1                                NR                            SРНВЕN
+   DIАGVЕ                        JАСОВI                            NRООТ                         SТАND
+   DILОG                         К0                                ОТКАZ                         SТАТАN
+   DINТ77                        К1                                ОZЕNКА                        SТЕЕР1
+   DIRЕСТ                        КFL                               Р0460                         SUВSRЕ
+   SUМ                                       JАСОВI                            ВЧКОР                         ТRАNSF
+   SУМIN                                     КОРРВС                            СНЕВFI                        ТRIRЕG
+   SУМLЕF                                    КОРРНЕ                            СОМЕIG                        ТRIS
+   SУМRIG                                    КUВZ                              СОNFR2            А/САLLР  Е  ВЕSSЕL
+   ТСНЕВУ                                    КUВZ2                             СОNGRА                        ВISЕС
+   ТЕLЕ1                                     КUТТАМ                            СRРАТН                        ВSL
+   ТЕLЕ2                                     LАGРАН                            СUВL                          СНI2СО
+   ТGL1                                      LАGRАN                            DЕТЕR                         СНI2FА
+   ТGL2                                      LRСН                              DЕТЕRМ                        СОМРLЕ
+   ТРАН                                      МАХIМU                            DFL                           СОNFСО
+   ТРАК                                      МВVSIМ                            DIRЕСТ                        СОNGRА
+   ТQUАNТ                                    МСОМР                             ЕILЕR1                        СUВL
+   ТRАNS1                                    МF                                ЕSТFАС                        DЕТ
+   ТRАNS2                                    МINМFL                            FF                            ЕQVМЕА
+   ТRАNSF                                    МULLЕR                            FFТ2                          ЕSТFАС
+   ТRАNSМ                                    РОLIGR                            II                            FСНI2
+   ТRЕD1                                     РОWС                              II1                           FGАММА
+   ТRЕD2                                     RООТ                              INТР                          FSТUDЕ
+   ТRIDАG                                    RUКUТ                             INV1                          GRАF
+   ТRIDG                                     SIМР                              INV58                         GRАF1
+   ТRIS                                      SIМР1                             INV66                         GRАF2
+   ТRISМО                                    SIМРF                             INVЕR                         GRАF3
+   UNR                                       SРFАСТ                            INVЕR1                        GRАF4
+   UR                                        SТАТАN                            INVЕR2                        INТЕGR
+   VЕСТМU                                    SТЕЕР1                            КFL                           INVЕR2
+   W                                         SУМIN                             КОРРСО                        IZОL
+   WRСНN                         А/АRGSТR Е  МАТR                              КОЧN                          КОЧN
+   У0                                        РМАТR                             КUВIN                         КUВZ
+   У1                                        SУМLЕF                            КUВZ                          LRСН
+   УВУВ                                      SУМRIG                            КUТТАМ                        МАХIМU
+   УDМ                           А/АRRD/К Е  ВSL                               LЕТI                          МВVSIМ
+   УЕSLIS                                    DАWSОN                            LRСН                          МНК
+   УМВ                                       ЕRFС                              МАХIМU                        МSIМРL
+   УМD                                       ЕULЕR                             МВVSIМ                        МULLЕR
+   УММ                                       GRАF                              МСОМР                         NЕWТ
+   ZЕRОS1                                    GRАF1                             МНК                           NОLЕQ
+                                             GRАF2                             МINМFL                        NQUАNТ
+                                             GRАF3                             МINОNR                        Р137
+   ИСПОЛЬЗУЕМЫЕ ВХОДЫ                        GRАF4                             МSIМРL                        РАТТ
+                                             IНТGАУ                            NЕWINТ                        РОLIGR
+   А/АND    Е  АIТ                           INТ655                            NЕWТ                          РОLУFI
+               ВАIRS                         INТGАU                            NОLЕQ                         RТRАNS
+               ВIНВI                         LАGРАН                            ОZЕNКА                        SОRТ
+               ВINVI                         LАGRАN                            Р137                          SТАND
+               ВSL                           LЕGЕND                            РАТТ                          SТАТАN
+               ВУЧКОР                        МАХIМU                            РОLIGR                        SUВSRЕ
+               ВЧКОР                         РОLIGR                            РОLУFI                        SУМLЕF
+               СОМЕIG                        РОLУFI                            РОLУХ                         SУМRIG
+               DЕТ                           RGАМ                              РRINТR                        ТQUАNТ
+               DIV                           RК1SТЕ                            РRОВNЕ                        W
+               ЕIGЕNJ                        RUКUТ                             РRRЕGR            А/САLLS  Е  АLGLIВ
+               ЕULЕR                         SIМ1                              QUIСКЕ                        ВУЧКОР
+               FGАММА                        SIМР                              RАUSS                         ВЧКОР
+               FILОN                         SIМР1                             RЕМЕZ                         DIRЕСТ
+               FILОТН                        SIМРF                             RЕОRDЕ                        ЕХТR
+               FSТUDЕ                        ТRАNSF                            RЕVFFТ                        INТЕGR
+               GLIN              А/АRRD/V Е  АIТ                               RК1SТЕ                        КОЧN
+               GRАF                          АIТ0                              RОТF                          LRСН
+               GRАF1                         ВАIRS                             SISТЕМ                        МАХIМU
+               GRАF2                         ВЕSSЕL                            SТАND                         МВVSIМ
+               GRАF3                         ВЕSSЕТ                            SТАТАN                        МINМFL
+               GRАF4                         ВIНВI                             SТЕЕР1                        МINОNR
+               II                            ВINVI                             SUВSRЕ                        МSIМРL
+               II1                           ВISЕСТ                            SУМIN                         SТАТАN
+               INТЕGR                        ВQR                               ТЕLЕ1                         SUВSRЕ
+               INVЕR2                        ВУЧКОР                            ТЕLЕ2             А/ЕQUIV  Е  DIRЕСТ
+               РОLУFI                        SIМ1                              GLIN                          SIМРF
+   А/I0     Е  АIТ                           SIМР                              GRАF                          SINЕ
+               ВАIRS                         SIМРF                             GRАF1                         SРНВЕN
+               ВАNDSО                        SISТЕМ                            GRАF2                         SТАТАN
+               ВЕSSЕL                        SРНВЕN                            GRАF3                         SТЕЕР1
+               ВЕSSЕТ                        SRЕD                              GRАF4                         SUВSRЕ
+               ВIНВI                         SТАND                             I1                            SУМIN
+               ВINVI                         SУМLЕF                            II                            ТЕLЕ1
+               ВQR                           SУМRIG                            II1                           ТЕLЕ2
+               ВSL                           ТЕLЕ1                             INТ655                        ТQUАNТ
+               С                             ТЕLЕ2                             INТЕGR                        ТRАNSF
+               СНЕВFI                        ТRАNS1                            INТР                          ТRЕD1
+               СНI2СО                        ТRАNSF                            INV58                         ТRЕD2
+               СНI2FА                        ТRISМО                            INV66                         ТRIDG
+               СОNFR2                        UR                                INVЕR                         ТRIRЕG
+               СUВL              А/IРRI   Е  СНI2FА                            INVЕR1                        ТRIS
+               DIАGМ1                        ЕQVМЕА                            INVЕR2                        W
+               ЕIGЕN                         FАСТ                              IZОL                          У0
+               ЕКZ               А/LНОСНI Е  РОLIGR                            J0                            У1
+               FАСТ              А/МINUS  Е  А13SМО                            J1                            ZЕRОS1
+               FАСТОR                        А35SМО                            JАСОВI            А/NLINЕ  Е  А13SМО
+               FFISНЕ                        АIТ                               К0                            А35SМО
+               FFТ2                          АRG                               К1                            ВSL
+               FRСОS                         АТМ                               КFL                           ВУЧКОР
+               FRЕSNЕ                        ВАIRS                             КО                            ВЧКОР
+               FRSIN                         ВЕSSЕL                            КОРРВС                        СНI2СО
+               GРАD                          ВIНВI                             КОРРСО                        DЕТ
+               GRАD                          ВINVI                             КОРРНЕ                        ЕQVМЕА
+               GRАF3                         ВISЕСТ                            КОЧN                          FАСТ
+               GRАF4                         ВQR                               КUВZ                          GLIN
+               II                            ВSL                               КUВZ2                         GRАF
+               INТЕGR                        ВУЧКОР                            LАGРАН                        GRАF1
+               INV1                          ВЧКОР                             LАGRАN                        GRАF2
+               IZОL                          СНЕВFI                            LЕGЕND                        GRАF3
+               JАСОВI                        СНI2СО                            LININТ                        GRАF4
+               КFL                           СОМЕIG                            LRСН                          IZОL
+               КОРРВС                        СОМРLЕ                            МАКС                          КОРРСО
+               КОРРНЕ                        СОNFСО                            МАКС1                         КUВZ
+               КОЧN                          СОNGRА                            МАХIМU                        КUВZ2
+               КUТТАМ                        СОSI                              МВVSIМ                        МВVSIМ
+               LАG                           СUВL                              МСОМР                         МНК
+               LАG1                          DАWSОN                            МF                            ОZЕNКА
+               LАGРАН                        DЕТ                               МНК                           РОLIGR
+               LАGRАN                        DЕТЕR                             МINМАХ                        РОLУFI
+               LЕGЕND                        DЕТЕRМ                            МINМFL                        RОТF
+               МАХIМU                        DFL                               МINОNR                        ТЕХТ1
+               МСОМР                         DILОG                             МSIМРL                        ТЕХТ2
+               МDIАG1                        DINТ77                            МULLЕR                        ТЕХТ3
+               МНК                           DIRЕСТ                            NЕWINТ            А/NОТ    Е  АRG
+               МINМFL                        ЕIGЕNJ                            NQUАNТ                        АТМ
+               ММULТ1                        ЕRF123                            ОZЕNКА                        ВЕSSЕТ
+               МSQ1                          ЕRFС                              РОLIGR                        ВIНВI
+               МVЕС1                         ЕULЕR                             РОLУFI                        ВINVI
+               NОLЕQ                         ЕХРINТ                            РОWС                          ВSL
+               NR                            ЕХТR                              RЕАLТR                        СОNGRА
+               Р137                          FАСТ                              RЕDUС1                        СUВL
+               РМАТR                         FАСТОR                            RЕDUС2                        DЕТ
+               РОLIGR                        FF                                RЕМЕZ                         DЕТЕR
+               QUIСКЕ                        FFISНЕ                            RGАМ                          DЕТЕRМ
+               RАNDОМ                        FGАММА                            RООТ                          DFL
+               RЕАLТR                        FILОN                             RОТF                          DILОG
+               RЕОRDЕ                        FILОТН                            RТRАNS                        DIV
+               RЕVFFТ                        FRСОS                             RUКUТ                         ЕSТFАС
+               RR                            FRЕSNЕ                            SFВЕSJ                        ЕХТR
+               RUКUТ                         FRSIN                             SIМР                          FFТ2
+               SIМ                           FSТUDЕ                            SIМР1                         FSТUDЕ
+               G                             GАUSS                             GRАF                          СUВL
+               GLIN                          II                                GRАF1                         DЕТ
+               GRАF                          II1                               GRАF2                         INТЕGR
+               GRАF1                         INV1                              GRАF3                         IZОL
+               GRАF2                         INV58                             GRАF4                         МАХIМU
+               GRАF3                         INV66                             IНТGАУ                        МВVSIМ
+               GRАF4                         INVЕR                             INТ655                        МНК
+               II                            INVЕR1                            INТGАU                        МSIМРL
+               II1                           INVЕR2                            INVЕR2                        МULLЕR
+               INТЕGR                        INVЕRТ                            КUТТАМ                        NЕWТ
+               INV1                          IZОL                              LRСН                          Р137
+               INV66                         JАСОВI                            МАТSОR                        РАТТ
+               JАСОВI                        КОРРСО                            МАХIМU                        SОRТ
+               КFL                           LЕТI                              МНК               А/РАRVАR Е  ВЕSSЕL
+               КО                            МАХIМU                            РОLIGR                        ВISЕС
+               КОЧN                          МВVSIМ                            SIМ1                          СНI2СО
+               КUТТАМ                        МСОМР                             SIМР                          СНI2FА
+               LЕGЕND                        МDIАG2                            SIМР1                         СОМРLЕ
+               LЕТI                          МНК                               ТQUАNТ                        СUВL
+               LRСН                          МINМFL                А/РАRLАВ Е  ВЕSSЕL                        DЕТ
+               МАХIМU                        ММULТ2                            СНI2СО                        ЕSТFАС
+               МВVSIМ                        МSIМРL                            СНI2FА                        ЕULЕR
+               МСОМР                         МSQ2                              ЕQVМЕА                        ЕХТR
+               МF                            МVЕС2                             КОЧN                          FGАММА
+               МНК                           МVR                               LRСН                          FILОN
+               МINМFL                        ОZЕNКА                            МАХIМU                        FILОТН
+               МINОNR                        РRОВNЕ                            МНК                           GRАF
+               МULLЕR                        RЕВАКВ                            SUВSRЕ                        GRАF1
+               МVR                           RЕDUС1                А/РАRРАR Е  ВISЕС                         GRАF2
+               NЕWТ                          RЕDUС2                            СОМРLЕ                        GRАF3
+               NОLЕQ                         RОТF                              СОNFСО                        GRАF4
+               NRООТ                         SIМUL                             СОNGRА                        INТ655
+               РОLIGR                        SРFАСТ                            DIRЕСТ                        КUВZ
+               РОWС                          SТАТАN                            ЕILЕR1                        LRСН
+               РRINТR                        SUВSRЕ                            ЕQVМЕА                        МВVSIМ
+               РRRЕGR                        SУМIN                             ЕSТFАС                        МНК
+               RЕVFFТ                        SУSТЕМ                            FСНI2                         МINОNR
+               RООТ                          ТРАН                              FGАММА                        МULLЕR
+               SРFАСТ                        ТРАК                              INVЕR2                        МХОRD
+               SРНВЕN                        ТRАNS1                            КUВZ                          NЕWТ
+               SТЕЕР1                        ТRАNS2                            КUТТАМ                        NQUАNТ
+               SУМIN                         ТRАNSF                            LRСН                          ОZЕNКА
+               SУМRIG                        ТRЕD1                             МАХIМU                        РАТТ
+               SУSТЕМ                        ТRЕD2                             МВVSIМ                        РОLIGR
+               ТQUАNТ                        ТRIDG                             МНК                           QUАD
+               ТRIDG                         ТRIRЕG                            МINМFL                        RООТ
+               ТRIRЕG                        УDМ                               МINОNR                        RТRАNS
+               ZЕRОS1                        УМВ                               МSIМРL                        RUКUТ
+   А/NОТL   Е  РОLIGR                        УМD                               МХОRD                         SIМ1
+   А/NРАGЕ  Е  АLGLIВ                        УММ                               NЕWТ                          SIМР
+   А/ОРТLIN Е  АIТ               А/РАRСОN Е  СНI2СО                            NОLЕQ                         SIМР1
+               ВАNDSО                        СНI2FА                            ОZЕNКА                        SIМРSА
+               ВIНВI                         СОМРLЕ                            РАТТ                          SISТЕМ
+               ВINVI                         ЕULЕR                             РОLУFI                        SТАND
+               ВQR                           LRСН                              RК1SТЕ                        SТАТАN
+               СНI2FА                        МULLЕR                            RООТ                          SУМLЕF
+               СОМЕIG                        RООТ                              RТRАNS                        SУМRIG
+               СОNGRА                        RТRАNS                            SIМРSА                        ТRАNSF
+               СUВL              А/РАRЕХР Е  СНI2FА                            SISТЕМ                        W
+               DЕТ                           СОNFСО                            SТАND                         ZЕRОS1
+               DЕТЕR                         СUВL                              SТАТАN            А/РRОСRТ Е  А13SМО
+               DЕТЕRМ                        ЕQVМЕА                            SТЕЕР1                        А35SМО
+               DIАGМ2                        ЕSТFАС                            ТQUАNТ                        АВSМАХ
+               ЕIGЕN                         ЕХТR                              ТRАNSF                        АВSМIN
+               ЕIGЕNJ                        FСНI2                 А/РАRVАL Е  ВSL                           АIТ
+               ЕSТFАС                        FSТUDЕ                            СОNGRА                        АIТ0
+               АIТК                          FRЕSNЕ                            МАХIМ                         RR
+               АRG                           FRSIN                             МАХIМU                        RТRАNS
+               АТМ                           FSТUDЕ                            МВVSIМ                        RUКUТ
+               ВАIRS                         G                                 МСОМР                         SСАLАR
+               ВАNDSО                        GАUSS                             МDIАG1                        SЕRDIV
+               ВЕSSЕL                        GLIN                              МDIАG2                        SFВЕSJ
+               ВЕSSЕТ                        GРАD                              МF                            SIМ
+               ВIНВI                         GRАD                              МНК                           SIМ1
+               ВINVI                         GRАF                              МIН                           SIМР
+               ВISЕС                         GRАF1                             МIН1                          SIМР1
+               ВISЕСТ                        GRАF2                             МIN                           SIМРF
+               ВОZР                          GRАF3                             МIN1                          SIМРS1
+               ВQR                           GRАF4                             МINIМ                         SIМРSА
+               ВSL                           НЕRМIТ                            МINМАХ                        SIМUL
+               ВУЧКОР                        I0                                МINМFL                        SINЕ
+               ВЧКОР                         I1                                МINОNR                        SISТЕМ
+               С                             IНТGАУ                            ММULТ1                        SОRТ
+               САRСТG                        II                                ММULТ2                        SРFАСТ
+               СНЕВFI                        II1                               МSIМРL                        SРНВЕN
+               СНI2СО                        INТ655                            МSQ1                          SRЕD
+               СНI2FА                        INТЕGR                            МSQ2                          SТАND
+               СОМЕIG                        INТЕRМ                            МULLЕR                        SТАТАN
+               СОМРLЕ                        INТGАU                            МVЕС1                         SТЕЕР1
+               СОNFСО                        INТР                              МVЕС2                         SUВSRЕ
+               СОNFR1                        INV1                              МVR                           SUМ
+               СОNFR2                        INV58                             МХОRD                         SУМIN
+               СОNGRА                        INV66                             NЕWINТ                        SУМLЕF
+               СОSI                          INVЕR                             NЕWТ                          SУМRIG
+               СRРАТН                        INVЕR1                            NОLЕQ                         SУSТЕМ
+               СUВL                          INVЕR2                            NОRМ                          ТСНЕВУ
+               DАWSОN                        INVЕRТ                            NQUАNТ                        ТЕLЕ1
+               DЕТ                           IZОL                              NR                            ТЕLЕ2
+               DЕТЕR                         J0                                NRООТ                         ТЕХТ1
+               DЕТЕRМ                        J1                                ОZЕNКА                        ТЕХТ2
+               DFL                           JАСОВI                            Р137                          ТЕХТ3
+               DIАGМ1                        К0                                РАD                           ТGL1
+               DIАGМ2                        К1                                РАD1                          ТGL2
+               DIАGVЕ                        КFL                               РАRINТ                        ТРАН
+               DILОG                         КIF                               РАТТ                          ТРАК
+               DINТ77                        КО                                РМАТR                         ТQUАNТ
+               DIRЕСТ                        КОРРВС                            РОLIGR                        ТRАNS1
+               DIV                           КОРРСО                            РОLУFI                        ТRАNS2
+               ЕIGЕN                         КОРРНЕ                            РОLУХ                         ТRАNSF
+               ЕIGЕNJ                        КОЧN                              РОWС                          ТRАNSМ
+               ЕILЕR1                        КUВIN                             РRАNАL                        ТRЕD1
+               ЕКZ                           КUВZ                              РRINТR                        ТRЕD2
+               ЕQVМЕА                        КUВZ2                             РRОВNЕ                        ТRIDАG
+               ЕRF123                        КUТТАМ                            РRRЕGR                        ТRIDG
+               ЕRFС                          КVINТ                             QUАD                          ТRIRЕG
+               ЕSТFАС                        LАG                               QUIСКЕ                        ТRIS
+               ЕULЕR                         LАG1                              RАD                           ТRISМО
+               ЕХРINТ                        LАGРАН                            RАD1                          UR
+               ЕХРО                          LАGRАN                            RАNDОМ                        VЕСТМU
+               ЕХТR                          LАGRN                             RАUSS                         W
+               FАСТ                          LЕG                               RЕАLТR                        У0
+               FАСТ1                         LЕGЕND                            RЕВАКА                        У1
+               FАСТОR                        LЕТI                              RЕВАКВ                        УВУВ
+               FСНI2                         LININТ                            RЕDUС1                        УDМ
+               FЕRF                          LINР                              RЕDUС2                        УМВ
+               FF                            LINТ                              RЕМЕZ                         УМD
+               FFISНЕ                        LОО3                              RЕОRDЕ                        УММ
+               FFТ2                          LRСН                              RЕVFFТ                        ZЕRОS1
+               FGАММА                        МАКС                              RGАМ              А/РUТАRR Е  GRАF3
+               FILОN                         МАКС1                             RК1SТЕ                        GRАF4
+               FILОТН                        МАТR                              RООТ                          МВVSIМ
+               FRСОS                         МАТSОR                            RОТF                          МSIМРL
+               РОLIGR                        ВSL                               ВЧКОР                         FАСТОR
+               РRINТR                        СНЕВFI                            СНI2СО                        FF
+               РRRЕGR                        СОNFR2                            СНI2FА                        GАUSS
+   А/RАРRI  Е  ВУЧКОР                        ЕIGЕN                             ЕQVМЕА                        GRАF2
+               ВЧКОР                         ЕКZ                               GLIN                          GRАF4
+               МНК                           ЕRF123                            GРАD                          II
+               ОZЕNКА                        FАСТ                              GRАD                          II1
+   А/RНОСНI Е  СОМРLЕ                        FАСТОR                            GRАF                          INТ655
+               FFISНЕ                        FFISНЕ                            GRАF1                         INТЕGR
+               КОЧN                          FFТ2                              GRАF2                         INТР
+               LЕGЕND                        FILОN                             GRАF3                         INV1
+               LЕТI                          FILОТН                            GRАF4                         INV58
+               LОО3                          GРАD                              IZОL                          INV66
+               МНК                           GRАD                              КОРРСО                        INVЕR
+               RЕМЕZ                         I1                                КUВIN                         INVЕR1
+               RТRАNS                        J1                                КUВZ                          INVЕRТ
+               SIМ1                          JАСОВI                            КUВZ2                         IZОL
+   А/RРRI   Е  СНI2FА                        КО                                МВVSIМ                        JАСОВI
+               IZОL                          КОРРВС                            МНК                           КFL
+               КUВZ                          КUТТАМ                            ОZЕNКА                        КОРРВС
+               МНК                           LЕGЕND                            РОLIGR                        КОРРСО
+               ОZЕNКА                        МАХIМU                            РОLУFI                        КОРРНЕ
+               RОТF                          МСОМР                             RОТF                          КUВIN
+   А/RТОI   Е  ВЕSSЕL                        МINМFL                            ТЕХТ1                         КUТТАМ
+               С                             МINОNR                            ТЕХТ2                         LЕТI
+               СНЕВFI                        МULLЕR                            ТЕХТ3                         LОО3
+               СНI2СО                        NЕWТ                  А/SТАRТ  Е  АLGLIВ                        МАТSОR
+               СНI2FА                        NR                    А/SТОР   Е  АLGLIВ                        МАХIМ
+               СОМРLЕ                        NRООТ                             КUВIN                         МАХIМU
+               FАСТ                          РАD                               КUВZ                          МВVSIМ
+               FАСТОR                        РАD1                  А/VLМ1   Е  А13SМО                        МСОМР
+               GРАD                          РОWС                              А35SМО                        МDIАG1
+               GRАD                          QUIСКЕ                            АВSМАХ                        МDIАG2
+               GRАF                          RАD                               АВSМIN                        МНК
+               GRАF1                         RАD1                              АIТ                           МINIМ
+               GRАF2                         RАNDОМ                            АIТ0                          МINМFL
+               GRАF3                         RАUSS                             АIТК                          МINОNR
+               GRАF4                         RЕАLТR                            ВАIRS                         МSIМРL
+               IZОL                          RЕМЕZ                             ВАNDSО                        МULLЕR
+               КIF                           RЕОRDЕ                            ВЕSSЕТ                        МVЕС1
+               КОРРСО                        RЕVFFТ                            ВIНВI                         МVЕС2
+               КОЧN                          RR                                ВINVI                         МVR
+               КVINТ                         SIМ1                              ВISЕСТ                        NЕWINТ
+               LINТ                          SIМР                              ВQR                           NЕWТ
+               МАХIМU                        SIМРF                             СНЕВFI                        NОRМ
+               МНК                           ТЕLЕ2                             СНI2СО                        ОZЕNКА
+               Р137              А/SLIСЕ  Е  GRАF                              СНI2FА                        РАТТ
+               РАD                           GRАF1                             СОМЕIG                        РОLIGR
+               РАD1                          GRАF2                             СОNFR1                        РОLУFI
+               РАRINТ                        GRАF3                             СОNFR2                        РОLУХ
+               РОLIGR                        GRАF4                             СОNGRА                        РRОВNЕ
+               QUIСКЕ                        IZОL                              СRРАТН                        RАUSS
+               RАD                           РОLIGR                            СUВL                          RЕВАКА
+               RАD1              А/SРLUSS Е  GRАF                              DЕТ                           RЕDUС2
+               RТRАNS                        GRАF1                             DЕТЕR                         RЕМЕZ
+               SISТЕМ                        GRАF2                             DЕТЕRМ                        RЕVFFТ
+               SУМLЕF                        GRАF3                             DFL                           RОТF
+               SУМRIG                        GRАF4                             DIАGМ1                        RUКUТ
+   А/SЕQS   Е  РОLIGR                        IZОL                              DIАGМ2                        SСАLАR
+   А/SIGN   Е  АRG                           РОLIGR                            DIАGVЕ                        SЕRDIV
+               ВАIRS                         SУМLЕF                            DIRЕСТ                        SIМUL
+               ВАNDSО                        SУМRIG                            ЕIGЕN                         SISТЕМ
+               ВЕSSЕТ            А/SРRI   Е  А13SМО                            ЕIGЕNJ                        SРFАСТ
+               ВIНВI                         А35SМО                            ЕSТFАС                        SRЕD
+               ВINVI                         ВSL                               ЕULЕR                         SТАND
+               ВISЕС                         ВУЧКОР                            FАСТ                          SТАТАN
+               SТЕЕР1                        GRАF2                             СОSI                          SУМRIG
+               SUВSRЕ                        GRАF3                             ЕХРО                          ТЕLЕ2
+               SУМIN                         GRАF4                             FFТ2                          UR
+               SУSТЕМ                        РОLIGR                            FILОN             ЕХР*     Е  АТМ
+               ТСНЕВУ                        SУМLЕF                            FILОТН                        ВЕSSЕL
+               ТGL1                          SУМRIG                            FRЕSNЕ                        ВSL
+               ТGL2              ВСDЕNС*  Е  GRАF                              J0                            СОNFСО
+               ТРАН                          GRАF1                             J1                            СОSI
+               ТРАК                          GRАF2                             КОЧN                          ЕRF123
+               ТRАNS1                        GRАF3                             NRООТ                         ЕRFС
+               ТRАNS2                        GRАF4                             РОWС                          ЕХРINТ
+               ТRАNSF                        РОLIGR                            RЕVFFТ                        ЕХРО
+               ТRАNSМ                        SУМLЕF                            RОТF                          FGАММА
+               ТRЕD1                         SУМRIG                            SFВЕSJ                        I0
+               ТRЕD2             ВСDWRIТ* Е  ВУЧКОР                            SINЕ                          I1
+               ТRIDАG                        ВЧКОР                             SРНВЕN                        К0
+               ТRIDG                         DЕТ                               ТQUАNТ                        К1
+               ТRIRЕG                        GРАD                              W                             КОЧN
+               УDМ                           GRАD                              У0                            NЕWТ
+               УМВ                           GRАF                              У1                            NQUАNТ
+               УМD                           GRАF1                 DАТАРR*  Е  INSLIВ                        SINЕ
+               УММ                           GRАF2                 DАWSОN      W                             ТQUАNТ
+   А/VLМХ   Е  ВЕSSЕТ                        GRАF3                 ЕNDАСН      RЕСНN                         W
+               ВISЕСТ                        GRАF4                             WRСНN             FСНI2       СНI2СО
+               ВSL                           IZОL                  ЕNТIЕR*  Е  ВАIRS                         СНI2FА
+               СНЕВFI                        LАGРАН                            ВАNDSО            FЕRF        FSТUDЕ
+               СОМРLЕ                        LАGRАN                            ВЕSSЕТ                        NQUАNТ
+               СRРАТН                        МАТR                              ВIНВI             FFТ      Е  FFТ32К
+               DАWSОN                        МВVSIМ                            ВINVI             FFТ2        СОМРLЕ
+               ЕRFС                          МSIМРL                            ВSL                           RТRАNS
+               FFТ2                          МULLЕR                            СНЕВFI            FGАММА      FСНI2
+               GАUSS                         РМАТR                             СОNFR2            FLОАТ    Е  В4DЕС
+               INТ655                        РОLIGR                            ЕКZ               FSТUDЕ      ЕQVМЕА
+               INТР                          РRАNАL                            FАСТ              FТ*002   Е  РRОРRI
+               INV1                          РRINТR                            FАСТОR                        RЕСНN
+               МАТSОR                        РRRЕGR                            FFISНЕ                        WRСНN
+               МАХIМU                        SТАТАN                            FFТ2              FТ*003   Е  РRОРRI
+               МСОМР                         SUВSRЕ                            FILОN                         RЕСНN
+               МНК                           SУМLЕF                            FILОТН                        WRСНN
+               ММULТ1                        SУМRIG                            FSТUDЕ            FТ*571   Е  RЕСНN
+               ММULТ2                        ТЕХТ1                             GРАD                          WRСНN
+               МSQ1                          ТЕХТ2                             GRАD              FТ*611   Е  РRОРRI
+               МSQ2                          ТЕХТ3                             GRАF1             G           ВЕSSЕL
+               МVR                           ТRIRЕG                            GRАF3                         FGАММА
+               RАUSS             ВЕGАСН      RЕСНN                             INТЕRМ            GАUSS       МНК
+               RЕВАКВ                        WRСНN                             IZОL                          РАТТ
+               RЕDUС1            ВIВ         *GОSТ*                            КUТТАМ            I*DI*I   Е  FFТ32К
+               RЕDUС2            ВINАRУ   Е  В4ВIТS                            LЕGЕND                        RЕСНN
+               RЕОRDЕ                        В4DЕС                             LINР                          WRСНN
+               RGАМ                          В4ОСТ                             LRСН              I*МU*I   Е  В4DЕС
+               RТRАNS            С*АD*С   Е  FFТ32К                            МАХIМU                        FFТ32К
+               SIМ               С*LО*С   Е  FFТ32К                            NОLЕQ             I*МUI*   Е  FFТ32К
+               SТАТАN            С*МU*С   Е  FFТ32К                            NR                I*РО*I   Е  В4DЕС
+               ТRIRЕG            С*МU*R   Е  FFТ32К                            РМАТR             IFРULТ   Е  RЕСНN
+               ТRIS              С*SТ*С   Е  FFТ32К                            РОLIGR                        WRСНN
+   АRСТАN*  Е  АRG               С*SU*С   Е  FFТ32К                            QUIСКЕ            INРUТ    Е  SТАТАN
+               ВSL               СНОIС8      В4ОСТ                             RАNDОМ            IОАС*    Е  DЕТ
+               САRСТG            СНОIСЕ      В4DЕС                             RЕАLТR                        GРАD
+               FFISНЕ            СНОIСО      В4ВIТS                            RЕОRDЕ                        GRАD
+               FSТUDЕ            СМРLХ    Е  FFТ32К                            RЕVFFТ                        GRАF
+               NRООТ             СОNSUМ      КVIТ                              RR                            GRАF1
+               РОWС                          RЕ46СН                            SFВЕSJ                        GRАF2
+               RОТF                          SLSСНN                            SIМ1                          GRАF3
+   АSIN     Е  МF                            WR64СН                            SIМР                          GRАF4
+   АТОS     Е  GRАF              СОS      Е  FFТ32К                            SIМРF                         LАGРАН
+               GRАF1             СОS*     Е  ВSL                               SУМLЕF                        LАGRАN
+               МАТR                          NЕWТ                              J1                            SТАND
+               МВVSIМ                        NОLЕQ                             КОЧN                          SТАТАN
+               МSIМРL                        NQUАNТ                            NRООТ                         SТЕЕР1
+               МULLЕR                        QUIСКЕ                            РОWС                          SUВSRЕ
+               РМАТR                         У0                                RЕАLТR                        SУМLЕF
+               РОLIGR                        У1                                RЕVFFТ                        SУМRIG
+               РRАNАL            МОNRЕАD* Е  INSLIВ                            RОТF                          ТGL1
+               РRINТR            N8Т10       *GОSТ*                            SFВЕSJ                        ТGL2
+               РRRЕGR            NАМЕ4       RЕСНN                             SINЕ                          ТQUАNТ
+               SТАТАN            NQUАNТ      СОNFСО                            ТQUАNТ                        ТRЕD1
+               SUВSRЕ                        ТQUАNТ                            W                             ТRЕD2
+               SУМLЕF            ОСТТDЕС  Е  INSLIВ                            У0                            ТRIDG
+               SУМRIG            ОРТЕRМ      РRОРRI                            У1                            ТRIRЕG
+               ТRIRЕG                        RЕСНN                 SLSСНN      ВЕGАСН                        VЕСТМU
+   IОЕND*   Е  ВУЧКОР                        WRСНN                             ЕNDСНN                        У0
+               ВЧКОР             РОWЕR    Е  ВЕSSЕТ                            RЕ46СН                        У1
+               DЕТ                           ВIНВI                 SQRТ*    Е  АТМ                           ZЕRОS1
+               GРАD                          ВINVI                             ВАIRS             SRЕD        SТАND
+               GRАD                          ВSL                               ВQR               SТОР*    Е  RЕСНN
+               GRАF                          ВУЧКОР                            ВSL                           WRСНN
+               GRАF1                         ВЧКОР                             СОМЕIG            SUРLIS      GRАF
+               GRАF2                         КОЧN                              СОМРLЕ                        GRАF1
+               GRАF3                         NRООТ                             СОNFСО                        GRАF2
+               GRАF4                         РОWС                              СUВL                          GRАF3
+               IZОL                          ТQUАNТ                            ЕIGЕN                         GRАF4
+               LАGРАН            РRINТ8      *GОSТ*                            ЕIGЕNJ                        IZОL
+               LАGRАN                        INSLIВ                            ЕQVМЕА                        МАТR
+               МАТR              РRINТЕR* Е  ТRNSМ20*                          ЕSТFАС                        РМАТR
+               МВVSIМ                      N ТRNSUРР*                          FFISНЕ                        РОLIGR
+               МSIМРL            РRОРRI      ЕNDСНN                            FILОN             SУSТЕМ      МАХIМU
+               МULLЕR                        RЕСНN                             FILОТН            ТАВLЕ2*     РUТАLG*
+               РМАТR                         WRСНN                             FSТUDЕ                        ТRNSUРР*
+               РОLIGR            РRUNТЕR* Е  ТRNSМ20*                          I0                ТАВLЕ3*     РUТАLG*
+               РRАNАL            РТ6      Е  INSLIВ                            I1                            ТRNSМ20*
+               РRINТR            РUТАLG*     СНЕССОD*                          II                ТЕХТ1       АLGLIВ
+               РRRЕGR            РUТСDС*  Е  СНЕССОD*                          II1               ТЕХТ2       АLGLIВ
+               SТАТАN            РUТIСТ*  Е  СНЕССОD*                          J0                ТЕХТ3       АLGLIВ
+               SUВSRЕ            R*DI*I   Е  FFТ32К                            J1                ТRIRЕG      ЕSТFАС
+               SУМLЕF            R*SТ*I   Е  RЕСНN                             JАСОВI            ТRNSСDС* Е  СНЕССОD*
+               SУМRIG                        WRСНN                             К0                            ТRNSМ20*
+               ТЕХТ1             RDSТАR      INSLIВ                            К1                ТRNSМ20*    РUТАLG*
+               ТЕХТ2             RЕ46СН      RЕСНN                             КО                ТRNSUРР*    СНЕССОD*
+               ТЕХТ3             RЕАD*    Е  *GОSТ*                            КОРРВС                        РUТАLG*
+               ТRIRЕG            RЕАLТR      RТRАNS                            КОРРСО                        ТRNSМ20*
+   КUВIN       КUВZ              RЕОRDЕ      СОМРLЕ                            КОРРНЕ            WR64СН      WRСНN
+   КVIТ        ВЕGАСН                        RТRАNS                            LЕGЕND            WRIТЕ1   Е  ВIВ
+               WR64СН            RЕSLIS      GRАF                              LRСН              WRТАРЕ      FFТ32К
+   LIВLISТ     INSLIВ                        GRАF1                             МАХIМU
+   LISТ46      КVIТ                          GRАF2                             МСОМР
+               RЕ46СН                        GRАF3                             МF
+   LISТ64      SLSСНN                        GRАF4                             МНК
+               WR64СН                        IZОL                              МINМFL
+   LN*      Е  АТМ                           МАТR                              МINОNR
+               ВЕSSЕL                        РМАТR                             МULLЕR
+               ВIНВI             RЕТАРЕ      FFТ32К                            МVR
+               ВINVI             RЕVСАRD* Е  СНЕССОD*                          NОLЕQ
+               ВSL               RЕVFFТ      RТRАNS                            NОRМ
+               СНI2СО            SIN      Е  FFТ32К                            NQUАNТ
+               СОNFСО            SIN*     Е  ВSL                               NR
+               DILОG                         СОSI                              Р137
+               ЕХРINТ                        ЕХРО                              РАТТ
+               FGАММА                        FFТ2                              РОLУFI
+               FSТUDЕ                        FILОN                             RЕDUС1
+               К0                            FILОТН                            RЕDUС2
+               К1                            FRЕSNЕ                            RОТF
+               КОЧN                          J0                                SРFАСТ
+                                                      18.05.19 М1
+                     ССЫЛКИ НА СОММОN′Ы
+
+
+   D - РАССЫЛКА ДАННЫХ
+   N - ОПИСАН, НЕ ИСПОЛЬЗУЕТСЯ
+   Р - СТРАНИЧНЫЙ СОММОN
+   S - СЕКТОРНЫЙ СОММОN
+   L - ПРОСТОЙ СОММОN
+   ***** - ДЛИНА ОПИСАНА НЕЯВНО
+
+   *GОSТ*    L 00015 *А*
+   *GОSТ*Р  (*GОSТ*  )
+   В4ВIТS    L 00004 *А1*
+   В4DЕС     L 00096 *А0*
+             L 00002 *А1*
+   В4ОСТ     L 00004 *А1*
+   ВЕGАСН    L 00008 *РRОТКL*
+            NР 00205 ВUF64
+            NL 00001 КУС64
+   ВIВ       L 00015 *А*
+   СНОIС8    L 00004 *А1*
+   СНОIСЕ    L 00096 *А0*
+             L 00002 *А1*
+   СНОIСО    L 00004 *А1*
+   ЕNDАСН   (ВЕGАСН  )
+   ЕХСLIВ   (INSLIВ  )
+   INSАLL   (INSLIВ  )
+   INSLIВ    L 00001 DRТАРЕ
+             L 00001 МОNСАRD*
+             L 00002 WВЕGFLАG
+   КVIТ      L 00008 *РRОТКL*
+             Р 00205 ВUF46
+             L 00001 КУС46
+   LISТ46   (LISТ64  )
+   LISТ64    Р 00205 ВUF46
+             Р 00205 ВUF64
+             L 00001 КУС46
+             L 00001 КУС64
+   NЕWLIВ   (INSLIВ  )
+   РRОРRI    L 00008 *РRОТКL*
+   RDSТАR    L 00001 DRТАРЕ
+             L 00002 WВЕGFLАG
+   RЕ46СН    L 00008 *РRОТКL*
+             Р 00205 ВUF46
+             L 00001 КУС46
+   RЕСНN     L 00008 *РRОТКL*
+   RЕТАРЕ    Р 01024 *ВFRЕWR*
+   RЕТАРЕ    Р 01024 *ВFRЕWR*
+   SLSСНN    L 00008 *РRОТКL*
+             Р 00205 ВUF64
+             L 00001 КУС64
+   ТRNSМ20*  L 00110 INРUТАR*
+             L 00014 WОRК
+   ТRNSUРР*  L 00110 INРUТАR*
+   WR64СН    L 00008 *РRОТКL*
+             Р 00205 ВUF64
+             L 00001 КУС64
+   WRСНN     L 00008 *РRОТКL*
+   WRТАРЕ   (RЕТАРЕ  )
+                                                      18.05.19 М1
+                     ИСПОЛЬЗОВАНИЕ СОММОN′ОВ
+
+                                 WОRК        00014
+   Е - ЕСТЬ ОДНОИМЕННАЯ П/П                L 00014 ТRNSМ20*
+   D - РАССЫЛКА ДАННЫХ
+   N - ОПИСАН, НЕ ИСПОЛЬЗУЕТСЯ
+   Р - СТРАНИЧНЫЙ СОММОN
+   S - СЕКТОРНЫЙ СОММОN
+   L - ПРОСТОЙ СОММОN
+   ***** - ДЛИНА ОПИСАНА НЕЯВНО
+
+   *А*         00015
+             L 00015 *GОSТ*
+             L 00015 ВIВ
+   *А0*        00096
+             L 00096 В4DЕС
+             L 00096 СНОIСЕ
+   *А1*        00004
+             L 00004 В4ВIТS
+             L 00002 В4DЕС
+             L 00004 В4ОСТ
+             L 00004 СНОIС8
+             L 00002 СНОIСЕ
+             L 00004 СНОIСО
+   *ВFRЕWR*    01024
+             Р 01024 RЕТАРЕ
+             Р 01024 RЕТАРЕ
+   *РRОТКL*    00008
+             L 00008 ВЕGАСН
+             L 00008 КVIТ
+             L 00008 РRОРRI
+             L 00008 RЕ46СН
+             L 00008 RЕСНN
+             L 00008 SLSСНN
+             L 00008 WR64СН
+             L 00008 WRСНN
+   ВUF46       00205
+             Р 00205 КVIТ
+             Р 00205 LISТ64
+             Р 00205 RЕ46СН
+   ВUF64       00205
+            NР 00205 ВЕGАСН
+             Р 00205 LISТ64
+             Р 00205 SLSСНN
+             Р 00205 WR64СН
+   DRТАРЕ      00001
+             L 00001 INSLIВ
+             L 00001 RDSТАR
+   INРUТАR*    00110
+             L 00110 ТRNSМ20*
+             L 00110 ТRNSUРР*
+   КУС46       00001
+             L 00001 КVIТ
+             L 00001 LISТ64
+             L 00001 RЕ46СН
+   КУС64       00001
+            NL 00001 ВЕGАСН
+             L 00001 LISТ64
+             L 00001 SLSСНN
+             L 00001 WR64СН
+   МОNСАRD*    00001
+             L 00001 INSLIВ
+   WВЕGFLАG    00002
+             L 00002 INSLIВ
+             L 00002 RDSТАR
+           *ЕND FILЕ
+ КОНЕЦ ЗАДАЧИ
+ 00411: 00 074 0000	*74

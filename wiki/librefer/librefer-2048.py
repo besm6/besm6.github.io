@@ -1,0 +1,72 @@
+#!/usr/bin/env python
+# -*- encoding: utf-8 -*-
+#
+# Scan a disk for libraries, using LIBREFER utility.
+#
+import sys, os, string, subprocess, struct
+
+#
+# Parse command line.
+#
+if len(sys.argv) != 1:
+    print "Usage: librefer.py"
+    sys.exit(1)
+disk_name = "2048"
+libraries = [030,0120,0122,0200,0235,0426,0521,0761,01100,01163,01202,01205,01242,01267,01350,01470,01473,01500,01700,01720,01730,01740]
+
+for lib in libraries:
+    #
+    # Read input file and generate a task file.
+    #
+    basename = "%s-%04o" % (disk_name, lib)
+    task_name = basename + ".b6"
+    task_file = open(task_name, "w")
+    task_file.write("""шифр 419999 зс5^
+лен 40(2048)^
+eeв1а3
+*name %s
+*perso: 401350
+*call librefer:TAPE=40%04o
+*end file
+``````
+еконец
+""" % (basename, lib))
+    task_file.close()
+
+    #
+    # Run dispak simulator.
+    #
+    dispak = subprocess.Popen('dispak %s.b6' % (basename),
+        shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+    lst_file = open(basename + ".lst", "w")
+    nerrors = -1
+    for line in dispak.stdout.readlines():
+        lst_file.write(line.rstrip() + "\n")
+
+        # Find status.
+        line = line.decode('utf-8')
+        #print len(line), line,
+        if len(line) >= 44:
+            if line[21:43] == u"ССЫЛКИ НА ПОДПРОГРАММЫ":
+                nerrors = 0
+
+    lst_file.close()
+
+    retval = dispak.wait()
+    #print "retval =", retval
+    if retval == 127:
+        print "dispak: Command not found"
+        lst_file.close()
+        os.remove(basename + ".lst")
+        continue
+    if retval != 0:
+        print "dispak: Failed to invoke Librefer assembler"
+        os.remove(basename + ".lst")
+        continue
+    if nerrors != 0:
+        print "dispak: Librefer errors detected: see %s.lst for details" % basename
+        os.remove(basename + ".lst")
+        continue
+
+    print "Zone %04o of disk %s printed into %s.lst" % (lib, disk_name, basename)
