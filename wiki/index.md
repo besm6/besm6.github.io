@@ -30,4 +30,6 @@ topmenu: yes
 
 [Описание автокода MADLEN](Madlen)
 
+[Список библиотек \*LIBRA и \*PERSO](Libraries)
+
 [Препринты ОИЯИ](JINR-preprints)
