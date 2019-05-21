@@ -39,42 +39,42 @@
 
 Зона | Дата, машина  | Комментарий                      | Имена
 -----|---------------|----------------------------------|-------
-1160 | 13.12.1988 М1 | `ПАСКАЛЬ ЗАГРУЗЧИК`              | [МАСRОВSS, Р/1, РАSLОАD](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2113-1160.lst)
-1721 | 25.03.1988 М2 | `АRFА`                           | [АРФА, АRFА, INРUТ](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2113-1721.lst)
+1160 | 13.12.1988 М1 | `ПАСКАЛЬ ЗАГРУЗЧИК`              | [`МАСRОВSS, Р/1, РАSLОАD`](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2113-1160.lst)
+1721 | 25.03.1988 М2 | `АRFА`                           | [`АРФА, АRFА, INРUТ`](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2113-1721.lst)
 
 # Диск 2148
 
 Зона | Дата, машина  | Комментарий                      | Имена
 -----|---------------|----------------------------------|-------
-0026 | 11.05.1982 М1 | ---                              | [ВЕМSН*, DСАТАLОG, LIВDЕLЕТ](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2148-0026.lst)
-0440 | 26.02.1982 М3 | ---                              | [*РАSСАL, *РАSСОМ, LIВSUВ](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2148-0440.lst)
-0670 | 26.02.1982 М3 | ---                              | [*РАSСАL, *РАSСОМ, FМISGО](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2148-0670.lst)
-0760 | 26.08.1976 М1 | ---                              | [АОБЛСВ, АДР001, ВЕМSН*](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2148-0760.lst)
-1270 | 16.03.1982 М3 | `СЛУГА`                          | [СЛУГА](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2148-1270.lst)
-1300 | 26.11.1983 М3 | `МS 80`                          | [*ВАСКS, *ЕNDFI, *FLSУS](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2148-1300.lst)
-1526 | 15.08.1989 М1 | ---                              | [ВЕМSН**, ВЕМSН*, САТАLОG*](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2148-1526.lst)
-1540 | ---           | ---                              | [ВЬАN, ВЬВIТ, ВЬСРАВ](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2148-1540.lst)
-1614 | 28.03.1983 М3 | `ОСАТАL*СЛУГА`                   | [//СDСISО, А/LОАDSD, АВЕМSН](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2148-1614.lst)
+0026 | 11.05.1982 М1 | ---                              | [`ВЕМSН*, DСАТАLОG, LIВDЕLЕТ`](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2148-0026.lst)
+0440 | 26.02.1982 М3 | ---                              | [`*РАSСАL, *РАSСОМ, LIВSUВ`](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2148-0440.lst)
+0670 | 26.02.1982 М3 | ---                              | [`*РАSСАL, *РАSСОМ, FМISGО`](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2148-0670.lst)
+0760 | 26.08.1976 М1 | ---                              | [`АОБЛСВ, АДР001, ВЕМSН*`](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2148-0760.lst)
+1270 | 16.03.1982 М3 | `СЛУГА`                          | [`СЛУГА`](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2148-1270.lst)
+1300 | 26.11.1983 М3 | `МS 80`                          | [`*ВАСКS, *ЕNDFI, *FLSУS`](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2148-1300.lst)
+1526 | 15.08.1989 М1 | ---                              | [`ВЕМSН**, ВЕМSН*, САТАLОG*`](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2148-1526.lst)
+1540 | ---           | ---                              | [`ВЬАN, ВЬВIТ, ВЬСРАВ`](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2148-1540.lst)
+1614 | 28.03.1983 М3 | `ОСАТАL*СЛУГА`                   | [`//СDСISО, А/LОАDSD, АВЕМSН`](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2148-1614.lst)
 
 # Диск 2248
 
 Зона | Дата, машина  | Комментарий                      | Имена
 -----|---------------|----------------------------------|-------
-0133 | 16.03.1982 М3 | `СЛУГА`                          | [СЛУГА](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2248-0133.lst)
-0440 | 26.02.1982 М3 | ---                              | [*РАSСАL, *РАSСОМ, LIВSUВ](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2248-0440.lst)
-0470 | ---           | ---                              | [*GОSТ*, А13SМО, АВSМАХ](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2248-0470.lst)
-0670 | 26.02.1982 М3 | ---                              | [*РАSСАL, *РАSСОМ, FМISGО](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2248-0670.lst)
-0760 | 26.08.1976 М1 | ---                              | [АОБЛСВ, АДР001, ВЕМSН*](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2248-0760.lst)
-1230 | ---           | ---                              | [ВЬАN, ВЬВIТ, ВЬСРАВ](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2248-1230.lst)
-1300 | 26.11.1983 М3 | `МS 80`                          | [*ВАСКS, *ЕNDFI, *FLSУS](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2248-1300.lst)
-1526 | 13.06.1986 М5 | ---                              | [ВЕМSН**, ВЕМSН*, САТАLОG*](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2248-1526.lst)
+0133 | 16.03.1982 М3 | `СЛУГА`                          | [`СЛУГА`](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2248-0133.lst)
+0440 | 26.02.1982 М3 | ---                              | [`*РАSСАL, *РАSСОМ, LIВSUВ`](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2248-0440.lst)
+0470 | ---           | ---                              | [`*GОSТ*, А13SМО, АВSМАХ`](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2248-0470.lst)
+0670 | 26.02.1982 М3 | ---                              | [`*РАSСАL, *РАSСОМ, FМISGО`](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2248-0670.lst)
+0760 | 26.08.1976 М1 | ---                              | [`АОБЛСВ, АДР001, ВЕМSН*`](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2248-0760.lst)
+1230 | ---           | ---                              | [`ВЬАN, ВЬВIТ, ВЬСРАВ`](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2248-1230.lst)
+1300 | 26.11.1983 М3 | `МS 80`                          | [`*ВАСКS, *ЕNDFI, *FLSУS`](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2248-1300.lst)
+1526 | 13.06.1986 М5 | ---                              | [`ВЕМSН**, ВЕМSН*, САТАLОG*`](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/2248-1526.lst)
 
 # Лента 4002
 
 Зона | Дата, машина  | Комментарий                      | Имена
 -----|---------------|----------------------------------|-------
-0100 | 05.12.1986 М2 | ---                              | [*GIVСАТ, *ОRDЕRS*, //СDСISО](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/4002-0100.lst)
-0643 | 13.04.1988 М2 | ---                              | [ВЕС, СТАТМ, СЛЕД](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/4002-0643.lst)
-0702 | 02.10.1981 М1 | ---                              | [*W24*, АDАUGВ, АDRSЕК](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/4002-0702.lst)
-0733 | 25.10.1987 М2 | `АSРID НА 57`                    | [АSРID, ВСD, ВЕGРR](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/4002-0733.lst)
-1071 | 25.03.1988 М2 | `АRFА`                           | [АРФА, АRFА, INРUТ](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/4002-1071.lst)
+0100 | 05.12.1986 М2 | ---                              | [`*GIVСАТ, *ОRDЕRS*, //СDСISО`](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/4002-0100.lst)
+0643 | 13.04.1988 М2 | ---                              | [`ВЕС, СТАТМ, СЛЕД`](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/4002-0643.lst)
+0702 | 02.10.1981 М1 | ---                              | [`*W24*, АDАUGВ, АDRSЕК`](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/4002-0702.lst)
+0733 | 25.10.1987 М2 | `АSРID НА 57`                    | [`АSРID, ВСD, ВЕGРR`](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/4002-0733.lst)
+1071 | 25.03.1988 М2 | `АRFА`                           | [`АРФА, АRFА, INРUТ`](https://github.com/besm6/besm6.github.io/blob/master/wiki/librefer/4002-1071.lst)
