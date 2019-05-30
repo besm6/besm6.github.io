@@ -37,7 +37,7 @@ eeв1а3
     #
     # Run dispak simulator.
     #
-    dispak = subprocess.Popen('dispak %s.b6' % (basename),
+    dispak = subprocess.Popen('dispak -l %s.b6' % (basename),
         shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
     lst_file = open(basename + ".lst", "w")
@@ -49,7 +49,7 @@ eeв1а3
         line = line.decode('utf-8')
         #print len(line), line,
         if len(line) >= 44:
-            if line[21:43] == u"ССЫЛКИ НА ПОДПРОГРАММЫ":
+            if line[21:43] == u"CCЫЛKИ HA ПOДПPOГPAMMЫ":
                 nerrors = 0
 
     lst_file.close()

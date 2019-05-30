@@ -1,6 +1,6 @@
-﻿                                                      18.05.19 М1
+﻿                                                      28.05.19 M1
 
-  М О Н И Т О Р-8 0  (3.7)   25.09.84*       (  МС " Д У Б Н А " ИАЭ  )             ШИФР    419999000000
+  M O H И T O P-8 0  (3.7)   25.09.84*       (  MC " Д Y Б H A " ИAЭ  )             ШИФP    419999000000
 
 
 
@@ -23,142 +23,142 @@
 
 
 
-*NАМЕ 2148-1540
-           *РЕRSО: 401350
- 04.10.84 М1
-           *САLL LIВRЕFЕR:ТАРЕ=411540
-                                                      18.05.19 М1
-                     ССЫЛКИ НА ПОДПРОГРАММЫ
+*NAME 2148-1540
+           *PERSO: 401350
+ 04.10.84 M1
+           *CALL LIBREFER:TAPE=411540
+                                                      28.05.19 M1
+                     CCЫЛKИ HA ПOДПPOГPAMMЫ
 
-                                           Е FТ*571
-   D - РАССЫЛКА ДАННЫХ                     Е РRINТ8
-   Е - ВНЕШНЯЯ П/П               Т*RЕТN   (Т*САLL  )
-                                 Т*RРL     Е FТ*002
-   ВЬАN        ЬСRЬ                        Е FТ*003
-               ЬЗПЬ                        Е FТ*571
-   ВЬВIТ       ВЬМV              ТR*ОFF   (ТR*ОN   )
-   ВЬСРАВ      ЬСРАВЬ            ТR*ОN
-   ВЬGЕ        ВЬСРАВ            Ь8Ь
-   ВЬGТ        ВЬСРАВ            ЬАNУЬ
-   ВЬIN        ЬINЬ              ЬВВЬ
-   ВЬLЕ        ВЬСРАВ            ЬСМЬ        ЬВВЬ
-   ВЬLТ        ВЬСРАВ                        ЬСRЬ
-   ВЬМV        ЬМVЬ                          ЬТRUЬ
-   ВЬNА        ВЬАN                          ЬZZЬ
-               ЬСRЬ              ЬСN48Ь
-   ВЬNЕ        ВЬСРАВ            ЬСРАВЬ      ЬВВЬ
-   ВЬNО        ВЬОR                          ЬСRЬ
-               ЬСRЬ                          ЬТRUЬ
-   ВЬNТ        ЬСRЬ                          ЬZZЬ
-               ЬЗПЬ              ЬСRЬ        ЬСN48Ь
-   ВЬNХ        ВЬХR              ЬGЕЬ        ЬСМЬ
-               ЬСRЬ                          ЬСРАВЬ
-   ВЬОR        ЬСRЬ                          ЬLЕЬ
-               ЬЗПЬ              ЬGТЬ        ЬСМЬ
-   ВЬVР        ЬСN48Ь                        ЬСРАВЬ
-   ВЬХR        ЬСRЬ                          ЬLТЬ
-               ЬЗПЬ              ЬINЬ        ЬСRЬ
-   ВЬZВ        ЬМVЬ                          ЬДИНЬ
+                                           E FT*571
+   D - PACCЫЛKA ДAHHЫX                     E PRINT8
+   E - BHEШHЯЯ П/П               T*RETN   (T*CALL  )
+                                 T*RPL     E FT*002
+   BЬAN        ЬCRЬ                        E FT*003
+               ЬЗПЬ                        E FT*571
+   BЬBIT       BЬMV              TR*OFF   (TR*ON   )
+   BЬCPAB      ЬCPABЬ            TR*ON
+   BЬGE        BЬCPAB            Ь8Ь
+   BЬGT        BЬCPAB            ЬANYЬ
+   BЬIN        ЬINЬ              ЬBBЬ
+   BЬLE        BЬCPAB            ЬCMЬ        ЬBBЬ
+   BЬLT        BЬCPAB                        ЬCRЬ
+   BЬMV        ЬMVЬ                          ЬTRUЬ
+   BЬNA        BЬAN                          ЬZZЬ
+               ЬCRЬ              ЬCN48Ь
+   BЬNE        BЬCPAB            ЬCPABЬ      ЬBBЬ
+   BЬNO        BЬOR                          ЬCRЬ
+               ЬCRЬ                          ЬTRUЬ
+   BЬNT        ЬCRЬ                          ЬZZЬ
+               ЬЗПЬ              ЬCRЬ        ЬCN48Ь
+   BЬNX        BЬXR              ЬGEЬ        ЬCMЬ
+               ЬCRЬ                          ЬCPABЬ
+   BЬOR        ЬCRЬ                          ЬLEЬ
+               ЬЗПЬ              ЬGTЬ        ЬCMЬ
+   BЬVP        ЬCN48Ь                        ЬCPABЬ
+   BЬXR        ЬCRЬ                          ЬLTЬ
+               ЬЗПЬ              ЬINЬ        ЬCRЬ
+   BЬZB        ЬMVЬ                          ЬДИHЬ
                ЬZZЬ                          ЬЦ0Ь
-   СЬСРАВ      ЬСРАВЬ            ЬLЕЬ        ЬСМЬ
-   СЬGЕ        СЬСРАВ                        ЬСРАВЬ
-   СЬGТ        СЬСРАВ                        ЬGЕЬ
-   СЬIN        ЬINЬ              ЬLIВСЬ
-   СЬLЕ        СЬСРАВ            ЬLТЬ        ЬСМЬ
-   СЬLТ        СЬСРАВ                        ЬСРАВЬ
-   СЬМV        ЬМV8Ь                         ЬGТЬ
-   СЬNЕ        СЬСРАВ            ЬМV8Ь       ЬМVЬ
-   СЬVР        ВЬVР              ЬМVЬ        ЬСRЬ
-   СЬZВ        ЬВВЬ                          ЬЗПЬ
-               ЬМV8Ь             ЬNЕЬ        ЬСМЬ
-   IЬАNУ       ЬАNУЬ                         ЬСРАВЬ
-   IЬВIТ       ВЬМV              ЬТRUЬ
+   CЬCPAB      ЬCPABЬ            ЬLEЬ        ЬCMЬ
+   CЬGE        CЬCPAB                        ЬCPABЬ
+   CЬGT        CЬCPAB                        ЬGEЬ
+   CЬIN        ЬINЬ              ЬLIBCЬ
+   CЬLE        CЬCPAB            ЬLTЬ        ЬCMЬ
+   CЬLT        CЬCPAB                        ЬCPABЬ
+   CЬMV        ЬMV8Ь                         ЬGTЬ
+   CЬNE        CЬCPAB            ЬMV8Ь       ЬMVЬ
+   CЬVP        BЬVP              ЬMVЬ        ЬCRЬ
+   CЬZB        ЬBBЬ                          ЬЗПЬ
+               ЬMV8Ь             ЬNEЬ        ЬCMЬ
+   IЬANY       ЬANYЬ                         ЬCPABЬ
+   IЬBIT       BЬMV              ЬTRUЬ
                ЬЦ0Ь              ЬZZЬ
-   IЬСНАR      ЬLIВСЬ            ЬДИНЬ    (ЬСRЬ    )
+   IЬCHAR      ЬLIBCЬ            ЬДИHЬ    (ЬCRЬ    )
                ЬЦ0Ь              ЬЗПЬ
-   LЬВIТ       ЬLIВСЬ            ЬЦ0Ь
-               ЬТRUЬ
-   NЬАNУ       ЬАNУЬ
-   NЬUN        ЬСRЬ
+   LЬBIT       ЬLIBCЬ            ЬЦ0Ь
+               ЬTRUЬ
+   NЬANY       ЬANYЬ
+   NЬUN        ЬCRЬ
                ЬЦ0Ь
-   РТG       Е РТG/G
-   Т*САLL    Е РRINТ8
-   Т*ЕND    (Т*РАRR  )
-   Т*GОТО    Е FТ*002
-             Е FТ*003
-             Е FТ*571
-   Т*INDХ    Е FТ*002
-             Е FТ*003
-             Е FТ*571
-   Т*LАВL   (Т*САLL  )
-   Т*РАRR    Е FТ*002
-             Е FТ*003
-                                                      18.05.19 М1
-                     ИСПОЛЬЗОВАНИЕ ПОДПРОГРАММ                     ЬТRUЬ       LЬВIТ
-                                                                               ЬСМЬ
-                                             СЬGТ                              ЬСРАВЬ
-   Е - ВНЕШНЯЯ П/П                           СЬLЕ                  ЬZZЬ        ВЬZВ
-   N - ОПИСАНА, НЕ ИСПОЛЬЗУЕТСЯ              СЬLТ                              ЬСМЬ
-   С - ЕСТЬ ОДНОИМЕННЫЙ СОММОN               СЬNЕ                              ЬСРАВЬ
-                                 FТ*002   Е  Т*GОТО                ЬДИНЬ       ЬINЬ
-   НЕИСПОЛЬЗУЕМЫЕ ВХОДЫ                      Т*INDХ                ЬЗПЬ        ВЬАN
-                                             Т*РАRR                            ВЬNТ
-   ВЬВIТ                                     Т*RРL                             ВЬОR
-   ВЬGЕ                          FТ*003   Е  Т*GОТО                            ВЬХR
-   ВЬGТ                                      Т*INDХ                            ЬМVЬ
-   ВЬIN                                      Т*РАRR                ЬЦ0Ь        IЬВIТ
-   ВЬLЕ                                      Т*RРL                             IЬСНАR
-   ВЬLТ                          FТ*571   Е  Т*GОТО                            NЬUN
-   ВЬNА                                      Т*INDХ                            ЬINЬ
-   ВЬNЕ                                      Т*РАRR
-   ВЬNО                                      Т*RРL
-   ВЬNТ                          РRINТ8   Е  Т*САLL
-   ВЬNХ                                      Т*РАRR
-   ВЬZВ                          РТG/G    Е  РТG
-   СЬGЕ                          ЬАNУЬ       IЬАNУ
-   СЬGТ                                      NЬАNУ
-   СЬIN                          ЬВВЬ        СЬZВ
-   СЬLЕ                                      ЬСМЬ
-   СЬLТ                                      ЬСРАВЬ
-   СЬМV                          ЬСМЬ        ЬGЕЬ
-   СЬNЕ                                      ЬGТЬ
-   СЬVР                                      ЬLЕЬ
-   СЬZВ                                      ЬLТЬ
-   IЬАNУ                                     ЬNЕЬ
-   IЬВIТ                         ЬСN48Ь      ВЬVР
-   IЬСНАR                                    ЬСRЬ
-   LЬВIТ                         ЬСРАВЬ      ВЬСРАВ
-   NЬАNУ                                     СЬСРАВ
-   NЬUN                                      ЬGЕЬ
-   РТG                                       ЬGТЬ
-   Т*САLL                                    ЬLЕЬ
-   Т*ЕND                                     ЬLТЬ
-   Т*GОТО                                    ЬNЕЬ
-   Т*INDХ                        ЬСRЬ        ВЬАN
-   Т*LАВL                                    ВЬNА
-   Т*РАRR                                    ВЬNО
-   Т*RЕТN                                    ВЬNТ
-   Т*RРL                                     ВЬNХ
-   ТR*ОFF                                    ВЬОR
-   ТR*ОN                                     ВЬХR
+   PTG       E PTG/G
+   T*CALL    E PRINT8
+   T*END    (T*PARR  )
+   T*GOTO    E FT*002
+             E FT*003
+             E FT*571
+   T*INDX    E FT*002
+             E FT*003
+             E FT*571
+   T*LABL   (T*CALL  )
+   T*PARR    E FT*002
+             E FT*003
+                                                      28.05.19 M1
+                     ИCПOЛЬЗOBAHИE ПOДПPOГPAMM                     ЬTRUЬ       LЬBIT
+                                                                               ЬCMЬ
+                                             CЬGT                              ЬCPABЬ
+   E - BHEШHЯЯ П/П                           CЬLE                  ЬZZЬ        BЬZB
+   N - OПИCAHA, HE ИCПOЛЬЗYETCЯ              CЬLT                              ЬCMЬ
+   C - ECTЬ OДHOИMEHHЫЙ COMMON               CЬNE                              ЬCPABЬ
+                                 FT*002   E  T*GOTO                ЬДИHЬ       ЬINЬ
+   HEИCПOЛЬЗYEMЫE BXOДЫ                      T*INDX                ЬЗПЬ        BЬAN
+                                             T*PARR                            BЬNT
+   BЬBIT                                     T*RPL                             BЬOR
+   BЬGE                          FT*003   E  T*GOTO                            BЬXR
+   BЬGT                                      T*INDX                            ЬMVЬ
+   BЬIN                                      T*PARR                ЬЦ0Ь        IЬBIT
+   BЬLE                                      T*RPL                             IЬCHAR
+   BЬLT                          FT*571   E  T*GOTO                            NЬUN
+   BЬNA                                      T*INDX                            ЬINЬ
+   BЬNE                                      T*PARR
+   BЬNO                                      T*RPL
+   BЬNT                          PRINT8   E  T*CALL
+   BЬNX                                      T*PARR
+   BЬZB                          PTG/G    E  PTG
+   CЬGE                          ЬANYЬ       IЬANY
+   CЬGT                                      NЬANY
+   CЬIN                          ЬBBЬ        CЬZB
+   CЬLE                                      ЬCMЬ
+   CЬLT                                      ЬCPABЬ
+   CЬMV                          ЬCMЬ        ЬGEЬ
+   CЬNE                                      ЬGTЬ
+   CЬVP                                      ЬLEЬ
+   CЬZB                                      ЬLTЬ
+   IЬANY                                     ЬNEЬ
+   IЬBIT                         ЬCN48Ь      BЬVP
+   IЬCHAR                                    ЬCRЬ
+   LЬBIT                         ЬCPABЬ      BЬCPAB
+   NЬANY                                     CЬCPAB
+   NЬUN                                      ЬGEЬ
+   PTG                                       ЬGTЬ
+   T*CALL                                    ЬLEЬ
+   T*END                                     ЬLTЬ
+   T*GOTO                                    ЬNEЬ
+   T*INDX                        ЬCRЬ        BЬAN
+   T*LABL                                    BЬNA
+   T*PARR                                    BЬNO
+   T*RETN                                    BЬNT
+   T*RPL                                     BЬNX
+   TR*OFF                                    BЬOR
+   TR*ON                                     BЬXR
    Ь8Ь                                       NЬUN
-   ЬNЕЬ                                      ЬСМЬ
-                                             ЬСРАВЬ
+   ЬNEЬ                                      ЬCMЬ
+                                             ЬCPABЬ
                                              ЬINЬ
-   ИСПОЛЬЗУЕМЫЕ ВХОДЫ                        ЬМVЬ
-                                 ЬGЕЬ        ЬLЕЬ
-   ВЬАN        ВЬNА              ЬGТЬ        ЬLТЬ
-   ВЬСРАВ      ВЬGЕ              ЬINЬ        ВЬIN
-               ВЬGТ                          СЬIN
-               ВЬLЕ              ЬLЕЬ        ЬGЕЬ
-               ВЬLТ              ЬLIВСЬ      IЬСНАR
-               ВЬNЕ                          LЬВIТ
-   ВЬМV        ВЬВIТ             ЬLТЬ        ЬGТЬ
-               IЬВIТ             ЬМV8Ь       СЬМV
-   ВЬОR        ВЬNО                          СЬZВ
-   ВЬVР        СЬVР              ЬМVЬ        ВЬМV
-   ВЬХR        ВЬNХ                          ВЬZВ
-   СЬСРАВ      СЬGЕ                          ЬМV8Ь
-           *ЕND FILЕ
+   ИCПOЛЬЗYEMЫE BXOДЫ                        ЬMVЬ
+                                 ЬGEЬ        ЬLEЬ
+   BЬAN        BЬNA              ЬGTЬ        ЬLTЬ
+   BЬCPAB      BЬGE              ЬINЬ        BЬIN
+               BЬGT                          CЬIN
+               BЬLE              ЬLEЬ        ЬGEЬ
+               BЬLT              ЬLIBCЬ      IЬCHAR
+               BЬNE                          LЬBIT
+   BЬMV        BЬBIT             ЬLTЬ        ЬGTЬ
+               IЬBIT             ЬMV8Ь       CЬMV
+   BЬOR        BЬNO                          CЬZB
+   BЬVP        CЬVP              ЬMVЬ        BЬMV
+   BЬXR        BЬNX                          BЬZB
+   CЬCPAB      CЬGE                          ЬMV8Ь
+           *END FILE
  КОНЕЦ ЗАДАЧИ
  00411: 00 074 0000	*74

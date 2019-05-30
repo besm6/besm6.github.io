@@ -1,6 +1,6 @@
-﻿                                                      18.05.19 М1
+﻿                                                      28.05.19 M1
 
-  М О Н И Т О Р-8 0  (3.7)   25.09.84*       (  МС " Д У Б Н А " ИАЭ  )             ШИФР    419999000000
+  M O H И T O P-8 0  (3.7)   25.09.84*       (  MC " Д Y Б H A " ИAЭ  )             ШИФP    419999000000
 
 
 
@@ -23,186 +23,186 @@
 
 
 
-*NАМЕ 2148-0760
-           *РЕRSО: 401350
- 04.10.84 М1
-           *САLL LIВRЕFЕR:ТАРЕ=410760
-                                                      18.05.19 М1
-                     ССЫЛКИ НА ПОДПРОГРАММЫ                                    КАР005            ДИНЗАП   (ЖУРНЛ   )
-                                                                               КАР041            ЖУРН        ОТКРЗ
-                                             МАРЗI                             КАР051            ЖУРНЗ    (ЖУРНЛ   )
-   D - РАССЫЛКА ДАННЫХ                       МАРЗК                             КАР061            ЖУРНЛ       ВINDLЗ
-   Е - ВНЕШНЯЯ П/П                           МЕТКЗ                             КПЗ                           ВINЗ
-                                             ОПРАНД                            МАРGЗ                         ВINЗL
-   *                                         ОШБ001                            МАРЗG                         ПРОТЗ
-   АОБЛСВ   (DIМОN   )                       РАСПАК                            УКАЗЗ             ЗАКРБУ   (БУФ012  )
-   АДР001   (ФУНДОЗ  )                       SТ                                ПИСАТЗ            ЗАКРЗ    (ВINЗ    )
-   АДР004   (АДРЗ    )                       УНИЧЗ                             ФУНДОЗ            ЗАДРОБ   (АДРОБЛ  )
-   АДР005   (АДРЗ    )                       УКАЗЗ                 МАРЗК       АДР001            ЗВРЕ     (ЗВРЕМЯ  )
-   АДР006   (ФУНДОЗ  )                       УМЕТЗ                             АДР021            ЗВРЕМЯ
-   АДР021   (ФУНДОЗ  )                       ДАЙПК                             СЛЕ001            ЗFRТ     (ПР      )
-   АДРОБЛ                                    ЗАКРЗ                             СЛЕДЗ             ЗFТRS    (ПР      )
-   АДРЗ                                      ЗFRТ                              КЛЮ001            ЗДАТ     (ЗДАТА   )
-   ВЕМSН*    Е РRINТ8                        ЗFТRS                             КЛЮ004            ЗДАТА
-             Е RЕАD*                         ЗЗЗЗЗN                            КЛЮ041            ЗЗЗЗЗN   (ПР      )
-   ВINDLЗ   (ВINЗL   )                       ПРОТЗ                             КЛЮЧЗ             ПВДДЗ    (ЗВРЕМЯ  )
-   ВINDОЗ   (ВINЗО   )                       ПИСАТЗ                            МАРGЗ             ПКЛНЗ    (ПКЛЗН   )
-   ВINDVЗ   (ВINЗ    )                       ФУНДОЗ                            МАРЗG             ПКЛЗН
-   ВINЗ        ВЫТБУФ            FОRАSТ   (DIМОN   )                           УНИЧЗ             ПР
-               ЖУРНЗ             НАSН                                          УКАЗЗ             ПРОТЗ    (ВINЗ    )
-               ЗДАТ              НАSНЗ    (КПЗ     )                           ПИСАТЗ            ПИСАТЗ   (ФУНДОЗ  )
-   ВINЗL       ВINDVЗ            НSНLDS   (НАSН    )                           ФУНДОЗ            ФАРХПК      СЛОВАР
-               ВINЗ              КАР001   (КПЗ     )               МАРЗS       АДР001                        МАХСL
-               ЗАДРОБ            КАР004   (КПЗ     )                           АДР021                        RЕАD
-   ВINЗО       ВINDVЗ            КАР005   (КПЗ     )                           СЛЕ001                        УПАК
-               ВINЗ              КАР041   (КПЗ     )                           СЛЕ004            ФОРОБЗ   (ВINЗО   )
-               МАРКЗ             КАР051   (КПЗ     )                           СЛЕ006            ФОРТМЗ   (ВINЗО   )
-               МАРЗК             КАР061   (КПЗ     )                           СЛЕДЗ             ФУНДОЗ      ПКЛНЗ
-               ЗАДРОБ            КНКТЗ    (ЖУРНЛ   )                           МАРGЗ                         ПКЛЗН
-               ПРОТЗ             КОНСТ    (БУФ012  )                           МАРЗG
-   ВРЕЗ        ВЫТБУФ            КЛЮ001   (КЛЮЧЗ   )                           УНИЧЗ
-               ЖУРНЗ             КЛЮ004   (КЛЮЧЗ   )                           УКАЗЗ
-   ВЫТБУФ   (ЖУРНЛ   )           КЛЮ041   (КЛЮЧЗ   )                           ПИСАТЗ
-   СЕРВ2                         КЛЮЧЗ       ВINDLЗ                            ФУНДОЗ
-   СНКID    (СЕРВ2   )                       ВINЗ                  МАХСL    (DIМОN   )
-   СЛЕ001   (СЛЕДЗ   )                       ВINЗL                 МЕТКА       ЗАДРОБ
-   СЛЕ004   (СЛЕДЗ   )                       КНКТЗ                             ЗВРЕ
-   СЛЕ006   (СЛЕДЗ   )                       ДИНЗАП                            ЗДАТ
-   СЛЕДЗ       КНКТЗ                         ЖУРНЗ                 МЕТКЗ    (МЕТКА   )
-               ДИНЗАП                        ПКЛНЗ                 ОТКРЗ       ВЫТБУФ
-               ЖУРНЗ                         ПКЛЗН                             ЖУРН
-               ПКЛНЗ                         ПРОТЗ                 ОПРАНД   (РАЗОПР  )
-               ПКЛЗН             КПЗ         ДИНЗАП                ОШБ001   (ФУНДОЗ  )
-   СЛОВАР   (ПР      )                       ЖУРНЗ                 РАСПАК   (СЕРВ2   )
-   DЕLID    (СЕРВ2   )                       ПКЛНЗ                 РАЗОПР
-   DIМОN       АДР001                        ПКЛЗН                 РЕД      (ПР      )
-               АДР021            МАРGЗ    (МАРЗG   )               RЕАD      Е RЕАD*
-               ВINDLЗ            МАРIЗ    (МАРЗI   )               SЕТID    (СЕРВ2   )
-               ВINDОЗ            МАРКЗ    (МАРЗК   )               SТ       (ПР      )
-               ВINЗ              МАРSЗ    (МАРЗS   )               ТОМ002   (БУФ012  )
-               ВINЗL             МАРЗG       АДР001                ТОМ003   (БУФ012  )
-               ВINЗО                         АДР021                ТОМ009   (БУФ012  )
-               СЛЕ001                        СЛЕ001                ТОМ010   (БУФ012  )
-               СЛЕ004                        СЛЕДЗ                 УНИЧЗ    (ФУНДОЗ  )
-               СЛЕ006                        УНИЧЗ                 УКАЗЗ    (ФУНДОЗ  )
-               СЛЕДЗ                         УКАЗЗ                 УМЕТЗ    (МЕТКА   )
-               НSНLDS                        ПИСАТЗ                УПАК     (СЕРВ2   )
-               КЛЮ001                        ФУНДОЗ                БУФ001   (БУФ012  )
-               КЛЮ004            МАРЗI       АДР001                БУФ011   (БУФ012  )
-               КЛЮ041                        АДР021                БУФ012
-               КЛЮЧЗ                         НАSНЗ                 ДАТЗ     (ВРЕЗ    )
-               МАРIЗ                         КАР001                ДАЙПК    (ФАРХПК  )
-               МАРКЗ                         КАР004                ДОПРОБ   (СЕРВ2   )
-                                                      18.05.19 М1
-                     ИСПОЛЬЗОВАНИЕ ПОДПРОГРАММ                     ОПРАНД      DIМОN
-                                                                   ОШБ001      DIМОN
-                                             ЖУРНЛ                 РАСПАК      DIМОN
-   Е - ВНЕШНЯЯ П/П               ВINDОЗ      DIМОN                 РRINТ8   Е  ВЕМSН*
-   N - ОПИСАНА, НЕ ИСПОЛЬЗУЕТСЯ  ВINDVЗ      ВINЗL                 RЕАD        ФАРХПК
-   С - ЕСТЬ ОДНОИМЕННЫЙ СОММОN               ВINЗО                 RЕАD*    Е  ВЕМSН*
-                                 ВINЗ      N ВINЗL                             RЕАD
-   НЕИСПОЛЬЗУЕМЫЕ ВХОДЫ                    N ВINЗО                 SТ        N DIМОN
-                                           N DIМОN                 УНИЧЗ       DIМОN
-   *                                       N КЛЮЧЗ                             МАРЗG
-   АОБЛСВ                                  N ЖУРНЛ                           N МАРЗК
-   АДР004                        ВINЗL     N DIМОN                           N МАРЗS
-   АДР005                                  N КЛЮЧЗ                 УКАЗЗ       DIМОN
-   АДР006                                  N ЖУРНЛ                             МАРЗG
-   АДРОБЛ                        ВINЗО     N DIМОN                           N МАРЗI
-   АДРЗ                          ВЫТБУФ      ВINЗ                            N МАРЗК
-   ВЕМSН*                                    ВРЕЗ                            N МАРЗS
-   ВРЕЗ                                      ОТКРЗ                 УМЕТЗ       DIМОN
-   СЕРВ2                         СЛЕ001      DIМОN                 УПАК        ФАРХПК
-   СНКID                                     МАРЗG                 ДАЙПК       DIМОN
-   DЕLID                                     МАРЗК                 ДИНЗАП      СЛЕДЗ
-   DIМОN                                     МАРЗS                             КЛЮЧЗ
-   FОRАSТ                        СЛЕ004      DIМОN                             КПЗ
-   НАSН                                      МАРЗS                 ЖУРН        ОТКРЗ
-   КОНСТ                         СЛЕ006      DIМОN                 ЖУРНЗ     N ВINЗ
-   МАРSЗ                                     МАРЗS                           N ВРЕЗ
-   МАРЗS                         СЛЕДЗ     N DIМОN                           N СЛЕДЗ
-   МЕТКА                                   N МАРЗG                           N КЛЮЧЗ
-   РАЗОПР                                  N МАРЗК                           N КПЗ
-   РЕД                                     N МАРЗS                 ЗАКРЗ       DIМОN
-   SЕТID                         СЛОВАР      ФАРХПК                ЗАДРОБ      ВINЗL
-   ТОМ002                        НАSНЗ       МАРЗI                             ВINЗО
-   ТОМ003                        НSНLDS      DIМОN                             МЕТКА
-   ТОМ009                        КАР001      МАРЗI                 ЗВРЕ        МЕТКА
-   ТОМ010                        КАР004      МАРЗI                 ЗFRТ      N DIМОN
-   БУФ001                        КАР005      МАРЗI                 ЗFТRS     N DIМОN
-   БУФ011                        КАР041      МАРЗI                 ЗДАТ        ВINЗ
-   БУФ012                        КАР051      МАРЗI                             МЕТКА
-   ДАТЗ                          КАР061      МАРЗI                 ЗЗЗЗЗN      DIМОN
-   ДОПРОБ                        КНКТЗ       СЛЕДЗ                 ПКЛНЗ       СЛЕДЗ
-   ЖУРНЛ                                     КЛЮЧЗ                             КЛЮЧЗ
-   ЗАКРБУ                        КЛЮ001      DIМОN                             КПЗ
-   ЗВРЕМЯ                                    МАРЗК                             ФУНДОЗ
-   ЗДАТА                         КЛЮ004      DIМОN                 ПКЛЗН     N СЛЕДЗ
-   ПВДДЗ                                     МАРЗК                           N КЛЮЧЗ
-   ПР                            КЛЮ041      DIМОN                           N КПЗ
-   ФАРХПК                                    МАРЗК                           N ФУНДОЗ
-   ФОРОБЗ                        КЛЮЧЗ     N DIМОN                 ПРОТЗ       ВINЗО
-   ФОРТМЗ                                  N МАРЗК                             DIМОN
-                                 КПЗ       N МАРЗI                             КЛЮЧЗ
-                                 МАРGЗ       МАРЗI                             ЖУРНЛ
-   ИСПОЛЬЗУЕМЫЕ ВХОДЫ                        МАРЗК                 ПИСАТЗ      DIМОN
-                                             МАРЗS                             МАРЗG
-   АДР001      DIМОN             МАРIЗ       DIМОN                           N МАРЗI
-               МАРЗG             МАРКЗ       ВINЗО                           N МАРЗК
-             N МАРЗI                         DIМОN                           N МАРЗS
-             N МАРЗК             МАРЗG     N МАРЗI                 ФУНДОЗ    N DIМОN
-             N МАРЗS                       N МАРЗК                           N МАРЗG
-   АДР021      DIМОN                       N МАРЗS                           N МАРЗI
-               МАРЗG             МАРЗI     N DIМОN                           N МАРЗК
-             N МАРЗI             МАРЗК     N ВINЗО                           N МАРЗS
-             N МАРЗК                       N DIМОN
-             N МАРЗS             МАХСL       ФАРХПК
-   ВINDLЗ      DIМОN             МЕТКЗ       DIМОN
-               КЛЮЧЗ             ОТКРЗ       ЖУРН
-                                                      18.05.19 М1
-                     ССЫЛКИ НА СОММОN′Ы
+*NAME 2148-0760
+           *PERSO: 401350
+ 04.10.84 M1
+           *CALL LIBREFER:TAPE=410760
+                                                      28.05.19 M1
+                     CCЫЛKИ HA ПOДПPOГPAMMЫ                                    KAP005            ДИHЗAП   (ЖYPHЛ   )
+                                                                               KAP041            ЖYPH        OTKPЗ
+                                             MAPЗI                             KAP051            ЖYPHЗ    (ЖYPHЛ   )
+   D - PACCЫЛKA ДAHHЫX                       MAPЗK                             KAP061            ЖYPHЛ       BINDLЗ
+   E - BHEШHЯЯ П/П                           METKЗ                             KПЗ                           BINЗ
+                                             OПPAHД                            MAPGЗ                         BINЗL
+   *                                         OШБ001                            MAPЗG                         ПPOTЗ
+   AOБЛCB   (DIMON   )                       PACПAK                            YKAЗЗ             ЗAKPБY   (БYФ012  )
+   AДP001   (ФYHДOЗ  )                       ST                                ПИCATЗ            ЗAKPЗ    (BINЗ    )
+   AДP004   (AДPЗ    )                       YHИЧЗ                             ФYHДOЗ            ЗAДPOБ   (AДPOБЛ  )
+   AДP005   (AДPЗ    )                       YKAЗЗ                 MAPЗK       AДP001            ЗBPE     (ЗBPEMЯ  )
+   AДP006   (ФYHДOЗ  )                       YMETЗ                             AДP021            ЗBPEMЯ
+   AДP021   (ФYHДOЗ  )                       ДAЙПK                             CЛE001            ЗFRT     (ПP      )
+   AДPOБЛ                                    ЗAKPЗ                             CЛEДЗ             ЗFTRS    (ПP      )
+   AДPЗ                                      ЗFRT                              KЛЮ001            ЗДAT     (ЗДATA   )
+   BEMSH*    E PRINT8                        ЗFTRS                             KЛЮ004            ЗДATA
+             E READ*                         ЗЗЗЗЗN                            KЛЮ041            ЗЗЗЗЗN   (ПP      )
+   BINDLЗ   (BINЗL   )                       ПPOTЗ                             KЛЮЧЗ             ПBДДЗ    (ЗBPEMЯ  )
+   BINDOЗ   (BINЗO   )                       ПИCATЗ                            MAPGЗ             ПKЛHЗ    (ПKЛЗH   )
+   BINDVЗ   (BINЗ    )                       ФYHДOЗ                            MAPЗG             ПKЛЗH
+   BINЗ        BЫTБYФ            FORAST   (DIMON   )                           YHИЧЗ             ПP
+               ЖYPHЗ             HASH                                          YKAЗЗ             ПPOTЗ    (BINЗ    )
+               ЗДAT              HASHЗ    (KПЗ     )                           ПИCATЗ            ПИCATЗ   (ФYHДOЗ  )
+   BINЗL       BINDVЗ            HSHLDS   (HASH    )                           ФYHДOЗ            ФAPXПK      CЛOBAP
+               BINЗ              KAP001   (KПЗ     )               MAPЗS       AДP001                        MAXCL
+               ЗAДPOБ            KAP004   (KПЗ     )                           AДP021                        READ
+   BINЗO       BINDVЗ            KAP005   (KПЗ     )                           CЛE001                        YПAK
+               BINЗ              KAP041   (KПЗ     )                           CЛE004            ФOPOБЗ   (BINЗO   )
+               MAPKЗ             KAP051   (KПЗ     )                           CЛE006            ФOPTMЗ   (BINЗO   )
+               MAPЗK             KAP061   (KПЗ     )                           CЛEДЗ             ФYHДOЗ      ПKЛHЗ
+               ЗAДPOБ            KHKTЗ    (ЖYPHЛ   )                           MAPGЗ                         ПKЛЗH
+               ПPOTЗ             KOHCT    (БYФ012  )                           MAPЗG
+   BPEЗ        BЫTБYФ            KЛЮ001   (KЛЮЧЗ   )                           YHИЧЗ
+               ЖYPHЗ             KЛЮ004   (KЛЮЧЗ   )                           YKAЗЗ
+   BЫTБYФ   (ЖYPHЛ   )           KЛЮ041   (KЛЮЧЗ   )                           ПИCATЗ
+   CEPB2                         KЛЮЧЗ       BINDLЗ                            ФYHДOЗ
+   CHKID    (CEPB2   )                       BINЗ                  MAXCL    (DIMON   )
+   CЛE001   (CЛEДЗ   )                       BINЗL                 METKA       ЗAДPOБ
+   CЛE004   (CЛEДЗ   )                       KHKTЗ                             ЗBPE
+   CЛE006   (CЛEДЗ   )                       ДИHЗAП                            ЗДAT
+   CЛEДЗ       KHKTЗ                         ЖYPHЗ                 METKЗ    (METKA   )
+               ДИHЗAП                        ПKЛHЗ                 OTKPЗ       BЫTБYФ
+               ЖYPHЗ                         ПKЛЗH                             ЖYPH
+               ПKЛHЗ                         ПPOTЗ                 OПPAHД   (PAЗOПP  )
+               ПKЛЗH             KПЗ         ДИHЗAП                OШБ001   (ФYHДOЗ  )
+   CЛOBAP   (ПP      )                       ЖYPHЗ                 PACПAK   (CEPB2   )
+   DELID    (CEPB2   )                       ПKЛHЗ                 PAЗOПP
+   DIMON       AДP001                        ПKЛЗH                 PEД      (ПP      )
+               AДP021            MAPGЗ    (MAPЗG   )               READ      E READ*
+               BINDLЗ            MAPIЗ    (MAPЗI   )               SETID    (CEPB2   )
+               BINDOЗ            MAPKЗ    (MAPЗK   )               ST       (ПP      )
+               BINЗ              MAPSЗ    (MAPЗS   )               TOM002   (БYФ012  )
+               BINЗL             MAPЗG       AДP001                TOM003   (БYФ012  )
+               BINЗO                         AДP021                TOM009   (БYФ012  )
+               CЛE001                        CЛE001                TOM010   (БYФ012  )
+               CЛE004                        CЛEДЗ                 YHИЧЗ    (ФYHДOЗ  )
+               CЛE006                        YHИЧЗ                 YKAЗЗ    (ФYHДOЗ  )
+               CЛEДЗ                         YKAЗЗ                 YMETЗ    (METKA   )
+               HSHLDS                        ПИCATЗ                YПAK     (CEPB2   )
+               KЛЮ001                        ФYHДOЗ                БYФ001   (БYФ012  )
+               KЛЮ004            MAPЗI       AДP001                БYФ011   (БYФ012  )
+               KЛЮ041                        AДP021                БYФ012
+               KЛЮЧЗ                         HASHЗ                 ДATЗ     (BPEЗ    )
+               MAPIЗ                         KAP001                ДAЙПK    (ФAPXПK  )
+               MAPKЗ                         KAP004                ДOПPOБ   (CEPB2   )
+                                                      28.05.19 M1
+                     ИCПOЛЬЗOBAHИE ПOДПPOГPAMM                     OПPAHД      DIMON
+                                                                   OШБ001      DIMON
+                                             ЖYPHЛ                 PACПAK      DIMON
+   E - BHEШHЯЯ П/П               BINDOЗ      DIMON                 PRINT8   E  BEMSH*
+   N - OПИCAHA, HE ИCПOЛЬЗYETCЯ  BINDVЗ      BINЗL                 READ        ФAPXПK
+   C - ECTЬ OДHOИMEHHЫЙ COMMON               BINЗO                 READ*    E  BEMSH*
+                                 BINЗ      N BINЗL                             READ
+   HEИCПOЛЬЗYEMЫE BXOДЫ                    N BINЗO                 ST        N DIMON
+                                           N DIMON                 YHИЧЗ       DIMON
+   *                                       N KЛЮЧЗ                             MAPЗG
+   AOБЛCB                                  N ЖYPHЛ                           N MAPЗK
+   AДP004                        BINЗL     N DIMON                           N MAPЗS
+   AДP005                                  N KЛЮЧЗ                 YKAЗЗ       DIMON
+   AДP006                                  N ЖYPHЛ                             MAPЗG
+   AДPOБЛ                        BINЗO     N DIMON                           N MAPЗI
+   AДPЗ                          BЫTБYФ      BINЗ                            N MAPЗK
+   BEMSH*                                    BPEЗ                            N MAPЗS
+   BPEЗ                                      OTKPЗ                 YMETЗ       DIMON
+   CEPB2                         CЛE001      DIMON                 YПAK        ФAPXПK
+   CHKID                                     MAPЗG                 ДAЙПK       DIMON
+   DELID                                     MAPЗK                 ДИHЗAП      CЛEДЗ
+   DIMON                                     MAPЗS                             KЛЮЧЗ
+   FORAST                        CЛE004      DIMON                             KПЗ
+   HASH                                      MAPЗS                 ЖYPH        OTKPЗ
+   KOHCT                         CЛE006      DIMON                 ЖYPHЗ     N BINЗ
+   MAPSЗ                                     MAPЗS                           N BPEЗ
+   MAPЗS                         CЛEДЗ     N DIMON                           N CЛEДЗ
+   METKA                                   N MAPЗG                           N KЛЮЧЗ
+   PAЗOПP                                  N MAPЗK                           N KПЗ
+   PEД                                     N MAPЗS                 ЗAKPЗ       DIMON
+   SETID                         CЛOBAP      ФAPXПK                ЗAДPOБ      BINЗL
+   TOM002                        HASHЗ       MAPЗI                             BINЗO
+   TOM003                        HSHLDS      DIMON                             METKA
+   TOM009                        KAP001      MAPЗI                 ЗBPE        METKA
+   TOM010                        KAP004      MAPЗI                 ЗFRT      N DIMON
+   БYФ001                        KAP005      MAPЗI                 ЗFTRS     N DIMON
+   БYФ011                        KAP041      MAPЗI                 ЗДAT        BINЗ
+   БYФ012                        KAP051      MAPЗI                             METKA
+   ДATЗ                          KAP061      MAPЗI                 ЗЗЗЗЗN      DIMON
+   ДOПPOБ                        KHKTЗ       CЛEДЗ                 ПKЛHЗ       CЛEДЗ
+   ЖYPHЛ                                     KЛЮЧЗ                             KЛЮЧЗ
+   ЗAKPБY                        KЛЮ001      DIMON                             KПЗ
+   ЗBPEMЯ                                    MAPЗK                             ФYHДOЗ
+   ЗДATA                         KЛЮ004      DIMON                 ПKЛЗH     N CЛEДЗ
+   ПBДДЗ                                     MAPЗK                           N KЛЮЧЗ
+   ПP                            KЛЮ041      DIMON                           N KПЗ
+   ФAPXПK                                    MAPЗK                           N ФYHДOЗ
+   ФOPOБЗ                        KЛЮЧЗ     N DIMON                 ПPOTЗ       BINЗO
+   ФOPTMЗ                                  N MAPЗK                             DIMON
+                                 KПЗ       N MAPЗI                             KЛЮЧЗ
+                                 MAPGЗ       MAPЗI                             ЖYPHЛ
+   ИCПOЛЬЗYEMЫE BXOДЫ                        MAPЗK                 ПИCATЗ      DIMON
+                                             MAPЗS                             MAPЗG
+   AДP001      DIMON             MAPIЗ       DIMON                           N MAPЗI
+               MAPЗG             MAPKЗ       BINЗO                           N MAPЗK
+             N MAPЗI                         DIMON                           N MAPЗS
+             N MAPЗK             MAPЗG     N MAPЗI                 ФYHДOЗ    N DIMON
+             N MAPЗS                       N MAPЗK                           N MAPЗG
+   AДP021      DIMON                       N MAPЗS                           N MAPЗI
+               MAPЗG             MAPЗI     N DIMON                           N MAPЗK
+             N MAPЗI             MAPЗK     N BINЗO                           N MAPЗS
+             N MAPЗK                       N DIMON
+             N MAPЗS             MAXCL       ФAPXПK
+   BINDLЗ      DIMON             METKЗ       DIMON
+               KЛЮЧЗ             OTKPЗ       ЖYPH
+                                                      28.05.19 M1
+                     CCЫЛKИ HA COMMON′Ы
 
 
-   D - РАССЫЛКА ДАННЫХ
-   N - ОПИСАН, НЕ ИСПОЛЬЗУЕТСЯ
-   Р - СТРАНИЧНЫЙ СОММОN
-   S - СЕКТОРНЫЙ СОММОN
-   L - ПРОСТОЙ СОММОN
-   ***** - ДЛИНА ОПИСАНА НЕЯВНО
+   D - PACCЫЛKA ДAHHЫX
+   N - OПИCAH, HE ИCПOЛЬЗYETCЯ
+   P - CTPAHИЧHЫЙ COMMON
+   S - CEKTOPHЫЙ COMMON
+   L - ПPOCTOЙ COMMON
+   ***** - ДЛИHA OПИCAHA HEЯBHO
 
-   ВЕМSН*   NL 00000 С
-            NL ***** С1
-             L 00040 ЕNТRУ*
-             L 00001 FLGЕХ*
+   BEMSH*   NL 00000 C
+            NL ***** C1
+             L 00040 ENTRY*
+             L 00001 FLGEX*
              L 00000 FULISFL*
-             L 00000 МОNСАRD*
-             L 00001 NОLISFL*
-                                                      18.05.19 М1
-                     ИСПОЛЬЗОВАНИЕ СОММОN′ОВ
+             L 00000 MONCARD*
+             L 00001 NOLISFL*
+                                                      28.05.19 M1
+                     ИCПOЛЬЗOBAHИE COMMON′OB
 
 
-   Е - ЕСТЬ ОДНОИМЕННАЯ П/П
-   D - РАССЫЛКА ДАННЫХ
-   N - ОПИСАН, НЕ ИСПОЛЬЗУЕТСЯ
-   Р - СТРАНИЧНЫЙ СОММОN
-   S - СЕКТОРНЫЙ СОММОN
-   L - ПРОСТОЙ СОММОN
-   ***** - ДЛИНА ОПИСАНА НЕЯВНО
+   E - ECTЬ OДHOИMEHHAЯ П/П
+   D - PACCЫЛKA ДAHHЫX
+   N - OПИCAH, HE ИCПOЛЬЗYETCЯ
+   P - CTPAHИЧHЫЙ COMMON
+   S - CEKTOPHЫЙ COMMON
+   L - ПPOCTOЙ COMMON
+   ***** - ДЛИHA OПИCAHA HEЯBHO
 
-   С           00000
-            NL 00000 ВЕМSН*
-   С1          *****
-            NL ***** ВЕМSН*
-   ЕNТRУ*      00040
-             L 00040 ВЕМSН*
-   FLGЕХ*      00001
-             L 00001 ВЕМSН*
+   C           00000
+            NL 00000 BEMSH*
+   C1          *****
+            NL ***** BEMSH*
+   ENTRY*      00040
+             L 00040 BEMSH*
+   FLGEX*      00001
+             L 00001 BEMSH*
    FULISFL*    00000
-             L 00000 ВЕМSН*
-   МОNСАRD*    00000
-             L 00000 ВЕМSН*
-   NОLISFL*    00001
-             L 00001 ВЕМSН*
-           *ЕND FILЕ
+             L 00000 BEMSH*
+   MONCARD*    00000
+             L 00000 BEMSH*
+   NOLISFL*    00001
+             L 00001 BEMSH*
+           *END FILE
  КОНЕЦ ЗАДАЧИ
  00411: 00 074 0000	*74

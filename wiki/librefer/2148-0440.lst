@@ -1,6 +1,6 @@
-﻿                                                      18.05.19 М1
+﻿                                                      28.05.19 M1
 
-  М О Н И Т О Р-8 0  (3.7)   25.09.84*       (  МС " Д У Б Н А " ИАЭ  )             ШИФР    419999000000
+  M O H И T O P-8 0  (3.7)   25.09.84*       (  MC " Д Y Б H A " ИAЭ  )             ШИФP    419999000000
 
 
 
@@ -23,406 +23,406 @@
 
 
 
-*NАМЕ 2148-0440
-           *РЕRSО: 401350
- 04.10.84 М1
-           *САLL LIВRЕFЕR:ТАРЕ=410440
-                                                      18.05.19 М1
-                     ССЫЛКИ НА ПОДПРОГРАММЫ                                    Р/WО                          Р/ЕDIН
-                                                                               Р/WОLN                        Р/НIDЕ
-                                             Р/WL                  Р/РF     (Р/SУS   )                       Р/SР
-   D - РАССЫЛКА ДАННЫХ                       РАSТРR                Р/РI                          Р/WОLN   (Р/SУS   )
-   Е - ВНЕШНЯЯ П/П               Р/СК                              Р/РМDSЕТ (РАSРМD  )           Р/WR        Р/А7
-                                 Р/СО     (Р/SУS   )               Р/РRINТ  (РАSОUТ  )                       Р/СW
-   *РАSСАL  (*РАSСОМ )           Р/СР                              Р/RА        Р/GF                          Р/ТR
-   *РАSСОМ   Е МОNIТОR*          Р/СW        Р/РF                              РАSDIН                        Р/WI
-               Р/РАGЕS           Р/D1        Р/WL                              РАSНID            Р/WХ        Р/СW
-               Р/РАМРАМ                      Р/WХD                 Р/RА7       Р/GF                          Р/SР
-               РАSСОМРL          Р/DА        Р/7А                              РАSDIН                        РАSISОХТ
-               РАSСОNТR                      Р/НТ                              РАSНID            Р/WХD    (Р/WХ    )
-               РАSISОСD                      Р/WI                  Р/RАСРАК (Р/SУS   )           РАIВ     (РАSВDI  )
-               РАSLISТ                       Р/WL                  Р/RС                          РАSАСD      РАSВD
-             Е RЕАD*             Р/DD        РАSDD1                Р/RDI       Р/ЕL                          РАSВDI
-   LIВSUВ    Е МОNRЕАD*          Р/DI                                          Р/GF              РАSАDD   (РАSВIND )
-             Е РRINТ8            Р/DIV    (Р/SУS   )               Р/RDR       Р/GF              РАSВD    (РАSВDI  )
-   ОВРRОG                        Р/DS                                          Р/RDI             РАSВDЕ
-   Р/00                          Р/Е      (Р/ЕF    )                           РАSТЕNS           РАSВDI      Р/НТ
-   Р/01                          Р/ЕА        Р/7А                  Р/RЕ        Р/RЕ1                         Р/РRINТ
-   Р/02                                      Р/НТ                              Р/RЕ2                         РАSВDЕ
-   Р/03                                      Р/WL                  Р/RЕ1    (Р/SУS   )                       РАSВDI
-   Р/04                          Р/ЕDIН   (Р/НIDЕ  )               Р/RЕ2    (Р/SУS   )           РАSВIND     Р/ЕО
-   Р/06                          Р/ЕF                              Р/RF     (Р/SУS   )                       Р/РF
-   Р/07                          Р/ЕL                              Р/RI        Р/GD                          Р/RF
-   Р/08                          Р/ЕN     (Р/ВХ    )               Р/RILN      Р/ЕL                          Р/ТF
-   Р/0П                          Р/ЕО                                          Р/GF                          РАSDIН
-   Р/1         Р/ВХ              Р/ЕQ                              Р/RL     (Р/RILN  )                       РАSНID
-               Р/ЕN              Р/ЕR        Р/7А                  Р/RR                                      РАSNВ8
-               Р/ТRРАGЕ                      Р/НТ                  Р/RSR                                     РАSТN
-   Р/2                                       Р/WI                  Р/SС        Р/ЕR              РАSСОDАD
-   Р/3                           Р/FМ     (Р/МF    )               Р/SЕТЕХF                      РАSСОМРL    ОВРRОG
-   Р/31                          Р/GD     (Р/NW    )               Р/SР        Р/РF                          Р/08
-   Р/4                           Р/GЕ     (Р/ЕQ    )               Р/SS                                      Р/1
-   Р/41                          Р/GF     (Р/SУS   )               Р/SТАR                                    Р/2
-   Р/42                          Р/НIDЕ                            Р/SУS       Р/ВЕХF                        Р/3
-   Р/5                           Р/НТ        Р/Е                               Р/DА                          Р/31
-   Р/51                                      Р/ЕF                              Р/DI                          Р/4
-   Р/52                                      Р/RС                              Р/НТ                          Р/42
-   Р/53                                    Е SТОР*                             Р/МD                          Р/5
-   Р/6                           Р/IN                                          Р/РF                          Р/51
-   Р/61                          Р/IS                                          Р/РRINТ                       Р/52
-   Р/62                          Р/IТ     (Р/SУS   )                           Р/ТF                          Р/53
-   Р/63                          Р/КС                                          Р/WL                          Р/6
-   Р/64                          Р/LDАR                                        Р/WОLN                        Р/62
-   Р/6А        Р/7А              Р/LDАRIN                                      Р/WХD                         Р/63
-   Р/7А        Р/ЕDIН            Р/LNGРАR                                      РАSЕОF                        Р/6А
-               Р/НIDЕ            Р/LV        Р/ВХ                            Е RЕАD*                         Р/7А
-               Р/РF                          Р/ЕN                            Е SТОР*                         Р/А6
-   Р/7АD    (Р/7А    )           Р/МD                              Р/ТF     (Р/SУS   )                       Р/А7
-   Р/А6        Р/6А              Р/МF                              Р/ТR                                      Р/СО
-               Р/SР              Р/МI                              Р/ТRРАGЕ    Р/РАGЕS                       Р/СW
-   Р/А7        Р/7АD             Р/МОD    (Р/SУS   )               Р/ТХGОSТ                                  Р/DI
-               Р/НIDЕ            Р/NN        Р/ВХ                  Р/UN                                      Р/Е
-               Р/SР                          Р/ЕN                  Р/WА        Р/РF                          Р/ЕF
-   Р/АВ     (Р/СР    )           Р/NW        Р/НТ                              РАSDIН                        Р/ЕL
-   Р/В6     (Р/РВ    )                       Р/РRINТ                           РАSНID                        Р/ЕО
-   Р/В7     (Р/РВ    )           Р/РА                              Р/WС        Р/СW                          Р/GD
-   Р/ВЕХF                        Р/РАGЕS                                       Р/SР                          Р/GF
-   Р/ВР     (Р/РВ    )           Р/РАМРАМ                          Р/WI        Р/7А                          Р/IN
-   Р/ВХ                          Р/РВ        Р/7А                              Р/СW                          Р/IS
-   Р/СА        Р/ЕR                          Р/НТ                              Р/РF                          Р/IТ
-   Р/СЕ     (Р/СI    )                       Р/РRINТ                           Р/SР                          Р/КС
-   Р/СI        Р/7А                          Р/RSR                 Р/WL     (Р/SУS   )                       Р/LDАR
-               Р/WI                          Р/WI                  Р/WО        Р/СW                          Р/МD
-               Р/МI                          РАSRЕD                          Е Б1З D
-               Р/NW                          РАSТРR                          Е Ц АРБ0
-               Р/РА              РАSDIН   (РАSНID  )               РАSНID
-               Р/РF              РАSDIV   (ОВРRОG  )               РАSINВUF (Р/SУS   )
-               Р/РI              РАSЕNDЕD    Р/СW                  РАSINР   (РАSВIND )
-               Р/RС                          Р/МD                  РАSISОСD
-               Р/RF                          РАSDIН                РАSISОХТ
-               Р/SS                          РАSНID                РАSLISТ
-               Р/ТF              РАSЕОF                            РАSМIТХТ
-               Р/ТR              РАSЕVN      РАSDIН                РАSМОN2   Е МОNIТОR*
-               Р/UN                          РАSНID                РАSNВ8
-               Р/WС              РАSGIVЕР (Р/SУS   )               РАSОUТ   D  РАSЕVN
-               Р/WI              РАSGОSТ                                       РАSNВ8
-               Р/WL              РАSGОSТ7    Р/1                             Е РRINТ8
-               Р/WО                          Р/2                               РULТ
-               Р/WОLN                        Р/7А                  РАSРМD      Р/7А
-               РАSDIV                        Р/СО                              Р/СW
-               РАSISОХТ                      Р/DА                              Р/РRINТ
-               РАSМIТХТ                      Р/Е                               Р/WI
-               РАSТРR                        Р/ЕF                              Р/WL
-   РАSСОNТR                                  Р/GF                              Р/WО
-   РАSСТRР  (Р/SУS   )                       Р/IТ                              Р/WОLN
-   РАSDD1      Р/06                          Р/РА                              Р/WR
-               Р/08                          Р/РF                              Р/WХD
-               Р/1                           Р/ТF                            Е SТОР*
-               Р/2                           Р/WL                  РАSRЕD      Р/08
-               Р/3                         Е БРЗD0*6Л                          Р/1
-               Р/31              РАSGVNF   Е INВUF                             Р/2
-               Р/4                           Р/7А                              Р/СО
-               Р/41                          Р/DIV                             Р/DА
-               Р/42                          Р/НТ                              Р/Е
-               Р/5                           Р/МОD                             Р/ЕF
-               Р/52                          Р/RАСРАК                          Р/IN
-               Р/53                          Р/RF                              Р/IТ
-               Р/6                           Р/WI                              Р/LDАRIN
-               Р/62                          Р/WОLN                            Р/NN
-               Р/6А                          РАSСТRР                           Р/SС
-               Р/7А                          РАSGIVЕР                          Р/SТАR
-               Р/АВ              РАSНЕLР   Е  З  FОЫЮ                          РАSINР
-               Р/СО                        Е 0 7JW                 РАSSЕТАR    РАSВDI
-               Р/СР                        Е D    + 8              РАSТЕNS  (Р/WR    )
-               Р/СW                        Е D   0 6Ю              РАSТIМЕ   Е 0 7Q0Я7Т
-               Р/Е                           Р/06                              Р/1
-               Р/ЕF                          Р/1                               Р/2
-               Р/ЕО                          Р/2                               Р/6А
-               Р/GF                          Р/3                               Р/СО
-               Р/IN                          Р/31                              Р/DА
-               Р/IТ                          Р/6А                              Р/Е
-               Р/LDАR                        Р/7А                              Р/ЕF
-               Р/МI                          Р/СО                              Р/IТ
-               Р/NN                          Р/СW                              Р/WL
-               Р/RС                          Р/Е                               Р/WR
-               Р/RDR                         Р/ЕF                  РАSТN    (РАSОUТ  )
-               Р/RЕ                          Р/ЕL                  РАSТРR      Р/WХD
-               Р/RF                          Р/ЕО                  РАSWНТ   (РАSОUТ  )
-               Р/SС                          Р/GF                  РRОGRАМ  (РАSСОМРL)
-               Р/SS                          Р/IN                  РULТ
-               Р/SТАR                        Р/IТ                  ТIМЕ     (РАSТIМЕ )
-               Р/WС                          Р/МI
-               Р/WI                          Р/РF
-               Р/WL                          Р/RС
-               Р/WО                          Р/RF
-               Р/WОLN                        Р/ТF
-               Р/WR                          Р/WI
-               РАSISОСD                      Р/WL
-               РАSРМD                        Р/WО
-                                                      18.05.19 М1
-                     ИСПОЛЬЗОВАНИЕ ПОДПРОГРАММ                     Р/7А        Р/6А                          РАSНЕLР
-                                                                               Р/СI              Р/ЕN        Р/1
-                                 РАSТIМЕ                                       Р/DА                          Р/LV
-   Е - ВНЕШНЯЯ П/П               РАSWНТ                                        Р/ЕА                          Р/NN
-   N - ОПИСАНА, НЕ ИСПОЛЬЗУЕТСЯ  РRОGRАМ                                       Р/ЕR              Р/ЕО        РАSВIND
-   С - ЕСТЬ ОДНОИМЕННЫЙ СОММОN   ТIМЕ                                          Р/РВ                          РАSСОМРL
-                                                                               Р/WI                          РАSDD1
-   НЕИСПОЛЬЗУЕМЫЕ ВХОДЫ                                                        РАSСОМРL                      РАSНЕLР
-                                 ИСПОЛЬЗУЕМЫЕ ВХОДЫ                            РАSDD1            Р/ЕR        Р/СА
-   *РАSСАL                                                                     РАSGОSТ7                      Р/SС
-   *РАSСОМ                        З  FОЫЮ Е  РАSНЕLР                           РАSGVNF           Р/GD        Р/RI
-   LIВSUВ                        0 7JW    Е  РАSНЕLР                           РАSНЕLР                       РАSСОМРL
-   Р/00                          0 7Q0Я7Т Е  РАSТIМЕ                           РАSРМD            Р/GF        Р/RА
-   Р/01                          D    + 8 Е  РАSНЕLР               Р/7АD       Р/А7                          Р/RА7
-   Р/02                          D   0 6Ю Е  РАSНЕLР               Р/А6        РАSСОМРL                      Р/RDI
-   Р/03                          INВUF    Е  РАSGVNF               Р/А7        Р/WR                          Р/RDR
-   Р/04                          МОNIТОR* Е  *РАSСОМ                           РАSСОМРL                      Р/RILN
-   Р/07                                      РАSМОN2               Р/АВ        РАSDD1                        РАSСОМРL
-   Р/0П                          МОNRЕАD* Е  LIВSUВ                Р/ВЕХF      Р/SУS                         РАSDD1
-   Р/61                          ОВРRОG      РАSСОМРL              Р/ВХ        Р/1                           РАSGОSТ7
-   Р/64                          Р/06        РАSDD1                            Р/LV                          РАSНЕLР
-   Р/В6                                      РАSНЕLР                           Р/NN              Р/НIDЕ      Р/7А
-   Р/В7                          Р/08        РАSСОМРL              Р/СО        РАSСОМРL                      Р/А7
-   Р/ВР                                      РАSDD1                            РАSDD1                        Р/WО
-   Р/СА                                      РАSRЕD                            РАSGОSТ7          Р/НТ        Р/DА
-   Р/СЕ                          Р/1         РАSСОМРL                          РАSНЕLР                       Р/ЕА
-   Р/СI                                      РАSDD1                            РАSRЕD                        Р/ЕR
-   Р/СК                                      РАSGОSТ7                          РАSТIМЕ                       Р/NW
-   Р/D1                                      РАSНЕLР               Р/СР        РАSDD1                        Р/РВ
-   Р/DD                                      РАSRЕD                Р/СW        Р/WС                        N Р/SУS
-   Р/DS                                      РАSТIМЕ                           Р/WI                          РАSВDI
-   Р/ЕА                          Р/2         РАSСОМРL                          Р/WО                          РАSGVNF
-   Р/ЕQ                                      РАSDD1                            Р/WR              Р/IN        РАSСОМРL
-   Р/FМ                                      РАSGОSТ7                          Р/WХ                          РАSDD1
-   Р/GЕ                                      РАSНЕLР                           РАSСОМРL                      РАSНЕLР
-   Р/LNGРАR                                  РАSRЕD                            РАSDD1                        РАSRЕD
-   Р/LV                                      РАSТIМЕ                           РАSЕNDЕD          Р/IS        РАSСОМРL
-   Р/МF                          Р/3         РАSСОМРL                          РАSНЕLР           Р/IТ        РАSСОМРL
-   Р/РВ                                      РАSDD1                            РАSРМD                        РАSDD1
-   Р/РМDSЕТ                                  РАSНЕLР               Р/DА      N Р/SУS                         РАSGОSТ7
-   Р/RА                          Р/31        РАSСОМРL                        N РАSGОSТ7                      РАSНЕLР
-   Р/RА7                                     РАSDD1                            РАSRЕD                        РАSRЕD
-   Р/RI                                      РАSНЕLР                         N РАSТIМЕ                       РАSТIМЕ
-   Р/RILN                        Р/4         РАSСОМРL              Р/DI        Р/SУS             Р/КС        РАSСОМРL
-   Р/RL                                      РАSDD1                            РАSСОМРL          Р/LDАR      РАSСОМРL
-   Р/RR                          Р/41        РАSDD1                Р/DIV       РАSGVNF                       РАSDD1
-   Р/SЕТЕХF                      Р/42        РАSСОМРL              Р/Е         Р/НТ              Р/LDАRIN    РАSRЕD
-   Р/SУS                                     РАSDD1                            РАSСОМРL          Р/МD        Р/SУS
-   Р/ТХGОSТ                      Р/5         РАSСОМРL                          РАSDD1                        РАSСОМРL
-   Р/WА                                      РАSDD1                            РАSGОSТ7                      РАSЕNDЕD
-   Р/WХ                          Р/51        РАSСОМРL                          РАSНЕLР           Р/МI        РАSСОМРL
-   РАIВ                          Р/52        РАSСОМРL                          РАSRЕD                        РАSDD1
-   РАSАСD                                    РАSDD1                            РАSТIМЕ                       РАSНЕLР
-   РАSАDD                        Р/53        РАSСОМРL              Р/ЕDIН      Р/7А              Р/МОD       РАSGVNF
-   РАSВIND                                   РАSDD1                            Р/WО              Р/NN        РАSDD1
-   РАSСОDАD                      Р/6         РАSСОМРL              Р/ЕF        Р/НТ                          РАSRЕD
-   РАSЕNDЕD                                  РАSDD1                            РАSСОМРL          Р/NW        РАSСОМРL
-   РАSGОSТ                       Р/62        РАSСОМРL                          РАSDD1            Р/РА        РАSСОМРL
-   РАSGОSТ7                                  РАSDD1                            РАSGОSТ7                      РАSGОSТ7
-   РАSGVNF                       Р/63        РАSСОМРL                          РАSНЕLР           Р/РАGЕS     *РАSСОМ
-   РАSНЕLР                       Р/6А        Р/А6                              РАSRЕD                        Р/ТRРАGЕ
-   РАSINВUF                                  РАSСОМРL                          РАSТIМЕ           Р/РАМРАМ    *РАSСОМ
-   РАSМОN2                                   РАSDD1                Р/ЕL        Р/RDI             Р/РF        Р/7А
-   РАSОUТ                                    РАSНЕLР                           Р/RILN                        Р/СW
-   РАSSЕТАR                                  РАSТIМЕ                           РАSСОМРL                      Р/SР
-               Р/SУS                         Р/SУS                 РRINТ8   Е  LIВSUВ
-               Р/WА                          РАSСОМРL                          РАSОUТ
-               Р/WI                          РАSDD1                РULТ        РАSОUТ
-               РАSВIND                       РАSGОSТ7              RЕАD*    Е  *РАSСОМ
-               РАSСОМРL                      РАSНЕLР                           Р/SУS
-               РАSGОSТ7                      РАSРМD                SТОР*    Е  Р/НТ
-               РАSНЕLР                       РАSТIМЕ                           Р/SУS
-   Р/РI        РАSСОМРL          Р/WО        Р/РВ                              РАSРМD
-   Р/РRINТ     Р/NW                          РАSСОМРL              Б1З D    Е  РАSНЕLР
-               Р/РВ                          РАSDD1                БРЗD0*6Л Е  РАSGОSТ7
-               Р/SУS                         РАSНЕLР               Ц АРБ0   Е  РАSНЕLР
-               РАSВDI                        РАSРМD
-               РАSРМD            Р/WОLN      Р/РВ
-   Р/RАСРАК    РАSGVNF                       Р/SУS
-   Р/RС        Р/НТ                          РАSСОМРL
-               РАSСОМРL                      РАSDD1
-               РАSDD1                        РАSGVNF
-               РАSНЕLР                       РАSРМD
-   Р/RDI       Р/RDR             Р/WR        РАSDD1
-   Р/RDR       РАSDD1                        РАSРМD
-   Р/RЕ        РАSDD1                        РАSТIМЕ
-   Р/RЕ1       Р/RЕ              Р/WХD       Р/D1
-   Р/RЕ2       Р/RЕ                          Р/SУS
-   Р/RF        РАSВIND                       РАSРМD
-               РАSСОМРL                      РАSТРR
-               РАSDD1            РАSВD       РАSАСD
-               РАSGVNF           РАSВDЕ      РАSВDI
-               РАSНЕLР           РАSВDI      РАSАСD
-   Р/RSR       Р/РВ                          РАSВDI
-   Р/SС        РАSDD1                        РАSSЕТАR
-               РАSRЕD            РАSСОМРL    *РАSСОМ
-   Р/SР        Р/А6              РАSСОNТR    *РАSСОМ
-               Р/А7              РАSСТRР     РАSGVNF
-               Р/WС              РАSDD1      Р/DD
-               Р/WI              РАSDIН      Р/RА
-               Р/WО                          Р/RА7
-               Р/WХ                          Р/WА
-   Р/SS        РАSСОМРL                      РАSВIND
-               РАSDD1                        РАSЕNDЕD
-   Р/SТАR      РАSDD1                        РАSЕVN
-               РАSRЕD            РАSDIV      РАSСОМРL
-   Р/ТF      N Р/SУS             РАSЕОF      Р/SУS
-               РАSВIND           РАSЕVN      РАSОUТ
-               РАSСОМРL          РАSGIVЕР    РАSGVNF
-               РАSGОSТ7          РАSНID      Р/RА
-               РАSНЕLР                       Р/RА7
-   Р/ТR        Р/WR                          Р/WА
-               РАSСОМРL                      РАSВIND
-   Р/ТRРАGЕ    Р/1                           РАSЕNDЕD
-   Р/UN        РАSСОМРL                      РАSЕVN
-   Р/WС        РАSСОМРL          РАSINР      РАSRЕD
-               РАSDD1            РАSISОСD    *РАSСОМ
-   Р/WI        Р/СI                          РАSDD1
-               Р/DА              РАSISОХТ    Р/WХ
-               Р/ЕR                          РАSСОМРL
-               Р/РВ              РАSLISТ     *РАSСОМ
-               Р/WR              РАSМIТХТ    РАSСОМРL
-               РАSСОМРL          РАSNВ8      РАSВIND
-               РАSDD1                        РАSОUТ
-               РАSGVNF           РАSРМD      РАSDD1
-               РАSНЕLР           РАSRЕD      РАSDD1
-               РАSРМD            РАSТЕNS     Р/RDR
-   Р/WL        Р/СI              РАSТN       РАSВIND
-               Р/D1              РАSТРR      Р/СI
-               Р/DА                          РАSСОМРL
-               Р/ЕА                          РАSDD1
-                                                      18.05.19 М1
-                     ССЫЛКИ НА СОММОN′Ы                                      L 00030 0 8Б0 62
-                                                                             L 00307 Р/1D
-                                           L 00001 РАSZЕRО*                  L 00030 БРЗD0*6
-   D - РАССЫЛКА ДАННЫХ                     L 00001 SРАСЕ*          РАSНЕLР   L 00030  Й  БРАQ
-   N - ОПИСАН, НЕ ИСПОЛЬЗУЕТСЯ   Р/RDR     L 00001 РАSРЕRID                 DL 00001 0*6ЧБРАL
-   Р - СТРАНИЧНЫЙ СОММОN         Р/RЕ1    (Р/SУS   )                         L 00030 DЕ ЖХЯ
-   S - СЕКТОРНЫЙ СОММОN          Р/RЕ2    (Р/SУS   )                        DL 00001 D    + G
-   L - ПРОСТОЙ СОММОN            Р/RF     (Р/SУS   )                         L 00011 Н   W
-   ***** - ДЛИНА ОПИСАНА НЕЯВНО  Р/RILN    L 00020 *INРUТ*                  DL 00488 Р/1D
-                                 Р/RL     (Р/RILN  )                         L 00030 RОЮТ В Л
-   *РАSСАL  (*РАSСОМ )           Р/SС     DL 00001 РАSСЕLUР                  L 00030 Х    В Л
-   *РАSСОМ   L 00030 *СНILD*     Р/SЕТЕХF  L 00015 РАSЕХFТ*        РАSINВUF (Р/SУS   )
-             L 00042 ЕNТRУ*      Р/SР      L 00001 SРАСЕ*          РАSISОСD DL 00022 ISОРGОSТ
-             L 00001 FLGЕХ*      Р/SУS     L 00030 *ОUТРUТ*                 NL 00022 ISОРIТМ
-             L 00022 ISОРGОSТ              L 00001 РАSЕNDS*                 NL 00022 ISОРRЕSV
-             L 00022 ISОРIТМ               L 00001 РАSЕОFСD                 DL 00011 ISОРТЕХТ
-             L 00022 ISОРRЕSV              L 00001 РАSЕОLSУ        РАSLISТ   L 00001 FULISFL*
-             L 00011 ISОРТЕХТ              L 00001 РАSРМDАD                  L 00001 NОLISFL*
-             L 00014 МОNСАRD*              L 00001 РАSZЕRО*        РАSМОN2   L 00001 FLGЕХ*
-             L 00019 РАSINFОR              L 00001 SРАСЕ*                    L 00001 Р/SТАСК
-             L 00001 RЕFЕNТRУ    Р/ТF     (Р/SУS   )               РАSОUТ    L 00001 *РАSDDS*
-   LIВSUВ    L 00002 МОNСАRD*    Р/ТRРАGЕ  L 00001 РАSDRN*                  DL 00025 *РАSТЕL*
-             Р 02048 РЕRS                  L 00001 РАSDRUМ*                  L 00001 РАSZЕRО*
-             Р 02048 ТЕМР                  L 00001 РАSРАGN*                  L 00001 RGЕХРОRТ
-   Р/ВЕХF    L 00015 РАSЕХFТ*    Р/WI      L 00001 РАSМINS*        РАSРМD    L 00001 РАSРМDАD
-   Р/ВХ     DL 00040 Р/1D                  L 00001 РАSZЕRО*        РАSRЕD    L 00030 *ОUТРUТ*
-             L 00001 Р/SТАСК     Р/WL     (Р/SУS   )                        NL 00040 Р/1D
-            DL 00001 RGЕХРОRТ    Р/WО      L 00001 РАSZЕRО*        РАSSЕТАR  Р 01024 Р/ВDSУS
-   Р/СЕ     (Р/СI    )           Р/WОLN   (Р/SУS   )               РАSТЕNS  (Р/WR    )
-   Р/СI      L 00030 *ОUТРUТ*    Р/WR      L 00001 РАSМINS*        РАSТIМЕ   L 00030 0 7ТJЗQV
-             L 00001 *РАSВUG*             DL 00001 РАSРЕRID                 DL 00001 О ЫVБ0
-   Р/СО     (Р/SУS   )                    DL 00001 РАSРLUS*                 NL 00040 Р/1D
-   Р/D1      L 00010 *ОUТРUТ*              L 00001 РАSZЕRО*        РАSТN    (РАSОUТ  )
-   Р/DА      L 00001 *ОUТРUТ*              L 00001 SРАСЕ*          РАSWНТ   (РАSОUТ  )
-   Р/DD     DL 00001 *РАSDDS*    РАIВ     (РАSВDI  )               РRОGRАМ  (РАSСОМРL)
-   Р/DIV    (Р/SУS   )           РАSАСD    L 00001 *ВDV*           ТIМЕ     (РАSТIМЕ )
-   Р/Е      (Р/ЕF    )           РАSВD    (РАSВDI  )
-   Р/ЕА      L 00030 *ОUТРUТ*    РАSВDI   DL 00007 *ВDС*
-   Р/ЕF     DL 00001 РАSЕNDS*              L 00001 *ВDЕRRN*
-            DL 00001 РАSЕОFСD              L 00001 *ВDV*
-            DL 00001 РАSЕОLSУ              L 00168 *ВDVЕСТ*
-            DL 00001 РАSМINS*              L 00001 *ЕRSТОР*
-            DL 00001 РАSZЕRО*              Р 01024 Р/ВDВUF
-            DL 00001 SРАСЕ*                Р 01024 Р/ВDSУS
-   Р/ЕL     DL 00001 РАSЕОLSУ              Р 01024 Р/ВDТАВ
-   Р/ЕN     (Р/ВХ    )           РАSСОМРL  L 00030 *СНILD*
-   Р/ЕR      L 00030 *ОUТРUТ*              L 00030 *ОUТРUТ*
-   Р/FМ     (Р/МF    )                    DL 04791 Р/1D
-   Р/GF     (Р/SУS   )                     L 00019 РАSINFОR
-   Р/НТ      L 00001 РАSРМDАD              L 00030 РАSINРUТ
-   Р/IТ     (Р/SУS   )           РАSСТRР  (Р/SУS   )
-   Р/МF      L 00001 Р/SТАСК     РАSDD1    L 00030 *ОUТРUТ*
-   Р/МОD    (Р/SУS   )                     L 00248 *РАSDDС*
-   Р/NN      L 00001 Р/SТАСК               L 00001 *РАSDDS*
-   Р/РАGЕS   Р 01024 Р/FIRР                L 00011 ISОРТЕХТ
-            DL 00001 РАSDRN*              NL 00040 Р/1D
-            DL 00001 РАSDRUМ*              L 00001 RGЕХРОRТ
-            DL 00001 РАSРАGN*    РАSЕОF    L 00014 МОNСАRD*
-   Р/РF     (Р/SУS   )           РАSGIVЕР (Р/SУS   )
-   Р/РМDSЕТ (РАSРМD  )           РАSGОSТ   L 00001 РАSЕNDS*
-   Р/РRINТ  (РАSОUТ  )                     L 00001 РАSЕОLSУ
-   Р/RА7     L 00001 SРАСЕ*                L 00001 РАSМINS*
-   Р/RАСРАК (Р/SУS   )                     L 00001 РАSZЕRО*
-   Р/RDI     L 00001 РАSМINS*              L 00001 SРАСЕ*
-            DL 00001 РАSРLUS*    РАSGОSТ7  L 00030 0 6ЬБРЗЕ
-                                                      18.05.19 М1
-                     ИСПОЛЬЗОВАНИЕ СОММОN′ОВ                       РАSЕОLSУ    00001
-                                                                            DL 00001 Р/ЕF
-                                           L 00001 РАSМОN2                  DL 00001 Р/ЕL
-   Е - ЕСТЬ ОДНОИМЕННАЯ П/П      FULISFL*    00001                           L 00001 Р/SУS
-   D - РАССЫЛКА ДАННЫХ                     L 00001 РАSLISТ                   L 00001 РАSGОSТ
-   N - ОПИСАН, НЕ ИСПОЛЬЗУЕТСЯ   Н   W       00011                 РАSЕХFТ*    00015
-   Р - СТРАНИЧНЫЙ СОММОN                   L 00011 РАSНЕLР                   L 00015 Р/ВЕХF
-   S - СЕКТОРНЫЙ СОММОN          ISОРGОSТ    00022                           L 00015 Р/SЕТЕХF
-   L - ПРОСТОЙ СОММОN                      L 00022 *РАSСОМ         РАSINFОR    00019
-   ***** - ДЛИНА ОПИСАНА НЕЯВНО           DL 00022 РАSISОСD                  L 00019 *РАSСОМ
-                                 ISОРIТМ     00022                           L 00019 РАSСОМРL
-   *ВDС*       00007                       L 00022 *РАSСОМ         РАSINРUТ    00030
-            DL 00007 РАSВDI               NL 00022 РАSISОСD                  L 00030 РАSСОМРL
-   *ВDЕRRN*    00001             ISОРRЕSV    00022                 РАSМINS*    00001
-             L 00001 РАSВDI                L 00022 *РАSСОМ                  DL 00001 Р/ЕF
-   *ВDV*       00001                      NL 00022 РАSISОСD                  L 00001 Р/RDI
-             L 00001 РАSАСD      ISОРТЕХТ    00011                           L 00001 Р/WI
-             L 00001 РАSВDI                L 00011 *РАSСОМ                   L 00001 Р/WR
-   *ВDVЕСТ*    00168                       L 00011 РАSDD1                    L 00001 РАSGОSТ
-             L 00168 РАSВDI               DL 00011 РАSISОСD        РАSРАGN*    00001
-   *СНILD*     00030             МОNСАRD*    00014                          DL 00001 Р/РАGЕS
-             L 00030 *РАSСОМ               L 00014 *РАSСОМ                   L 00001 Р/ТRРАGЕ
-             L 00030 РАSСОМРL              L 00002 LIВSUВ          РАSРЕRID    00001
-   *ЕRSТОР*    00001                       L 00014 РАSЕОF                    L 00001 Р/RDR
-             L 00001 РАSВDI      NОLISFL*    00001                          DL 00001 Р/WR
-   *INРUТ*     00020                       L 00001 РАSLISТ         РАSРLUS*    00001
-             L 00020 Р/RILN      О ЫVБ0      00001                          DL 00001 Р/RDI
-   *ОUТРUТ*    00030                      DL 00001 РАSТIМЕ                  DL 00001 Р/WR
-             L 00030 Р/СI        Р/1D        04791                 РАSРМDАD    00001
-             L 00010 Р/D1                 DL 00040 Р/ВХ                      L 00001 Р/НТ
-             L 00001 Р/DА                 DL 04791 РАSСОМРL                  L 00001 Р/SУS
-             L 00030 Р/ЕА                 NL 00040 РАSDD1                    L 00001 РАSРМD
-             L 00030 Р/ЕR                  L 00307 РАSGОSТ7        РАSZЕRО*    00001
-             L 00030 Р/SУS                DL 00488 РАSНЕLР                  DL 00001 Р/ЕF
-             L 00030 РАSСОМРL             NL 00040 РАSRЕD                    L 00001 Р/RDI
-             L 00030 РАSDD1               NL 00040 РАSТIМЕ                   L 00001 Р/SУS
-             L 00030 РАSRЕD      Р/ВDВUF     01024                           L 00001 Р/WI
-   *РАSВUG*    00001                       Р 01024 РАSВDI                    L 00001 Р/WО
-             L 00001 Р/СI        Р/ВDSУS     01024                           L 00001 Р/WR
-   *РАSDDС*    00248                       Р 01024 РАSВDI                    L 00001 РАSGОSТ
-             L 00248 РАSDD1                Р 01024 РАSSЕТАR                  L 00001 РАSОUТ
-   *РАSDDS*    00001             Р/ВDТАВ     01024                 РЕRS        02048
-            DL 00001 Р/DD                  Р 01024 РАSВDI                    Р 02048 LIВSUВ
-             L 00001 РАSDD1      Р/FIRР      01024                 RЕFЕNТRУ    00001
-             L 00001 РАSОUТ                Р 01024 Р/РАGЕS                   L 00001 *РАSСОМ
-   *РАSТЕL*    00025             Р/SТАСК     00001                 RGЕХРОRТ    00001
-            DL 00025 РАSОUТ                L 00001 Р/ВХ                     DL 00001 Р/ВХ
-    Й  БРАQ    00030                       L 00001 Р/МF                      L 00001 РАSDD1
-             L 00030 РАSНЕLР               L 00001 Р/NN                      L 00001 РАSОUТ
-   0*6ЧБРАL    00001                       L 00001 РАSМОN2         RОЮТ В Л    00030
-            DL 00001 РАSНЕLР     РАSСЕLUР    00001                           L 00030 РАSНЕLР
-   0 7ТJЗQV    00030                      DL 00001 Р/SС            SРАСЕ*      00001
-             L 00030 РАSТIМЕ     РАSDRN*     00001                          DL 00001 Р/ЕF
-   0 6ЬБРЗЕ    00030                      DL 00001 Р/РАGЕS                   L 00001 Р/RА7
-             L 00030 РАSGОSТ7              L 00001 Р/ТRРАGЕ                  L 00001 Р/RDI
-   0 8Б0 62    00030             РАSDRUМ*    00001                           L 00001 Р/SР
-             L 00030 РАSGОSТ7             DL 00001 Р/РАGЕS                   L 00001 Р/SУS
-   DЕ ЖХЯ      00030                       L 00001 Р/ТRРАGЕ                  L 00001 Р/WR
-             L 00030 РАSНЕLР     РАSЕNDS*    00001                           L 00001 РАSGОSТ
-   D    + G    00001                      DL 00001 Р/ЕF            ТЕМР        02048
-            DL 00001 РАSНЕLР               L 00001 Р/SУS                     Р 02048 LIВSUВ
-   ЕNТRУ*      00042                       L 00001 РАSGОSТ         Х    В Л    00030
-             L 00042 *РАSСОМ     РАSЕОFСD    00001                           L 00030 РАSНЕLР
-   FLGЕХ*      00001                      DL 00001 Р/ЕF            БРЗD0*6     00030
-             L 00001 *РАSСОМ               L 00001 Р/SУS                     L 00030 РАSGОSТ7
-           *ЕND FILЕ
+*NAME 2148-0440
+           *PERSO: 401350
+ 04.10.84 M1
+           *CALL LIBREFER:TAPE=410440
+                                                      28.05.19 M1
+                     CCЫЛKИ HA ПOДПPOГPAMMЫ                                    P/WO                          P/EDIH
+                                                                               P/WOLN                        P/HIDE
+                                             P/WL                  P/PF     (P/SYS   )                       P/SP
+   D - PACCЫЛKA ДAHHЫX                       PASTPR                P/PI                          P/WOLN   (P/SYS   )
+   E - BHEШHЯЯ П/П               P/CK                              P/PMDSET (PASPMD  )           P/WR        P/A7
+                                 P/CO     (P/SYS   )               P/PRINT  (PASOUT  )                       P/CW
+   *PASCAL  (*PASCOM )           P/CP                              P/RA        P/GF                          P/TR
+   *PASCOM   E MONITOR*          P/CW        P/PF                              PASDIH                        P/WI
+               P/PAGES           P/D1        P/WL                              PASHID            P/WX        P/CW
+               P/PAMPAM                      P/WXD                 P/RA7       P/GF                          P/SP
+               PASCOMPL          P/DA        P/7A                              PASDIH                        PASISOXT
+               PASCONTR                      P/HT                              PASHID            P/WXD    (P/WX    )
+               PASISOCD                      P/WI                  P/RACPAK (P/SYS   )           PAIB     (PASBDI  )
+               PASLIST                       P/WL                  P/RC                          PASACD      PASBD
+             E READ*             P/DD        PASDD1                P/RDI       P/EL                          PASBDI
+   LIBSUB    E MONREAD*          P/DI                                          P/GF              PASADD   (PASBIND )
+             E PRINT8            P/DIV    (P/SYS   )               P/RDR       P/GF              PASBD    (PASBDI  )
+   OBPROG                        P/DS                                          P/RDI             PASBDE
+   P/00                          P/E      (P/EF    )                           PASTENS           PASBDI      P/HT
+   P/01                          P/EA        P/7A                  P/RE        P/RE1                         P/PRINT
+   P/02                                      P/HT                              P/RE2                         PASBDE
+   P/03                                      P/WL                  P/RE1    (P/SYS   )                       PASBDI
+   P/04                          P/EDIH   (P/HIDE  )               P/RE2    (P/SYS   )           PASBIND     P/EO
+   P/06                          P/EF                              P/RF     (P/SYS   )                       P/PF
+   P/07                          P/EL                              P/RI        P/GD                          P/RF
+   P/08                          P/EN     (P/BX    )               P/RILN      P/EL                          P/TF
+   P/0П                          P/EO                                          P/GF                          PASDIH
+   P/1         P/BX              P/EQ                              P/RL     (P/RILN  )                       PASHID
+               P/EN              P/ER        P/7A                  P/RR                                      PASNB8
+               P/TRPAGE                      P/HT                  P/RSR                                     PASTN
+   P/2                                       P/WI                  P/SC        P/ER              PASCODAD
+   P/3                           P/FM     (P/MF    )               P/SETEXF                      PASCOMPL    OBPROG
+   P/31                          P/GD     (P/NW    )               P/SP        P/PF                          P/08
+   P/4                           P/GE     (P/EQ    )               P/SS                                      P/1
+   P/41                          P/GF     (P/SYS   )               P/STAR                                    P/2
+   P/42                          P/HIDE                            P/SYS       P/BEXF                        P/3
+   P/5                           P/HT        P/E                               P/DA                          P/31
+   P/51                                      P/EF                              P/DI                          P/4
+   P/52                                      P/RC                              P/HT                          P/42
+   P/53                                    E STOP*                             P/MD                          P/5
+   P/6                           P/IN                                          P/PF                          P/51
+   P/61                          P/IS                                          P/PRINT                       P/52
+   P/62                          P/IT     (P/SYS   )                           P/TF                          P/53
+   P/63                          P/KC                                          P/WL                          P/6
+   P/64                          P/LDAR                                        P/WOLN                        P/62
+   P/6A        P/7A              P/LDARIN                                      P/WXD                         P/63
+   P/7A        P/EDIH            P/LNGPAR                                      PASEOF                        P/6A
+               P/HIDE            P/LV        P/BX                            E READ*                         P/7A
+               P/PF                          P/EN                            E STOP*                         P/A6
+   P/7AD    (P/7A    )           P/MD                              P/TF     (P/SYS   )                       P/A7
+   P/A6        P/6A              P/MF                              P/TR                                      P/CO
+               P/SP              P/MI                              P/TRPAGE    P/PAGES                       P/CW
+   P/A7        P/7AD             P/MOD    (P/SYS   )               P/TXGOST                                  P/DI
+               P/HIDE            P/NN        P/BX                  P/UN                                      P/E
+               P/SP                          P/EN                  P/WA        P/PF                          P/EF
+   P/AB     (P/CP    )           P/NW        P/HT                              PASDIH                        P/EL
+   P/B6     (P/PB    )                       P/PRINT                           PASHID                        P/EO
+   P/B7     (P/PB    )           P/PA                              P/WC        P/CW                          P/GD
+   P/BEXF                        P/PAGES                                       P/SP                          P/GF
+   P/BP     (P/PB    )           P/PAMPAM                          P/WI        P/7A                          P/IN
+   P/BX                          P/PB        P/7A                              P/CW                          P/IS
+   P/CA        P/ER                          P/HT                              P/PF                          P/IT
+   P/CE     (P/CI    )                       P/PRINT                           P/SP                          P/KC
+   P/CI        P/7A                          P/RSR                 P/WL     (P/SYS   )                       P/LDAR
+               P/WI                          P/WI                  P/WO        P/CW                          P/MD
+               P/MI                          PASRED                          E Б1З D
+               P/NW                          PASTPR                          E Ц APБ0
+               P/PA              PASDIH   (PASHID  )               PASHID
+               P/PF              PASDIV   (OBPROG  )               PASINBUF (P/SYS   )
+               P/PI              PASENDED    P/CW                  PASINP   (PASBIND )
+               P/RC                          P/MD                  PASISOCD
+               P/RF                          PASDIH                PASISOXT
+               P/SS                          PASHID                PASLIST
+               P/TF              PASEOF                            PASMITXT
+               P/TR              PASEVN      PASDIH                PASMON2   E MONITOR*
+               P/UN                          PASHID                PASNB8
+               P/WC              PASGIVEP (P/SYS   )               PASOUT   D  PASEVN
+               P/WI              PASGOST                                       PASNB8
+               P/WL              PASGOST7    P/1                             E PRINT8
+               P/WO                          P/2                               PULT
+               P/WOLN                        P/7A                  PASPMD      P/7A
+               PASDIV                        P/CO                              P/CW
+               PASISOXT                      P/DA                              P/PRINT
+               PASMITXT                      P/E                               P/WI
+               PASTPR                        P/EF                              P/WL
+   PASCONTR                                  P/GF                              P/WO
+   PASCTRP  (P/SYS   )                       P/IT                              P/WOLN
+   PASDD1      P/06                          P/PA                              P/WR
+               P/08                          P/PF                              P/WXD
+               P/1                           P/TF                            E STOP*
+               P/2                           P/WL                  PASRED      P/08
+               P/3                         E БPЗD0*6Л                          P/1
+               P/31              PASGVNF   E INBUF                             P/2
+               P/4                           P/7A                              P/CO
+               P/41                          P/DIV                             P/DA
+               P/42                          P/HT                              P/E
+               P/5                           P/MOD                             P/EF
+               P/52                          P/RACPAK                          P/IN
+               P/53                          P/RF                              P/IT
+               P/6                           P/WI                              P/LDARIN
+               P/62                          P/WOLN                            P/NN
+               P/6A                          PASCTRP                           P/SC
+               P/7A                          PASGIVEP                          P/STAR
+               P/AB              PASHELP   E  З  FOЫЮ                          PASINP
+               P/CO                        E 0 7JW                 PASSETAR    PASBDI
+               P/CP                        E D    + 8              PASTENS  (P/WR    )
+               P/CW                        E D   0 6Ю              PASTIME   E 0 7Q0Я7T
+               P/E                           P/06                              P/1
+               P/EF                          P/1                               P/2
+               P/EO                          P/2                               P/6A
+               P/GF                          P/3                               P/CO
+               P/IN                          P/31                              P/DA
+               P/IT                          P/6A                              P/E
+               P/LDAR                        P/7A                              P/EF
+               P/MI                          P/CO                              P/IT
+               P/NN                          P/CW                              P/WL
+               P/RC                          P/E                               P/WR
+               P/RDR                         P/EF                  PASTN    (PASOUT  )
+               P/RE                          P/EL                  PASTPR      P/WXD
+               P/RF                          P/EO                  PASWHT   (PASOUT  )
+               P/SC                          P/GF                  PROGRAM  (PASCOMPL)
+               P/SS                          P/IN                  PULT
+               P/STAR                        P/IT                  TIME     (PASTIME )
+               P/WC                          P/MI
+               P/WI                          P/PF
+               P/WL                          P/RC
+               P/WO                          P/RF
+               P/WOLN                        P/TF
+               P/WR                          P/WI
+               PASISOCD                      P/WL
+               PASPMD                        P/WO
+                                                      28.05.19 M1
+                     ИCПOЛЬЗOBAHИE ПOДПPOГPAMM                     P/7A        P/6A                          PASHELP
+                                                                               P/CI              P/EN        P/1
+                                 PASTIME                                       P/DA                          P/LV
+   E - BHEШHЯЯ П/П               PASWHT                                        P/EA                          P/NN
+   N - OПИCAHA, HE ИCПOЛЬЗYETCЯ  PROGRAM                                       P/ER              P/EO        PASBIND
+   C - ECTЬ OДHOИMEHHЫЙ COMMON   TIME                                          P/PB                          PASCOMPL
+                                                                               P/WI                          PASDD1
+   HEИCПOЛЬЗYEMЫE BXOДЫ                                                        PASCOMPL                      PASHELP
+                                 ИCПOЛЬЗYEMЫE BXOДЫ                            PASDD1            P/ER        P/CA
+   *PASCAL                                                                     PASGOST7                      P/SC
+   *PASCOM                        З  FOЫЮ E  PASHELP                           PASGVNF           P/GD        P/RI
+   LIBSUB                        0 7JW    E  PASHELP                           PASHELP                       PASCOMPL
+   P/00                          0 7Q0Я7T E  PASTIME                           PASPMD            P/GF        P/RA
+   P/01                          D    + 8 E  PASHELP               P/7AD       P/A7                          P/RA7
+   P/02                          D   0 6Ю E  PASHELP               P/A6        PASCOMPL                      P/RDI
+   P/03                          INBUF    E  PASGVNF               P/A7        P/WR                          P/RDR
+   P/04                          MONITOR* E  *PASCOM                           PASCOMPL                      P/RILN
+   P/07                                      PASMON2               P/AB        PASDD1                        PASCOMPL
+   P/0П                          MONREAD* E  LIBSUB                P/BEXF      P/SYS                         PASDD1
+   P/61                          OBPROG      PASCOMPL              P/BX        P/1                           PASGOST7
+   P/64                          P/06        PASDD1                            P/LV                          PASHELP
+   P/B6                                      PASHELP                           P/NN              P/HIDE      P/7A
+   P/B7                          P/08        PASCOMPL              P/CO        PASCOMPL                      P/A7
+   P/BP                                      PASDD1                            PASDD1                        P/WO
+   P/CA                                      PASRED                            PASGOST7          P/HT        P/DA
+   P/CE                          P/1         PASCOMPL                          PASHELP                       P/EA
+   P/CI                                      PASDD1                            PASRED                        P/ER
+   P/CK                                      PASGOST7                          PASTIME                       P/NW
+   P/D1                                      PASHELP               P/CP        PASDD1                        P/PB
+   P/DD                                      PASRED                P/CW        P/WC                        N P/SYS
+   P/DS                                      PASTIME                           P/WI                          PASBDI
+   P/EA                          P/2         PASCOMPL                          P/WO                          PASGVNF
+   P/EQ                                      PASDD1                            P/WR              P/IN        PASCOMPL
+   P/FM                                      PASGOST7                          P/WX                          PASDD1
+   P/GE                                      PASHELP                           PASCOMPL                      PASHELP
+   P/LNGPAR                                  PASRED                            PASDD1                        PASRED
+   P/LV                                      PASTIME                           PASENDED          P/IS        PASCOMPL
+   P/MF                          P/3         PASCOMPL                          PASHELP           P/IT        PASCOMPL
+   P/PB                                      PASDD1                            PASPMD                        PASDD1
+   P/PMDSET                                  PASHELP               P/DA      N P/SYS                         PASGOST7
+   P/RA                          P/31        PASCOMPL                        N PASGOST7                      PASHELP
+   P/RA7                                     PASDD1                            PASRED                        PASRED
+   P/RI                                      PASHELP                         N PASTIME                       PASTIME
+   P/RILN                        P/4         PASCOMPL              P/DI        P/SYS             P/KC        PASCOMPL
+   P/RL                                      PASDD1                            PASCOMPL          P/LDAR      PASCOMPL
+   P/RR                          P/41        PASDD1                P/DIV       PASGVNF                       PASDD1
+   P/SETEXF                      P/42        PASCOMPL              P/E         P/HT              P/LDARIN    PASRED
+   P/SYS                                     PASDD1                            PASCOMPL          P/MD        P/SYS
+   P/TXGOST                      P/5         PASCOMPL                          PASDD1                        PASCOMPL
+   P/WA                                      PASDD1                            PASGOST7                      PASENDED
+   P/WX                          P/51        PASCOMPL                          PASHELP           P/MI        PASCOMPL
+   PAIB                          P/52        PASCOMPL                          PASRED                        PASDD1
+   PASACD                                    PASDD1                            PASTIME                       PASHELP
+   PASADD                        P/53        PASCOMPL              P/EDIH      P/7A              P/MOD       PASGVNF
+   PASBIND                                   PASDD1                            P/WO              P/NN        PASDD1
+   PASCODAD                      P/6         PASCOMPL              P/EF        P/HT                          PASRED
+   PASENDED                                  PASDD1                            PASCOMPL          P/NW        PASCOMPL
+   PASGOST                       P/62        PASCOMPL                          PASDD1            P/PA        PASCOMPL
+   PASGOST7                                  PASDD1                            PASGOST7                      PASGOST7
+   PASGVNF                       P/63        PASCOMPL                          PASHELP           P/PAGES     *PASCOM
+   PASHELP                       P/6A        P/A6                              PASRED                        P/TRPAGE
+   PASINBUF                                  PASCOMPL                          PASTIME           P/PAMPAM    *PASCOM
+   PASMON2                                   PASDD1                P/EL        P/RDI             P/PF        P/7A
+   PASOUT                                    PASHELP                           P/RILN                        P/CW
+   PASSETAR                                  PASTIME                           PASCOMPL                      P/SP
+               P/SYS                         P/SYS                 PRINT8   E  LIBSUB
+               P/WA                          PASCOMPL                          PASOUT
+               P/WI                          PASDD1                PULT        PASOUT
+               PASBIND                       PASGOST7              READ*    E  *PASCOM
+               PASCOMPL                      PASHELP                           P/SYS
+               PASGOST7                      PASPMD                STOP*    E  P/HT
+               PASHELP                       PASTIME                           P/SYS
+   P/PI        PASCOMPL          P/WO        P/PB                              PASPMD
+   P/PRINT     P/NW                          PASCOMPL              Б1З D    E  PASHELP
+               P/PB                          PASDD1                БPЗD0*6Л E  PASGOST7
+               P/SYS                         PASHELP               Ц APБ0   E  PASHELP
+               PASBDI                        PASPMD
+               PASPMD            P/WOLN      P/PB
+   P/RACPAK    PASGVNF                       P/SYS
+   P/RC        P/HT                          PASCOMPL
+               PASCOMPL                      PASDD1
+               PASDD1                        PASGVNF
+               PASHELP                       PASPMD
+   P/RDI       P/RDR             P/WR        PASDD1
+   P/RDR       PASDD1                        PASPMD
+   P/RE        PASDD1                        PASTIME
+   P/RE1       P/RE              P/WXD       P/D1
+   P/RE2       P/RE                          P/SYS
+   P/RF        PASBIND                       PASPMD
+               PASCOMPL                      PASTPR
+               PASDD1            PASBD       PASACD
+               PASGVNF           PASBDE      PASBDI
+               PASHELP           PASBDI      PASACD
+   P/RSR       P/PB                          PASBDI
+   P/SC        PASDD1                        PASSETAR
+               PASRED            PASCOMPL    *PASCOM
+   P/SP        P/A6              PASCONTR    *PASCOM
+               P/A7              PASCTRP     PASGVNF
+               P/WC              PASDD1      P/DD
+               P/WI              PASDIH      P/RA
+               P/WO                          P/RA7
+               P/WX                          P/WA
+   P/SS        PASCOMPL                      PASBIND
+               PASDD1                        PASENDED
+   P/STAR      PASDD1                        PASEVN
+               PASRED            PASDIV      PASCOMPL
+   P/TF      N P/SYS             PASEOF      P/SYS
+               PASBIND           PASEVN      PASOUT
+               PASCOMPL          PASGIVEP    PASGVNF
+               PASGOST7          PASHID      P/RA
+               PASHELP                       P/RA7
+   P/TR        P/WR                          P/WA
+               PASCOMPL                      PASBIND
+   P/TRPAGE    P/1                           PASENDED
+   P/UN        PASCOMPL                      PASEVN
+   P/WC        PASCOMPL          PASINP      PASRED
+               PASDD1            PASISOCD    *PASCOM
+   P/WI        P/CI                          PASDD1
+               P/DA              PASISOXT    P/WX
+               P/ER                          PASCOMPL
+               P/PB              PASLIST     *PASCOM
+               P/WR              PASMITXT    PASCOMPL
+               PASCOMPL          PASNB8      PASBIND
+               PASDD1                        PASOUT
+               PASGVNF           PASPMD      PASDD1
+               PASHELP           PASRED      PASDD1
+               PASPMD            PASTENS     P/RDR
+   P/WL        P/CI              PASTN       PASBIND
+               P/D1              PASTPR      P/CI
+               P/DA                          PASCOMPL
+               P/EA                          PASDD1
+                                                      28.05.19 M1
+                     CCЫЛKИ HA COMMON′Ы                                      L 00030 0 8Б0 62
+                                                                             L 00307 P/1D
+                                           L 00001 PASZERO*                  L 00030 БPЗD0*6
+   D - PACCЫЛKA ДAHHЫX                     L 00001 SPACE*          PASHELP   L 00030  Й  БPAQ
+   N - OПИCAH, HE ИCПOЛЬЗYETCЯ   P/RDR     L 00001 PASPERID                 DL 00001 0*6ЧБPAL
+   P - CTPAHИЧHЫЙ COMMON         P/RE1    (P/SYS   )                         L 00030 DE ЖXЯ
+   S - CEKTOPHЫЙ COMMON          P/RE2    (P/SYS   )                        DL 00001 D    + G
+   L - ПPOCTOЙ COMMON            P/RF     (P/SYS   )                         L 00011 H   W
+   ***** - ДЛИHA OПИCAHA HEЯBHO  P/RILN    L 00020 *INPUT*                  DL 00488 P/1D
+                                 P/RL     (P/RILN  )                         L 00030 ROЮT B Л
+   *PASCAL  (*PASCOM )           P/SC     DL 00001 PASCELUP                  L 00030 X    B Л
+   *PASCOM   L 00030 *CHILD*     P/SETEXF  L 00015 PASEXFT*        PASINBUF (P/SYS   )
+             L 00042 ENTRY*      P/SP      L 00001 SPACE*          PASISOCD DL 00022 ISOPGOST
+             L 00001 FLGEX*      P/SYS     L 00030 *OUTPUT*                 NL 00022 ISOPITM
+             L 00022 ISOPGOST              L 00001 PASENDS*                 NL 00022 ISOPRESV
+             L 00022 ISOPITM               L 00001 PASEOFCD                 DL 00011 ISOPTEXT
+             L 00022 ISOPRESV              L 00001 PASEOLSY        PASLIST   L 00001 FULISFL*
+             L 00011 ISOPTEXT              L 00001 PASPMDAD                  L 00001 NOLISFL*
+             L 00014 MONCARD*              L 00001 PASZERO*        PASMON2   L 00001 FLGEX*
+             L 00019 PASINFOR              L 00001 SPACE*                    L 00001 P/STACK
+             L 00001 REFENTRY    P/TF     (P/SYS   )               PASOUT    L 00001 *PASDDS*
+   LIBSUB    L 00002 MONCARD*    P/TRPAGE  L 00001 PASDRN*                  DL 00025 *PASTEL*
+             P 02048 PERS                  L 00001 PASDRUM*                  L 00001 PASZERO*
+             P 02048 TEMP                  L 00001 PASPAGN*                  L 00001 RGEXPORT
+   P/BEXF    L 00015 PASEXFT*    P/WI      L 00001 PASMINS*        PASPMD    L 00001 PASPMDAD
+   P/BX     DL 00040 P/1D                  L 00001 PASZERO*        PASRED    L 00030 *OUTPUT*
+             L 00001 P/STACK     P/WL     (P/SYS   )                        NL 00040 P/1D
+            DL 00001 RGEXPORT    P/WO      L 00001 PASZERO*        PASSETAR  P 01024 P/BDSYS
+   P/CE     (P/CI    )           P/WOLN   (P/SYS   )               PASTENS  (P/WR    )
+   P/CI      L 00030 *OUTPUT*    P/WR      L 00001 PASMINS*        PASTIME   L 00030 0 7TJЗQV
+             L 00001 *PASBUG*             DL 00001 PASPERID                 DL 00001 O ЫVБ0
+   P/CO     (P/SYS   )                    DL 00001 PASPLUS*                 NL 00040 P/1D
+   P/D1      L 00010 *OUTPUT*              L 00001 PASZERO*        PASTN    (PASOUT  )
+   P/DA      L 00001 *OUTPUT*              L 00001 SPACE*          PASWHT   (PASOUT  )
+   P/DD     DL 00001 *PASDDS*    PAIB     (PASBDI  )               PROGRAM  (PASCOMPL)
+   P/DIV    (P/SYS   )           PASACD    L 00001 *BDV*           TIME     (PASTIME )
+   P/E      (P/EF    )           PASBD    (PASBDI  )
+   P/EA      L 00030 *OUTPUT*    PASBDI   DL 00007 *BDC*
+   P/EF     DL 00001 PASENDS*              L 00001 *BDERRN*
+            DL 00001 PASEOFCD              L 00001 *BDV*
+            DL 00001 PASEOLSY              L 00168 *BDVECT*
+            DL 00001 PASMINS*              L 00001 *ERSTOP*
+            DL 00001 PASZERO*              P 01024 P/BDBUF
+            DL 00001 SPACE*                P 01024 P/BDSYS
+   P/EL     DL 00001 PASEOLSY              P 01024 P/BDTAB
+   P/EN     (P/BX    )           PASCOMPL  L 00030 *CHILD*
+   P/ER      L 00030 *OUTPUT*              L 00030 *OUTPUT*
+   P/FM     (P/MF    )                    DL 04791 P/1D
+   P/GF     (P/SYS   )                     L 00019 PASINFOR
+   P/HT      L 00001 PASPMDAD              L 00030 PASINPUT
+   P/IT     (P/SYS   )           PASCTRP  (P/SYS   )
+   P/MF      L 00001 P/STACK     PASDD1    L 00030 *OUTPUT*
+   P/MOD    (P/SYS   )                     L 00248 *PASDDC*
+   P/NN      L 00001 P/STACK               L 00001 *PASDDS*
+   P/PAGES   P 01024 P/FIRP                L 00011 ISOPTEXT
+            DL 00001 PASDRN*              NL 00040 P/1D
+            DL 00001 PASDRUM*              L 00001 RGEXPORT
+            DL 00001 PASPAGN*    PASEOF    L 00014 MONCARD*
+   P/PF     (P/SYS   )           PASGIVEP (P/SYS   )
+   P/PMDSET (PASPMD  )           PASGOST   L 00001 PASENDS*
+   P/PRINT  (PASOUT  )                     L 00001 PASEOLSY
+   P/RA7     L 00001 SPACE*                L 00001 PASMINS*
+   P/RACPAK (P/SYS   )                     L 00001 PASZERO*
+   P/RDI     L 00001 PASMINS*              L 00001 SPACE*
+            DL 00001 PASPLUS*    PASGOST7  L 00030 0 6ЬБPЗE
+                                                      28.05.19 M1
+                     ИCПOЛЬЗOBAHИE COMMON′OB                       PASEOLSY    00001
+                                                                            DL 00001 P/EF
+                                           L 00001 PASMON2                  DL 00001 P/EL
+   E - ECTЬ OДHOИMEHHAЯ П/П      FULISFL*    00001                           L 00001 P/SYS
+   D - PACCЫЛKA ДAHHЫX                     L 00001 PASLIST                   L 00001 PASGOST
+   N - OПИCAH, HE ИCПOЛЬЗYETCЯ   H   W       00011                 PASEXFT*    00015
+   P - CTPAHИЧHЫЙ COMMON                   L 00011 PASHELP                   L 00015 P/BEXF
+   S - CEKTOPHЫЙ COMMON          ISOPGOST    00022                           L 00015 P/SETEXF
+   L - ПPOCTOЙ COMMON                      L 00022 *PASCOM         PASINFOR    00019
+   ***** - ДЛИHA OПИCAHA HEЯBHO           DL 00022 PASISOCD                  L 00019 *PASCOM
+                                 ISOPITM     00022                           L 00019 PASCOMPL
+   *BDC*       00007                       L 00022 *PASCOM         PASINPUT    00030
+            DL 00007 PASBDI               NL 00022 PASISOCD                  L 00030 PASCOMPL
+   *BDERRN*    00001             ISOPRESV    00022                 PASMINS*    00001
+             L 00001 PASBDI                L 00022 *PASCOM                  DL 00001 P/EF
+   *BDV*       00001                      NL 00022 PASISOCD                  L 00001 P/RDI
+             L 00001 PASACD      ISOPTEXT    00011                           L 00001 P/WI
+             L 00001 PASBDI                L 00011 *PASCOM                   L 00001 P/WR
+   *BDVECT*    00168                       L 00011 PASDD1                    L 00001 PASGOST
+             L 00168 PASBDI               DL 00011 PASISOCD        PASPAGN*    00001
+   *CHILD*     00030             MONCARD*    00014                          DL 00001 P/PAGES
+             L 00030 *PASCOM               L 00014 *PASCOM                   L 00001 P/TRPAGE
+             L 00030 PASCOMPL              L 00002 LIBSUB          PASPERID    00001
+   *ERSTOP*    00001                       L 00014 PASEOF                    L 00001 P/RDR
+             L 00001 PASBDI      NOLISFL*    00001                          DL 00001 P/WR
+   *INPUT*     00020                       L 00001 PASLIST         PASPLUS*    00001
+             L 00020 P/RILN      O ЫVБ0      00001                          DL 00001 P/RDI
+   *OUTPUT*    00030                      DL 00001 PASTIME                  DL 00001 P/WR
+             L 00030 P/CI        P/1D        04791                 PASPMDAD    00001
+             L 00010 P/D1                 DL 00040 P/BX                      L 00001 P/HT
+             L 00001 P/DA                 DL 04791 PASCOMPL                  L 00001 P/SYS
+             L 00030 P/EA                 NL 00040 PASDD1                    L 00001 PASPMD
+             L 00030 P/ER                  L 00307 PASGOST7        PASZERO*    00001
+             L 00030 P/SYS                DL 00488 PASHELP                  DL 00001 P/EF
+             L 00030 PASCOMPL             NL 00040 PASRED                    L 00001 P/RDI
+             L 00030 PASDD1               NL 00040 PASTIME                   L 00001 P/SYS
+             L 00030 PASRED      P/BDBUF     01024                           L 00001 P/WI
+   *PASBUG*    00001                       P 01024 PASBDI                    L 00001 P/WO
+             L 00001 P/CI        P/BDSYS     01024                           L 00001 P/WR
+   *PASDDC*    00248                       P 01024 PASBDI                    L 00001 PASGOST
+             L 00248 PASDD1                P 01024 PASSETAR                  L 00001 PASOUT
+   *PASDDS*    00001             P/BDTAB     01024                 PERS        02048
+            DL 00001 P/DD                  P 01024 PASBDI                    P 02048 LIBSUB
+             L 00001 PASDD1      P/FIRP      01024                 REFENTRY    00001
+             L 00001 PASOUT                P 01024 P/PAGES                   L 00001 *PASCOM
+   *PASTEL*    00025             P/STACK     00001                 RGEXPORT    00001
+            DL 00025 PASOUT                L 00001 P/BX                     DL 00001 P/BX
+    Й  БPAQ    00030                       L 00001 P/MF                      L 00001 PASDD1
+             L 00030 PASHELP               L 00001 P/NN                      L 00001 PASOUT
+   0*6ЧБPAL    00001                       L 00001 PASMON2         ROЮT B Л    00030
+            DL 00001 PASHELP     PASCELUP    00001                           L 00030 PASHELP
+   0 7TJЗQV    00030                      DL 00001 P/SC            SPACE*      00001
+             L 00030 PASTIME     PASDRN*     00001                          DL 00001 P/EF
+   0 6ЬБPЗE    00030                      DL 00001 P/PAGES                   L 00001 P/RA7
+             L 00030 PASGOST7              L 00001 P/TRPAGE                  L 00001 P/RDI
+   0 8Б0 62    00030             PASDRUM*    00001                           L 00001 P/SP
+             L 00030 PASGOST7             DL 00001 P/PAGES                   L 00001 P/SYS
+   DE ЖXЯ      00030                       L 00001 P/TRPAGE                  L 00001 P/WR
+             L 00030 PASHELP     PASENDS*    00001                           L 00001 PASGOST
+   D    + G    00001                      DL 00001 P/EF            TEMP        02048
+            DL 00001 PASHELP               L 00001 P/SYS                     P 02048 LIBSUB
+   ENTRY*      00042                       L 00001 PASGOST         X    B Л    00030
+             L 00042 *PASCOM     PASEOFCD    00001                           L 00030 PASHELP
+   FLGEX*      00001                      DL 00001 P/EF            БPЗD0*6     00030
+             L 00001 *PASCOM               L 00001 P/SYS                     L 00030 PASGOST7
+           *END FILE
  КОНЕЦ ЗАДАЧИ
  00411: 00 074 0000	*74

@@ -1,6 +1,6 @@
-﻿                                                      18.05.19 М1
+﻿                                                      28.05.19 M1
 
-  М О Н И Т О Р-8 0  (3.7)   25.09.84*       (  МС " Д У Б Н А " ИАЭ  )             ШИФР    419999000000
+  M O H И T O P-8 0  (3.7)   25.09.84*       (  MC " Д Y Б H A " ИAЭ  )             ШИФP    419999000000
 
 
 
@@ -23,274 +23,274 @@
 
 
 
-*NАМЕ 2148-0026
-           *РЕRSО: 401350
- 04.10.84 М1
-           *САLL LIВRЕFЕR:ТАРЕ=410026
-                                                      18.05.19 М1
-                     ССЫЛКИ НА ПОДПРОГРАММЫ
+*NAME 2148-0026
+           *PERSO: 401350
+ 04.10.84 M1
+           *CALL LIBREFER:TAPE=410026
+                                                      28.05.19 M1
+                     CCЫЛKИ HA ПOДПPOГPAMMЫ
 
-                                             WRIТLIВL
-   D - РАССЫЛКА ДАННЫХ           ТСАТАLОG (FСАТАLОG)
-   Е - ВНЕШНЯЯ П/П               ТR5UР
-                                 UРRINТТ  (URЕТРULS)
-   ВЕМSН*      Н/NОМЕR           URЕТРULS  Е РRINТ8
-             Е LОАDАNGО                    Е ТТРRINТ
-   ВЕМSН**   Е МОNIТОR*          WRIТLIВ* (LIВDRUМ )
-             Е РRINТ8            WRIТLIВL (LIВDRUМ )
-             Е RЕАD*             WRIТМЕМ   Е LОАDАNGО
-   DСАТАLОG (FСАТАLОG)                     Е МОNRЕАD*
-   ЕQUМЕМ   (WRIТМЕМ )                     Е РRINТ8
-   ЕХСLUD/                       УЕSМЕМОR (FIСМЕМОR)
-   FСАТАLОG    РТ6
-               RЕАDК3А2
-               ТR5UР
-   FIСМЕМОR
-   Н/NОМЕR
-   LIВDЕLЕТ    ЕХСLUD/
-             Е ЕХСLUDЕ
-               Н/NОМЕR
-               РТ6
-               RЕАDК3А2
-   LIВDRUМ   Е DRUМТАР*
-               ЕХСLUD/
-               Н/NОМЕR
-             Е LUN*МОN
-             Е РАRАМТ*
-             Е РRINТ8
-               РТ6
-               RЕАDК3А2
-   LIВRАR*   Е LIВLISТ
-               РТ6
-               RЕАDК3А2
-   LIВRАRУ   Е LIВLISТ
-               LIВRАR*
-   LIВТАРЕ/  Е DRUМТАР*
-             Е РАRАМТ*
-             Е РRINТ8
-               RЕАDК3А2
-               ТR5UР
-   МОNIТОR/  Е LОАDАNGО
-             Е LОАDСАLL
-             Е МОNRЕАD*
-             Е РRINТ*
-             Е РRINТ8
-             Е RЕАD*
-             Е RЕSЕТ*
-             Е SТLОАD*
-   NЕW/СТL     Н/NОМЕR
-             Е LОАDАNGО
-             Е МОNRЕАD*
-             Е РRINТ8
-               RЕАDК3А2
-   NЕWSТАR* (МОNIТОR/)
-   РСАТАLОG (FСАТАLОG)
-   РТ6
-   RЕАDК3А2
-   RLIВLIS     ЕХСLUD/
-               Н/NОМЕR
-             Е LIВLISТ
-             Е РАRАМТ*
-               РТ6
-               RЕАDК3А2
-                                                      18.05.19 М1
-                     ИСПОЛЬЗОВАНИЕ ПОДПРОГРАММ
+                                             WRITLIBL
+   D - PACCЫЛKA ДAHHЫX           TCATALOG (FCATALOG)
+   E - BHEШHЯЯ П/П               TR5UP
+                                 UPRINTT  (URETPULS)
+   BEMSH*      H/NOMER           URETPULS  E PRINT8
+             E LOADANGO                    E TTPRINT
+   BEMSH**   E MONITOR*          WRITLIB* (LIBDRUM )
+             E PRINT8            WRITLIBL (LIBDRUM )
+             E READ*             WRITMEM   E LOADANGO
+   DCATALOG (FCATALOG)                     E MONREAD*
+   EQUMEM   (WRITMEM )                     E PRINT8
+   EXCLUD/                       YESMEMOR (FICMEMOR)
+   FCATALOG    PT6
+               READK3A2
+               TR5UP
+   FICMEMOR
+   H/NOMER
+   LIBDELET    EXCLUD/
+             E EXCLUDE
+               H/NOMER
+               PT6
+               READK3A2
+   LIBDRUM   E DRUMTAP*
+               EXCLUD/
+               H/NOMER
+             E LUN*MON
+             E PARAMT*
+             E PRINT8
+               PT6
+               READK3A2
+   LIBRAR*   E LIBLIST
+               PT6
+               READK3A2
+   LIBRARY   E LIBLIST
+               LIBRAR*
+   LIBTAPE/  E DRUMTAP*
+             E PARAMT*
+             E PRINT8
+               READK3A2
+               TR5UP
+   MONITOR/  E LOADANGO
+             E LOADCALL
+             E MONREAD*
+             E PRINT*
+             E PRINT8
+             E READ*
+             E RESET*
+             E STLOAD*
+   NEW/CTL     H/NOMER
+             E LOADANGO
+             E MONREAD*
+             E PRINT8
+               READK3A2
+   NEWSTAR* (MONITOR/)
+   PCATALOG (FCATALOG)
+   PT6
+   READK3A2
+   RLIBLIS     EXCLUD/
+               H/NOMER
+             E LIBLIST
+             E PARAMT*
+               PT6
+               READK3A2
+                                                      28.05.19 M1
+                     ИCПOЛЬЗOBAHИE ПOДПPOГPAMM
 
-                                             LIВТАРЕ/
-   Е - ВНЕШНЯЯ П/П                         N МОNIТОR/
-   N - ОПИСАНА, НЕ ИСПОЛЬЗУЕТСЯ              NЕW/СТL
-   С - ЕСТЬ ОДНОИМЕННЫЙ СОММОN               URЕТРULS
-                                             WRIТМЕМ
-   НЕИСПОЛЬЗУЕМЫЕ ВХОДЫ          РТ6         FСАТАLОG
-                                             LIВDЕLЕТ
-   ВЕМSН*                                    LIВDRUМ
-   ВЕМSН**                                   LIВRАR*
-   DСАТАLОG                                  RLIВLIS
-   ЕQUМЕМ                        RЕАD*    Е  ВЕМSН**
-   FСАТАLОG                                N МОNIТОR/
-   FIСМЕМОR                      RЕАDК3А2    FСАТАLОG
-   LIВDЕLЕТ                                  LIВDЕLЕТ
-   LIВDRUМ                                   LIВDRUМ
-   LIВRАRУ                                   LIВRАR*
-   LIВТАРЕ/                                  LIВТАРЕ/
-   МОNIТОR/                                  NЕW/СТL
-   NЕW/СТL                                   RLIВLIS
-   NЕWSТАR*                      RЕSЕТ*   Е  МОNIТОR/
-   РСАТАLОG                      SТLОАD*  Е  МОNIТОR/
-   RLIВLIS                       ТR5UР       FСАТАLОG
-   ТСАТАLОG                                  LIВТАРЕ/
-   UРRINТТ                       ТТРRINТ  Е  URЕТРULS
-   URЕТРULS                      WRIТLIВL    RLIВLIS
-   WRIТLIВ*
-   WRIТМЕМ
-   УЕSМЕМОR
+                                             LIBTAPE/
+   E - BHEШHЯЯ П/П                         N MONITOR/
+   N - OПИCAHA, HE ИCПOЛЬЗYETCЯ              NEW/CTL
+   C - ECTЬ OДHOИMEHHЫЙ COMMON               URETPULS
+                                             WRITMEM
+   HEИCПOЛЬЗYEMЫE BXOДЫ          PT6         FCATALOG
+                                             LIBDELET
+   BEMSH*                                    LIBDRUM
+   BEMSH**                                   LIBRAR*
+   DCATALOG                                  RLIBLIS
+   EQUMEM                        READ*    E  BEMSH**
+   FCATALOG                                N MONITOR/
+   FICMEMOR                      READK3A2    FCATALOG
+   LIBDELET                                  LIBDELET
+   LIBDRUM                                   LIBDRUM
+   LIBRARY                                   LIBRAR*
+   LIBTAPE/                                  LIBTAPE/
+   MONITOR/                                  NEW/CTL
+   NEW/CTL                                   RLIBLIS
+   NEWSTAR*                      RESET*   E  MONITOR/
+   PCATALOG                      STLOAD*  E  MONITOR/
+   RLIBLIS                       TR5UP       FCATALOG
+   TCATALOG                                  LIBTAPE/
+   UPRINTT                       TTPRINT  E  URETPULS
+   URETPULS                      WRITLIBL    RLIBLIS
+   WRITLIB*
+   WRITMEM
+   YESMEMOR
 
 
-   ИСПОЛЬЗУЕМЫЕ ВХОДЫ
+   ИCПOЛЬЗYEMЫE BXOДЫ
 
-   DRUМТАР* Е  LIВDRUМ
-               LIВТАРЕ/
-   ЕХСLUD/     LIВDЕLЕТ
-               LIВDRUМ
-               RLIВLIS
-   ЕХСLUDЕ  Е  LIВDЕLЕТ
-   Н/NОМЕR     ВЕМSН*
-               LIВDЕLЕТ
-               LIВDRUМ
-               NЕW/СТL
-               RLIВLIS
-   LIВLISТ  Е  LIВRАR*
-             N LIВRАRУ
-               RLIВLIS
-   LIВRАR*     LIВRАRУ
-   LОАDАNGО Е  ВЕМSН*
-               МОNIТОR/
-               NЕW/СТL
-               WRIТМЕМ
-   LОАDСАLL Е  МОNIТОR/
-   LUN*МОN  Е  LIВDRUМ
-   МОNIТОR* Е  ВЕМSН**
-   МОNRЕАD* ЕN МОNIТОR/
-               NЕW/СТL
-               WRIТМЕМ
-   РАRАМТ*  Е  LIВDRUМ
-               LIВТАРЕ/
-               RLIВLIS
-   РRINТ*   ЕN МОNIТОR/
-   РRINТ8   Е  ВЕМSН**
-               LIВDRUМ
-                                                      18.05.19 М1
-                     ССЫЛКИ НА СОММОN′Ы
+   DRUMTAP* E  LIBDRUM
+               LIBTAPE/
+   EXCLUD/     LIBDELET
+               LIBDRUM
+               RLIBLIS
+   EXCLUDE  E  LIBDELET
+   H/NOMER     BEMSH*
+               LIBDELET
+               LIBDRUM
+               NEW/CTL
+               RLIBLIS
+   LIBLIST  E  LIBRAR*
+             N LIBRARY
+               RLIBLIS
+   LIBRAR*     LIBRARY
+   LOADANGO E  BEMSH*
+               MONITOR/
+               NEW/CTL
+               WRITMEM
+   LOADCALL E  MONITOR/
+   LUN*MON  E  LIBDRUM
+   MONITOR* E  BEMSH**
+   MONREAD* EN MONITOR/
+               NEW/CTL
+               WRITMEM
+   PARAMT*  E  LIBDRUM
+               LIBTAPE/
+               RLIBLIS
+   PRINT*   EN MONITOR/
+   PRINT8   E  BEMSH**
+               LIBDRUM
+                                                      28.05.19 M1
+                     CCЫЛKИ HA COMMON′Ы
 
-                                           L 00002 РАRLIВR*
-   D - РАССЫЛКА ДАННЫХ           ТСАТАLОG (FСАТАLОG)
-   N - ОПИСАН, НЕ ИСПОЛЬЗУЕТСЯ   UРRINТТ  (URЕТРULS)
-   Р - СТРАНИЧНЫЙ СОММОN         URЕТРULS  L 00001 ЕRRОFLG*
-   S - СЕКТОРНЫЙ СОММОN                    L 00001 RМ*
-   L - ПРОСТОЙ СОММОN            WRIТLIВ* (LIВDRUМ )
-   ***** - ДЛИНА ОПИСАНА НЕЯВНО  WRIТLIВL (LIВDRUМ )
-                                 WRIТМЕМ   L 00001 МОNСАRD*
-   ВЕМSН**   L 00042 ЕNТRУ*      УЕSМЕМОR (FIСМЕМОR)
-            NL 00001 FLGЕХ*
+                                           L 00002 PARLIBR*
+   D - PACCЫЛKA ДAHHЫX           TCATALOG (FCATALOG)
+   N - OПИCAH, HE ИCПOЛЬЗYETCЯ   UPRINTT  (URETPULS)
+   P - CTPAHИЧHЫЙ COMMON         URETPULS  L 00001 ERROFLG*
+   S - CEKTOPHЫЙ COMMON                    L 00001 RM*
+   L - ПPOCTOЙ COMMON            WRITLIB* (LIBDRUM )
+   ***** - ДЛИHA OПИCAHA HEЯBHO  WRITLIBL (LIBDRUM )
+                                 WRITMEM   L 00001 MONCARD*
+   BEMSH**   L 00042 ENTRY*      YESMEMOR (FICMEMOR)
+            NL 00001 FLGEX*
              L 00001 FULISFL*
-             L 00001 NОLISFL*
-   DСАТАLОG (FСАТАLОG)
-   ЕQUМЕМ   (WRIТМЕМ )
-   FСАТАLОG  L 07424 УКАЗ
-   FIСМЕМОR  L 00001 INFLОАD*
-             L 00000 КСОUNТ*
-             L 00000 RМ*
-             L 00001 SТАТIС*
-   LIВDRUМ   L 00014 *МОNСRD*
-             L 00001 ЕRRОFLG*
-             L 00002 РАRLIВR*
-   LIВRАR*   L 00001 *RЕGIМ//
-   LIВRАRУ  NL 00000 А
-            NL ***** А1
-   LIВТАРЕ/  L 00014 *МОNСRD*
-   МОNIТОR/ DL 00001 *RЕGIМ//
-            NL 00001 А/I0
-            NL 00001 А/МINUS
-            NL 00001 АСС*
-            DL 00001 АМОNIТ/
-            NL 00002 АRRЕАD*
-            DL 00001 АSТL*
-            NL 00001 СНЕСКFL*
-            NL 00002 DАТА*
-             L 00042 ЕNТRУ*
-             L 00001 ЕRRОFLG*
-            NL 00001 FLАGS
-             L 00001 FLGЕХ*
+             L 00001 NOLISFL*
+   DCATALOG (FCATALOG)
+   EQUMEM   (WRITMEM )
+   FCATALOG  L 07424 YKAЗ
+   FICMEMOR  L 00001 INFLOAD*
+             L 00000 KCOUNT*
+             L 00000 RM*
+             L 00001 STATIC*
+   LIBDRUM   L 00014 *MONCRD*
+             L 00001 ERROFLG*
+             L 00002 PARLIBR*
+   LIBRAR*   L 00001 *REGIM//
+   LIBRARY  NL 00000 A
+            NL ***** A1
+   LIBTAPE/  L 00014 *MONCRD*
+   MONITOR/ DL 00001 *REGIM//
+            NL 00001 A/I0
+            NL 00001 A/MINUS
+            NL 00001 ACC*
+            DL 00001 AMONIT/
+            NL 00002 ARREAD*
+            DL 00001 ASTL*
+            NL 00001 CHECKFL*
+            NL 00002 DATA*
+             L 00042 ENTRY*
+             L 00001 ERROFLG*
+            NL 00001 FLAGS
+             L 00001 FLGEX*
             NL 00001 FULISFL*
-             L 00002 INFLОАD*
-            NL 00005 IОLISТ*
-            NL 00004 КСОUNТ*
-            NL 00001 LНЕАР*
-            NL 00001 МАIN*
-             L 00014 МОNСАRD*
-            NL 00001 NЕWОLD*
-            NL 00001 NОLISFL*
-             L 00001 РUNСНFL*
-            NL 00001 RЕSТОР*
-            NL 00001 RFМRТFLG
-             L 00005 RМ*
-             L 00001 SТСАТ*
-            NL 00025 ТАРЕLISТ
-             L 00017 ТRСАТ*
-            DL 00001 ТRNАМЕ*
-            NL 00001 WОRINF*
-   NЕW/СТL   L 00025 МОNСАRD*
-            NL 00001 RМ*
-   NЕWSТАR* (МОNIТОR/)
-   РСАТАLОG (FСАТАLОG)
-   RLIВLIS  NL 00014 *МОNСRD*
-             Р 02048 САТАLОG
-                                                      18.05.19 М1
-                     ИСПОЛЬЗОВАНИЕ СОММОN′ОВ
+             L 00002 INFLOAD*
+            NL 00005 IOLIST*
+            NL 00004 KCOUNT*
+            NL 00001 LHEAP*
+            NL 00001 MAIN*
+             L 00014 MONCARD*
+            NL 00001 NEWOLD*
+            NL 00001 NOLISFL*
+             L 00001 PUNCHFL*
+            NL 00001 RESTOP*
+            NL 00001 RFMRTFLG
+             L 00005 RM*
+             L 00001 STCAT*
+            NL 00025 TAPELIST
+             L 00017 TRCAT*
+            DL 00001 TRNAME*
+            NL 00001 WORINF*
+   NEW/CTL   L 00025 MONCARD*
+            NL 00001 RM*
+   NEWSTAR* (MONITOR/)
+   PCATALOG (FCATALOG)
+   RLIBLIS  NL 00014 *MONCRD*
+             P 02048 CATALOG
+                                                      28.05.19 M1
+                     ИCПOЛЬЗOBAHИE COMMON′OB
 
-                                 МАIN*       00001
-   Е - ЕСТЬ ОДНОИМЕННАЯ П/П               NL 00001 МОNIТОR/
-   D - РАССЫЛКА ДАННЫХ           МОNСАRD*    00025
-   N - ОПИСАН, НЕ ИСПОЛЬЗУЕТСЯ             L 00014 МОNIТОR/
-   Р - СТРАНИЧНЫЙ СОММОN                   L 00025 NЕW/СТL
-   S - СЕКТОРНЫЙ СОММОN                    L 00001 WRIТМЕМ
-   L - ПРОСТОЙ СОММОN            NЕWОLD*     00001
-   ***** - ДЛИНА ОПИСАНА НЕЯВНО           NL 00001 МОNIТОR/
-                                 NОLISFL*    00001
-   *МОNСRD*    00014                       L 00001 ВЕМSН**
-             L 00014 LIВDRUМ              NL 00001 МОNIТОR/
-             L 00014 LIВТАРЕ/    РАRLIВR*    00002
-            NL 00014 RLIВLIS               L 00002 LIВDRUМ
-   *RЕGIМ//    00001                       L 00002 RLIВLIS
-             L 00001 LIВRАR*     РUNСНFL*    00001
-            DL 00001 МОNIТОR/              L 00001 МОNIТОR/
-   А           00000             RЕSТОР*     00001
-            NL 00000 LIВRАRУ              NL 00001 МОNIТОR/
-   А/I0        00001             RFМRТFLG    00001
-            NL 00001 МОNIТОR/             NL 00001 МОNIТОR/
-   А/МINUS     00001             RМ*         00005
-            NL 00001 МОNIТОR/              L 00000 FIСМЕМОR
-   А1          *****                       L 00005 МОNIТОR/
-            NL ***** LIВRАRУ              NL 00001 NЕW/СТL
-   АСС*        00001                       L 00001 URЕТРULS
-            NL 00001 МОNIТОR/    SТАТIС*     00001
-   АМОNIТ/     00001                       L 00001 FIСМЕМОR
-            DL 00001 МОNIТОR/    SТСАТ*      00001
-   АRRЕАD*     00002                       L 00001 МОNIТОR/
-            NL 00002 МОNIТОR/    ТАРЕLISТ    00025
-   АSТL*       00001                      NL 00025 МОNIТОR/
-            DL 00001 МОNIТОR/    ТRСАТ*      00017
-   САТАLОG     02048                       L 00017 МОNIТОR/
-             Р 02048 RLIВLIS     ТRNАМЕ*     00001
-   СНЕСКFL*    00001                      DL 00001 МОNIТОR/
-            NL 00001 МОNIТОR/    WОRINF*     00001
-   DАТА*       00002                      NL 00001 МОNIТОR/
-            NL 00002 МОNIТОR/    УКАЗ        07424
-   ЕNТRУ*      00042                       L 07424 FСАТАLОG
-             L 00042 ВЕМSН**
-             L 00042 МОNIТОR/
-   ЕRRОFLG*    00001
-             L 00001 LIВDRUМ
-             L 00001 МОNIТОR/
-             L 00001 URЕТРULS
-   FLАGS       00001
-            NL 00001 МОNIТОR/
-   FLGЕХ*      00001
-            NL 00001 ВЕМSН**
-             L 00001 МОNIТОR/
+                                 MAIN*       00001
+   E - ECTЬ OДHOИMEHHAЯ П/П               NL 00001 MONITOR/
+   D - PACCЫЛKA ДAHHЫX           MONCARD*    00025
+   N - OПИCAH, HE ИCПOЛЬЗYETCЯ             L 00014 MONITOR/
+   P - CTPAHИЧHЫЙ COMMON                   L 00025 NEW/CTL
+   S - CEKTOPHЫЙ COMMON                    L 00001 WRITMEM
+   L - ПPOCTOЙ COMMON            NEWOLD*     00001
+   ***** - ДЛИHA OПИCAHA HEЯBHO           NL 00001 MONITOR/
+                                 NOLISFL*    00001
+   *MONCRD*    00014                       L 00001 BEMSH**
+             L 00014 LIBDRUM              NL 00001 MONITOR/
+             L 00014 LIBTAPE/    PARLIBR*    00002
+            NL 00014 RLIBLIS               L 00002 LIBDRUM
+   *REGIM//    00001                       L 00002 RLIBLIS
+             L 00001 LIBRAR*     PUNCHFL*    00001
+            DL 00001 MONITOR/              L 00001 MONITOR/
+   A           00000             RESTOP*     00001
+            NL 00000 LIBRARY              NL 00001 MONITOR/
+   A/I0        00001             RFMRTFLG    00001
+            NL 00001 MONITOR/             NL 00001 MONITOR/
+   A/MINUS     00001             RM*         00005
+            NL 00001 MONITOR/              L 00000 FICMEMOR
+   A1          *****                       L 00005 MONITOR/
+            NL ***** LIBRARY              NL 00001 NEW/CTL
+   ACC*        00001                       L 00001 URETPULS
+            NL 00001 MONITOR/    STATIC*     00001
+   AMONIT/     00001                       L 00001 FICMEMOR
+            DL 00001 MONITOR/    STCAT*      00001
+   ARREAD*     00002                       L 00001 MONITOR/
+            NL 00002 MONITOR/    TAPELIST    00025
+   ASTL*       00001                      NL 00025 MONITOR/
+            DL 00001 MONITOR/    TRCAT*      00017
+   CATALOG     02048                       L 00017 MONITOR/
+             P 02048 RLIBLIS     TRNAME*     00001
+   CHECKFL*    00001                      DL 00001 MONITOR/
+            NL 00001 MONITOR/    WORINF*     00001
+   DATA*       00002                      NL 00001 MONITOR/
+            NL 00002 MONITOR/    YKAЗ        07424
+   ENTRY*      00042                       L 07424 FCATALOG
+             L 00042 BEMSH**
+             L 00042 MONITOR/
+   ERROFLG*    00001
+             L 00001 LIBDRUM
+             L 00001 MONITOR/
+             L 00001 URETPULS
+   FLAGS       00001
+            NL 00001 MONITOR/
+   FLGEX*      00001
+            NL 00001 BEMSH**
+             L 00001 MONITOR/
    FULISFL*    00001
-             L 00001 ВЕМSН**
-            NL 00001 МОNIТОR/
-   INFLОАD*    00002
-             L 00001 FIСМЕМОR
-             L 00002 МОNIТОR/
-   IОLISТ*     00005
-            NL 00005 МОNIТОR/
-   КСОUNТ*     00004
-             L 00000 FIСМЕМОR
-            NL 00004 МОNIТОR/
-   LНЕАР*      00001
-            NL 00001 МОNIТОR/
-           *ЕND FILЕ
+             L 00001 BEMSH**
+            NL 00001 MONITOR/
+   INFLOAD*    00002
+             L 00001 FICMEMOR
+             L 00002 MONITOR/
+   IOLIST*     00005
+            NL 00005 MONITOR/
+   KCOUNT*     00004
+             L 00000 FICMEMOR
+            NL 00004 MONITOR/
+   LHEAP*      00001
+            NL 00001 MONITOR/
+           *END FILE
  КОНЕЦ ЗАДАЧИ
  00411: 00 074 0000	*74

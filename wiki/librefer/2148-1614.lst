@@ -1,6 +1,6 @@
-﻿                                                      18.05.19 М1
+﻿                                                      28.05.19 M1
 
-  М О Н И Т О Р-8 0  (3.7)   25.09.84*       (  МС " Д У Б Н А " ИАЭ  )             ШИФР    419999000000
+  M O H И T O P-8 0  (3.7)   25.09.84*       (  MC " Д Y Б H A " ИAЭ  )             ШИФP    419999000000
 
 
 
@@ -23,274 +23,274 @@
 
 
 
-*NАМЕ 2148-1614
-           *РЕRSО: 401350
- 04.10.84 М1
-           *САLL LIВRЕFЕR:ТАРЕ=411614
-                                                      18.05.19 М1
-                     ССЫЛКИ НА ПОДПРОГРАММЫ                        LUN         СSР               RЕСО
-                                                                             Е FТ*002            RЕF
-                                           Е РАRАМТ**                        Е FТ*003            SАVЕТАSК
-   D - РАССЫЛКА ДАННЫХ                     Е РRINТ8                          Е FТ*571            SЕRWISМ     А/ОСТDЕС
-   Е - ВНЕШНЯЯ П/П                         Е SIМFАIL*                          IZ                          Е DАТАРR*
-                                           Е ТАВSIМIS                          LINЕ                        Е РRINТ8//
-   //СDСISО (//GОSISО)                     Е ПЕР6В81С                          РАК               SТА/РRI   Е РАRАМТ*
-   //GОSISО                      ЕDI      D                                    РАS                           SТLIВR*
-   //IВМISО (//GОSISО)           ЕХСLIВ   (INSLIВ  )               МDL      (АNL     )           SТАТLIВ*  Е РАRАМТ*
-   //ISОGОS (//GОSISО)           F/SD*     Е LОАDАNGО              МRЕАD     Е РRINТ8                      Е РRINТ8
-   А/LОАDSD  Е ЕRRСОUD*                    Е LОАDGО                          Е RЕАD*                       Е RЕАD*
-   А/ОСТDЕС                                  LОАDSD                          Е SТОР*             SТАТLIВ  (INSLIВ  )
-   А/SD*     Е А/LОАDGО          F/SD     (А/SD    )                         Е ТТРRINТD          SТLIВR*   Е LUN*МОN
-               А/LОАDSD          FLЕR                                        Е ТТRЕАD*D                      РRТSТТ
-             Е ЕRRСОUD*          FОR                               МWRIТЕ   (МRЕАD   )           SТLIВR   (SТLIВR* )
-             Е LОАDАNGО          FОRАSТ   (СЛУГА2  )               NЕWINF*   Е LUN*МОN           Т*САLL    Е РRINТ8
-   А/SD      Е ВLЕХРRIN          GЕNТАВL* (//GОSISО)                         Е РАRАМТ*           Т*ЕND    (Т*РАRR  )
-             Е МОNIТОR*          GIVЕМЕ   (NЕWSТR  )                         Е RЕАD*             Т*GОТО    Е FТ*002
-             Е РАRАМТ*           НЕАDLТ                            NЕWLIВ   (INSLIВ  )                     Е FТ*003
-             Е SТОР*             I10Т8    (NЕWSТR  )               NЕWРLАСЕ  Е РАRАМТ*                     Е FТ*571
-   АВЕМSН   (DВЕМSН  )           IDSТАТ                                      Е РRINТ8            Т*INDХ    Е FТ*002
-   АNL      DЕ FТ*002            IFС      (РRIN    )               NЕWSТR                                  Е FТ*003
-             Е FТ*003            IFZ         САТ                   NОZ      (NZОNЕ   )                     Е FТ*571
-             Е FТ*571                        DIR                   NZОNЕ                         Т*LАВL   (Т*САLL  )
-               IFZ                           FОR                   ОСАТАLОG  Е DАТАРR*           Т*РАRR    Е FТ*002
-               LUN                           LТХ                             Е РАRАМТ*                     Е FТ*003
-               NОZ                           РRО                             Е РRINТ8                      Е FТ*571
-               NZОNЕ             INS                                           ТЕХISО                      Е РRINТ8
-   АNL1     (АNL     )           INSАLL   (INSLIВ  )               ОVLТОGР*  Е LОАDАNGО          Т*RЕТN   (Т*САLL  )
-   АNNUL                         INSLIВ    Е DАТАРR*                         Е LUN*МОN           Т*RРL     Е FТ*002
-   АRА      DЕ FТ*002                        LIВLISТ                         Е РАRАМТ*                     Е FТ*003
-             Е FТ*003                      Е МОNRЕАD*                        Е SТLОАD*                     Е FТ*571
-             Е FТ*611                      Е ОСТТDЕС               РАGЕРR   (РRIN    )           ТСАТАLОG  Е DАТАРR*
-               ISО                         Е РRINТ8                РАК      (РАS     )                     Е ОСТТDЕС
-               JОВ                         Е РТ6                   РАS                                     Е РАRАМТ*
-               РRN                           RDSТАR                РАSSFОRМ  Е ISО/GОSТ                    Е РRINТ8//
-               RЕF               IОLРDWТ  DЕ АНID/*                          Е РАRАМТ*           ТСАТDОR  (ТСАТАLОG)
-               ТRЕАD                       Е НID/*                           Е РRINТ8            ТЕХISО    Е F/SRЕТ
-   ВКЛСЕК    Е /IР*                        Е ISО/GОSТ                        Е RЕАD*                       Е F/SSТАRТ
-   ВЫКСЕК   (ВКЛСЕК  )                     Е IWВ1                  РСАТАLОG (ТСАТАLОG)                     Е INТ
-   САТ         RЕСО                        Е SТОР*                 РLСАТАLО (ТСАТАLОG)                     Е R*ТО*I
-   САТАLОG* (ТСАТАLОG)           IРЗБ      Е F/FNОSV               РRIN      Е РRINТ8//          ТR*ОFF   (ТR*ОN   )
-   СНЕКРЕRS  Е РАRАМТ*                     Е F/FRЕТNR              РRN         DАТА              ТR*ОN
-             Е РRINТ8            ISО                                         Е FТ*002            ТRЕАD
-             Е РТ6               IZ       (NZОNЕ   )                         Е FТ*003            UNР      (РАS     )
-   СНR                           JОВ         СНR                             Е FТ*611            WНАТIS   DЕ FТ*002
-   СSF                                     Е FТ*002                          Е I*DI*I                      Е FТ*003
-   СSР      (СSF     )                     Е FТ*003                          Е I*МU*I                      Е FТ*541
-   СЛУГА       СЛУГА1                      Е FТ*611                            IFС                         Е FТ*571
-   СЛУГА1   (СЛУГА2  )                       INS                               РАGЕРR                        НЕАDLТ
-   СЛУГА2      СЛУГА3                        ISО                               РRIN                          I10Т8
-               FLЕR                          РRN                   РRО         RЕСО                          NЕWSТR
-   СЛУГА3    Е RЕАD*                         ТRЕАD                 РRТSТТ    Е ВСDЕNС*                       RЕАDСG
-   DАТА     (РRIN    )           LIВLISТ                                     Е ВСDWRIТ*
-   DАЙСТА    Е F/SNОSV           LIВRЕFЕR (ТСАТАLОG)                           DАЙСТА
-             Е F/SRЕТNR          LINЕ                                        Е F/SRЕТ
-               IРЗБ              LОАDSD                                      Е F/SSТАRТ
-   DВЕМSН    Е RЕАD*             LТХ      D  СSF                             Е IОАС*
-   DIR                                       СSР                             Е IОСОNТ*
-   DТRАN     Е ВОКНО                         ЕDI                             Е IОЕND*
-             Е DRUМТАР*                    Е FТ*003                          Е R*ТО*I
-             Е IDЕNТ6                      Е FТ*571                            ТЕХISО
-             Е МОNRЕАD*                      LINЕ                  RDSТАR
-             Е ОКНО                          РАК                   RЕАDСG      GIVЕМЕ
-             Е РАRАМТ*                       РАS                             Е РRINТ8
-                                                      18.05.19 М1
-                     ИСПОЛЬЗОВАНИЕ ПОДПРОГРАММ                                 Т*РАRR                        DТRАN
-                                                                               Т*RРL                         NЕWINF*
-                                 ТR*ОFF                                        WНАТIS                        NЕWРLАСЕ
-   Е - ВНЕШНЯЯ П/П               ТR*ОN                             FТ*541   Е  WНАТIS                        ОСАТАLОG
-   N - ОПИСАНА, НЕ ИСПОЛЬЗУЕТСЯ  UNР                               FТ*571   Е  АNL                           ОVLТОGР*
-   С - ЕСТЬ ОДНОИМЕННЫЙ СОММОN   WНАТIS                                        LТХ                           РАSSFОRМ
-                                                                               LUN                           SТА/РRI
-   НЕИСПОЛЬЗУЕМЫЕ ВХОДЫ                                                        Т*GОТО                        SТАТLIВ*
-                                 ИСПОЛЬЗУЕМЫЕ ВХОДЫ                            Т*INDХ                        ТСАТАLОG
-   //СDСISО                                                                    Т*РАRR            РАS         LТХ
-   //GОSISО                      /IР*     Е  ВКЛСЕК                            Т*RРL                         LUN
-   //IВМISО                      А/LОАDGО Е  А/SD*                             WНАТIS            РRIN        РRN
-   //ISОGОS                      А/LОАDSD    А/SD*                 FТ*611   Е  АRА               РRINТ8   Е  СНЕКРЕRS
-   А/SD*                         А/ОСТDЕС    SЕRWISМ                           JОВ                           DТRАN
-   А/SD                          АНID/*   Е  IОLРDWТ                           РRN                           INSLIВ
-   АВЕМSН                        ВСDЕNС*  Е  РRТSТТ                GIVЕМЕ      RЕАDСG                        МRЕАD
-   АNL                           ВСDWRIТ* Е  РRТSТТ                НЕАDLТ      WНАТIS                        NЕWРLАСЕ
-   АNL1                          ВLЕХРRIN Е  А/SD                  НID/*    Е  IОLРDWТ                       ОСАТАLОG
-   АNNUL                         ВОКНО    Е  DТRАN                 I*DI*I   Е  РRN                           РАSSFОRМ
-   АRА                           САТ      С  IFZ                   I*МU*I   Е  РRN                           RЕАDСG
-   ВКЛСЕК                        СНR         JОВ                   I10Т8       WНАТIS                        SТАТLIВ*
-   ВЫКСЕК                        СSF         LТХ                   IDЕNТ6   Е  DТRАN                         Т*САLL
-   САТАLОG*                      СSР         LТХ                   IFС         РRN                           Т*РАRR
-   СНЕКРЕRS                                  LUN                   IFZ         АNL               РRINТ8// Е  РRIN
-   СЛУГА                         СЛУГА1      СЛУГА                 INS         JОВ                           SЕRWISМ
-   СЛУГА2                        СЛУГА3      СЛУГА2                INТ      Е  ТЕХISО                        ТСАТАLОG
-   DВЕМSН                        DАТА        РRN                   IОАС*    Е  РRТSТТ            РRN         АRА
-   DТRАN                         DАТАРR*  Е  INSLIВ                IОСОNТ*  Е  РRТSТТ                        JОВ
-   ЕХСLIВ                                    ОСАТАLОG              IОЕND*   Е  РRТSТТ            РRО         IFZ
-   F/SD*                                     SЕRWISМ               IРЗБ        DАЙСТА            РRТSТТ      SТLIВR*
-   F/SD                                      ТСАТАLОG              ISО         АRА               РТ6      Е  СНЕКРЕRS
-   FОRАSТ                        DАЙСТА      РRТSТТ                            JОВ                           INSLIВ
-   GЕNТАВL*                      DIR         IFZ                   ISО/GОSТ Е  IОLРDWТ           R*ТО*I   Е  РRТSТТ
-   IDSТАТ                        DRUМТАР* Е  DТRАN                             РАSSFОRМ                      ТЕХISО
-   INSАLL                        ЕDI         LТХ                   IWВ1     Е  IОLРDWТ           RDSТАR      INSLIВ
-   INSLIВ                        ЕRRСОUD* Е  А/LОАDSD              IZ          LUN               RЕАD*    Е  СЛУГА3
-   IОLРDWТ                                 N А/SD*                 JОВ         АRА                           DВЕМSН
-   LIВRЕFЕR                      F/FNОSV  Е  IРЗБ                  LIВLISТ     INSLIВ                        МRЕАD
-   МDL                           F/FRЕТNR Е  IРЗБ                  LINЕ        LТХ                           NЕWINF*
-   МRЕАD                         F/SNОSV  Е  DАЙСТА                            LUN                           РАSSFОRМ
-   МWRIТЕ                        F/SRЕТ   Е  РRТSТТ                LОАDАNGО Е  А/SD*                         SТАТLIВ*
-   NЕWINF*                                   ТЕХISО                            F/SD*             RЕАDСG      WНАТIS
-   NЕWLIВ                        F/SRЕТNR Е  DАЙСТА                            ОVLТОGР*          RЕСО        САТ
-   NЕWРLАСЕ                      F/SSТАRТ Е  РRТSТТ                LОАDGО   Е  F/SD*                         РRО
-   ОСАТАLОG                                  ТЕХISО                LОАDSD      F/SD*             RЕF         АRА
-   ОVLТОGР*                      FLЕR        СЛУГА2                LТХ         IFZ               SIМFАIL* Е  DТRАN
-   РАSSFОRМ                      FОR         IFZ                   LUN         АNL               SТLIВR*     SТА/РRI
-   РСАТАLОG                      FТ*002   Е  АNL                   LUN*МОN  Е  NЕWINF*           SТLОАD*  Е  ОVLТОGР*
-   РLСАТАLО                                  АRА                               ОVLТОGР*          SТОР*    Е  А/SD
-   SАVЕТАSК                                  JОВ                               SТLIВR*                       IОLРDWТ
-   SЕRWISМ                                   LUN                   МОNIТОR* Е  А/SD                          МRЕАD
-   SТА/РRI                                   РRN                   МОNRЕАD* Е  DТRАN             ТАВSIМIS ЕN DТRАN
-   SТАТLIВ*                                  Т*GОТО                            INSLIВ            ТЕХISО      ОСАТАLОG
-   SТАТLIВ                                   Т*INDХ                NЕWSТR      WНАТIS                        РRТSТТ
-   SТLIВR                                    Т*РАRR                NОZ         АNL               ТRЕАD       АRА
-   Т*САLL                                    Т*RРL                 NZОNЕ       АNL                           JОВ
-   Т*ЕND                                     WНАТIS                ОСТТDЕС  Е  INSLIВ            ТТРRINТD Е  МRЕАD
-   Т*GОТО                        FТ*003   Е  АNL                               ТСАТАLОG          ТТRЕАD*D Е  МRЕАD
-   Т*INDХ                                    АRА                   ОКНО     Е  DТRАN             ПЕР6В81С Е  DТRАN
-   Т*LАВL                                    JОВ                   РАGЕРR      РRN
-   Т*РАRR                                    LТХ                   РАК         LТХ
-   Т*RЕТN                                    LUN                               LUN
-   Т*RРL                                     РRN                   РАRАМТ** ЕN DТRАN
-   ТСАТАLОG                                  Т*GОТО                РАRАМТ*  Е  А/SD
-   ТСАТDОR                                   Т*INDХ                            СНЕКРЕRS
-                                                      18.05.19 М1
-                     ССЫЛКИ НА СОММОN′Ы                                     NL 00001 *NZ1*
-                                                                             Р 02048 *Р*
-                                           L ***** САТLОА**        SТАТLIВ*  L 00014 *МОNСRD*
-   D - РАССЫЛКА ДАННЫХ                    NL 00001 МАIN*                     Р 01024 LОАDLIВR
-   N - ОПИСАН, НЕ ИСПОЛЬЗУЕТСЯ            NL 00001 ТRNАМЕ*         SТАТLIВ  (INSLIВ  )
-   Р - СТРАНИЧНЫЙ СОММОN         F/SD     (А/SD    )               SТLIВR*   Р 02048 КАТL
-   S - СЕКТОРНЫЙ СОММОN          FLЕR      L 00001 ЕRRОFLG*                  Р 01024 LSТА
-   L - ПРОСТОЙ СОММОN            FОR       Р 01024 **              SТLIВR   (SТLIВR* )
-   ***** - ДЛИНА ОПИСАНА НЕЯВНО            L 00001 SUМ             ТСАТАLОG  L 00012 *МОNСRD*
-                                 FОRАSТ   (СЛУГА2  )                         Р 02048 СТLG
-   А/LОАDSD  L 00001 САТLОА**    GIVЕМЕ   (NЕWSТR  )                         Р 01024 ОRDЕR
-            NL 00001 ТRNАМЕ*     НЕАDLТ    L 00003 *NАМЕ*          ТСАТDОR  (ТСАТАLОG)
-   А/SD*     L 00001 АСС*        I10Т8    (NЕWSТR  )               ТRЕАD     Р 01024 ВUF
-            NL ***** САТLОА**    IDSТАТ    L 00001 ТSТАТЕ*         WНАТIS    L 00090 *СLNЕWS*
-            NL 00001 МАIN*       IFС      (РRIN    )                         L 00001 *FL*
-            NL 00001 ТRNАМЕ*     INSАLL   (INSLIВ  )                        DL 00003 *NАМЕ*
-   А/SD      L 00001 АСС*        INSLIВ    L 00002 DАТА*                     L 00001 *NZ1*
-             L 00001 ЕRRОFLG*              L 00001 DRТАРЕ
-             L 00001 LОАDLIS*              L 00001 МОNСАRD*
-             L 00001 МАIN*                 L 00002 WВЕGFLАG
-             L 00001 RМ*         IОLРDWТ   L 00001 RЕSТОР*
-             L 00001 ТRNАМЕ*     ISО       L 00073 **
-   АВЕМSН   (DВЕМSН  )           IZ       (NZОNЕ   )
-   АNL       L 00001 *J*         JОВ       L 00073 **
-             L 00001 *М*                   L 00006 *РАR*
-   АNL1     (АNL     )           LIВRЕFЕR (ТСАТАLОG)
-   АNNUL     L 00005 А*          LINЕ      Р 01024 **
-   АRА       L 00006 *РАR*                 L 00085 *А*
-   САТ       Р 01024 **                    L 00014 МОNСАRD/
-   САТАLОG* (ТСАТАLОG)           LОАDSD    L 00001 САТLОА**
-   СНЕКРЕRS  L 00014 *МОNСRD*             NL 00001 ТRNАМЕ*
-             Р 02048 ВСАТ        LТХ       L 00085 *А*
-             Р 01024 ВSUВР                 L 00001 *J*
-   СSF       L 00085 *А*                   L 00001 *М*
-   СSР      (СSF     )           LUN       L 00085 *А*
-   СЛУГА     L 00001 *СЛУГА7*    МDL      (АNL     )
-             L 00001 NОLISFL*    NЕWINF*   L 00012 *МОNСRD*
-   СЛУГА1   (СЛУГА2  )                     Р 01024 LВ
-   СЛУГА2    Р 01026 *СЛУГ4*     NЕWLIВ   (INSLIВ  )
-             L 00014 *СЛУГА5*    NЕWРLАСЕ  L 00012 *МОNСRD*
-             L 00001 *СЛУГА7*              L 00003 МISТ10*
-   СЛУГА3    L 00014 *СЛУГА5*              Р 02048 РАGЕ
-   DАТА     (РRIN    )           NЕWSТR    L 00090 *СLNЕWS*
-   DВЕМSН    Р 01024 *ЛИСОБМ*              L 00001 *NZ1*
-             Р 04096 *ЛИСРАБ*              Р 02048 *Р*
-   DIR       Р 01024 **                    L 00001 NОLISFL*
-             L 00001 *J*         NОZ      (NZОNЕ   )
-   DТRАN     L 00012 *МОNСRD*    NZОNЕ     Р 01024 **
-             Р 02048 САТАLОG               L 00001 SUМ
-            NL 00001 FРАRАМТ*    ОСАТАLОG  Р 01024 САТ
-             L 00064 INF/ОР                L 00014 МОNСАRD*
-             L 00100 LIВРRINТ    ОVLТОGР*  Р 01024 ВUF
-             L 00003 МISТ10*               L 00002 INFLОАD*
-             L 00014 МОNСАRD*    РАGЕРR   (РRIN    )
-             L 00014 МОNСАRD/    РАSSFОRМ  L 00014 А
-             L 00001 NОLISFL*              Р 08192 ВUF
-            NL 00001 ОUТ*ОUТ               L 00001 NОLISFL*
-             Р 06144 РАGЕ        РСАТАLОG (ТСАТАLОG)
-            NL 00001 SТАRSТА     РLСАТАLО (ТСАТАLОG)
-             L 01024 ТАВ         РRIN      L 00001 DАТА*
-             Р 01024 ТО*DRUМ     РRN      DL 00015 *НЕАD*
-             L 00004 ХРАRАМТ*    РRО       Р 01024 **
-   ЕDI       L 00085 *А*         RDSТАR    L 00001 DRТАРЕ
-   ЕХСLIВ   (INSLIВ  )                     L 00002 WВЕGFLАG
-   F/SD*     L 00001 АСС*        RЕАDСG    L 00001 *FL*
-                                                      18.05.19 М1
-                     ИСПОЛЬЗОВАНИЕ СОММОN′ОВ                                NL 00001 А/SD*
-                                                                             L 00001 А/SD
-                                           Р 02048 RЕАDСG                   NL 00001 F/SD*
-   Е - ЕСТЬ ОДНОИМЕННАЯ П/П      *РАR*       00006                 МISТ10*     00003
-   D - РАССЫЛКА ДАННЫХ                     L 00006 АRА                       L 00003 DТRАN
-   N - ОПИСАН, НЕ ИСПОЛЬЗУЕТСЯ             L 00006 JОВ                       L 00003 NЕWРLАСЕ
-   Р - СТРАНИЧНЫЙ СОММОN         *ЛИСОБМ*    01024                 МОNСАRD*    00014
-   S - СЕКТОРНЫЙ СОММОN                    Р 01024 DВЕМSН                    L 00014 DТRАN
-   L - ПРОСТОЙ СОММОN            *ЛИСРАБ*    04096                           L 00001 INSLIВ
-   ***** - ДЛИНА ОПИСАНА НЕЯВНО            Р 04096 DВЕМSН                    L 00014 ОСАТАLОG
-                                 А*          00005                 МОNСАRD/    00014
-   **          01024                       L 00005 АNNUL                     L 00014 DТRАN
-             Р 01024 САТ         А           00014                           L 00014 LINЕ
-             Р 01024 DIR                   L 00014 РАSSFОRМ        NОLISFL*    00001
-             Р 01024 FОR         АСС*        00001                           L 00001 СЛУГА
-             L 00073 ISО                   L 00001 А/SD*                     L 00001 DТRАN
-             L 00073 JОВ                   L 00001 А/SD                      L 00001 NЕWSТR
-             Р 01024 LINЕ                  L 00001 F/SD*                     L 00001 РАSSFОRМ
-             Р 01024 NZОNЕ       ВСАТ        02048                 ОRDЕR       01024
-             Р 01024 РRО                   Р 02048 СНЕКРЕRS                  Р 01024 ТСАТАLОG
-   *А*         00085             ВSUВР       01024                 ОUТ*ОUТ     00001
-             L 00085 СSF                   Р 01024 СНЕКРЕRS                 NL 00001 DТRАN
-             L 00085 ЕDI         ВUF         08192                 РАGЕ        06144
-             L 00085 LINЕ                  Р 01024 ОVLТОGР*                  Р 06144 DТRАN
-             L 00085 LТХ                   Р 08192 РАSSFОRМ                  Р 02048 NЕWРLАСЕ
-             L 00085 LUN                   Р 01024 ТRЕАD           RЕSТОР*     00001
-   *СLNЕWS*    00090             САТ       Е 01024                           L 00001 IОLРDWТ
-             L 00090 NЕWSТR                Р 01024 ОСАТАLОG        RМ*         00001
-             L 00090 WНАТIS      САТАLОG     02048                           L 00001 А/SD
-   *СЛУГ4*     01026                       Р 02048 DТRАN           SТАRSТА     00001
-             Р 01026 СЛУГА2      САТLОА**    *****                          NL 00001 DТRАN
-   *СЛУГА5*    00014                       L 00001 А/LОАDSD        SUМ         00001
-             L 00014 СЛУГА2               NL ***** А/SD*                     L 00001 FОR
-             L 00014 СЛУГА3                L ***** F/SD*                     L 00001 NZОNЕ
-   *СЛУГА7*    00001                       L 00001 LОАDSD          ТАВ         01024
-             L 00001 СЛУГА       СТLG        02048                           L 01024 DТRАN
-             L 00001 СЛУГА2                Р 02048 ТСАТАLОG        ТО*DRUМ     01024
-   *FL*        00001             DАТА*       00002                           Р 01024 DТRАN
-             L 00001 RЕАDСG                L 00002 INSLIВ          ТRNАМЕ*     00001
-             L 00001 WНАТIS                L 00001 РRIN                     NL 00001 А/LОАDSD
-   *НЕАD*      00015             DRТАРЕ      00001                          NL 00001 А/SD*
-            DL 00015 РRN                   L 00001 INSLIВ                    L 00001 А/SD
-   *J*         00001                       L 00001 RDSТАR                   NL 00001 F/SD*
-             L 00001 АNL         ЕRRОFLG*    00001                          NL 00001 LОАDSD
-             L 00001 DIR                   L 00001 А/SD            ТSТАТЕ*     00001
-             L 00001 LТХ                   L 00001 FLЕR                      L 00001 IDSТАТ
-   *М*         00001             FРАRАМТ*    00001                 WВЕGFLАG    00002
-             L 00001 АNL                  NL 00001 DТRАN                     L 00002 INSLIВ
-             L 00001 LТХ         INF/ОР      00064                           L 00002 RDSТАR
-   *МОNСRD*    00014                       L 00064 DТRАN           ХРАRАМТ*    00004
-             L 00014 СНЕКРЕRS    INFLОАD*    00002                           L 00004 DТRАN
-             L 00012 DТRАN                 L 00002 ОVLТОGР*
-             L 00012 NЕWINF*     КАТL        02048
-             L 00012 NЕWРLАСЕ              Р 02048 SТLIВR*
-             L 00014 SТАТLIВ*    LВ          01024
-             L 00012 ТСАТАLОG              Р 01024 NЕWINF*
-   *NАМЕ*      00003             LIВРRINТ    00100
-             L 00003 НЕАDLТ                L 00100 DТRАN
-            DL 00003 WНАТIS      LОАDLIВR    01024
-   *NZ1*       00001                       Р 01024 SТАТLIВ*
-             L 00001 NЕWSТR      LОАDLIS*    00001
-            NL 00001 RЕАDСG                L 00001 А/SD
-             L 00001 WНАТIS      LSТА        01024
-   *Р*         02048                       Р 01024 SТLIВR*
-             Р 02048 NЕWSТR      МАIN*       00001
-           *ЕND FILЕ
+*NAME 2148-1614
+           *PERSO: 401350
+ 04.10.84 M1
+           *CALL LIBREFER:TAPE=411614
+                                                      28.05.19 M1
+                     CCЫЛKИ HA ПOДПPOГPAMMЫ                        LUN         CSP               RECO
+                                                                             E FT*002            REF
+                                           E PARAMT**                        E FT*003            SAVETASK
+   D - PACCЫЛKA ДAHHЫX                     E PRINT8                          E FT*571            SERWISM     A/OCTDEC
+   E - BHEШHЯЯ П/П                         E SIMFAIL*                          IZ                          E DATAPR*
+                                           E TABSIMIS                          LINE                        E PRINT8//
+   //CDCISO (//GOSISO)                     E ПEP6B81C                          PAK               STA/PRI   E PARAMT*
+   //GOSISO                      EDI      D                                    PAS                           STLIBR*
+   //IBMISO (//GOSISO)           EXCLIB   (INSLIB  )               MDL      (ANL     )           STATLIB*  E PARAMT*
+   //ISOGOS (//GOSISO)           F/SD*     E LOADANGO              MREAD     E PRINT8                      E PRINT8
+   A/LOADSD  E ERRCOUD*                    E LOADGO                          E READ*                       E READ*
+   A/OCTDEC                                  LOADSD                          E STOP*             STATLIB  (INSLIB  )
+   A/SD*     E A/LOADGO          F/SD     (A/SD    )                         E TTPRINTD          STLIBR*   E LUN*MON
+               A/LOADSD          FLER                                        E TTREAD*D                      PRTSTT
+             E ERRCOUD*          FOR                               MWRITE   (MREAD   )           STLIBR   (STLIBR* )
+             E LOADANGO          FORAST   (CЛYГA2  )               NEWINF*   E LUN*MON           T*CALL    E PRINT8
+   A/SD      E BLEXPRIN          GENTABL* (//GOSISO)                         E PARAMT*           T*END    (T*PARR  )
+             E MONITOR*          GIVEME   (NEWSTR  )                         E READ*             T*GOTO    E FT*002
+             E PARAMT*           HEADLT                            NEWLIB   (INSLIB  )                     E FT*003
+             E STOP*             I10T8    (NEWSTR  )               NEWPLACE  E PARAMT*                     E FT*571
+   ABEMSH   (DBEMSH  )           IDSTAT                                      E PRINT8            T*INDX    E FT*002
+   ANL      DE FT*002            IFC      (PRIN    )               NEWSTR                                  E FT*003
+             E FT*003            IFZ         CAT                   NOZ      (NZONE   )                     E FT*571
+             E FT*571                        DIR                   NZONE                         T*LABL   (T*CALL  )
+               IFZ                           FOR                   OCATALOG  E DATAPR*           T*PARR    E FT*002
+               LUN                           LTX                             E PARAMT*                     E FT*003
+               NOZ                           PRO                             E PRINT8                      E FT*571
+               NZONE             INS                                           TEXISO                      E PRINT8
+   ANL1     (ANL     )           INSALL   (INSLIB  )               OVLTOGP*  E LOADANGO          T*RETN   (T*CALL  )
+   ANNUL                         INSLIB    E DATAPR*                         E LUN*MON           T*RPL     E FT*002
+   ARA      DE FT*002                        LIBLIST                         E PARAMT*                     E FT*003
+             E FT*003                      E MONREAD*                        E STLOAD*                     E FT*571
+             E FT*611                      E OCTTDEC               PAGEPR   (PRIN    )           TCATALOG  E DATAPR*
+               ISO                         E PRINT8                PAK      (PAS     )                     E OCTTDEC
+               JOB                         E PT6                   PAS                                     E PARAMT*
+               PRN                           RDSTAR                PASSFORM  E ISO/GOST                    E PRINT8//
+               REF               IOLPDWT  DE AHID/*                          E PARAMT*           TCATDOR  (TCATALOG)
+               TREAD                       E HID/*                           E PRINT8            TEXISO    E F/SRET
+   BKЛCEK    E /IP*                        E ISO/GOST                        E READ*                       E F/SSTART
+   BЫKCEK   (BKЛCEK  )                     E IWB1                  PCATALOG (TCATALOG)                     E INT
+   CAT         RECO                        E STOP*                 PLCATALO (TCATALOG)                     E R*TO*I
+   CATALOG* (TCATALOG)           IPЗБ      E F/FNOSV               PRIN      E PRINT8//          TR*OFF   (TR*ON   )
+   CHEKPERS  E PARAMT*                     E F/FRETNR              PRN         DATA              TR*ON
+             E PRINT8            ISO                                         E FT*002            TREAD
+             E PT6               IZ       (NZONE   )                         E FT*003            UNP      (PAS     )
+   CHR                           JOB         CHR                             E FT*611            WHATIS   DE FT*002
+   CSF                                     E FT*002                          E I*DI*I                      E FT*003
+   CSP      (CSF     )                     E FT*003                          E I*MU*I                      E FT*541
+   CЛYГA       CЛYГA1                      E FT*611                            IFC                         E FT*571
+   CЛYГA1   (CЛYГA2  )                       INS                               PAGEPR                        HEADLT
+   CЛYГA2      CЛYГA3                        ISO                               PRIN                          I10T8
+               FLER                          PRN                   PRO         RECO                          NEWSTR
+   CЛYГA3    E READ*                         TREAD                 PRTSTT    E BCDENC*                       READCG
+   DATA     (PRIN    )           LIBLIST                                     E BCDWRIT*
+   DAЙCTA    E F/SNOSV           LIBREFER (TCATALOG)                           DAЙCTA
+             E F/SRETNR          LINE                                        E F/SRET
+               IPЗБ              LOADSD                                      E F/SSTART
+   DBEMSH    E READ*             LTX      D  CSF                             E IOAC*
+   DIR                                       CSP                             E IOCONT*
+   DTRAN     E BOKHO                         EDI                             E IOEND*
+             E DRUMTAP*                    E FT*003                          E R*TO*I
+             E IDENT6                      E FT*571                            TEXISO
+             E MONREAD*                      LINE                  RDSTAR
+             E OKHO                          PAK                   READCG      GIVEME
+             E PARAMT*                       PAS                             E PRINT8
+                                                      28.05.19 M1
+                     ИCПOЛЬЗOBAHИE ПOДПPOГPAMM                                 T*PARR                        DTRAN
+                                                                               T*RPL                         NEWINF*
+                                 TR*OFF                                        WHATIS                        NEWPLACE
+   E - BHEШHЯЯ П/П               TR*ON                             FT*541   E  WHATIS                        OCATALOG
+   N - OПИCAHA, HE ИCПOЛЬЗYETCЯ  UNP                               FT*571   E  ANL                           OVLTOGP*
+   C - ECTЬ OДHOИMEHHЫЙ COMMON   WHATIS                                        LTX                           PASSFORM
+                                                                               LUN                           STA/PRI
+   HEИCПOЛЬЗYEMЫE BXOДЫ                                                        T*GOTO                        STATLIB*
+                                 ИCПOЛЬЗYEMЫE BXOДЫ                            T*INDX                        TCATALOG
+   //CDCISO                                                                    T*PARR            PAS         LTX
+   //GOSISO                      /IP*     E  BKЛCEK                            T*RPL                         LUN
+   //IBMISO                      A/LOADGO E  A/SD*                             WHATIS            PRIN        PRN
+   //ISOGOS                      A/LOADSD    A/SD*                 FT*611   E  ARA               PRINT8   E  CHEKPERS
+   A/SD*                         A/OCTDEC    SERWISM                           JOB                           DTRAN
+   A/SD                          AHID/*   E  IOLPDWT                           PRN                           INSLIB
+   ABEMSH                        BCDENC*  E  PRTSTT                GIVEME      READCG                        MREAD
+   ANL                           BCDWRIT* E  PRTSTT                HEADLT      WHATIS                        NEWPLACE
+   ANL1                          BLEXPRIN E  A/SD                  HID/*    E  IOLPDWT                       OCATALOG
+   ANNUL                         BOKHO    E  DTRAN                 I*DI*I   E  PRN                           PASSFORM
+   ARA                           CAT      C  IFZ                   I*MU*I   E  PRN                           READCG
+   BKЛCEK                        CHR         JOB                   I10T8       WHATIS                        STATLIB*
+   BЫKCEK                        CSF         LTX                   IDENT6   E  DTRAN                         T*CALL
+   CATALOG*                      CSP         LTX                   IFC         PRN                           T*PARR
+   CHEKPERS                                  LUN                   IFZ         ANL               PRINT8// E  PRIN
+   CЛYГA                         CЛYГA1      CЛYГA                 INS         JOB                           SERWISM
+   CЛYГA2                        CЛYГA3      CЛYГA2                INT      E  TEXISO                        TCATALOG
+   DBEMSH                        DATA        PRN                   IOAC*    E  PRTSTT            PRN         ARA
+   DTRAN                         DATAPR*  E  INSLIB                IOCONT*  E  PRTSTT                        JOB
+   EXCLIB                                    OCATALOG              IOEND*   E  PRTSTT            PRO         IFZ
+   F/SD*                                     SERWISM               IPЗБ        DAЙCTA            PRTSTT      STLIBR*
+   F/SD                                      TCATALOG              ISO         ARA               PT6      E  CHEKPERS
+   FORAST                        DAЙCTA      PRTSTT                            JOB                           INSLIB
+   GENTABL*                      DIR         IFZ                   ISO/GOST E  IOLPDWT           R*TO*I   E  PRTSTT
+   IDSTAT                        DRUMTAP* E  DTRAN                             PASSFORM                      TEXISO
+   INSALL                        EDI         LTX                   IWB1     E  IOLPDWT           RDSTAR      INSLIB
+   INSLIB                        ERRCOUD* E  A/LOADSD              IZ          LUN               READ*    E  CЛYГA3
+   IOLPDWT                                 N A/SD*                 JOB         ARA                           DBEMSH
+   LIBREFER                      F/FNOSV  E  IPЗБ                  LIBLIST     INSLIB                        MREAD
+   MDL                           F/FRETNR E  IPЗБ                  LINE        LTX                           NEWINF*
+   MREAD                         F/SNOSV  E  DAЙCTA                            LUN                           PASSFORM
+   MWRITE                        F/SRET   E  PRTSTT                LOADANGO E  A/SD*                         STATLIB*
+   NEWINF*                                   TEXISO                            F/SD*             READCG      WHATIS
+   NEWLIB                        F/SRETNR E  DAЙCTA                            OVLTOGP*          RECO        CAT
+   NEWPLACE                      F/SSTART E  PRTSTT                LOADGO   E  F/SD*                         PRO
+   OCATALOG                                  TEXISO                LOADSD      F/SD*             REF         ARA
+   OVLTOGP*                      FLER        CЛYГA2                LTX         IFZ               SIMFAIL* E  DTRAN
+   PASSFORM                      FOR         IFZ                   LUN         ANL               STLIBR*     STA/PRI
+   PCATALOG                      FT*002   E  ANL                   LUN*MON  E  NEWINF*           STLOAD*  E  OVLTOGP*
+   PLCATALO                                  ARA                               OVLTOGP*          STOP*    E  A/SD
+   SAVETASK                                  JOB                               STLIBR*                       IOLPDWT
+   SERWISM                                   LUN                   MONITOR* E  A/SD                          MREAD
+   STA/PRI                                   PRN                   MONREAD* E  DTRAN             TABSIMIS EN DTRAN
+   STATLIB*                                  T*GOTO                            INSLIB            TEXISO      OCATALOG
+   STATLIB                                   T*INDX                NEWSTR      WHATIS                        PRTSTT
+   STLIBR                                    T*PARR                NOZ         ANL               TREAD       ARA
+   T*CALL                                    T*RPL                 NZONE       ANL                           JOB
+   T*END                                     WHATIS                OCTTDEC  E  INSLIB            TTPRINTD E  MREAD
+   T*GOTO                        FT*003   E  ANL                               TCATALOG          TTREAD*D E  MREAD
+   T*INDX                                    ARA                   OKHO     E  DTRAN             ПEP6B81C E  DTRAN
+   T*LABL                                    JOB                   PAGEPR      PRN
+   T*PARR                                    LTX                   PAK         LTX
+   T*RETN                                    LUN                               LUN
+   T*RPL                                     PRN                   PARAMT** EN DTRAN
+   TCATALOG                                  T*GOTO                PARAMT*  E  A/SD
+   TCATDOR                                   T*INDX                            CHEKPERS
+                                                      28.05.19 M1
+                     CCЫЛKИ HA COMMON′Ы                                     NL 00001 *NZ1*
+                                                                             P 02048 *P*
+                                           L ***** CATLOA**        STATLIB*  L 00014 *MONCRD*
+   D - PACCЫЛKA ДAHHЫX                    NL 00001 MAIN*                     P 01024 LOADLIBR
+   N - OПИCAH, HE ИCПOЛЬЗYETCЯ            NL 00001 TRNAME*         STATLIB  (INSLIB  )
+   P - CTPAHИЧHЫЙ COMMON         F/SD     (A/SD    )               STLIBR*   P 02048 KATL
+   S - CEKTOPHЫЙ COMMON          FLER      L 00001 ERROFLG*                  P 01024 LSTA
+   L - ПPOCTOЙ COMMON            FOR       P 01024 **              STLIBR   (STLIBR* )
+   ***** - ДЛИHA OПИCAHA HEЯBHO            L 00001 SUM             TCATALOG  L 00012 *MONCRD*
+                                 FORAST   (CЛYГA2  )                         P 02048 CTLG
+   A/LOADSD  L 00001 CATLOA**    GIVEME   (NEWSTR  )                         P 01024 ORDER
+            NL 00001 TRNAME*     HEADLT    L 00003 *NAME*          TCATDOR  (TCATALOG)
+   A/SD*     L 00001 ACC*        I10T8    (NEWSTR  )               TREAD     P 01024 BUF
+            NL ***** CATLOA**    IDSTAT    L 00001 TSTATE*         WHATIS    L 00090 *CLNEWS*
+            NL 00001 MAIN*       IFC      (PRIN    )                         L 00001 *FL*
+            NL 00001 TRNAME*     INSALL   (INSLIB  )                        DL 00003 *NAME*
+   A/SD      L 00001 ACC*        INSLIB    L 00002 DATA*                     L 00001 *NZ1*
+             L 00001 ERROFLG*              L 00001 DRTAPE
+             L 00001 LOADLIS*              L 00001 MONCARD*
+             L 00001 MAIN*                 L 00002 WBEGFLAG
+             L 00001 RM*         IOLPDWT   L 00001 RESTOP*
+             L 00001 TRNAME*     ISO       L 00073 **
+   ABEMSH   (DBEMSH  )           IZ       (NZONE   )
+   ANL       L 00001 *J*         JOB       L 00073 **
+             L 00001 *M*                   L 00006 *PAR*
+   ANL1     (ANL     )           LIBREFER (TCATALOG)
+   ANNUL     L 00005 A*          LINE      P 01024 **
+   ARA       L 00006 *PAR*                 L 00085 *A*
+   CAT       P 01024 **                    L 00014 MONCARD/
+   CATALOG* (TCATALOG)           LOADSD    L 00001 CATLOA**
+   CHEKPERS  L 00014 *MONCRD*             NL 00001 TRNAME*
+             P 02048 BCAT        LTX       L 00085 *A*
+             P 01024 BSUBP                 L 00001 *J*
+   CSF       L 00085 *A*                   L 00001 *M*
+   CSP      (CSF     )           LUN       L 00085 *A*
+   CЛYГA     L 00001 *CЛYГA7*    MDL      (ANL     )
+             L 00001 NOLISFL*    NEWINF*   L 00012 *MONCRD*
+   CЛYГA1   (CЛYГA2  )                     P 01024 LB
+   CЛYГA2    P 01026 *CЛYГ4*     NEWLIB   (INSLIB  )
+             L 00014 *CЛYГA5*    NEWPLACE  L 00012 *MONCRD*
+             L 00001 *CЛYГA7*              L 00003 MIST10*
+   CЛYГA3    L 00014 *CЛYГA5*              P 02048 PAGE
+   DATA     (PRIN    )           NEWSTR    L 00090 *CLNEWS*
+   DBEMSH    P 01024 *ЛИCOБM*              L 00001 *NZ1*
+             P 04096 *ЛИCPAБ*              P 02048 *P*
+   DIR       P 01024 **                    L 00001 NOLISFL*
+             L 00001 *J*         NOZ      (NZONE   )
+   DTRAN     L 00012 *MONCRD*    NZONE     P 01024 **
+             P 02048 CATALOG               L 00001 SUM
+            NL 00001 FPARAMT*    OCATALOG  P 01024 CAT
+             L 00064 INF/OP                L 00014 MONCARD*
+             L 00100 LIBPRINT    OVLTOGP*  P 01024 BUF
+             L 00003 MIST10*               L 00002 INFLOAD*
+             L 00014 MONCARD*    PAGEPR   (PRIN    )
+             L 00014 MONCARD/    PASSFORM  L 00014 A
+             L 00001 NOLISFL*              P 08192 BUF
+            NL 00001 OUT*OUT               L 00001 NOLISFL*
+             P 06144 PAGE        PCATALOG (TCATALOG)
+            NL 00001 STARSTA     PLCATALO (TCATALOG)
+             L 01024 TAB         PRIN      L 00001 DATA*
+             P 01024 TO*DRUM     PRN      DL 00015 *HEAD*
+             L 00004 XPARAMT*    PRO       P 01024 **
+   EDI       L 00085 *A*         RDSTAR    L 00001 DRTAPE
+   EXCLIB   (INSLIB  )                     L 00002 WBEGFLAG
+   F/SD*     L 00001 ACC*        READCG    L 00001 *FL*
+                                                      28.05.19 M1
+                     ИCПOЛЬЗOBAHИE COMMON′OB                                NL 00001 A/SD*
+                                                                             L 00001 A/SD
+                                           P 02048 READCG                   NL 00001 F/SD*
+   E - ECTЬ OДHOИMEHHAЯ П/П      *PAR*       00006                 MIST10*     00003
+   D - PACCЫЛKA ДAHHЫX                     L 00006 ARA                       L 00003 DTRAN
+   N - OПИCAH, HE ИCПOЛЬЗYETCЯ             L 00006 JOB                       L 00003 NEWPLACE
+   P - CTPAHИЧHЫЙ COMMON         *ЛИCOБM*    01024                 MONCARD*    00014
+   S - CEKTOPHЫЙ COMMON                    P 01024 DBEMSH                    L 00014 DTRAN
+   L - ПPOCTOЙ COMMON            *ЛИCPAБ*    04096                           L 00001 INSLIB
+   ***** - ДЛИHA OПИCAHA HEЯBHO            P 04096 DBEMSH                    L 00014 OCATALOG
+                                 A*          00005                 MONCARD/    00014
+   **          01024                       L 00005 ANNUL                     L 00014 DTRAN
+             P 01024 CAT         A           00014                           L 00014 LINE
+             P 01024 DIR                   L 00014 PASSFORM        NOLISFL*    00001
+             P 01024 FOR         ACC*        00001                           L 00001 CЛYГA
+             L 00073 ISO                   L 00001 A/SD*                     L 00001 DTRAN
+             L 00073 JOB                   L 00001 A/SD                      L 00001 NEWSTR
+             P 01024 LINE                  L 00001 F/SD*                     L 00001 PASSFORM
+             P 01024 NZONE       BCAT        02048                 ORDER       01024
+             P 01024 PRO                   P 02048 CHEKPERS                  P 01024 TCATALOG
+   *A*         00085             BSUBP       01024                 OUT*OUT     00001
+             L 00085 CSF                   P 01024 CHEKPERS                 NL 00001 DTRAN
+             L 00085 EDI         BUF         08192                 PAGE        06144
+             L 00085 LINE                  P 01024 OVLTOGP*                  P 06144 DTRAN
+             L 00085 LTX                   P 08192 PASSFORM                  P 02048 NEWPLACE
+             L 00085 LUN                   P 01024 TREAD           RESTOP*     00001
+   *CLNEWS*    00090             CAT       E 01024                           L 00001 IOLPDWT
+             L 00090 NEWSTR                P 01024 OCATALOG        RM*         00001
+             L 00090 WHATIS      CATALOG     02048                           L 00001 A/SD
+   *CЛYГ4*     01026                       P 02048 DTRAN           STARSTA     00001
+             P 01026 CЛYГA2      CATLOA**    *****                          NL 00001 DTRAN
+   *CЛYГA5*    00014                       L 00001 A/LOADSD        SUM         00001
+             L 00014 CЛYГA2               NL ***** A/SD*                     L 00001 FOR
+             L 00014 CЛYГA3                L ***** F/SD*                     L 00001 NZONE
+   *CЛYГA7*    00001                       L 00001 LOADSD          TAB         01024
+             L 00001 CЛYГA       CTLG        02048                           L 01024 DTRAN
+             L 00001 CЛYГA2                P 02048 TCATALOG        TO*DRUM     01024
+   *FL*        00001             DATA*       00002                           P 01024 DTRAN
+             L 00001 READCG                L 00002 INSLIB          TRNAME*     00001
+             L 00001 WHATIS                L 00001 PRIN                     NL 00001 A/LOADSD
+   *HEAD*      00015             DRTAPE      00001                          NL 00001 A/SD*
+            DL 00015 PRN                   L 00001 INSLIB                    L 00001 A/SD
+   *J*         00001                       L 00001 RDSTAR                   NL 00001 F/SD*
+             L 00001 ANL         ERROFLG*    00001                          NL 00001 LOADSD
+             L 00001 DIR                   L 00001 A/SD            TSTATE*     00001
+             L 00001 LTX                   L 00001 FLER                      L 00001 IDSTAT
+   *M*         00001             FPARAMT*    00001                 WBEGFLAG    00002
+             L 00001 ANL                  NL 00001 DTRAN                     L 00002 INSLIB
+             L 00001 LTX         INF/OP      00064                           L 00002 RDSTAR
+   *MONCRD*    00014                       L 00064 DTRAN           XPARAMT*    00004
+             L 00014 CHEKPERS    INFLOAD*    00002                           L 00004 DTRAN
+             L 00012 DTRAN                 L 00002 OVLTOGP*
+             L 00012 NEWINF*     KATL        02048
+             L 00012 NEWPLACE              P 02048 STLIBR*
+             L 00014 STATLIB*    LB          01024
+             L 00012 TCATALOG              P 01024 NEWINF*
+   *NAME*      00003             LIBPRINT    00100
+             L 00003 HEADLT                L 00100 DTRAN
+            DL 00003 WHATIS      LOADLIBR    01024
+   *NZ1*       00001                       P 01024 STATLIB*
+             L 00001 NEWSTR      LOADLIS*    00001
+            NL 00001 READCG                L 00001 A/SD
+             L 00001 WHATIS      LSTA        01024
+   *P*         02048                       P 01024 STLIBR*
+             P 02048 NEWSTR      MAIN*       00001
+           *END FILE
  КОНЕЦ ЗАДАЧИ
  00411: 00 074 0000	*74
