@@ -1,0 +1,232 @@
+---
+layout: page
+topmenu: yes
+---
+<style>
+    input.custom-checkbox {
+        margin: 0;
+        padding: 0;
+    }
+
+    td,th {
+        text-align: center;
+    }
+
+    table,td,tr,th {
+        border: 1px solid darkgray;
+    }
+
+    td#result {
+        text-align: left;
+        font-family: mono;
+        font-size: 12pt;
+    }
+
+    p {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    td.mono {
+        font-family: mono;
+        text-align: left;
+    }
+
+    .exp {
+        background-color: lavender;
+    }
+
+    .sig {
+        background-color: #CCFFCC;
+    }
+
+    .man {
+        background-color: moccasin;
+    }
+</style>
+<h1>Преобразование чисел БЭСМ-6</h1>
+<h2>Из формы БЭСМ-6 во float64 </h2>
+<table>
+    <tr>
+        <th></th>
+        <th>Экспонента</th>
+        <th>Знак</th>
+        <th>Мантисса</th>
+    </tr>
+    <tr>
+        <td>Значение</td>
+        <td id="exp_val">64</td>
+        <td id="sign_val">+</td>
+        <td id="man_val">0</td>
+    </tr>
+    <tr>
+        <td>Биты</td>
+        <td class="exp" id="exp_bits"></td>
+        <td class="sig" id="sign_bits"></td>
+        <td class="man" id="man_bits"></td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td class="header" rowspan="4">Результат</td>
+        <td>BIN</td>
+        <td class="mono" id="res_bin"></td>
+    </tr>
+    <tr>
+        <td>OCT</td>
+        <td class="mono" id="res_oct"></td>
+    </tr>
+    <tr>
+        <td>HEX</td>
+        <td class="mono" id="res_hex"></td>
+    </tr>
+    <tr>
+        <td>JS float64</td>
+        <td class="mono" id="res_float"></td>
+    </tr>
+</table>
+<script language="JavaScript">
+    var bin2float, bin2hex, bin2oct, compl, conv, decomp, el, elc, gen_table, update_bin;
+
+    compl = function (b) {
+        var c, i, j, num, results, t;
+        num = ((function () {
+            var j, len, results;
+            results = [];
+            for (j = 0, len = b.length; j < len; j++) {
+                c = b[j];
+                results.push(c);
+            }
+            return results;
+        })()).map((x) => {
+            if (x === '0') {
+                return 0;
+            } else {
+                return 1;
+            }
+        });
+        c = 0;
+        results = [];
+        for (i = j = 39; j >= 0; i = --j) {
+            t = 0 - num[i] + c;
+            if (t < 0) {
+                c = 1;
+                results.push(num[i] = 1);
+            } else {
+                c = 0;
+                results.push(num[i] = t);
+            }
+        }
+        return results;
+    };
+
+    decomp = function (b) {
+        var res;
+        res = {
+            exp: Number.parseInt(b.slice(0, 7), 2),
+            sig: 1.0 * Number.parseInt(b[7], 2),
+            man: b.slice(8)
+        };
+        return res;
+    };
+
+    conv = function (s) {
+        var c, comps, i, j, len, num, ref;
+        comps = decomp(s);
+        num = 0.0;
+        ref = comps.man;
+        for (i = j = 0, len = ref.length; j < len; i = ++j) {
+            c = ref[i];
+            num += (c - '0') / 2.0 ** (i + 1);
+        }
+        return (num - comps.sig) * (2 ** (comps.exp - 64));
+    };
+
+    bin2float = function (b) {
+        return conv(b);
+    };
+
+    bin2oct = function (b) {
+        var i, res;
+        i = 0;
+        res = '';
+        while (i < b.length) {
+            res = res.concat(Number.parseInt(b.slice(i, +(i + 2) + 1 || 9e9), 2).toString(8));
+            i += 3;
+        }
+        return res;
+    };
+
+    bin2hex = function (b) {
+        var i, res;
+        i = 0;
+        res = '';
+        while (i < b.length) {
+            res = res.concat(Number.parseInt(b.slice(i, +(i + 3) + 1 || 9e9), 2).toString(16));
+            i += 4;
+        }
+        return res.toUpperCase();
+    };
+
+    el = function (id, text) {
+        return document.getElementById(id).innerText = text;
+    };
+
+    elc = function (id, text) {
+        return document.getElementById(id).innerHTML = `<span class='exp'>${text.slice(0, 7)}</span><span class='sig'>${text[7]}</span><span class='man'>${text.slice(8)}</span>`;
+    };
+
+    update_bin = function (evt) {
+        var i, j, n, text;
+        text = '';
+        for (i = j = 48; j >= 1; i = --j) {
+            text += document.getElementById(`bit${i}`).checked ? '1' : '0';
+        }
+        n = decomp(text);
+        el('exp_val', n.exp);
+        el('sign_val', n.sig > 0 ? '-' : '+');
+        el('man_val', Number.parseInt(n.man, 2));
+        elc('res_bin', text);
+        el('res_oct', bin2oct(text));
+        el('res_hex', bin2hex(text));
+        return el('res_float', bin2float(text));
+    };
+
+    gen_table = function () {
+        var i, inp, j, k, td;
+        td = document.getElementById('exp_bits');
+        for (i = j = 48; j >= 42; i = --j) {
+            inp = document.createElement('input');
+            inp.type = 'checkbox';
+            inp.id = `bit${i}`;
+            inp.title = `Bit ${i}`;
+            inp.onchange = update_bin;
+            inp.className = "custom-checkbox"
+            td.appendChild(inp);
+        }
+        // sign
+        td = document.getElementById('sign_bits');
+        inp = document.createElement('input');
+        inp.type = 'checkbox';
+        inp.id = "bit41";
+        inp.title = "Bit 41";
+        inp.onchange = update_bin;
+        inp.className = "custom-checkbox"
+        td.appendChild(inp);
+        // mantissa
+        td = document.getElementById('man_bits');
+        for (i = k = 40; k >= 1; i = --k) {
+            inp = document.createElement('input');
+            inp.type = 'checkbox';
+            inp.id = `bit${i}`;
+            inp.title = `Bit ${i}`;
+            inp.onchange = update_bin;
+            inp.className = "custom-checkbox"
+            td.appendChild(inp);
+        }
+        document.getElementById('bit48').checked = true;
+        return update_bin(null);
+    };
+
+    gen_table();
+</script>
