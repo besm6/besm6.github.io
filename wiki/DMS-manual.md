@@ -13,7 +13,7 @@
      PAЗДEЛOB ШKOЛЫ DMS HEOБXOДИMO:
      ПOCЛE ДИPEKTИBЫ DMS И OTBETA HA *NAME:... И  *PASS:..
      B ПPИГЛAШEHИИ  *JSPC: ЗAMEHИTЬ  JSPC HA H:$NAME   ИЛИ
-     H:$VT,  ИЛИ   H:$SPC  И T.Д.  И HAЖATЬ KHOПKY  &lt;ETX&gt;.
+     H:$VT,  ИЛИ   H:$SPC  И T.Д.  И HAЖATЬ KHOПKY  <ETX>.
 
   --------------------------------------------------------
        K A T A Л O Г   P A З Д E Л O B  ШKOЛЫ  DMS
@@ -74,7 +74,7 @@ KЛABИШИ:
             SHIFT     - ПEЧATЬ BEPXHИX CИMBOЛOB KЛABИATYPЫ
             ETX       - ЗABEPШEHИE   BBOДA CTPOKИ, ИЛИ
                         PEДAKTИPOBAHИЯ CTPOKИ ИЛИ ЭKPAHA.
-   ПPИ OДHOBPEMEHHOM HAЖATИИ KЛABИШИ  &lt;REPT&gt;  И KAKOЙ-ЛИБO
+   ПPИ OДHOBPEMEHHOM HAЖATИИ KЛABИШИ  <REPT>  И KAKOЙ-ЛИБO
    ИЗ KЛABИШ ЦИФPOBOГO ИЛИ БYKBEHHOГO PEГИCTPA  KЛABИATYPЫ
    ПИШETCЯ ЭTOT CИMBOЛ.
 
@@ -184,8 +184,8 @@ $EDIT   **       PAБOTA   C   PEДAKTOPOM                **
  *P:K                  PEДAKTИPOBAHИE K-OЙ CTPOKИ ФAЙЛA
  *P:K1,K2              ПPOCMOTP И PEДAKTИPOBAHИE CTPOK:
                        ECЛИ K2=0  -TO C K1 ДO KOHЦA ФAЙЛA
-                       ECЛИ K2&gt;K1 -TO C K1 ДO K2
-                       ECЛИ K2&lt;K1 -TO C K1 ДO K=K1+K2
+                       ECЛИ K2>K1 -TO C K1 ДO K2
+                       ECЛИ K2<K1 -TO C K1 ДO K=K1+K2
  *PE:K3,K4             ПPOCMOTP И PEДAKT. CTPOK  /C KOHЦA/
                        C HOMEPA  K1=NK-K3, ДO  K2=NK-K3+K4
                        ГДE NK-HOMEP ПOCЛEДHEЙ CTPOKИ ФAЙЛA
@@ -199,7 +199,7 @@ $EDIT   **       PAБOTA   C   PEДAKTOPOM                **
 *M:F,N1,N2             ПEPEHOC ИЗ ФAЙЛA F CTPOK C N1 ПO N2
                        B KOHEЦ PEДAKTИPYAMOГO
 *N:NS                  YCTAHOBИTЬ HAЧAЛO ПOИKA C NS CTPOKИ
-*FIND &lt;TEST&gt;           YCTAHOBИTЬ OБPAЗ &lt;TEST&gt;
+*FIND <TEST>           YCTAHOBИTЬ OБPAЗ <TEST>
  *L:N1,N2,F,12         BЫДATЬ HA ЭKPAH B PEЖИME ПOИCKA 12 CTPOK
  *FIND                 BЫДATЬ TEKCT ПOИCKOBOГO OБPAЗA
 *N                     BЫДATЬ 3 ЧИCЛA: N-CTPOKИ, HAЙДEHHOЙ
@@ -259,16 +259,16 @@ BHEШHEЙ (ELIB),  C ПOMOЩЬЮ CTPOK-CПEЦKOMMEHTAPИEB:
 ДPYГOЙ ЗAДAЧИ. ДЛЯ ЭTOГO  HEOБXOДИMO  BKЛЮЧИTЬ B ПACПOPT
 ЗAДAHИЯ ДИPEKTИBY:
 
-*WAIT:&lt;ШИФP OЖИДAEMOЙ OKOHЧAHИЯ ЗAДAЧИ&gt;
+*WAIT:<ШИФP OЖИДAEMOЙ OKOHЧAHИЯ ЗAДAЧИ>
       ПPИ ЗAПYCKE ИЗ DMS ШИФP - 12 ЦИФP - ФOPMИPYETCЯ TAK:
-         &lt;AHП&gt;&lt;HT&gt;&lt;KT&gt;&lt;KБ&gt;&lt;HB&gt; ,                      ГДE
- &lt;AHП&gt; - (0001 - 9999)
-  &lt;HT&gt; - ДBE ЦИФPЫ BЫЧИCЛЯЮTCЯ ПO ФOPMYЛE: HT=(NM-1)*12+NT
+         <AHП><HT><KT><KБ><HB> ,                      ГДE
+ <AHП> - (0001 - 9999)
+  <HT> - ДBE ЦИФPЫ BЫЧИCЛЯЮTCЯ ПO ФOPMYЛE: HT=(NM-1)*12+NT
          ГДE NM - HOMEP ЭBM БЭCM-6, NT - MAT. HOMEP
          TEPMИHAЛA (1-12), C KOTOPOГO ИДET CEAHC CBЯЗИ,
- &lt;KT&gt;  - KOД TEMЫ (00-99)
- &lt;KБ&gt;  - KOД БЮДЖETA, (ПOKA 99)
- &lt;HB&gt;  - HOMEP BAPИAHTA ЗAПYCKA ЗAДAHИЯ (00-99)
+ <KT>  - KOД TEMЫ (00-99)
+ <KБ>  - KOД БЮДЖETA, (ПOKA 99)
+ <HB>  - HOMEP BAPИAHTA ЗAПYCKA ЗAДAHИЯ (00-99)
 
 *EXEC FF               ЗAПYCK HA CЧET FF C BЫДAЧEЙ HA AЦПY
  *EXEC FI,2            ЗAПYCK HA CЧET FI C ПEPEXBATOM
@@ -306,10 +306,10 @@ $JFILE  ** MAKET KOЛOДЫ ДЛЯ ЗAПИCИ B БИБ.DMS TEKCTOB C П/K
  *JLIB:MODEL,PR        ЗAKAЗ HA ПOДKЛ. БИБ.MODEL(ПAPOЛЬ PR)
  *JFILE:DD             DD  - ФAЙЛ  B KOTOPЫЙ БYДET ЗAПИCAH
                        HИЖECЛEДYЮЩИЙ TEKCT C KOЛOДЫ П/K
- &lt;KOЛOДA П/K&gt;          БEЗ П/K *NAME:.. И    *END FILE !!!
+ <KOЛOДA П/K>          БEЗ П/K *NAME:.. И    *END FILE !!!
  //////                ПPИЗHAK KOHЦA П/K
  *END FILE
- &lt;ДK&gt;
+ <ДK>
 
 *     ----------------------------------------------------
 
@@ -320,12 +320,12 @@ $FILE  ** MAKET KOЛOДЫ ДЛЯ ДOCTYПA K ФAЙЛAM БИБ.DMS C П/K
  *PASS:...
  *FILE:TISS,36100,W,001111 ЗAKAЗ HA ПOДKЛ. ПPOCTPAHCTBA
                        DMS ИЗ ФAЙЛA MC-80 'TISS' C 100 ЗOH
- &lt; ЗAKAЗЫ PECYPCOB TИПA &gt;:
- &lt;*TIME:...&gt;
- &lt;*MEMO:...&gt;
- &lt;*DRUM:...&gt;
- &lt;*TAPE:...&gt;
- &lt;*FILE:...&gt;
+ < ЗAKAЗЫ PECYPCOB TИПA >:
+ <*TIME:...>
+ <*MEMO:...>
+ <*DRUM:...>
+ <*TAPE:...>
+ <*FILE:...>
  *DUMON$FILE:DD,PAPT1,MODEL,PR   ЗAПYCK  ЗAДAHИЯ HA CЧET
                        ИЗ ПOДФAЙЛA PART1, ФAЙЛA DD ИЗ
                        БИБ.MODEL(ПAPOЛЬ PR), ПOДKЛЮЧEHHOЙ
@@ -335,7 +335,7 @@ $FILE  ** MAKET KOЛOДЫ ДЛЯ ДOCTYПA K ФAЙЛAM БИБ.DMS C П/K
  *DUMON$FILE:DD,,MODEL,PR  ПPИ ПYCTOM YKAЗATEЛE ПOДФAЙЛA
                        ЗAПYCKAETCЯ BECЬ ФAЙЛ DD
  *END FILE
- &lt;ДK&gt;
+ <ДK>
 
 *     $END FILE
 *     ----------------------------------------------------
@@ -413,21 +413,21 @@ TAKИM OБPAЗOM, OБЩYЮ CTPYKTYPY TEKCTOBOГO
 $PART2 (C ФPAГMEHTAMИ D21 И D22) MOЖHO ПPEДCTABИTЬ
 CЛEДYЮЩИM OБPAЗOM:
 
- &lt; TEKCT  DD &gt;
+ < TEKCT  DD >
  *     $PART1             HAЧAЛO PART1
- &lt; TEKCT  $PART1&gt;
+ < TEKCT  $PART1>
  *     $DECK D11          HAЧAЛO ФPAГMEHTA D11
- &lt;TEKCT ФPAГMEHTA D11&gt;
+ <TEKCT ФPAГMEHTA D11>
  *     $DECK D12          HAЧAЛO ФPAГMEHTA D12
- &lt; TEKCT ФPAГMEHTA D12&gt;
+ < TEKCT ФPAГMEHTA D12>
  *     $DECK $END         KOHEЦ ФPAГMEHTOB  PART1
  *     $END FILE          KOHEЦ  PART1
  *     $PART2             HAЧAЛO PART2
- &lt;TEKCT $PART2 &gt;
+ <TEKCT $PART2 >
  *     $DECK D21          HAЧAЛO ФPAГMEHTA D21
- &lt;TEKCT ФPAГMEHTA D21 &gt;
+ <TEKCT ФPAГMEHTA D21 >
  *     $DECK D22          HAЧAЛO ФPAГMEHTA D22
- &lt;TEKCT ФPAГMEHTA D22 &gt;
+ <TEKCT ФPAГMEHTA D22 >
  *     $DECK $END         KOHEЦ ФPAГMEHTOB PART2
  *     $END FILE          KOHEЦ PART2
  *END FILE                KOHEЦ ФAЙЛA DD
