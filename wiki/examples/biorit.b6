@@ -1,0 +1,19 @@
+ШИФР 419999 ЗС5^
+лен 67(2053)^
+EEB1A3
+*name 
+*perso:671730
+      program main
+      common /year/ iy
+      iy = 2021
+      call biorit
+      end
+*execute
+01 01 1950 1 1 1   joe q public
+*end file
+DD MM YYYY P F C   NAME (up to 24 chars)
+P - number of years before /year/ to print (default 0)
+F - number of years after /year/ to print (default 0)
+C - number of copies (default 1)
+``````
+EKOHEЦ
