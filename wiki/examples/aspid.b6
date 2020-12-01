@@ -1,0 +1,28 @@
+ШИФР 419999 ЗС5^
+лен 67(2048)^
+EEB1A3
+*name 
+*perso:671470
+*main aspid
+*no load list
+*execute
+%CK # #CHП _
+#CCБ & #CПБ @ #ДCK58 #ДCЦ60 #HCЦ1 #PП
+#MAKPO Г #A0 #HOBCЦ #БC3 #CГ0 #A0 #ПБ #Ц #KOHMAK
+#MAKPO ГГ #KПБ #БC3 #A3 #KOHMAK
+#MAKPO HA #A0 #KПБ #БC1 #BC2 #CГ0 #A3 #KOHMAK
+#MAKPO ПEPH #A0 #KПБ #CГ6 #BC2 #БC1 #ЛA3 #KOHMAK      
+#MAKPO ПEP #A0 #KПБ #CГ6 #BC2 #БC1 #A0 #KOHMAK  
+#MAKPO ПAP #A0 #БC5 #CГ0 #BC10 #A6 #KOHMAK
+#MAKPO ПOД #A12 #TAБ36 - #БC3 #KOHMAK     
+#MAKPO Б #ПБ #KOHMAK
+#MAKPO M #KПБ #KOHMAK 
+------------------
+в качестве примера см. файл
+https://github.com/besm6/besm6.github.io/tree/master/wiki/mkb-assembler-guide.txt
+который можно вставить - исключив строку *call aspid*d:macros - вместо текста
+от одного разделителя до другого, включительно.
+------------------
+*end file
+``````
+ЕКОНЕЦ
