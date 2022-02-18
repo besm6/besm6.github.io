@@ -41,3 +41,5 @@ topmenu: yes
 [Список библиотек \*LIBRA и \*PERSO](Libraries)
 
 [Препринты ОИЯИ](JINR-preprints)
+
+[Интерфейс контроллера НМД, текущее понимание](NMD_interface)
