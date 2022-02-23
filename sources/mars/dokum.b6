@@ -1,0 +1,1861 @@
+ШИФР 419900ЗС5^
+ЛЕН 32(1С)^
+EEB1A3
+*name
+*libra:13
+*call ficmemory
+*no li
+*pascal
+(*=U+,P-,T-*)
+(*--*)
+PROGRAM DOKYM
+(INA 50,OUTA 51,DF3 40320000B,RGEXPORT,output );
+(**#ДOKYMEHTATOP*)
+LABEL 2;
+CONST PR      = ' ';
+      SLC     = '^';
+      SB      = (* ПPOПИCHЫE БYKBЫ *)
+'ABCDEFGHIJKLMNOPQRSTUVWXYZБВГДЖЗКЛМНПРСТФХЦЧШЩЪЙЬАЕЕИОУЫЭЮЯ';
+  SBM     = (* CTPOЧHЫE БYKBЫ *)
+'abcdefghijklmnopqrstuvwxyzбвгджзклмнпрстфхцчшщъйьаееиоуыэюя';
+      UP      = '$'; (* ПPИЗHAK ДИPEKTИBЫ *)
+      KCTP    = 70;(* MAKC. ДOПYCTИMOE KOЛИЧECTBO CTPOK HA CTPAHИЦE *)
+      KCM     = 68;(* MAKC. ДOПYCTИMOE KOЛИЧECTBO CИMBOЛOB B CTPOKE *)
+      ACP     = 144;(*KOЛИЧECTBO ПOЗИЦИЙ B CTPOKE AЦПY*)
+    NKS   = 5; (*YПPABЛЯET MИH. CTPOK ПPИ HOBOM PAЗEЛE*)
+  KCTPU   = 61;(*KOЛИЧECTBO CTPOK ПO-YMOЛЧAHИЮ*)
+  KCMU    = 58;(*KOЛИЧECTBO CИMB. ПO-YMOЛЧAHИЮ*)
+  ENCTP   = 255;(*CИMOЛ KOHЦA CTPOKИ*)
+  MONU    = FALSE;
+  KPRGU   = 1;
+      UPRSIM  = 'АВСЕМРТУABCEMPTYDFGLQINRSUVWZ$';
+  (* YПPABЛЯЮЩИE CИMBOЛЫ CHAЧAЛA PYCCKИE CИMBOЛЫ *)
+      LUPR    = 30;
+TYPE  TBUF    = 1..161;
+  ARR     = ARRAY[TBUF]OF CHAR;
+  TSTR    = 1..KCTP;
+  TKCM    = 1..KCM;
+  TINT    = 1..999;
+VAR   BF,
+  BF1,
+  BFF     : ARR;
+  UPS1    : PACKED ARRAY[1..LUPR]OF CHAR;
+  UPS2    : ARRAY[1..LUPR]OF CHAR;
+  ALFF    : PACKED ARRAY[1..59]OF CHAR;
+  ALFB    : ARRAY[1..59]OF CHAR;
+  ALFM    : ARRAY[1..59]OF CHAR;
+      X       : ARRAY[1..KCTP,1..ACP]OF CHAR;
+      NP      : ARRAY[1..5]OF INTEGER;
+      TL      : ARRAY[1..10]OF INTEGER;
+      TBF, (*TEKYЩИЙ CИMBOЛ BXOДHOГO ПOTOKA*)
+      LBF,
+      DBFF,
+      LBF1    : 0..161;
+      RGEXPORT,
+      II,
+      JJ      : 0..999;
+      SM      : 0..ACP;
+      KSTRS   : INTEGER;
+      KPROG   : 0..10;
+      POZACP  : 0..ACP;
+      KSTR,
+      NST     : 0..KCTP;
+      KSIM,L,L1    : 0..KCM;
+      NS      : 0..999;(*HOMEP CTPAHИЦЫ*)
+NSNOV   : 0..999;
+TITAN: BOOLEAN;
+      UPR,  (* ПPИЗHAK ПOЯBЛEHИЯ YПPABЛЯЮЩEГO CИMBOЛA *)
+    SOD,QB,
+      PROB,
+      BULL,
+      PN,
+      R,
+     DBS,
+      ABZAC,
+      MONO,
+      PRZN,
+      NUMBE,
+      ZZZ,
+     UTV,LIT,
+      BUL     : BOOLEAN;
+      INA, OUTA,
+      DF5,
+      DF3,
+      DF1,
+      DF4,            (* ФAЙЛ OФOPMЛEHИЯ TИTYЛЬHOЙ CTPAHИЦЫ *)
+      DF2     : TEXT; (* ФAЙЛ OФOPMЛEHИЯ COДEPЖAHИЯ *)
+      SIM,
+      RG,
+      C       : CHAR;
+FUNCTION UPRSIMW(VAR C : CHAR): BOOLEAN;
+ VAR J : INTEGER;
+ BEGIN J:=1;
+    WHILE(C<>UPS2[J])AND(J<LUPR) DO J:=J+1;
+    IF J<9
+    THEN
+     BEGIN J:=J+8; C:=UPS2[J]
+     END; UPRSIMW:=(C=UPS2[J])
+ END;
+FUNCTION TZNAK( C : CHAR): BOOLEAN;
+ VAR J : INTEGER;
+ BEGIN J:=47;
+    WHILE(C<>ALFB[J])AND(C<>ALFM[J])AND(J<49) DO J:=J+1;
+    TZNAK:=(C=ALFB[J])OR(C=ALFM[J])
+ END;
+FUNCTION RUSSKAJA( C : CHAR): BOOLEAN;
+ VAR J : INTEGER;
+ BEGIN J:=27;
+    WHILE(C<>ALFB[J])AND(C<>ALFM[J])AND(J<59) DO J:=J+1;
+    RUSSKAJA:=(C=ALFB[J])OR(C=ALFM[J])
+ END;
+FUNCTION GLASNAJA( C : CHAR): BOOLEAN;
+ VAR J : INTEGER;
+ BEGIN J:=50;
+    WHILE(C<>ALFB[J])AND(C<>ALFM[J])AND(J<59) DO J:=J+1;
+    GLASNAJA:=(C=ALFB[J])OR(C=ALFM[J])
+ END;
+FUNCTION GROSS( C : CHAR): CHAR;
+ VAR J : INTEGER;
+ BEGIN J:=1;
+    WHILE(C<>ALFB[J])AND(C<>ALFM[J])AND(J<59) DO J:=J+1;
+    GROSS:=ALFB[J]
+ END;
+FUNCTION KLAJN( C : CHAR): CHAR;
+ VAR J : INTEGER;
+ BEGIN J:=1;
+    WHILE(C<>ALFB[J])AND(C<>ALFM[J])AND(J<59) DO J:=J+1;
+    KLAJN:=ALFM[J]
+ END;
+(* ПEЧATЬ OГPAHИЧИTEЛЯ ЛИCTOB *)
+PROCEDURE OGR;
+ VAR I,J : INTEGER;
+ BEGIN (*+BE+!)WRITELN(OUTA,PR);
+    IF MONO
+    THEN J:=KSIM
+    ELSE J:=POZACP;
+    WRITELN(OUTA,PR); WRITELN(OUTA,PR);
+    FOR I:=1 TO J DO WRITE(OUTA,'-');
+    WRITELN(OUTA); WRITELN(OUTA); WRITELN(OUTA)
+(!--*)  (*+LC+*) WRITELN(OUTA,CHR(12))(*--*)
+ END;
+(* ПEЧATЬ HOMEPOB CTPAHИЦ *)
+PROCEDURE BEGPAGE;
+ VAR I,K: INTEGER; BB: BOOLEAN;
+PROCEDURE BP( A: INTEGER);
+ VAR J : INTEGER;
+ BEGIN
+    IF NOT BB
+    THEN
+     BEGIN K:=(KSIM-7) DIV 2;
+        FOR J:=1 TO K DO WRITE(OUTA,PR);
+        WRITE(OUTA,'- ',A:3,' -');
+        FOR J:=(K+8) TO KSIM DO WRITE(OUTA,PR)
+     END
+    ELSE
+     BEGIN
+        FOR J:=1 TO KSIM DO WRITE(OUTA,PR);
+        BB:=FALSE
+      END
+  END;
+ PROCEDURE BP1;
+  VAR I,J: INTEGER;
+  BEGIN
+     IF NOT BB
+     THEN
+      BEGIN J:=(KSIM-LBF1) DIV 2;
+         FOR I:=1 TO J DO WRITE(OUTA,PR); I:=1;
+         WHILE I<=LBF1 DO
+          BEGIN WRITE(OUTA,BF1[I]); I:=I+1
+          END; FOR I:=J+LBF1+1 TO KSIM DO WRITE(OUTA,PR)
+      END
+     ELSE
+      BEGIN BB:=FALSE; FOR I:=1 TO KSIM DO WRITE(OUTA,PR);
+      END
+  END;
+ BEGIN
+    IF PN
+    THEN
+     BEGIN WRITE(OUTA,PR); BB:=BULL;
+        IF NOT MONO
+        THEN
+         BEGIN BP(NS-1);
+            IF NOT BULL
+            THEN
+             FOR I:=(KSIM+1) TO (POZACP-KSIM) DO WRITE(OUTA,PR)
+         END; BP(NS); WRITELN(OUTA); BB:=BULL;
+        IF NOT MONO
+        THEN
+         BEGIN  BP1;
+            IF NOT BULL
+            THEN
+             FOR I:=(KSIM+1) TO (POZACP-KSIM) DO WRITE(OUTA,PR)
+         END; BP1; WRITELN(OUTA);
+     END
+    ELSE
+     BEGIN WRITELN(OUTA,PR); WRITELN(OUTA,PR)
+     END;
+    FOR JJ:=1 TO 2 DO WRITELN(OUTA,PR);
+    IF BULL
+    THEN BULL:=FALSE
+ END;
+(* ПEPEXOД HA HOBYЮ CTPOKY CTPAHИЦЫ *)
+PROCEDURE NOWSTR;
+ VAR I,J: INTEGER;
+ BEGIN
+    IF NST=KSTR
+    THEN
+     BEGIN NST:=1; NS:=NS+1;
+        FOR J:=1 TO KSTR DO
+        BEGIN
+           FOR I:=1 TO KSIM DO
+           BEGIN WRITE(DF3,X[J,I]); X[J,I]:=PR
+           END; WRITELN(DF3)
+        END
+     END
+    ELSE NST:=NST+1
+ END;
+(* БYФEPИЗAЦИЯ BXOДHOГO ПOTOKA *)
+PROCEDURE INBUF(VAR F: TEXT);
+ LABEL 3;
+ VAR Z: CHAR; I: INTEGER;
+ BEGIN FOR I:=1 TO LBF+1 DO BF[I]:=PR; TBF:=1;
+    IF EOF(F)
+    THEN
+     BEGIN BF[1]:=UP; BF[2]:='E'; TBF:=2; GOTO 3
+     END; I:=1;
+    WHILE NOT((I>LBF)OR EOLN(F)) DO
+     BEGIN READ(F,Z); I:=I+1;
+        IF Z<>SIM
+        THEN
+         BEGIN BF[TBF]:=Z; TBF:=TBF+1
+         END
+     END; READLN(F);
+    WHILE(BF[TBF]=PR)AND(TBF>1) DO TBF:=TBF-1;
+ 3: BF[TBF+1]:=CHR(ENCTP); TBF:=1; C:=BF[2];
+    UPR:=(BF[1]=UP)OR(ABZAC AND(BF[1]=PR))
+ END;
+FUNCTION USTAN: BOOLEAN;
+ VAR B: BOOLEAN; Z: CHAR;
+ BEGIN B:=FALSE;
+    IF(BF[TBF]=UP)AND((C='+')OR(C='-'))
+    THEN
+     BEGIN B:=TRUE; TBF:=TBF+2; Z:=BF[TBF]; R:=C='-';
+        WHILE(Z<>PR)AND(Z<>CHR(ENCTP))AND NOT R DO
+         BEGIN R:=Z=RG; TBF:=TBF+1; Z:=BF[TBF]
+          END;
+        WHILE(BF[TBF]<>PR)AND(BF[TBF]<>CHR(ENCTP)) DO TBF:=TBF+1
+     END; USTAN:=B
+ END;
+(* ПPOEДAHИE ПPOБEЛOB BO BXOДHOM ПOTOKE *)
+PROCEDURE PROBEL(VAR F: TEXT);
+ VAR BL: BOOLEAN;
+ BEGIN
+    REPEAT
+      REPEAT BL:=TRUE;
+        WHILE(BF[TBF]=PR)AND PROB DO TBF:=TBF+1;
+        IF BF[TBF]=CHR(ENCTP)
+        THEN
+         BEGIN INBUF(F); BL:=FALSE
+         END
+      UNTIL BL; C:=BF[TBF+1]; BL:=USTAN;
+      IF BL AND NOT R
+      THEN
+       BEGIN
+          REPEAT 
+            IF BF[TBF]=CHR(ENCTP)
+            THEN INBUF(F)
+            ELSE TBF:=TBF+1; C:=BF[TBF+1]
+          UNTIL(BF[TBF]=UP)AND(C='-');
+          UPR:=USTAN; UPR:=FALSE
+       END
+    UNTIL NOT BL
+ END;
+FUNCTION CELOE(VAR F:TEXT): INTEGER;
+ VAR I,J: INTEGER; Z: CHAR;
+ BEGIN I:=0; J:=0; PROBEL(F); Z:=BF[TBF];
+    WHILE(Z>='0')AND(Z<='9')AND(J<10) DO
+     BEGIN I:=I*10+ORD(Z)-ORD('0'); J:=J+1; TBF:=TBF+1; Z:=BF[TBF]
+     END; CELOE:=I
+ END;
+(* HAПOЛHEHИE БYФEPA CO CЖATИEM ПPOБEЛOB *)
+PROCEDURE INBUF2(MIN,MAX: INTEGER; VAR D: BOOLEAN; VAR F: TEXT);
+ VAR I1 : INTEGER;
+FUNCTION PRNS(VAR A,B: INTEGER;VAR SLS:BOOLEAN):BOOLEAN;
+ VAR BL,BL1,BL2,BLL2:BOOLEAN; Z: CHAR; J:INTEGER;
+ BEGIN B:=MAX+1; BL1:=GLASNAJA(BFF[A+1]);
+    BL2:=GLASNAJA(BFF[A+2]); J:=A;
+BLL2:=TZNAK(BFF[A+2]);
+IF BFF[A]='-' THEN
+BEGIN SLS:=TRUE;B:=A+1
+END
+ELSE
+IF SLS THEN SLS:=FALSE
+ELSE
+IF BL1 AND(BFF[A+2]='-') THEN B:=A+3
+ELSE
+IF BL1 AND BL2 AND(BFF[A+3]='-') THEN B:=A+4
+ELSE
+IF(NOT BL1)AND BLL2 AND GLASNAJA(BFF[A+3]) AND
+((BFF[A+4]<>'-')OR(BFF[A+4]<>PR))
+THEN B:=A+3
+ELSE
+    IF(BL1 AND BL2)OR(NOT BL1 AND BL2)
+    THEN B:=A+1
+    ELSE
+    IF(NOT BL1)AND(NOT BL2)AND(GLASNAJA(BFF[A+3]))
+    THEN B:=A+2
+    ELSE
+     BEGIN
+        REPEAT J:=J+1; Z:=BFF[J]; BL:=TZNAK(Z)
+        UNTIL BL OR(Z=PR); Z:=BFF[A+2];
+        IF BL
+        THEN B:=J+1
+        ELSE
+        IF(BFF[A+1]='C')AND((Z='T')OR(Z='K'))
+        THEN B:=A+3
+        ELSE
+        IF(NOT BL1)AND(NOT BL2)
+           AND(NOT GLASNAJA(BFF[A+3]))
+           AND(RUSSKAJA(BFF[A+3]))
+        THEN B:=A+2
+     END; PRNS:=B<=MAX
+ END;
+PROCEDURE PERENOS;
+ LABEL 3;
+ VAR I,J: INTEGER; CR: CHAR; BL,SLSOCH: BOOLEAN;
+     MM: ARRAY[1..30]OF INTEGER;
+ BEGIN I:=0;
+IF(((DBFF+6)>MAX)OR DBS)
+   THEN GOTO 3; FOR J:=1 TO 30 DO MM[J]:=0; J:=DBFF+1;
+   REPEAT
+      REPEAT J:=J+1; CR:=BFF[J];
+         IF CR<>PR
+         THEN
+          IF NOT RUSSKAJA(CR) AND (CR<>'-')
+          THEN
+           IF (BFF[J-1]<>PR)AND(BFF[J+1]<>PR)
+           THEN GOTO 3
+      UNTIL(GLASNAJA(CR))OR(CR=PR)OR(CR='-');
+      IF(CR<>PR)
+      THEN
+       BEGIN I:=I+1; MM[I]:=J
+       END
+   UNTIL(CR=PR)OR(I=30); J:=0; I:=I-1;
+   IF I<1
+   THEN GOTO 3; BL:=PRNS(MM[I],J,SLSOCH);
+   WHILE(NOT BL)AND(I>1) DO
+    BEGIN I:=I-1; BL:=PRNS(MM[I],J,SLSOCH)
+    END;
+   IF((J<(DBFF+6))OR(NOT BL))
+   THEN GOTO 3; DBFF:=DBFF+2; PROBEL(F);
+   REPEAT DBFF:=DBFF+1; TBF:=TBF+1
+   UNTIL DBFF=J; 
+IF NOT SLSOCH THEN BFF[J]:='-';
+3:
+ END;
+ BEGIN
+    FOR I1:=1 TO 161 DO BFF[I1]:=PR; DBFF:=MIN;
+    PROBEL(F); II:=0;
+    REPEAT
+     REPEAT DBFF:=DBFF+1; BFF[DBFF]:=BF[TBF];
+      TBF:=TBF+1
+     UNTIL(BFF[DBFF]=PR)OR(BF[TBF]=CHR(ENCTP));
+     IF BF[TBF]=CHR(ENCTP)
+     THEN DBFF:=DBFF+1;
+     IF DBFF<=MAX
+     THEN PROBEL(F); II:=II+1
+    UNTIL (DBFF>MAX)OR UPR; II:=II-2; DBFF:=DBFF-1;
+    D:=DBFF<=MAX;
+    IF NOT D
+    THEN
+     BEGIN
+        IF PROB
+        THEN
+         BEGIN DBFF:=DBFF-1; TBF:=TBF-1;
+            REPEAT DBFF:=DBFF-1; TBF:=TBF-1
+            UNTIL(BFF[DBFF+1]=PR)OR(DBFF<1);
+            IF TBF<1
+            THEN TBF:=1;
+            IF DBFF<1
+            THEN
+             BEGIN
+                WRITELN(OUTA,' ДЛИHHAЯ CTPOKA'); TBF:=1;
+                WHILE BF[TBF]<>CHR(ENCTP) DO
+                 BEGIN WRITE(OUTA,BF[TBF]); TBF:=TBF+1
+                 END; WRITELN(OUTA); GOTO 2
+             END
+            ELSE PERENOS
+         END
+        ELSE
+         BEGIN D:=TRUE;
+            WHILE DBFF>MAX DO
+             BEGIN DBFF:=DBFF-1; TBF:=TBF-1
+             END
+         END
+     END
+    ELSE PROBEL(F)
+ END;
+(* ФOPMATИPOBAHИE CTPOKИ *)
+PROCEDURE FORMAT(MIN,MAX,NBF: INTEGER; VAR BUL: BOOLEAN);
+ VAR   K,L,N,M: INTEGER;
+ BEGIN K:=MIN; M:=NBF;
+    IF BUL
+    THEN
+     REPEAT K:=K+1; M:=M+1; X[NST,K]:=BFF[M]
+     UNTIL M>=DBFF
+    ELSE
+     BEGIN L:=MAX-DBFF; (* KOЛИЧECTBO HEДOCTAЮШИX CИMBOЛOB *)
+        IF II>0
+        THEN
+         BEGIN N:=L DIV II; L:=L-N*II
+         END;
+        REPEAT
+            REPEAT K:=K+1; M:=M+1; X[NST,K]:=BFF[M]
+            UNTIL(BFF[M]=PR)OR(K>=MAX);
+            IF II>0
+            THEN
+             BEGIN
+                IF II=L
+                THEN N:=N+1; K:=K+N; II:=II-1
+             END
+         UNTIL K>=MAX
+     END
+ END;
+PROCEDURE ZENTR(BUF: ARR; MAX: INTEGER; VAR F:TEXT);
+ VAR I,J,K: INTEGER;
+ BEGIN K:=1;
+    WHILE(BUF[K]=PR) DO K:=K+1; I:=K;
+    WHILE(BUF[I]<>CHR(ENCTP))AND(I<MAX) DO I:=I+1;
+    I:=I-K+1; J:=(MAX-I) DIV 2; I:=1;
+    WHILE I<=J DO
+     BEGIN WRITE(F,PR); I:=I+1
+     END; K:=1;
+    WHILE(I<=MAX)AND(BUF[K]<>CHR(ENCTP)) DO
+     BEGIN WRITE(F,BUF[K]); I:=I+1; K:=K+1
+     END; WRITELN(F)
+ END;
+(* OФOPMЛEHИE TИTYЛA *)
+PROCEDURE TITUL(A: INTEGER);
+ VAR BL: BOOLEAN; J: INTEGER;
+ BEGIN J:=1;
+    WHILE NOT UPR DO
+     BEGIN
+        IF BF[1]=UP
+        THEN
+         BEGIN
+            WHILE J<TBF DO
+             BEGIN BF[J]:=PR; J:=J+1
+             END; J:=1;
+         END;
+        WHILE BF[J]=PR DO J:=J+1;
+        IF A=4
+        THEN
+         BEGIN LBF1:=1;
+            WHILE BF[J]<>CHR(ENCTP) DO
+             BEGIN BF1[LBF1]:=BF[J]; J:=J+1; LBF1:=LBF1+1
+             END; BF1[LBF1]:=CHR(ENCTP); LBF1:=LBF1-1
+         END
+        ELSE
+         BEGIN
+            WHILE BF[J]<>CHR(ENCTP) DO
+             BEGIN WRITE(DF4,BF[J]); J:=J+1
+             END; WRITELN(DF4)
+         END; TL[A]:=TL[A]+1; INBUF(INA)
+     END
+ END;
+PROCEDURE PROGON;
+ BEGIN
+    IF NST>1
+    THEN NOWSTR
+ END;
+PROCEDURE PRINTC(A,F:INTEGER;VAR POZ: INTEGER);
+ VAR J,K: INTEGER;
+PROCEDURE PRINTF(A: INTEGER);
+ BEGIN J:=A DIV 10; K:=K-1;
+    IF J<>0 THEN PRINTF(J);
+    WHILE K>0 DO
+     BEGIN POZ:=POZ+1;X[NST,POZ+SM]:=PR; K:=K-1
+     END;
+    POZ:=POZ+1; X[NST,POZ+SM]:=CHR(A MOD 10 +ORD('0'))
+ END;
+ BEGIN K:=F; PRINTF(A)
+ END;
+PROCEDURE ZIFRA(A,F: INTEGER;VAR POZ: INTEGER);
+ BEGIN PRINTC(A,F,POZ); POZ:=POZ+1; X[NST,POZ+SM]:='.'
+ END;
+(* OФOPMЛEHИE OГЛABЛEHИЯ *)
+PROCEDURE SODER(VAR F: TEXT);
+ VAR I,J,M,L,MAX,MIN,POZ: INTEGER;
+PROCEDURE PUTSOD;
+ BEGIN J:=KSIM; I:=0; L:=MIN+1;
+    WHILE X[NST,J]=PR DO J:=J-1;
+    WHILE I<M DO
+     BEGIN WRITE(DF2,PR); I:=I+1
+     END;
+    REPEAT WRITE(DF2,X[NST,L]); L:=L+1; I:=I+1
+    UNTIL L>J; NOWSTR
+ END;
+ BEGIN DBS:=TRUE; PROGON;
+    IF NST>KSTR-NKS
+    THEN WHILE NST>1 DO NOWSTR; I:=CELOE(F);
+    IF I=0
+    THEN I:=1;
+    IF I>5
+    THEN I:=5;
+    IF NUMBE
+    THEN
+     BEGIN NP[I]:=NP[I]+1; J:=I+1;
+        WHILE J<6 DO
+         BEGIN NP[J]:=0; J:=J+1
+         END
+     END;
+    IF I=1
+    THEN
+     BEGIN
+        IF NUMBE
+        THEN
+         BEGIN L:=13; M:=NP[1] DIV 10;
+            WHILE M>0 DO
+             BEGIN L:=L+1; M:=M DIV 10
+             END
+         END
+        ELSE L:=10; MAX:=KSIM-10; INBUF2(L,MAX,BUL,F);
+        IF BUL
+        THEN MIN:=(KSIM-DBFF+10) DIV 2
+        ELSE MIN:=10; POZ:=MIN; M:=1;
+        IF NUMBE
+        THEN
+         BEGIN ZIFRA(NP[1],0,POZ); POZ:=POZ+1
+         END; MAX:=DBFF+POZ-MIN; BUL:=TRUE
+     END
+    ELSE
+     BEGIN MIN:=3; POZ:=3;
+        IF NUMBE
+        THEN
+         BEGIN FOR J:=1 TO I DO ZIFRA(NP[J],0,POZ); POZ:=POZ+1
+         END; M:=I*4-3; MAX:=KSIM-I*4+2;
+        L:=POZ; INBUF2(L,MAX,BUL,F); MAX:=DBFF
+     END; FORMAT(POZ,MAX,L,BUL); IF SOD THEN PUTSOD;
+    WHILE NOT UPR DO
+     BEGIN WRITELN(DF2); INBUF2(POZ,MAX,BUL,F);
+        KSTRS:=KSTRS+1; FORMAT(POZ,MAX,POZ,BUL); IF SOD THEN PUTSOD;
+     END;
+    WHILE I<KSIM-4 DO
+     BEGIN WRITE(DF2,'.'); I:=I+1
+     END; WRITELN(DF2,NS:4); PROGON; KSTRS:=KSTRS+1;DBS:=FALSE
+ END;
+PROCEDURE ABZC(JJ: INTEGER;VAR F:TEXT);
+ VAR II: INTEGER;
+ BEGIN
+    INBUF2(JJ,KSIM,BUL,F);
+    FORMAT(JJ,KSIM,JJ,BUL); NOWSTR;
+    WHILE NOT UPR DO
+     BEGIN INBUF2(0,KSIM,BUL,F);
+        FORMAT(0,KSIM,0,BUL); NOWSTR
+     END;
+    IF KPROG>0
+    THEN FOR II:=1 TO KPROG DO PROGON
+ END;
+PROCEDURE PRINT(VAR F: TEXT);
+ LABEL 1,2,3;
+ VAR I,J: INTEGER; ZZ1,ZZZ: BOOLEAN; Z: CHAR;
+PROCEDURE ER( A: INTEGER);
+ BEGIN WRITE(OUTA,' >> ERROR <<');
+    CASE A OF
+    1:WRITELN(OUTA,' HECYЩ. YПP. CИMB.');
+    2:WRITELN(OUTA,' HECYЩ. HOMEP ПOЛЯ TИT. ЛИCTA');
+    3:WRITELN(OUTA,' HAPYШEH ПOPЯД. CЛEДOB. ПOЛEЙ')
+    END; TBF:=1;
+    REPEAT WRITE(OUTA,BF[TBF]); TBF:=TBF+1
+    UNTIL(BF[TBF]=CHR(ENCTP)); WRITELN(OUTA); GOTO 1
+ END;
+PROCEDURE PROV;
+ BEGIN
+    IF NOT R
+    THEN GOTO 1
+ END;
+PROCEDURE PROV1(VAR F:TEXT);
+ BEGIN
+    IF NOT R
+    THEN
+     BEGIN
+        WHILE NOT UPR AND NOT EOF(F) DO INBUF(F);
+        GOTO 1
+     END
+ END;
+ BEGIN PROB:=TRUE; INBUF(F);
+1:  WHILE NOT UPR AND NOT EOF(F) DO
+     BEGIN ZZ1:=PROB; PROB:=TRUE;
+        PROBEL(F); C:=BF[TBF+1]; PROB:=ZZ1;
+        IF NOT UPR
+        THEN UPR:=BF[TBF]=UP;
+        IF(NOT UPR)AND(BF[TBF]<>CHR(ENCTP))
+        THEN TBF:=TBF+1
+     END; UPR:=FALSE;
+    IF USTAN
+    THEN GOTO 1; TBF:=TBF+2;
+    IF(BF[1]=PR)AND ABZAC (* ПEЧATЬ AБЗAЦA *)
+    THEN
+     BEGIN PROV1(F); JJ:=0;
+        REPEAT JJ:=JJ+1
+        UNTIL BF[JJ]<>PR; TBF:=JJ; JJ:=JJ-1;
+        ABZC(JJ,F); GOTO 1
+     END;
+    IF NOT UPRSIMW(C)
+    THEN ER(1);
+    CASE C OF
+    'A'     :
+             BEGIN PROV1(F); 
+IF (BF[TBF]<>CHR(ENCTP))
+AND(BF[TBF]<>' ') THEN
+ BEGIN 
+L1:=CELOE(F);IF L1<>0 THEN L:=L1 END ;
+ABZC(L,F);
+             END;
+    'C'     :
+             BEGIN PROV1(F); ZZ1:=ABZAC; ABZAC:=FALSE;
+2:
+                IF BF[TBF]=CHR(ENCTP)
+                THEN INBUF(F);
+                WHILE NOT UPR DO
+                 BEGIN I:=1;
+                    WHILE(BF[TBF]<>CHR(ENCTP))DO
+                     BEGIN
+                        IF I>KSIM
+                        THEN
+                         BEGIN I:=1; NOWSTR
+                         END; X[NST,I]:=BF[TBF];
+                        I:=I+1; TBF:=TBF+1
+                     END; NOWSTR; INBUF(F)
+                 END; ZZZ:=USTAN;
+                IF ZZZ AND(C='+')AND NOT R
+                THEN
+                 BEGIN
+                    REPEAT INBUF(F); C:=BF[2]
+                    UNTIL (BF[1]=UP)AND((C='-')OR(C='E'));
+                    BUL:=USTAN; UPR:=FALSE; GOTO 2
+                 END;
+                IF ZZZ
+                THEN
+                 BEGIN INBUF(F); GOTO 2
+                 END;(*PROGON;*)ABZAC:=ZZ1
+             END;
+    'N'     :
+             BEGIN C:=BF[TBF]; TBF:=TBF+1; PROV;
+                IF C='+'
+                THEN NUMBE:=TRUE;
+                IF C='-'
+                THEN NUMBE:=FALSE
+             END;
+    'R'     :
+             BEGIN
+                IF BF[TBF]='='
+                THEN
+                 BEGIN RG:=BF[TBF+1]; TBF:=TBF+2
+                 END
+             END;
+    'T'     : (* ПEЧATЬ HAЗBAHИЯ PAБOTЫ *)
+             BEGIN PROV1(F); I:=CELOE(F);
+                IF(I>10)OR(I<1)
+                THEN ER(2); II:=0; J:=I+1;
+                WHILE J<10 DO
+                 BEGIN II:=II+TL[J]; J:=J+1
+                 END;
+                IF II>0
+                THEN ER(3); TITUL(I)
+             END;
+    'B'     :(* OФOPMЛEHИE AHHOTAЦИИ *)
+             BEGIN
+                IF BF[TBF]='+'
+                THEN WHILE NST>1 DO NOWSTR;
+                IF BF[TBF]='-'
+                THEN
+                 BEGIN JJ:=KSTR+1; II:=0;
+                    REPEAT I:=1; II:=II+1;
+                      REPEAT ZZZ:=X[II,I]=PR; I:=I+1
+                      UNTIL(NOT ZZZ)OR(I>KSIM)
+                    UNTIL(NOT ZZZ)OR(II=KSTR);
+                    I:=KSTR DIV 3; J:=(KSIM-9) DIV 2;
+                    WRITELN(DF5,UP,I:1);
+                    FOR I:=1 TO J DO WRITE(DF5,PR);
+                    WRITELN(DF5,'AHHOTAЦИЯ');
+  WRITELN(DF5,PR);
+  FOR J:=II TO NST-1 DO
+   BEGIN
+FOR I:=1 TO KSIM DO
+ BEGIN
+    WRITE(DF5,X[J,I]);
+    X[J,I]:=PR
+ END; WRITELN(DF5)
+   END; NST:=1; WRITELN(DF5,PR)
+     END; TBF:=TBF+1
+ END;
+    'L'     :(* ПEPEXOД HA HOBYЮ CTPAHИЦY *)
+ BEGIN Z:=BF[TBF];
+    IF(Z='>')OR(Z='<')
+    THEN
+     BEGIN TBF:=TBF+1; J:=CELOE(F); PROV;
+  IF J=0
+  THEN GOTO 1;
+  CASE Z OF
+  '>'  :IF(J+NST)<KSTR
+  THEN GOTO 1;
+  '<'  :BEGIN FOR I:=1 TO J DO PROGON; GOTO 1
+  END
+                    END
+                 END; PROV; WHILE NST>1 DO NOWSTR
+             END;
+    'S'     : (* ЗAГЛABИE *)
+             BEGIN PROV; SODER(F); GOTO 1
+             END;
+    'V'     :
+             BEGIN Z:=BF[TBF]; TBF:=TBF+1; PROV; SIM:=Z
+             END;
+    'D'     :
+             BEGIN I:=CELOE(F); PROV;
+                IF(I<161)AND(I>20)
+                THEN LBF:=I
+             END;
+   'I'    :BEGIN UTV:=BF[TBF]='+';
+TBF:=TBF+1;
+LIT:=BF[TBF]='+';
+TBF:=TBF+1 END;
+ 'Q'  :BEGIN QB:=BF[TBF]='+';
+SOD:=BF[TBF+1]='+';TBF:=TBF+2 END;
+    'F'     :(* ЗAДAETCЯ PAЗMEP ЛИCTA *)
+             BEGIN PROV; I:=CELOE(F);
+                IF (I<=ACP)AND(I>=50)
+                THEN POZACP:=I-4; TBF:=TBF+1; I:=CELOE(F);
+                IF (I<=KCTP)AND(I>=10)
+                THEN KSTR:=I; TBF:=TBF+1; I:=CELOE(F);
+                IF (I<=(ACP-4))AND(I>=10)
+                THEN
+                 BEGIN KSIM:=I; MONO:=KSIM>=(POZACP DIV 2)
+                 END
+            END;
+    'Y'     :
+             BEGIN PROV; KPROG:=CELOE(F)
+             END;
+    'G'     :
+             BEGIN PN:=BF[TBF]='+'; TBF:=TBF+1
+             END;
+    'P'     :
+           BEGIN NS:=CELOE(F);NSNOV:=NS
+             END;
+'W':  TITAN:=FALSE;
+    'U'     :
+             BEGIN
+                ABZAC:=BF[TBF]='+'; TBF:=TBF+1
+             END;
+    'Z'     :
+             BEGIN PROV;
+                PROB:=BF[TBF]='+'; TBF:=TBF+1
+             END;
+    'M'     :
+             BEGIN PROV;
+                MONO:=BF[TBF]='+'; TBF:=TBF+1
+             END;
+    UP      :;
+    'E'     :(* KOHEЦ PAБOTЫ *)
+             GOTO 3
+    END; GOTO 1;
+3:
+    WHILE NOT EOF(F) DO READLN(F)
+ END;
+PROCEDURE PRINTO(VAR F: TEXT;B,BB: BOOLEAN);
+ VAR K,L: INTEGER;
+PROCEDURE NOWS;
+ VAR I,J,NN,LL:INTEGER;
+ BEGIN
+    IF NST>=KSTR
+    THEN
+     BEGIN NST:=1;
+        IF(SM=0)AND NOT MONO
+        THEN SM:=POZACP-KSIM
+        ELSE
+
+         BEGIN SM:=0; BEGPAGE;
+            IF MONO
+            THEN LL:=KSIM
+            ELSE LL:=POZACP;
+            FOR J:=1 TO KSTR DO
+            BEGIN NN:=LL; WRITE(OUTA,PR);
+               WHILE(X[J,NN]=PR)AND(NN>1) DO NN:=NN-1;
+               FOR I:=1 TO NN DO
+               BEGIN WRITE(OUTA,X[J,I]); X[J,I]:=PR
+               END; WRITELN(OUTA)
+            END; OGR
+         END; NS:=NS+1
+     END
+    ELSE NST:=NST+1
+ END;
+ BEGIN INBUF(F);
+    WHILE NOT EOF(F) DO
+     BEGIN
+        IF UPR
+        THEN
+         BEGIN
+            IF C='+'
+            THEN NST:=KSTR
+            ELSE
+             BEGIN TBF:=2; K:=CELOE(F); L:=NST+K-1;
+                IF L>KCM
+                THEN NST:=KSTR
+                ELSE NST:=L
+             END
+         END
+        ELSE
+         BEGIN TBF:=1;
+            REPEAT X[NST,SM+TBF]:=BF[TBF]; TBF:=TBF+1
+            UNTIL BF[TBF]=CHR(ENCTP);
+            IF B
+            THEN
+             BEGIN TBF:=TBF-1; C:=BF[TBF];
+                IF(C>='0')AND(C<='9')
+                THEN
+                 BEGIN
+                    WHILE(C>='0')AND(C<='9') DO
+                     BEGIN TBF:=TBF-1; C:=BF[TBF]
+                     END; K:=TBF; L:=CELOE(F);
+                    WHILE BF[K]=PR DO K:=K-1;
+                     PRINTC(L+KSTRS,4,K)
+                 END
+             END
+         END; NOWS; INBUF(F)
+     END; WHILE NST>1 DO NOWS;
+    IF BB
+    THEN
+     IF SM>0
+     THEN
+      BEGIN NST:=KSTR; NOWS
+      END
+ END;
+(* HAЧAЛO ПPOГPAMMЫ *)
+BEGIN
+rewrite(df3);
+RGEXPORT:=2C; 
+QB:=TRUE;SOD:=TRUE;
+   UPS1:=UPRSIM; UNPACK(UPS1,UPS2,1);
+   ALFF:=SB; UNPACK(ALFF,ALFB,1);
+   ALFF:=SBM; UNPACK(ALFF,ALFM,1);
+ NS:=1;NSNOV:=1;TITAN:=TRUE;
+NST:=1;NUMBE:=TRUE;LBF1:=1;
+   MONO:=MONU; SIM:=SLC; LBF:=80; KSTRS:=3;
+   FOR JJ:=1 TO KCTP DO FOR II:=1 TO ACP DO X[JJ,II]:=PR;
+   FOR II:=1 TO 5 DO NP[II]:=0; PRZN:=FALSE;
+   R:=TRUE; RG:='B'; KSTR:=KCTPU; KSIM:= KCMU;
+   FOR II:=1 TO 10 DO TL[II]:=0; PN:=TRUE;
+   FOR II:=1 TO 161 DO BF[II]:=PR; KPROG:=KPRGU;
+   SM:=0; POZACP:=124; ABZAC:=FALSE; BULL:=FALSE;
+    L:=3;
+   FOR II:=1 TO 20 DO WRITE(DF2,PR);
+   WRITELN(DF2,'COДEPЖAHИE');WRITELN(DF2,UP,'2');
+   PRINT(INA); WRITELN(DF2,UP,'+'); RESET(DF2); RESET(DF4);
+   WHILE NST>1 DO NOWSTR;
+   NST:=1; KSTRS:=KSTRS DIV KSTR+3;
+   (* ПEЧATЬ TИTYЛЬHOГO ЛИCTA *)
+(*+BCE+!) OGR;  (!--*)
+   BULL:=TRUE; II:=TL[1];
+   WHILE TL[1]>0 DO
+    BEGIN INBUF(DF4); ZENTR(BF,KSIM,DF1); TL[1]:=TL[1]-1
+    END;
+   WHILE TL[2]>0 DO
+    BEGIN READLN(DF4); TL[2]:=TL[2]-1
+    END; WRITELN(DF1,UP,'2');
+  IF UTV THEN BEGIN
+   WRITELN(DF1,' YTBEPЖДEH'); WRITE(DF1,PR);
+   FOR JJ:=1 TO LBF1 DO WRITE(DF1,BF1[JJ]);
+   WRITELN(DF1,'-ЛY'); 
+END
+ELSE BEGIN WRITELN(DF1);WRITELN(DF1) END;
+II:=II+4;
+   WRITELN(DF1,UP,KSTR DIV 3-II:1); II:=KSTR DIV 3+TL[3];
+   WHILE TL[3]>0 DO
+    BEGIN INBUF(DF4); ZENTR(BF,KSIM,DF1); TL[3]:=TL[3]-1
+    END; WRITELN(DF1,UP,'2');
+   ZENTR(BF1,KSIM,DF1); WRITELN(DF1,UP,'2');
+   DBFF:=(KSIM DIV 2)-5; II:=II+6;
+   FOR JJ:=1 TO DBFF DO WRITE(DF1,PR);
+   WRITELN(DF1,'ЛИCTOB ',NS+KSTRS-1:1);
+   IF II<(KSTR-3-TL[7])
+   THEN WRITELN(DF1,UP,KSTR-3-TL[7]-II:1);
+   FOR JJ:=5 TO 6 DO
+   WHILE TL[JJ]>0 DO
+    BEGIN TL[JJ]:=TL[JJ]-1; READLN(DF4)
+    END;
+   WHILE TL[7]>0 DO
+    BEGIN INBUF(DF4); ZENTR(BF,KSIM,DF1); TL[7]:=TL[7]-1
+    END;
+   WHILE TL[8]>0 DO
+    BEGIN READLN(DF4); TL[8]:=TL[8]-1
+    END;
+   IF TL[9]>0
+   THEN
+    BEGIN
+       WHILE TL[9]>0 DO
+        BEGIN TL[9]:=TL[9]-1; INBUF(DF4)
+        END; DBFF:=KSIM DIV 2; JJ:=1;
+       WHILE(BF[JJ]<>CHR(ENCTP))AND(JJ<=DBFF) DO
+        BEGIN WRITE(DF1,BF[JJ]); JJ:=JJ+1
+        END
+    END
+   ELSE JJ:=1;
+   WHILE JJ<KSIM-8 DO
+    BEGIN WRITE(DF1,PR); JJ:=JJ+1
+END;
+IF LIT THEN
+WRITELN(DF1,'ЛИTEPA')
+ELSE WRITELN(DF1);
+ABZAC:=FALSE;
+   WRITELN(DF1,UP,'+'); WRITELN(DF5,UP,'+');
+   RESET(DF1); WRITELN(DF3,UP,'+');
+   NS:=NSNOV;
+IF TITAN THEN
+BEGIN  PRINTO(DF1,FALSE,FALSE); RESET(DF5);
+   PRINTO(DF5,FALSE,FALSE) END
+ELSE NS:=NS+2;
+RESET(DF3);
+IF QB THEN BEGIN PRINTO(DF2,TRUE,FALSE);PRINTO(DF3,FALSE,TRUE)
+END
+ELSE
+IF SOD THEN BEGIN
+PRINTO(DF3,FALSE,FALSE);
+PRINTO(DF2,TRUE,TRUE)
+END
+ELSE
+PRINTO(DF3,FALSE,TRUE);
+2:
+END.
+*execute
+$M+
+$DK8T3TИ
+$^T3 ^PYKOBOДCTBO PAЗPAБOTЧИKA
+$^T3
+$^T3 ^TOM 3: ^OПИCAHИE MИKPOKOДA
+$^T4 ^^K8T3 (4.7)
+$^T7 ^MOCKBA
+$^T7 1990
+$DK8T3AH
+$^B+
+$^A
+^ДAHHЫЙ ДOKYMEHT COДEPЖИT
+OПИCAHИE ПPOMEЖYTOЧHOГO ПPEДCTABЛEHИЯ
+(MИKPOKOДA) ПPOГPAMM ^^ЯMД
+И ПEPEMEHHЫX PEЗИДEHTHOГO
+ИCПOЛHИTEЛЬHOГO MOДYЛЯ.
+$^A
+^ДOKYMEHT ПPEДHAЗHAЧEH ДЛЯ
+PAЗPAБOTЧИKOB CИCTEMЫ "^KOMПAC".
+$^B-
+$DK8T3TE
+$^S1
+^OБШИE CBEДEHИЯ O ЗAПИCИ ^^PIC
+$^A
+^ПPOГPAMMЫ ^^ЯMД KOMПИЛИPYЮTCЯ B
+ПPOMEЖYTOЧHЫЙ KOД, PAЗMEЩAEMOЙ B ЗAПИCИ
+^^PIC, COCTOЯЩEЙ ИЗ TPEX ЧACTEЙ:
+$^C
+
+  - ФИKCИPOBAHHOЙ;
+  - PAЗДEЛA ДЛЯ XPAHEHИЯ ЛИTEPAЛOB;
+  - PAЗДEЛA ДЛЯ PAЗMEЩEHИЯ OПEPAЦИЙ.
+
+^^^TYPPIC=RECORD
+^^^  NC:INTEGER;(*0*)                 --*
+^^^  NM:INTEGER;(*1*)                   !
+^^^  NA:INTEGER;(*2*)                   !
+^^^ SSDMO:INTEGER;(*3*)                 !
+^^^ IPCX:ALF6;(*4*)                     !
+^^^ SSVAR:ALF6;(*5*)                    !
+^^^ SSJUR:ALF6;(*6*)                    !
+^^^ SSIDEN:ALF6;(*7*)                   !
+^^^ SSPRIV:ALF6;(*8*)                   !
+^^^ SSPED:INTEGER;(*9*)                 !
+^^^ SSD:INTEGER;(*10*)                  !
+^^^X:RECORD CASE INTEGER OF(*11*)       !
+^^^ 1:(II:INTEGER);                     !
+^^^ 2:(AA:ALF6) END ;                   !
+ ^X2:^^ALF6;(*12*)                      !ФИKCИPOBAHHAЯ ЧACTЬ
+ ^X3:^^ALF6;(*13*)                      ! (HAБOP ПOЛEЙ)
+^^^ SMES:INTEGER ;(*14*)                !
+^^^ NMG:INTEGER;(*15*)                  !
+^^^ X4:   INTEGER;(*16*)                !
+^^^ AIMC:INTEGER;(*17*)                 !
+^^^ AEXXN:INTEGER;(*18*)                !
+^^^ VOT:INTEGER;(*19*)                  !
+^^^ XL:INTEGER;(*20*)                   !
+^^^ SDL:INTEGER;(*21*)                  !
+^^^ Y1:INTEGER;(*22*)                   !
+^^^ Y2:ALF6;(*23*)                      !
+^^^ Y3:REAL;   (*24*)                   !
+^^^ ZAV:INTEGER;(*25*)                  !
+^^^ YPOBE:INTEGER;(*26*)                !
+^^^ BEGMG:ARRAY[1..5]OF INTEGER;(*27*)--*
+
+^^^L:RECORD CASE INTEGER OF   (*32*)  --*
+^^^ 1:(I:ARRAY[0..192] OF INTEGER);     !
+ 2:(^R:^^ARRAY[0..96] ^^OF ^^REAL);         ! ^L-ЧACTЬ (ЛИTEPAЛЫ)
+^^^ 3:(A:ARRAY[0..63] OF ALF6);         !
+^^^ 4:(B:ARRAY[0..192] OF BOOLEAN);     !
+^^^ 5:(C:PACKED ARRAY[0..383] OF CHAR)  !
+^^^ END ;                             --*
+
+^M:^^PACKED ^^ARRAY[0..^^LENOP] ^^OF  (*96*)    ^M-ЧACTЬ
+                   0..255              (OПEPAЦИИ)
+
+
+$^A
+^CTPYKTYPA ЗAПИCИ ^^PIC ПOXOЖA HA CTPYKTYPY OБ"EKTHOЙ ПPOГPAMMЫ
+ПOCЛE TPAHCЛЯЦИИ C ЛЮБOГO ЯЗЫKA. ^HИЖE ДAHO ПOДPOБHOE
+OПИCAHИE ЭTOЙ CTPYKTYPЫ.
+$^C
+
+
+^^NC               YKAЗATEЛЬ ^L-ЧACTИ (B БAЙTAX)
+^^NM               YKAЗATEЛЬ ^M-ЧACTИ
+^^NA               YKAЗATEЛЬ ^L-ЧACTИ (B CЛOBAX)
+^^SSDMO            PEЖИM BЫДAЧИ COOБЩEHИЙ OБ OШИБKAX (0..3)
+^^IPCX             ИMЯ ПOДCXEMЫ
+^^SSVAR            ИMЯ OБЛACTИ-BAPИAHTA
+^^SSJUR            ИMЯ OБЛACTИ-ЖYPHAЛA
+^^SSIDEN           ИДEHTИФИKATOP ПOЛЬЗOBATEЛЯ
+^^SSPRIV           ПAPOЛЬ
+^^SSPED            PEЖИM OTKPЫTИЯ (0 - ДЛЯ-BЫ, 3 - ДЛЯ-MO)
+^^SSD              PEЖИM "HA ДYБЛЯX"(1 - HA-ДYБ, 0 - HET)
+^X                   PAБOЧAЯ
+^X2                 PAБOЧAЯ
+^X3                 PAБOЧAЯ
+^^SMES            CMEЩEHИE TEK.БAЙTA B CЛOBE
+^^NMG             YKAЗATEЛЬ BEPШИHЫ MAГAЗИHA
+^^X4                 PAБOЧAЯ
+^^AIMC            AДPEC MACCИBA ^^TПC
+^^AEXXN           AДPEC ^^COCT (^^POП) - ЧEPEЗ "KOMПAC"
+^^VOT             BAPИAHT OTKPЫTИЯ
+^^XL              "HEOПPEДEЛЛEHHOE" ЗHAЧEHИE
+^^SDL             ДЛИHA ^^TПC
+^^Y1                 PAБOЧAЯ
+^^Y2                 PAБOЧAЯ
+^^Y3                 PAБOЧAЯ
+^^ZAV             YKAЗAHИE БЫЛ "ЗABEPШ" ИЛИ HET
+^^YPOBE           YPOBEHЬ BЛOЖEHHOCTИ ПPOЦEДYP, ИCПOЛЬЗYETCЯ
+                    ПPИ PAБOTE C БИБ-ЗAПPOCAMИ
+^^BEGMG           MAГAЗИH
+^^L               MACCИB ЛИTEPAЛOB
+^^M               MACCИB OПEPAЦИЙ
+
+$^A
+^Y BCEX ПEPEMEHHЫX ЗAПИCИ ^^PIC ECTЬ HOMEPA,
+KOTOPЫE MOЖHO ИCПOЛЬЗOBATЬ B HEKOTOPЫX
+OПEPAЦИЯX, YKAЗЫBAЯ ИX C "*".
+$^C
+
+   ^ПPИMEPЫ:
+
+^^BЫДATЬ *11
+^^^ECЛИ *8=*20 TO BЫДATЬ 'O KEЙ'
+^^^ЗAПPOCИ *5='PYKOB';OT
+
+$^A
+^ЭTИM CBOЙCTBOM ПOЛЬЗYETCЯ БИБ-ЗAПPOC "C" , A TAKЖE
+MHOГИE ПPИKAЗЫ MEHЮ-CИCTEMЫ.
+$^S1
+^ИCПOЛЬЗOBAHИE ЗAПИCИ ^^PIC
+$^A
+^ПPИ KOMПИЛЯЦИИ ЧACTИЧHO ЗAПOЛHЯЮTCЯ KOMAHДЫ И ЧACTИЧHO
+ЛИTEPAЛЫ.
+^B ЗABИCИMOCTИ OT ИCПOЛЬЗOBAHИЯ CИCTEMЫ PAЗЛИЧAЮTCЯ
+ДBA PEЖИMA:
+$^C
+
+  - PEЖИM ПPEДTPAHCЛЯЦИИ (ДЛЯ PAБOTЫ ИЗ ПPИKЛAДHOЙ ПPOГPAMMЫ);
+  - PEЖИM HEПOCPEДCTBEHHOГO ИCПOЛHEHИЯ ( B ^^MAD).
+
+$^A
+^B ПEPBOM CЛYЧAE ПPOЦECC
+ПEPEДAЧИ ЛИTEPAЛOB И
+KOMAHД ЗAПИCИ ^^PIC B PEЗИДEHT ИЗ
+ПPИKЛAДHOЙ ПPOГPAMMЫ OБECПEЧИBAETCЯ ГPYППOЙ
+CИCTEMHЫX ПPOЦEДYP.
+$^A
+^ПPИ ЭTOM B PEЗИДEHTE ЛИTEPAЛЫ И KOMAHДЫ PACПOЛAГAЮTCЯ ПOДPЯД,
+ГPAHИЦA MEЖДY HИMИ OПPEДEЛЯETCЯ ДИHAMИЧECKИ BEЛИЧИHOЙ
+^^^PIC.NA,
+COДEPЖAЩEЙ HAЧAЛO KOMAHД.
+$^A
+^ПPИ PAБOTE ^^MAD ЗAПИCЬ ^^PIC PEЗИДEHTY ПEPEДAETCЯ KAK OБЩAЯ
+ПEPEMEHHAЯ, ЗAПOЛHEHHAЯ ПPИ KOMПИЛЯЦИИ. ^ПPИ ЭTOM PEЗИДEHTY
+ПEPEДAETCЯ ^^PIC.^^NA=96, T.E. ФИKCИPOBAHHЫЙ CДBИГ.
+$^A
+^PEЗИДEHT O ДBYX CИTYAЦИЯX HE ЗHAET,
+ИCПOЛЬЗYЯ BCEГДA B KAЧECTBE YKAЗATEЛЯ HA ГPAHИЦY MEЖДY ЛИTEPAЛAMИ
+И KOMAHДAMИ ЗHAЧEHИE ИЗ ^^PIC.^^NA.
+$^S1
+^BCПOMOГATEЛЬHЫE ПEPEMEHHЫE PEЗИДEHTA
+$^A
+^BCПOMOГATEЛЬHЫE ПEPEMEHHЫE PEЗИДEHTA PAЗДEЛEHЫ
+HA CЛEДYЮЩИE ГPYППЫ.
+$^S2 ^BXOДЫ ИЗ ДPYГИX MOДYЛEЙ
+$^A
+^ПEPEЧИCЛEHЫ METKИ ПPOГPAMMЫ-PEЗИДEHTA, ЯBЛЯЮЩИECЯ
+BXOДAMИ ИЗ ДPYГИX MOДYЛEЙ (BOЗBPATЫ ЧAЩE BCEГO ИЗ ^^MAD):
+$^C
+
+^^ERK    - BOЗBPAT OT BЫДAЧИ COOБЩEHИЯ OБ OШИБKE
+^^NEXPIC - BЫБOPKA CЛEДYЮЩEГO БAЙTA ПPOMEЖYTOЧHOГO KOДA
+^^SSINKO - ДOПOЛHИTEЛЬHOE ИMЯ PEЗИДEHTA
+^^CMPIN  - ПEPBЫЙ (OCHOBHOЙ) BXOД B PEЗИДEHT
+^^CMPINP - ПOBTOPHЫЙ BXOД B PEЗИДEHT
+^^INBEM  - БЛOK BЫXOДA B ^^ADMIN
+^^OTYXOD - BOЗBPAT ИЗ ^^AДMИH-A
+^^OTZER  - .....
+
+
+$^S2 ^BЫXOДЫ ИЗ PEЗИДEHTA
+$^A
+^BHEШHИE METKИ - METKИ BHEШHИX MOДYЛEЙ, HA
+KOTOPЫE БЫBAЮT BЫXOДЫ ИЗ PEЗИДEHTA:
+$^C
+
+^^ADM75  - ...
+^^ADM13  - ....
+^^ADMIN  - BXOД B ^^ADMIN ДЛЯ OПEPAЦИИ "OT"
+^^KOMPAS - BXOД B ^^ADMIN ДЛЯ OПEPAЦИИ "KOMПAC"
+^^ZAVRSH - BXOД B ^^ADMIN ДЛЯ OПEPAЦИИ "ЗABEPШ"
+^^YXOD  - ЗABEPШAЮЩИЙ БЛOK MOДYЛЯ ^^ADMIN
+
+  ^METKИ "MAPCA":
+
+^^^FOTKY;FHOBY;FIND11;MYK;LIS;VIPUL;FIRLAS;GETZAP;P100;
+^^^P100M;PEPOS;MODELM;ZZRZZR;UBRZAP;ZAPEL1;UBRELM;FSPW;
+^^^ZAPZA1;SSMARS.
+
+
+$^S2 ^ГPYППA OБЩИX ПEPEMEHHЫX
+$^A
+^ГPYППA OБЩИX ПEPEMEHHЫX
+(OБPAЩEHИЯ K ^^PIC ИДYT ПO AДPECY, CTOЯЩEMY HA
+PEГИCTPE. ^CTPOГO ГOBOPЯ KAK OБЩAЯ ПEPEMEHHAЯ
+ЭTA ЗAПИCЬ HE HYЖHA).
+$^C
+
+^^PASR6               AДP. HAЧAЛA ^^TПC,
+                    HYЖHA TOЛЬKO ДЛЯ YCTAHOBKИ
+                    COOTBETCTBYЮЩEГO PEГИCTPA
+^^BDERR               ^^COCT БEЗ ПOPЯДKA
+^^SSORD               COДEPЖИT "ПOPЯДOK"=64
+^^KOLST               !      ДЛЯ PEДAKTOPA
+^^DLSL                !
+^^EXN                 ^^BDERR C ПOPЯДKOM
+
+$^S2 ^ГPYППA PEГИCTPOB
+$^A
+^ЧACTЬ PEГИCTPOB (7) ИMEЮT ФИKCИPOBAHHOE HAЗHAЧEHИE,
+OCTAЛЬHЫE (8) ИCПOЛЬЗYЮTCЯ KAK PAБOЧИE.
+$^C
+^^INA                AДPEC ДECKPИПTOPA TEKYЩEГO HAБOPA
+^^IP                 AДPEC ^^PIC-A
+^^ILI                AДPEC HAЧAЛA ЛИTEPAЛOB
+^^IMA                AДPEC ^MAPCA
+^^IPS                ^^TПC (ЗHAЧEHИE ИЗ ^^PASR6)
+^^IOB                ПAPAMETPЫ OБЛACTИ
+^^MA                 MAГAЗИH (ЧИCTO MAШИHHЫЙ)
+
+
+$^S2 ^ФИKCИPOBAHHЫE ПOЛЯ ЗAПИCИ ^^PIC
+$^A
+^ПEPEЧИCЛEHЫ BCE ФИKCИPOBAHHЫE ПOЛЯ ЗAПИCИ ^^PIC И CMEЩEHИЯ
+(ДЛЯ KAЖДOЙ ИЗ MAШИH CMEЩEHИЯ PAЗЛИЧAЮTCЯ)
+$^L
+$^C
+
+^CMEЩEHИЯ B ^^PIC ДЛЯ ^^БЭCM:
+----------------------------------------------------------
+^ИMЯ ПOЛЯ  ^HOMEP ПOЛЯ  ^PAЗMEP   ^PAЗMEP   ^CMEЩEHИE ^CMEЩEHИE
+                     B CЛOBAX B БAЙTAX B CЛOBAX  B БAЙTAX
+----------------------------------------------------------
+^^NNC            0        1         6          0         0
+^^NNM            1        1         6          1         6
+^^NNA            2        1         6          2         12
+^^SSDMO          3        1         6          3         18
+^^IPCH           4        1         6          4         24
+^^SSVAR          5        1         6          5         30
+^^SSJUR          6        1         6          6         36
+^^SSIDEN         7        1         6          7         42
+^^SSPRIV         8        1         6          8         48
+^^SSPED          9        1         6          9         54
+^^SSD            10       1         6          10        60
+^^XX             11       1         6          11        66
+^^XX2            12       1         6          12        72
+^^XX3            13       1         6          13        78
+^^SMES           14       1         6          14        84
+^^NMG            15       1         6          15        90
+^^BULMG          16       1         6          16        96
+^^AIMC           17       1         6          17        102
+^^AEXXN          18       1         6          18        108
+^^VOT            19       1         6          19        114
+^^XL             20       1         6          20        120
+^^SDL            21       1         6          21        126
+^^YY1            22       1         6          22        132
+^^BEGMG          23       5         30         23        138
+^^BEGLIT         32       64        384        32        168
+$^L
+$^C
+^CMEЩEHИЯ B ^^PIC ДЛЯ ^^CM:
+
+---------------------------------------------------------
+^ИMЯ ПOЛЯ   ^N ПOЛЯ  ^PAЗMEP   ^PAЗMEP    ^CMEЩEHИE  ^CMEЩEHИE
+---------------------------------------------------------
+^^NNC            0        1         6          0         0
+^^NNM            1        1         6          1         6
+^^NNA            2        1         6          2         12
+^^SSDMO          3        1         6          3         18
+^^IPCH           4        1         6          4         24
+^^SSVAR          5        1         6          5         30
+^^SSJUR          6        1         6          6         36
+^^SSIDEN         7        1         6          7         42
+^^SSPRIV         8        1         6          8         48
+^^SSPED          9        1         6          9         54
+^^SSD            10       1         6          10        60
+^^XX             11       1         6          11        66
+^^XX2            12       1         6          12        72
+^^XX3            13       1         6          13        78
+^^SMES           14       1         6          14        84
+^^NMG            15       1         6          15        90
+^^BULMG          16       1         6          16        96
+^^AIMC           17       1         6          17        102
+^^AEXXN          18       1         6          18        108
+^^VOT            19       1         6          19        114
+^^XL             20       1         6          20        120
+^^SDL            21       1         6          21        126
+^^YY1            22       1         6          22        132
+^^BEGMG          23       5         30         23        138
+^^BEGLIT         32       64        384        32        168
+$^L
+$^C
+^CMEЩEHИЯ B ^^PIC ДЛЯ ^^EC:
+
+^ИMЯ ПOЛЯ ^HOMEP ПOЛЯ ^PAЗMEP   ^PAЗMEP    ^CMEЩEHИE  ^CMEЩEHИE
+                    B CЛOBAX B БAЙTAX  B CЛOBAX  B БAЙTAX
+---------------------------------------------------------
+^^NNC            0        1         6          0         0
+^^NNM            1        1         6          1         6
+^^NNA            2        1         6          2         12
+^^SSDMO          3        1         6          3         18
+^^IPCH           4        1         6          4         24
+^^SSVAR          5        1         6          5         30
+^^SSJUR          6        1         6          6         36
+^^SSIDEN         7        1         6          7         42
+^^SSPRIV         8        1         6          8         48
+^^SSPED          9        1         6          9         54
+^^SSD            10       1         6          10        60
+^^XX             11       1         6          11        66
+^^XX2            12       1         6          12        72
+^^XX3            13       1         6          13        78
+^^SMES           14       1         6          14        84
+^^NMG            15       1         6          15        90
+^^BULMG          16       1         6          16        96
+^^AIMC           17       1         6          17        102
+^^AEXXN          18       1         6          18        108
+^^VOT            19       1         6          19        114
+^^XL             20       1         6          20        120
+^^SDL            21       1         6          21        126
+^^YY1            22       1         6          22        132
+^^BEGMG          23       5         30         23        138
+^^BEGLIT         32       64        384        32        168
+
+
+
+$^S2 ^BCПOMOГATEЛHЫE ПEPEMEHHЫE ^^TПC
+$^C
+
+^^POZ               ПOЗИЦИЯ ЭЛEMEHTA B ЗAПИCИ
+^^DLIT              ДЛИHA ЭЛEMEHTA
+^^ITPOZ             ^N ЭЛEMEHTA C ДЛИHOЙ
+^^KTH               БYФEP CEГMEHTA ИHДEKCA
+$^S2 ^ЭЛEMEHTЫ ФИKCИPOBAHHOЙ ЧACTИ ^^TПC
+$^A
+^CMEЩEHИЯ ЭЛEMEHTOB ФИKCИPOBAHHOЙ ЧACTИ ^^TПC COBПAДAET
+C OПИCAHИEM B ^^DML.
+$^C
+
+  ^ЭЛEMEHTЫ ^^TПC:
+
+^^NOMZP                 ^N (CMEЩEHИE) ЗAПИCИ B ^^TПC
+^^BEGVIB                HAЧAЛO ДECKPИПTOPOB BЫБOPA
+^^AROP                  AДPEC ^^POП
+^^TNPS                  TEKYЩИЙ HAБOP
+^^BEGPRO                HAЧAЛO ДECKP.ПPOЦ.
+ERBDR
+^^UKLNAB               ^^БД-KЛЮЧ TEKYЩEГO ИHДEKCA HAБOPA
+DOBDPR
+POBDPR
+^^BEGEL                CMEЩEHИE ДECKPИПTOPOB ЭЛEMEHTOB
+^^BEGNAB               CMEЩEHИE ДECKPИПTOPOB HAБOPOB
+^^BEGZAP               CMEЩEHИE TEKYЩИX ЗAПИCEЙ
+^^TEKNAB               CMEЩEHИE TEKYЩИX HAБOPOB
+^^DLIA                 PEЖИM-ДЛЯ
+
+
+^^DF  -  ДЛИHA ФИKCИPOBAHHOЙ ЧACTИ ^^TПC (-1 ^^БЭCM).
+
+
+$^S2 ^ПEPEMEHHЫE, OБЩИE ДЛЯ ^^MAPC-A И PEЗИДEHTA
+$^C
+
+   ^BHEШHИE ПAPAMETPЫ:
+
+^^RQ3                BCПOMOГATEЛЬHAЯ
+^^DLBD               ^PAЗMEP OБЛACTИ
+^^TEKLI              ^N TEKYЩEГO ЛИCTA
+^^NZA                AБC.AДPEC HAЧAЛA ЗAПИCИ
+^^TEKYK              TEKYЩИЙ ^^BD-KЛЮЧ ЗAПИCИ
+^^TEKIM              HAЙДEHHOE ПOЛE ПOИCKA ЭЛ.ИHДEKCA
+^^DLINZ              ФИЗИЧECKAЯ ДЛИHA ЗAПИCИ
+^^IMQ                HAЙДEHHOE ИЛИ ИCKOMOE "ИMЯ" ПPИ
+                        ПOИCKE ПO KЛЮЧY
+^^MYP                BEPШИHA MAГAЗИHA YPOBHEЙ
+^^UKL                HOBЫЙ ^^БД-KЛЮЧ ПPИ ПOCTAHOBKE И
+                     MOДИФИKAЦИИ ЗAПИCИ
+^^DLIN               ДЛИHA ЗAПИCИ ИЛИ ПOЛЯ
+^^ADZAPP             AДPEC ПOЛЯ ИЛИ ЗAПИCИ B ПAMЯTИ
+^^BUFF               BEPШИHA MAГAЗИHA ДECKPИПTOPOB БYФEPOB
+$^A
+^Y PEЗИДEHTA ECTЬ ДBE ГPYППЫ ПEPEMEHHЫX. ^HA ПEPEMEHHЫE
+OБЩИE C ^^MAPC-OM CCЫЛKA ИДET ПO HOMEPAM.
+$^C
+
+^^STEPZ               "ШAГ" ПO ЗAПИCИ
+^^TH                  ^N TEKYЩEГO HAБOPA
+^^TEKPS               ^^NOP
+^^BEPC                П'280586'  CBOБOДHA...
+^^BXODA               ....
+^^TEKPOZ              TEKYЩAЯ ПOЗИЦИЯ
+
+$^S1 ^OПИCAHИE MИKPOOПEPAЦИЙ
+$^S2 ^OПEPAЦИИ PEЗИДEHTA
+$^S3 ^ПAPAMETPЫ OПEPAЦИЙ
+$^A
+^ПAPAMETPЫ OПEPAЦИЙ ПPOMEЖYTOЧHOГO
+KOДA COДEPЖAT ИHФOPMAЦИЮ O PAЗMEЩEHИИ
+И PAЗMEPAX OПEPAHДOB OПEPAЦИЙ.
+^ПAPAMETPЫ ГEHEPИPYЮTCЯ KOMПИЛЯTOPOM И ЯBЛЯЮTCЯ CTATИЧECKИMИ.
+^KAЖДAЯ OПEPAЦИЯ ИCПOЛЬЗYET HEKOTOPOE (OT 0 И БOЛEE)
+ФИKCИPOBAHHOE ЧИCЛO ПAPAMETPOB.
+^B HACTOЯЩEE BPEMЯ B ПPOMEЖYTOЧHOM KOДE
+ПPИMEHЯETCЯ OДИH TИП ПAPAMETPOB
+^N, ПPEДCTABЛЯЮЩИЙ ЦEЛOE ЧИCЛO B ДИAПAЗOHE
+ 0..255.
+
+$^S3 ^OПИCAHИE OПPEPAHДOB OПEPAЦИЙ
+$^A
+^B ЭTOM PAЗДEЛE OПИCЫBAЮTCЯ OПEPAHДЫ OПEPAЦИЙ ПPOMEЖYTOЧHOГO KOДA:
+$^C
+
+  ^^ADDR (ADRESS)
+  ^^BOOL (BOOLEAN)
+ ^^ INT (INTEGER)
+ ^^ REAL (REAL)
+$^S3 ^OПИCAHИE ИCПOЛЬЗYEMЫX ПEPEMEHHЫX
+$^C
+^^TH     - ПEPEMEHHAЯ, COДEPЖAЩAЯ HOMEP HAБOPA
+^^TH2    - ПEPEMEHHAЯ, COДEPЖAЩAЯ CMEЩEHИE HAБOPA B
+         ДECKPИПTOPE HAБOPOB
+^^LENNAB - ДЛИHA ДECKPИПTOPA HAБOPOB
+^^ILI    - MACCИB ЛИTEPAЛOB
+^^LENITM - ДЛИHA ДECKPИПTOPA ЭЛEMEHTOB
+^^TRETIA - ПEPEMEHHAЯ, ИCПOЛЬЗYEMAЯ ДЛЯ ПEPEДAЧИ AДPECOB
+^^IPS    - TAБЛИЧHAЯ ПOДCXEMA
+^^DESREC - ДECKPИПTOP ЗAПИCEЙ
+$^S3 ^OПИCAHИE ИCПOЛЬЗYEMЫX ПPOЦEДYP И ФYHKЦИЙ
+$^C
+
+^^ISADAR() - ФYHKЦИЯ, ДAЮЩAЯ AДPEC CBOEГO APГYMEHTA
+^^INMG() - ПPOЦEДYPA, CTABЯЩAЯ ПAPAMETP B MAГAЗИH ^^PIC-A:
+ ^^^        WITH PIC DO
+       ^^BEGMG:=<ПAPAMETP>;
+^^^         NMG:=NMG+1.
+
+^^IZMG  -  ФYHKЦИЯ, BЫHИMAЮЩAЯ ПAPAMETP ИЗ MAГAЗИHA:
+      ^^^WITH PIC DO BEGIN
+     ^^^NMG:=NMG-1; IZMG:=BEGMG[NMG] END.
+
+$^S3 ^OБЩEE OПИCAHИE OПEPAЦИЙ
+$^A
+^MHOЖECTBO OПEPAЦИЙ PAЗБИTO ПO ФYHKЦИOHAЛЬHOMY
+HAЗHAЧEHИЮ HA HECKOЛЬKO ГPYПП. ^KAЖДAЯ OПEPAЦИЯ ЗAHИMAET 1 БAЙT.
+^B ЛEBOM CTOЛБЦE COДEPЖИTCЯ ИMЯ OПEPAЦИИ, ЗA KOTOPЫM CЛEДYET
+EE HOMEP. ^ДЛЯ OПEPAЦИЙ C ПAPAMETPAMИ ЗA HOMEPOM YKAЗЫBAЮTCЯ
+ПAPAMETPЫ.
+$^A
+^CПPABA ПPИBOДИTCЯ KPATKOE OПИCAHИE OПEPAЦИИ.
+^ECЛИ ИCПOЛЬЗYETCЯ MAГAЗИH, TO
+ПOД HOMEPOM OПEPAЦИИ HAXOДИTCЯ OПИCAHИE MAГAЗИHA ДO
+И ПOCЛE BЫПOЛHEHИЯ OПEPAЦИИ. ^ПOKAЗAHЫ  TOЛЬKO  BEPXHИE
+ЯЧEЙKИ MAГAЗИHA.
+$^A
+^CЛEBA MAГAЗИH HAXOДИTCЯ B COCTOЯHИИ ДO BЫПOЛHEHИЯ OПEPAЦИИ,
+ЗATEM CЛEДYET ДBOETOЧИE (:) И OПИCAHИE MAГAЗИHA ПOCЛE
+BЫПOЛHEHИЯ OПEPAЦИИ. ^KAЖДOE COCTOЯHИE MAГAЗИHA ЗAKЛЮЧAETCЯ  B
+YГЛOBЫE CKOБKИ. ^BHYTPИ CKOБOK MAГAЗИH YBEЛИЧИBAETCЯ CЛEBA HAПPABO.
+OTДEЛЬHЫE ЭЛEMEHTЫ MAГAЗИHA PAЗДEЛЯЮTCЯ ЗAПЯTOЙ. ^TAKИM OБPAЗOM BEPШИHA
+MAГAЗИHA ПPEДШECTBYET ПPABOЙ CKOБKE '>'.
+$^S3 ^OПEPAЦИИ
+$^A
+^OПEPAЦИИ 1-28 HE BЫБИPAЮT CЛEДYЮЩИЙ БAЙT KOДA,
+ЭTO OПEPAЦИИ БEЗ ПAPAMETPOB.
+$^C
+-------------------------------------------------------
+ ^MHEMOHИKA  ^HOMEP OПEPAЦИИ,      ^ДEЙCTBИE OПEPAЦИИ,
+ OПEPAЦИИ     OПEPAHДЫ,            ИCПOЛЬЗOBAHИE
+              COCTOЯHИE            OПEPAHДOB
+              MAГAЗИHA
+-------------------------------------------------------
+01                           ПOCTABИTЬ
+02                           HAЙTИ ПO-KЛЮЧY
+03                           ЗAMEHИ HA
+04                           HAЙTИ ПEPBYЮ
+05                           HAЙTИ BЛAДEЛЬЦA
+06                           BKЛЮЧИTЬ
+07                           YБPATЬ
+08                           ИCKЛЮЧИTЬ
+09                           HAЙTИ CЛEДYЮЩYЮ B OБЛACTИ
+10                           HAЙTИ ПO KЛЮЧY (БEЗ ПAPAM.)
+11                           HAЙTИ ПOCЛEДHЮЮ
+12                           HAЙTИ CЛEДYЮ
+13                           HAЙTИ ПPEДЫДYЩYЮ
+14                           BЗЯTЬ HA
+15                           ЗAMEHИ
+16                           BЗЯTЬ
+17                           CПEЦ.BKЛЮЧИ ПOCЛE ИCKЛЮЧИ
+18                           HAЙTИ ПEPBYЮ B OБЛACTИ
+19                               CПEЦ.BKЛЮЧИ (+1 B "XX")
+20                               CПEЦ.ИCKЛЮЧИ (-1 B "XX")
+21                               CПEЦ.ПOCTABИTЬ
+22-28                        CBOБOДHЫ
+
+---------------------------------------------------------
+$^A
+^OПEPAЦИИ 29-63 OБЯЗATEЛЬHO BЫБИPAЮT CЛEДYЮЩИЙ БAЙT KOДA.
+^ЭTO, KAK ПPABИЛO OПEPAЦИИ C OДHИM ПAPAMETPOM.
+$^A
+^OПEPAЦИЯ 29 БEЗПAPAMETPИЧECKAЯ, OHA BЫБИPAЮT CЛEДYЮШИЙ БAЙT
+ЗPЯ, HO ДЛЯ OПEPAЦИИ 29 ЭTO YЖE HECYЩECTBEHHO.
+$^C
+----------------------------------------------------------
+
+^^EX          29               OKOHЧATEЛЬHЫЙ BЫXOД ИЗ PEЗИД.
+                             C OБHYЛEHИEM CЧETЧИKOB
+
+                             ^^^NNC:=0; NNA:=0; NNM:=0;
+                             ^^NARETURN.
+
+^^UTEKN       30   ^N           YCTAHOBKA TEKYЩEГO HAБOPA
+
+                             ^^^TH:=N; TH2:=LENNAB*TN.
+
+......      31   ...         CBOБOДHA
+
+^^UTEKI       32   ^N           YCTAHOBKA TEKYЩEГO ЭЛEMEHTA
+
+                             ^^^TH:=N; TH2:=LENNAB*TN.
+
+......      33   ...         CBOБOДHA
+
+^^UTR         34   ^N           YCTAHOBKA ЗHAЧEHИЯ (ЭTO KAK
+                             ПPABИЛO AДPEC) ИЗ ЛИTEPAЛOB
+                             B ПEPEMEHHYЮ ^^TRETIA.
+
+                             ^^^TRETIA:=ILI[L].
+
+^^UTRL        35   ^N           YCTAHOBKA AДPECA B ЛИTEPAЛAX
+                             B ПEPEMEHHYЮ ^^TRETIA.
+
+                             ^^^TRETIA:=ISADAR(ILI[L]).
+
+^^VARLO       36  (KAK OП.44)    BЫПOЛHЯET OП.44, A ЗATEM
+                               CTABИT B MAГAЗИH ЗHAЧEHИE,
+                               BЫБИPAEMOE ПO AДPECY,
+                               OCTABЛEHHOMY
+              <>:<^V>           OПEPAЦИEЙ 44 B MAГAЗИHE.
+
+
+^^UTEKR       37   ^N           YCTAHOBKA TИПA ЗAПИCИ
+
+                             ^^^IPS.NOMZP:=N.
+
+.....       38   ...         CBOБOДHA
+
+^^LOTR        39   ^N           ПEPEБPACЫBAET ИЗ ^^TRETIA
+                             B ^^PIC (CBOБOДHA...)
+                 
+                             ^^^PIC[N]:=TRETIA.
+
+.....       40    ...        CBOБOДHA
+
+^^PB          41   ^N1,^N2       БEЗYCЛOBHЫЙ ПEPEXOД
+
+                             ^^^PIC.NM:=ADRPIC(N1,N2).
+
+^^ERR         42   ^N           BЫДAЧA COOБЩEHИЯ
+                             OБ OШИБKE C HOMEPOM ^N
+                             (BЫДAET COOБЩEHИE OБ OШИБKE И
+                             ПPOДOЛЖAET PAБOTY)
+
+^^INTLO       43   ^N           ЗAБPOC ЗHAЧEHИЯ ИЗ ^^PIC-A
+                             B MAГAЗИH (CBOБOДHA...)
+            <>:<V>
+                             ^^^INMG(N).
+
+
+^^ADRLO       44  ^N1,^N2,^N3[,^N4] ЗAБPOC ДECKPИПTOPA B MAГAЗИH
+                 <>:<^D>     ^N1, ^N2 И ^N3 COOTBETCTBYЮT
+                             ^^TIR, ^^VARI-1 И ^^ADRF OT ^^OPER.
+                             ^ПPИ ^^VARI=1, 5, 7 ЧETBEPTЫЙ
+                             ПAPAMETP ^^^N4=LID.
+                             ^ПPИ ^^VARI=2 ^N4=^N-ЗAПИCИ.
+
+
+                             ^^INMG(<ДECKPИПTOP>).
+
+
+
+
+
+
+                              ^CTPYKTYPA ДECKPИПTOPA:
+
+          48 A  44 B 40  C  32  D  24  E  16     F      0
+           !----!----!------!------!------!--------------!
+             4    4    8       8      8         16
+
+                     ГДE ^A=^^TIR, ^C=^^VARI-1,
+                     ^F = AДP.ЗHAЧE. ПPИ ^^VARI=1,2,5,6,7,8
+                     ^ПPИ ^^VARI=1,5,7 ^E=^^LID
+                     ^ПPИ ^^VARI=2 ^E=^N ЗAПИCИ
+                     ^ПPИ ^^VARI=2 ^D=^N И ^E=^N ЭЛEMEHTA
+                     ^ПPИ ^^VARI=2 ^D>8 ^E=^^ADRF
+
+^^NEEQTE      45   ^N           CPABHEHИE TEKCTOBЫX ЗHAЧEHИЙ
+                             HA HEPABEHCTBO.
+            ^^^<D,D>:<BOOL>
+                          ^^^INMG(IZMG@[1..N]<>IZMG@[1..N])
+
+^^EQTE        46   ^N           CPABHEHИE TEKCTOBЫX ЗHAЧEHИЙ
+                             HA PABEHCTBO.
+           ^^^<A,A>:<BOOL>
+                          ^^^INMG(IZMG@[1..N]=IZMG@[1..N]).
+
+......      47   ...         CBOБOДHA
+
+
+......      48   ...         CBOБOДHA
+
+
+^^MAGPIC      49     ^N        ЗHAЧEHИE ИЗ MAГAЗИHA B ^^^PIC[N]
+                                           ^^^PIC[N]:=IZMG@
+
+
+.....       50       ...       CBOБOДHA
+
+
+^^STOTXT      51   ^N           ПPИCBAИBAHИE ЗHAЧEHИЙ:
+                             OПEPAЦИЯ ПPИCBAИBAET
+            <^D2,^D1>:<>       ЗHAЧEHИE, ДECKPИПTOP (^D1)
+                             KOTOPOГO HAXOДИTCЯ HA BEPШИHE
+                             MAГAЗИHA, ПEPEMEHHOЙ, ДECKP.
+                             KOTOPOЙ (^D2) HAXOДИTCЯ HИЖE.
+
+
+                             ^^^IR14:=IZMG;
+                             ^^^IR7 :=IZMG;
+                             ^^^IR7@[1..N]:=IR14@[1..N].
+
+^^OPRTXT      52   ^N           OПEPAЦИЯ ДOOПPOБEЛИBAHИЯ
+                             (PAБOTAET CPAЗY ЗA 51)
+                             PEГИCTP 7 ПPEДПOЛAГAETCЯ
+                             OCTABЩИMCЯ OT ПPEД.OПEPAЦИИ
+
+                             ^^^IR7@[N1+1...N+N1]:=' '...' '
+
+
+.....       53  ........
+
+......      54   .....  
+
+^^LTRN        55   ^N           ЗAБPOC ПAPAMETPA B ^^TRETIA.
+
+                             ^^^TRETIA:=N.
+
+......      56    ...         CBOБOДHA
+
+^^BINOP       57   ^N           OПEPAЦИЯ PEAЛИЗYET БИHAPHЫE
+                             OПEPAЦИИ:
+            <^D1,^D2>:<^D3>     YMHOЖEHИЯ (*) ПPИ ^N=0,
+                             CЛOЖEHИЯ (+) ПPИ ^N=1,
+                             BЫЧИTAHИЯ (-) ПPИ ^N=2,
+                             ДEЛEHИЯ  (ПPИ ^N=3).
+
+                             ^^^S:=IZMG@;
+                             ^^INMG(IZMG@ <OP> S).
+
+......      58   ....   
+
+^^ZAVER       59   ^N1          CTABИT ^N1 B ^^PIC.^Y1 И ДEЛAET
+                             "ЗABEPШ"
+                 
+                             ^^^PIC.Y1:=N1;
+                             ^^ZAWRSH.
+
+^^SOSFAL      60   ^N1,^N2       OПEPAЦИЯ ПEPEXOДA ПO ЗHAЧEHИЮ
+                             ПEPEMEHHOЙ ^^EXN
+                 
+                             ^^^IF EXN<>0 THEN
+                             ^^^PIC.NM:=ADRPIC(N1,N2).
+
+^^ZAMZAP      61   ^N           ПOДMEHA HOMEPA ЗAПИCИ-ЧЛEHA B
+                             ДECKPИПTOPE HAБOPA
+                             (C OБHYЛEHИEM CЧETЧИKA)
+
+                             ^^^PIC.X:=0;
+                             ^^^DESNAB.NZM:=N.
+
+
+.......       62      .......   CBOБOДHA
+.......       63      .......   CBOБOДHA
+---------------------------------------------------------
+   ^OПEPAЦИИ 64-94 HE BЫБИPAЮT CЛEДYЮЩEГO БAЙTA MИKPOKOДA.
+---------------------------------------------------------
+
+^^NULBUM      64               OПEPAЦИЯ ПEPEBOДИT CИCTEMY
+                             БYФEPИЗAЦИИ B COCTOЯHИE, B
+                             KOTOPOM BCE БYФEPA "^^MAPC-A"
+                             CЧИTAЮTCЯ CBOБOДHЫMИ (MOЖHO
+                             ПPИMEHЯTЬ TOЛЬKO ПOCЛE "^^BUF")
+
+^^OBMAG       65               PEBEPC MAГAЗИHA, ПPИ KOTOPOM
+                             ЗHAЧEHИЯ ДBYX BEPXHИX ЯЧEEK
+          <^V2,^V1>:<^V1,^V2>    MAГAЗИHA MEHЯЮTCЯ MECTAMИ
+
+                             ^^^X1:=IZMG;
+                             ^^^X2:=IZMG;
+                             ^^^INMG(X1);
+                             ^^^INMG(X2).
+
+^^MGFAL       66               ИЗ MAГAЗИHA B ^^TRETIA.
+
+^^MGTRUE      67               ИЗ MAГAЗИHA B ^N HAБOPA.
+
+SOSLO       68               ЗAБPOC ЗHAЧEHИЯ EXN B
+                             MAГAЗИH (CBOБOДHA!...)
+            <>:<^D>
+                             INMG(EXN).
+
+......      69               .........
+
+^^LINT        70               CPABHEHИE HA "<" ЗHAЧEHИЙ ИЗ
+                             MAГAЗИHA (ЦEЛЫE)
+            <^VD,^D1>:<BOOL>
+                             ^^^X1:=IZMG@;
+                             ^^^X2:=IZMG@;
+                             ^^^INMG(X2<X1).
+
+^^EQINT       71               CPABHEHИE HA "=" ЗHAЧEHИЙ ИЗ
+                             MAГAЗИHA (ЦEЛЫE)
+            <^D2,^D1>:<BOOL>
+                             ^^^X1:=IZMG;
+                             ^^^X2:=IZMG;
+                             ^^^INMG(X2=X1).
+
+^^LREAL        72              CPABHEHИE HA "<" ЗHAЧEHИЙ ИЗ
+                             MAГAЗИHA (ДEЙCTB)
+            <^D2,^D1>:<BOOL>
+                             ^^^X1:=IZMG;
+                             ^^^X2:=IZMG;
+                             ^^^INMG(X2<X1).
+
+^^EQREAL       73              CPABHEHИE HA "=" 2-X ЯЧEEK
+                             MAГAЗИHA (ДEЙCTB)
+            <^D2,^D1>:<BOOL>
+                             ^^^X1:=IZMG;
+                             ^^^X2:=IZMG;
+                             ^^^INMG(X2=X1).
+
+^^MIFT        74   ^N1,^N2       ПEPEXOД ПO ^^TRUE MAГAЗИHA
+
+            <BOOL>:<>        ^^^IF IZMG THEN
+                             ^^^PIC.M:=ADRPIC(N1,N2).
+
+^^MIFF        75   ^N1,^N2       ПEPEXOД ПO ^^FALSE MAГAЗИHA
+
+            <BOOL>:<>        ^^^IF NOT(IZMG) THEN
+                             ^^^PIC.M:=ADRPIC(N1,N2).
+
+
+^^MGEL        76               ИЗ MAГAЗИHA B ^N ЭЛEMEHTA.
+                     <^D>:<>
+
+^^MGTH        77               ИЗ MAГAЗИHA B ^N ЗAПИCИ.
+
+
+^^OBBUL       78               ^^NOT BEPШИHЫ MAГAЗИHA
+
+            <BOOL>:<BOOL>    ^^^INMG( NOT(IZMG)).
+
+--------------------------------------------------------
+^OПEPAЦИИ 79-86 OCYЩECTBЛЯЮT ПEPEXOД HA METKИ B
+ACCEMБЛEPHOЙ ПPOГPAMME-ИHTEPПPETATOPE.
+---------------------------------------------------------
+
+^^BEMSH       79               AHAЛOГ OП.29 ДЛЯ BЫXOДA ИЗ
+                             ПPOГPAMMЫ HA ASSEMBLER-E
+                 
+
+^^UHOD        80               OCYЩECTBЛЯET ПEPEXOД HA METKY
+                             ^^UHOD
+                 
+
+^^OT          81               ПEPEXOД HA "OT"(B ^^ADMIN)
+                             OTKPЫBAET BAPИAHTHYЮ OБЛACTЬ
+                 
+
+^^KOMPAS      82               OCYЩECTBЛЯET ПEPEXOД HA METKY
+                             ^^KOMPAS
+                 
+
+ZAVRSH      83               HE ИCПOЛЬЗYETCЯ
+
+                 
+
+^^ADM13       84               OCYЩECTBЛЯET ПEPEXOД HA METKY
+                             ^^ADM13
+                 
+
+^^ADM75       85               OCYЩECTBЛЯET ПEPEXOД HA METKY
+                             ^^ADM75
+                 
+
+^^BUF         86               OCYЩECTBЛЯET ПEPEXOД HA METKY
+                             ^^VIPUL (BЫTAЛKИBAET ИЗ БYФEPOB
+                             MOДИФИЦИPOBAHHЫE ЛИCTЫ)
+
+
+^^ZFALSE      87               ЗAБPOC ^^FALSE B MAГAЗИH
+
+            <>:<^^^FALSE>       INMG(FALSE).
+
+^^ZTRUE       88               ЗAБPOC ^^TRUE B MAГAЗИH
+
+            <>:<^^^TRUE>       INMG(TRUE).
+
+
+  ......       89               ИЗ ^^TRETIA B ^^БД-KЛЮЧ ЗAПИCИ
+  ......       90               OБPATHA OП.89
+  ......       91               CTABИT #0 ЗHAЧ.B ^^INDSME
+ .......       92              ^X2:= ....X2 X  (ДЛЯ ^^ADMIN)
+  ......       93               1-> B ^^SSPERE (^BИHAPCKИЙ)
+   .....        94              ^^^XX:=64 ..... N1 N2
+$^L
+$^C
+                        ^TAБЛ.1
+              ^OПEPAHДЫ  OПEPAЦИИ ^N.44
+-------------------------------------------------
+ ^N:1       2               3                 4
+  TIR    VARI-1            ADRF              LID 
+-------------------------------------------------
+  0-3         0       CMEЩ. B ^LIT           ДЛИHA
+  0-3         1            ^N ЭЛ.           ^N ЗAП.
+  ^N ЗAП.     2            ^N ЗAП.             -
+ HE ИCП.     3            HE ИCП.             -
+   0         4          CMEЩ. B ^LIT       HE CYЩ.
+  0-3        5             ^N B ^PIC          -
+ 2(HE CYЩ.)  6           CMEЩ. B ^LIT      HE CYЩ.
+  1          7           HE CYЩECTB.          -
+--------------------------------------------------
+
+               ^TAБЛ.2
+         ^CTPYKTYPA ДECKPИПTOPA
+ -------------------------------------------------------
+ A-1  B-2    C-3     D-4         E-5           F-6
+   TIR(1)    VARI-1(2)         (4) ИЛИ (3)        AДPEC
+VARI-----------------------------------------------------
+ 1              0               ДЛИHA (4)       ^A.B ^^LIT
+ 2              1    ^N ЗAП(4)  ^N ЭЛ.(3)       ^A.ПPИBЯЗ.
+ 3              2               ^N ЗAП(3)          0
+ 4              3                   (3)            0
+ 5              4                   (4)        ^A.B ^^LIT
+ 6              5                              ^A.B ^^PIC
+ 7              6                   (4)        ^A.B ^^LIT
+ 8              7                              ^A.^^EXN
+------------------------------------------------------
+
+$^A
+   ^B KBAДPATHЫX CKOБKAX YKAЗAHЫ ДЛИHЫ B БИTAX. ^B KPYГЛЫX CKOБKAX
+YKAЗAHЫ HOMEPA OПEPAHДOB OПEPAЦИИ 44.
+$^S1 "^^TIR" И "^^VARI"
+$^C
+
+   ^^TIR:
+
+0 - TEKCT;
+1 - ЦEЛOE, AДPEC;
+2 - ДEЙCTB;
+3 - ЛOГИЧE.
+
+   ^^VARI:
+
+1 - ЛИTEPAЛ         12 -  @
+2 - ЭЛEMEHT         13 -  .....
+3 - ЗAПИCЬ          14 - "/"ЦEЛOE,E,H И ПPOCTO "/"
+4 - TEK.ЗAПИCЬ      15 - ....
+5 - БИБ             16 -"/"P,S,R
+6 - * (B ^^PIC)
+7 - ФYHKЦИЯ "("
+8 - COC
+9 -  XX,YY
+10 - ECTЬ
+11 - BCE
+
+
+$^S1
+^OПEPAЦИИ BEPXHEГO YPOBHЯ
+$^A
+^OПEPAЦИИ BEPXHEГO YPOBHЯ BЫПOЛHЯЮTCЯ
+B MOДYЛE ^^MAD:
+$^C
+ 157  - ПYCTAЯ
+ 158  - .....
+ 159  - "=="
+ 160  - BЫДATЬ PUTEOL
+ 161  - ФAЙЛ
+ 162  - ПAPAMETPЫ ^^БИБ-OB
+ 163  - "Ф"-2
+ 164  - BЫДATЬ ДHO MAГAЗИHA
+ 165  - ЗAПPOC
+ 166  - .....
+ 167  - KOHEЦ ФYHKЦИЙ
+ 168  - ПPO
+ 169  - ШAГ
+ 170  - "Ф"-1
+ 171  - "^^JWYD"
+ 172  - BЫBOД
+ 173  - BЫBOД БЛAHKA
+ 174  - BЫДAЧA ПO БЛAHKY
+ 175  - "^^BЫП" OTTPAHC.^^БИБ
+ 176  - BЫДAЧA KOHЦA CTPOKИ
+ 177 - BЫДAЧA ПPOБEЛOB B TAБЛИЦE
+$^S1 ^OПEPAЦИИ ^^MAD-A
+$^C
+ 178, 181, 182  - ИCПOЛHИ
+ 180  - BЫП (-ЛИ...)
+ 183  - ЗAПYCK
+ 184  - BЫПOЛHИ
+ 185  - PE
+ 186  - KOHEЦ
+ 187  - .....
+ 188  - PAЗГPYЗKA ^БOДYHOBA
+ 198  -  ... HE ЯCHO
+ 199  -  ... HE ЯCHO
+$^E
+*end file
+``````
+ЕКОНЕЦ
