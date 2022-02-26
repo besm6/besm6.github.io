@@ -7,31 +7,41 @@
 *call ficmemory
 *no list
 *pascal
-(*=y+*)program main(output, result, pastel);
+(*=y+ разрешает присваивание сумматора*)
+program main(output, result, pastel);
 const nul = '_000'; etx = '_003'; lf = '_012';
+переспрос = 3;
 type
 word = record case integer of
 0:(i:integer);
 1:(s:set of 0..47)
 end;
-
 var result:text;
+(* буфер ввода с терминала, в виде слов (а) или символов (с) *)
 a:record case integer of
  0:(a:array [0..213] of alfa);
  1:(c:packed array[0..1279] of char)
 end;
 ch:char;
 i, c, s, loc:integer;
+(* внешний массив: режимы работы с терминалом *)
 pastel:array[0..25] of char;
+(* для выравнивания строк в файле на границу слова *)
 procedure pasended(var f:text); external;
+(* процедура ввода, параметры - начало и конец буфера *)
 procedure pasinp(var a, b:alfa); fortran;
 procedure finline;
+(* дописывает байт сжатых пробелов, чтобы длина строки
+ * была ровно 80 символов; завершает строку
+ * на границе слова
+ *)
 _(
    if c < 80 then write(result, chr(200B+80-c+s));
    writeln(result); pasended(result);
    c := 0; s := 0;
 _);
 function getoct:integer;
+(* чтение не более чем 4-хзначного восьмеричного числа *)
 var ret: integer;
 _(
   a.a[1] := '      ';
@@ -45,7 +55,13 @@ _(
   getoct := ret;
 _);
 function attach: boolean;
-var vol:integer; vol210:word; ret:char;
+(* запрос номера тома, дозаказ тома, запрос пароля
+ * записи, если есть. если дозаказ неудачен, 
+ * возвращает false
+ *)
+var vol:integer; (* десятичное число *)
+vol210:word; (* двоично-десятичное представление *)
+ret:char; (* код ответа экстракода наличия паролей *)
 _(
   attach := false;
   writeln(' ВВЕДИТЕ НОМЕР ТОМА: ');
@@ -57,32 +73,46 @@ _(
 	vol210.i := vol210.i * 16 + ord(a.c[i]) - ord('0');
         i := i + 1;
   _);
-  if (vol = 0) or (vol > 4095) then exit;
+  if (vol = 0) or (vol > 4095) then _(
+    writeln(vol, ': ПЛОХОЙ НОМЕР ТОМА');
+    exit
+  _)
   writeln(' ТОМ ', vol, ', ВЫ УВЕРЕНЫ');
   pasinp(a.a[0], a.a[0]);
   if (a.c[0] <> 'Д') and (a.c[0] <> 'Y') then exit; 
+  (* порядок целого числа 64 служит как логический номер 
+   * устройства, но надо добавить ещё ключ экстракода
+   * 050 0131
+   *)
   vol210.s := vol210.s + [6..11];
-  besm(500131B);
-  ret := ;
+  besm(500131B); (* дозаказ тома *)
+  ret := ; (* присваиваем сумматор в переменную *)
   case ret of
-  nul:;
+  nul:; (* хорошо *)
   '_001': _( writeln(vol, ': НЕТ ТАКОГО ТОМА'); exit _);
   '_002': _( writeln(vol, ': ТОМ ЗАНЯТ'); exit _);
   '_003', '_004', '_005', '_006', '_007':
-     _( writeln(' БАРДАК КАКОЙ-ТО: КО ', ord(ret)); besm(620000B) _);
+     _( writeln(' НЕ ДОЛЖНО ТАКОГО БЫТЬ: КО ', ord(ret));
+     besm(620000B)
+     _);
   end;
+  (* убираем лог. номер и ключ, оставляем только номер тома *)
   vol210.s := vol210.s * [24..47];
-  besm(500127B);
+  besm(500127B); (* запрос наличия паролей *)
   ret := ;
   case ret of 
-  '_000': _( vol210.s := vol210.s;
-     besm(15B*1048576+2400000B); besm(500121B);
+  '_000': _(
+     (* подтверждать нужно даже нулевой пароль *)
+     vol210.s := vol210.s; (* номер тома на СМ *)
+     besm(15B*1048576+2400000B); (* нулевой пароль записи *)
+     besm(500121B); (* подтверждение пароля *)
   _);
   '_002', '_003': _(
    writeln(' УКАЖИТЕ ПАРОЛЬ ЗП: ');
    i := getoct;
-   besm(400015B); vol210.s := vol210.s;
-   besm(500121B);
+   besm(400015B); (* пароль был на СМ; установим на М15 *)
+   vol210.s := vol210.s; (* номер тома на СМ *)
+   besm(500121B); (* подтверждение пароля *)
   _)
   end;
   writeln(' ТОМ ', vol, ' ПРИНЯТ');
@@ -93,11 +123,15 @@ _(
   location := false;
   writeln(' ВВЕДИТЕ НАЧАЛЬНУЮ ЗОНУ: ');
   loc := getoct;
+  (* пока не различаем 7.25 Мб и 29 Мб диски *)
   if (loc > 7633B) then _(
      writeln(loc:4 oct, ' МНОГОВАТО БУДЕТ'); exit
    _);
   writeln(' ЗОНА ', loc:4 oct, ', ВЫ УВЕРЕНЫ');
   pasinp(a.a[0], a.a[0]);
+  (* делаем дескриптор файла, добавляя НУ 64 и
+   * максимальную длину файла 777 зон
+   *)
   loc := loc + 777640000B;
   location := (a.c[0] = 'Д') or (a.c[0] = 'Y'); 
 _);
@@ -106,28 +140,31 @@ _(
   pastel[3] := chr(0);
   writeln(' ':17, '--- %%% --- ИРБИС В ДУБНУ --- %%% ---');
   writeln(' ':17, ' (ЕСЛИ ЧТО, АВАРИЙНЫЙ ВЫХОД - ^O ВКН)');
-  (loop) for s to 3 do if attach then exit loop;
-  if s = 4 then _(
-    writeln(' МНЕ НАДОЕЛО'); besm(740000B);
+  (* если хочется 
+  (loop) for s to переспрос do if attach then exit loop;
+  if s = переспрос+1 then _(
+    writeln(' МНЕ НАДОЕЛО'); besm(740000B); (* выход *)
   _);
-  (loop) for s to 3 do if location then exit loop;
-  if s = 4 then _(
-    writeln(' МНЕ НАДОЕЛО'); besm(740000B);
+  (loop) for s to переспрос do if location then exit loop;
+  if s = переспрос+1 then _(
+    writeln(' МНЕ НАДОЕЛО'); besm(740000B); (* выход *)
   _);
-  reset(result, loc);
-  rewrite(result);
+  reset(result, loc); (* настройка местоположения файла *)
+  rewrite(result); (* откроем на запись *)
   writeln('ВВОДИТЕ ТЕКСТ; КОНЕЦ ВВОДА - СТРОКА ИЗ ОДНОЙ ТОЧКИ');
   (loop) repeat
-  pasinp(a.a[0], a.a[213]);
-  if (a.c[0] = '.') and
-     ((a.c[1] = nul) or (a.c[1] = etx)) then exit loop;
-  c := 0; s := 0;
+  pasinp(a.a[0], a.a[213]); (* максимальный буфер *)
+  if (a.c[0] = '.') and ((a.c[1] = nul) or (a.c[1] = etx)) then
+    exit loop;
+  c := 0; (* счетчик символов в строке *)
+  s := 0; (* из них концевых пробелов *)
   (q) for i := 0 to 1279 do _(
      ch := a.c[i];
      if (ch = nul) or (ch = etx) then _(
-       if c <> 0 then finline;
+       if c <> 0 then finline; (* строка кончилась *)
        exit q;
      _);
+     (* перевод строки или разрыв строки на 80 символах *)
      if (ch = lf) or (c = 80) then finline
      else _(
        if ch = ' ' then s := s + 1 else _(
@@ -139,6 +176,7 @@ _(
      _);
   _);
   until false;
+  (* признак конца файла МС "Дубна" *)
   writeln(result, '*READ OLD_307');
   pasended(result); (*=y-*)
 _).
