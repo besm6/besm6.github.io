@@ -1,0 +1,147 @@
+шифр 419900зс5^
+теле^
+озу 32^
+еев1а3
+*name
+*libra:13
+*call ficmemory
+*no list
+*pascal
+(*=y+*)program main(output, result, pastel);
+const nul = '_000'; etx = '_003'; lf = '_012';
+type
+word = record case integer of
+0:(i:integer);
+1:(s:set of 0..47)
+end;
+
+var result:text;
+a:record case integer of
+ 0:(a:array [0..213] of alfa);
+ 1:(c:packed array[0..1279] of char)
+end;
+ch:char;
+i, c, s, loc:integer;
+pastel:array[0..25] of char;
+procedure pasended(var f:text); external;
+procedure pasinp(var a, b:alfa); fortran;
+procedure finline;
+_(
+   if c < 80 then write(result, chr(200B+80-c+s));
+   writeln(result); pasended(result);
+   c := 0; s := 0;
+_);
+function getoct:integer;
+var ret: integer;
+_(
+  a.a[1] := '      ';
+  pasinp(a.a[0], a.a[0]);
+  ret := 0; i := 0;
+   while ('0' <= a.c[i]) and (a.c[i] <= '7') do _(
+        ret := ret * 8 + ord(a.c[i]) - ord('0');
+        ret := ret mod 10000B;
+        i := i + 1;
+  _);
+  getoct := ret;
+_);
+function attach: boolean;
+var vol:integer; vol210:word; ret:char;
+_(
+  attach := false;
+  writeln(' ВВЕДИТЕ НОМЕР ТОМА: ');
+  a.a[1] := '      ';
+  pasinp(a.a[0], a.a[0]);
+  vol := 0; i := 0; vol210.i := 0;
+  while ('0' <= a.c[i]) and (a.c[i] <= '9') do _(
+	vol := vol * 10 + ord(a.c[i]) - ord('0');
+	vol210.i := vol210.i * 16 + ord(a.c[i]) - ord('0');
+        i := i + 1;
+  _);
+  if (vol = 0) or (vol > 4095) then exit;
+  writeln(' ТОМ ', vol, ', ВЫ УВЕРЕНЫ');
+  pasinp(a.a[0], a.a[0]);
+  if (a.c[0] <> 'Д') and (a.c[0] <> 'Y') then exit; 
+  vol210.s := vol210.s + [6..11];
+  besm(500131B);
+  ret := ;
+  case ret of
+  nul:;
+  '_001': _( writeln(vol, ': НЕТ ТАКОГО ТОМА'); exit _);
+  '_002': _( writeln(vol, ': ТОМ ЗАНЯТ'); exit _);
+  '_003', '_004', '_005', '_006', '_007':
+     _( writeln(' БАРДАК КАКОЙ-ТО: КО ', ord(ret)); besm(620000B) _);
+  end;
+  vol210.s := vol210.s * [24..47];
+  besm(500127B);
+  ret := ;
+  case ret of 
+  '_000': _( vol210.s := vol210.s;
+     besm(15B*1048576+2400000B); besm(500121B);
+  _);
+  '_002', '_003': _(
+   writeln(' УКАЖИТЕ ПАРОЛЬ ЗП: ');
+   i := getoct;
+   besm(400015B); vol210.s := vol210.s;
+   besm(500121B);
+  _)
+  end;
+  writeln(' ТОМ ', vol, ' ПРИНЯТ');
+  attach := true;
+_);
+function location:boolean;
+_(
+  location := false;
+  writeln(' ВВЕДИТЕ НАЧАЛЬНУЮ ЗОНУ: ');
+  loc := getoct;
+  if (loc > 7633B) then _(
+     writeln(loc:4 oct, ' МНОГОВАТО БУДЕТ'); exit
+   _);
+  writeln(' ЗОНА ', loc:4 oct, ', ВЫ УВЕРЕНЫ');
+  pasinp(a.a[0], a.a[0]);
+  loc := loc + 777640000B;
+  location := (a.c[0] = 'Д') or (a.c[0] = 'Y'); 
+_);
+
+_(
+  pastel[3] := chr(0);
+  writeln(' ':17, '--- %%% --- ИРБИС В ДУБНУ --- %%% ---');
+  writeln(' ':17, ' (ЕСЛИ ЧТО, АВАРИЙНЫЙ ВЫХОД - ^O ВКН)');
+  (loop) for s to 3 do if attach then exit loop;
+  if s = 4 then _(
+    writeln(' МНЕ НАДОЕЛО'); besm(740000B);
+  _);
+  (loop) for s to 3 do if location then exit loop;
+  if s = 4 then _(
+    writeln(' МНЕ НАДОЕЛО'); besm(740000B);
+  _);
+  reset(result, loc);
+  rewrite(result);
+  writeln('ВВОДИТЕ ТЕКСТ; КОНЕЦ ВВОДА - СТРОКА ИЗ ОДНОЙ ТОЧКИ');
+  (loop) repeat
+  pasinp(a.a[0], a.a[213]);
+  if (a.c[0] = '.') and
+     ((a.c[1] = nul) or (a.c[1] = etx)) then exit loop;
+  c := 0; s := 0;
+  (q) for i := 0 to 1279 do _(
+     ch := a.c[i];
+     if (ch = nul) or (ch = etx) then _(
+       if c <> 0 then finline;
+       exit q;
+     _);
+     if (ch = lf) or (c = 80) then finline
+     else _(
+       if ch = ' ' then s := s + 1 else _(
+         if s <> 0 then write(result, chr(200B+s));
+         write(result, ch);
+         s := 0;
+       _);
+       c := c + 1;
+     _);
+  _);
+  until false;
+  writeln(result, '*READ OLD_307');
+  pasended(result); (*=y-*)
+_).
+*execute
+*end file
+еконец
