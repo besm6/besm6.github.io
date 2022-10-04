@@ -15,7 +15,7 @@ They are:
 | OPEND | 31-11-14-12-25 | Open an existing container by name, error out if it does not exist in the root catalog |
 | NEWD | 31-11-15-21-26-11-14-12-10-21 | Create a container given a name and LUN/starting block/length |
 
-The semantics of micro-instructions, deduced so far:
+The semantics of micro-instructions (with the range of possible valid codes 00-55 octal), deduced so far:
 
 | Code | Meaning |
 | --- | --- |
@@ -24,18 +24,35 @@ The semantics of micro-instructions, deduced so far:
 | 02 | Position the iterator at the end |
 | 03 | Step back | 
 | 04 | Step forward |
+| 05 | ??? Wants to write to the disk |
+| 06 | ??? Wants to write to the disk |
+| 07 | ??? Non-writing |
 | 10 | Initialize a container/catalog |
 | 11 | Find an entry by key |
 | 12 | Copy the value to the catalog descriptor |
+| 13 | ??? Non-writing |
 | 14 | If the current entry does not match the given key:<br>if the 14 op is the last in the instruction word or is followed by a non-00 instruction, error out,<br>otherwise skip the 00 insn and 3 following insns |
 | 15 | The converse of 14 (if the current entry does match  the given key ....) |
+| 16-17 | ??? Non-writing | 
 | 20 | Copy from the user area to the value part of the current entry |
-| 21 | Copy data to the container (???) | 
+| 21 | Copy data to the disk (???) | 
 | 22 | Copy the value part of the current entry to the user area |
 | 23 | Free the memory for the value part of the current entry (???) |
+| 24 | ??? Non-writing |
 | 25 | Switch to the catalog pointed to by the descriptor |
-| 26 | Add a key (???) |
-| 27 | Delete a key (???) |
+| 26 | Add a key (???) wants to write to the disk |
+| 27 | Delete a key (???) wants to write to the disk |
+| 30 | ??? Loops forever |
 | 31 | Switch to the root catalog |
+| 32 | ??? Wants to write to the disk |
+| 33-35 | ??? Non-writing |
+| 36 | ??? Wants to write to the disk |
+| 37 | ??? Non-writing |
 | 40 | Stop |
-
+| 41 | ??? Non-writing |
+| 42 | ??? Wants to write to the disk |
+| 43-44 | ??? Non-writing |
+| 45 | ??? Wants to write to the disk |
+| 46 | ??? Non-writing |
+| 47 | СЧ BDVECT+41B, ПБ BDVECT+1 ??? |
+| 50-55 | ??? Non-writing |
