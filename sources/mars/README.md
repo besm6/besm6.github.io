@@ -38,16 +38,18 @@ The semantics of micro-instructions (with the range of possible valid codes 00-5
 | 21 | Copy data to the disk (???) | 
 | 22 | Copy the value part of the current entry to the user area |
 | 23 | Free the memory for the value part of the current entry (???) |
-| 24 | ??? Non-writing |
+| 24 | ??? Password check |
 | 25 | Switch to the catalog pointed to by the descriptor |
 | 26 | Add a key (???) wants to write to the disk |
 | 27 | Delete a key (???) wants to write to the disk |
-| 30 | ??? Loops forever |
+| 30 | Restart executing the instruction word |
 | 31 | Switch to the root catalog |
 | 32 | ??? Wants to write to the disk |
-| 33-35 | ??? Non-writing |
+| 33 | ??? Non-writing |
+| 34 | Converts a file descriptor to a text format |
+| 35 | ??? Non-writing |
 | 36 | ??? Wants to write to the disk |
-| 37 | ??? Non-writing |
+| 37 | Skip next 2 instructions |
 | 40 | Stop |
 | 41 | ??? Non-writing |
 | 42 | ??? Wants to write to the disk |
@@ -55,4 +57,7 @@ The semantics of micro-instructions (with the range of possible valid codes 00-5
 | 45 | ??? Wants to write to the disk |
 | 46 | ??? Non-writing |
 | 47 | СЧ BDVECT+41B, ПБ BDVECT+1 ??? |
-| 50-55 | ??? Non-writing |
+| 50-52 | bdvec manipulations with index increment  |
+| 53 | bdvec[next_insn] := bdvec[next_next_insn] ??? |
+| 54 | mem[bdvec[next_insn]] := bdvec[10] ??? |
+| 55 | ПБ (M16) ??? |
