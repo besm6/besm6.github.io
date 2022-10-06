@@ -1,0 +1,94 @@
+шифр 419900зс5^
+dis 40(2048-630)^
+dis 41(2148)^
+dis 52(1234-wr)^
+ОЗУ 32^
+еев1а3
+*name 
+*call ficmemory
+*     в паспорте 40(2048-630) - для настройки на код МАРСа
+*     52(1234-wr) - рабочая лента для экспериментов
+*     используем библиотеку паскаля
+*     на диске 2148 - там работа с БД правильная
+*perso:410440
+*pascal
+(*=p-,t-*)PROGRAM main (OUTPUT,BDVECT);
+% BDVECT - массив с параметрами задания к МАРСу
+% нужно указывать и объявлять, если нужен прямой доступ к нему
+type word = record case integer of 0:(i:integer); 1:(a:alfa) end;
+var i,j:integer;
+a:array [1..1234b] _of integer;
+bdvect, sav: array[0..167] of word;
+% sav - массив того же типа что bdvect для определения изменившихся слов
+% процедуры работы с МАРСом согласно инструкции Пирина
+PROCEDURE PASSETAR(I: INTEGER); EXTERNAL; 
+PROCEDURE PASACD(VAR I: INTEGER); FORTRAN;
+% процедура печати изменившихся слов 
+procedure dump;
+_var j:integer;
+_( 
+    for j := 0 to 167 do 
+        if bdvect[j] <> sav[j] then
+            writeln(' word ', j : 3 oct,
+                ' changed from ', sav[j] oct,
+                ' to ', bdvect[j] oct, '(', bdvect[j].a, ')');
+    sav := bdvect;
+_);
+% обнуление массива
+procedure zero;
+_(
+	for j := 1 to 1234b do a[j] := 0;
+
+_);
+% проверка значений в массиве
+procedure check;
+_(
+	for j := 1 to 1234b do 
+	if (a[j] <> j*j) then writeln(' elt ', j, ' is ', a[j],
+	' instead of ', j*j);
+_);
+BEGIN
+	sav := bdvect;
+% создаем каталог баз данных длиной 1 зону с нулевой зоны
+% НУ 52, константа должна быть типа С (без порядка), а не В 
+	j := 1520000C;
+% процедура PASACD описана как FORTRAN, поэтому параметр передается
+% через переменную 
+% при работе с существующей базой PASACD нужно убрать
+        PASACD(j); writeln(' after pasacd'); dump;
+% настраиваемся на каталог, здесь уже можно константу
+        PASSETAR(1520000c); writeln(' after passetar'); dump;
+% создаем файл данных YYY на НУ 52 с зоны 4 длиной 3 зоны
+% здесь тоже константа обязательно типа С
+	j := 3520004C;
+% для работы с существующим файлом newd нужно убрать 
+	newd('YYY', j);	writeln(' after newd'); dump;
+% открываем его
+        opend('yyy'); writeln(' after opend'); dump;
+% инициализируем массив а
+	for j := 1 to 1234b do a[j] := j*j;
+% пишем массив в текущий файл
+	putd('val', a); writeln(' after putd'); dump;
+% обнуляем массив
+        zero;
+% читаем в массив из файла
+	getd('val', a);	writeln(' after getd'); dump;
+% проверяем, что значения равны ожидаемым
+        check;
+% изменяем какое-нибудь слово массива
+        a[125] := 999999;
+% и записываем в файл        
+        modd('val', a); 
+% обнуляем, читаем, сравниваем - отличие в одном слове
+        zero; getd('val', a); check;
+% ещё можно указывать длину записываемого элемента
+        modd('val', a:1232b);
+% обнуляем, читаем, сравниваем - отличие в трех словах
+        zero; getd('val', a); check; dump;
+% прочтенная длина 1232 видна в 3 разных словах
+END.
+*no load list
+*execute
+*end file
+``````
+еконец
