@@ -1,0 +1,123 @@
+шифр 419900зс5^
+dis 40(2048-630)^
+dis 41(2148)^
+dis 52(1234)^
+ОЗУ 32^
+еев1а3
+*name 
+*call ficmemory
+*     работаем с существующей базой, лента 1234
+*     заказана только на чтение
+*     используем библиотеку паскаля
+*     на диске 2148 - там работа с БД правильная
+*perso:410440
+*pascal
+(*=p-,t-*)PROGRAM main (OUTPUT,bdvect);
+% микрокоманды - 6-битовые, размещаются в слове с младших разрядов
+% после определения констант процедуры с теми же именами уже недоступны
+const opend=2512141131c; putd=26211511c; getd=221411c;
+deld=27231411c;modd=20402621001511c;
+% выше - стандартные последовательности команд
+find=400000001411c;copyd=22c;
+% find и copyd - экспериментальные
+dir=22141131c;  (* фактически getd из каталога файлов *)
+
+type word = record case integer of
+ 0:(i:integer); 1:(a:alfa); 2:(p:@integer); 3:(c:char) end;
+var i,j:integer;
+a:array [1..1234b] _of integer;
+bdvect, sav: array[0..167] of word;
+PROCEDURE PASSETAR(I: INTEGER); EXTERNAL; 
+procedure pasbdi; external;
+procedure pasbd; external;
+procedure dump;
+_var j:integer;
+_( 
+    for j := 0 to 167 do 
+        if bdvect[j] <> sav[j] then
+            writeln(' word ', j : 3,
+                ' changed from ', sav[j] oct,
+                ' to ', bdvect[j] oct, '(', bdvect[j].a, ')');
+    sav := bdvect;
+_);
+procedure zero;
+_(
+	for j := 1 to 1234b do a[j] := 0;
+
+_);
+procedure check(len: integer);
+_(
+for j := 1 to len do 
+	if (a[j] <> j*j) then writeln(' elt ', j, ' is ', a[j],
+	' instead of ', j*j);
+_);
+BEGIN
+% для работы с уже созданной базой данных можно пользоваться
+% процедурами PASBDI (инициализация) и PASBD (запрос)
+% настраиваемся на каталог, здесь уже можно константу
+        PASSETAR(1520000c);
+	PASBDI;
+	writeln(' after pasbdi'); (* dump; *)
+% перед вызовом PASBD нужно:
+% занести в bdvect[8] ключ - обязательно с 0 в 48-м р.
+% (для текстовых строк это автоматически гарантируется)
+% занести в bdvect[11] адрес данных если это имеет смысл
+% занести в bdvect[13] длину данных в словах
+% занести в bdvect[3] микрокомандное слово
+% читаем дескриптор файла в каталоге 
+        bdvect[3].i := dir;
+% в отличие от вызова процедур,        
+% при присваивании ключ должен обязательно содержать 6 символов
+% будем читать дескриптор файла yyy
+        bdvect[8].a := 'yyy   ';
+% в массив по адресу a        
+        bdvect[11].p := ref(a);
+% элемент каталога файла занимает 2 слова
+        bdvect[13].i := 2c;
+        
+sav := bdvect; pasbd; writeln(' after dir'); dump;
+
+% первое слово - дескриптор файла как был указан в newd
+% второе слово - что-то типа даты/времени изменения
+        writeln(a[1] oct, a[2] oct);
+% теперь открываем файл
+        bdvect[3].i := opend;
+        bdvect[8].a := 'yyy   ';
+        
+sav := bdvect; pasbd; writeln(' after opend'); dump;
+
+% сразу после открытия видим в слове 48 ключ первого элемента
+% а длины его не видим
+        bdvect[8] := bdvect[48]; 
+% "ищем" его
+        bdvect[3].i := find;
+        
+sav := bdvect; pasbd; writeln(' after find'); dump;
+
+% задаем команду на копирование найденного элемента,
+% указывая длину 1
+% если указать длину 0, прочтётся без проверки на длину
+        bdvect[3].i := copyd;
+	bdvect[11].p := ref(a);
+        bdvect[13].i := 1c;
+                
+sav := bdvect; pasbd; writeln(' after copyd'); dump;
+% получаем ошибку 14 - реальная длина больше указанной
+% и реальную длину в удобном виде в слове 39
+
+% читаем в массив из файла как следует
+        bdvect[3].i := getd;
+        bdvect[8].a := 'val   ';
+	bdvect[11].p := ref(a);
+% задаем намеренно бОльшую длину, чем на самом деле
+        bdvect[13].i := 4321c;
+sav := bdvect; pasbd; writeln(' after getd'); dump;
+% наблюдаем в выдаче 3 слова со значением настоящей длины элемента
+% проверяем, что значения равны ожидаемым, пользуясь длиной из слова 39
+        check(ord(bdvect[39].c));
+END.
+*no load list
+*execute
+*end file
+``````
+еконец
