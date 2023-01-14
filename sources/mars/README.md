@@ -54,7 +54,7 @@ The semantics of micro-instructions (with the range of possible valid codes 00-5
 | 41 | ??? Non-writing |
 | 42 | ??? Wants to write to the disk |
 | 43-44 | ??? Non-writing |
-| 45 | ??? Wants to write to the disk |
+| 45 | Setting the flag "database is busy" |
 | 46 | ??? Non-writing |
 | 47 | СЧ BDVECT+41B, ПБ BDVECT+1 ??? |
 | 50-52 | bdvec manipulations with index increment  |
