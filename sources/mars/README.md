@@ -47,7 +47,7 @@ The semantics of micro-instructions (with the range of possible valid codes 00-5
 | 32 | ??? Wants to write to the disk |
 | 33 | ??? Non-writing |
 | 34 | Converts a file descriptor to a text format |
-| 35 | ??? Non-writing |
+| 35 | Save dirty duffers and exit |
 | 36 | ??? Wants to write to the disk |
 | 37 | Skip next 2 instructions |
 | 40 | Stop |
