@@ -5,11 +5,11 @@
         пб      a&sndx
 tx&sndx текст   п&txt
         конд    m40b'172'
-a&sndx  пв      '76005'(М16)
-        пб      '76002'
+a&sndx  пв      write(М16)
+        пб      pult
         mend
 * prep проверяет корректность сис. листа, устанавливает
-* М16, опционально устанавливает дескрипторы и ключ
+* М4 на него, опционально устанавливает дескрипторы и ключ
 * (должен быть ненулевой)
         macro
 &l      prep    &err,&b
@@ -49,25 +49,25 @@ a&sndx  пв      '76005'(М16)
 * декодирование типов параметров
         macro
         case    &a,&b,&c,&d
-        aif     (&a eq '').ex
         сч      cmdtyp
         нтж     &a(1)
         по      &a(2)
+        aif     (&b eq '').ex
         case    &b,&c,&d
 .ex     mend
 * декодирование CMD по таблице
         macro
-&l      decod   &tab,&err
+&l      decod   &tab
 &l      мода    BASE
         уиа     &tab.(М1)
 lp&sndx сч      (М1)
-        по      &err
+        по      gd&sndx+1
         нтж     CMD
         по      gd&sndx
         слиа    2(М1)
         пб      lp&sndx
 gd&sndx мод     1(М1)
-        пб      BASE
+        пб      BASE        
         mend
 * чтение системного листа и установка адреса буфера        
         macro
@@ -127,6 +127,44 @@ go&sndx сч      syspag
         aif     (&b eq '').ex
         tabl    &b,&c,&d,&e,&f,&g,&h,&i,&j,&k,&l,&m,&n
 .ex     mend
+* оператор присваивания
+        macro
+&a      :=      &b
+        сч      &b(1)
+        aif     (n'&b lt 3).x
+        &b(2)   &b(3)
+        aif     (n'&b eq 3).x
+        &b(4)   &b(5)
+.x      зп      &a
+        mend
+* вызов БАНДИТ        
+        macro
+&l      bandt   &a,&b
+        aif (&b eq '').x
+        сч      &b
+.x      мода    (M4)
+        пв      &a.(М16)
+        mend
+* печать заголовка         
+        macro
+&l      headr
+&l      мода    BASE
+        уиа     hd&sndx.(М15)
+        пб      wr&sndx
+hd&sndx текст   п'ИМЯ         ДЛИНА  ШИФР ДАТА'
+        конд    м40в'172'
+wr&sndx пв      write(М16)
+        mend
+* чтение восьмеричного аргумента, опц. уст. флага
+        macro
+&l      getv    &dest,&flag        
+&l      мода    BASE
+        уиа     &dest.(М6)
+        aif     (&flag eq '').x
+        сч      &flag
+        зп      flag
+.x      пб      getval
+        mend
 BD      СТАРТ   '1'
 BASE    equ     BD-1
         употр   BASE(М13)
@@ -149,16 +187,15 @@ copy    мода    '1777'
         цикл    copy(М1)
         уиа     '66000'(M13)
         пб      START
-START   сч      dfltad
-        зп      sysadr
+START   ноп
+sysadr  :=      dfltad
         мода    BASE
         уиа     badarg(М12)
-        пв      '76016'(М11)
-        мод     '76015'
+        пв      parse(М11)
+        мод     argv
         сч      3
         уи      М2
-        сч      
-        зп      Nopt
+Nopt    :=      0
         слиа    -1(М2)
         мода    BASE    
         пв      getopt(М16)
@@ -166,31 +203,25 @@ START   сч      dfltad
 cmdtyp  пам     1
 CMD     пам     1
 Ttext   конд    в'5'
-Ttype4  конд    в'4'
+Tchar   конд    в'4'
         конд    в'3'
 Toctal  конд    в'2'
         конд    в'1'
 Nopt    пам     1
 getopt  слиа    1(М2)
-        сч      (М2)
-        сда     64-3
-        счмр    
-        зп      cmdtyp
-        сч      Nopt
-        слц     E1
-        зп      Nopt
+cmdtyp  :=      ((M2) сда 64-3 счмр)   
+Nopt    :=      (Nopt слц Е1)       
         мод     (М2)
-        сч      
+        сч
         зп      CMD
         сч      cmdtyp
         нтж     Ttext
         пе      A00046
-        сч      CMD
-        зп      cmd5
+cmd5    :=      CMD
 A00046  пб      (М16)
 A00047  opt     noargs,Ttext
         пе      wrong
-        decod   BDdec,wrong
+        decod   BDdec
 wrong   err     'ВD <НЕ ТО>'
 noargs  err     'ВD, А ДАЛЬШЕ'
 badarg  err     'НЕПР. СПИСОК ПАРАМЕТРОВ ДЛЯ ВD'
@@ -198,135 +229,104 @@ cmd5    пам     1
 switch  пам     1
 errmsg  сда     64-30
         уии     М15(М16)
-        пв      '76005'(М16)
-        пб      '76002'
+        пв      write(М16)
+        пб      pult
         конд    п'ОШ.N= '
         пам     1
         конд    m40b'172'
-NЕW     сч      B4
-        зп      switch
+NЕW     ноп
+switch  :=      B4
         мода    BASE
         уиа     wrong(М5)
         мода    BASE
         уиа     bufnam(M4)
         мода    BASE
         пв      NEWarg(М3)
-A00124  opt     sw1,Ttext
+newopt  opt     sw1,Ttext
         пе      badext
         мода    BASE
-        уиа     A00124(М5)
-        decod   NEWdec,badext
+        уиа     newopt(М5)
+        decod   NEWdec
 badext  err     'НЕПР. ДОПОЛНЕНИЕ'
 nooct   err     'НЕТ ВОСЬМЕРИЧНОГО НОМЕРА'
 СИС     мода    BASE
         уиа     syspag(М6)
 getval  opt     nooct,Toctal
         пе      nooct
-        сч      CMD
-        зп      (М6)
+(М6)    :=      CMD
         пб      (М5)
-ТАБ     мода    BASE
-        уиа     tabpag(М6)
-        пб      getval
-rdex23  rdsys   memadr
-        пб      exec23
+ТАБ     getv    tabpag
+neww    rdsys   B0
+        пб      donew
 erased  текст   п'СТЕРТА БД-СИ'
         конд    п'СТЕМА0'в'172'
-exec23  prep    errmsg,bufnam
-        сч      maxzon
-        сда     64-6
-        зп      Mmyloc(M4)
-        сч      maxzon
-        сда     64-18
-        или     bufloc
-        зп      Marg(M4)
-        мода    (M4)
-        пв      '23'(М16)
-        пб      '76002'
+donew   prep    errmsg,bufnam
+Mmyloc(M4) :=   (maxzon сда 64-6)
+Marg(M4) :=     (maxzon сда 64-18 или bufloc)
+        bandt   '23'
+        пб      pult
 ОРЕN    opt     wrong
-        сч      CMD
-        зп      bufnam
-        пб      rdex16
+bufnam  :=      CMD
+        пб      openn
 СЛО     opt     nooct
-        сч      B2
-        зп      swtch2
-        сч      CMD
-        зп      EOT2
+flag    :=      B2
+EOT2    :=      CMD
         пб      (М5)
-swtch2  конд    в'1'
-rdex16  rdsys   bufpag
+flag    конд    в'1'
+openn   rdsys   bufpag
         prep    errmsg,bufnam
-        мода    (M4)
-        пв      '16'(М16)
-        пб      '76002'
-РUТ     сч      E1
-        зп      switch
+        bandt  '16'
+        пб      pult
+РUТ     ноп
+switch  :=      E1
         пб      OP
-DЕLЕТЕ  сч      B2
-        зп      switch
+DЕLЕТЕ  ноп
+switch  :=      B2
         пб      OP
-МОDIFУ  сч      B3
-        зп      switch
+МОDIFУ  ноп
+switch  :=      B3
         пб      OP
-GЕТ     сч      
-        зп      switch
+GЕТ     ноп
+switch  :=      0
 OP      opt     wrong
-        сч      CMD
-        зп      bufnam
+bufnam  :=      CMD
         opt     sw1
-        case    (Toctal,A00307),(Ttext,A00314)
-A00307  сч      CMD
-        зп      ПАМ
-        opt     sw1
-        case    (Ttext,A00314)
+        case    (Toctal,octopt),(Ttext,txtopt)
+octopt  ноп
+ПАМ     :=      CMD
+more    opt     sw1
+        case    (Ttext,txtopt)
         пб      badext
-A00314  мода    BASE
-        уиа     A00307+1(М5)
-        decod   GETdec,A00322
-A00322  пб      badext
-БУФ     мода    BASE
-        уиа     bufpag(М6)
-        пб      getval
-ДЛВ     мода    BASE
-        уиа     LEN(М6)
-        сч      memadr
-        зп      swtch2
-        пб      getval
-СИМ     мода    BASE
-        уиа     EOT1(М6)
-        сч      E1
-        зп      swtch2
-        пб      getval
-sw1     swtch   switch,exec32,sw2,exec21,exec22,rdex23,rdex16
-exit    пб      '76002'
-exec32  prep    errmsg,bufnam
+txtopt  мода    BASE
+        уиа     more(М5)
+        decod   optdec
+        пб      badext
+БУФ     getv    bufpag
+ДЛВ     getv    LEN,B0
+СИМ     getv    EOT1,E1
+sw1     swtch   switch,gett,putt,delet,modif,neww,openn
+exit    пб      pult
+gett    prep    errmsg,bufnam
         args    (0,Mmylen),(ПАМ,Mmyloc)
-        мода    (M4)
-        пв      '20'(М16)
+        bandt   '20'
         пб      exit
-sw2     swtch   swtch2,exec17,exec33
-        prep    errmsg,bufnam
+putt    swtch   flag,dlv,sym
+        prep    errmsg,bufnam  <- СЛО
         args    (ПАМ,Mmyloc),(LEN,Mmylen),(EOT2,Marg)
-        сч      E16
-        мода    (M4)
-        пв      '33'(М16)
+        bandt   '33',E16
         пб      exit
-exec33  prep    errmsg,bufnam
+sym     prep    errmsg,bufnam <- по умолчанию
         args    (ПАМ,Mmyloc),(LEN,Mmylen),(EOT1,Marg)
-        сч      
-        мода    (M4)
-        пв      '33'(М16)
+        bandt   '33',0
         пб      exit
-exec17  prep    errmsg,bufnam
+dlv     prep    errmsg,bufnam <- длина указана
         args    (ПАМ,Mmyloc),(LEN,Mmylen)
-        мода    (M4)
-        пв      '17'(М16)
+        bandt   '17'
         пб      exit
-exec21  prep    errmsg,bufnam
-        мода    (M4)
-        пв      '21'(М16)
+delet   prep    errmsg,bufnam
+        bandt   '21'
         пб      exit
-exec22  prep    errmsg,bufnam
+modif   prep    errmsg,bufnam
         args    (ПАМ,Mmyloc),(0,Mmylen)
         мода    (M4)
         пв      '22'(M4) should be (M16) ???
@@ -336,7 +336,7 @@ BDdec   tabl    NEW,OPEN,(OBTAIN,GET),(OBT,GET),PUT,DELETE
         пам     1
 NEWdec  tabl    СИС,ТАБ,БУФ
         пам     1
-GETdec  tabl    ДЛВ,СИМ,СЛО
+optdec  tabl    ДЛВ,СИМ,СЛО
         пам     1
 bufnam  конд    п'БУФ   '
 bufloc  конд    в'270000'
@@ -349,125 +349,96 @@ EOT1    конд    m8b'172'b'175'
 EOT2    конд    m8b'172'b'175'
 LEN     пам     1
 NEWarg  opt     (М5)
-        case    (Ttext,A00574),(Toctal,A00610),(Ttype4,A00620)
+        case    (Ttext,mkfile),(Toctal,nuzzzz),(Tchar,A00620)
 badarr  err     'ДЛЯ ВD НЕПР. ЗАДАН МАССИВ'
-A00574  сч      '1770'(М10)
-        зп      -8
-        сч      CMD
-        зп      -7
-        сч      memadr
-        сда     64-10
-        зп      -6
-        сч      B20
-        зп      -5
-        сч      '76000'
-        зп      -4
-        пв      '76006'(М11)
+mkfile  ноп
+'77770' :=      ('1770'(М10))
+'77771' :=      CMD
+'77772' :=      (B0 сда 64-10)
+'77773' :=      B20
+'77774' :=      '76000'
+        пв      creat(М11)
         уии     М15(М1)
         пб      wrexit
-unusd1  сч      -3
-        зп      1(M4)
-        сч      -5
-        зп      2(M4)
-        сч      1(M4)
-        и       E18T1
-        зп      1(M4)
-        сч      CMD
-        зп      (M4)
+unusd1  ноп
+1(M4)   :=      '77775'
+2(M4)   :=      '77773'
+1(M4)   :=      (1(M4) и E18T1)
+0(M4)   :=      CMD
         пб      (М3)
-A00610  сч      BOCMP
-        зп      (M4)
-        сч      CMD
-        зп      1(M4)
+nuzzzz  ноп
+(M4)    :=      BOCMP
+1(M4)   :=      CMD
         opt     badarr,Toctal
         пе      badarr
         мода    
-        сч      CMD
-        зп      2(M4)
+2(M4)   :=      CMD
         пб      (М3)
 A00620  сч      CMD
         нтж     B26
         по      (М3)
         пб      badarr
 unusd2  opt     (М5)
-        case    (Ttext,A00574),(Toctal,A00610),(Ttype4,(M3))
+        case    (Ttext,mkfile),(Toctal,nuzzzz),(Tchar,(M3))
         пб      badarr
-КТЛ     opt     A00723
-        case    (Ttext,A00635)
+КТЛ     opt     catal
+        case    (Ttext,ctlarg)
         пб      badext
-A00635  decod   KTLdec,bad1
-bad1    пб      badext
+ctlarg  decod   KTLdec
+        пб      badext
 FULL    prep    errmsg
         args    (0,Marg)
-        мода    (M4)
-        пв      '34'(М16)
-        мода    BASE
-        уиа     A00664-6(М15)
-        пб      A00664
-        текст   п'ИМЯ         ДЛИНА  ШИФР ДАТА'
-        конд    м40в'172'
-A00664  пв      '76005'(М16)
-A00665  prep    errmsg
-        сч      Mcurds(M4)
-        зп      Madesc(M4)
+        bandt   '34'
+        headr
+floop1  prep    errmsg
+Madesc(M4) :=   (Mcurds(M4))
         сч      Mcurky(M4)
-        пе      A00700
+        пе      notlst
         мода    Mcurky+1(M4)
         уиа     (М16)
         сч      B21
         пб      errmsg
-A00700  зп      Mkey(M4)
-        args    (B3,Marg),(0,Mmylen),(memadr,Mmyloc)
-        мода    (M4)
-        пв      '20'(М16)
+notlst  зп      Mkey(M4)
+        args    (B3,Marg),(0,Mmylen),(B0,Mmyloc)
+        bandt   '20'
         уи      М15
-        пв      '76005'(М16)
+        пв      write(М16)
         prep    exit
         args    (B3,Marg)
-        мода    (M4)
-        пв      '34'(М16)
-        пб      A00665
-KTLdec  конд    п'ПОЛН  '
-afull   конд    A(FULL)
-        конд    в'0'
-A00723  prep    errmsg
+        bandt   '34'
+        пб      floop1
+KTLdec  tabl    (ПОЛН,FULL)
+        пам     1
+catal   prep    errmsg
         args    (0,Marg)        
-        мода    (M4)
-        пв      '34'(М16)
+        bandt   '34'
 floop   зп      fname
         мода    fname
         уиа     (М15)
-        пв      '76005'(М16)
+        пв      write(М16)
         prep    exit
         args    (B3,Marg)
-        мода    (M4)
-        пв      '34'(М16)
+        bandt   '34'
         пб      floop
 ИНФ     opt     badext
-        case    (Ttext,header)
+        case    (Ttext,inf)
         пб      badext
-header  мода    BASE
-        уиа     header+2(М15)
-        пб      exec20
-        текст   п'ИМЯ         ДЛИНА  ШИФР ДАТА'
-        конд    м40в'172'
-exec20  пв      '76005'(М16)
+inf     headr
         prep    errmsg,CMD
-        args    (B3,Marg),(0,Mmylen),(memadr,Mmyloc)
-        мода    (M4)
-        пв      '20'(М16)
+        args    (B3,Marg),(0,Mmylen),(B0,Mmyloc)
+        bandt   '20'
         уи      М15
-        пв      '76005'(М16)
-        пб      '76002'
-wrexit  пв      '76005'(М16)
-        пб      '76002'
+        пв      write(М16)
+        пб      pult
+wrexit  пв      write(М16)
+        пб      pult
 fname   пам     1
         конд    м40в'172'
 dfltad  конд    в'74000'
 sysadr  конд    п'БАН0КА'
 E1      конд    п'1'
 B4      конд    п'4'
-memadr  пам     1
+B0      конд    в'0'
 bandit  конд    п'БАНДИТ'
 B2      конд    п'2'
 B3      конд    п'3'
@@ -490,6 +461,11 @@ Msavm4  equ '24'
 Marg    equ '27'
 Mcurky  equ '37'
 
+argv    equ     '76015'
+parse   equ     '76016'
+write   equ     '76005'
+creat   equ     '76006'
+pult    equ     '76002'
 M1      equ     1
 M2      equ     2
 M3      equ     3
