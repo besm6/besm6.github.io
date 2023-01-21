@@ -171,11 +171,11 @@ BASE    equ     BD-1
         пам     1
         конд    в'54001011' ???
         конд    п'ВD    '
-        уиа     '72000'(M13)
+entry4  уиа     '72000'(M13)
         пб      START
         пам     2
-        уиа     (M13)
-        уиа     '35072'(М3)
+entry7  уиа     (M13)
+        уиа     '35072'(М3) ЫЫЫ
         уиа     '76001'(М1)
         уиа     (М2)
 copy    мода    '1777'
@@ -199,7 +199,7 @@ Nopt    :=      0
         слиа    -1(М2)
         мода    BASE    
         пв      getopt(М16)
-        пб      A00047
+        пб      НАЧАЛО
 cmdtyp  пам     1
 CMD     пам     1
 Ttext   конд    в'5'
@@ -216,10 +216,10 @@ Nopt    :=      (Nopt слц Е1)
         зп      CMD
         сч      cmdtyp
         нтж     Ttext
-        пе      A00046
+        пе      nottxt
 cmd5    :=      CMD
-A00046  пб      (М16)
-A00047  opt     noargs,Ttext
+nottxt  пб      (М16)
+НАЧАЛО  opt     noargs,Ttext
         пе      wrong
         decod   BDdec
 wrong   err     'ВD <НЕ ТО>'
@@ -349,22 +349,23 @@ EOT1    конд    m8b'172'b'175'
 EOT2    конд    m8b'172'b'175'
 LEN     пам     1
 NEWarg  opt     (М5)
-        case    (Ttext,mkfile),(Toctal,nuzzzz),(Tchar,A00620)
+        case    (Ttext,filenm),(Toctal,nuzzzz),(Tchar,delim)
 badarr  err     'ДЛЯ ВD НЕПР. ЗАДАН МАССИВ'
-mkfile  ноп
-'77770' :=      ('1770'(М10))
-'77771' :=      CMD
-'77772' :=      (B0 сда 64-10)
-'77773' :=      B20
-'77774' :=      '76000'
-        пв      creat(М11)
+filenm  ноп
+'77770' :=      ('1770'(М10)) д.б. 57770, имя текущего архива
+'77771' :=      CMD           имя файла
+'77772' :=      (B0 сда 64-10) как бы адрес считывания
+'77773' :=      B20           макс длина
+'77774' :=      '76000'       признак фиктивности
+        пв      ffind(М11)
         уии     М15(М1)
-        пб      wrexit
-unusd1  ноп
-1(M4)   :=      '77775'
-2(M4)   :=      '77773'
-1(M4)   :=      (1(M4) и E18T1)
-0(M4)   :=      CMD
+        пб      wrexit неудача
+* ffind возвращается через слово при успехе        
+succes  ноп     , успех нахождения файла
+1(M4)   :=      '77775'            ИС для Э70
+2(M4)   :=      '77773'            длина
+1(M4)   :=      (1(M4) и E18T1)    оставляем нузззз
+0(M4)   :=      CMD                имя файла
         пб      (М3)
 nuzzzz  ноп
 (M4)    :=      BOCMP
@@ -373,13 +374,13 @@ nuzzzz  ноп
         пе      badarr
         мода    
 2(M4)   :=      CMD
-        пб      (М3)
-A00620  сч      CMD
-        нтж     B26
+        пб      (М3)        
+delim   сч      CMD
+        нтж     semi
         по      (М3)
         пб      badarr
 unusd2  opt     (М5)
-        case    (Ttext,mkfile),(Toctal,nuzzzz),(Tchar,(M3))
+        case    (Ttext,filenm),(Toctal,nuzzzz),(Tchar,(M3))
         пб      badarr
 КТЛ     opt     catal
         case    (Ttext,ctlarg)
@@ -446,7 +447,7 @@ E16     конд    в'100000'
 B20     конд    в'20'
 E18T1   конд    в'777777'
 BOCMP   конд    п'ВОСЬМР'
-B26     конд    в'26'
+semi    конд    п';'
 B21     конд    в'21'
 
 Mcurds  equ '05'
@@ -464,7 +465,7 @@ Mcurky  equ '37'
 argv    equ     '76015'
 parse   equ     '76016'
 write   equ     '76005'
-creat   equ     '76006'
+ffind   equ     '76006'
 pult    equ     '76002'
 M1      equ     1
 M2      equ     2
