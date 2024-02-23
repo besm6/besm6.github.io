@@ -410,6 +410,7 @@
  P3	:   , BSS , 1
  P4	:   , BSS , 1
  P5	:   , BSS , 1
+ P6	:   , BSS , 1
  P7	:   , BSS , 1
  P8	:   , BSS , 1
  NPR	:   , BSS , 1
