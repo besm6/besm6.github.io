@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content">
+<title>BESM-6 Unix</title>
+<style>
+    html { color-scheme: dark; }
+    /* No page scroll: a scrollbar appearing would narrow a canvas, which the
+       resize watch would answer by reflowing the grid that made it appear. */
+    html, body { overflow: hidden; }
+    body {
+        margin: 0;
+        height: 100vh;
+        height: 100dvh;
+        box-sizing: border-box;
+        padding: 1.25em 1.5em;
+        display: grid;
+        /* Equal halves, unlike braam's dual.html: these are two Consuls of one
+           machine and neither is the lesser. */
+        grid-template-rows: 1fr 1fr auto;
+        gap: 0.75em;
+        background: #111111;
+        color: #aaaaaa;
+        font: 13px/1.5 'Andale Mono', 'DejaVu Sans Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    /* min-height on both the row and the canvas: a canvas is a replaced element
+       with an intrinsic 300x150 box, which would otherwise set the row's floor
+       and push the page past the viewport on a short window. */
+    .pane { display: grid; grid-template-rows: 1fr auto; min-height: 0; }
+    .pane canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+        min-height: 0;
+        cursor: text;
+        border: 1px solid #242632;
+        touch-action: none; /* a drag over the grid selects; it does not scroll */
+        -webkit-touch-callout: none; /* no magnifier on a long press */
+    }
+    /* The focus is on braam.js's hidden input, so canvas:focus never matches. */
+    .pane canvas.braam-focus { border-color: #4a5a8a; outline: none; }
+    /* The keys a touch keyboard does not have. A bar belongs to the screen it
+       types into, so there are two and the focused one is shown. */
+    .keys { display: none; }
+    @media (any-pointer: coarse) {
+        body[data-pane="upper"] #keys-upper,
+        body[data-pane="lower"] #keys-lower {
+            display: flex;
+            flex: 0 0 auto;
+            gap: 0.4rem;
+            padding: 0.4rem 0 0;
+        }
+    }
+    .braam-key {
+        flex: 1 1 0;
+        padding: 0.6rem 0;
+        font: inherit;
+        color: #aaaaaa;
+        background: #1a1c26;
+        border: 1px solid #242632;
+        border-radius: 4px;
+        touch-action: manipulation;
+        user-select: none;
+        -webkit-user-select: none;
+        -webkit-touch-callout: none;
+    }
+    .braam-key-on { color: #111111; background: #6f7488; }
+    #foot {
+        display: flex;
+        gap: 1.5em;
+        align-items: baseline;
+        padding: 0.35rem 0;
+        border-top: 1px solid #242632;
+        color: #6f7488;
+    }
+    #status { margin: 0; flex: 1 1 auto; white-space: pre-wrap; }
+    #fresh {
+        flex: 0 0 auto;
+        font: inherit;
+        color: #6f7488;
+        background: none;
+        border: 0;
+        padding: 0;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    #fresh:hover { color: #aaaaaa; }
+    .error { color: #ff5555; }
+</style>
+</head>
+<body data-pane="upper">
+<div class="pane"><canvas id="upper"></canvas><div class="keys" id="keys-upper"></div></div>
+<div class="pane"><canvas id="lower"></canvas><div class="keys" id="keys-lower"></div></div>
+<div id="foot">
+    <pre id="status">BESM-6, 1967 — two Consul terminals of one machine. ^D at the # prompt goes multi-user.</pre>
+    <button id="fresh" type="button" title="Discard this Unix and copy the disk packs again">start over</button>
+</div>
+<!-- With scripting off, nothing below runs. This is the only thing that speaks. -->
+<noscript>
+<div class="error">braam: JavaScript is off for this page, so nothing here can run.
+Allow scripting for this site — an extension such as a script blocker can hold it
+off even while the extension itself is disabled.</div>
+</noscript>
+<!-- Classic, not a module: no fetch of its own, so it runs when braam.js's never
+     answers. braam.js disarms it and takes the watch over from there. One for
+     the page, since one module load serves both screens. -->
+<script>
+const BRAAM_STALL_MS = 5000; // BOOT_STALL_MS in braam.js, which takes over
+window.braamStage = "fetching braam.js";
+setTimeout(() => {
+    if (!window.braamStage)
+        return;
+    const line = document.createElement("div");
+    line.className = "error";
+    line.textContent = `braam: nothing happened in ${BRAAM_STALL_MS / 1000}s while `
+        + `${window.braamStage}. The page loaded but its script did not.`
+        + " A blocking extension or a proxy can hold a fetch open for ever;"
+        + " try a private window or a profile with extensions off.";
+    document.getElementById("status").appendChild(line);
+}, BRAAM_STALL_MS);
+</script>
+<script type="module">
+import { mount } from "./braam.js";
+
+window.braamStage = null; // disarms the watchdog above
+
+const status = document.getElementById("status");
+
+function note(text, cls) {
+    const line = document.createElement("div");
+    if (cls) line.className = cls;
+    line.textContent = text;
+    status.appendChild(line);
+}
+
+// iOS does not shrink the layout viewport for the software keyboard and
+// ignores interactive-widget, so the page sizes itself from the visual
+// viewport. The terminals need nothing: a shorter body is two shorter canvases,
+// which braam.js already re-measures.
+const vv = window.visualViewport;
+if (vv) {
+    const fit = () => { document.body.style.height = `${vv.height}px`; };
+    vv.addEventListener("resize", fit);
+    vv.addEventListener("scroll", fit);
+    fit();
+}
+
+// THE DISK PACKS ARE WRITTEN IN PLACE, so the simulator copies them out of the
+// read-only boot archive into /home/.besm6 on its first run and uses that copy
+// for ever after. Braam never touches /home when it unpacks a new archive, and
+// there is no shell on this page to type `besm6 -r' at — so throwing that copy
+// away is the page's job. `?fresh' in the URL does it before the machine
+// starts; the button does it and reloads.
+async function freshDisks() {
+    const root = await navigator.storage.getDirectory();
+    const home = await root.getDirectoryHandle("home");
+    await home.removeEntry(".besm6", { recursive: true });
+}
+
+document.getElementById("fresh").addEventListener("click", async () => {
+    try {
+        await freshDisks();
+    } catch (e) {
+        if (e.name !== "NotFoundError") {
+            note(`could not discard the disks: ${e.message}`, "error");
+            return;
+        }
+    }
+    location.reload();
+});
+
+if (new URLSearchParams(location.search).has("fresh"))
+    await freshDisks().catch(() => {}); // nothing staged yet is the same as fresh
+
+// The lower screen's ground, so the two are told apart when neither is focused.
+// Only entry 0 differs: web/render.js paints the default background with it,
+// and every other colour stays the one the upper screen draws in.
+const lower = [
+    "#0b1220", "#aa1111", "#11aa11", "#aa5511",
+    "#1111aa", "#aa11aa", "#11aaaa", "#aaaaaa",
+    "#555555", "#ff5555", "#55ff55", "#ffff55",
+    "#5555ff", "#ff55ff", "#55ffff", "#ffffff",
+];
+
+// Two screens of one kernel, and `/etc/init' in the boot archive says the one
+// program that kernel runs is /bin/besm6. The lower screen says `shell: false'
+// because it is not a screen anybody types a command at: it is the machine's
+// second Consul line, and the simulator opens it and takes its keys. A screen
+// whose own shell sat at a prompt would hold those keys instead, and tty26
+// would print into a terminal that could not be typed at.
+try {
+    const term = mount({
+        screens: [
+            { canvas: document.getElementById("upper"), keys: document.getElementById("keys-upper") },
+            {
+                canvas: document.getElementById("lower"),
+                keys: document.getElementById("keys-lower"),
+                palette: lower,
+                shell: false,
+            },
+        ],
+        onLog: (text) => console.log(text),
+        onError: (text) => {
+            console.error(text);
+            note(text, "error");
+        },
+    });
+
+    // Click a screen to type in it; braam.js moves the focus and the ring with
+    // it. This only keeps the page's own flag in step, which is what shows the
+    // right key bar on a touch screen.
+    const names = ["upper", "lower"];
+    for (let i = 0; i < term.screens.length; i++)
+        term.screens[i].canvas.addEventListener("pointerdown", () => {
+            document.body.dataset.pane = names[i];
+        });
+
+    term.focus(0);
+} catch (e) {
+    note(e.message, "error");
+}
+</script>
+</body>
+</html>
