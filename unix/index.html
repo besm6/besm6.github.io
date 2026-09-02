@@ -16,9 +16,8 @@
         box-sizing: border-box;
         padding: 1.25em 1.5em;
         display: grid;
-        /* Equal halves, unlike braam's dual.html: these are two Consuls of one
-           machine and neither is the lesser. */
-        grid-template-rows: 1fr 1fr auto;
+        /* 2:1 — the console is where the work is; tty1 is the second Consul. */
+        grid-template-rows: 2fr 1fr;
         gap: 0.75em;
         background: #111111;
         color: #aaaaaa;
@@ -66,36 +65,28 @@
         -webkit-touch-callout: none;
     }
     .braam-key-on { color: #111111; background: #6f7488; }
-    #foot {
-        display: flex;
-        gap: 1.5em;
-        align-items: baseline;
-        padding: 0.35rem 0;
+    /* Nothing is said on a healthy page, so a message is out of flow: it lies
+       over the foot of the screens rather than reflowing them. */
+    .banner {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        padding: 0.5em 1.5em;
+        background: #111111;
         border-top: 1px solid #242632;
-        color: #6f7488;
+        white-space: pre-wrap;
     }
-    #status { margin: 0; flex: 1 1 auto; white-space: pre-wrap; }
-    #fresh {
-        flex: 0 0 auto;
-        font: inherit;
-        color: #6f7488;
-        background: none;
-        border: 0;
-        padding: 0;
-        text-decoration: underline;
-        cursor: pointer;
-    }
-    #fresh:hover { color: #aaaaaa; }
     .error { color: #ff5555; }
 </style>
 </head>
 <body data-pane="upper">
 <div class="pane"><canvas id="upper"></canvas><div class="keys" id="keys-upper"></div></div>
 <div class="pane"><canvas id="lower"></canvas><div class="keys" id="keys-lower"></div></div>
-<div id="foot">
-    <pre id="status">BESM-6, 1967 — two Consul terminals of one machine. ^D at the # prompt goes multi-user.</pre>
-    <button id="fresh" type="button" title="Discard this Unix and copy the disk packs again">start over</button>
-</div>
+<!-- Empty and hidden until something goes wrong, so both scripts below can just
+     look it up rather than each building one. -->
+<div id="banner" class="banner" hidden></div>
 <!-- With scripting off, nothing below runs. This is the only thing that speaks. -->
 <noscript>
 <div class="error">braam: JavaScript is off for this page, so nothing here can run.
@@ -117,7 +108,9 @@ setTimeout(() => {
         + `${window.braamStage}. The page loaded but its script did not.`
         + " A blocking extension or a proxy can hold a fetch open for ever;"
         + " try a private window or a profile with extensions off.";
-    document.getElementById("status").appendChild(line);
+    const banner = document.getElementById("banner");
+    banner.hidden = false;
+    banner.appendChild(line);
 }, BRAAM_STALL_MS);
 </script>
 <script type="module">
@@ -125,13 +118,14 @@ import { mount } from "./braam.js";
 
 window.braamStage = null; // disarms the watchdog above
 
-const status = document.getElementById("status");
+const banner = document.getElementById("banner");
 
 function note(text, cls) {
     const line = document.createElement("div");
     if (cls) line.className = cls;
     line.textContent = text;
-    status.appendChild(line);
+    banner.hidden = false;
+    banner.appendChild(line);
 }
 
 // iOS does not shrink the layout viewport for the software keyboard and
@@ -150,28 +144,29 @@ if (vv) {
 // read-only boot archive into /home/.besm6 on its first run and uses that copy
 // for ever after. Braam never touches /home when it unpacks a new archive, and
 // there is no shell on this page to type `besm6 -r' at — so throwing that copy
-// away is the page's job. `?fresh' in the URL does it before the machine
-// starts; the button does it and reloads.
+// away is the page's job, and `?fresh' in the URL is how it is asked, before
+// the machine starts.
 async function freshDisks() {
     const root = await navigator.storage.getDirectory();
     const home = await root.getDirectoryHandle("home");
     await home.removeEntry(".besm6", { recursive: true });
 }
 
-document.getElementById("fresh").addEventListener("click", async () => {
-    try {
-        await freshDisks();
-    } catch (e) {
-        if (e.name !== "NotFoundError") {
-            note(`could not discard the disks: ${e.message}`, "error");
-            return;
-        }
-    }
-    location.reload();
-});
-
-if (new URLSearchParams(location.search).has("fresh"))
-    await freshDisks().catch(() => {}); // nothing staged yet is the same as fresh
+// One tab runs the machine: OPFS gives one writer per file across the origin,
+// so a second tab cannot open the packs. Waited for, since a reload holds it.
+function claimMachine(ms = 2000) {
+    if (!navigator.locks)
+        return Promise.resolve(true);
+    return new Promise((resolve) => {
+        const ctl = new AbortController();
+        const timer = setTimeout(() => { ctl.abort(); resolve(false); }, ms);
+        navigator.locks.request("besm6-machine", { signal: ctl.signal }, () => {
+            clearTimeout(timer);
+            resolve(true);
+            return new Promise(() => {}); // held while this page lives
+        }).catch(() => {}); // the abort above
+    });
+}
 
 // The lower screen's ground, so the two are told apart when neither is focused.
 // Only entry 0 differs: web/render.js paints the default background with it,
@@ -189,7 +184,10 @@ const lower = [
 // second Consul line, and the simulator opens it and takes its keys. A screen
 // whose own shell sat at a prompt would hold those keys instead, and tty26
 // would print into a terminal that could not be typed at.
-try {
+async function boot() {
+    if (new URLSearchParams(location.search).has("fresh"))
+        await freshDisks().catch(() => {}); // nothing staged yet is the same as fresh
+
     const term = mount({
         screens: [
             { canvas: document.getElementById("upper"), keys: document.getElementById("keys-upper") },
@@ -217,9 +215,17 @@ try {
         });
 
     term.focus(0);
-} catch (e) {
-    note(e.message, "error");
 }
+
+if (!(await claimMachine()))
+    note("BESM-6 Unix is already open in another tab, and the disk packs are one"
+         + " writer's. Close that tab, then reload this one.", "error");
+else
+    try {
+        await boot();
+    } catch (e) {
+        note(e.message, "error");
+    }
 </script>
 </body>
 </html>
