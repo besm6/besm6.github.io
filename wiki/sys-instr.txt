@@ -1,322 +1,1150 @@
-﻿*RED                                                                               
-*0STA*NN*RG*1RL*0MCS1 67                                                           
-*ST4 35 42 67                                                                      
- 1)*MD                                                                             
-*MD                                                                                
-*/*10C                                                                             
- 2)*MD                                                                             
-*MD                                                                                
-*/*10C                                                                             
-$                                                                                  
-*0MCS5 63                                                                          
-*3/                                                                                
-*MD BЫЧИCЛИTEЛЬHЫЙ KOMПЛEKC "ЭЛЬБPYC 1-KБ"                                         
-*MDOБЩEE CИCTEMHOE ПPOГPAMMHOE OБECПEЧEHИE                                         
-*MDCИCTEMЫ ПPOГPAMMИPOBAHИЯ PEЖИMA COBMECTИMOCTИ                                   
-*MDPYKOBOДCTBO CИCTEMHOГO ПPOГPAMMИCTA                                             
-*MD                                                                                
-*MD                                                                                
-*3/                                                                                
-*0MCS1 67*ST9 32 40 67                                                             
- 2)*MD                                                                             
-*MD                                                                                
-*2/                                                                                
-*/*11C                                                                             
-*2/                                                                                
-*/*11C                                                                             
-*2/                                                                                
- $                                                                                 
-*0MCS5 63                                                                          
-*3/                                                                                
-*MD                                                                                
-*/*48G                                                                             
-*P                                                                                 
-*ST9 31                                                                            
- 1)*MDYTBEPЖДEH                                                                    
-*/*MDИЫ.00110-01 32 02-ЛY                                                          
-$                                                                                  
-*5/                                                                                
-*MD BЫЧИCЛИTEЛЬHЫЙ KOMПЛEKC "ЭЛЬБPYC 1-KБ"                                         
-*MDOБЩEE CИCTEMHOE ПPOГPAMMHOE OБECПEЧEHИE                                         
-*MDCИCTEMЫ ПPOГPAMMИPOBAHИЯ PEЖИMA COBMECTИMOCTИ                                   
-*MDPYKOBOДCTBO CИCTEMHOГO ПPOГPAMMИCTA                                             
-*MDИЫ.00110-01 32 02                                                               
-*MD     ЛИCTOB 15                                                                  
-*17/*MD1988                                                                        
-*/*48GЛИTEPA                                                                       
-*2N                                                                                
-*0STA*RG*0MCS5 63                                                                  
-*0STPИЫ.00110-01 32 02                                                             
-*3/                                                                                
-*S*MD AHHOTAЦИЯ                                                                    
-*2S OДHOЙ ИЗ COCTABHЫX ЧACTEЙ OCПO ЯBЛЯЮTCЯ                                        
-CИCTEMЫ ПPOГPAMMИPOBAHИЯ. HA BK "ЭЛЬБPYC 1-KБ"                                     
-B KAЧECTBE CИCTEM ПPOГPAMMИPOBAHИЯ, OБECПEЧИBAЮЩИX                                 
-PEШEHИE ЗAДAЧ                                                                      
-B PEЖИME 1, ИCПOЛЬЗOBAHЫ CИCTEMЫ ПPOГPAMMИPOBAHИЯ.                                 
-PAБOTAЮЩИE HA ЭBM БЭCM-6 И MBK "ЭЛЬБPYC 1-KБ".                                     
-HAЛИЧИE ЭTИX CИCTEM ПPOГPAMMИPOBAHИЯ OБECПEЧИBAET                                  
-COBMECTИMOCTЬ HA YPOBHE ЗAДAЧ ПOЛЬЗOBATEЛЯ MEЖДY                                   
-BCEMИ ЭBM ЛИHИИ БЭCM-6.                                                            
-*P*2/*MD COДEPЖAHИE                                                                
-*0MCS1 67                                                                          
-*ST5 62 65 67                                                                      
- 1)*2/1. OБЩИE CBEДEHИЯ O ПPOГPAMME *F  2)*2/4                                     
-1)*/2. CTPYKTYPA ПPOГPAMMЫ*F  2)*/5                                                
-1)*/3. HACTPOЙKA ПPOГPAMMЫ*F  2)*/7                                                
-1)*/4. ПPOBEPKA ПPOГPAMMЫ*F  2)*/8                                                 
-1)*/5. ДOПOЛHИTEЛЬHЫE BOЗMOЖHOCTИ*F 2)*/9                                          
-1)*/6. COOБЩEHИЯ CИCTEMHOMY ПPOГPAMMИCTY*F  2)*/10                                 
-1)*/   ПPИЛOЖEHИE. CTAHДAPTHЫE ПACПOPTA*F  2)*/11                                  
-1)*/*3G CИCTEM ПPOГPAMMИPOBAHИЯ                                                    
-$                                                                                  
-*P*2/*MD 1. OБЩИE CBEДEHИЯ O ПPOГPAMME                                             
-*2S CИCTEMЫ ПPOГPAMMИPOBAHИЯ PEЖИMA COBMECTИMOCTИ                                  
-ПPEДCTABЛЯЮT COБOЙ HAБOP HAИБOЛEE PACПPOCTPAHEHHЫX                                 
-CИCTEM ПPOГPAMMИPOBAHИЯ ЭBM БЭCM-6                                                 
-И MBK "ЭЛЬБPYC 1-K2". B COCTAB YKAЗAHHЫX CИCTEM ПPOГPAMMИPOBAHИЯ                   
-BKЛЮЧAЮTCЯ TPAHCЛЯTOP C ABTOKOДA ИTM, TPAHCЛЯTOP C MAKPOKOДA                       
-БEMШ, CИCTEMA ПPOГPAMMИPOBAHИЯ БЭCM-AЛГOЛ, MOHИTOPHAЯ CИCTEMA                      
-"ДYБHA", MOHИTOP-80 C TPAHCЛЯTOPAMИ C ЯЗЫKOB ФOPTPAH-ДYБHA,                        
-ФOPTPAH-ГДP, AЛГOЛ-ГДP, ABTOKOДA MADLEN.                                           
-CЮДA BKЛЮЧEHЫ TAKЖE БИБЛИOTEKИ CTAHДAPTHЫX ПPOГPAMM                                
-MOHИTOPA-80 LIBRARY 1,2 И 3.                                                       
-CИCTEMЫ ПPOГPAMMИPOBAHИЯ PEЖИMA COBMECTИMOCTИ ПPEДHAЗHAЧEHЫ ДЛЯ                    
-ПPOXOЖДEHИЯ ЗAДAЧ ПOЛЬЗOBATEЛЯ, HAПИCAHHЫX                                         
-HA YKAЗAHHЫX ЯЗЫKAX                                                                
-B PEЖИME 1.                                                                        
-*P*2/*MD 2. CTPYKTYPA ПPOГPAMMЫ                                                    
-*2S ИCTOPИЧECKИ CИCTEMЫ ПPOГPAMMИPOBAHИЯ HA ЭBM БЭCM-6                             
-И MBK "ЭЛЬБPYC 1-K2" ПOMEЩAЛИCЬ HA ДИCKE 2048.                                     
-TAKOЙ ЖE HOMEP ПAKETA OCTABЛEH И HA BK "ЭЛЬБPYC 1-KБ".                             
-HO, YЧИTЫBAЯ ШИPOKOE ИCПOЛЬЗOBAHИE APXИBA HA BK "ЭЛЬБPYC 1-KБ".                    
-ЭTOT ДИCK CДEЛAH APXИBHЫM, A OCHOBHЫE CИCTEMЫ ПPOГPAMMИPOBAHИЯ                     
-ПOMEЩEHЫ B OБЛACTЬ "PEЖCOBM". OДHAKO, OБPAЩATЬCЯ                                   
-MOЖHO И HAПPЯMYЮ K ДИCKY 2048.                                                     
-B HAЧAЛE ДИCKA 2048 PACПOЛOЖEHЫ KATAЛOГИ APXИBHOЙ                                  
-CИCTEMЫ И HEKOTOPЫE CEPBИCHЫE ПPOГPAMMЫ B COOTBETCTBYЮЩИX                          
-OБЛACTЯX. CTPYKTYPY HAЧAЛЬHЫX ЗOH 2048 MOЖHO                                       
-YЗHATЬ, HAБPAB KЛЮЧ "CBOДKA" <ШИФP> HA PAБOTAЮЩEЙ                                  
-OПEPAЦИOHHOЙ CИCTEME.                                                              
-*S HИЖE ПPИBEДEHA CTPYKTYPA OБЛACTИ "PEЖCOBM".                                     
-HOMEPA ЗOH YKAЗAHЫ ПPИMEHИTEЛЬHO K OБЛACTИ,                                        
-ЧTOБЫ ПOЛYЧИTЬ HOMEPA ЗOH HEПOCPEДCTBEHHO HA ДИCKE                                 
-2048, K YKAЗAHHЫM HOMEPAM HEOБXOДИMO ПPИБABИTЬ 100.                                
-*/     N ЗOHЫ MД = N ЗOHЫ OБЛACTИ + 100                                            
-*2S  CTPYKTYPA OБЛACTИ "PEЖCOBM"                                                   
-*S   ----------------------------                                                  
-*S   2-2    ЗOHЫ  - TECT AЦПY                                                      
-*S   5-6    ЗOHЫ  - ЗAГPYЗЧИK БEMШ                                                 
-*S   7-23   ЗOHЫ  - APФA.CTAPФA                                                    
-*S  25-25   ЗOHЫ  - ПAKETHAЯ ПPOГPAMMA "BЫCЛ"                                      
-*S  26-32   ЗOHЫ  - KATAЛOГИ БЮДЖETA                                               
-*S  33-35   ЗOHЫ  - PERSO.CЛYГA                                                    
-*S  37-77   ЗOHЫ  - TPAHCЛЯTOP C MAKPOACCEMБЛEPA БEMШ                              
-*S 100-177  ЗOHЫ  - MOHИTOPHAЯ CИCTEMA "ДYБHA"                                     
-*S 176-276  ЗOHЫ  - CИCTEMA ПPOГPAMMИPOBAHИЯ "БЭCM-AЛГOЛ"                          
-*S 300-337  ЗOHЫ  - ABTOKOД ИTM (ПACПOPT 88)                                       
-*S 340-367  ЗOHЫ  - ПACKAЛЬ-MOHИTOP                                                
-*S 370-567  ЗOHЫ  - LIBR3                                                          
-*S 600-657  ЗOHЫ  - ABTOKOД MГЧ                                                    
-*S 700-777  ЗOHЫ  - ПYЛЬT                                                          
-*S1000-1017 ЗOHЫ  - ПACKAЛЬ-ABTOKOД                                                
-*S1130-1177 ЗOHЫ  - FOREX 3                                                        
-*S1200-1437 ЗOHЫ  - MOHИTOP-80                                                     
-*2S ЗA OБЛACTЬЮ "PEЖCOBM" PACПOЛOЖEHЫ OБЛACTИ                                      
-"LIBR1" И "LIBR2", COДEPЖAЩИE БИБЛИOTEKИ                                           
-LIBRARY 1 И 2 COOTBETCTBEHHO.                                                      
-PACПOЛOЖEHИE ЭTИX OБЛACTEЙ HA ДИCKE HE ДOЛЖHO                                      
-MEHЯTЬCЯ, TAK KAK HACTPOЙKA HA БИБЛИOTEKИ                                          
- B MOHИTOPE-80 OCYЩECTBЛЯETCЯ, OPИEHTИPYЯCЬ HA HOMEPA ЗOH MД 2048.                 
-*P*2/*MD 3. HACTPOЙKA ПPOГPAMMЫ                                                    
-*2S HACTPOЙKA CИCTEM ПPOГPAMMИPOBAHИЯ BKЛЮЧAET B CEБЯ                              
-ЗABEДEHИE CTAHДAPTHЫX ПACПOPTOB B OПEPAЦИOHHOЙ CИCTEME,                            
-A TAKЖE YKAЗAHИЯ MOHИTOPY-80 HA PACПOЛOЖEHИЯ EГO БИБЛИOTEK.                        
-*S ПPИ ЗABEДEHИИ ПACПOPTA HEOБXOДИMO YЧИTЫBATЬ, ЧTO                                
-ПPИ OБPAЩEHИИ K OБЛACTИ CДBИГ BHYTPИ OБЛACTИ YKAЗЫBAETCЯ                           
-B ЗOHAX CO ЗHAKOM "+" ИЛИ "-". ПPИ OБPAЩEHИИ K MД 2048                             
-HAПPЯMYЮ CДBИГ ЗAДAETCЯ ЭKCTPAKOДOM B KYCKAX (OДИH                                 
-KYCOK PABEH 40 ЗOH). COOTBETCTBEHHO PACПOЛOЖEHИE                                   
-CИCTEM ПPOГPAMMИPOBAHИЯ HA ДИCKE ДOЛЖHO YЧИTЫBATЬ,                                 
-ЧTO HOMEP ЗOHЫ HA ДИCKE MOЖET БЫTЬ TOЛЬKO KPATEH 40.                               
-CTAHДAPTHЫE ПACПOPTA CИCTEM ПPOГPAMMИPOBAHИЯ ПPИBEДEHЫ                             
-B ПPИЛOЖEHИИ.                                                                      
-*S ДЛЯ HACTPOЙKИ MOHИTOPA-80 HA PACПOЛOЖEHИE БИБЛИOTEK                             
-HEOБXOДИMO B ШECTOЙ ЗOHE MOHИTOPA-80 ЗAHECTИ ИHФOPMAЦИЮ                            
-O БИБЛИOTEKAX B ЯЧEЙKИ:                                                            
-*/ 1751 - ДЛЯ LIBRARY 1;                                                           
-*/ 1752 - ДЛЯ LIBRARY 2;                                                           
-*/ 1753 - ДЛЯ LIBRARY 3.                                                           
-*S CTPYKTYPA ЯЧEЙKИ:                                                               
-*/ 1-12 PAЗPЯДЫ - HOMEP TOMA C БИБЛИOTEKOЙ B BOCЬMEPИЧHOM BИДE;                    
-*/13-30 PAЗPЯДЫ - HOMEP TOMA C БИБЛИOTEKOЙ B ДBOИЧHO-ДECЯTИЧHOM BИДE;              
-*/31-42 PAЗPЯДЫ - HOMEP HAЧAЛЬHOЙ ЗOHЫ БИБЛИOTEKИ.                                 
-*P*2/*MD 4. ПPOBEPKA ПPOГPAMMЫ                                                     
-*2S ПPOBEPKA ПPOГPAMMЫ OCYЩECTBЛЯETCЯ ПPИ ПEPEПИCИ                                 
-C MAГHИTHOЙ ЛEHTЫ HA MAГHИTHЫЙ ДИCK B ПPOЦECCE                                     
-ПOЛYЧEHИЯ PAБOЧEЙ KOПИИ OCПO (CM. "ФOPMYЛЯP"                                       
-*/ ИЫ.00110-01 30 01). ПOCЛE ПEPEПИCИ HA AЦПY                                      
-PACПEЧATЫBAETCЯ KOHTPOЛЬHAЯ CYMMA ЛEHTЫ C CИCTEMAMИ                                
-ПPOГPAMMИPOBAHИЯ PEЖИMA COBMECTИMOCTИ.                                             
-ПOЛYЧEHHAЯ CYMMA CPABHИBAETCЯ C ЭTAЛOHHOЙ,                                         
-ПPИBEДEHHOЙ B ФOPMYЛЯPE.                                                           
-*P*2/*MD5. ДOПOЛHИTEЛЬHЫE BOЗMOЖHOCTИ                                              
-*2S KPOME CИCTEM ПPOГPAMMИPOBAHИЯ PEЖИMA COBMECTИMOCTИ                             
-ПPOCTPAHCTBO HA ДИCKE 2048 И B OБЛACTИ "PEЖCOBM"                                   
-MOЖET БЫTЬ ИCПOЛЬЗOBAHO ДЛЯ PACПOЛOЖEHИЯ OTДEЛЬHЫX                                 
-ПPOГPAMM. TAK B ЗOHE 2 OБЛACTИ "PEЖCOBM" PACПOЛOЖEH                                
-TECT AЦПY, KOTOPЫЙ BЫЗЫBAETCЯ ПO KЛЮЧY "TECTAЦ" C                                  
-ЛЮБЫM ШИФPOM И OCYЩECTBЛЯET ПPOBEPKY AЦПY HA KOCOM                                 
-И ПPЯMOM TECTAX.                                                                   
-*S B ЗOHAX 5-6 OБЛACTИ "PEЖCOBM" HAXOДИTCЯ ЗAГPYЗЧИK                               
- MAKPOKOДA БEMШ ДЛЯ БOЛЬШИX ПPOГPAMM.                                              
- B ЗOHAX 7-23 OБЛACTИ "PEЖCOBM" HAXOДИTCЯ ПPOГPAMMA                                
-APФA.CTAPФA, BЫЗЫBAEMAЯ ПO KЛЮЧY "CTAPФA".                                         
-*S B 25-Й ЗOHE OБЛACTИ "PEЖCOBM" PAЗMEЩEHA ПPOГPAMMA                               
-BЫДAЧИ CЛYЖEБHЫX CЛOB B ПAKETHOM PEЖИME "BЫCЛ",                                    
-BЫЗЫBAEMAЯ ПO KЛЮЧY "BЫCЛП" И HACTPOEHHAЯ HA BЫДAЧY                                
-CЛYЖEБHЫXHE CИCTEMHOГO ДИCKA 2053.                                                 
-B ЗOHAX 26-32 OБЛACTИ "PEЖCOBM" PAЗMEЩEHЫ KATAЛOГИ                                 
-БЮДЖETHOЙ CИCTEMЫ, A B ЗOHAX 33-35 - ЛИЧHAЯ БИБЛИOTEKA                             
-OTЛAДЧИKA "CЛYГA".                                                                 
-*S CBOБOДHЫE ЗOHЫ OБЛACTИ "PEЖCOBM" MOГYT                                          
-ИCПOЛЬЗOBATЬCЯ ДЛЯ PAЗMEЩEHИЯ И ДPYГИX CEPBИCHЫX ПPOГPAMM.                         
- *P*2/*MD 6. COOБЩEHИЯ CИCTEMHOMY ПPOГPAMMИCTY                                     
-*2S COOБЩEHИЯ CИCTEMHOMY ПPOГPAMMИCTY MOГYT                                        
-BOЗHИKATЬ ПPИ HEBEPHOM BЫПOЛHEHИИ HACTPOЙKИ.                                       
-И TPEБYЮT OT CИCTEMHOГO ПPOГPAMMИCTA ПOBTOPEHИЯ                                    
-И YTOЧHEHИЯ HACTPOЙKИ CИCTEM.                                                      
-*/*MD ПEPEЧEHЬ BOЗMOЖHЫX COOБЩEHИЙ:                                                
-*S - "OTCYTCTBYET ПPOГPAMMA" - COOБЩEHИE BЫДAETCЯ                                  
-MOHИTOPHOЙ CИCTEMOЙ (MOHИTOPOM-80) И OЗHAЧAET,                                     
-ЧTO B ЗAKAЗAHHOЙ БИБЛИOTEKE HET YKAЗAHHOЙ ПPOГPAMMЫ;                               
-*S - "HA BAШEM BЦ HET БИБЛИOTEKИ 13",                                              
-*S "ИCПOPЧEH KATAЛOГ БИБЛИOTEKИ 13" - COOБЩEHИЯ BЫДAЮTCЯ                           
-MOHИTOPHOЙ CИCTEMOЙ (MOHИTOPOM-80) И OЗHAЧAЮT, ЧTO                                 
-ЛИБO HET YKAЗAHHOЙ БИБЛИOTEKИ, ЛИБO HEBEPHO YKAЗAHЫ                                
-EE KOOPДИHATЫ;                                                                     
-*S - "HEBEPHЫЙ KOMПИЛИPYЮЩИЙ ПAKET" - COOБЩEHИE                                    
-BЫДAETCЯ ПPИ PAБOTE C MAKPOKOДOM БEMШ И OЗHAЧAET,                                  
-ЧTO HEBEPHO YKAЗAHЫ KOOPДИHATЫ БИБЛИOTEKИ MAKPOOПPEДEЛEHИЙ.                        
-*P*45G ПPИЛOЖEHИE.                                                                 
-*2/*MD CTAHДAPTHЫE ПACПOPTA CИCTEM ПPOГPAMMИPOBAHИЯ                                
-*S 1) CTAHДAPTHЫЙ ПACПOPT MOHИTOPA-80:                                             
-*S ЗCX                                                                             
-*S ABO^                                                                            
-*S BPE 120^                                                                        
-*S ФИЗO 21^                                                                        
-*S ЛEH 30(2048)^                                                                   
-*S OЗY 27^                                                                         
-*S AЦПY 3^                                                                         
-*S TPAK 32^                                                                        
-*S BXOД 4200^                                                                      
-*S E                                                                               
-*S B 4200                                                                          
-*S K 00 010 4300 00 050 0112                                                       
-*S K 00 070 4301                                                                   
-*S K 00 010 4302 00 063 0003                                                       
-*S K 00 30 00100                                                                   
-*S B 4300                                                                          
-*S C 0000 0000 0030 0026                                                           
-*S C 0010 0000 0030 0010                                                           
-*S C 0000 0000 0000 0004                                                           
-*S B 6000                                                                          
-*S K 00 010 6002 00 072 0067                                                       
-*S K 00 30 04200                                                                   
-*S C 2264 2531 2123 3462                                                           
- *S 2) CTAHДAPTHЫЙ ПACПOPT MOHИTOPHOЙ CИCTEMЫ "ДYБHA":                             
-*S ЗC2                                                                             
-*S ФИЗO MБ21^                                                                      
-*S TPAK 32^                                                                        
-*S AЦПY 3^                                                                         
-*S ЛИCT 0-25,32^                                                                   
-*S BPEM 240^                                                                       
-*S BXOД 1775^                                                                      
-*S ЛEHT 30(2048)^                                                                  
-*S CПEЦ^                                                                           
-*S POCП 2^                                                                         
-*S ABOC^                                                                           
-*S E                                                                               
-*S B 1774                                                                          
-*S C 3177 0000 0002 0110                                                           
-*S K 00 010 1774 00 050 0131                                                       
-*S K 15 24 40000 00 010 1774                                                       
-*S K 00 050 0121                                                                   
-*S K 00 010 2005 00 050 0156                                                       
-*S K 00 26 02002 00 22 00001                                                       
-*S K 00 010 2005 00 050 0112                                                       
-*S K 15 24 00200                                                                   
-*S K 00 066 0005 00 000 0100                                                       
-*S C 0000 0000 0030 0004                                                           
- *S 3) CTAHДAPTHЫЙ ПACПOPT CИCTEMЫ БЭCM-AЛГOЛ:                                     
-*S ЗC3                                                                             
-*S ФИЗO MБ21^                                                                      
-*S TPAK 32^                                                                        
-*S ЛИCT 0-27^                                                                      
-*S BXOД 37^                                                                        
-*S BPEM 240^                                                                       
-*S AЦПY 3^                                                                         
-*S ЛEHT 57(PEЖCOBM+200)30(1C)^                                                     
-*S POCП 0^                                                                         
-*S ABOC^                                                                           
-*S CПEЦ^                                                                           
-*S E                                                                               
-*S B 37                                                                            
-*S K 00 010 0042                                                                   
-*S K 15 24 00100                                                                   
-*S K 00 066 0011 00 000 0100                                                       
-*S C 0000 0000 0057 0002                                                           
-*S B 20                                                                            
- *S 4) CTAHДAPTHЫЙ ПACПOPT MAKPOKOДA БEMШ:                                         
-*S ЗC1                                                                             
-*S TPAK 64^                                                                        
-*S ЛEHT 30(PEЖCOBM-1700)^                                                          
-*S AЦП 40^                                                                         
-*S POCП 0^                                                                         
-*S BPEM 240^                                                                       
-*S ЛИCT 0-37^                                                                      
-*S BXOД 4000^                                                                      
-*S E                                                                               
-*S B 4000                                                                          
-*S K 00 010 4003                                                                   
-*S K 15 24 04000                                                                   
-*S K 00 066 0001 00 000 0100                                                       
-*S C 3000 70                                                                       
-*S B 14000                                                                         
-*S A1                                                                              
- *S 5) CTAHДAPTHЫЙ ПACПOPT TPAHCЛЯTOPA C ABTOKOДA ИTM:                             
-*S З88                                                                             
-*S TPAK 32^                                                                        
-*S ЛИCT 0-24^                                                                      
-*S BXOД 4240^                                                                      
-*S ФИЗO MБ21^                                                                      
-*S POCП 0^                                                                         
-*S AЦПY 3^                                                                         
-*S ЛEHT 40(2048)^                                                                  
-*S BPEM 240^                                                                       
-*S CПEЦ^                                                                           
-*S E                                                                               
-*S B 4240                                                                          
-*S K 00 010 4243 00 050 0112                                                       
-*S K 00 070 4244                                                                   
-*S K 00 010 0003 00 30 06770                                                       
-*S C 0000 0000 0040 0010                                                           
-*S C 4014 0301 0021 0111                                                           
-*S B 7000                                                                          
-*P*0RL*0MCS1 67                                                                    
-*3/*MDЛИCT PEГИCTPAЦИИ ИЗMEHEHИЙ                                                   
-*2/*D.-----------------------------------------------------------------.           
-*/*DI   IHOMEPA ЛИCTOB (CTPAHИЦ)IBCEГO I        I          I      I   I            
-*/*DI И I-----------------------IЛИCTOBI        I BXOДЯЩИЙ I      I   I            
-*/*DI З I ИЗ- I ЗA- I     IAHHY-I(CTP.)I HOMEP  I   HOMEP  I ПOД- I Д I            
-*/*DI M I ME- I ME- I HO- IЛИPO-I  B   I ДOKY-  ICOПPOBOДИ-I ПИCЬ I A I            
-*/*DI . I HEH-I HEH-I BЫX IBAH- IДOKY- I MEHTA  I TEЛЬHOГO I      I T I            
-*/*DI   I HЫX I HЫX I     IHЫX  IMEHTE I        IДOKYMEHTA I      I A I            
-*SL1 5 11 17 23 29 36 45 56 63 67                                                  
- 1)*2/ 1)*2/ 1)*2/ 1)*2/ 1)*2/ 1)*2/                                               
- 1)*2/ 1)*2/ 1)*2/ 1)*2/ 1)*2/ 1)*2/                                               
- 1)*2/ 1)*2/ 1)*2/ 1)*2/ 1)*2/ 1)*2/                                               
- 1)*2/ 1)*2/ 1)*2/ 1)*2/ 1)*2/                                                     
-$                                                                                  
-*E                                                                                 
-*END                                                                               
+.----------------------------------------------------------------------------------.
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                          ВЫЧИСЛИТЕЛЬНЫЙ КОМПЛЕКС "ЭЛЬБРУС 1-КБ"                  I
+I                                                                                  I
+I                          ОБЩЕЕ СИСТЕМНОЕ ПРОГРАММНОЕ ОБЕСПЕЧЕНИЕ                 I
+I                                                                                  I
+I                       СИСТЕМЫ ПРОГРАММИРОВАНИЯ РЕЖИМА СОВМЕСТИМОСТИ              I
+I                                                                                  I
+I                            РУКОВОДСТВО СИСТЕМНОГО ПРОГРАММИСТА                   I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+.----------------------------------------------------------------------------------.
+
+
+.----------------------------------------------------------------------------------.
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                         УТВЕРЖДЕН                                                I
+I                                                                                  I
+I                   ИЫ.00110-01 32 02-ЛУ                                           I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                          ВЫЧИСЛИТЕЛЬНЫЙ КОМПЛЕКС "ЭЛЬБРУС 1-КБ"                  I
+I                                                                                  I
+I                          ОБЩЕЕ СИСТЕМНОЕ ПРОГРАММНОЕ ОБЕСПЕЧЕНИЕ                 I
+I                                                                                  I
+I                       СИСТЕМЫ ПРОГРАММИРОВАНИЯ РЕЖИМА СОВМЕСТИМОСТИ              I
+I                                                                                  I
+I                            РУКОВОДСТВО СИСТЕМНОГО ПРОГРАММИСТА                   I
+I                                                                                  I
+I                                     ИЫ.00110-01 32 02                            I
+I                                                                                  I
+I                                         ЛИСТОВ 15                                I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                           1988                                   I
+I                                                                                  I
+I                                                             ЛИТЕРА               I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+.----------------------------------------------------------------------------------.
+
+
+.----------------------------------------------------------------------------------.
+I                                        -  2 -                                    I
+I                                                                                  I
+I                                   ИЫ.00110-01 32 02                              I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                         АННОТАЦИЯ                                I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                  ОДНОЙ   ИЗ   СОСТАВНЫХ   ЧАСТЕЙ   ОСПО   ЯВЛЯЮТСЯ   СИСТЕМЫ     I
+I                                                                                  I
+I              ПРОГРАММИРОВАНИЯ.  НА  ВК  "ЭЛЬБРУС  1-КБ"  В  КАЧЕСТВЕ  СИСТЕМ     I
+I                                                                                  I
+I              ПРОГРАММИРОВАНИЯ, ОБЕСПЕЧИВАЮЩИХ  РЕШЕНИЕ  ЗАДАЧ  В  РЕЖИМЕ  1,     I
+I                                                                                  I
+I              ИСПОЛЬЗОВАНЫ СИСТЕМЫ ПРОГРАММИРОВАНИЯ. РАБОТАЮЩИЕ НА ЭВМ БЭСМ-6     I
+I                                                                                  I
+I              И МВК "ЭЛЬБРУС  1-КБ".  НАЛИЧИЕ  ЭТИХ  СИСТЕМ  ПРОГРАММИРОВАНИЯ     I
+I                                                                                  I
+I              ОБЕСПЕЧИВАЕТ СОВМЕСТИМОСТЬ НА УРОВНЕ ЗАДАЧ  ПОЛЬЗОВАТЕЛЯ  МЕЖДУ     I
+I                                                                                  I
+I              ВСЕМИ ЭВМ ЛИНИИ БЭСМ-6.                                             I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+.----------------------------------------------------------------------------------.
+
+
+.----------------------------------------------------------------------------------.
+I                                        -  3 -                                    I
+I                                                                                  I
+I                                   ИЫ.00110-01 32 02                              I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                        СОДЕРЖАНИЕ                                I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I              1. ОБЩИЕ СВЕДЕНИЯ О ПРОГРАММЕ                               4       I
+I                                                                                  I
+I              2. СТРУКТУРА ПРОГРАММЫ                                      5       I
+I                                                                                  I
+I              3. НАСТРОЙКА ПРОГРАММЫ                                      7       I
+I                                                                                  I
+I              4. ПРОВЕРКА ПРОГРАММЫ                                       8       I
+I                                                                                  I
+I              5. ДОПОЛНИТЕЛЬНЫЕ ВОЗМОЖНОСТИ                               9       I
+I                                                                                  I
+I              6. СООБЩЕНИЯ СИСТЕМНОМУ ПРОГРАММИСТУ                        10      I
+I                                                                                  I
+I                 ПРИЛОЖЕНИЕ. СТАНДАРТНЫЕ ПАСПОРТА                         11      I
+I                                                                                  I
+I                 СИСТЕМ ПРОГРАММИРОВАНИЯ                                          I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+.----------------------------------------------------------------------------------.
+
+
+.----------------------------------------------------------------------------------.
+I                                        -  4 -                                    I
+I                                                                                  I
+I                                   ИЫ.00110-01 32 02                              I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                             1. ОБЩИЕ СВЕДЕНИЯ О ПРОГРАММЕ                        I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I              СИСТЕМЫ  ПРОГРАММИРОВАНИЯ  РЕЖИМА  СОВМЕСТИМОСТИ   ПРЕДСТАВЛЯЮТ     I
+I                                                                                  I
+I          СОБОЙ НАБОР НАИБОЛЕЕ РАСПРОСТРАНЕННЫХ СИСТЕМ  ПРОГРАММИРОВАНИЯ  ЭВМ     I
+I                                                                                  I
+I          БЭСМ-6  И  МВК  "ЭЛЬБРУС   1-К2".   В   СОСТАВ   УКАЗАННЫХ   СИСТЕМ     I
+I                                                                                  I
+I          ПРОГРАММИРОВАНИЯ ВКЛЮЧАЮТСЯ ТРАНСЛЯТОР С АВТОКОДА ИТМ, ТРАНСЛЯТОР С     I
+I                                                                                  I
+I          МАКРОКОДА БЕМШ,  СИСТЕМА  ПРОГРАММИРОВАНИЯ  БЭСМ-АЛГОЛ,  МОНИТОРНАЯ     I
+I                                                                                  I
+I          СИСТЕМА "ДУБНА", МОНИТОР-80 С ТРАНСЛЯТОРАМИ С ЯЗЫКОВ ФОРТРАН-ДУБНА,     I
+I                                                                                  I
+I          ФОРТРАН-ГДР,  АЛГОЛ-ГДР,  АВТОКОДА  МАDLЕN.  СЮДА  ВКЛЮЧЕНЫ   ТАКЖЕ     I
+I                                                                                  I
+I          БИБЛИОТЕКИ  СТАНДАРТНЫХ  ПРОГРАММ  МОНИТОРА-80  LIВRАRУ  1,2  И  3.     I
+I                                                                                  I
+I          СИСТЕМЫ ПРОГРАММИРОВАНИЯ  РЕЖИМА  СОВМЕСТИМОСТИ  ПРЕДНАЗНАЧЕНЫ  ДЛЯ     I
+I                                                                                  I
+I          ПРОХОЖДЕНИЯ ЗАДАЧ ПОЛЬЗОВАТЕЛЯ, НАПИСАННЫХ НА  УКАЗАННЫХ  ЯЗЫКАХ  В     I
+I                                                                                  I
+I          РЕЖИМЕ 1.                                                               I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+.----------------------------------------------------------------------------------.
+
+
+.----------------------------------------------------------------------------------.
+I                                        -  5 -                                    I
+I                                                                                  I
+I                                   ИЫ.00110-01 32 02                              I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                2. СТРУКТУРА ПРОГРАММЫ                            I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I              ИСТОРИЧЕСКИ  СИСТЕМЫ  ПРОГРАММИРОВАНИЯ  НА  ЭВМ  БЭСМ-6  И  МВК     I
+I                                                                                  I
+I          "ЭЛЬБРУС 1-К2" ПОМЕЩАЛИСЬ НА ДИСКЕ  2048.  ТАКОЙ  ЖЕ  НОМЕР  ПАКЕТА     I
+I                                                                                  I
+I          ОСТАВЛЕН И НА ВК "ЭЛЬБРУС 1-КБ". НО, УЧИТЫВАЯ ШИРОКОЕ ИСПОЛЬЗОВАНИЕ     I
+I                                                                                  I
+I          АРХИВА НА ВК "ЭЛЬБРУС 1-КБ". ЭТОТ ДИСК СДЕЛАН АРХИВНЫМ,  А ОСНОВНЫЕ     I
+I                                                                                  I
+I          СИСТЕМЫ ПРОГРАММИРОВАНИЯ  ПОМЕЩЕНЫ  В  ОБЛАСТЬ  "РЕЖСОВМ".  ОДНАКО,     I
+I                                                                                  I
+I          ОБРАЩАТЬСЯ МОЖНО И НАПРЯМУЮ К  ДИСКУ  2048.  В  НАЧАЛЕ  ДИСКА  2048     I
+I                                                                                  I
+I          РАСПОЛОЖЕНЫ  КАТАЛОГИ  АРХИВНОЙ  СИСТЕМЫ  И   НЕКОТОРЫЕ   СЕРВИСНЫЕ     I
+I                                                                                  I
+I          ПРОГРАММЫ В СООТВЕТСТВУЮЩИХ ОБЛАСТЯХ. СТРУКТУРУ НАЧАЛЬНЫХ  ЗОН 2048     I
+I                                                                                  I
+I          МОЖНО  УЗНАТЬ,  НАБРАВ   КЛЮЧ   "СВОДКА"   <ШИФР>   НА   РАБОТАЮЩЕЙ     I
+I                                                                                  I
+I          ОПЕРАЦИОННОЙ СИСТЕМЕ.                                                   I
+I                                                                                  I
+I              НИЖЕ ПРИВЕДЕНА СТРУКТУРА ОБЛАСТИ "РЕЖСОВМ". НОМЕРА  ЗОН УКАЗАНЫ     I
+I                                                                                  I
+I          ПРИМЕНИТЕЛЬНО К ОБЛАСТИ, ЧТОБЫ ПОЛУЧИТЬ НОМЕРА  ЗОН НЕПОСРЕДСТВЕННО     I
+I                                                                                  I
+I          НА ДИСКЕ 2048, К УКАЗАННЫМ НОМЕРАМ НЕОБХОДИМО ПРИБАВИТЬ 100.            I
+I                                                                                  I
+I               N ЗОНЫ МД = N ЗОНЫ ОБЛАСТИ + 100                                   I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I               СТРУКТУРА ОБЛАСТИ "РЕЖСОВМ"                                        I
+I                                                                                  I
+I                ----------------------------                                      I
+I                                                                                  I
+I                2-2    ЗОНЫ  - ТЕСТ АЦПУ                                          I
+I                                                                                  I
+I                5-6    ЗОНЫ  - ЗАГРУЗЧИК БЕМШ                                     I
+I                                                                                  I
+I                7-23   ЗОНЫ  - АРФА.СТАРФА                                        I
+I                                                                                  I
+I               25-25   ЗОНЫ  - ПАКЕТНАЯ ПРОГРАММА "ВЫСЛ"                          I
+I                                                                                  I
+I               26-32   ЗОНЫ  - КАТАЛОГИ БЮДЖЕТА                                   I
+I                                                                                  I
+I               33-35   ЗОНЫ  - РЕRSО.СЛУГА                                        I
+I                                                                                  I
+I               37-77   ЗОНЫ  - ТРАНСЛЯТОР С МАКРОАССЕМБЛЕРА БЕМШ                  I
+I                                                                                  I
+I              100-177  ЗОНЫ  - МОНИТОРНАЯ СИСТЕМА "ДУБНА"                         I
+I                                                                                  I
+I              176-276  ЗОНЫ  - СИСТЕМА ПРОГРАММИРОВАНИЯ "БЭСМ-АЛГОЛ"              I
+I                                                                                  I
+I              300-337  ЗОНЫ  - АВТОКОД ИТМ (ПАСПОРТ 88)                           I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+.----------------------------------------------------------------------------------.
+
+
+.----------------------------------------------------------------------------------.
+I                                        -  6 -                                    I
+I                                                                                  I
+I                                   ИЫ.00110-01 32 02                              I
+I                                                                                  I
+I                                                                                  I
+I              340-367  ЗОНЫ  - ПАСКАЛЬ-МОНИТОР                                    I
+I                                                                                  I
+I              370-567  ЗОНЫ  - LIВR3                                              I
+I                                                                                  I
+I              600-657  ЗОНЫ  - АВТОКОД МГЧ                                        I
+I                                                                                  I
+I              700-777  ЗОНЫ  - ПУЛЬТ                                              I
+I                                                                                  I
+I             1000-1017 ЗОНЫ  - ПАСКАЛЬ-АВТОКОД                                    I
+I                                                                                  I
+I             1130-1177 ЗОНЫ  - FОRЕХ 3                                            I
+I                                                                                  I
+I             1200-1437 ЗОНЫ  - МОНИТОР-80                                         I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I              ЗА ОБЛАСТЬЮ "РЕЖСОВМ" РАСПОЛОЖЕНЫ ОБЛАСТИ  "LIВR1"  И  "LIВR2",     I
+I                                                                                  I
+I          СОДЕРЖАЩИЕ БИБЛИОТЕКИ LIВRАRУ 1 И  2  СООТВЕТСТВЕННО.  РАСПОЛОЖЕНИЕ     I
+I                                                                                  I
+I          ЭТИХ ОБЛАСТЕЙ НА ДИСКЕ НЕ ДОЛЖНО МЕНЯТЬСЯ,  ТАК  КАК  НАСТРОЙКА  НА     I
+I                                                                                  I
+I          БИБЛИОТЕКИ В МОНИТОРЕ-80 ОСУЩЕСТВЛЯЕТСЯ, ОРИЕНТИРУЯСЬ НА НОМЕРА ЗОН     I
+I                                                                                  I
+I          МД 2048.                                                                I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+.----------------------------------------------------------------------------------.
+
+
+.----------------------------------------------------------------------------------.
+I                                        -  7 -                                    I
+I                                                                                  I
+I                                   ИЫ.00110-01 32 02                              I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                3. НАСТРОЙКА ПРОГРАММЫ                            I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I              НАСТРОЙКА СИСТЕМ ПРОГРАММИРОВАНИЯ  ВКЛЮЧАЕТ  В  СЕБЯ  ЗАВЕДЕНИЕ     I
+I                                                                                  I
+I          СТАНДАРТНЫХ ПАСПОРТОВ В  ОПЕРАЦИОННОЙ  СИСТЕМЕ,  А  ТАКЖЕ  УКАЗАНИЯ     I
+I                                                                                  I
+I          МОНИТОРУ-80 НА РАСПОЛОЖЕНИЯ ЕГО БИБЛИОТЕК.                              I
+I                                                                                  I
+I              ПРИ ЗАВЕДЕНИИ ПАСПОРТА НЕОБХОДИМО УЧИТЫВАТЬ, ЧТО  ПРИ ОБРАЩЕНИИ     I
+I                                                                                  I
+I          К ОБЛАСТИ СДВИГ ВНУТРИ ОБЛАСТИ УКАЗЫВАЕТСЯ В ЗОНАХ  СО  ЗНАКОМ  "+"     I
+I                                                                                  I
+I          ИЛИ  "-".  ПРИ  ОБРАЩЕНИИ  К  МД  2048  НАПРЯМУЮ   СДВИГ   ЗАДАЕТСЯ     I
+I                                                                                  I
+I          ЭКСТРАКОДОМ В КУСКАХ (ОДИН  КУСОК  РАВЕН  40  ЗОН).  СООТВЕТСТВЕННО     I
+I                                                                                  I
+I          РАСПОЛОЖЕНИЕ СИСТЕМ ПРОГРАММИРОВАНИЯ НА ДИСКЕ ДОЛЖНО УЧИТЫВАТЬ, ЧТО     I
+I                                                                                  I
+I          НОМЕР ЗОНЫ НА  ДИСКЕ  МОЖЕТ  БЫТЬ  ТОЛЬКО  КРАТЕН  40.  СТАНДАРТНЫЕ     I
+I                                                                                  I
+I          ПАСПОРТА СИСТЕМ ПРОГРАММИРОВАНИЯ ПРИВЕДЕНЫ В ПРИЛОЖЕНИИ.                I
+I                                                                                  I
+I              ДЛЯ НАСТРОЙКИ МОНИТОРА-80 НА РАСПОЛОЖЕНИЕ  БИБЛИОТЕК НЕОБХОДИМО     I
+I                                                                                  I
+I          В ШЕСТОЙ  ЗОНЕ  МОНИТОРА-80  ЗАНЕСТИ  ИНФОРМАЦИЮ  О  БИБЛИОТЕКАХ  В     I
+I                                                                                  I
+I          ЯЧЕЙКИ:                                                                 I
+I                                                                                  I
+I           1751 - ДЛЯ LIВRАRУ 1;                                                  I
+I                                                                                  I
+I           1752 - ДЛЯ LIВRАRУ 2;                                                  I
+I                                                                                  I
+I           1753 - ДЛЯ LIВRАRУ 3.                                                  I
+I                                                                                  I
+I              СТРУКТУРА ЯЧЕЙКИ:                                                   I
+I                                                                                  I
+I           1-12 РАЗРЯДЫ - НОМЕР ТОМА С БИБЛИОТЕКОЙ В ВОСЬМЕРИЧНОМ ВИДЕ;           I
+I                                                                                  I
+I          13-30 РАЗРЯДЫ - НОМЕР ТОМА С БИБЛИОТЕКОЙ В ДВОИЧНО-ДЕСЯТИЧНОМ ВИДЕ;     I
+I                                                                                  I
+I          31-42 РАЗРЯДЫ - НОМЕР НАЧАЛЬНОЙ ЗОНЫ БИБЛИОТЕКИ.                        I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+.----------------------------------------------------------------------------------.
+
+
+.----------------------------------------------------------------------------------.
+I                                        -  8 -                                    I
+I                                                                                  I
+I                                   ИЫ.00110-01 32 02                              I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                 4. ПРОВЕРКА ПРОГРАММЫ                            I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I              ПРОВЕРКА ПРОГРАММЫ  ОСУЩЕСТВЛЯЕТСЯ  ПРИ  ПЕРЕПИСИ  С  МАГНИТНОЙ     I
+I                                                                                  I
+I          ЛЕНТЫ НА МАГНИТНЫЙ ДИСК В ПРОЦЕССЕ  ПОЛУЧЕНИЯ  РАБОЧЕЙ  КОПИИ  ОСПО     I
+I                                                                                  I
+I          (СМ. "ФОРМУЛЯР"                                                         I
+I                                                                                  I
+I           ИЫ.00110-01  30  01).  ПОСЛЕ  ПЕРЕПИСИ  НА  АЦПУ   РАСПЕЧАТЫВАЕТСЯ     I
+I                                                                                  I
+I          КОНТРОЛЬНАЯ  СУММА  ЛЕНТЫ  С  СИСТЕМАМИ   ПРОГРАММИРОВАНИЯ   РЕЖИМА     I
+I                                                                                  I
+I          СОВМЕСТИМОСТИ.   ПОЛУЧЕННАЯ   СУММА   СРАВНИВАЕТСЯ   С   ЭТАЛОННОЙ,     I
+I                                                                                  I
+I          ПРИВЕДЕННОЙ В ФОРМУЛЯРЕ.                                                I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+.----------------------------------------------------------------------------------.
+
+
+.----------------------------------------------------------------------------------.
+I                                        -  9 -                                    I
+I                                                                                  I
+I                                   ИЫ.00110-01 32 02                              I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                             5. ДОПОЛНИТЕЛЬНЫЕ ВОЗМОЖНОСТИ                        I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I              КРОМЕ СИСТЕМ ПРОГРАММИРОВАНИЯ РЕЖИМА СОВМЕСТИМОСТИ ПРОСТРАНСТВО     I
+I                                                                                  I
+I          НА ДИСКЕ 2048 И В ОБЛАСТИ "РЕЖСОВМ"  МОЖЕТ  БЫТЬ  ИСПОЛЬЗОВАНО  ДЛЯ     I
+I                                                                                  I
+I          РАСПОЛОЖЕНИЯ ОТДЕЛЬНЫХ ПРОГРАММ. ТАК В  ЗОНЕ  2  ОБЛАСТИ  "РЕЖСОВМ"     I
+I                                                                                  I
+I          РАСПОЛОЖЕН ТЕСТ АЦПУ, КОТОРЫЙ ВЫЗЫВАЕТСЯ ПО КЛЮЧУ "ТЕСТАЦ"  С ЛЮБЫМ     I
+I                                                                                  I
+I          ШИФРОМ И ОСУЩЕСТВЛЯЕТ ПРОВЕРКУ АЦПУ НА КОСОМ И ПРЯМОМ ТЕСТАХ.           I
+I                                                                                  I
+I              В ЗОНАХ 5-6 ОБЛАСТИ  "РЕЖСОВМ"  НАХОДИТСЯ  ЗАГРУЗЧИК  МАКРОКОДА     I
+I                                                                                  I
+I          БЕМШ ДЛЯ БОЛЬШИХ ПРОГРАММ. В ЗОНАХ 7-23 ОБЛАСТИ "РЕЖСОВМ" НАХОДИТСЯ     I
+I                                                                                  I
+I          ПРОГРАММА АРФА.СТАРФА, ВЫЗЫВАЕМАЯ ПО КЛЮЧУ "СТАРФА".                    I
+I                                                                                  I
+I              В  25-Й  ЗОНЕ  ОБЛАСТИ  "РЕЖСОВМ"  РАЗМЕЩЕНА  ПРОГРАММА  ВЫДАЧИ     I
+I                                                                                  I
+I          СЛУЖЕБНЫХ СЛОВ  В  ПАКЕТНОМ  РЕЖИМЕ  "ВЫСЛ",  ВЫЗЫВАЕМАЯ  ПО  КЛЮЧУ     I
+I                                                                                  I
+I          "ВЫСЛП" И НАСТРОЕННАЯ НА ВЫДАЧУ СЛУЖЕБНЫХНЕ СИСТЕМНОГО  ДИСКА 2053.     I
+I                                                                                  I
+I          В  ЗОНАХ  26-32  ОБЛАСТИ  "РЕЖСОВМ"  РАЗМЕЩЕНЫ  КАТАЛОГИ  БЮДЖЕТНОЙ     I
+I                                                                                  I
+I          СИСТЕМЫ, А В ЗОНАХ 33-35 - ЛИЧНАЯ БИБЛИОТЕКА ОТЛАДЧИКА "СЛУГА".         I
+I                                                                                  I
+I              СВОБОДНЫЕ  ЗОНЫ  ОБЛАСТИ  "РЕЖСОВМ"  МОГУТ  ИСПОЛЬЗОВАТЬСЯ  ДЛЯ     I
+I                                                                                  I
+I          РАЗМЕЩЕНИЯ И ДРУГИХ СЕРВИСНЫХ ПРОГРАММ.                                 I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+.----------------------------------------------------------------------------------.
+
+
+.----------------------------------------------------------------------------------.
+I                                        - 10 -                                    I
+I                                                                                  I
+I                                   ИЫ.00110-01 32 02                              I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                         6. СООБЩЕНИЯ СИСТЕМНОМУ ПРОГРАММИСТУ                     I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I              СООБЩЕНИЯ СИСТЕМНОМУ ПРОГРАММИСТУ МОГУТ ВОЗНИКАТЬ  ПРИ НЕВЕРНОМ     I
+I                                                                                  I
+I          ВЫПОЛНЕНИИ  НАСТРОЙКИ.  И  ТРЕБУЮТ   ОТ   СИСТЕМНОГО   ПРОГРАММИСТА     I
+I                                                                                  I
+I          ПОВТОРЕНИЯ И УТОЧНЕНИЯ НАСТРОЙКИ СИСТЕМ.                                I
+I                                                                                  I
+I                             ПЕРЕЧЕНЬ ВОЗМОЖНЫХ СООБЩЕНИЙ:                        I
+I                                                                                  I
+I              -  "ОТСУТСТВУЕТ  ПРОГРАММА"  -  СООБЩЕНИЕ  ВЫДАЕТСЯ  МОНИТОРНОЙ     I
+I                                                                                  I
+I          СИСТЕМОЙ (МОНИТОРОМ-80) И ОЗНАЧАЕТ, ЧТО В ЗАКАЗАННОЙ БИБЛИОТЕКЕ НЕТ     I
+I                                                                                  I
+I          УКАЗАННОЙ ПРОГРАММЫ;                                                    I
+I                                                                                  I
+I              - "НА ВАШЕМ ВЦ НЕТ БИБЛИОТЕКИ 13",                                  I
+I                                                                                  I
+I              "ИСПОРЧЕН  КАТАЛОГ  БИБЛИОТЕКИ   13"   -   СООБЩЕНИЯ   ВЫДАЮТСЯ     I
+I                                                                                  I
+I          МОНИТОРНОЙ  СИСТЕМОЙ  (МОНИТОРОМ-80)  И  ОЗНАЧАЮТ,  ЧТО  ЛИБО   НЕТ     I
+I                                                                                  I
+I          УКАЗАННОЙ БИБЛИОТЕКИ, ЛИБО НЕВЕРНО УКАЗАНЫ ЕЕ КООРДИНАТЫ;               I
+I                                                                                  I
+I              - "НЕВЕРНЫЙ  КОМПИЛИРУЮЩИЙ  ПАКЕТ"  -  СООБЩЕНИЕ  ВЫДАЕТСЯ  ПРИ     I
+I                                                                                  I
+I          РАБОТЕ С МАКРОКОДОМ БЕМШ И ОЗНАЧАЕТ, ЧТО НЕВЕРНО УКАЗАНЫ КООРДИНАТЫ     I
+I                                                                                  I
+I          БИБЛИОТЕКИ МАКРООПРЕДЕЛЕНИЙ.                                            I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+.----------------------------------------------------------------------------------.
+
+
+.----------------------------------------------------------------------------------.
+I                                        - 11 -                                    I
+I                                                                                  I
+I                                   ИЫ.00110-01 32 02                              I
+I                                                                                  I
+I                                                                                  I
+I                                                       ПРИЛОЖЕНИЕ.                I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                     СТАНДАРТНЫЕ ПАСПОРТА СИСТЕМ ПРОГРАММИРОВАНИЯ                 I
+I                                                                                  I
+I              1) СТАНДАРТНЫЙ ПАСПОРТ МОНИТОРА-80:                                 I
+I                                                                                  I
+I              ЗСХ                                                                 I
+I                                                                                  I
+I              АВО‾                                                                I
+I                                                                                  I
+I              ВРЕ 120‾                                                            I
+I                                                                                  I
+I              ФИЗО 21‾                                                            I
+I                                                                                  I
+I              ЛЕН 30(2048)‾                                                       I
+I                                                                                  I
+I              ОЗУ 27‾                                                             I
+I                                                                                  I
+I              АЦПУ 3‾                                                             I
+I                                                                                  I
+I              ТРАК 32‾                                                            I
+I                                                                                  I
+I              ВХОД 4200‾                                                          I
+I                                                                                  I
+I              Е                                                                   I
+I                                                                                  I
+I              В 4200                                                              I
+I                                                                                  I
+I              К 00 010 4300 00 050 0112                                           I
+I                                                                                  I
+I              К 00 070 4301                                                       I
+I                                                                                  I
+I              К 00 010 4302 00 063 0003                                           I
+I                                                                                  I
+I              К 00 30 00100                                                       I
+I                                                                                  I
+I              В 4300                                                              I
+I                                                                                  I
+I              С 0000 0000 0030 0026                                               I
+I                                                                                  I
+I              С 0010 0000 0030 0010                                               I
+I                                                                                  I
+I              С 0000 0000 0000 0004                                               I
+I                                                                                  I
+I              В 6000                                                              I
+I                                                                                  I
+I              К 00 010 6002 00 072 0067                                           I
+I                                                                                  I
+I              К 00 30 04200                                                       I
+I                                                                                  I
+I              С 2264 2531 2123 3462                                               I
+I                                                                                  I
+I              2) СТАНДАРТНЫЙ ПАСПОРТ МОНИТОРНОЙ СИСТЕМЫ "ДУБНА":                  I
+I                                                                                  I
+I              ЗС2                                                                 I
+I                                                                                  I
+I              ФИЗО МБ21‾                                                          I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+.----------------------------------------------------------------------------------.
+
+
+.----------------------------------------------------------------------------------.
+I                                        - 12 -                                    I
+I                                                                                  I
+I                                   ИЫ.00110-01 32 02                              I
+I                                                                                  I
+I                                                                                  I
+I              ТРАК 32‾                                                            I
+I                                                                                  I
+I              АЦПУ 3‾                                                             I
+I                                                                                  I
+I              ЛИСТ 0-25,32‾                                                       I
+I                                                                                  I
+I              ВРЕМ 240‾                                                           I
+I                                                                                  I
+I              ВХОД 1775‾                                                          I
+I                                                                                  I
+I              ЛЕНТ 30(2048)‾                                                      I
+I                                                                                  I
+I              СПЕЦ‾                                                               I
+I                                                                                  I
+I              РОСП 2‾                                                             I
+I                                                                                  I
+I              АВОС‾                                                               I
+I                                                                                  I
+I              Е                                                                   I
+I                                                                                  I
+I              В 1774                                                              I
+I                                                                                  I
+I              С 3177 0000 0002 0110                                               I
+I                                                                                  I
+I              К 00 010 1774 00 050 0131                                           I
+I                                                                                  I
+I              К 15 24 40000 00 010 1774                                           I
+I                                                                                  I
+I              К 00 050 0121                                                       I
+I                                                                                  I
+I              К 00 010 2005 00 050 0156                                           I
+I                                                                                  I
+I              К 00 26 02002 00 22 00001                                           I
+I                                                                                  I
+I              К 00 010 2005 00 050 0112                                           I
+I                                                                                  I
+I              К 15 24 00200                                                       I
+I                                                                                  I
+I              К 00 066 0005 00 000 0100                                           I
+I                                                                                  I
+I              С 0000 0000 0030 0004                                               I
+I                                                                                  I
+I              3) СТАНДАРТНЫЙ ПАСПОРТ СИСТЕМЫ БЭСМ-АЛГОЛ:                          I
+I                                                                                  I
+I              ЗС3                                                                 I
+I                                                                                  I
+I              ФИЗО МБ21‾                                                          I
+I                                                                                  I
+I              ТРАК 32‾                                                            I
+I                                                                                  I
+I              ЛИСТ 0-27‾                                                          I
+I                                                                                  I
+I              ВХОД 37‾                                                            I
+I                                                                                  I
+I              ВРЕМ 240‾                                                           I
+I                                                                                  I
+I              АЦПУ 3‾                                                             I
+I                                                                                  I
+I              ЛЕНТ 57(РЕЖСОВМ+200)30(1С)‾                                         I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+.----------------------------------------------------------------------------------.
+
+
+.----------------------------------------------------------------------------------.
+I                                        - 13 -                                    I
+I                                                                                  I
+I                                   ИЫ.00110-01 32 02                              I
+I                                                                                  I
+I                                                                                  I
+I              РОСП 0‾                                                             I
+I                                                                                  I
+I              АВОС‾                                                               I
+I                                                                                  I
+I              СПЕЦ‾                                                               I
+I                                                                                  I
+I              Е                                                                   I
+I                                                                                  I
+I              В 37                                                                I
+I                                                                                  I
+I              К 00 010 0042                                                       I
+I                                                                                  I
+I              К 15 24 00100                                                       I
+I                                                                                  I
+I              К 00 066 0011 00 000 0100                                           I
+I                                                                                  I
+I              С 0000 0000 0057 0002                                               I
+I                                                                                  I
+I              В 20                                                                I
+I                                                                                  I
+I              4) СТАНДАРТНЫЙ ПАСПОРТ МАКРОКОДА БЕМШ:                              I
+I                                                                                  I
+I              ЗС1                                                                 I
+I                                                                                  I
+I              ТРАК 64‾                                                            I
+I                                                                                  I
+I              ЛЕНТ 30(РЕЖСОВМ-1700)‾                                              I
+I                                                                                  I
+I              АЦП 40‾                                                             I
+I                                                                                  I
+I              РОСП 0‾                                                             I
+I                                                                                  I
+I              ВРЕМ 240‾                                                           I
+I                                                                                  I
+I              ЛИСТ 0-37‾                                                          I
+I                                                                                  I
+I              ВХОД 4000‾                                                          I
+I                                                                                  I
+I              Е                                                                   I
+I                                                                                  I
+I              В 4000                                                              I
+I                                                                                  I
+I              К 00 010 4003                                                       I
+I                                                                                  I
+I              К 15 24 04000                                                       I
+I                                                                                  I
+I              К 00 066 0001 00 000 0100                                           I
+I                                                                                  I
+I              С 3000 70                                                           I
+I                                                                                  I
+I              В 14000                                                             I
+I                                                                                  I
+I              А1                                                                  I
+I                                                                                  I
+I              5) СТАНДАРТНЫЙ ПАСПОРТ ТРАНСЛЯТОРА С АВТОКОДА ИТМ:                  I
+I                                                                                  I
+I              З88                                                                 I
+I                                                                                  I
+I              ТРАК 32‾                                                            I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+.----------------------------------------------------------------------------------.
+
+
+.----------------------------------------------------------------------------------.
+I                                        - 14 -                                    I
+I                                                                                  I
+I                                   ИЫ.00110-01 32 02                              I
+I                                                                                  I
+I                                                                                  I
+I              ЛИСТ 0-24‾                                                          I
+I                                                                                  I
+I              ВХОД 4240‾                                                          I
+I                                                                                  I
+I              ФИЗО МБ21‾                                                          I
+I                                                                                  I
+I              РОСП 0‾                                                             I
+I                                                                                  I
+I              АЦПУ 3‾                                                             I
+I                                                                                  I
+I              ЛЕНТ 40(2048)‾                                                      I
+I                                                                                  I
+I              ВРЕМ 240‾                                                           I
+I                                                                                  I
+I              СПЕЦ‾                                                               I
+I                                                                                  I
+I              Е                                                                   I
+I                                                                                  I
+I              В 4240                                                              I
+I                                                                                  I
+I              К 00 010 4243 00 050 0112                                           I
+I                                                                                  I
+I              К 00 070 4244                                                       I
+I                                                                                  I
+I              К 00 010 0003 00 30 06770                                           I
+I                                                                                  I
+I              С 0000 0000 0040 0010                                               I
+I                                                                                  I
+I              С 4014 0301 0021 0111                                               I
+I                                                                                  I
+I              В 7000                                                              I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+.----------------------------------------------------------------------------------.
+
+
+.----------------------------------------------------------------------------------.
+I                                        - 15 -                                    I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                   ИЫ.00110-01 32 02                              I
+I                                                                                  I
+I                                                                                  I
+I                              ЛИСТ РЕГИСТРАЦИИ ИЗМЕНЕНИЙ                          I
+I                                                                                  I
+I          .-----------------------------------------------------------------.     I
+I          I   IНОМЕРА ЛИСТОВ (СТРАНИЦ)IВСЕГО I        I          I      I   I     I
+I          I И I-----------------------IЛИСТОВI        I ВХОДЯЩИЙ I      I   I     I
+I          I З I ИЗ- I ЗА- I     IАННУ-I(СТР.)I НОМЕР  I   НОМЕР  I ПОД- I Д I     I
+I          I М I МЕ- I МЕ- I НО- IЛИРО-I  В   I ДОКУ-  IСОПРОВОДИ-I ПИСЬ I А I     I
+I          I . I НЕН-I НЕН-I ВЫХ IВАН- IДОКУ- I МЕНТА  I ТЕЛЬНОГО I      I Т I     I
+I          I   I НЫХ I НЫХ I     IНЫХ  IМЕНТЕ I        IДОКУМЕНТА I      I А I     I
+I          I---I-----I-----I-----I-----I------I--------I----------I------I---I     I
+I          I   I     I     I     I     I      I        I          I      I   I     I
+I          I---I-----I-----I-----I-----I------I--------I----------I------I---I     I
+I          I   I     I     I     I     I      I        I          I      I   I     I
+I          I---I-----I-----I-----I-----I------I--------I----------I------I---I     I
+I          I   I     I     I     I     I      I        I          I      I   I     I
+I          I---I-----I-----I-----I-----I------I--------I----------I------I---I     I
+I          I   I     I     I     I     I      I        I          I      I   I     I
+I          I---I-----I-----I-----I-----I------I--------I----------I------I---I     I
+I          I   I     I     I     I     I      I        I          I      I   I     I
+I          I---I-----I-----I-----I-----I------I--------I----------I------I---I     I
+I          I   I     I     I     I     I      I        I          I      I   I     I
+I          I---I-----I-----I-----I-----I------I--------I----------I------I---I     I
+I          I   I     I     I     I     I      I        I          I      I   I     I
+I          I---I-----I-----I-----I-----I------I--------I----------I------I---I     I
+I          I   I     I     I     I     I      I        I          I      I   I     I
+I          I---I-----I-----I-----I-----I------I--------I----------I------I---I     I
+I          I   I     I     I     I     I      I        I          I      I   I     I
+I          I---I-----I-----I-----I-----I------I--------I----------I------I---I     I
+I          I   I     I     I     I     I      I        I          I      I   I     I
+I          I---I-----I-----I-----I-----I------I--------I----------I------I---I     I
+I          I   I     I     I     I     I      I        I          I      I   I     I
+I          I---I-----I-----I-----I-----I------I--------I----------I------I---I     I
+I          I   I     I     I     I     I      I        I          I      I   I     I
+I          I---I-----I-----I-----I-----I------I--------I----------I------I---I     I
+I          I   I     I     I     I     I      I        I          I      I   I     I
+I          I---I-----I-----I-----I-----I------I--------I----------I------I---I     I
+I          I   I     I     I     I     I      I        I          I      I   I     I
+I          I---I-----I-----I-----I-----I------I--------I----------I------I---I     I
+I          I   I     I     I     I     I      I        I          I      I   I     I
+I          I---I-----I-----I-----I-----I------I--------I----------I------I---I     I
+I          I   I     I     I     I     I      I        I          I      I   I     I
+I          I---I-----I-----I-----I-----I------I--------I----------I------I---I     I
+I          I   I     I     I     I     I      I        I          I      I   I     I
+I          I---I-----I-----I-----I-----I------I--------I----------I------I---I     I
+I          I   I     I     I     I     I      I        I          I      I   I     I
+I          I---I-----I-----I-----I-----I------I--------I----------I------I---I     I
+I          I   I     I     I     I     I      I        I          I      I   I     I
+I          I---I-----I-----I-----I-----I------I--------I----------I------I---I     I
+I          I   I     I     I     I     I      I        I          I      I   I     I
+I          I---I-----I-----I-----I-----I------I--------I----------I------I---I     I
+I          I   I     I     I     I     I      I        I          I      I   I     I
+I          I---I-----I-----I-----I-----I------I--------I----------I------I---I     I
+I          I   I     I     I     I     I      I        I          I      I   I     I
+I          I---I-----I-----I-----I-----I------I--------I----------I------I---I     I
+I          I   I     I     I     I     I      I        I          I      I   I     I
+I          I---I-----I-----I-----I-----I------I--------I----------I------I---I     I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+I                                                                                  I
+.----------------------------------------------------------------------------------.
